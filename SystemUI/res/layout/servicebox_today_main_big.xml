@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@android:dimen/status_bar_height" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:sysui="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="113.0dip" android:layout_marginTop="@dimen/servicebox_bigpage_top_margin" android:paddingStart="@dimen/servicebox_page_margin_side" android:paddingEnd="@dimen/servicebox_page_margin_side" android:layout_marginEnd="25.0dip">
+        <include layout="@layout/servicebox_today_date" />
+    </LinearLayout>
+    <include android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginBottom="@dimen/servicebox_navigation_bar_height" android:layout_weight="1.0" layout="@layout/servicebox_today_no_event_big" />
+    <ScrollView android:id="@id/servicebox_event_list_root" android:background="@color/theme_todays_list_bg_color" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginBottom="@dimen/servicebox_navigation_bar_height" android:layout_weight="1.0" android:paddingEnd="@dimen/servicebox_today_event_scroll_padding_end">
+        <com.android.keyguard.servicebox.pages.calendar.CalendarEventListView android:orientation="vertical" android:id="@id/servicebox_event_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:transitionName="servicebox_event_list" sysui:pageType="big" sysui:maxEventCnt="0" />
+    </ScrollView>
+</LinearLayout>

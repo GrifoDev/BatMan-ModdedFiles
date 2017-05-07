@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="@dimen/appsPicker_search_bar_layout_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_vertical" android:id="@id/apps_picker_search_bar_wrapper" android:background="@drawable/widget_searchbar_background" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <SearchView android:textColor="@color/folder_multi_header_text_color" android:id="@id/apps_picker_app_search_input" android:layout_width="fill_parent" android:layout_height="fill_parent" android:inputType="text" android:imeOptions="actionSearch|flagNoExtractUi" android:queryHint="@string/folder_multi_search_bar_hint" android:fontFamily="sec-roboto-condensed" />
+    </LinearLayout>
+</LinearLayout>

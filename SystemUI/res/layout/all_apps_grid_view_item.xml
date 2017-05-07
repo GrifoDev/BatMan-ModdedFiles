@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.statusbar.phone.taskbar.views.AppIconView android:id="@id/app_icon" android:paddingTop="@dimen/appIcon_padding_top" android:layout_width="@dimen/allapps_appicon_view_width" android:layout_height="@dimen/allapps_appicon_view_height" style="@style/AllAppsMenuIcon" />
+    <CheckBox android:layout_gravity="start|center|top" android:id="@id/checkbox" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/checkbox_margin_top" android:button="@drawable/custom_checkbox" android:layout_marginStart="@dimen/checkbox_margin_right" />
+</FrameLayout>

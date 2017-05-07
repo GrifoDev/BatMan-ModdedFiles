@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<optional-steps>
+    <step category="com.android.settings.suggested.category.DOCOMO" />
+</optional-steps>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="integer" name="recents_layout_expanded_view_full_first_x_position">0.65</item>
+    <item type="integer" name="recents_layout_expanded_view_full_second_x_position">0.8</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_y_position">0.844</item>
+    <item type="integer" name="recents_layout_expanded_view_full_min_scroll_position">-0.23</item>
+    <item type="integer" name="recents_layout_expanded_view_split_first_x_position">0.65</item>
+    <item type="integer" name="recents_layout_expanded_view_split_first_y_position">0.835</item>
+    <item type="integer" name="recents_layout_expanded_view_split_min_scroll_position">-0.205</item>
+    <integer name="recents_app_list_span_count">4</integer>
+</resources>

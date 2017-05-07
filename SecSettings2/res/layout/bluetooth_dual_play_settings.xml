@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/bluetooth_dual_play_settings_content_padding_top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/switchbar_margin_start" android:paddingEnd="@dimen/switchbar_margin_start">
+            <ImageView android:id="@id/image" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@anim/bluetooth_dualplay" android:scaleType="centerInside" android:adjustViewBounds="true" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/bluetooth_dual_play_settings_content_padding_between" android:text="@string/bluetooth_dual_play_description" android:textAlignment="viewStart" style="@style/body_text_style" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

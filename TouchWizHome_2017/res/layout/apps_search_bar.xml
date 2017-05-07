@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher3.allapps.view.AppsSearchBar android:layout_gravity="start|center" android:orientation="horizontal" android:id="@id/search_container" android:background="@android:color/transparent" android:paddingTop="@dimen/apps_search_titlebar_padding_top" android:paddingBottom="@dimen/apps_search_titlebar_padding_bottom" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/apps_search_titlebar_margin_left" android:paddingEnd="@dimen/apps_search_titlebar_margin_left"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_vertical" android:id="@id/app_searchbar_wrapper" android:background="@drawable/widget_searchbar_background" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <SearchView android:textSize="@dimen/widget_searchview_text_size" android:textColor="@color/widget_searchview_text_color" android:textColorHint="@color/apps_searchtext_color" android:layout_gravity="center_vertical" android:id="@id/app_search_input" android:focusable="false" android:layout_width="fill_parent" android:layout_height="@dimen/appsearch_menu_searchHeight" android:layout_weight="1.0" android:inputType="text" android:queryHint="@string/app_search" android:fontFamily="Roboto_Condensed_Regular" android:paddingStart="@dimen/searchbar_searchview_padding_start" android:paddingEnd="@dimen/searchbar_searchview_padding_end" android:queryBackground="@null" />
+        <include android:id="@id/voice_search_button" layout="@layout/voice_search_icon_button" />
+        <View android:layout_gravity="center_vertical" android:id="@id/apps_searchbar_divider" android:background="@color/searchbar_divider_color" android:layout_width="1.0dip" android:layout_height="@dimen/widget_searchbar_divider_height" />
+        <include android:gravity="end" android:id="@id/more_button_search" layout="@layout/more_icon_button" />
+    </LinearLayout>
+    <include android:id="@id/more_button_guest_container" layout="@layout/more_icon_button_guest" />
+</com.android.launcher3.allapps.view.AppsSearchBar>

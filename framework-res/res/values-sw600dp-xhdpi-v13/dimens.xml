@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="resolver_max_width">608.0dip</dimen>
+    <dimen name="tw_global_actions_item_messagetext_size">17.0sp</dimen>
+    <dimen name="sem_resolver_title_text_size">20.0dip</dimen>
+    <dimen name="sem_resolver_grid_padding_left">36.0dip</dimen>
+    <dimen name="sem_resolver_grid_padding_right">36.0dip</dimen>
+    <dimen name="sem_resolver_grid_horizontal_spacing">36.0dip</dimen>
+</resources>

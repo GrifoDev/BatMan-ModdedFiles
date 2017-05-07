@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:id="@id/message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/redaction_vertical_margins" android:text="@string/lock_screen_notifications_interstitial_message" android:layout_marginStart="?android:listPreferredItemPaddingStart" android:layout_marginEnd="?android:listPreferredItemPaddingEnd" style="@style/body_text_style" />
+            <RadioGroup android:id="@id/radio_group" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/redaction_vertical_margins" android:checkedButton="@id/redact_sensitive" android:layout_marginStart="@dimen/redaction_start_margins" android:layout_marginEnd="?android:listPreferredItemPaddingEnd">
+                <com.android.settings.RestrictedRadioButton android:textColor="@color/body_text_color" android:id="@id/show_all" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:text="@string/lock_screen_notifications_summary_show" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+                <com.android.settings.RestrictedRadioButton android:textColor="@color/body_text_color" android:id="@id/redact_sensitive" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:text="@string/lock_screen_notifications_summary_hide" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+                <RadioButton android:textColor="@color/body_text_color" android:id="@id/hide_all" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeightSmall" android:text="@string/lock_screen_notifications_summary_disable" style="@style/lock_screen_dialog_list_item_wrapping_style" />
+                <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="@dimen/list_divider_height" style="@style/lock_screen_dialog_list_divider_wrapping_style" />
+            </RadioGroup>
+            <View android:id="@id/spacer" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="vertical" android:id="@id/done_btn_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/SecurityPreferenceButtonContainer">
+        <View android:id="@id/bottom_divider" android:layout_width="fill_parent" style="@style/bottom_bar_divider_style" />
+        <com.samsung.android.settings.widget.BottomBarButton android:textSize="@dimen/bottom_btn_font_size" android:id="@id/button_done" android:layout_width="fill_parent" android:text="@string/done_button" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+</LinearLayout>

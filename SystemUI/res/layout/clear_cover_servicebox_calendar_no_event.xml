@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:id="@id/servicebox_no_events" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.sec.android.cover.widget.MaxLargeTextView android:textSize="@dimen/servicebox_today_event_title_size_small" android:textColor="@color/clear_cover_font_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/servicebox_event_no_events" android:fontFamily="sec-roboto-light" />
+</LinearLayout>

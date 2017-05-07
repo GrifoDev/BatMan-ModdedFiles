@@ -1,0 +1,26 @@
+.class public interface abstract Lcom/android/launcher3/proxy/AppsPickerProxyCallbacks;
+.super Ljava/lang/Object;
+.source "AppsPickerProxyCallbacks.java"
+
+# interfaces
+.implements Lcom/android/launcher3/proxy/CommonProxyCallbacks;
+
+
+# virtual methods
+.method public abstract addResultApps()V
+.end method
+
+.method public abstract getItem(Landroid/content/ComponentName;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+.end method
+
+.method public abstract getItem(Ljava/lang/String;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+.end method
+
+.method public abstract getSearchResultListCount()I
+.end method
+
+.method public abstract getSearchResultSingleAppInfo()Lcom/android/launcher3/common/base/item/ItemInfo;
+.end method
+
+.method public abstract setSearchText(Ljava/lang/String;)Z
+.end method

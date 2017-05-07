@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="clock_options">
+        <item>Show hours, minutes and seconds</item>
+        <item>Show hours and minutes (default)</item>
+        <item>"Don't show this icon"</item>
+    </string-array>
+    <string-array name="battery_options">
+        <item>Always show percentage</item>
+        <item>Show percentage when charging (default)</item>
+        <item>"Don't show this icon"</item>
+    </string-array>
+    <array name="recents_tv_blacklist_array" />
+</resources>

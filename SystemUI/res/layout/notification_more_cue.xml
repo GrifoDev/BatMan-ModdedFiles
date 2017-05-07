@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.NotificationMoreCue android:layout_gravity="center_horizontal" android:id="@id/notification_more_button" android:paddingTop="@dimen/more_cue_top_padding" android:layout_width="wrap_content" android:layout_height="@dimen/carrier_label_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/notification_more_cue_first_arrow" android:layout_width="@dimen/more_cue_width" android:layout_height="@dimen/more_cue_height" android:src="@drawable/lock_noticard_ic_visualcue_mtrl" android:scaleType="center" />
+    <ImageView android:id="@id/notification_more_cue_second_arrow" android:layout_width="@dimen/more_cue_width" android:layout_height="@dimen/more_cue_height" android:layout_marginTop="@dimen/more_cue_gap" android:src="@drawable/lock_noticard_ic_visualcue_mtrl" android:scaleType="center" />
+</com.android.systemui.statusbar.NotificationMoreCue>

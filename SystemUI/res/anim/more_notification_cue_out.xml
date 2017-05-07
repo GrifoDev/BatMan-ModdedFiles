@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha android:duration="330" android:fillBefore="false" android:fillAfter="true" android:fromAlpha="0.0" android:toAlpha="1.0" android:fillEnabled="true" />
+    <alpha android:duration="660" android:startOffset="530" android:fromAlpha="1.0" android:toAlpha="0.0" android:fillEnabled="true" />
+    <alpha android:duration="330" android:fillBefore="false" android:fillAfter="true" android:startOffset="1190" android:fromAlpha="0.0" android:toAlpha="1.0" android:fillEnabled="true" />
+    <alpha android:duration="660" android:fillBefore="false" android:fillAfter="true" android:startOffset="1720" android:fromAlpha="1.0" android:toAlpha="0.0" android:fillEnabled="true" />
+</set>

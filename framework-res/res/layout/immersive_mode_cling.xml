@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layoutDirection="ltr"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="bottom|center" android:orientation="vertical" android:id="@id/port_help_step_one" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textColor="@color/white" android:layout_width="@dimen/immersive_mode_help_message_area_width" android:layout_height="wrap_content" android:layout_marginBottom="28.0dip" android:text="@string/sec_immersive_cling_step_one" android:fontFamily="sec-roboto-regular" />
+        <Button android:textSize="14.0dip" android:textColor="@color/white" android:gravity="center" android:id="@id/port_help_button_next" android:background="@drawable/navigation_bar_ripple_background" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="@dimen/immersive_mode_button_height" android:layout_marginBottom="23.0dip" android:text="@string/sec_next_button_label" android:includeFontPadding="false" android:fontFamily="sec-roboto-condensed-bold" android:layout_alignParentEnd="true" />
+        <LinearLayout android:gravity="bottom|center" android:orientation="vertical" android:id="@id/port_image_circ_arrow" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/port_circ_arrow_up" android:layout_width="wrap_content" android:layout_height="90.0dip" android:layout_marginBottom="-6.0dip" android:src="@drawable/help_overaly_arrow_up" android:scaleType="center" />
+            <FrameLayout android:visibility="invisible" android:layout_width="@dimen/immersive_mode_cling_center_bg_circ_width" android:layout_height="@dimen/immersive_mode_cling_center_bg_circ_width" android:layout_marginBottom="@dimen/immersive_mode_cling_center_bg_circ_margin">
+                <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_center_bg_circ" android:scaleType="center" />
+                <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_center_light_bg_circ" android:scaleType="center" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="bottom|center" android:orientation="vertical" android:id="@id/port_help_step_two" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textColor="@color/white" android:layout_width="@dimen/immersive_mode_help_message_area_width" android:layout_height="wrap_content" android:layout_marginBottom="28.0dip" android:text="@string/sec_immersive_cling_step_two" android:fontFamily="sec-roboto-regular" />
+        <Button android:textSize="14.0dip" android:textColor="@color/white" android:gravity="center" android:id="@id/port_ok" android:background="@drawable/navigation_bar_ripple_background" android:layout_width="wrap_content" android:layout_height="@dimen/immersive_mode_button_height" android:layout_marginBottom="23.0dip" android:text="@string/ok" android:includeFontPadding="false" android:fontFamily="sec-roboto-condensed-bold" android:layout_alignParentEnd="true" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/port_image_icon_circ" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginBottom="1.0dip" android:layout_marginStart="@dimen/immersive_mode_navigation_bar_margin_space" android:layout_marginEnd="@dimen/immersive_mode_navigation_bar_margin_space">
+            <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <FrameLayout android:layout_width="@dimen/immersive_mode_icon_cling_center_bg_circ_width" android:layout_height="@dimen/immersive_mode_icon_cling_center_bg_circ_width">
+                    <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_icon_bg_circ" android:scaleType="center" />
+                    <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_icon_light_bg_circ" android:scaleType="center" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/land_help_step_one" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/land_rot270_circ_arrow" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <FrameLayout android:visibility="invisible" android:layout_width="@dimen/immersive_mode_cling_center_bg_circ_width" android:layout_height="@dimen/immersive_mode_cling_center_bg_circ_width" android:layout_marginLeft="@dimen/immersive_mode_cling_center_bg_circ_margin">
+                <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_center_bg_circ" android:scaleType="center" />
+                <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_center_light_bg_circ" android:scaleType="center" />
+            </FrameLayout>
+            <ImageView android:id="@id/land_circ_arrow_up_rot270" android:layout_width="90.0dip" android:layout_height="wrap_content" android:layout_marginLeft="-6.0dip" android:src="@drawable/help_overaly_arrow_left" android:scaleType="fitCenter" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/land_help_area_step_one" android:layout_width="@dimen/immersive_mode_help_message_area_width" android:layout_height="fill_parent" android:layout_marginLeft="22.0dip" android:layout_marginRight="22.0dip">
+            <TextView android:textColor="@color/white" android:layout_width="@dimen/immersive_mode_help_message_area_width" android:layout_height="wrap_content" android:layout_marginBottom="28.0dip" android:text="@string/sec_immersive_cling_step_one" android:fontFamily="sec-roboto-regular" />
+            <Button android:textSize="14.0dip" android:textColor="@color/white" android:gravity="center" android:id="@id/land_help_button_next" android:background="@drawable/navigation_bar_ripple_background" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="@dimen/immersive_mode_button_height" android:text="@string/sec_next_button_label" android:includeFontPadding="false" android:fontFamily="sec-roboto-condensed-bold" android:layout_alignParentEnd="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/land_rot90_circ_arrow" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <ImageView android:id="@id/land_circ_arrow_up_rot90" android:layout_width="90.0dip" android:layout_height="wrap_content" android:layout_marginRight="-6.0dip" android:src="@drawable/help_overaly_arrow_right" android:scaleType="fitCenter" />
+            <FrameLayout android:visibility="invisible" android:layout_width="@dimen/immersive_mode_cling_center_bg_circ_width" android:layout_height="@dimen/immersive_mode_cling_center_bg_circ_width" android:layout_marginRight="@dimen/immersive_mode_cling_center_bg_circ_margin">
+                <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_center_bg_circ" android:scaleType="center" />
+                <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_center_light_bg_circ" android:scaleType="center" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/land_help_step_two" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/land_rot270_icon_circ" android:layout_width="48.0dip" android:layout_height="fill_parent" android:layout_marginLeft="1.0dip" android:layout_marginTop="@dimen/immersive_mode_navigation_bar_margin_space" android:layout_marginBottom="@dimen/immersive_mode_navigation_bar_margin_space">
+            <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <FrameLayout android:layout_width="@dimen/immersive_mode_icon_cling_center_bg_circ_width" android:layout_height="@dimen/immersive_mode_icon_cling_center_bg_circ_width">
+                    <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_icon_bg_circ" android:scaleType="center" />
+                    <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_icon_light_bg_circ" android:scaleType="center" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/land_help_area_step_two" android:layout_width="@dimen/immersive_mode_help_message_area_width" android:layout_height="fill_parent" android:layout_marginLeft="91.0dip" android:layout_marginRight="91.0dip">
+            <TextView android:textColor="@color/white" android:layout_width="@dimen/immersive_mode_help_message_area_width" android:layout_height="wrap_content" android:layout_marginBottom="28.0dip" android:text="@string/sec_immersive_cling_step_two" android:fontFamily="sec-roboto-regular" />
+            <Button android:textSize="14.0dip" android:textColor="@color/white" android:gravity="center" android:id="@id/land_ok" android:background="@drawable/navigation_bar_ripple_background" android:layout_width="wrap_content" android:layout_height="@dimen/immersive_mode_button_height" android:text="@string/ok" android:includeFontPadding="false" android:fontFamily="sec-roboto-condensed-bold" android:layout_alignParentEnd="true" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/land_rot90_icon_circ" android:layout_width="48.0dip" android:layout_height="fill_parent" android:layout_marginTop="@dimen/immersive_mode_navigation_bar_margin_space" android:layout_marginRight="1.0dip" android:layout_marginBottom="@dimen/immersive_mode_navigation_bar_margin_space">
+            <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <FrameLayout android:layout_width="@dimen/immersive_mode_icon_cling_center_bg_circ_width" android:layout_height="@dimen/immersive_mode_icon_cling_center_bg_circ_width">
+                    <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_icon_bg_circ" android:scaleType="center" />
+                    <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/navigation_bar_immersive_cling_icon_light_bg_circ" android:scaleType="center" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

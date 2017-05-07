@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.KeyguardUsimTextView android:textAppearance="?android:textAppearance" android:textSize="@dimen/kg_usim_text_size" android:gravity="center_horizontal" android:layout_gravity="center|top" android:id="@id/keyguard_usim_carrier_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="sans-serif" android:accessibilityLiveRegion="polite" style="@style/keyguard_indication_text_style"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui" />

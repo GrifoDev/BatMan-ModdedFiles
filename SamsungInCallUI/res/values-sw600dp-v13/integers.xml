@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="vga_button_area_width_weight">800</integer>
+    <integer name="vga_button_area_width_weight_landscape">600</integer>
+    <integer name="vga_dialpad_width_weight">600</integer>
+    <integer name="vga_dialpad_width_weight_landscape">500</integer>
+</resources>

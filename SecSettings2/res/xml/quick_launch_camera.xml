@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen settings:parent="@xml/useful_feature"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <com.samsung.android.settings.SecRadioButtonPreference android:title="@string/quick_camera_launch_power" android:key="power_button" />
+    <com.samsung.android.settings.SecRadioButtonPreference android:title="@string/quick_camera_launch_home" android:key="home_button" />
+</PreferenceScreen>

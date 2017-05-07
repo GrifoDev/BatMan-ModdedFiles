@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/wifiscreen_layout_id" style="@style/Vzw_Wifi_Body"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="@dimen/vzw_wifi_icon_size" android:layout_height="@dimen/vzw_wifi_icon_size" android:layout_marginTop="@dimen/vzw_wifi_icon_marginTop" android:layout_marginBottom="@dimen/vzw_wifi_icon_marginBottom" android:src="@drawable/vzw_wifi_icon" android:tint="@color/vzw_wifi_icon_color" android:layout_marginStart="@dimen/vzw_wifi_marginStart" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/vzw_wifi_title_text_marginBottom" android:layout_marginStart="@dimen/vzw_wifi_marginStart" android:layout_marginEnd="@dimen/vzw_wifi_marginEnd">
+        <TextView android:id="@id/wifi_setup_screentitle" android:layout_toLeftOf="@id/progress" style="@style/Vzw_Wifi_Title_Text" />
+        <ProgressBar android:id="@id/progress" android:visibility="gone" android:layout_width="@dimen/vzw_wifi_progress_bar_size" android:layout_height="@dimen/vzw_wifi_progress_bar_size" android:indeterminate="true" android:layout_centerVertical="true" android:layout_alignParentEnd="true" android:indeterminateTint="@color/vzw_wifi_progress_bar_color" style="?android:attr/progressBarStyleSmall" />
+    </RelativeLayout>
+    <TextView android:id="@id/wifi_description" style="@style/Vzw_Wifi_Sub_Title_Text" />
+    <LinearLayout android:id="@id/wififragmentlayout" style="@style/Vzw_Wifi_Body.LinearLayout">
+        <View android:layout_marginStart="@dimen/vzw_wifi_horizontal_divider_marginStart" style="@style/Vzw_Wifi_BottomButton_Divider" />
+        <FrameLayout android:id="@id/wifi_picker_dialog_fragment_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/bottomButtonPanel" style="@style/Vzw_Wifi_BottomButtonBar">
+        <View style="@style/Vzw_Wifi_BottomButton_Divider" />
+        <LinearLayout style="@style/Vzw_Wifi_BottomButtonBar_Button">
+            <RelativeLayout android:id="@id/negative_button" style="@style/Vzw_Wifi_BottomButtonBar_Button_Container.Left">
+                <Button android:id="@id/negative_button_text" android:nextFocusRight="@id/positive_button_text" android:text="@string/vzw_wifi_scan" android:nextFocusForward="@id/positive_button_text" style="@style/Vzw_Wifi_BottomButtonBar_Button_Text.Left" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/positive_button" style="@style/Vzw_Wifi_BottomButtonBar_Button_Container.Right">
+                <Button android:id="@id/positive_button_text" android:nextFocusLeft="@id/negative_button_text" android:text="@string/skip_wifi_setup" style="@style/Vzw_Wifi_BottomButtonBar_Button_Text.Right">
+                    <requestFocus />
+                </Button>
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

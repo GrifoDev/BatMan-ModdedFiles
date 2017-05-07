@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="recents_layout_inset_for_close_all_button_margin">13</integer>
+    <item type="integer" name="recents_layout_expanded_view_unfocused_range_min">-1.77</item>
+    <item type="integer" name="recents_layout_expanded_view_unfocused_range_max">1.77</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_x_position">0.6</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_y_position">0.885</item>
+    <item type="integer" name="recents_layout_expanded_view_full_min_scroll_position">-0.245</item>
+    <item type="integer" name="recents_layout_expanded_view_split_first_x_position">0.6</item>
+    <item type="integer" name="recents_layout_expanded_view_split_first_y_position">0.94</item>
+    <item type="integer" name="recents_layout_expanded_view_split_min_scroll_position">0.12</item>
+    <integer name="recents_app_list_span_count">6</integer>
+    <integer name="recents_app_list_recommend_max_count">12</integer>
+    <integer name="kg_fmm_message_max_line_portrait">6</integer>
+    <integer name="kg_fmm_message_max_line_landscape">3</integer>
+    <integer name="shortcut_icon_utilization_ratio">74</integer>
+</resources>

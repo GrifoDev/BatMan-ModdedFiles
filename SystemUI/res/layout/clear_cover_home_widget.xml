@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/default_home_widget" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.sec.android.cover.clearcover.widget.clocks.ClearCoverClocksWidget android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <ViewStub android:layout_gravity="center_horizontal" android:id="@id/stub_missed_events" android:layout="@layout/clear_cover_missed_events" android:inflatedId="@id/clear_cover_missed_events" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/clear_cover_missed_events_top_padding" />
+    <ViewStub android:layout_gravity="center_horizontal" android:id="@id/stub_notifications" android:layout="@layout/clear_cover_notification_container" android:inflatedId="@id/clear_cover_notification_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/clear_cover_notifications_top_padding" />
+</LinearLayout>

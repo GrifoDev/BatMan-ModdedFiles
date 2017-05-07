@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.cover.clearcover.servicebox.RemoteViewServiceBoxPageView android:layout_width="fill_parent" android:layout_height="@dimen/clear_cover_servicebox_today_page_height" android:paddingStart="@dimen/clear_cover_page_margin" android:paddingEnd="@dimen/clear_cover_page_margin"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:gravity="center" android:layout_gravity="center" android:id="@id/servicebox_remote_view_root" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</com.sec.android.cover.clearcover.servicebox.RemoteViewServiceBoxPageView>

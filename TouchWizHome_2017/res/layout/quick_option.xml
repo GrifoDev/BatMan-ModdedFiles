@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher3.common.quickoption.QuickOptionView android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/quick_option_picker_t" android:visibility="gone" android:layout_width="@dimen/quick_option_popup_arrow_width" android:layout_height="@dimen/quick_option_popup_arrow_height" android:src="@drawable/quick_option_popup_arrow_up" />
+    <ListView android:id="@id/quick_option_listview" android:background="@drawable/quick_option_popup_bg" android:padding="@dimen/quick_option_popup_padding" android:scrollbars="none" android:layout_width="@dimen/quick_option_item_width" android:layout_height="wrap_content" android:divider="@android:color/transparent" android:dividerHeight="@dimen/quick_option_item_gap" />
+    <ImageView android:id="@id/quick_option_picker_b" android:visibility="gone" android:layout_width="@dimen/quick_option_popup_arrow_width" android:layout_height="@dimen/quick_option_popup_arrow_height" android:src="@drawable/quick_option_popup_arrow_down" />
+</com.android.launcher3.common.quickoption.QuickOptionView>

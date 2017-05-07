@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.taskbar.desk.DeskNotificationHeaderView android:visibility="visible" android:layout_width="fill_parent" android:layout_height="@dimen/desk_notification_header_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:layout_gravity="end|center" android:id="@id/desk_notification_header_close_veto" android:background="@drawable/notificard_ic_close" android:visibility="gone" android:layout_width="@dimen/desk_notification_veto_size" android:layout_height="@dimen/desk_notification_veto_size" android:layout_marginEnd="@dimen/desk_notification_veto_margin" android:backgroundTint="@color/notificard_ic_close_tint_color" />
+    <View android:layout_gravity="bottom" android:background="@color/bottom_bar_divider_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/desk_notification_divider_height" />
+</com.android.systemui.statusbar.phone.taskbar.desk.DeskNotificationHeaderView>

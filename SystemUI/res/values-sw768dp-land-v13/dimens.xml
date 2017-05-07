@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recents_close_all_button_additional_margin_full">-15.0dip</dimen>
+    <dimen name="recents_close_all_button_additional_margin_split">10.0dip</dimen>
+    <dimen name="keyguard_indication_area_height">184.0dip</dimen>
+    <dimen name="keyguard_indication_margin_side">355.0dip</dimen>
+    <dimen name="shortuct_smart_lock_icon_margin">158.0dip</dimen>
+    <dimen name="recents_app_list_margin_edge">8.0dip</dimen>
+    <dimen name="kg_message_area_padding_side">356.0dip</dimen>
+    <dimen name="kg_security_input_box_side_margin">356.0dip</dimen>
+    <dimen name="kg_security_ime_button_side_margin">323.0dip</dimen>
+    <dimen name="kg_fmm_info_margin_top">28.0dip</dimen>
+    <dimen name="kg_fmm_locked_area_width">704.0dip</dimen>
+    <dimen name="kg_fmm_contact_area_side_margin">150.0dip</dimen>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recents_close_all_button_additional_margin_full">-15.0dip</dimen>
+    <dimen name="recents_close_all_button_additional_margin_split">10.0dip</dimen>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settings.widget.SwitchBar android:theme="?switchBarTheme" android:gravity="center_vertical" android:id="@id/switch_bar" android:background="@drawable/tw_sub_action_bar_bg_mtrl" android:clickable="false" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:elevation="@dimen/sub_app_bar_shadow_elevation" />
+    <TextView android:gravity="start" android:id="@id/description_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/body_text_top_padding" android:layout_marginBottom="@dimen/body_text_top_padding" android:text="@string/facelock_recognition_speed_up_summary" android:layout_below="@id/switch_bar" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/one_button_container" android:layout_width="fill_parent" android:layout_alignParentBottom="true" style="@style/SecurityPreferenceButtonContainer">
+        <com.samsung.android.settings.widget.BottomBarButton android:id="@id/ok_bottom_button" android:layout_width="fill_parent" android:text="@string/common_ok" style="@style/SecurityPreferenceButton" />
+    </LinearLayout>
+</RelativeLayout>

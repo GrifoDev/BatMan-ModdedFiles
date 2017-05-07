@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="homeIcon_leftPaddingThreshold">0</integer>
+    <integer name="hotseat_cellCountX">-1</integer>
+    <integer name="multi_drag_represent_shadow_item_count">3</integer>
+</resources>

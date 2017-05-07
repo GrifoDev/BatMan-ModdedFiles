@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/searchbar_background_right_rounded" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:layout_gravity="end" android:id="@id/more_icon_guest" android:background="?android:selectableItemBackgroundBorderless" android:layout_width="@dimen/more_icon_btn_bg_width" android:layout_height="@dimen/more_icon_btn_bg_width" android:src="@drawable/tw_ic_ab_more_mtrl" android:contentDescription="@string/options_menu" style="?android:attr/actionButtonStyle" />
+</FrameLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher3.home.OverviewPanel android:gravity="center|top" android:layout_gravity="bottom|center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/overview_pannel_margin_bottom"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/wallpapers_and_themes_button" android:text="@string/wallpapers_and_themes_button_text" android:drawableTop="@drawable/ic_themes" style="@style/OverviewPannelStyle" />
+    <TextView android:id="@id/widget_button" android:nextFocusUp="@id/align_upward" android:text="@string/widget_button_text" android:drawableTop="@drawable/ic_widget" style="@style/OverviewPannelStyle" />
+    <TextView android:id="@id/settings_button" android:text="@string/homes_screen_settings" android:drawableTop="@drawable/ic_setting" style="@style/OverviewPannelStyle" />
+</com.android.launcher3.home.OverviewPanel>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HotseatIcon" parent="@style/BaseHotseatIcon">
+        <item name="android:textSize">0.0dip</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">0.0dip</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">0.0dip</item>
+    </style>
+    <style name="AllAppsMenuIcon" parent="@style/BaseMenuIcon">
+        <item name="android:textSize">@dimen/menu_icon_text_size</item>
+        <item name="android:textColor">@color/apps_icon_text_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center|top</item>
+        <item name="android:layout_gravity">center|top</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:lines">2</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:shadowColor">#ddffe400</item>
+        <item name="android:drawablePadding">1.0dip</item>
+        <item name="android:fontFamily">sec-roboto-condensed</item>
+    </style>
+    <style name="MenuIcon" parent="@style/BaseMenuIcon">
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingTop">1.0dip</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:paddingBottom">5.0dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">0.0dip</item>
+    </style>
+</resources>

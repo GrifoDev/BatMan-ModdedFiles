@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="recents_layout_inset_for_close_all_button_margin">40</integer>
+    <item type="integer" name="recents_layout_expanded_view_unfocused_range_min_with_navi_key">-1.82</item>
+    <item type="integer" name="recents_layout_expanded_view_unfocused_range_max_with_navi_key">1.82</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_x_position">0.58</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_x_position_with_navi_key">0.63</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_y_position">0.86</item>
+    <item type="integer" name="recents_layout_expanded_view_full_first_y_position_with_navi_key">0.871</item>
+    <item type="integer" name="recents_layout_expanded_view_full_min_scroll_position">-0.185</item>
+    <item type="integer" name="recents_layout_expanded_view_full_min_scroll_position_with_navi_key">-0.21</item>
+</resources>

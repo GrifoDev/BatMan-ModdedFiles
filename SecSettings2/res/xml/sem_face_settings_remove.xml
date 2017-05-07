@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="facesetting"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceCategory android:title="@string/facelock_category_manager" android:key="register_category">
+        <PreferenceScreen android:title="@string/facelock_remove_face" android:key="key_facelock_remove" />
+        <PreferenceScreen android:title="@string/fingerprint_change_reset_password" android:key="key_facelock_password" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/facelock_category_feature" android:key="unlock_category">
+        <com.android.settings.fingerprint.FingerprintSwitchPreference android:title="@string/facelock_face_unlock" android:key="key_facelock_unlock" android:summary="@string/facelock_face_unlock_summary" />
+        <SwitchPreference android:title="@string/facelock_without_swipe_to_unlock" android:key="key_facelock_without_swipe_to_unlock" android:summary="@string/facelock_without_swipe_to_unlock_summary" />
+        <com.android.settings.fingerprint.FingerprintSwitchPreference android:title="@string/facelock_recognition_speed_up" android:key="key_facelock_recognition_speed_up" android:summary="@string/facelock_recognition_speed_up_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

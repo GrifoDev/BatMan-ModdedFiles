@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/taskbar_context_munu" android:background="@drawable/taskbar_context_menu_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/context_for_shortcut" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_shortcut_remove" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_unpin" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_running_open" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_open" style="@style/ContextMenuText" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/context_for_running_shortcut" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_running_shortcut_remove" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_unpin" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_running_shortcut_close" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_close" style="@style/ContextMenuText" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/context_for_running" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_running_add" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_pin" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_running_close" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_close" style="@style/ContextMenuText" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/context_for_allapps" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_add_to_secure" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_secure_add" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_uninstall" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_uninstall" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_disable" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_disable" style="@style/ContextMenuText" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/context_for_allapps_more_menu" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_for_dex" android:focusable="true" android:clickable="true" android:text="@string/search_more_menu_for_dex" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_settings" android:focusable="true" android:clickable="true" android:text="@string/search_more_menu_settings" style="@style/ContextMenuText" />
+        <TextView android:id="@id/context_menu_contact_us" android:focusable="true" android:clickable="true" android:text="@string/search_more_menu_contact_us" style="@style/ContextMenuText" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/context_screen_capture" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/fullscreen" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_capture_fullscreen" style="@style/ContextMenuText" />
+        <TextView android:id="@id/region" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_capture_region" style="@style/ContextMenuText" />
+    </LinearLayout>
+    <include android:id="@id/context_for_desk" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/desk_context_menu_view" />
+    <LinearLayout android:orientation="vertical" android:id="@id/context_keyboard" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/language_and_input" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_language_and_input" style="@style/ContextMenuText" />
+    </LinearLayout>
+</LinearLayout>

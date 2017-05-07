@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.cover.clearcover.ClearCoverServiceBoxPage android:layout_gravity="top" android:id="@id/clear_cover_page" android:layout_width="fill_parent" android:layout_height="@dimen/clear_cover_servicebox_touch_area_height" android:layout_marginTop="@dimen/clear_cover_servicebox_pager_top_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center|top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <FrameLayout android:id="@id/clear_cover_servicebox_area" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.sec.android.cover.clearcover.servicebox.ServiceBoxViewPager android:id="@id/clear_cover_servicebox_pager" android:layout_width="fill_parent" android:layout_height="@dimen/clear_cover_servicebox_container_no_noti_height" android:overScrollMode="never" android:layoutDirection="ltr" />
+            <ImageView android:layout_gravity="center|left" android:id="@id/clear_cover_servicebox_affordance_arrow_l" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lock_additional_visualcue_l_mtrl" android:layout_marginStart="@dimen/clear_cover_servicebox_arrow_padding" />
+            <ImageView android:layout_gravity="center|right" android:id="@id/clear_cover_servicebox_affordance_arrow_r" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lock_additional_visualcue_r_mtrl" android:layout_marginEnd="@dimen/clear_cover_servicebox_arrow_padding" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center|top" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/clear_cover_servicebox_owner_text_container_height">
+            <TextView android:textSize="@dimen/clear_cover_servicebox_owner_text_size" android:id="@id/clear_cover_servicebox_owner_info" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/clear_cover_servicebox_owner_text_height" android:paddingStart="@dimen/clear_cover_page_margin" android:paddingEnd="@dimen/clear_cover_page_margin" style="@style/clear_cover_owner_info_text" />
+        </LinearLayout>
+        <include layout="@layout/clear_cover_notification_container" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/clear_cover_remote_area_bottom_padding" android:minHeight="@dimen/clear_cover_music_widget_height">
+        <com.sec.android.cover.widget.RemoteViewContainerView android:layout_gravity="bottom" android:id="@id/clear_voice_recorder_remoteview_contatiner" android:layout_width="fill_parent" android:layout_height="@dimen/clear_cover_voice_recorder_height" />
+        <LinearLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/clear_cover_music_remote_area_bottom_padding">
+            <include layout="@layout/clear_cover_music_widget" />
+        </LinearLayout>
+    </LinearLayout>
+</com.sec.android.cover.clearcover.ClearCoverServiceBoxPage>

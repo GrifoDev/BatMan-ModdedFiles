@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fingerprint_register_firstGuide_marginTop">490.0dip</dimen>
+    <dimen name="fingerprint_register_guideClip_marginTop">100.0dip</dimen>
+    <dimen name="fingerprint_register_secondGuideClip_marginTop">100.0dip</dimen>
+</resources>
