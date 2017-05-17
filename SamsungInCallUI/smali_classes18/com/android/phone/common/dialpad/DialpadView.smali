@@ -101,7 +101,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a0406
+    const v4, 0x7f0a0408
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -808,7 +808,7 @@
 
     move/from16 v0, v21
 
-    if-ge v8, v0, :cond_6
+    if-ge v8, v0, :cond_7
 
     move-object/from16 v0, p0
 
@@ -864,7 +864,7 @@
 
     if-ne v0, v1, :cond_3
 
-    const v21, 0x7f0904bd
+    const v21, 0x7f0904bf
 
     move-object/from16 v0, v17
 
@@ -878,6 +878,12 @@
 
     :goto_2
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
+
+    move-result v21
+
+    if-eqz v21, :cond_6
+
+    invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->isQCIF()Z
 
     move-result v21
 
@@ -980,7 +986,7 @@
 
     if-ne v0, v1, :cond_4
 
-    const v21, 0x7f0904c0
+    const v21, 0x7f0904c2
 
     move-object/from16 v0, v17
 
@@ -1100,7 +1106,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f020069
+    const v22, 0x7f020274
 
     move-object/from16 v0, p0
 
@@ -1117,6 +1123,27 @@
     goto/16 :goto_3
 
     :cond_6
+    invoke-virtual/range {p0 .. p0}, Lcom/android/phone/common/dialpad/DialpadView;->getContext()Landroid/content/Context;
+
+    move-result-object v21
+
+    const v22, 0x7f020069
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, v22
+
+    invoke-direct {v0, v1, v2}, Lcom/android/phone/common/dialpad/DialpadView;->getDrawableCompat(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v18
+
+    check-cast v18, Landroid/graphics/drawable/RippleDrawable;
+
+    goto/16 :goto_3
+
+    :cond_7
     const v21, 0x7f10010e
 
     move-object/from16 v0, p0
@@ -1129,7 +1156,7 @@
 
     check-cast v16, Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    const v21, 0x7f0904a0
+    const v21, 0x7f0904a2
 
     move-object/from16 v0, v17
 
@@ -1157,7 +1184,7 @@
 
     check-cast v20, Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    const v21, 0x7f090497
+    const v21, 0x7f090499
 
     move-object/from16 v0, v17
 
@@ -1171,13 +1198,10 @@
 
     return-void
 
-    nop
-
     :array_0
     .array-data 4
-        0x7f0904a5
-        0x7f0904a8
-        0x7f0904ab
+        0x7f0904a7
+        0x7f0904aa
         0x7f0904ad
         0x7f0904af
         0x7f0904b1
@@ -1185,8 +1209,9 @@
         0x7f0904b5
         0x7f0904b7
         0x7f0904b9
-        0x7f0904bf
-        0x7f0904bc
+        0x7f0904bb
+        0x7f0904c1
+        0x7f0904be
     .end array-data
 .end method
 

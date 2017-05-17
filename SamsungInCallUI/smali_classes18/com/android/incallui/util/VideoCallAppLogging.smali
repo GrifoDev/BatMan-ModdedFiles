@@ -41,7 +41,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090367
+    const v1, 0x7f090369
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090368
+    const v1, 0x7f09036a
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -90,7 +90,7 @@
 
     if-ne p1, v5, :cond_4
 
-    const v4, 0x7f090403
+    const v4, 0x7f090405
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -119,7 +119,7 @@
 
     invoke-static {v4, v5, v0}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v4, 0x7f0903e5
+    const v4, 0x7f0903e7
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
     goto :goto_0
 
     :cond_4
-    const v4, 0x7f090404
+    const v4, 0x7f090406
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -165,7 +165,7 @@
 
     invoke-static {v4, v5, v0}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v4, 0x7f090389
+    const v4, 0x7f09038b
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -190,7 +190,7 @@
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_0
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -198,7 +198,7 @@
 
     if-eqz p0, :cond_1
 
-    const v0, 0x7f090360
+    const v0, 0x7f090362
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -223,7 +223,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0903dd
+    const v0, 0x7f0903df
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -258,7 +258,7 @@
 
     if-eqz v0, :cond_2
 
-    const v2, 0x7f090419
+    const v2, 0x7f09041b
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -277,7 +277,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f09039d
+    const v2, 0x7f09039f
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -288,7 +288,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f09041a
+    const v2, 0x7f09041c
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -323,7 +323,7 @@
 
     if-eqz v0, :cond_2
 
-    const v2, 0x7f090419
+    const v2, 0x7f09041b
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -342,7 +342,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0903fd
+    const v2, 0x7f0903ff
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -353,7 +353,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f09041a
+    const v2, 0x7f09041c
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -388,7 +388,7 @@
 
     if-eqz v0, :cond_2
 
-    const v2, 0x7f090419
+    const v2, 0x7f09041b
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -407,7 +407,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f09041e
+    const v2, 0x7f090420
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -418,7 +418,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f09041a
+    const v2, 0x7f09041c
 
     invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -430,13 +430,13 @@
 .method public static duringCallMenu_OutgoingImageImage()V
     .locals 2
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903e2
+    const v1, 0x7f0903e4
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -450,13 +450,13 @@
 .method public static duringCallMenu_OutgoingImageVideo()V
     .locals 2
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903e4
+    const v1, 0x7f0903e6
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -490,13 +490,13 @@
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090358
+    const v1, 0x7f09035a
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -542,13 +542,13 @@
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090359
+    const v1, 0x7f09035b
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -574,13 +574,13 @@
 
     invoke-static {v0, v1, v2, v3}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090364
+    const v1, 0x7f090366
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -616,13 +616,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903c1
+    const v1, 0x7f0903c3
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -636,7 +636,7 @@
 .method public static duringCallMenu_hold(Z)V
     .locals 4
 
-    const v3, 0x7f09038d
+    const v3, 0x7f09038f
 
     if-eqz p0, :cond_0
 
@@ -654,7 +654,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09039f
+    const v1, 0x7f0903a1
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -680,7 +680,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09039e
+    const v1, 0x7f0903a0
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -694,7 +694,7 @@
 .method public static duringCallMenu_keypad(IZ)V
     .locals 5
 
-    const v4, 0x7f090389
+    const v4, 0x7f09038b
 
     invoke-static {}, Lcom/android/incallui/util/VideoCallAppLogging;->getContext()Landroid/content/Context;
 
@@ -738,7 +738,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903a9
+    const v1, 0x7f0903ab
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -789,7 +789,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903a8
+    const v1, 0x7f0903aa
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -803,13 +803,13 @@
 .method public static duringCallMenu_more()V
     .locals 2
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903d4
+    const v1, 0x7f0903d6
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -823,13 +823,13 @@
 .method public static duringCallMenu_outGoingImagePreset()V
     .locals 2
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903e3
+    const v1, 0x7f0903e5
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -876,13 +876,13 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903e1
+    const v1, 0x7f0903e3
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -928,13 +928,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903ed
+    const v1, 0x7f0903ef
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -970,13 +970,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903ee
+    const v1, 0x7f0903f0
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1000,13 +1000,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903c2
+    const v1, 0x7f0903c4
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1041,13 +1041,13 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090404
+    const v1, 0x7f090406
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1116,13 +1116,13 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090403
+    const v1, 0x7f090405
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1168,13 +1168,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f09034c
+    const v1, 0x7f09034e
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1211,7 +1211,7 @@
     :goto_0
     invoke-static {v1, v2, v0}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1219,7 +1219,7 @@
 
     if-eqz p0, :cond_1
 
-    const v0, 0x7f0903da
+    const v0, 0x7f0903dc
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1236,7 +1236,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0903d9
+    const v0, 0x7f0903db
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1258,13 +1258,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090389
+    const v0, 0x7f09038b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f09041f
+    const v1, 0x7f090421
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1300,13 +1300,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090391
+    const v0, 0x7f090393
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f09036e
+    const v1, 0x7f090370
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1342,13 +1342,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090391
+    const v0, 0x7f090393
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f09036f
+    const v1, 0x7f090371
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1373,7 +1373,7 @@
     if-ne p0, v1, :cond_3
 
     :cond_0
-    const v1, 0x7f0903e5
+    const v1, 0x7f0903e7
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1383,7 +1383,7 @@
     :goto_0
     if-eqz v0, :cond_2
 
-    const v1, 0x7f09038e
+    const v1, 0x7f090390
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1404,7 +1404,7 @@
     if-ne p0, v1, :cond_1
 
     :cond_4
-    const v1, 0x7f090389
+    const v1, 0x7f09038b
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1452,7 +1452,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f090389
+    const v3, 0x7f09038b
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1488,7 +1488,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f09038b
+    const v3, 0x7f09038d
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1499,7 +1499,7 @@
     return-object v2
 
     :cond_1
-    const v3, 0x7f09038c
+    const v3, 0x7f09038e
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1551,7 +1551,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v1, 0x7f0903a6
+    const v1, 0x7f0903a8
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1561,7 +1561,7 @@
     :goto_0
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0903c1
+    const v1, 0x7f0903c3
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1587,7 +1587,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v1, 0x7f0903e5
+    const v1, 0x7f0903e7
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1599,65 +1599,11 @@
 .method public static incomingCall_answerVideo()V
     .locals 3
 
-    const v2, 0x7f0903a6
+    const v2, 0x7f0903a8
 
     const-string v0, "IVIA"
 
     const-string v1, "Answer video"
-
-    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isEasyInteraction()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->getEasyTouchModeEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const v1, 0x7f090353
-
-    invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/incallui/util/SALogging;->sendSAEventLog(Ljava/lang/String;Ljava/lang/String;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const v1, 0x7f090352
-
-    invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/incallui/util/SALogging;->sendSAEventLog(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-.end method
-
-.method public static incomingCall_answerVoice()V
-    .locals 3
-
-    const v2, 0x7f0903a6
-
-    const-string v0, "IVIA"
-
-    const-string v1, "Answer voice"
 
     invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1704,6 +1650,60 @@
     goto :goto_0
 .end method
 
+.method public static incomingCall_answerVoice()V
+    .locals 3
+
+    const v2, 0x7f0903a8
+
+    const-string v0, "IVIA"
+
+    const-string v1, "Answer voice"
+
+    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isEasyInteraction()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->getEasyTouchModeEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const v1, 0x7f090357
+
+    invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/incallui/util/SALogging;->sendSAEventLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-static {v2}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const v1, 0x7f090356
+
+    invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/incallui/util/SALogging;->sendSAEventLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
 .method public static isCoverClosed(Z)V
     .locals 2
 
@@ -1715,7 +1715,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090369
+    const v1, 0x7f09036b
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1746,7 +1746,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903de
+    const v1, 0x7f0903e0
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1790,13 +1790,13 @@
 
     if-eqz v1, :cond_2
 
-    const v3, 0x7f090419
+    const v3, 0x7f09041b
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f090349
+    const v3, 0x7f09034b
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1812,13 +1812,13 @@
     goto :goto_0
 
     :cond_2
-    const v3, 0x7f09041a
+    const v3, 0x7f09041c
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f09041b
+    const v3, 0x7f09041d
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1830,13 +1830,13 @@
 .method public static modify_change_to_oneway_video()V
     .locals 2
 
-    const v0, 0x7f090419
+    const v0, 0x7f09041b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090365
+    const v1, 0x7f090367
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1850,13 +1850,13 @@
 .method public static modify_change_to_video()V
     .locals 2
 
-    const v0, 0x7f090419
+    const v0, 0x7f09041b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090366
+    const v1, 0x7f090368
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1895,7 +1895,7 @@
 
     if-eqz v1, :cond_4
 
-    const v3, 0x7f090419
+    const v3, 0x7f09041b
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1915,7 +1915,7 @@
 
     if-eqz v3, :cond_3
 
-    const v3, 0x7f09037d
+    const v3, 0x7f09037f
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1946,7 +1946,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f09041e
+    const v3, 0x7f090420
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1955,13 +1955,13 @@
     goto :goto_1
 
     :cond_4
-    const v3, 0x7f09041a
+    const v3, 0x7f09041c
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f090362
+    const v3, 0x7f090364
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1973,13 +1973,13 @@
 .method public static modify_stay_on_voice()V
     .locals 2
 
-    const v0, 0x7f090419
+    const v0, 0x7f09041b
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090406
+    const v1, 0x7f090408
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -1999,7 +1999,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903d5
+    const v1, 0x7f0903d7
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2023,13 +2023,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f0903d6
+    const v0, 0x7f0903d8
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090387
+    const v1, 0x7f090389
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2043,7 +2043,7 @@
 .method public static multipartyCall_manageConference(Z)V
     .locals 4
 
-    const v3, 0x7f0903d6
+    const v3, 0x7f0903d8
 
     if-eqz p0, :cond_0
 
@@ -2061,7 +2061,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903bb
+    const v1, 0x7f0903bd
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2087,7 +2087,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903bc
+    const v1, 0x7f0903be
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2111,13 +2111,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f0903d6
+    const v0, 0x7f0903d8
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903c3
+    const v1, 0x7f0903c5
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2141,13 +2141,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f0903d6
+    const v0, 0x7f0903d8
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090413
+    const v1, 0x7f090415
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2203,7 +2203,7 @@
 
     if-eq v3, v1, :cond_1
 
-    const v3, 0x7f0903df
+    const v3, 0x7f0903e1
 
     invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2271,7 +2271,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v1, 0x7f0903a6
+    const v1, 0x7f0903a8
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2281,7 +2281,7 @@
     :goto_0
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0903c2
+    const v1, 0x7f0903c4
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2307,7 +2307,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v1, 0x7f0903e5
+    const v1, 0x7f0903e7
 
     invoke-static {v1}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2346,7 +2346,7 @@
 
     if-ne v1, v4, :cond_5
 
-    const v4, 0x7f090416
+    const v4, 0x7f090418
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2383,7 +2383,7 @@
 
     invoke-static {v4, v5, v6}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v4, 0x7f0903e5
+    const v4, 0x7f0903e7
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2402,7 +2402,7 @@
     :cond_5
     if-nez v1, :cond_2
 
-    const v4, 0x7f090417
+    const v4, 0x7f090419
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2430,7 +2430,7 @@
 
     invoke-static {v4, v5, v6}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v4, 0x7f090389
+    const v4, 0x7f09038b
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 
@@ -2443,7 +2443,7 @@
 
     if-ne v0, v4, :cond_4
 
-    const v4, 0x7f0903a6
+    const v4, 0x7f0903a8
 
     invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->getString(I)Ljava/lang/String;
 

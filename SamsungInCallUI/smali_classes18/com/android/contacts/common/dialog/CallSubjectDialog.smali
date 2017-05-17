@@ -899,7 +899,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->mCharacterLimitView:Landroid/widget/TextView;
 
-    const v3, 0x7f09045f
+    const v3, 0x7f090461
 
     const/4 v4, 0x2
 
@@ -1029,7 +1029,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->mNumberView:Landroid/widget/TextView;
 
-    const v1, 0x7f090460
+    const v1, 0x7f090462
 
     const/4 v2, 0x2
 
@@ -1135,7 +1135,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a03bd
+    const v4, 0x7f0a03bf
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

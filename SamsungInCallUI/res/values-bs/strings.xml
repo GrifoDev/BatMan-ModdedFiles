@@ -113,8 +113,8 @@
     <string name="call_drug_up_panel_for_kk">Prevucite dugme POŠALJI PORUKU prema gore da biste poslali brzu poruku i odbili dolazni poziv.</string>
     <string name="call_drug_up_panel_for_kk_tts">Prevucite tablu sa porukama za odbijanje poziva prema gore da biste poslali poruku za odbijanje poziva u trenutku kada odbijete dolazni poziv.</string>
     <string name="call_ended_toast">Poziv je završen.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Poziv je proslijeđen na:</string>
+    <string name="call_forwarding_from">Poziv je proslijeđen sa:</string>
     <string name="call_incoming_voice_call2">Dodirnite %s da biste odgovorili na poziv.</string>
     <string name="call_incoming_voice_call2_tts">Dodirnite dugme za prihvatanje poziva da biste odgovorili na poziv.</string>
     <string name="call_incoming_voice_call3">Dodirnite %s i odbijte poziv.</string>
@@ -475,6 +475,7 @@ IVR meni na ekranu poziva koristi sadržaje koje omogućava davalac usluge treć
     <string name="outgoing_img_picture">Slike</string>
     <string name="outgoing_img_take_picture">Slikaj</string>
     <string name="outgoing_img_video">Videozapisi</string>
+    <string name="overlay_warning_toast">Za korištenje Telefona, morate uključiti opciju Aplikacije koje se mogu pojavljivati na vrhu u postavkama Telefona.</string>
     <string name="payphone_sbm">Telefonska govornica</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Ne može se snimiti zaštićeni poziv.</string>
@@ -630,6 +631,7 @@ u jedn. smj."</string>
     <string name="secOnscreenUpdateContactText">Ažur. postojeći</string>
     <string name="secOnscreenUpdateContactText_tts">Ažuriraj postojeće</string>
     <string name="secOnscreenVideoCallText">Video poziv</string>
+    <string name="secOnscreenVideoStopText">Zaustavi</string>
     <string name="secOnscreenViewContactText">Prikaži kontakt</string>
     <string name="secOnscreenVoiceCallText">Poziv</string>
     <string name="secOnscreenVoiceCallTextExtended">Glas. poziv</string>

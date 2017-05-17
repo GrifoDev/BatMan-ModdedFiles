@@ -32,65 +32,52 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 5
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "mSystemUIIntentReceiver : "
+    const-string v4, "mDtmfReceiver: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v1, "com.samsung.systemui.statusbar.STARTED"
+    const-string v3, "tone"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/16 v4, 0x20
 
-    move-result v1
+    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getCharExtra(Ljava/lang/String;C)C
 
-    if-eqz v1, :cond_0
+    move-result v2
 
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+    const-string v3, "duration"
 
-    move-result-object v1
+    const/4 v4, 0x0
 
-    invoke-virtual {v1}, Lcom/android/incallui/CallList;->hasLiveCall()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/incallui/InCallActivity$7;->this$0:Lcom/android/incallui/InCallActivity;
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallActivity;->isVisible()Z
+    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    iget-object v3, p0, Lcom/android/incallui/InCallActivity$7;->this$0:Lcom/android/incallui/InCallActivity;
 
-    iget-object v1, p0, Lcom/android/incallui/InCallActivity$7;->this$0:Lcom/android/incallui/InCallActivity;
+    # invokes: Lcom/android/incallui/InCallActivity;->sendDtmf(CI)V
+    invoke-static {v3, v2, v1}, Lcom/android/incallui/InCallActivity;->access$700(Lcom/android/incallui/InCallActivity;CI)V
 
-    const/4 v2, 0x1
-
-    # invokes: Lcom/android/incallui/InCallActivity;->showGreenBar(Z)V
-    invoke-static {v1, v2}, Lcom/android/incallui/InCallActivity;->access$700(Lcom/android/incallui/InCallActivity;Z)V
-
-    :cond_0
     return-void
 .end method

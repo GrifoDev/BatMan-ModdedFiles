@@ -360,7 +360,7 @@
 
     if-eqz v10, :cond_6
 
-    const v0, 0x7f090486
+    const v0, 0x7f090488
 
     const/4 v1, 0x2
 
@@ -405,7 +405,7 @@
     :cond_6
     if-eqz v10, :cond_7
 
-    const v0, 0x7f090485
+    const v0, 0x7f090487
 
     const/4 v1, 0x1
 

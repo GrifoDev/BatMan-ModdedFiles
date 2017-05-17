@@ -95,7 +95,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02a2
+    const v1, 0x7f0a02a4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -107,7 +107,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02a1
+    const v1, 0x7f0a02a3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -120,7 +120,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a024e
+    const v1, 0x7f0a0250
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -142,7 +142,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0493
+    const v1, 0x7f0a0499
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -160,7 +160,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a04c8
+    const v1, 0x7f0a04ce
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -215,7 +215,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02a8
+    const v1, 0x7f0a02aa
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -227,7 +227,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02a7
+    const v1, 0x7f0a02a9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -242,7 +242,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a05f3
+    const v1, 0x7f0a05fe
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -254,7 +254,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a05f2
+    const v1, 0x7f0a05fd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -280,7 +280,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a05f1
+    const v7, 0x7f0a05fc
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -388,7 +388,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a00a4
+    const v5, 0x7f0a00a6
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -406,7 +406,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a024f
+    const v5, 0x7f0a0251
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -577,7 +577,7 @@
 
     if-nez v1, :cond_2
 
-    const v1, 0x7f0f012f
+    const v1, 0x7f0f0130
 
     invoke-static {p0, v1}, Lcom/android/incallui/util/GraphicResourceUtils;->setRippleColor(Landroid/view/View;I)V
 
@@ -585,38 +585,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0127
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/android/incallui/widget/SecVoiceButton;->setCompoundDrawableTintList(Landroid/content/res/ColorStateList;)V
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceButton;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0f021e
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/android/incallui/widget/SecVoiceButton;->setTextColor(Landroid/content/res/ColorStateList;)V
-
-    goto :goto_0
-
-    :cond_2
-    const v1, 0x7f0f012e
-
-    invoke-static {p0, v1}, Lcom/android/incallui/util/GraphicResourceUtils;->setRippleColor(Landroid/view/View;I)V
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceButton;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0f0130
+    const v2, 0x7f0f0128
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
 
@@ -629,6 +598,37 @@
     move-result-object v1
 
     const v2, 0x7f0f021f
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/android/incallui/widget/SecVoiceButton;->setTextColor(Landroid/content/res/ColorStateList;)V
+
+    goto :goto_0
+
+    :cond_2
+    const v1, 0x7f0f012f
+
+    invoke-static {p0, v1}, Lcom/android/incallui/util/GraphicResourceUtils;->setRippleColor(Landroid/view/View;I)V
+
+    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceButton;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0f0131
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/android/incallui/widget/SecVoiceButton;->setCompoundDrawableTintList(Landroid/content/res/ColorStateList;)V
+
+    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceButton;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0f0220
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
 

@@ -300,7 +300,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f090330
+    const v11, 0x7f090332
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -322,7 +322,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f090331
+    const v11, 0x7f090333
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -344,7 +344,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f09032f
+    const v11, 0x7f090331
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -360,7 +360,7 @@
 
     iget-object v9, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f090334
+    const v10, 0x7f090336
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -402,7 +402,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f090330
+    const v11, 0x7f090332
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -424,7 +424,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f09032f
+    const v11, 0x7f090331
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -440,7 +440,7 @@
 
     iget-object v9, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f090334
+    const v10, 0x7f090336
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -482,7 +482,7 @@
 
     move-result-object v2
 
-    const v10, 0x7f090334
+    const v10, 0x7f090336
 
     const v6, 0x7f090113
 
@@ -574,7 +574,7 @@
     const-string v1, ""
 
     :cond_3
-    const v11, 0x7f09032f
+    const v11, 0x7f090331
 
     if-ne v6, v11, :cond_6
 
@@ -723,9 +723,9 @@
 
     move-result-object v1
 
-    const v10, 0x7f090334
+    const v10, 0x7f090336
 
-    const v6, 0x7f09032f
+    const v6, 0x7f090331
 
     goto/16 :goto_1
 
@@ -1010,7 +1010,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090250
+    const v1, 0x7f090251
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

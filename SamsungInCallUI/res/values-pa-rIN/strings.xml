@@ -499,6 +499,7 @@ IVR ਕਾਲ ਸਕ੍ਰੀਨ ਮੇਨੂ ਇੱਕ ਤੀਜੀ ਧਿਰ �
     <string name="outgoing_img_picture">ਚਿੱਤਰ</string>
     <string name="outgoing_img_take_picture">ਤਸਵੀਰ ਲਉ</string>
     <string name="outgoing_img_video">ਵੀਡਿਓਜ਼</string>
+    <string name="overlay_warning_toast">ਫ਼ੋਨ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਤੁਹਾਨੂੰ ਉਨ੍ਹਾਂ ਐਪਸ ਨੂੰ ਚਾਲੂ ਕਰਨਾ ਹੋਵੇਗਾ ਜੋ ਫ਼ੋਨ ਸੈੱਟਿੰਗਸ ਵਿੱਚ ਸਭ ਤੋਂ ਉੱਪਰ ਦਿਖਾਈ ਦੇ ਸਕਦੀਆਂ ਹਨ।</string>
     <string name="payphone_sbm">ਭੁਗਤਾਨ ਫ਼ੋਨ</string>
     <string name="phoneLabelsGroup">ਫ਼ੋਨ</string>
     <string name="phone_voice_recording_failed_by_secure_call">ਸੁਰੱਖਿਅਤ ਕਾੱਲ ਨੂੰ ਰਿਕਾਰਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</string>
@@ -655,6 +656,7 @@ IVR ਕਾਲ ਸਕ੍ਰੀਨ ਮੇਨੂ ਇੱਕ ਤੀਜੀ ਧਿਰ �
     <string name="secOnscreenUpdateContactText">ਮੌਜੂਦਾ ਅਪਡੇਟ ਕਰੋ</string>
     <string name="secOnscreenUpdateContactText_tts">ਮੌਜੂਦਾ ਅਪਡੇਟ ਕਰੋ</string>
     <string name="secOnscreenVideoCallText">ਵੀਡਿਓ ਕਾੱਲ</string>
+    <string name="secOnscreenVideoStopText">ਰੋਕੋ</string>
     <string name="secOnscreenViewContactText">ਸੰਪਰਕ ਦੇਖੋ</string>
     <string name="secOnscreenVoiceCallText">ਕਾੱਲ</string>
     <string name="secOnscreenVoiceCallTextExtended">ਵਾੱਇਸ ਕਾੱਲ</string>

@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Glis. în sus butonul TRIMITERE MESAJ pt. a trim. un mesaj rapid și a resp. un apel de intr.</string>
     <string name="call_drug_up_panel_for_kk_tts">Trageți în sus panoul de respingere a apelului prin mesaj pentru a trimite un mesaj de respingere a apelului atunci când respingeți un apel primit.</string>
     <string name="call_ended_toast">Apel terminat</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Apel redirecționat către:</string>
+    <string name="call_forwarding_from">Apel redirecționat de la:</string>
     <string name="call_incoming_voice_call2">Atingeți %s pentru a prelua un apel.</string>
     <string name="call_incoming_voice_call2_tts">Atingeți butonul preluare apel pentru a prelua un apel.</string>
     <string name="call_incoming_voice_call3">Atingeți %s pt. a resp. un apel.</string>
@@ -526,6 +526,7 @@ Meniul ecranului de apel IVR utilizează conținuturile furnizate de un furnizor
     <string name="outgoing_img_picture">Imagini</string>
     <string name="outgoing_img_take_picture">Fotografiere</string>
     <string name="outgoing_img_video">Videoclipuri</string>
+    <string name="overlay_warning_toast">Pentru a utiliza aplicația Telefon, trebuie să porniți opțiunea Aplicații care poate apărea în partea superioară a meniului Setări telefon.</string>
     <string name="payphone_sbm">Telefon public</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Nu se poate înregistra apelul securizat.</string>
@@ -682,6 +683,7 @@ Cameră foto"</string>
     <string name="secOnscreenUpdateContactText">Act. existentă</string>
     <string name="secOnscreenUpdateContactText_tts">Actualiz. cont. exist.</string>
     <string name="secOnscreenVideoCallText">Apel video</string>
+    <string name="secOnscreenVideoStopText">Oprire</string>
     <string name="secOnscreenViewContactText">Vizual. contact</string>
     <string name="secOnscreenVoiceCallText">Apel</string>
     <string name="secOnscreenVoiceCallTextExtended">Apel vocal</string>

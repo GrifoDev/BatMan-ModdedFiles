@@ -20,7 +20,7 @@
 
 .field private static final CHANGE_PAGE_INCALL_TO_IVR:I = 0x3e9
 
-.field private static final CHANGE_PAGE_INCALL_TO_IVR_DELAY:I = 0x320
+.field private static final CHANGE_PAGE_INCALL_TO_IVR_DELAY:I = 0x3e8
 
 .field private static final IVR_PAGE_DIALPAD:I = 0x10
 
@@ -464,7 +464,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mHandler:Landroid/os/Handler;
 
-    const-wide/16 v2, 0x320
+    const-wide/16 v2, 0x3e8
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
@@ -472,9 +472,11 @@
 .end method
 
 .method private create_visual_call_pager_container()V
-    .locals 5
+    .locals 6
 
-    const v4, 0x7f100415
+    const/4 v5, 0x0
+
+    const v4, 0x7f100414
 
     const/16 v3, 0x8
 
@@ -595,9 +597,7 @@
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mVCCOutgoingButtonLayout:Landroid/view/ViewGroup;
+    iput-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mVCCOutgoingButtonLayout:Landroid/view/ViewGroup;
 
     :cond_6
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
@@ -607,6 +607,8 @@
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    iput-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
 
     :cond_7
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mViewPager:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallViewPager;
@@ -619,7 +621,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f100416
+    const v2, 0x7f100415
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -769,6 +771,43 @@
     throw v0
 .end method
 
+.method private inflateInCallButtonLayout()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
+
+    const v1, 0x7f100414
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    iput-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
+
+    iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->inflateInCallButtons(Landroid/view/View;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method private process(Z)V
     .locals 1
 
@@ -794,13 +833,13 @@
 .method private refreshViewPager()V
     .locals 4
 
+    const/4 v3, 0x0
+
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
 
     const/4 v2, 0x0
-
-    const/4 v3, 0x0
 
     invoke-static {v1, v2, v3}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
@@ -810,9 +849,34 @@
 
     invoke-direct {p0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->removePagerInstance()V
 
+    invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
+
+    invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->isDisplayIVRPager()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
     invoke-direct {p0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->create_visual_call_pager_container()V
 
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
+
+    invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-direct {p0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->inflateInCallButtonLayout()V
+
+    goto :goto_0
 .end method
 
 .method private removePagerInstance()V
@@ -1110,7 +1174,7 @@
 
     check-cast v5, Landroid/view/LayoutInflater;
 
-    const v12, 0x7f04018f
+    const v12, 0x7f040193
 
     const/4 v13, 0x0
 
@@ -1118,7 +1182,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f10045c
+    const v12, 0x7f10045b
 
     invoke-virtual {v11, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1134,7 +1198,7 @@
 
     if-eqz v12, :cond_2
 
-    const v12, 0x7f090511
+    const v12, 0x7f090513
 
     invoke-virtual {p0, v12}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 
@@ -1217,7 +1281,7 @@
 
     invoke-virtual {v10, v12}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    const v12, 0x7f10045e
+    const v12, 0x7f10045d
 
     invoke-virtual {v11, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1229,7 +1293,7 @@
 
     invoke-virtual {v3, v12}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    const v12, 0x7f10045d
+    const v12, 0x7f10045c
 
     invoke-virtual {v11, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1253,7 +1317,7 @@
 
     invoke-virtual {v2, v12}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    const v12, 0x7f100460
+    const v12, 0x7f10045f
 
     invoke-virtual {v11, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1362,7 +1426,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0902eb
+    const v3, 0x7f0902ed
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1950,7 +2014,7 @@
 
     const/4 v7, 0x1
 
-    const v5, 0x7f04016c
+    const v5, 0x7f04016e
 
     invoke-virtual {p1, v5, p2, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1960,7 +2024,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v6, 0x7f100387
+    const v6, 0x7f100389
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1980,7 +2044,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v6, 0x7f10038d
+    const v6, 0x7f10038f
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2003,7 +2067,7 @@
     :cond_0
     iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v6, 0x7f1003f7
+    const v6, 0x7f1003f6
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2033,7 +2097,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_4
 
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
@@ -2078,7 +2142,7 @@
 
     invoke-static {p0, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_5
 
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
@@ -2115,7 +2179,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v6, 0x7f10040f
+    const v6, 0x7f10040e
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2125,7 +2189,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v6, 0x7f100412
+    const v6, 0x7f100411
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2135,7 +2199,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v6, 0x7f100414
+    const v6, 0x7f100413
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2199,7 +2263,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v6, 0x7f100423
+    const v6, 0x7f100422
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2209,7 +2273,7 @@
 
     iput-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mPowerByBreeze:Landroid/widget/TextView;
 
-    const v5, 0x7f090560
+    const v5, 0x7f090562
 
     invoke-virtual {p0, v5}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 
@@ -2252,42 +2316,15 @@
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_3
-    iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
+    invoke-direct {p0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->inflateInCallButtonLayout()V
 
-    if-nez v5, :cond_4
-
-    iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
-
-    const v6, 0x7f100415
-
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/view/ViewGroup;
-
-    iput-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
-
-    iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
-
-    if-eqz v5, :cond_4
-
-    iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
-
-    invoke-virtual {v5, v8}, Landroid/view/ViewGroup;->setVisibility(I)V
-
-    iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mInCallButtonLayout:Landroid/view/ViewGroup;
-
-    invoke-virtual {p0, v5}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->inflateInCallButtons(Landroid/view/View;)V
-
-    :cond_4
     invoke-virtual {p0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->updateEndCallButtonColor()V
 
     iget-object v5, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
     return-object v5
 
-    :cond_5
+    :cond_4
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
     invoke-static {v7}, Lcom/android/incallui/util/VisualCallCenter;->setDisplayIVRPager(Z)V
@@ -2300,8 +2337,8 @@
 
     goto/16 :goto_0
 
-    :cond_6
-    if-ne v4, v7, :cond_7
+    :cond_5
+    if-ne v4, v7, :cond_6
 
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
@@ -2311,7 +2348,7 @@
 
     goto/16 :goto_1
 
-    :cond_7
+    :cond_6
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
     const/4 v5, 0x3

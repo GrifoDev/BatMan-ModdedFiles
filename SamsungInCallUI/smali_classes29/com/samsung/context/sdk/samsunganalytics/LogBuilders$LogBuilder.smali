@@ -413,3 +413,24 @@
 
     return-object v0
 .end method
+
+.method public final setSessionUpdate()Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TT;"
+        }
+    .end annotation
+
+    const-string v0, "sc"
+
+    const-string v1, "u"
+
+    invoke-virtual {p0, v0, v1}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
+
+    invoke-virtual {p0}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;->getThis()Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
+
+    move-result-object v0
+
+    return-object v0
+.end method

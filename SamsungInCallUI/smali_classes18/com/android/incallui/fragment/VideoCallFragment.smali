@@ -1173,7 +1173,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallFragment;->mVideoViews:Landroid/view/View;
 
-    const v1, 0x7f100395
+    const v1, 0x7f100397
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1208,7 +1208,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallFragment;->mVideoViews:Landroid/view/View;
 
-    const v1, 0x7f10039e
+    const v1, 0x7f1003a0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

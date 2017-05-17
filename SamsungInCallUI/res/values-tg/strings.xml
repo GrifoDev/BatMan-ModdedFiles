@@ -479,6 +479,7 @@
     <string name="outgoing_img_picture">Тасвирҳо</string>
     <string name="outgoing_img_take_picture">Сурат гирифтан</string>
     <string name="outgoing_img_video">Видеоҳо</string>
+    <string name="overlay_warning_toast">Барои Телефонро истифода бурдан, дар танзимоти Телефон Барномаҳое, ки дар боло нишон дода мешавандро фурӯзон кунед.</string>
     <string name="payphone_sbm">Таксофон</string>
     <string name="phoneLabelsGroup">Телефон</string>
     <string name="phone_voice_recording_failed_by_secure_call">Занги амнро сабт кардан мумкин нест.</string>
@@ -636,6 +637,7 @@
     <string name="secOnscreenUpdateContactText">Навсозии мавҷудаҳо</string>
     <string name="secOnscreenUpdateContactText_tts">Навсозии мавҷудаҳо</string>
     <string name="secOnscreenVideoCallText">Занги овозӣ</string>
+    <string name="secOnscreenVideoStopText">Қатъ кардан</string>
     <string name="secOnscreenViewContactText">Дидани алоқа</string>
     <string name="secOnscreenVoiceCallText">Занг задан</string>
     <string name="secOnscreenVoiceCallTextExtended">Занги овозӣ</string>

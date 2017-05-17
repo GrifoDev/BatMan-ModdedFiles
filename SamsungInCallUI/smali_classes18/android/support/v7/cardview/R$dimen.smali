@@ -15,11 +15,11 @@
 
 
 # static fields
-.field public static final cardview_compat_inset_shadow:I = 0x7f0a03c4
+.field public static final cardview_compat_inset_shadow:I = 0x7f0a03c6
 
-.field public static final cardview_default_elevation:I = 0x7f0a03c5
+.field public static final cardview_default_elevation:I = 0x7f0a03c7
 
-.field public static final cardview_default_radius:I = 0x7f0a03c6
+.field public static final cardview_default_radius:I = 0x7f0a03c8
 
 
 # direct methods

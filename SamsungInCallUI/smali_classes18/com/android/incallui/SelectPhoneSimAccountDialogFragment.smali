@@ -262,7 +262,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f040184
+    const v10, 0x7f040188
 
     iget-object v11, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mAccountHandles:Ljava/util/List;
 
@@ -330,7 +330,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f040183
+    const v10, 0x7f040187
 
     const/4 v11, 0x0
 
@@ -338,7 +338,7 @@
 
     move-result-object v4
 
-    const v9, 0x7f10044f
+    const v9, 0x7f10044e
 
     invoke-virtual {v4, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -354,7 +354,7 @@
 
     invoke-virtual {v5, v9}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    const v9, 0x7f0902ac
+    const v9, 0x7f0902ae
 
     invoke-virtual {v3, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -393,7 +393,7 @@
     goto :goto_1
 
     :cond_4
-    const v9, 0x7f0902af
+    const v9, 0x7f0902b1
 
     invoke-virtual {v3, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -410,7 +410,7 @@
     goto :goto_2
 
     :cond_5
-    const v9, 0x7f0902af
+    const v9, 0x7f0902b1
 
     invoke-virtual {v3, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

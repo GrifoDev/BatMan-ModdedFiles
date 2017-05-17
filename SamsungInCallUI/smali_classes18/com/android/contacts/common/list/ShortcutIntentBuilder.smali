@@ -158,7 +158,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0a05fc
+    const v2, 0x7f0a0607
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -185,7 +185,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0f01d9
+    const v2, 0x7f0f01da
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -307,7 +307,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f09053f
+    const v6, 0x7f090541
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -404,7 +404,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f09053f
+    const v8, 0x7f090541
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -429,7 +429,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f09044c
+    const v9, 0x7f09044e
 
     const/4 v10, 0x1
 
@@ -495,7 +495,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090594
+    const v9, 0x7f090596
 
     const/4 v10, 0x1
 
@@ -607,7 +607,7 @@
 
     invoke-direct {v9, v5}, Landroid/text/TextPaint;-><init>(I)V
 
-    const v5, 0x7f0a05fe
+    const v5, 0x7f0a0609
 
     move-object/from16 v0, v17
 
@@ -617,7 +617,7 @@
 
     invoke-virtual {v9, v5}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    const v5, 0x7f0f01f8
+    const v5, 0x7f0f01f9
 
     move-object/from16 v0, v17
 
@@ -633,7 +633,7 @@
 
     const/high16 v7, 0x40000000    # 2.0f
 
-    const v8, 0x7f0f01f9
+    const v8, 0x7f0f01fa
 
     move-object/from16 v0, v17
 
@@ -665,7 +665,7 @@
 
     invoke-virtual {v0, v5}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    const v5, 0x7f0a05fd
+    const v5, 0x7f0a0608
 
     move-object/from16 v0, v17
 

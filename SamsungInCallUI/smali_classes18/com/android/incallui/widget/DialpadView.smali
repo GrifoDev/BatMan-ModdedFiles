@@ -417,7 +417,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a0503
+    const v25, 0x7f0a0509
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -427,7 +427,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a009b
+    const v25, 0x7f0a009d
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -443,7 +443,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a012d
+    const v25, 0x7f0a012f
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -457,7 +457,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a05af
+    const v25, 0x7f0a05b9
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -497,7 +497,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a02e0
+    const v25, 0x7f0a02e2
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -511,7 +511,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a0239
+    const v25, 0x7f0a023b
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -527,7 +527,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a0237
+    const v25, 0x7f0a0239
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -570,7 +570,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a05b1
+    const v25, 0x7f0a05bb
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -592,7 +592,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a05cc
+    const v25, 0x7f0a05d5
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -602,7 +602,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a05cb
+    const v25, 0x7f0a05d4
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -616,7 +616,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a05ca
+    const v25, 0x7f0a05d3
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -736,7 +736,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a02f3
+    const v25, 0x7f0a02f5
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -807,7 +807,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a05af
+    const v25, 0x7f0a05b9
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -821,7 +821,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a0341
+    const v25, 0x7f0a0343
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -831,7 +831,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0a05b0
+    const v25, 0x7f0a05ba
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -848,9 +848,8 @@
 
     :array_0
     .array-data 4
-        0x7f0904a6
-        0x7f0904a9
-        0x7f0904ac
+        0x7f0904a8
+        0x7f0904ab
         0x7f0904ae
         0x7f0904b0
         0x7f0904b2
@@ -858,15 +857,15 @@
         0x7f0904b6
         0x7f0904b8
         0x7f0904ba
-        0x7f0904c0
-        0x7f0904bd
+        0x7f0904bc
+        0x7f0904c2
+        0x7f0904bf
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f0904a5
-        0x7f0904a8
-        0x7f0904ab
+        0x7f0904a7
+        0x7f0904aa
         0x7f0904ad
         0x7f0904af
         0x7f0904b1
@@ -874,14 +873,15 @@
         0x7f0904b5
         0x7f0904b7
         0x7f0904b9
-        0x7f0904bf
-        0x7f0904bc
+        0x7f0904bb
+        0x7f0904c1
+        0x7f0904be
     .end array-data
 
     :array_2
     .array-data 4
-        0x7f0904a7
-        0x7f0904aa
+        0x7f0904a9
+        0x7f0904ac
         0x7f0900f7
         0x7f0900f8
         0x7f0900f9
@@ -890,8 +890,8 @@
         0x7f0900fc
         0x7f0900fd
         0x7f0900fe
-        0x7f0904c1
-        0x7f0904be
+        0x7f0904c3
+        0x7f0904c0
     .end array-data
 .end method
 

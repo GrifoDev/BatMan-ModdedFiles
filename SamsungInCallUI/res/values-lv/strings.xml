@@ -526,6 +526,7 @@ IVR zvana ekrāna izvēlne izmanto saturu, ko nodrošina trešās puses pakalpoj
     <string name="outgoing_img_picture">Attēli</string>
     <string name="outgoing_img_take_picture">Fotografēt</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">Lai izmantotu programmu Tālrunis, tālruņa iestatījumos ieslēdziet funkciju Programmas, kas var tikt parādītas augšdaļā.</string>
     <string name="payphone_sbm">Taksofons</string>
     <string name="phoneLabelsGroup">Tālrunis</string>
     <string name="phone_voice_recording_failed_by_secure_call">Nevar ierakstīt drošu zvanu.</string>
@@ -683,6 +684,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Atjaun. esošo</string>
     <string name="secOnscreenUpdateContactText_tts">Atjaunināt esošos</string>
     <string name="secOnscreenVideoCallText">Videozvans</string>
+    <string name="secOnscreenVideoStopText">Pārtraukt</string>
     <string name="secOnscreenViewContactText">Skatīt kontaktu</string>
     <string name="secOnscreenVoiceCallText">Zvans</string>
     <string name="secOnscreenVoiceCallTextExtended">Balss zv.</string>

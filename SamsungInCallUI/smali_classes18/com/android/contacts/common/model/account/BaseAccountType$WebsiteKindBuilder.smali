@@ -69,7 +69,7 @@
 
     const/4 v4, 0x0
 
-    const v7, 0x7f090335
+    const v7, 0x7f090337
 
     const-string v5, "vnd.android.cursor.item/website"
 

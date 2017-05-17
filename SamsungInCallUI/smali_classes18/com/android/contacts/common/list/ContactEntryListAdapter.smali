@@ -71,7 +71,7 @@
 
     iput-boolean v0, p0, Lcom/android/contacts/common/list/ContactEntryListAdapter;->mDarkTheme:Z
 
-    const v0, 0x7f090522
+    const v0, 0x7f090524
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/list/ContactEntryListAdapter;->setDefaultFilterHeaderText(I)V
 
@@ -380,7 +380,7 @@
     goto :goto_3
 
     :cond_3
-    const v10, 0x7f0a0413
+    const v10, 0x7f0a0415
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -805,7 +805,7 @@
 
     iget-object v11, p0, Lcom/android/contacts/common/list/ContactEntryListAdapter;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f0904c3
+    const v12, 0x7f0904c5
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -851,7 +851,7 @@
     :cond_3
     iget-object v11, p0, Lcom/android/contacts/common/list/ContactEntryListAdapter;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f0904c2
+    const v12, 0x7f0904c4
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -870,7 +870,7 @@
 
     iget-object v11, p0, Lcom/android/contacts/common/list/ContactEntryListAdapter;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f09051f
+    const v12, 0x7f090521
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1058,7 +1058,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090488
+    const v2, 0x7f09048a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2026,7 +2026,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0905c6
+    const v2, 0x7f0905c8
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

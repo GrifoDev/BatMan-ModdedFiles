@@ -1088,7 +1088,7 @@
         }
     .end annotation
 
-    const v7, 0x7f090206
+    const v7, 0x7f090207
 
     const/16 v6, 0xa
 
@@ -1110,7 +1110,7 @@
 
     iput v1, v0, Lcom/android/contacts/common/model/dataitem/DataKind;->iconAltRes:I
 
-    const v1, 0x7f0902cb
+    const v1, 0x7f0902cd
 
     iput v1, v0, Lcom/android/contacts/common/model/dataitem/DataKind;->iconAltDescriptionRes:I
 
@@ -1855,7 +1855,7 @@
 
     const-string v2, "vnd.android.cursor.item/postal-address_v2"
 
-    const v3, 0x7f09020e
+    const v3, 0x7f09020f
 
     const/16 v4, 0x19
 
@@ -1958,7 +1958,7 @@
         }
     .end annotation
 
-    const v5, 0x7f090335
+    const v5, 0x7f090337
 
     new-instance v1, Lcom/android/contacts/common/model/dataitem/DataKind;
 

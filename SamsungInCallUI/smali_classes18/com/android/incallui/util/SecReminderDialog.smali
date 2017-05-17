@@ -255,7 +255,7 @@
 
     invoke-direct {v6}, Lcom/samsung/android/support/reminder/RemindContents;-><init>()V
 
-    const v8, 0x7f0902c2
+    const v8, 0x7f0902c4
 
     new-array v9, v12, [Ljava/lang/Object;
 

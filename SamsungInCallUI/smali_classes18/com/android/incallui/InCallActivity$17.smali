@@ -1,14 +1,11 @@
 .class Lcom/android/incallui/InCallActivity$17;
-.super Ljava/lang/Object;
+.super Landroid/database/ContentObserver;
 .source "InCallActivity.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/InCallActivity;->updatedVideoCallMenu()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/incallui/InCallActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,24 +19,42 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/incallui/InCallActivity;)V
+.method constructor <init>(Lcom/android/incallui/InCallActivity;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$17;->this$0:Lcom/android/incallui/InCallActivity;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public onChange(Z)V
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
+
+    sget-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->DEVICE_ROTATION:Z
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$17;->this$0:Lcom/android/incallui/InCallActivity;
 
-    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->showInCallMenu()V
+    const/4 v1, 0x0
 
+    # invokes: Lcom/android/incallui/InCallActivity;->updateScreenType(Z)V
+    invoke-static {v0, v1}, Lcom/android/incallui/InCallActivity;->access$1600(Lcom/android/incallui/InCallActivity;Z)V
+
+    invoke-static {}, Lcom/android/incallui/InCallNotifier;->getInstance()Lcom/android/incallui/InCallNotifier;
+
+    move-result-object v0
+
+    const/16 v1, 0x1f4
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/InCallNotifier;->notifyVideoCallUiEvent(I)V
+
+    :cond_0
     return-void
 .end method

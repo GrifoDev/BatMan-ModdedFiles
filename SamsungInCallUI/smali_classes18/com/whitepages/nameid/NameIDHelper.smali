@@ -48,7 +48,7 @@
 
 .field public static final NAME_ID_RESULT_USE_PHONE:I = 0x3
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "InCall_NameIDHelper"
 
 .field private static final TRY_RECONNECT_AFTER_MILLIS:J = 0xea60L
 
@@ -80,14 +80,6 @@
     .locals 3
 
     const/4 v2, 0x0
-
-    const-class v0, Lcom/whitepages/nameid/NameIDHelper;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
 
     sput-object v2, Lcom/whitepages/nameid/NameIDHelper;->sService:Lcom/whitepages/nameid/ILookupService;
 
@@ -150,15 +142,7 @@
     return-void
 .end method
 
-.method static synthetic access$300()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400()Z
+.method static synthetic access$300()Z
     .locals 1
 
     sget-boolean v0, Lcom/whitepages/nameid/NameIDHelper;->DBG:Z
@@ -166,7 +150,7 @@
     return v0
 .end method
 
-.method static synthetic access$500(J)V
+.method static synthetic access$400(J)V
     .locals 0
 
     invoke-static {p0, p1}, Lcom/whitepages/nameid/NameIDHelper;->tryReconnectUntil(J)V
@@ -237,7 +221,7 @@
 .method public static beautifyCnapName(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
-    sget-object v1, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v1, "InCall_NameIDHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -311,7 +295,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v1, "InCall_NameIDHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -591,7 +575,7 @@
     :catch_0
     move-exception v1
 
-    sget-object v4, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v4, "InCall_NameIDHelper"
 
     const-string v5, "Gradient color not set for ATT Call Protect"
 
@@ -614,7 +598,7 @@
     monitor-enter v4
 
     :try_start_0
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     const-string v5, "NameIDHelper static init called"
 
@@ -660,7 +644,7 @@
 
     if-nez v3, :cond_2
 
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     const-string v5, "both of NameID and ATT callProtect are not installed or disabled"
 
@@ -720,7 +704,7 @@
 
     move-result v2
 
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -748,7 +732,7 @@
 
     if-nez v3, :cond_5
 
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     const-string v5, "bindService is failed when init() is called in first time!"
 
@@ -771,7 +755,7 @@
     move-exception v0
 
     :try_start_4
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     const-string v5, "Failed to bind to lookup service -- Name ID may be uninstalled"
 
@@ -862,7 +846,7 @@
     goto :goto_0
 
     :cond_2
-    sget-object v5, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v5, "InCall_NameIDHelper"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -895,7 +879,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v5, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v5, "InCall_NameIDHelper"
 
     const-string v6, "error trying to detect package : com.att.callprotect -- we are probably not installed"
 
@@ -938,7 +922,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v1, "InCall_NameIDHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1000,7 +984,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v1, "InCall_NameIDHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1054,7 +1038,7 @@
 
     if-nez v3, :cond_1
 
-    sget-object v5, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v5, "InCall_NameIDHelper"
 
     const-string v6, "PackageManager is null"
 
@@ -1077,7 +1061,7 @@
 
     if-eqz v1, :cond_0
 
-    sget-object v5, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v5, "InCall_NameIDHelper"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -1110,7 +1094,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v5, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v5, "InCall_NameIDHelper"
 
     const-string v6, "error trying to detect package : com.whitepages.nameid.tmobile -- we are probably not installed"
 
@@ -1128,7 +1112,7 @@
 .method public static startActivity(Landroid/content/Context;Landroid/content/Intent;Landroid/net/Uri;)V
     .locals 6
 
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     const-string v4, "startActivity called"
 
@@ -1155,7 +1139,7 @@
     if-nez v3, :cond_2
 
     :cond_0
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     const-string v4, "calling default startactivity"
 
@@ -1173,7 +1157,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1214,7 +1198,7 @@
 
     invoke-direct {v2, p1, p2, v1, p0}, Lcom/whitepages/nameid/NameIDHelper$2;-><init>(Landroid/content/Intent;Landroid/net/Uri;Landroid/content/Intent;Landroid/content/Context;)V
 
-    sget-object v3, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v3, "InCall_NameIDHelper"
 
     const-string v4, "about to execute task"
 
@@ -1347,7 +1331,7 @@
 
     if-eqz v2, :cond_0
 
-    sget-object v2, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v2, "InCall_NameIDHelper"
 
     const-string v3, "connected during retry cycle!"
 
@@ -1365,7 +1349,7 @@
 
     if-lez v2, :cond_1
 
-    sget-object v2, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v2, "InCall_NameIDHelper"
 
     const-string v3, "Giving up on retries"
 
@@ -1374,7 +1358,7 @@
     goto :goto_0
 
     :cond_1
-    sget-object v2, Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
+    const-string v2, "InCall_NameIDHelper"
 
     const-string v3, "trying to reconnect"
 

@@ -67,17 +67,13 @@
 
     if-eqz v6, :cond_1
 
-    invoke-virtual {v6}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v0
-
-    invoke-static {v0}, Lcom/android/incallui/Call$State;->isDialing(I)Z
+    invoke-static {v6}, Lcom/android/incallui/util/SecCallExtraUtils;->getReceivedCall(Lcom/android/incallui/Call;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    const-string v10, "true"
+    const-string v10, "false"
 
     :goto_0
     invoke-virtual {v6}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
@@ -159,7 +155,7 @@
     return-void
 
     :cond_2
-    const-string v10, "false"
+    const-string v10, "true"
 
     goto :goto_0
 

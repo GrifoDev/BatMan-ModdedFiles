@@ -30,7 +30,7 @@
 
     if-nez p1, :cond_0
 
-    const v0, 0x7f0904d4
+    const v0, 0x7f0904d6
 
     :goto_0
     return v0

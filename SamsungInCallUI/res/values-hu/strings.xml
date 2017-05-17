@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">A hívás elutasításához és rövid üzenet küldéséhez húzza felfelé az ÜZENET KÜLDÉSE gombot.</string>
     <string name="call_drug_up_panel_for_kk_tts">Hívás elutasításakor a Híváselutasítás üzenetben panelt felfelé húzva híváselutasító üzenetet küldhet.</string>
     <string name="call_ended_toast">Hívás vége.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Hívás átirányítva ide:</string>
+    <string name="call_forwarding_from">Innen átirányított hívás:</string>
     <string name="call_incoming_voice_call2">Hívás fogadásához érintse meg az %s ikont.</string>
     <string name="call_incoming_voice_call2_tts">Érintse meg a Hívás fogadása gombot a hívás fogadásához.</string>
     <string name="call_incoming_voice_call3">%s: hívás elutasítása.</string>
@@ -526,6 +526,7 @@ Az IVR hívásképernyő-menüje a Dianhuabang nevű szolgáltató harmadik fél
     <string name="outgoing_img_picture">Képek</string>
     <string name="outgoing_img_take_picture">Kép készítése</string>
     <string name="outgoing_img_video">Videók</string>
+    <string name="overlay_warning_toast">A Telefon használatához kapcsolja be a Más alkalmazások eltakarására képes alkalmazások lehetőséget a Telefonbeállításokban.</string>
     <string name="payphone_sbm">Telefonfülke</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">A biztonságos hívások nem rögzíthetők.</string>
@@ -682,6 +683,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Megl. frissítése</string>
     <string name="secOnscreenUpdateContactText_tts">Meglévő frissítése</string>
     <string name="secOnscreenVideoCallText">Videohívás</string>
+    <string name="secOnscreenVideoStopText">Leállítás</string>
     <string name="secOnscreenViewContactText">Névjegy mutatása</string>
     <string name="secOnscreenVoiceCallText">Hívás</string>
     <string name="secOnscreenVoiceCallTextExtended">Hanghívás</string>

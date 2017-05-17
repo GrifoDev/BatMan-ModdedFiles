@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Dra upp knappen SKICKA MEDDELANDE för att skicka ett snabbmeddelande och avvisa samtalet.</string>
     <string name="call_drug_up_panel_for_kk_tts">Dra panelen för meddelande för att avvisa samtal uppåt för att skicka ett meddelande för att avvisa samtal när du avvisar ett inkommande samtal.</string>
     <string name="call_ended_toast">Samtal avslutat.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Samtal har vidarekopplats till:</string>
+    <string name="call_forwarding_from">Samtal har vidarekopplats från:</string>
     <string name="call_incoming_voice_call2">Tryck på %s för att svara på ett samtal.</string>
     <string name="call_incoming_voice_call2_tts">Tryck på knappen för att svara på samtal för att svara på ett samtal.</string>
     <string name="call_incoming_voice_call3">Avvisa ett samtal med %s.</string>
@@ -526,6 +526,7 @@ Samtalsskärmmenyn IVR använder innehåll som tillhandahålls av en tredjeparts
     <string name="outgoing_img_picture">Bilder</string>
     <string name="outgoing_img_take_picture">Ta foto</string>
     <string name="outgoing_img_video">Videoklipp</string>
+    <string name="overlay_warning_toast">Om du vill använda Telefon måste du slå på Program som kan visas överst i Telefon-inställningarna.</string>
     <string name="payphone_sbm">Telefonautomat</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Det går inte att spela in säkert samtal.</string>
@@ -682,6 +683,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Uppdat. befintl.</string>
     <string name="secOnscreenUpdateContactText_tts">Uppdatera befintlig</string>
     <string name="secOnscreenVideoCallText">Videosamt.</string>
+    <string name="secOnscreenVideoStopText">Stopp</string>
     <string name="secOnscreenViewContactText">Visa kontakt</string>
     <string name="secOnscreenVoiceCallText">Samtal</string>
     <string name="secOnscreenVoiceCallTextExtended">Röstsamtal</string>

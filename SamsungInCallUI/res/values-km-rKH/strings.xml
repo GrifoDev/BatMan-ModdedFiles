@@ -499,6 +499,7 @@
     <string name="outgoing_img_picture">រូប</string>
     <string name="outgoing_img_take_picture">ថត​រូបភាព</string>
     <string name="outgoing_img_video">វីដេអូ</string>
+    <string name="overlay_warning_toast">ដើម្បី​ប្រើ​ទូរសព្ទ អ្នក​ត្រូវ​បើក​កម្មវិធី​ដែល​អាច​លេចឡើង​នៅ​ផ្នែក​ខាងលើ​ក្នុង ការកំណត់​ទូរសព្ទ។</string>
     <string name="payphone_sbm">ទូរសព្ទ​បង់​ប្រាក់</string>
     <string name="phoneLabelsGroup">ទូរសព្ទ</string>
     <string name="phone_voice_recording_failed_by_secure_call">មិន​អាច​ថត​ការហៅ​សន្តិសុខ។</string>
@@ -655,6 +656,7 @@
     <string name="secOnscreenUpdateContactText">អាប់ដេត​មាន​ស្រាប់</string>
     <string name="secOnscreenUpdateContactText_tts">អាប់ដេត​មាន​ស្រាប់</string>
     <string name="secOnscreenVideoCallText">ការហៅ​វីដេអូ</string>
+    <string name="secOnscreenVideoStopText">ឈប់</string>
     <string name="secOnscreenViewContactText">បង្ហាញ​ទំនាក់ទំនង</string>
     <string name="secOnscreenVoiceCallText">ហៅ</string>
     <string name="secOnscreenVoiceCallTextExtended">ការហៅ​សំឡេង</string>

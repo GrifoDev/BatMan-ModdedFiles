@@ -39,13 +39,13 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 9
 
-    const v8, 0x7f0904f8
+    const v8, 0x7f0904fa
 
     const/4 v6, 0x1
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v4, 0x7f0904f8
+    const v4, 0x7f0904fa
 
     invoke-static {p0}, Lcom/android/contacts/common/model/AccountTypeManager;->getInstance(Landroid/content/Context;)Lcom/android/contacts/common/model/AccountTypeManager;
 
@@ -158,7 +158,7 @@
 .method protected onCreateDialog(ILandroid/os/Bundle;)Landroid/app/Dialog;
     .locals 3
 
-    const v0, 0x7f0904f8
+    const v0, 0x7f0904fa
 
     if-ne p1, v0, :cond_1
 

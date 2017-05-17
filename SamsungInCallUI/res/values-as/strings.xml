@@ -479,6 +479,7 @@ IVR কল চেণ্টাৰ মেনুয়ে Dianhuabang নামৰ এ
     <string name="outgoing_img_picture">প্ৰতিচ্ছবি</string>
     <string name="outgoing_img_take_picture">চিত্ৰ লওক</string>
     <string name="outgoing_img_video">"ভিডিঅ'সমূহ"</string>
+    <string name="overlay_warning_toast">ফোন ব্যৱহাৰ কৰিবলৈ, আপুনি ফোন ছেটিংছৰ শীৰ্ষত প্ৰকট কৰিব পৰা এপ্প্‌চ অন কৰাৰ প্ৰয়োজন।</string>
     <string name="payphone_sbm">ফোনত পৰিশোধ কৰক</string>
     <string name="phoneLabelsGroup">ফোন</string>
     <string name="phone_voice_recording_failed_by_secure_call">সুৰক্ষিত কল ৰেকৰ্ড কৰিব নোৱাৰে।</string>
@@ -635,6 +636,7 @@ IVR কল চেণ্টাৰ মেনুয়ে Dianhuabang নামৰ এ
     <string name="secOnscreenUpdateContactText">মজুত থকা আপডেট</string>
     <string name="secOnscreenUpdateContactText_tts">মজুত থকা আপডেট কৰক</string>
     <string name="secOnscreenVideoCallText">"ভিডিঅ' কল"</string>
+    <string name="secOnscreenVideoStopText">বন্ধ কৰক</string>
     <string name="secOnscreenViewContactText">সম্পৰ্ক দৰ্শন</string>
     <string name="secOnscreenVoiceCallText">কল কৰক</string>
     <string name="secOnscreenVoiceCallTextExtended">মাত কল</string>

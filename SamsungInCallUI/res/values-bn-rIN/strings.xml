@@ -479,6 +479,7 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="outgoing_img_picture">চিত্রগুলি</string>
     <string name="outgoing_img_take_picture">ফটো তুলুন</string>
     <string name="outgoing_img_video">ভিডিওগুলি</string>
+    <string name="overlay_warning_toast">ফোন ব্যবহার করতে, ফোন সেটিংসের শীর্ষে উপস্থিত হবে এমন অ্যাপগুলি আপনাকে চালু করতে হবে।</string>
     <string name="payphone_sbm">পে ফোন</string>
     <string name="phoneLabelsGroup">ফোন</string>
     <string name="phone_voice_recording_failed_by_secure_call">নিরাপদ কল রেকর্ড করতে পারে না।</string>
@@ -635,6 +636,7 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="secOnscreenUpdateContactText">বিদ্যমান আপডেট</string>
     <string name="secOnscreenUpdateContactText_tts">বিদ্যমান আপডেট</string>
     <string name="secOnscreenVideoCallText">ভিডিও কল</string>
+    <string name="secOnscreenVideoStopText">থামান</string>
     <string name="secOnscreenViewContactText">পরিচিতি দেখুন</string>
     <string name="secOnscreenVoiceCallText">কল</string>
     <string name="secOnscreenVoiceCallTextExtended">ভয়েস কল</string>

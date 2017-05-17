@@ -600,7 +600,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a015c
+    const v2, 0x7f0a015e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -660,7 +660,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04012f
+    const v1, 0x7f040130
 
     invoke-virtual {v0, v1, p1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -672,7 +672,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1003c3
+    const v2, 0x7f1003c2
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -684,7 +684,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1003c8
+    const v2, 0x7f1003c7
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -694,7 +694,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1003c4
+    const v2, 0x7f1003c3
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -706,7 +706,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1003c9
+    const v2, 0x7f1003c8
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -718,7 +718,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1003ca
+    const v2, 0x7f1003c9
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -730,7 +730,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1003c7
+    const v2, 0x7f1003c6
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -742,7 +742,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1003c6
+    const v2, 0x7f1003c5
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +754,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1003c5
+    const v2, 0x7f1003c4
 
     invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1328,7 +1328,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0164
+    const v2, 0x7f0a0166
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1342,7 +1342,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0165
+    const v2, 0x7f0a0167
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1379,7 +1379,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a015f
+    const v2, 0x7f0a0161
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1393,7 +1393,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a015e
+    const v2, 0x7f0a0160
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1430,7 +1430,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0161
+    const v2, 0x7f0a0163
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1444,7 +1444,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0160
+    const v2, 0x7f0a0162
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1518,7 +1518,7 @@
 
     aput-object v15, v11, v14
 
-    const v14, 0x7f0902ea
+    const v14, 0x7f0902ec
 
     move-object/from16 v0, p0
 
@@ -1542,7 +1542,7 @@
 
     aput-object v15, v12, v14
 
-    const v14, 0x7f0902ec
+    const v14, 0x7f0902ee
 
     move-object/from16 v0, p0
 
@@ -1572,7 +1572,7 @@
 
     aput-object v15, v10, v14
 
-    const v14, 0x7f0902e9
+    const v14, 0x7f0902eb
 
     move-object/from16 v0, p0
 

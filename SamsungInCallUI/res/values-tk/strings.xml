@@ -479,6 +479,7 @@ IVR jaň ekrany menýusy Dianhuabang diýilýän üçünji tarap hyzmat üpjün 
     <string name="outgoing_img_picture">Suratlar</string>
     <string name="outgoing_img_take_picture">Surat al</string>
     <string name="outgoing_img_video">Wideolar</string>
+    <string name="overlay_warning_toast">Telefony ulanmak üçin, siz Telefon sazlamalarynda Ýokarda görünýän goýmalar-y açmaly.</string>
     <string name="payphone_sbm">Töleg telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Goragly jaňy ýazga geçirip bolmaýar.</string>
@@ -635,6 +636,7 @@ Kamera"</string>
     <string name="secOnscreenUpdateContactText">Häzirkini täzele</string>
     <string name="secOnscreenUpdateContactText_tts">Şuwagt baryny täzele</string>
     <string name="secOnscreenVideoCallText">Wideo jaňy</string>
+    <string name="secOnscreenVideoStopText">Dur</string>
     <string name="secOnscreenViewContactText">Kontakty gör</string>
     <string name="secOnscreenVoiceCallText">Jaň</string>
     <string name="secOnscreenVoiceCallTextExtended">Sesli jaň</string>

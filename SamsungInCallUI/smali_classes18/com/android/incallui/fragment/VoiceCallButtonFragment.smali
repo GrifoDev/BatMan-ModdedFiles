@@ -8,6 +8,8 @@
 
 .field protected static mCurrentPageScrollState:I
 
+.field private static mIsConfigChange:Z
+
 
 # instance fields
 .field protected mAddCallButton:Landroid/widget/Button;
@@ -84,6 +86,8 @@
     .locals 1
 
     const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mIsConfigChange:Z
 
     sput v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mCurrentPageScrollState:I
 
@@ -286,7 +290,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a04f7
+    const v9, 0x7f0a04fd
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -296,7 +300,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0246
+    const v9, 0x7f0a0248
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -306,7 +310,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0305
+    const v9, 0x7f0a0307
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -328,7 +332,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a009f
+    const v9, 0x7f0a00a1
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -586,7 +590,7 @@
     goto :goto_0
 
     :cond_5
-    const v5, 0x7f10041b
+    const v5, 0x7f10041a
 
     if-ne p1, v5, :cond_6
 
@@ -595,7 +599,7 @@
     goto :goto_0
 
     :cond_6
-    const v5, 0x7f100323
+    const v5, 0x7f100325
 
     if-ne p1, v5, :cond_0
 
@@ -858,7 +862,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090310
+    const v3, 0x7f090312
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -880,7 +884,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090311
+    const v3, 0x7f090313
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -969,7 +973,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090313
+    const v2, 0x7f090315
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -982,7 +986,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090314
+    const v2, 0x7f090316
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -995,7 +999,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090312
+    const v2, 0x7f090314
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1076,7 +1080,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0902fa
+    const v1, 0x7f0902fc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1116,7 +1120,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090302
+    const v1, 0x7f090304
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1131,7 +1135,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090301
+    const v1, 0x7f090303
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3030,7 +3034,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a050c
+    const v4, 0x7f0a0513
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3686,7 +3690,7 @@
     const/4 v9, 0x1
 
     :goto_b
-    const-string v17, "ims_voice_conference_kddi"
+    const-string v17, "feature_kdi"
 
     invoke-static/range {v17 .. v17}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
@@ -4363,345 +4367,345 @@
     :try_start_0
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v12
-
-    const/4 v13, 0x0
+    move-result-object v13
 
     const/4 v14, 0x0
 
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    const/4 v15, 0x0
+
+    invoke-static {v13, v14, v15}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v5
 
-    const v12, 0x7f100419
+    const v13, 0x7f100418
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mInCallButtons:Landroid/view/View;
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mInCallButtons:Landroid/view/View;
 
-    const v12, 0x7f10041a
+    const v13, 0x7f100419
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/view/ViewGroup;
+    check-cast v13, Landroid/view/ViewGroup;
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mInCallButtonsUpper:Landroid/view/ViewGroup;
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mInCallButtonsUpper:Landroid/view/ViewGroup;
 
-    const v12, 0x7f100424
+    const v13, 0x7f100423
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/view/ViewGroup;
+    check-cast v13, Landroid/view/ViewGroup;
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mInCallButtonsUnder:Landroid/view/ViewGroup;
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mInCallButtonsUnder:Landroid/view/ViewGroup;
 
-    const v12, 0x7f1003b1
+    const v13, 0x7f1003b0
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/Button;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
+    check-cast v13, Landroid/widget/Button;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_0
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
+
+    if-eqz v13, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v13, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
-    const v12, 0x7f10041e
+    const v13, 0x7f10041d
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/ToggleButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+    check-cast v13, Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
-
-    if-eqz v12, :cond_1
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+
+    if-eqz v13, :cond_1
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
 
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setSoundEffectsEnabled(Z)V
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setSoundEffectsEnabled(Z)V
 
     :cond_1
-    const v12, 0x7f10038f
+    const v13, 0x7f100391
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/ToggleButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    check-cast v13, Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
 
-    const/4 v13, 0x0
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setSoundEffectsEnabled(Z)V
+    move-object/from16 v0, p0
 
-    const-string v12, "voice_call_recording"
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    const/4 v14, 0x0
 
-    move-result v12
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setSoundEffectsEnabled(Z)V
 
-    if-eqz v12, :cond_8
+    const-string v13, "voice_call_recording"
 
-    const-string v12, "voice_call_recording_menu"
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    move-result v13
 
-    move-result v12
+    if-eqz v13, :cond_9
 
-    if-nez v12, :cond_6
+    const-string v13, "voice_call_recording_menu"
 
-    const v12, 0x7f10041d
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-nez v13, :cond_6
+
+    const v13, 0x7f10041c
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/view/ViewStub;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButtonStub:Landroid/view/ViewStub;
+    check-cast v13, Landroid/view/ViewStub;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButtonStub:Landroid/view/ViewStub;
-
-    if-eqz v12, :cond_6
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButtonStub:Landroid/view/ViewStub;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButtonStub:Landroid/view/ViewStub;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButtonStub:Landroid/view/ViewStub;
 
-    invoke-virtual {v12}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+    if-eqz v13, :cond_6
 
-    const v12, 0x7f100370
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButtonStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v13}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+
+    const v13, 0x7f100372
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/ToggleButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButton:Landroid/widget/ToggleButton;
+    check-cast v13, Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButton:Landroid/widget/ToggleButton;
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
 
-    if-eqz v12, :cond_2
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
 
-    const/16 v13, 0x8
+    if-eqz v13, :cond_2
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
+
+    const/16 v14, 0x8
+
+    invoke-virtual {v13, v14}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_2
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButtonStub:Landroid/view/ViewStub;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    const-string v12, "hold_key_call_recording"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_6
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getContext()Landroid/content/Context;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v12
-
-    const-string v13, "hold_key_record_calls_enable_sharedpref"
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mRecordButtonStub:Landroid/view/ViewStub;
 
     const/4 v14, 0x0
 
-    invoke-static {v12, v13, v14}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-virtual {v13, v14}, Landroid/view/ViewStub;->setVisibility(I)V
 
-    move-result v12
+    const-string v13, "hold_key_call_recording"
 
-    if-nez v12, :cond_19
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_6
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v13
+
+    const-string v14, "hold_key_record_calls_enable_sharedpref"
+
+    const/4 v15, 0x0
+
+    invoke-static {v13, v14, v15}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v13
+
+    if-nez v13, :cond_1d
 
     const/4 v8, 0x0
 
     :goto_0
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Lcom/android/incallui/InCallPresenter;->getInCallState()Lcom/android/incallui/InCallPresenter$InCallState;
+    invoke-virtual {v13}, Lcom/android/incallui/InCallPresenter;->getInCallState()Lcom/android/incallui/InCallPresenter$InCallState;
 
     move-result-object v7
 
-    const-string v12, "VoiceCallButtonFragment"
+    const-string v13, "VoiceCallButtonFragment"
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v14, "hold_key_record_calls_enable_sharedpref : isOn - "
+    const-string v15, "hold_key_record_calls_enable_sharedpref : isOn - "
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v14
 
-    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v14
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v14
 
-    const/4 v14, 0x1
+    const/4 v15, 0x1
 
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v13, v14, v15}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     if-eqz v8, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPreviousInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPreviousInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-eq v7, v12, :cond_5
+    if-eq v7, v13, :cond_5
 
-    sget-object v12, Lcom/android/incallui/InCallPresenter$InCallState;->INCALL:Lcom/android/incallui/InCallPresenter$InCallState;
+    sget-object v13, Lcom/android/incallui/InCallPresenter$InCallState;->INCALL:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-ne v7, v12, :cond_3
+    if-ne v7, v13, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPreviousInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPreviousInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    sget-object v13, Lcom/android/incallui/InCallPresenter$InCallState;->PENDING_OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
+    sget-object v14, Lcom/android/incallui/InCallPresenter$InCallState;->PENDING_OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-ne v12, v13, :cond_4
+    if-ne v13, v14, :cond_4
 
     :cond_3
-    sget-object v12, Lcom/android/incallui/InCallPresenter$InCallState;->PENDING_OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
+    sget-object v13, Lcom/android/incallui/InCallPresenter$InCallState;->PENDING_OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-ne v7, v12, :cond_5
+    if-ne v7, v13, :cond_5
 
     :cond_4
-    const v12, 0x7f0900be
+    const v13, 0x7f0900be
 
-    invoke-static {v12}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
+    invoke-static {v13}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
     :cond_5
     move-object/from16 v0, p0
@@ -4711,36 +4715,36 @@
     :cond_6
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Lcom/android/incallui/InCallPresenter;->getRecorderMgr()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
+    invoke-virtual {v13}, Lcom/android/incallui/InCallPresenter;->getRecorderMgr()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    move-result-object v10
+    move-result-object v11
 
-    if-eqz v10, :cond_7
+    if-eqz v11, :cond_7
 
-    invoke-virtual {v10}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->onRecorderStateChanged()V
+    invoke-virtual {v11}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->onRecorderStateChanged()V
 
     :cond_7
-    const-string v12, "automatic_answering_machine"
+    const-string v13, "automatic_answering_machine"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_8
+    if-eqz v13, :cond_9
 
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_8
+    if-eqz v13, :cond_9
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Lcom/android/incallui/InCallPresenter;->getAnsMemoRecorderMgr()Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
+    invoke-virtual {v13}, Lcom/android/incallui/InCallPresenter;->getAnsMemoRecorderMgr()Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
     move-result-object v1
 
@@ -4749,855 +4753,915 @@
     invoke-virtual {v1}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->onAMRecorderStateChanged()V
 
     :cond_8
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->setCallButtonContainerVisibility(Z)V
+
+    :cond_9
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
 
     move-result v2
 
-    const-string v12, "usa_gsm_volte_ui"
+    const-string v13, "usa_gsm_volte_ui"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_1a
+    if-eqz v13, :cond_1e
 
-    const-string v12, "psvt_support"
+    const-string v13, "psvt_support"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    :cond_9
-    :goto_1
-    const-string v12, "show_switch_icon_in_button"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_1b
-
-    if-eqz v2, :cond_1b
-
-    const v12, 0x7f100332
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/view/ViewStub;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
-
-    if-eqz v12, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
-
-    invoke-virtual {v12}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
-
-    const v12, 0x7f100386
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/incallui/widget/SecVoiceButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Lcom/android/incallui/widget/SecVoiceButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     :cond_a
-    const/4 v12, 0x1
+    :goto_1
+    const-string v13, "show_switch_icon_in_button"
+
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_1f
+
+    if-eqz v2, :cond_1f
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v13, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+
+    if-nez v13, :cond_1f
+
+    const v13, 0x7f100334
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/view/ViewStub;
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->showSwitchCallButton(Z)V
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
+
+    if-eqz v13, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v13}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+
+    const v13, 0x7f100388
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/android/incallui/widget/SecVoiceButton;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v13, v14}, Lcom/android/incallui/widget/SecVoiceButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_b
-    :goto_2
-    const-string v12, "ims_rcs_bb"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-nez v12, :cond_c
-
-    const-string v12, "ims_rcs"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_10
-
-    :cond_c
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    move-result-object v12
-
     const/4 v13, 0x1
 
-    invoke-virtual {v12, v13}, Lcom/android/incallui/secrcs/RcsShareUI;->setExtraVolumeAvailable(Z)V
-
-    const v12, 0x7f10041c
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/view/ViewStub;
-
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButtonStub:Landroid/view/ViewStub;
+    invoke-virtual {v0, v13}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->showSwitchCallButton(Z)V
 
-    move-object/from16 v0, p0
+    :cond_c
+    :goto_2
+    const-string v13, "ims_rcs_bb"
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButtonStub:Landroid/view/ViewStub;
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    if-eqz v12, :cond_e
+    move-result v13
 
-    move-object/from16 v0, p0
+    if-nez v13, :cond_d
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButtonStub:Landroid/view/ViewStub;
+    const-string v13, "ims_rcs"
 
-    invoke-virtual {v12}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-object/from16 v0, p0
+    move-result v13
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButtonStub:Landroid/view/ViewStub;
-
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    const v12, 0x7f1001bb
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/Button;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-eqz v12, :cond_d
-
-    const-string v12, "feature_org"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-nez v12, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
-
-    const/4 v13, 0x0
-
-    const v14, 0x7f02015e
-
-    const/4 v15, 0x0
-
-    const/16 v16, 0x0
-
-    invoke-virtual/range {v12 .. v16}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
+    if-eqz v13, :cond_14
 
     :cond_d
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_e
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
-
-    new-instance v13, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v13, v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;-><init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    :cond_e
-    const v12, 0x7f100420
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/view/ViewStub;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButtonStub:Landroid/view/ViewStub;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButtonStub:Landroid/view/ViewStub;
-
-    if-eqz v12, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButtonStub:Landroid/view/ViewStub;
-
-    invoke-virtual {v12}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButtonStub:Landroid/view/ViewStub;
-
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    const v12, 0x7f1001ba
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/Button;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
-
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-eqz v12, :cond_f
-
-    const-string v12, "feature_org"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-nez v12, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
-
-    const/4 v13, 0x0
-
-    const v14, 0x7f02015d
-
-    const/4 v15, 0x0
-
-    const/16 v16, 0x0
-
-    invoke-virtual/range {v12 .. v16}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
-
-    :cond_f
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
-
-    new-instance v13, Lcom/android/incallui/fragment/VoiceCallButtonFragment$5;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v13, v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment$5;-><init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    :cond_10
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-eqz v12, :cond_11
-
-    const-string v12, "VoiceCallButtonFragment"
-
-    const-string v13, "onUiResume called"
+    move-result-object v13
 
     const/4 v14, 0x1
 
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {v13, v14}, Lcom/android/incallui/secrcs/RcsShareUI;->setExtraVolumeAvailable(Z)V
+
+    const v13, 0x7f10041b
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/view/ViewStub;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButtonStub:Landroid/view/ViewStub;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButtonStub:Landroid/view/ViewStub;
+
+    if-eqz v13, :cond_12
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButtonStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v13}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButtonStub:Landroid/view/ViewStub;
+
+    const/16 v14, 0x8
+
+    invoke-virtual {v13, v14}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    const v13, 0x7f1001bb
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/widget/Button;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v13, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+
+    if-eqz v13, :cond_e
+
+    const-string v13, "feature_org"
+
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-nez v13, :cond_e
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
+
+    if-eqz v13, :cond_e
+
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
+
+    if-eqz v13, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
+
+    new-instance v14, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v14, v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment$4;-><init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
+
+    invoke-virtual {v13, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :cond_f
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
+
+    move-result v13
+
+    if-nez v13, :cond_10
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Lcom/android/incallui/UiAdapter;->getCallButtonPresenter()Lcom/android/incallui/CallButtonPresenter;
+    invoke-virtual {v13}, Lcom/android/incallui/UiAdapter;->isShowMultiWindowMode()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_12
+
+    :cond_10
+    sget-boolean v13, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mIsConfigChange:Z
+
+    if-nez v13, :cond_11
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v13, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+
+    if-eqz v13, :cond_11
+
+    const-string v13, "feature_org"
+
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-nez v13, :cond_11
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
+
+    if-eqz v13, :cond_11
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
+
+    invoke-virtual {v13}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/16 v13, 0x17
+
+    iput v13, v10, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mPromotedButton:Landroid/widget/Button;
+
+    invoke-virtual {v13, v10}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_11
+    const/4 v13, 0x0
+
+    sput-boolean v13, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mIsConfigChange:Z
+
+    :cond_12
+    const v13, 0x7f10041f
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/view/ViewStub;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButtonStub:Landroid/view/ViewStub;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButtonStub:Landroid/view/ViewStub;
+
+    if-eqz v13, :cond_14
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButtonStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v13}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButtonStub:Landroid/view/ViewStub;
+
+    const/16 v14, 0x8
+
+    invoke-virtual {v13, v14}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    const v13, 0x7f1001ba
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/widget/Button;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v13, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+
+    if-eqz v13, :cond_13
+
+    const-string v13, "feature_org"
+
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-nez v13, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
+
+    if-eqz v13, :cond_13
+
+    :cond_13
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
+
+    if-eqz v13, :cond_14
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mShareButton:Landroid/widget/Button;
+
+    new-instance v14, Lcom/android/incallui/fragment/VoiceCallButtonFragment$5;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v14, v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment$5;-><init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
+
+    invoke-virtual {v13, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :cond_14
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v13, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+
+    if-eqz v13, :cond_15
+
+    const-string v13, "VoiceCallButtonFragment"
+
+    const-string v14, "onUiResume called"
+
+    const/4 v15, 0x1
+
+    invoke-static {v13, v14, v15}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Lcom/android/incallui/UiAdapter;->getCallButtonPresenter()Lcom/android/incallui/CallButtonPresenter;
 
     move-result-object v4
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_15
 
     invoke-virtual {v4}, Lcom/android/incallui/CallButtonPresenter;->onUiResume()V
 
-    :cond_11
-    const v12, 0x7f10038e
+    :cond_15
+    const v13, 0x7f100390
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/ToggleButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    check-cast v13, Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
-
-    if-eqz v12, :cond_12
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+
+    if-eqz v13, :cond_16
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
 
-    new-instance v13, Lcom/android/incallui/fragment/VoiceCallButtonFragment$6;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v13, v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment$6;-><init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
-    const/4 v13, 0x0
+    new-instance v14, Lcom/android/incallui/fragment/VoiceCallButtonFragment$6;
 
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setSoundEffectsEnabled(Z)V
+    move-object/from16 v0, p0
 
-    :cond_12
-    const-string v12, "no_receiver_in_call"
+    invoke-direct {v14, v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment$6;-><init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    move-result v12
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_14
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
-    const v12, 0x7f10009a
+    const/4 v14, 0x0
+
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setSoundEffectsEnabled(Z)V
+
+    :cond_16
+    const-string v13, "no_receiver_in_call"
+
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_18
+
+    const v13, 0x7f10009a
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/ToggleButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
+    check-cast v13, Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
-
-    if-eqz v12, :cond_14
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    if-eqz v5, :cond_13
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
 
+    if-eqz v13, :cond_18
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    if-eqz v5, :cond_17
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mHoldButton:Landroid/widget/ToggleButton;
+
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getState()I
 
-    move-result v12
+    move-result v13
+
+    const/16 v15, 0x8
+
+    if-ne v13, v15, :cond_23
+
+    const/4 v13, 0x1
+
+    :goto_3
+    invoke-virtual {v14, v13}, Landroid/widget/ToggleButton;->setChecked(Z)V
+
+    :cond_17
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+
+    if-eqz v13, :cond_18
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
     const/16 v14, 0x8
 
-    if-ne v12, v14, :cond_1f
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
-    const/4 v12, 0x1
-
-    :goto_3
-    invoke-virtual {v13, v12}, Landroid/widget/ToggleButton;->setChecked(Z)V
-
-    :cond_13
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
-
-    if-eqz v12, :cond_14
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
-
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_14
-    const v12, 0x7f100099
+    :cond_18
+    const v13, 0x7f100099
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/Button;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mDialpadButton:Landroid/widget/Button;
+    check-cast v13, Landroid/widget/Button;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mDialpadButton:Landroid/widget/Button;
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mDialpadButton:Landroid/widget/Button;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mDialpadButton:Landroid/widget/Button;
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-object/from16 v0, p0
 
-    const v12, 0x7f100098
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v13, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const v13, 0x7f100098
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/ToggleButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mMuteButton:Landroid/widget/ToggleButton;
+    check-cast v13, Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mMuteButton:Landroid/widget/ToggleButton;
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mMuteButton:Landroid/widget/ToggleButton;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mMuteButton:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->isDialpadVisible()Z
 
-    move-result v12
+    move-result v13
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->returnButtonsForDialpad(Z)V
+    invoke-virtual {v0, v13}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->returnButtonsForDialpad(Z)V
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Lcom/android/incallui/UiAdapter;->getConferenceCallManagerShowingState()Z
+    invoke-virtual {v13}, Lcom/android/incallui/UiAdapter;->getConferenceCallManagerShowingState()Z
 
-    move-result v12
+    move-result v13
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->returnButtonsForManager(Z)V
+    invoke-virtual {v0, v13}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->returnButtonsForManager(Z)V
 
     invoke-static {}, Lcom/android/incallui/util/VoWifiStateTracker;->getInstance()Lcom/android/incallui/util/VoWifiStateTracker;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Lcom/android/incallui/util/VoWifiStateTracker;->isKinetoVowifiExist()Z
+    invoke-virtual {v13}, Lcom/android/incallui/util/VoWifiStateTracker;->isKinetoVowifiExist()Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_20
-
-    move-object/from16 v0, p0
-
-    iget-boolean v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mIsSprWFCRegistered:Z
+    if-eqz v13, :cond_24
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->updateEndCallButton(Z)V
+    iget-boolean v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mIsSprWFCRegistered:Z
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->updateEndCallButton(Z)V
 
     :goto_4
-    const-string v12, "feature_usa"
+    const-string v13, "feature_usa"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_18
+    if-eqz v13, :cond_1c
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
 
-    if-eqz v12, :cond_15
+    if-eqz v13, :cond_19
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v12
+    move-result-object v13
 
-    const v13, 0x7f0201dd
+    const v14, 0x7f0201dd
 
-    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
-
-    const/4 v13, 0x0
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
 
     const/4 v14, 0x0
 
     const/4 v15, 0x0
 
-    invoke-virtual {v12, v13, v6, v14, v15}, Landroid/widget/ToggleButton;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    const/16 v16, 0x0
 
-    :cond_15
+    move-object/from16 v0, v16
+
+    invoke-virtual {v13, v14, v6, v15, v0}, Landroid/widget/ToggleButton;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    :cond_19
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    if-eqz v12, :cond_16
+    if-eqz v13, :cond_1a
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v12
+    move-result-object v13
 
-    const v13, 0x7f0201d2
+    const v14, 0x7f0201d2
 
-    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    const/4 v13, 0x0
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
     const/4 v14, 0x0
 
     const/4 v15, 0x0
 
-    invoke-virtual {v12, v13, v3, v14, v15}, Landroid/widget/ToggleButton;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    const/16 v16, 0x0
 
-    :cond_16
+    move-object/from16 v0, v16
+
+    invoke-virtual {v13, v14, v3, v15, v0}, Landroid/widget/ToggleButton;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    :cond_1a
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
-    if-eqz v12, :cond_17
+    if-eqz v13, :cond_1b
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v13
+
+    const v14, 0x7f0201e9
+
+    invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
     move-result-object v12
-
-    const v13, 0x7f0201e9
-
-    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v11
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
-
-    const/4 v13, 0x0
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
     const/4 v14, 0x0
 
     const/4 v15, 0x0
 
-    invoke-virtual {v12, v13, v11, v14, v15}, Landroid/widget/ToggleButton;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    const/16 v16, 0x0
 
-    :cond_17
+    move-object/from16 v0, v16
+
+    invoke-virtual {v13, v14, v12, v15, v0}, Landroid/widget/ToggleButton;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    :cond_1b
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mMuteButton:Landroid/widget/ToggleButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mMuteButton:Landroid/widget/ToggleButton;
 
-    if-eqz v12, :cond_18
+    if-eqz v13, :cond_1c
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v12
+    move-result-object v13
 
-    const v13, 0x7f0201e2
+    const v14, 0x7f0201e2
 
-    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v9
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mMuteButton:Landroid/widget/ToggleButton;
-
-    const/4 v13, 0x0
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mMuteButton:Landroid/widget/ToggleButton;
 
     const/4 v14, 0x0
 
     const/4 v15, 0x0
 
-    invoke-virtual {v12, v13, v9, v14, v15}, Landroid/widget/ToggleButton;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    const/16 v16, 0x0
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v13, v14, v9, v15, v0}, Landroid/widget/ToggleButton;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_18
+    :cond_1c
     monitor-exit p0
 
     return-void
 
-    :cond_19
+    :cond_1d
     const/4 v8, 0x1
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_1e
     :try_start_1
-    const-string v12, "feature_multisim"
+    const-string v13, "feature_multisim"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_9
+    if-eqz v13, :cond_a
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getDefaultVoiceSubscriptionId()I
 
-    move-result v12
+    move-result v13
 
-    invoke-static {v12}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT(I)Z
+    invoke-static {v13}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT(I)Z
 
     move-result v2
 
     goto/16 :goto_1
 
-    :cond_1b
-    const-string v12, "vzw_volte_ui"
+    :cond_1f
+    const-string v13, "vzw_volte_ui"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v13}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_b
+    if-eqz v13, :cond_c
 
-    const v12, 0x7f10041b
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/incallui/widget/SecVoiceButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Lcom/android/incallui/widget/SecVoiceButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Lcom/android/incallui/widget/SecVoiceButton;->setVisibility(I)V
-
-    const v12, 0x7f100421
+    const v13, 0x7f10041a
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/view/ViewStub;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButtonStub:Landroid/view/ViewStub;
+    check-cast v13, Lcom/android/incallui/widget/SecVoiceButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_1c
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
-
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_1c
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
-
-    if-eqz v12, :cond_1d
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
 
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_1d
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButtonStub:Landroid/view/ViewStub;
-
-    if-eqz v12, :cond_1e
+    invoke-virtual {v13, v14}, Lcom/android/incallui/widget/SecVoiceButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButtonStub:Landroid/view/ViewStub;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
 
-    invoke-virtual {v12}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+    const/4 v14, 0x0
 
-    const v12, 0x7f100323
+    invoke-virtual {v13, v14}, Lcom/android/incallui/widget/SecVoiceButton;->setVisibility(I)V
+
+    const v13, 0x7f100420
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Lcom/android/incallui/widget/SecVoiceButton;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
+    check-cast v13, Landroid/view/ViewStub;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButtonStub:Landroid/view/ViewStub;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
 
-    invoke-virtual {v12, v13}, Lcom/android/incallui/widget/SecVoiceButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    if-eqz v13, :cond_20
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mAddCallButton:Landroid/widget/Button;
 
-    const/4 v13, 0x0
+    const/16 v14, 0x8
 
-    invoke-virtual {v12, v13}, Lcom/android/incallui/widget/SecVoiceButton;->setVisibility(I)V
+    invoke-virtual {v13, v14}, Landroid/widget/Button;->setVisibility(I)V
 
-    :cond_1e
+    :cond_20
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+
+    if-eqz v13, :cond_21
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+
+    const/16 v14, 0x8
+
+    invoke-virtual {v13, v14}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    :cond_21
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButtonStub:Landroid/view/ViewStub;
+
+    if-eqz v13, :cond_22
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButtonStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v13}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+
+    const v13, 0x7f100325
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/android/incallui/widget/SecVoiceButton;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v13, v14}, Lcom/android/incallui/widget/SecVoiceButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mOneWayCameraButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v13, v14}, Lcom/android/incallui/widget/SecVoiceButton;->setVisibility(I)V
+
+    :cond_22
     move-object/from16 v0, p0
 
     invoke-direct {v0, v5}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->updateVolteButton(Lcom/android/incallui/Call;)V
@@ -5607,18 +5671,18 @@
     goto/16 :goto_2
 
     :catchall_0
-    move-exception v12
+    move-exception v13
 
     monitor-exit p0
 
-    throw v12
+    throw v13
 
-    :cond_1f
-    const/4 v12, 0x0
+    :cond_23
+    const/4 v13, 0x0
 
     goto/16 :goto_3
 
-    :cond_20
+    :cond_24
     :try_start_2
     invoke-direct/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->updateEndCallButton()V
     :try_end_2
@@ -5767,6 +5831,10 @@
 
     invoke-super {p0, p1}, Lcom/android/incallui/fragment/CallButtonFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mIsConfigChange:Z
+
     return-void
 .end method
 
@@ -5850,7 +5918,7 @@
     if-eqz v1, :cond_7
 
     :cond_0
-    const v1, 0x7f04016a
+    const v1, 0x7f04016c
 
     invoke-virtual {p1, v1, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -5873,7 +5941,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f10040e
+    const v2, 0x7f10040d
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5883,7 +5951,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f1003f7
+    const v2, 0x7f1003f6
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5893,7 +5961,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f100387
+    const v2, 0x7f100389
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5913,7 +5981,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f10038d
+    const v2, 0x7f10038f
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5956,7 +6024,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f100415
+    const v2, 0x7f100414
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5993,7 +6061,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f10031a
+    const v2, 0x7f10031c
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6076,7 +6144,7 @@
     return-object v1
 
     :cond_7
-    const v1, 0x7f040169
+    const v1, 0x7f04016b
 
     invoke-virtual {p1, v1, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -6281,7 +6349,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a050c
+    const v2, 0x7f0a0513
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -6726,6 +6794,8 @@
 .method public setupRcsCallButtons()V
     .locals 7
 
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->showSwitchCallButtonForRCS()V
+
     const-string v0, "ims_rcs"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -6769,8 +6839,6 @@
 
     :cond_1
     :goto_0
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->showSwitchCallButtonForRCS()V
-
     return-void
 
     :cond_2
@@ -6853,39 +6921,39 @@
 .method public showSwitchCallButton(Z)V
     .locals 7
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/16 v3, 0x8
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    const/16 v4, 0x8
 
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
 
     move-result v0
 
-    const-string v4, "usa_gsm_volte_ui"
+    const-string v1, "usa_gsm_volte_ui"
 
-    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_2
+    if-eqz v1, :cond_2
 
-    const-string v4, "psvt_support"
+    const-string v1, "psvt_support"
 
-    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
     :cond_0
     :goto_0
-    const-string v4, "show_switch_icon_in_button"
+    const-string v1, "show_switch_icon_in_button"
 
-    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_1
+    if-eqz v1, :cond_1
 
     if-nez v0, :cond_3
 
@@ -6894,26 +6962,26 @@
     return-void
 
     :cond_2
-    const-string v4, "feature_multisim"
+    const-string v1, "feature_multisim"
 
-    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_0
+    if-eqz v1, :cond_0
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getDefaultVoiceSubscriptionId()I
 
-    move-result v4
+    move-result v1
 
-    invoke-static {v4}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT(I)Z
+    invoke-static {v1}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT(I)Z
 
     move-result v0
 
     goto :goto_0
 
     :cond_3
-    const-string v4, "VoiceCallButtonFragment"
+    const-string v1, "VoiceCallButtonFragment"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -6933,110 +7001,137 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v1, v5, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
-    move-result-object v4
+    move-result-object v5
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_4
+
+    move v1, v2
 
     :goto_2
-    invoke-virtual {v4, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->setNoShowVolumeAvailable(Z)V
+    invoke-virtual {v5, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->setNoShowVolumeAvailable(Z)V
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
 
-    if-nez v1, :cond_a
+    if-eqz v1, :cond_5
 
-    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
-    if-eqz v1, :cond_4
-
-    iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
-
-    if-eqz p1, :cond_7
-
-    move v1, v2
-
-    :goto_3
-    invoke-virtual {v4, v1}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    :cond_4
-    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
+    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsActiveCall:Z
 
     if-eqz v1, :cond_5
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
+    const-string v1, "VoiceCallButtonFragment"
 
-    if-eqz p1, :cond_8
+    const-string v3, "extraVolume removed because RCS CALL"
 
-    move v1, v2
-
-    :goto_4
-    invoke-virtual {v4, v1}, Lcom/android/incallui/widget/SecVoiceButton;->setVisibility(I)V
-
-    :cond_5
-    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
-
-    if-eqz v1, :cond_1
+    invoke-static {v1, v3, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
 
-    if-eqz p1, :cond_9
-
-    :goto_5
-    invoke-virtual {v1, v3}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    invoke-virtual {v1, v4}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
     goto :goto_1
 
-    :cond_6
-    move v1, v2
+    :cond_4
+    move v1, v3
 
     goto :goto_2
 
+    :cond_5
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+
+    if-nez v1, :cond_b
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
+
+    if-eqz v1, :cond_6
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
+
+    if-eqz p1, :cond_8
+
+    move v1, v3
+
+    :goto_3
+    invoke-virtual {v2, v1}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    :cond_6
+    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    if-eqz v1, :cond_7
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    if-eqz p1, :cond_9
+
+    move v1, v3
+
+    :goto_4
+    invoke-virtual {v2, v1}, Lcom/android/incallui/widget/SecVoiceButton;->setVisibility(I)V
+
     :cond_7
-    move v1, v3
-
-    goto :goto_3
-
-    :cond_8
-    move v1, v3
-
-    goto :goto_4
-
-    :cond_9
-    move v3, v2
-
-    goto :goto_5
-
-    :cond_a
-    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
-
-    if-eqz v1, :cond_b
-
-    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
-
-    invoke-virtual {v1, v3}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    :cond_b
-    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
-
-    if-eqz v1, :cond_c
-
-    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
-
-    invoke-virtual {v1, v3}, Lcom/android/incallui/widget/SecVoiceButton;->setVisibility(I)V
-
-    :cond_c
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
 
     if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v1, v2}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    if-eqz p1, :cond_a
+
+    :goto_5
+    invoke-virtual {v1, v4}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_8
+    move v1, v4
+
+    goto :goto_3
+
+    :cond_9
+    move v1, v4
+
+    goto :goto_4
+
+    :cond_a
+    move v4, v3
+
+    goto :goto_5
+
+    :cond_b
+    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
+
+    if-eqz v1, :cond_c
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButtonStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v1, v4}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    :cond_c
+    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    if-eqz v1, :cond_d
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mSwitchCallButton:Lcom/android/incallui/widget/SecVoiceButton;
+
+    invoke-virtual {v1, v4}, Lcom/android/incallui/widget/SecVoiceButton;->setVisibility(I)V
+
+    :cond_d
+    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mExtraVolumeButton:Landroid/widget/ToggleButton;
+
+    invoke-virtual {v1, v3}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
     goto/16 :goto_1
 .end method
@@ -7363,7 +7458,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mDialpadButton:Landroid/widget/Button;
 
-    const v3, 0x7f090263
+    const v3, 0x7f090264
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -7399,7 +7494,7 @@
     :cond_3
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mDialpadButton:Landroid/widget/Button;
 
-    const v3, 0x7f090264
+    const v3, 0x7f090265
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -7409,7 +7504,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090264
+    const v4, 0x7f090265
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7573,7 +7668,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f011c
+    const v3, 0x7f0f011d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -7598,7 +7693,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f011b
+    const v3, 0x7f0f011c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

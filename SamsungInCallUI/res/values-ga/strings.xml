@@ -115,8 +115,8 @@
     <string name="call_drug_up_panel_for_kk">Tarraing an cnaipe SEOL TCHT aníos le meartheachtaireacht a sheoladh agus diúltú do ghlao.</string>
     <string name="call_drug_up_panel_for_kk_tts">Tarraing aníos an painéal Diúltaigh do ghlao le teachtaireacht le teachtaireacht diúltaithe do ghlao a sheoladh nuair a dhiúltaíonn tú do glao isteach.</string>
     <string name="call_ended_toast">Glao scortha.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Glao curtha ar aghaidh chuig:</string>
+    <string name="call_forwarding_from">Glao curtha ar aghaidh ó:</string>
     <string name="call_incoming_voice_call2">Tapáil %s le glao a fhreagairt.</string>
     <string name="call_incoming_voice_call2_tts">Tapáil an cnaipe Freagair glao le glao a fhreagairt.</string>
     <string name="call_incoming_voice_call3">Tapáil %s le diúltú do ghlao.</string>
@@ -479,6 +479,7 @@ Tá an glao físe seo ag úsáid sonraí anois agus casfar as Sonraí móibílea
     <string name="outgoing_img_picture">Íomhánna</string>
     <string name="outgoing_img_take_picture">Glac pictiúr</string>
     <string name="outgoing_img_video">Físeáin</string>
+    <string name="overlay_warning_toast">Le Fón a úsáid, ní foláir duit Feidhmchláir ar féidir leo bheith ar an mbarr a chasadh air i Socruithe fóin.</string>
     <string name="payphone_sbm">Íocfón</string>
     <string name="phoneLabelsGroup">Fón</string>
     <string name="phone_voice_recording_failed_by_secure_call">Ní féidir glao slán a thaifeadadh.</string>
@@ -627,7 +628,7 @@ Aontreoch"</string>
     <string name="secOnscreenResumeCallText">Atosaigh</string>
     <string name="secOnscreenShowCallOption">Taispeáin roghanna glao</string>
     <string name="secOnscreenSpeaker">Callaire</string>
-    <string name="secOnscreenStopText">Scoir taifeadadh</string>
+    <string name="secOnscreenStopText">Stop taifeadadh</string>
     <string name="secOnscreenSwapText">Malartú</string>
     <string name="secOnscreenSwisText">Feic mar a fheicimse</string>
     <string name="secOnscreenSwitchCameraText">Aistrigh ceamara</string>
@@ -635,6 +636,7 @@ Aontreoch"</string>
     <string name="secOnscreenUpdateContactText">Nuashonraigh é</string>
     <string name="secOnscreenUpdateContactText_tts">Nuashonraigh a bhfuil ann</string>
     <string name="secOnscreenVideoCallText">Glao físe</string>
+    <string name="secOnscreenVideoStopText">Stop</string>
     <string name="secOnscreenViewContactText">Amh. ar theagmh.</string>
     <string name="secOnscreenVoiceCallText">Glaoigh</string>
     <string name="secOnscreenVoiceCallTextExtended">Glao gutha</string>

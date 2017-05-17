@@ -24,6 +24,8 @@
 
 .field private isImageOnly:Z
 
+.field private isInMultiWindow:Z
+
 .field private latitude:Ljava/lang/Double;
 
 .field private longitude:Ljava/lang/Double;
@@ -33,6 +35,8 @@
 .field private mCallPlusImageMap:Landroid/widget/ImageView;
 
 .field private mCallPlusImportance:Landroid/widget/ImageView;
+
+.field private mCallPlusImportanceLayout:Landroid/widget/RelativeLayout;
 
 .field private mCallPlusImportanceText:Landroid/widget/TextView;
 
@@ -147,6 +151,8 @@
     const/16 v0, 0x1388
 
     iput v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->CALLER_INFO_QUERY_COMPELETE_DELAYED:I
+
+    iput-boolean v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->isInMultiWindow:Z
 
     new-instance v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$1;
 
@@ -883,7 +889,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a00f6
+    const v8, 0x7f0a00f8
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -957,7 +963,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a00f6
+    const v8, 0x7f0a00f8
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1739,7 +1745,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a041b
+    const v2, 0x7f0a0421
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2447,6 +2453,187 @@
     monitor-exit p0
 
     throw v1
+.end method
+
+.method public setonMultiWindowChange(Z)V
+    .locals 12
+
+    const/4 v11, 0x4
+
+    const/4 v10, 0x0
+
+    const-string v6, "CallerInfoCardView"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "CallerInfoCardView setonMultiWindowChange() onMWChange: "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v6, "ims_rcs"
+
+    invoke-static {v6}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    const-string v6, "ims_rcs_bb"
+
+    invoke-static {v6}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_0
+
+    iput-boolean p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->isInMultiWindow:Z
+
+    const v6, 0x7f10024e
+
+    invoke-virtual {p0, v6}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/RelativeLayout;
+
+    iput-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImportanceLayout:Landroid/widget/RelativeLayout;
+
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImportanceLayout:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v6}, Landroid/widget/RelativeLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/RelativeLayout$LayoutParams;
+
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusMapViewStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v6}, Landroid/view/ViewStub;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/RelativeLayout$LayoutParams;
+
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopView:Landroid/view/ViewGroup;
+
+    invoke-virtual {v6}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/RelativeLayout$LayoutParams;
+
+    iget-boolean v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->isInMultiWindow:Z
+
+    if-eqz v6, :cond_2
+
+    const-string v6, "CallerInfoCardView"
+
+    const-string v7, "CallerInfoCardView setonMultiWindowChange() isInMultiWindow"
+
+    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mMapImagelayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v6, v11}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/incallui/UiAdapter;->getDeviceDefaultHeight()I
+
+    move-result v6
+
+    int-to-float v1, v6
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/incallui/UiAdapter;->getApplicationHeight()I
+
+    move-result v6
+
+    int-to-float v0, v6
+
+    div-float v4, v0, v1
+
+    float-to-double v6, v4
+
+    const-wide v8, 0x3fd6666666666666L    # 0.35
+
+    cmpg-double v6, v6, v8
+
+    if-gtz v6, :cond_1
+
+    const-string v6, "CallerInfoCardView"
+
+    const-string v7, "CallerInfoCardView setonMultiWindowChange() isInMultiWindow ratio <= 0.35"
+
+    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImportanceLayout:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v6, v11}, Landroid/widget/RelativeLayout;->setVisibility(I)V
+
+    :goto_0
+    iput v10, v3, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
+
+    iput v10, v2, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
+
+    :goto_1
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusMapViewStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v6, v3}, Landroid/view/ViewStub;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImportanceLayout:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v6, v2}, Landroid/widget/RelativeLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImportanceLayout:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v6, v10}, Landroid/widget/RelativeLayout;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_2
+    const-string v6, "CallerInfoCardView"
+
+    const-string v7, "CallerInfoCardView setonMultiWindowChange() false"
+
+    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mMapImagelayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v6, v10}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    const/16 v6, 0x64
+
+    iput v6, v2, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
+
+    const/16 v6, 0x96
+
+    iput v6, v3, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
+
+    goto :goto_1
 .end method
 
 .method public update(Landroid/content/Context;ILcom/android/incallui/ContactInfoCache$ContactCacheEntry;Z)V

@@ -107,7 +107,9 @@
     <integer name="vga_button_portrait_weight_between_end_call_center_and_display_bottom">77</integer>
     <integer name="vga_button_portrait_weight_between_video_bottom_and_display_bottom">150</integer>
     <integer name="vga_button_width_weight">6</integer>
+    <integer name="vga_dialpad_container_height_weight_multiwindow">300</integer>
     <integer name="vga_dialpad_keys_height_weight">400</integer>
+    <integer name="vga_dialpad_keys_height_weight_multiwindow">700</integer>
     <integer name="vga_incoming_three_widget_bottom_weight">25</integer>
     <integer name="vga_incoming_three_widget_top_weight">50</integer>
     <integer name="vga_incoming_two_widget_bottom_weight">50</integer>

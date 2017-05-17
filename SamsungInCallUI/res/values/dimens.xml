@@ -80,6 +80,8 @@
     <dimen name="sec_video_incall_modify_call_button_margin_top">43.0dip</dimen>
     <item type="dimen" name="sec_video_incall_modify_request_info_banner_att_height">@dimen/sec_video_incall_modify_call_button_margin_top</item>
     <dimen name="sec_video_incoming_hide_show_text_margin_top">8.0dip</dimen>
+    <dimen name="sec_video_modify_button_drawable_padding">-20.0dip</dimen>
+    <dimen name="sec_video_modify_oneway_button_drawable_padding">-10.0dip</dimen>
     <dimen name="sec_video_qcif_view_incoming_margin_top">108.0dip</dimen>
     <dimen name="sec_video_qvga_preview_height">121.0dip</dimen>
     <dimen name="sec_video_qvga_preview_position_x">0.0dip</dimen>
@@ -1035,15 +1037,19 @@
     <item type="dimen" name="disabled_alpha_material_dark">0.3</item>
     <item type="dimen" name="disabled_alpha_material_light">0.26</item>
     <dimen name="empty_message_top_margin">48.0dip</dimen>
+    <dimen name="end_call_button_margin_bottom_mw">40.0dip</dimen>
+    <dimen name="end_call_button_margin_bottom_small_window_mw">10.0dip</dimen>
     <dimen name="enriched_call_content_height">253.0dip</dimen>
     <dimen name="enriched_call_content_topmargin">267.0dip</dimen>
+    <dimen name="enriched_call_important_layout_top_margin_mw">25.0dip</dimen>
+    <dimen name="enriched_call_important_layout_top_margin_small_window_mw">0.0dip</dimen>
     <dimen name="enriched_call_map_address_layout_height">40.0dip</dimen>
     <dimen name="enriched_call_map_image_layout_height">98.0dip</dimen>
     <dimen name="enriched_call_map_image_layout_height_easy_mode">70.0dip</dimen>
     <dimen name="enriched_call_map_image_layout_topmargin">83.0dip</dimen>
     <dimen name="enriched_call_popup_window_height">473.0dip</dimen>
     <dimen name="enriched_call_popup_window_horizontal_margin">138.0dip</dimen>
-    <dimen name="enriched_call_popup_window_horizontal_margin_image_only">25.0dip</dimen>
+    <dimen name="enriched_call_popup_window_horizontal_margin_image_only">1.0dip</dimen>
     <dimen name="enriched_call_popup_window_horizontal_margin_incoming">172.0dip</dimen>
     <dimen name="enriched_call_popup_window_vertital_margin">583.0dip</dimen>
     <dimen name="enriched_call_popup_window_width">340.0dip</dimen>
@@ -1277,12 +1283,15 @@
     <dimen name="sec_dialpad_time_height_multiwindow">42.0dip</dimen>
     <dimen name="sec_endcall_button_delta_by_dialpad">49.0dip</dimen>
     <dimen name="sec_endcall_contact_video_btn_margin_bottom">10.0dip</dimen>
+    <dimen name="sec_endcall_mw_button_diameter_mw">40.0dip</dimen>
     <dimen name="sec_eri_info_text_size">12.0dip</dimen>
     <dimen name="sec_hideme_layer_height">47.0dip</dimen>
     <dimen name="sec_incall_button_drawable_padding_rcs">0.0dip</dimen>
     <dimen name="sec_incall_buttons_delta_by_dialpad">20.0dip</dimen>
     <dimen name="sec_incall_mw_button_height">36.0dip</dimen>
     <dimen name="sec_incall_mw_button_width">36.0dip</dimen>
+    <dimen name="sec_incall_pager_indicator_height_mw">35.0dip</dimen>
+    <dimen name="sec_incall_pager_indicator_padding_top_mw">8.0dip</dimen>
     <dimen name="sec_incoming_call_popup_button_icon_left_margin">28.0dip</dimen>
     <dimen name="sec_incoming_call_popup_button_icon_right_margin">4.0dip</dimen>
     <dimen name="sec_incoming_call_popup_button_text_padding">20.0dip</dimen>
@@ -1330,6 +1339,7 @@
     <dimen name="sec_mw_minimum_bottom">220.0dip</dimen>
     <dimen name="sec_mw_video_dialpad_digits_height">40.0dip</dimen>
     <dimen name="sec_mw_video_dialpad_key_numbers_size">10.0dip</dimen>
+    <dimen name="sec_mw_video_modify_button_height">45.0dip</dimen>
     <dimen name="sec_mw_video_qcif_incall_button_drawable_padding">-10.0dip</dimen>
     <dimen name="sec_photo_conference_background_multiparty_rectangle_round">5.0dip</dimen>
     <dimen name="sec_photo_container_background_multiparty_rectangle_round">5.0dip</dimen>
@@ -1467,7 +1477,6 @@
     <dimen name="sec_video_incall_modify_land_two_button_margin">30.0dip</dimen>
     <dimen name="sec_video_incall_modify_land_two_button_with_divider_margin">15.0dip</dimen>
     <dimen name="sec_video_incoming_border_shape_width">2.0dip</dimen>
-    <dimen name="sec_video_modify_button_drawable_padding">-18.0dip</dimen>
     <dimen name="sec_video_multi_line_bottom_margin">14.0dip</dimen>
     <dimen name="sec_video_multi_line_top_margin">44.0dip</dimen>
     <dimen name="sec_video_onehand_dialpad_key_letters_with_subtext_margin_top">-7.0dip</dimen>
@@ -1489,17 +1498,19 @@
     <dimen name="sec_video_vga_button_size_multiwindow">30.0dip</dimen>
     <dimen name="sec_video_vga_call_info_area_incoming_cnap_and_cdnip_height">95.0dip</dimen>
     <dimen name="sec_video_vga_call_info_area_incoming_cnap_or_cdnip_height">111.0dip</dimen>
+    <dimen name="sec_video_vga_dialpad_button_ripple_effect_size">47.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_digits_height_multiwindow">40.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_digits_text_margin_end_multiwindow">6.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_digits_text_margin_start_multiwindow">48.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_digits_text_size_multiwindow">28.0dip</dimen>
+    <dimen name="sec_video_vga_dialpad_digits_text_size_multiwindow">33.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_hide_button_margin_end_multiwindow">25.0dip</dimen>
+    <dimen name="sec_video_vga_dialpad_hide_button_ripple_effect_size">32.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_hide_button_size_multiwindow">17.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_key_letters_margin_top">-4.5dip</dimen>
-    <dimen name="sec_video_vga_dialpad_key_letters_size_multiwindow">9.0dip</dimen>
+    <dimen name="sec_video_vga_dialpad_key_letters_size_multiwindow">12.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_key_number_margin_right_multiwindow">7.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_key_numbers_size_multiwindow">24.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_key_sub_letters_size_multiwindow">9.0dip</dimen>
+    <dimen name="sec_video_vga_dialpad_key_numbers_size_multiwindow">30.0dip</dimen>
+    <dimen name="sec_video_vga_dialpad_key_sub_letters_size_multiwindow">12.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_keys_height">225.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_keys_height_multiwindow">138.0dip</dimen>
     <dimen name="sec_video_vga_dialpad_maximum_width">512.0dip</dimen>

@@ -423,13 +423,13 @@
 
     move-result-object v6
 
-    const v7, 0x7f040184
+    const v7, 0x7f040188
 
     iget-object v8, p0, Lcom/android/incallui/SelectSimActivity;->mAccountHandles:Ljava/util/List;
 
     invoke-direct {v4, p0, v6, v7, v8}, Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter;-><init>(Lcom/android/incallui/SelectSimActivity;Landroid/content/Context;ILjava/util/List;)V
 
-    const v6, 0x7f0902af
+    const v6, 0x7f0902b1
 
     invoke-virtual {v2, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

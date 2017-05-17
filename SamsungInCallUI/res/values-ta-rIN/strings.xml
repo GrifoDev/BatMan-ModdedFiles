@@ -526,6 +526,7 @@ IVR அழைப்புத் திரை மெனு, Dianhuabang என்
     <string name="outgoing_img_picture">படிமங்கள்</string>
     <string name="outgoing_img_take_picture">படம் எடு.</string>
     <string name="outgoing_img_video">நிகழ்படங்கள்</string>
+    <string name="overlay_warning_toast">ஃபோனைப் பயன்படுத்த, ஃபோன் அமைவுகளின் மேலே தோன்றும் பயன்பாடுகளை இயக்க வேண்டும்.</string>
     <string name="payphone_sbm">கட்டண ஃபோன்</string>
     <string name="phoneLabelsGroup">ஃபோன்</string>
     <string name="phone_voice_recording_failed_by_secure_call">பாதுகாப்பான அழைப்பைப் பதிவுசெய்ய இயலாது.</string>
@@ -682,6 +683,7 @@ IVR அழைப்புத் திரை மெனு, Dianhuabang என்
     <string name="secOnscreenUpdateContactText">இருப்பதைப் புதுப்பி.</string>
     <string name="secOnscreenUpdateContactText_tts">இருப்பதைப் புதுப்பிக்கவும்</string>
     <string name="secOnscreenVideoCallText">நிகழ்பட அழைப்பு</string>
+    <string name="secOnscreenVideoStopText">நிறுத்துக</string>
     <string name="secOnscreenViewContactText">தொடர்பை காண்க</string>
     <string name="secOnscreenVoiceCallText">அழைப்பு</string>
     <string name="secOnscreenVoiceCallTextExtended">குரல் அழைப்பு</string>

@@ -101,7 +101,7 @@
     :cond_3
     const-string v0, "Tracker"
 
-    const-string v1, "Tracker start:1.8.22"
+    const-string v1, "Tracker start:1.8.25"
 
     invoke-static {v0, v1}, Lcom/samsung/context/sdk/samsunganalytics/a/i/a;->a(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -414,13 +414,7 @@
 .end method
 
 .method private i()V
-    .locals 10
-
-    const-wide/16 v8, 0x0
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
+    .locals 5
 
     iget-object v0, p0, Lcom/samsung/context/sdk/samsunganalytics/a/b;->e:Landroid/app/Application;
 
@@ -460,81 +454,22 @@
 
     invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Lcom/samsung/context/sdk/samsunganalytics/a/a/b;->a(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Lcom/samsung/context/sdk/samsunganalytics/a/a/b;->a(Ljava/lang/String;)V
 
-    const-string v1, "quota_reset_date"
+    iget-object v0, p0, Lcom/samsung/context/sdk/samsunganalytics/a/b;->e:Landroid/app/Application;
 
-    invoke-interface {v0, v1, v8, v9}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-static {v7, v1}, Lcom/samsung/context/sdk/samsunganalytics/a/i/d;->a(ILjava/lang/Long;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    const-string v2, "quota_reset_date"
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    invoke-interface {v1, v2, v4, v5}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    const-string v2, "data_used"
-
-    invoke-interface {v1, v2, v6}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    const-string v2, "wifi_used"
-
-    invoke-interface {v1, v2, v6}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    :cond_0
-    const-string v1, "rint"
-
-    invoke-interface {v0, v1, v7}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v1
-
-    const-string v2, "policy_received_date"
-
-    invoke-interface {v0, v2, v8, v9}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-virtual {v0}, Landroid/app/Application;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v1, v0}, Lcom/samsung/context/sdk/samsunganalytics/a/i/d;->a(ILjava/lang/Long;)Z
+    invoke-static {v0}, Lcom/samsung/context/sdk/samsunganalytics/a/e/d;->a(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_0
 
-    :goto_0
-    return-void
-
-    :cond_1
     iget-object v0, p0, Lcom/samsung/context/sdk/samsunganalytics/a/b;->e:Landroid/app/Application;
 
     iget-object v1, p0, Lcom/samsung/context/sdk/samsunganalytics/a/b;->k:Lcom/samsung/context/sdk/samsunganalytics/Configuration;
@@ -555,7 +490,8 @@
 
     invoke-static {v0, v1, v2, v3, v4}, Lcom/samsung/context/sdk/samsunganalytics/a/e/d;->a(Landroid/content/Context;Lcom/samsung/context/sdk/samsunganalytics/Configuration;Lcom/samsung/context/sdk/samsunganalytics/a/d/c;Lcom/samsung/context/sdk/samsunganalytics/a/b/a;Lcom/samsung/context/sdk/samsunganalytics/a/a;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method private j()Landroid/app/Application$ActivityLifecycleCallbacks;

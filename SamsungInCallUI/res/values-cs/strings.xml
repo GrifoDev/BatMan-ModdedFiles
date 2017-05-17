@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Chcete-li odeslat rychlou zprávu a odmítnout hovor, přetáhněte tl. ODESLAT ZPRÁVU nahoru.</string>
     <string name="call_drug_up_panel_for_kk_tts">Přetáhněte panel Odmítnout hovor se zprávou nahoru, pokud chcete při odmítnutí hovoru odeslat zprávu při odmítnutí hovoru.</string>
     <string name="call_ended_toast">Hovor ukončen.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Hovor byl přesměrován na:</string>
+    <string name="call_forwarding_from">Hovor byl přesměrován z:</string>
     <string name="call_incoming_voice_call2">Klepněte na %s, chcete-li přijmout hovor.</string>
     <string name="call_incoming_voice_call2_tts">Klepnutím na tlačítko přijetí hovoru přijmete hovor.</string>
     <string name="call_incoming_voice_call3">Klepn. na %s odmítnete hovor.</string>
@@ -526,6 +526,7 @@ Menu obrazovky hovoru IVR používá obsah poskytovaný nezávislým poskytovate
     <string name="outgoing_img_picture">Obrázky</string>
     <string name="outgoing_img_take_picture">Fotografovat</string>
     <string name="outgoing_img_video">Videa</string>
+    <string name="overlay_warning_toast">Chcete-li použít Telefon, musíte v nastavení Telefon zapnout možnost Aplikace, které se zobrazí nahoře.</string>
     <string name="payphone_sbm">Tel. automat</string>
     <string name="phoneLabelsGroup">Čísla kontaktu</string>
     <string name="phone_voice_recording_failed_by_secure_call">Zabezpečený hovor nelze nahrát.</string>
@@ -682,6 +683,7 @@ fotoaparát"</string>
     <string name="secOnscreenUpdateContactText">Akt. stávající</string>
     <string name="secOnscreenUpdateContactText_tts">Aktualizovat stávající</string>
     <string name="secOnscreenVideoCallText">Videohovor</string>
+    <string name="secOnscreenVideoStopText">Stop</string>
     <string name="secOnscreenViewContactText">Zobrazit kontakt</string>
     <string name="secOnscreenVoiceCallText">Volat</string>
     <string name="secOnscreenVoiceCallTextExtended">Hl. hovor</string>

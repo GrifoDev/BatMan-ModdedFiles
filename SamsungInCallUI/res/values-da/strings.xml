@@ -526,6 +526,7 @@ IVR-opkaldsskærmmenuen bruger indhold, som er leveret af tredjepartsserviceudby
     <string name="outgoing_img_picture">Billeder</string>
     <string name="outgoing_img_take_picture">Tag billede</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">Hvis du vil bruge Telefon, skal du aktivere Apps, der kan vises øverst i Telefonindstillinger.</string>
     <string name="payphone_sbm">Betalingstelefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Sikkert opkald kan ikke optages.</string>
@@ -682,6 +683,7 @@ IVR-opkaldsskærmmenuen bruger indhold, som er leveret af tredjepartsserviceudby
     <string name="secOnscreenUpdateContactText">Opd. eksister.</string>
     <string name="secOnscreenUpdateContactText_tts">Opdater eksisterende</string>
     <string name="secOnscreenVideoCallText">Videoopkald</string>
+    <string name="secOnscreenVideoStopText">Stop</string>
     <string name="secOnscreenViewContactText">Se kontakt</string>
     <string name="secOnscreenVoiceCallText">Opkald</string>
     <string name="secOnscreenVoiceCallTextExtended">Stemmeopk.</string>

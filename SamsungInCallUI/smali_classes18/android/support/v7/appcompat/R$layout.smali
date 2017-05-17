@@ -83,13 +83,13 @@
 
 .field public static final notification_template_part_time:I = 0x7f040070
 
-.field public static final select_dialog_item_material:I = 0x7f040180
+.field public static final select_dialog_item_material:I = 0x7f040184
 
-.field public static final select_dialog_multichoice_material:I = 0x7f040181
+.field public static final select_dialog_multichoice_material:I = 0x7f040185
 
-.field public static final select_dialog_singlechoice_material:I = 0x7f040182
+.field public static final select_dialog_singlechoice_material:I = 0x7f040186
 
-.field public static final support_simple_spinner_dropdown_item:I = 0x7f04018b
+.field public static final support_simple_spinner_dropdown_item:I = 0x7f04018f
 
 
 # direct methods

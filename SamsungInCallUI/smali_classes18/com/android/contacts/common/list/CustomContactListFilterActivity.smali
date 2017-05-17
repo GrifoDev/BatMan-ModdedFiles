@@ -262,7 +262,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0904cf
+    const v3, 0x7f0904d1
 
     const/4 v4, 0x1
 
@@ -274,7 +274,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f09053c
+    const v3, 0x7f09053e
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -668,7 +668,7 @@
 .method protected showAddSync(Landroid/view/ContextMenu;Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;I)V
     .locals 5
 
-    const v2, 0x7f0904a4
+    const v2, 0x7f0904a6
 
     invoke-interface {p1, v2}, Landroid/view/ContextMenu;->setHeaderTitle(I)Landroid/view/ContextMenu;
 
@@ -727,7 +727,7 @@
 
     invoke-interface {p1, v5}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
-    const v0, 0x7f09053c
+    const v0, 0x7f09053e
 
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
 

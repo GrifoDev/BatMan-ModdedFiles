@@ -526,6 +526,7 @@ IVR कॉल स्क्रीन मेनू, Dianhuabang नामक त�
     <string name="outgoing_img_picture">छवियाँ</string>
     <string name="outgoing_img_take_picture">तस्वीर लें</string>
     <string name="outgoing_img_video">वीडियो</string>
+    <string name="overlay_warning_toast">फोन का उपयोग करने के लिए, आपको उन एप्स को चालू करने की जरूरत है, जो फोन सेटिंग्स में शीर्ष पर प्रकट हो सकते हैं।</string>
     <string name="payphone_sbm">पे फोन</string>
     <string name="phoneLabelsGroup">फोन</string>
     <string name="phone_voice_recording_failed_by_secure_call">सुरक्षित कॉल रिकॉर्ड नहीं किया जा सकता है।</string>
@@ -682,6 +683,7 @@ IVR कॉल स्क्रीन मेनू, Dianhuabang नामक त�
     <string name="secOnscreenUpdateContactText">मौजूदा अपडेट करें</string>
     <string name="secOnscreenUpdateContactText_tts">मौजूदा अपडेट करें</string>
     <string name="secOnscreenVideoCallText">वीडियो कॉल</string>
+    <string name="secOnscreenVideoStopText">रोकें</string>
     <string name="secOnscreenViewContactText">संपर्क देखें</string>
     <string name="secOnscreenVoiceCallText">कॉल</string>
     <string name="secOnscreenVoiceCallTextExtended">वॉइस कॉल</string>

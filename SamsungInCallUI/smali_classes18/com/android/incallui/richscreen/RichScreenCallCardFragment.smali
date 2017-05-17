@@ -48,9 +48,9 @@
 .method private arrangeRichScreenInfoView(Landroid/view/View;)V
     .locals 10
 
-    const v9, 0x7f0a0116
+    const v9, 0x7f0a0118
 
-    const v8, 0x7f0a0586
+    const v8, 0x7f0a0590
 
     const/4 v5, 0x0
 
@@ -68,7 +68,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01da
+    const v7, 0x7f0a01dc
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -131,7 +131,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0479
+    const v7, 0x7f0a047f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -145,7 +145,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a047a
+    const v7, 0x7f0a0480
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -186,7 +186,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0584
+    const v7, 0x7f0a058e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -214,7 +214,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a047b
+    const v7, 0x7f0a0481
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -339,7 +339,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a057f
+    const v7, 0x7f0a0589
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -474,7 +474,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f100356
+    .packed-switch 0x7f100358
         :pswitch_0
     .end packed-switch
 .end method
@@ -791,7 +791,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f100377
+    const v6, 0x7f100379
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -861,7 +861,7 @@
 
     invoke-super {p0, p1, p2, p3}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
-    const v0, 0x7f04010f
+    const v0, 0x7f040110
 
     const/4 v1, 0x0
 
@@ -968,7 +968,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v0, 0x7f100355
+    const v0, 0x7f100357
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -978,7 +978,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/richscreen/RichScreenCallCardFragment;->mRichScreenText:Landroid/widget/TextView;
 
-    const v0, 0x7f100356
+    const v0, 0x7f100358
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -988,7 +988,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/richscreen/RichScreenCallCardFragment;->mRichScreenSaveButton:Landroid/widget/Button;
 
-    const v0, 0x7f100377
+    const v0, 0x7f100379
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -998,7 +998,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/richscreen/RichScreenCallCardFragment;->mRichScreenVideoView:Lcom/android/incallui/richscreen/CustomerVideoView;
 
-    const v0, 0x7f100350
+    const v0, 0x7f100352
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1008,7 +1008,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/richscreen/RichScreenCallCardFragment;->mRichScreenVideoViewStub:Landroid/view/ViewStub;
 
-    const v0, 0x7f100351
+    const v0, 0x7f100353
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1018,7 +1018,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/richscreen/RichScreenCallCardFragment;->mRichScreenImageView:Landroid/widget/ImageView;
 
-    const v0, 0x7f100352
+    const v0, 0x7f100354
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1028,7 +1028,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/richscreen/RichScreenCallCardFragment;->mRichScreenMovieView:Lcom/android/incallui/richscreen/MovieImageView;
 
-    const v0, 0x7f100353
+    const v0, 0x7f100355
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">圖像</string>
     <string name="outgoing_img_take_picture">拍攝相片</string>
     <string name="outgoing_img_video">影片</string>
+    <string name="overlay_warning_toast">若要使用電話，需開啟可顯示於電話設定頂部的應用程式。</string>
     <string name="payphone_sbm">付費電話</string>
     <string name="phoneLabelsGroup">電話</string>
     <string name="phone_voice_recording_failed_by_secure_call">無法記錄安全通話。</string>
@@ -682,6 +683,7 @@
     <string name="secOnscreenUpdateContactText">更新現有的</string>
     <string name="secOnscreenUpdateContactText_tts">更新現有的</string>
     <string name="secOnscreenVideoCallText">視訊通話</string>
+    <string name="secOnscreenVideoStopText">停止</string>
     <string name="secOnscreenViewContactText">檢視聯絡人</string>
     <string name="secOnscreenVoiceCallText">通話</string>
     <string name="secOnscreenVoiceCallTextExtended">語音通話</string>
@@ -830,7 +832,7 @@
     <string name="video_saved">影片已儲存至%s。</string>
     <string name="video_saved_by_memory_full">裝置記憶體不足。影片已儲存至%s。</string>
     <string name="voiceonly">僅限語音</string>
-    <string name="waiting_call_dialog_Ending">結束與%s的通話</string>
+    <string name="waiting_call_dialog_Ending">結束與 %s 的通話</string>
     <string name="waiting_call_dialog_Holding">保留與 %s 的通話</string>
     <string name="waiting_call_dialog_Merging">與%s合併</string>
     <string name="waiting_call_dialog_Merging_not_possible">視訊通話時無法使用電話會議</string>

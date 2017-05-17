@@ -526,6 +526,7 @@ IVR-puhelunäytön valikko käyttää kolmannen osapuolen tarjoajan Dianhuabangi
     <string name="outgoing_img_picture">Kuvat</string>
     <string name="outgoing_img_take_picture">Ota kuva</string>
     <string name="outgoing_img_video">Videot</string>
+    <string name="overlay_warning_toast">Jos haluat käyttää puhelinta, sinun on otettava Puhelimen asetukset -kohdan yläosaan mahdollisesti ilmestyvät sovellukset käyttöön.</string>
     <string name="payphone_sbm">Kolikkopuhelin</string>
     <string name="phoneLabelsGroup">Puhelin</string>
     <string name="phone_voice_recording_failed_by_secure_call">Suojattua puhelua ei voi tallentaa.</string>
@@ -683,6 +684,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Päivitä nykyiset</string>
     <string name="secOnscreenUpdateContactText_tts">Päivitä nykyiset</string>
     <string name="secOnscreenVideoCallText">Videopuhelu</string>
+    <string name="secOnscreenVideoStopText">Pysäytä</string>
     <string name="secOnscreenViewContactText">Näytä yht.henk.</string>
     <string name="secOnscreenVoiceCallText">Puhelu</string>
     <string name="secOnscreenVoiceCallTextExtended">Äänipuhelu</string>

@@ -499,6 +499,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="outgoing_img_picture">Պատկերներ</string>
     <string name="outgoing_img_take_picture">Նկարել</string>
     <string name="outgoing_img_video">Տեսահոլովակներ</string>
+    <string name="overlay_warning_toast">Հեռախոսից օգտվելու համար հարկավոր է Հեռախոսի դրվածքներում միացնել Ծրագրերը, որոնք կարող են հայտնվել ամենավերևում:</string>
     <string name="payphone_sbm">Հանրային հեռախոս</string>
     <string name="phoneLabelsGroup">Հեռախոս</string>
     <string name="phone_voice_recording_failed_by_secure_call">Հնարավոր չէ ապահով կանչ ձայնագրել:</string>
@@ -656,6 +657,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="secOnscreenUpdateContactText">Թարմացնել եղածը</string>
     <string name="secOnscreenUpdateContactText_tts">Թարմացնել գոյություն ունեցողը</string>
     <string name="secOnscreenVideoCallText">Տեսականչ</string>
+    <string name="secOnscreenVideoStopText">Կանգնեցնել</string>
     <string name="secOnscreenViewContactText">Դիտել կոնտակտը</string>
     <string name="secOnscreenVoiceCallText">Կանչ</string>
     <string name="secOnscreenVoiceCallTextExtended">Ձայնականչ</string>

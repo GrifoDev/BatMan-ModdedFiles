@@ -135,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">Mezu azkarrak bidaltzeko eta sarrerako deiak ukatzeko, mugitu BIDALI MEZUA botoia gora.</string>
     <string name="call_drug_up_panel_for_kk_tts">Arrastatu ukatu deia mezuaz panela gorantz, deia ukatzeko mezu bat bidaltzeko, sarrera dei bat ukatzen duzunean.</string>
     <string name="call_ended_toast">Deia amaituta</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Deia hona desbideratu da:</string>
+    <string name="call_forwarding_from">Deia hemendik desbideratu da:</string>
     <string name="call_incoming_voice_call2">Ukitu %s, deia erantzuteko.</string>
     <string name="call_incoming_voice_call2_tts">Ukitu erantzun deia botoia, deia erantzuteko.</string>
     <string name="call_incoming_voice_call3">Ukitu %s deia ukatzeko.</string>
@@ -499,6 +499,7 @@ IVR deien pantailaren menuak Dianhuabang izeneko hirugarren zerbitzu hornitzaile
     <string name="outgoing_img_picture">Irudiak</string>
     <string name="outgoing_img_take_picture">Argazkia atera</string>
     <string name="outgoing_img_video">Bideoak</string>
+    <string name="overlay_warning_toast">Telefonoa erabiltzeko, Telefonoaren ezarpenen gainean ager daitezkeen aplikazioak aktibatu behar dituzu.</string>
     <string name="payphone_sbm">Telefono publikoa</string>
     <string name="phoneLabelsGroup">Telefonoa</string>
     <string name="phone_voice_recording_failed_by_secure_call">Ezin da gorde dei segururik.</string>
@@ -655,6 +656,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Eguner. daudenak</string>
     <string name="secOnscreenUpdateContactText_tts">Eguneratu lehengoak</string>
     <string name="secOnscreenVideoCallText">Bideo deia</string>
+    <string name="secOnscreenVideoStopText">Eten</string>
     <string name="secOnscreenViewContactText">Ikusi kontaktua</string>
     <string name="secOnscreenVoiceCallText">Deitu</string>
     <string name="secOnscreenVoiceCallTextExtended">Ahots deia</string>

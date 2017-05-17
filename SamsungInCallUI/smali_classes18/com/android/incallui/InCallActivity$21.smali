@@ -3,7 +3,7 @@
 .source "InCallActivity.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnKeyListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/incallui/InCallActivity;
 
-.field final synthetic val$isIncoming:Z
-
 
 # direct methods
-.method constructor <init>(Lcom/android/incallui/InCallActivity;Z)V
+.method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$21;->this$0:Lcom/android/incallui/InCallActivity;
-
-    iput-boolean p2, p0, Lcom/android/incallui/InCallActivity$21;->val$isIncoming:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,29 +34,17 @@
 
 
 # virtual methods
-.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
+.method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/incallui/InCallActivity$21;->val$isIncoming:Z
+    iget-object v0, p0, Lcom/android/incallui/InCallActivity$21;->this$0:Lcom/android/incallui/InCallActivity;
 
-    if-eqz v0, :cond_1
+    # getter for: Lcom/android/incallui/InCallActivity;->mTtyNotificationDialog:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1700(Lcom/android/incallui/InCallActivity;)Landroid/app/AlertDialog;
 
-    const/4 v0, 0x4
+    move-result-object v0
 
-    if-eq p2, v0, :cond_0
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    const/4 v0, 0x5
-
-    if-ne p2, v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return-void
 .end method

@@ -84,19 +84,19 @@
 .end method
 
 .method private showSugudenGuideView(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
-    .locals 6
-
-    const/4 v3, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v2
+    .locals 7
 
     const/4 v4, 0x0
 
-    invoke-static {v2, v4, v3}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    const/4 v2, 0x0
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v1
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v3, v4}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v0
 
@@ -104,172 +104,182 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
 
-    move-result v2
+    move-result v3
 
-    const/4 v4, 0x4
+    const/4 v5, 0x4
 
-    if-ne v2, v4, :cond_0
+    if-ne v3, v5, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->isFromPopupForAnswer()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
 
     invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v2}, Lcom/android/incallui/util/InCallUtils;->getSugudenAnswerSetting(Landroid/content/Context;)Z
+    invoke-static {v3}, Lcom/android/incallui/util/InCallUtils;->getSugudenAnswerSetting(Landroid/content/Context;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Lcom/android/incallui/InCallApp;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Lcom/android/incallui/InCallApp;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v4, "SugudenGuideShowNeverAgain"
+    const-string v5, "SugudenGuideShowNeverAgain"
 
-    invoke-static {v2, v4, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v5, v4}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isAnswerProcessing()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     :cond_0
-    const-string v2, "CallCardSugudenView"
+    const-string v3, "CallCardSugudenView"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "showSugudenGuideView show:"
+    const-string v6, "showSugudenGuideView show:"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideViewStub:Landroid/view/ViewStub;
+    iget-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideViewStub:Landroid/view/ViewStub;
 
-    if-nez v2, :cond_2
-
-    invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
-
-    move-result-object v2
-
-    const v4, 0x7f10043f
-
-    invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/view/ViewStub;
-
-    iput-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideViewStub:Landroid/view/ViewStub;
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideViewStub:Landroid/view/ViewStub;
-
-    invoke-virtual {v2}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideView:Landroid/view/View;
-
-    if-nez v2, :cond_1
+    if-nez v3, :cond_2
 
     invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v3
 
-    const v4, 0x7f100383
+    const v5, 0x7f10043e
 
-    invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v3
 
-    iput-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideView:Landroid/view/View;
+    check-cast v3, Landroid/view/ViewStub;
+
+    iput-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideViewStub:Landroid/view/ViewStub;
+
+    iget-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideViewStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v3}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+
+    iget-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideView:Landroid/view/View;
+
+    if-nez v3, :cond_1
+
+    invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
+
+    move-result-object v3
+
+    const v5, 0x7f100385
+
+    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideView:Landroid/view/View;
 
     :cond_1
-    iget-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideCheckBox:Landroid/widget/CheckBox;
+    iget-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideCheckBox:Landroid/widget/CheckBox;
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
     invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v3
 
-    const v4, 0x7f100385
+    const v5, 0x7f100387
 
-    invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Landroid/widget/CheckBox;
+    check-cast v3, Landroid/widget/CheckBox;
 
-    iput-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideCheckBox:Landroid/widget/CheckBox;
+    iput-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideCheckBox:Landroid/widget/CheckBox;
 
     :cond_2
-    iget-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideCheckBox:Landroid/widget/CheckBox;
+    iget-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideCheckBox:Landroid/widget/CheckBox;
 
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_3
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideCheckBox:Landroid/widget/CheckBox;
+    iget-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideCheckBox:Landroid/widget/CheckBox;
 
-    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v3}, Landroid/widget/CheckBox;->isChecked()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_3
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Lcom/android/incallui/InCallApp;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Lcom/android/incallui/InCallApp;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v4, "SugudenGuideShowNeverAgain"
+    const-string v5, "SugudenGuideShowNeverAgain"
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    invoke-static {v2, v4, v5}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v3, v5, v6}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :cond_3
-    iget-object v2, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideView:Landroid/view/View;
+    iget-object v3, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideView:Landroid/view/View;
 
-    if-eqz v2, :cond_4
+    if-eqz v3, :cond_4
 
-    iget-object v4, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideView:Landroid/view/View;
+    iget-object v5, p0, Lcom/android/incallui/fragment/view/CallCardSugudenView;->mSugudenGuideView:Landroid/view/View;
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
-    move v2, v3
+    move v3, v4
 
     :goto_0
-    invoke-virtual {v4, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setVisibility(I)V
 
     :cond_4
     return-void
 
     :cond_5
-    const/16 v2, 0x8
+    const/16 v3, 0x8
 
     goto :goto_0
 .end method

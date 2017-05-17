@@ -479,6 +479,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="outgoing_img_picture">छविहरू</string>
     <string name="outgoing_img_take_picture">छवि लिनुहोस्</string>
     <string name="outgoing_img_video">भिडियोहरु</string>
+    <string name="overlay_warning_toast">फोन प्रयोग गर्न तपाईले फोनका सेटिङहरूमा गई शीर्षमा देखिन सक्ने एप्सलाई अन गर्नुपर्ने हुन्छ।</string>
     <string name="payphone_sbm">पे फोन</string>
     <string name="phoneLabelsGroup">फोन</string>
     <string name="phone_voice_recording_failed_by_secure_call">सुरक्षित कल रेकर्ड गर्न सकिँदैन।</string>
@@ -635,6 +636,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="secOnscreenUpdateContactText">हालको अद्यावधिक</string>
     <string name="secOnscreenUpdateContactText_tts">हालको अपडेट गर्नुहोस्</string>
     <string name="secOnscreenVideoCallText">भिडियो कल</string>
+    <string name="secOnscreenVideoStopText">रोक्‍नुहोस्</string>
     <string name="secOnscreenViewContactText">सम्पर्क हेर्नु</string>
     <string name="secOnscreenVoiceCallText">कल</string>
     <string name="secOnscreenVoiceCallTextExtended">भ्वाइस कल</string>

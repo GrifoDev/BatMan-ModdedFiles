@@ -46,6 +46,9 @@
 .method public abstract isAnswerAnimationRunning()Z
 .end method
 
+.method public abstract isRejectCallWithMsgDrawerOpened()Z
+.end method
+
 .method public abstract onContentViewChanged(Landroid/graphics/Point;)V
 .end method
 

@@ -451,6 +451,17 @@
     invoke-static {}, Lcom/android/incallui/util/PackageHelpers;->enableBikeModeReceiver()V
 
     :cond_7
+    const-string v2, "callprotect_enable"
+
+    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->init()V
+
+    :cond_8
     invoke-virtual {p0}, Lcom/android/incallui/InCallApp;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v2

@@ -135,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">Arraste o botão ENVIAR MENSAGEM p/ cima p/ enviar uma mens. ráp. e recusar uma cham. rec.</string>
     <string name="call_drug_up_panel_for_kk_tts">Arrastar a chamada recusada com o painel de mensagem para cima para enviar uma mensagem de recusa de chamada para recusar uma chamada recebida.</string>
     <string name="call_ended_toast">Chamada encerrada.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Chamada encaminhada para:</string>
+    <string name="call_forwarding_from">Chamada encaminhada de:</string>
     <string name="call_incoming_voice_call2">Tocar em %s para atender uma chamada.</string>
     <string name="call_incoming_voice_call2_tts">Tocar no botão atender chamada para atender uma chamada.</string>
     <string name="call_incoming_voice_call3">Toq. em %s p/ recus. uma cham.</string>
@@ -499,6 +499,7 @@ Esse recurso usa conteúdos fornecidos por uma operadora de terceiros chamada Di
     <string name="outgoing_img_picture">Imagens</string>
     <string name="outgoing_img_take_picture">Tirar foto</string>
     <string name="outgoing_img_video">Vídeos</string>
+    <string name="overlay_warning_toast">Para usar o Telefone, você precisa ativar a função Aplicativos que podem aparecer sobre outros nas configurações do Telefone.</string>
     <string name="payphone_sbm">Telefone pago</string>
     <string name="phoneLabelsGroup">Telefone</string>
     <string name="phone_voice_recording_failed_by_secure_call">Não é possível gravar a chamada segura.</string>
@@ -655,6 +656,7 @@ unidirec."</string>
     <string name="secOnscreenUpdateContactText">Atualiz. exist.</string>
     <string name="secOnscreenUpdateContactText_tts">Atualizar existente</string>
     <string name="secOnscreenVideoCallText">Videocham.</string>
+    <string name="secOnscreenVideoStopText">Parar</string>
     <string name="secOnscreenViewContactText">Exibir contato</string>
     <string name="secOnscreenVoiceCallText">Chamar</string>
     <string name="secOnscreenVoiceCallTextExtended">Cham. voz</string>
@@ -751,7 +753,7 @@ unidirec."</string>
     <string name="usa_gsm_modify_requested_wait_for_response">Aguardando resposta</string>
     <string name="usa_gsm_modify_select_call_type">Selecionar tipo de chamada</string>
     <string name="usa_gsm_switching_to_voice_call">Alternando para somente voz.</string>
-    <string name="usa_tmo_notify_wifi_to_lte_popup_text">O vídeo foi desativado porque os dados móveis não estão disponíveis.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">O vídeo foi desativado por não haver dados móveis disponíveis.</string>
     <string name="usa_volte_reject_upgrade_request">%s não pode receber videochamadas no momento.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">A videochamada não está disponível.</string>
     <string name="usa_vzw_change_to_oneway_video">"Alterar p/ vídeo

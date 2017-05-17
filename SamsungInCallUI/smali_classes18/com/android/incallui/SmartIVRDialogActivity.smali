@@ -323,7 +323,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/SmartIVRDialogActivity;->builder:Landroid/app/AlertDialog$Builder;
 
-    const v6, 0x7f090542
+    const v6, 0x7f090544
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

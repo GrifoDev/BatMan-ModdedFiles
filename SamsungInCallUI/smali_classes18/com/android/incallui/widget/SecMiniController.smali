@@ -199,15 +199,15 @@
 
     move-result-object v2
 
-    const v8, 0x7f1002d6
+    const v8, 0x7f1002d8
 
     invoke-virtual {p0, v8, v5}, Lcom/android/incallui/widget/SecMiniController;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v8, 0x7f1002de
+    const v8, 0x7f1002e0
 
     invoke-virtual {p0, v8, v6}, Lcom/android/incallui/widget/SecMiniController;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v8, 0x7f1002dd
+    const v8, 0x7f1002df
 
     invoke-virtual {p0, v8, v7}, Lcom/android/incallui/widget/SecMiniController;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -217,27 +217,27 @@
 
     if-eqz v8, :cond_0
 
-    const v8, 0x7f1002db
+    const v8, 0x7f1002dd
 
     invoke-virtual {p0, v8, v4}, Lcom/android/incallui/widget/SecMiniController;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
     :goto_0
-    const v8, 0x7f1002dc
+    const v8, 0x7f1002de
 
     invoke-virtual {p0, v8, v3}, Lcom/android/incallui/widget/SecMiniController;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v8, 0x7f1002e0
+    const v8, 0x7f1002e2
 
     invoke-virtual {p0, v8, v1}, Lcom/android/incallui/widget/SecMiniController;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v8, 0x7f1002df
+    const v8, 0x7f1002e1
 
     invoke-virtual {p0, v8, v2}, Lcom/android/incallui/widget/SecMiniController;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
     return-void
 
     :cond_0
-    const v8, 0x7f1002db
+    const v8, 0x7f1002dd
 
     invoke-virtual {p0, v8, v0}, Lcom/android/incallui/widget/SecMiniController;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -247,7 +247,7 @@
 .method protected updateJanskyInfo()V
     .locals 7
 
-    const v6, 0x7f1002e6
+    const v6, 0x7f1002e8
 
     const/4 v2, 0x0
 
@@ -342,7 +342,7 @@
 .method protected updateName(Ljava/lang/String;)V
     .locals 2
 
-    const v1, 0x7f1002e4
+    const v1, 0x7f1002e6
 
     if-eqz p1, :cond_0
 

@@ -17,11 +17,7 @@
 
 .field protected mAcceptButtonContainer:Landroid/view/View;
 
-.field protected mBottomBlendEffect:Landroid/view/View;
-
 .field protected mButtonWrapper:Landroid/view/View;
-
-.field protected mButtonWrapperBg:Landroid/view/View;
 
 .field private mContainer:Landroid/view/ViewGroup;
 
@@ -116,7 +112,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1003b6
+    const v1, 0x7f1003b5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -145,7 +141,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mHoldCallBannerView:Landroid/view/View;
 
-    const v1, 0x7f1003ee
+    const v1, 0x7f1003ed
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -155,7 +151,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mHoldCallBannerView:Landroid/view/View;
 
-    const v1, 0x7f1003ef
+    const v1, 0x7f1003ee
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -297,7 +293,15 @@
 .end method
 
 .method private setButtonLayout(Z)V
-    .locals 12
+    .locals 13
+
+    const v12, 0x7f0f01a5
+
+    const v9, 0x106000d
+
+    const/4 v11, 0x0
+
+    const/4 v10, 0x0
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getActivity()Landroid/app/Activity;
 
@@ -325,11 +329,7 @@
 
     move-result-object v8
 
-    const v9, 0x106000d
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v8, v9, v10}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+    invoke-virtual {v8, v9, v11}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result v8
 
@@ -339,36 +339,30 @@
 
     move-result-object v7
 
-    const/4 v8, 0x0
+    invoke-static {v7, v11, v10}, Lcom/android/incallui/util/VideoCallUtils;->getCallForVT(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
-    const/4 v9, 0x0
+    move-result-object v2
 
-    invoke-static {v7, v8, v9}, Lcom/android/incallui/util/VideoCallUtils;->getCallForVT(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     move-object v7, v0
 
     check-cast v7, Lcom/android/incallui/InCallActivity;
 
-    invoke-virtual {v3}, Lcom/android/incallui/Call;->getState()I
+    invoke-virtual {v2}, Lcom/android/incallui/Call;->getState()I
 
     move-result v8
 
     invoke-virtual {v7, v8}, Lcom/android/incallui/InCallActivity;->updateNavigationBarIconColor(I)V
 
     :cond_1
-    move-object v7, v0
+    check-cast v0, Lcom/android/incallui/InCallActivity;
 
-    check-cast v7, Lcom/android/incallui/InCallActivity;
-
-    invoke-virtual {v7}, Lcom/android/incallui/InCallActivity;->getVideoCallMetrics()Lcom/android/incallui/service/vt/VideoCallMetrics;
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getVideoCallMetrics()Lcom/android/incallui/service/vt/VideoCallMetrics;
 
     move-result-object v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_6
 
     invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
 
@@ -380,7 +374,7 @@
 
     if-eqz v7, :cond_2
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_7
 
     iget v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mVideoUXMode:I
 
@@ -388,7 +382,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_7
 
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mRootView:Landroid/view/View;
 
@@ -396,11 +390,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0f01a4
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v8, v9, v10}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+    invoke-virtual {v8, v12, v11}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result v8
 
@@ -408,87 +398,21 @@
 
     :cond_2
     :goto_1
-    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mBottomBlendEffect:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_3
 
-    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mBottomBlendEffect:Landroid/view/View;
-
-    invoke-virtual {v7}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/FrameLayout$LayoutParams;
-
-    iget v7, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const/high16 v9, 0x7f0d0000
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v8
-
-    mul-int/2addr v7, v8
-
-    div-int/lit16 v2, v7, 0x3e8
-
-    iget-object v7, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
-
-    iget v7, v7, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height:I
-
-    if-ge v2, v7, :cond_3
-
-    iget-object v7, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
-
-    iget v2, v7, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height:I
-
-    :cond_3
-    iput v2, v4, Landroid/widget/FrameLayout$LayoutParams;->height:I
-
-    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mBottomBlendEffect:Landroid/view/View;
-
-    invoke-virtual {v7, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    :cond_4
-    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapperBg:Landroid/view/View;
-
-    if-eqz v7, :cond_6
-
-    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapperBg:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
     invoke-virtual {v7}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v4
 
-    check-cast v4, Landroid/widget/FrameLayout$LayoutParams;
+    check-cast v4, Landroid/widget/RelativeLayout$LayoutParams;
 
-    iget-object v7, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
+    const/4 v3, -0x2
 
-    iget v7, v7, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height_with_offset:I
-
-    iput v7, v4, Landroid/widget/FrameLayout$LayoutParams;->height:I
-
-    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapperBg:Landroid/view/View;
-
-    invoke-virtual {v7, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v7
-
-    const v8, 0x106000d
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v7, v8, v9}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
-
-    move-result v1
-
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_8
 
     iget v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mVideoUXMode:I
 
@@ -496,53 +420,51 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_8
+
+    iget-object v7, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
+
+    iget v3, v7, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height_with_offset:I
+
+    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v8
 
-    const v8, 0x7f0f01a4
+    invoke-virtual {v8, v12, v11}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
-    const/4 v9, 0x0
+    move-result v8
 
-    invoke-virtual {v7, v8, v9}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+    invoke-virtual {v7, v8}, Landroid/view/View;->setBackgroundColor(I)V
 
-    move-result v1
+    :goto_2
+    iput v3, v4, Landroid/widget/RelativeLayout$LayoutParams;->height:I
 
-    :cond_5
-    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapperBg:Landroid/view/View;
+    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
-    invoke-virtual {v7, v1}, Landroid/view/View;->setBackgroundColor(I)V
+    invoke-virtual {v7, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_6
+    :cond_3
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtons:Landroid/view/View;
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_4
 
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtons:Landroid/view/View;
 
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    invoke-virtual {v7, v8, v9, v10, v11}, Landroid/view/View;->setPadding(IIII)V
+    invoke-virtual {v7, v10, v10, v10, v10}, Landroid/view/View;->setPadding(IIII)V
 
     invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallMetrics;->hasNavigationBarZone()Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_4
 
     invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_4
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getContext()Landroid/content/Context;
 
@@ -556,23 +478,17 @@
 
     move-result v7
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_a
 
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtons:Landroid/view/View;
 
-    const/4 v8, 0x0
+    invoke-virtual {v7, v6, v10, v10, v10}, Landroid/view/View;->setPadding(IIII)V
 
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v7, v6, v8, v9, v10}, Landroid/view/View;->setPadding(IIII)V
-
-    :cond_7
-    :goto_2
+    :cond_4
+    :goto_3
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapper:Landroid/view/View;
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_5
 
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapper:Landroid/view/View;
 
@@ -604,10 +520,10 @@
 
     invoke-virtual {v7, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_8
+    :cond_5
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mHoldCallBanner:Landroid/view/View;
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_6
 
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mHoldCallBanner:Landroid/view/View;
 
@@ -635,40 +551,23 @@
 
     invoke-virtual {v7, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_9
-    iget-boolean v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsDeviceLandScape:Z
+    :cond_6
+    iget-boolean v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsFullScreenMode:Z
 
-    if-nez v7, :cond_a
+    invoke-virtual {p0, v7}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->updateNavigationBar(Z)V
 
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_e
-
-    :cond_a
-    const/4 v7, 0x1
-
-    invoke-static {v0, v7}, Lcom/android/incallui/util/ScreenControlUtils;->showNavigationBar(Landroid/app/Activity;Z)V
-
-    :cond_b
-    :goto_3
     invoke-virtual {p0, p1}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->updateButtonAreaVisibility(Z)V
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_7
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mRootView:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v8
 
-    const v9, 0x106000d
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v8, v9, v10}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+    invoke-virtual {v8, v9, v11}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result v8
 
@@ -676,39 +575,58 @@
 
     goto/16 :goto_1
 
-    :cond_d
+    :cond_8
+    iget v7, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const/high16 v9, 0x7f0d0000
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v8
+
+    mul-int/2addr v7, v8
+
+    div-int/lit16 v1, v7, 0x3e8
+
+    iget-object v7, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
+
+    iget v7, v7, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height:I
+
+    if-ge v1, v7, :cond_9
+
+    iget-object v7, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
+
+    iget v1, v7, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height:I
+
+    :cond_9
+    move v3, v1
+
+    iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f0200ee
+
+    invoke-virtual {v8, v9, v11}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    goto/16 :goto_2
+
+    :cond_a
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtons:Landroid/view/View;
 
-    const/4 v8, 0x0
+    invoke-virtual {v7, v10, v10, v6, v10}, Landroid/view/View;->setPadding(IIII)V
 
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v7, v8, v9, v6, v10}, Landroid/view/View;->setPadding(IIII)V
-
-    goto :goto_2
-
-    :cond_e
-    iget-boolean v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
-
-    if-nez v7, :cond_b
-
-    iget-boolean v7, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsFullScreenMode:Z
-
-    if-nez v7, :cond_f
-
-    const/4 v7, 0x1
-
-    :goto_4
-    invoke-static {v0, v7}, Lcom/android/incallui/util/ScreenControlUtils;->showNavigationBar(Landroid/app/Activity;Z)V
-
-    goto :goto_3
-
-    :cond_f
-    const/4 v7, 0x0
-
-    goto :goto_4
+    goto/16 :goto_3
 .end method
 
 .method private updateHoldCallBanner()V
@@ -826,7 +744,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090315
+    const v5, 0x7f090317
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -964,17 +882,17 @@
 .end method
 
 .method protected arrangeModifyButtonLayoutForNavigator(Landroid/view/ViewStub;)V
-    .locals 10
+    .locals 13
 
-    const/4 v9, 0x1
+    const/4 v12, 0x1
 
-    const/4 v8, 0x0
+    const/4 v11, 0x0
 
-    const-string v6, "VideoCallButtonVGAFragment"
+    const-string v9, "VideoCallButtonVGAFragment"
 
-    const-string v7, "arrangeModifyButtonLayoutForNavigator"
+    const-string v10, "arrangeModifyButtonLayoutForNavigator"
 
-    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v9, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getActivity()Landroid/app/Activity;
 
@@ -982,11 +900,11 @@
 
     if-nez v0, :cond_1
 
-    const-string v6, "VideoCallButtonVGAFragment"
+    const-string v9, "VideoCallButtonVGAFragment"
 
-    const-string v7, "arrangeModifyButtonLayoutForNavigator : Activity is null."
+    const-string v10, "arrangeModifyButtonLayoutForNavigator : Activity is null."
 
-    invoke-static {v6, v7, v9}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v9, v10, v12}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     :cond_0
     :goto_0
@@ -995,130 +913,159 @@
     :cond_1
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v2
 
     check-cast v0, Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getVideoCallMetrics()Lcom/android/incallui/service/vt/VideoCallMetrics;
 
-    move-result-object v3
+    move-result-object v5
 
-    if-nez v3, :cond_2
+    if-nez v5, :cond_2
 
-    const-string v6, "VideoCallButtonVGAFragment"
+    const-string v9, "VideoCallButtonVGAFragment"
 
-    const-string v7, "arrangeModifyButtonLayoutForNavigator : metrics is null."
+    const-string v10, "arrangeModifyButtonLayoutForNavigator : metrics is null."
 
-    invoke-static {v6, v7, v9}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v9, v10, v12}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     goto :goto_0
 
     :cond_2
-    invoke-static {v1}, Lcom/android/incallui/util/ScreenControlUtils;->getNavigationBarHeight(Landroid/content/Context;)I
+    invoke-static {v2}, Lcom/android/incallui/util/ScreenControlUtils;->getNavigationBarHeight(Landroid/content/Context;)I
 
-    move-result v5
+    move-result v8
 
-    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
+    iget v3, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->density:F
 
-    if-eqz v6, :cond_4
+    iget-object v9, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
 
-    iget v6, v3, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+    if-eqz v9, :cond_5
 
-    mul-int/lit8 v6, v6, 0x3
+    iget-object v9, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
 
-    div-int/lit8 v2, v6, 0x64
+    invoke-virtual {v9}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    iget-boolean v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
+    move-result-object v1
 
-    if-nez v6, :cond_3
+    check-cast v1, Landroid/widget/RelativeLayout$LayoutParams;
 
-    iget-boolean v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mHasNavigationBar:Z
+    iget v9, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
-    if-eqz v6, :cond_3
+    mul-int/lit8 v9, v9, 0x3
 
-    invoke-virtual {v3}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
+    div-int/lit8 v4, v9, 0x64
 
-    move-result v6
+    iget v9, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
-    if-nez v6, :cond_3
+    mul-int/lit8 v9, v9, 0xf
 
-    const/4 v2, 0x0
+    div-int/lit8 v9, v9, 0x64
+
+    iput v9, v1, Landroid/widget/RelativeLayout$LayoutParams;->height:I
+
+    invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    iget v9, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+
+    mul-int/lit8 v9, v9, 0x19
+
+    div-int/lit8 v9, v9, 0x64
+
+    iput v9, v1, Landroid/widget/RelativeLayout$LayoutParams;->height:I
 
     :cond_3
-    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
+    iget-boolean v9, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
 
-    invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    if-eqz v9, :cond_4
 
-    move-result-object v4
+    iget-object v9, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
 
-    check-cast v4, Landroid/view/ViewGroup$MarginLayoutParams;
+    iget v9, v9, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height:I
 
-    iput v2, v4, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget-object v10, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
 
-    iput v2, v4, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iget v10, v10, Lcom/android/incallui/service/vt/VideoButtonMetrics;->bottom_offset:I
 
-    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
+    add-int v6, v9, v10
 
-    invoke-virtual {v6, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    iget v9, v1, Landroid/widget/RelativeLayout$LayoutParams;->height:I
+
+    if-ge v9, v6, :cond_4
+
+    iput v6, v1, Landroid/widget/RelativeLayout$LayoutParams;->height:I
 
     :cond_4
-    iget-boolean v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
+    iget-object v9, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
 
-    if-nez v6, :cond_0
+    invoke-virtual {v9, v11, v4, v11, v11}, Landroid/view/View;->setPadding(IIII)V
+
+    iget-object v9, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
+
+    invoke-virtual {v9, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_5
+    iget-boolean v9, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
+
+    if-nez v9, :cond_0
 
     invoke-virtual {p1}, Landroid/view/ViewStub;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v4
+    move-result-object v7
 
-    check-cast v4, Landroid/widget/RelativeLayout$LayoutParams;
+    check-cast v7, Landroid/widget/RelativeLayout$LayoutParams;
 
-    iget-boolean v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mHasNavigationBar:Z
+    iget-boolean v9, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mHasNavigationBar:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v9, :cond_6
 
-    iput v8, v4, Landroid/widget/RelativeLayout$LayoutParams;->bottomMargin:I
+    iput v11, v7, Landroid/widget/RelativeLayout$LayoutParams;->bottomMargin:I
 
-    iput v8, v4, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
+    iput v11, v7, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    iput v8, v4, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I
+    iput v11, v7, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I
 
-    invoke-virtual {v3}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
+    invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
 
-    move-result v6
+    move-result v9
 
-    if-nez v6, :cond_6
+    if-nez v9, :cond_7
 
-    iget-object v6, v3, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
+    iget-object v9, v5, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
 
-    iget v6, v6, Lcom/android/incallui/service/vt/VideoButtonMetrics;->bottom_offset:I
+    iget v9, v9, Lcom/android/incallui/service/vt/VideoButtonMetrics;->bottom_offset:I
 
-    iput v6, v4, Landroid/widget/RelativeLayout$LayoutParams;->bottomMargin:I
-
-    :cond_5
-    :goto_1
-    invoke-virtual {p1, v4}, Landroid/view/ViewStub;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    goto :goto_0
+    iput v9, v7, Landroid/widget/RelativeLayout$LayoutParams;->bottomMargin:I
 
     :cond_6
-    invoke-virtual {v3}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isLeftHandRotation()Z
+    :goto_1
+    invoke-virtual {p1, v7}, Landroid/view/ViewStub;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    move-result v6
+    goto/16 :goto_0
 
-    if-eqz v6, :cond_7
+    :cond_7
+    invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isLeftHandRotation()Z
 
-    iput v5, v4, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
+    move-result v9
+
+    if-eqz v9, :cond_8
+
+    iput v8, v7, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
     goto :goto_1
 
-    :cond_7
-    invoke-virtual {v3}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isRightHandRotation()Z
+    :cond_8
+    invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isRightHandRotation()Z
 
-    move-result v6
+    move-result v9
 
-    if-eqz v6, :cond_5
+    if-eqz v9, :cond_6
 
-    iput v5, v4, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I
+    iput v8, v7, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I
 
     goto :goto_1
 .end method
@@ -1488,7 +1435,7 @@
 
     iput v4, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mVideoUXMode:I
 
-    const v4, 0x7f040123
+    const v4, 0x7f040124
 
     iget-object v5, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mContainer:Landroid/view/ViewGroup;
 
@@ -1504,7 +1451,7 @@
 .method protected inflateHideShowMeButtonStub(Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f1003ae
+    const v0, 0x7f1003ad
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1523,7 +1470,7 @@
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_0
-    const v0, 0x7f1003ed
+    const v0, 0x7f1003ec
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1805,9 +1752,9 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f1003ed -> :sswitch_2
-        0x7f1003fb -> :sswitch_0
-        0x7f1003fd -> :sswitch_1
+        0x7f1003ec -> :sswitch_2
+        0x7f1003fa -> :sswitch_0
+        0x7f1003fc -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -1913,7 +1860,7 @@
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->updateButtonIndicatorArea()V
 
-    const v0, 0x7f100387
+    const v0, 0x7f100389
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1921,7 +1868,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
-    const v0, 0x7f100388
+    const v0, 0x7f10038a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1929,29 +1876,13 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtons:Landroid/view/View;
 
-    const v0, 0x7f100389
+    const v0, 0x7f10038b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapper:Landroid/view/View;
-
-    const v0, 0x7f1003ac
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapperBg:Landroid/view/View;
-
-    const v0, 0x7f1003ad
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mBottomBlendEffect:Landroid/view/View;
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -1963,7 +1894,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->updateFullscreenMode(Z)V
 
-    const v0, 0x7f10038c
+    const v0, 0x7f10038e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2018,7 +1949,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_2
-    const v0, 0x7f10038d
+    const v0, 0x7f10038f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2058,7 +1989,7 @@
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->updateMuteButton()V
 
     :cond_4
-    const v0, 0x7f10038e
+    const v0, 0x7f100390
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2099,7 +2030,7 @@
 
     if-eqz v0, :cond_7
 
-    const v0, 0x7f1003b7
+    const v0, 0x7f1003b6
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2116,7 +2047,7 @@
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_6
-    const v0, 0x7f1003b8
+    const v0, 0x7f1003b7
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2568,25 +2499,25 @@
 .end method
 
 .method protected updateButtonAreaVisibility(Z)V
-    .locals 13
+    .locals 11
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    iget-object v10, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
 
-    if-eqz v10, :cond_1
+    if-eqz v6, :cond_1
 
-    iget-object v10, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mModifyCallButtonView:Landroid/view/View;
 
-    invoke-virtual {v10}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v6}, Landroid/view/View;->getVisibility()I
 
-    move-result v10
+    move-result v6
 
-    if-nez v10, :cond_1
+    if-nez v6, :cond_1
 
-    move v4, v8
+    move v3, v7
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getActivity()Landroid/app/Activity;
@@ -2595,182 +2526,168 @@
 
     if-nez v0, :cond_2
 
-    const-string v9, "VideoCallButtonVGAFragment"
+    const-string v6, "VideoCallButtonVGAFragment"
 
-    const-string v10, "updateButtonAreaVisibility : Activity is null."
+    const-string v8, "updateButtonAreaVisibility : Activity is null."
 
-    invoke-static {v9, v10, v8}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v6, v8, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     :cond_0
     :goto_1
     return-void
 
     :cond_1
-    move v4, v9
+    move v3, v8
 
     goto :goto_0
 
     :cond_2
-    check-cast v0, Lcom/android/incallui/InCallActivity;
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getPresenter()Lcom/android/incallui/Presenter;
 
-    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getVideoCallMetrics()Lcom/android/incallui/service/vt/VideoCallMetrics;
+    move-result-object v6
 
-    move-result-object v5
+    check-cast v6, Lcom/android/incallui/CallButtonPresenter;
 
-    if-eqz v5, :cond_7
+    invoke-virtual {v6}, Lcom/android/incallui/CallButtonPresenter;->getCall()Lcom/android/incallui/Call;
 
-    invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isOrientationLandscapeInMultiWindow()Z
+    move-result-object v4
 
-    move-result v10
+    if-nez v4, :cond_3
 
-    if-eqz v10, :cond_7
+    const-string v6, "VideoCallButtonVGAFragment"
 
-    move v3, v8
+    const-string v8, "updateButtonAreaVisibility : Call of presenter is null."
 
-    :goto_2
+    invoke-static {v6, v8, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    goto :goto_1
+
+    :cond_3
     const/4 v1, 0x0
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v10
+    move-result-object v6
 
-    const/4 v11, 0x0
+    invoke-virtual {v6, v4}, Lcom/android/incallui/CallList;->isAlive(Lcom/android/incallui/Call;)Z
 
-    invoke-virtual {v10, v11}, Lcom/android/incallui/CallList;->getFirstCallToDisplay(Lcom/android/incallui/Call;)Lcom/android/incallui/Call;
+    move-result v6
+
+    if-nez v6, :cond_4
+
+    invoke-virtual {v4}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v6
 
-    sget v7, Lcom/android/incallui/service/vt/SecVideoState;->VIDEO_NONE:I
+    invoke-virtual {v6}, Lcom/android/incallui/SecCall;->isConferecedVideoRx()Z
+
+    move-result v6
 
     if-eqz v6, :cond_4
 
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v6}, Lcom/android/incallui/CallList;->isAlive(Lcom/android/incallui/Call;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_3
-
-    invoke-virtual {v6}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Lcom/android/incallui/SecCall;->isConferecedVideoRx()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_3
-
     const/4 v1, 0x1
 
-    const-string v10, "VideoCallButtonVGAFragment"
+    const-string v6, "VideoCallButtonVGAFragment"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v12, "updateButtonAreaVisibility : Conferenced Call is not alive."
+    const-string v10, "updateButtonAreaVisibility : Conferenced Call is not alive."
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v6}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11, v8}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    :cond_3
-    invoke-virtual {v6}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
+    invoke-virtual {v4}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v10
 
-    invoke-virtual {v10}, Lcom/android/incallui/SecCall;->getSecVideoState()I
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v7
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v6, v9, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     :cond_4
-    if-nez v4, :cond_6
+    invoke-virtual {v4}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
-    if-eqz v3, :cond_5
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/incallui/SecCall;->getSecVideoState()I
+
+    move-result v5
+
+    if-nez v3, :cond_6
+
+    iget-boolean v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
+
+    if-eqz v6, :cond_5
 
     if-nez p1, :cond_6
 
     :cond_5
     if-nez v1, :cond_6
 
-    invoke-static {v7}, Lcom/android/incallui/service/vt/SecVideoState;->isNoVideo(I)Z
+    invoke-static {v5}, Lcom/android/incallui/service/vt/SecVideoState;->isNoVideo(I)Z
 
-    move-result v10
+    move-result v6
 
-    if-eqz v10, :cond_8
+    if-eqz v6, :cond_7
 
     :cond_6
-    move v2, v8
+    move v2, v7
 
-    :goto_3
-    iget-object v10, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
+    :goto_2
+    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
-    if-eqz v10, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string v10, "VideoCallButtonVGAFragment"
+    const-string v6, "VideoCallButtonVGAFragment"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v12, "updateButtonAreaVisibility : isGone = "
+    const-string v10, "updateButtonAreaVisibility : isGone = "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v11, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-static {v10, v11, v8}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v6, v9, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
-    iget-object v8, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
-    const/16 v9, 0x8
+    const/16 v7, 0x8
 
-    invoke-virtual {v8, v9}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v6, v7}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_1
 
     :cond_7
-    move v3, v9
+    move v2, v8
 
     goto :goto_2
 
     :cond_8
-    move v2, v9
+    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
-    goto :goto_3
-
-    :cond_9
-    iget-object v8, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v6, v8}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_1
 .end method
@@ -3078,7 +2995,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f011c
+    const v3, 0x7f0f011d
 
     invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
 
@@ -3101,7 +3018,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f011b
+    const v3, 0x7f0f011c
 
     invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
 
@@ -3113,45 +3030,43 @@
 .end method
 
 .method public updateFullscreenMode(Z)V
-    .locals 8
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    const-string v3, "VideoCallButtonVGAFragment"
 
-    const-string v2, "VideoCallButtonVGAFragment"
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, "updateFullscreenMode "
 
-    const-string v6, "updateFullscreenMode "
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    iget-boolean v5, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsFullScreenMode:Z
 
-    iget-boolean v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsFullScreenMode:Z
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    const-string v5, " > "
 
-    const-string v6, " > "
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
-
-    invoke-static {v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getActivity()Landroid/app/Activity;
 
@@ -3159,85 +3074,47 @@
 
     if-nez v0, :cond_0
 
-    const-string v2, "VideoCallButtonVGAFragment"
+    const-string v3, "VideoCallButtonVGAFragment"
 
     const-string v4, "updateFullscreenMode : Activity is null."
 
-    invoke-static {v2, v4, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v3, v4, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     :goto_0
     return-void
 
     :cond_0
-    move-object v2, v0
+    check-cast v0, Lcom/android/incallui/InCallActivity;
 
-    check-cast v2, Lcom/android/incallui/InCallActivity;
-
-    invoke-virtual {v2}, Lcom/android/incallui/InCallActivity;->getVideoCallMetrics()Lcom/android/incallui/service/vt/VideoCallMetrics;
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getVideoCallMetrics()Lcom/android/incallui/service/vt/VideoCallMetrics;
 
     move-result-object v1
 
-    iget-object v5, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
+    iget-object v3, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mInCallButtonContainer:Landroid/view/View;
 
-    iget-object v6, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mButtonWrapperBg:Landroid/view/View;
+    iget-object v4, v1, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
 
-    iget-object v2, v1, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
+    iget v4, v4, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height_with_offset:I
 
-    iget v7, v2, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height_with_offset:I
+    iget-boolean v5, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsFullScreenMode:Z
 
-    iget-boolean v2, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsFullScreenMode:Z
-
-    if-eq v2, p1, :cond_3
-
-    move v2, v3
+    if-eq v5, p1, :cond_1
 
     :goto_1
-    invoke-static {v5, v6, v7, p1, v2}, Lcom/android/incallui/util/VideoAnimator;->setButtonFullScreen(Landroid/view/View;Landroid/view/View;IZZ)V
+    invoke-static {v3, v4, p1, v2}, Lcom/android/incallui/util/VideoAnimator;->setButtonFullScreen(Landroid/view/View;IZZ)V
 
-    invoke-virtual {v1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
+    invoke-virtual {p0, p1}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->updateNavigationBar(Z)V
 
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    :cond_1
-    invoke-static {v0, v3}, Lcom/android/incallui/util/ScreenControlUtils;->showNavigationBar(Landroid/app/Activity;Z)V
-
-    :cond_2
-    :goto_2
     invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->updateHoldCallBanner()V
 
     iput-boolean p1, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsFullScreenMode:Z
 
     goto :goto_0
 
-    :cond_3
-    move v2, v4
+    :cond_1
+    const/4 v2, 0x0
 
     goto :goto_1
-
-    :cond_4
-    iget-boolean v2, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
-
-    if-nez v2, :cond_2
-
-    if-nez p1, :cond_5
-
-    :goto_3
-    invoke-static {v0, v3}, Lcom/android/incallui/util/ScreenControlUtils;->showNavigationBar(Landroid/app/Activity;Z)V
-
-    goto :goto_2
-
-    :cond_5
-    move v3, v4
-
-    goto :goto_3
 .end method
 
 .method protected updateGeneralButtons(I)V
@@ -3423,7 +3300,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f01a5
+    const v2, 0x7f0f01a6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3496,4 +3373,86 @@
     invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->enableModifyCallButtons(Z)V
 
     return-void
+.end method
+
+.method public updateNavigationBar(Z)V
+    .locals 5
+
+    const/4 v1, 0x1
+
+    const-string v2, "VideoCallButtonVGAFragment"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "updateNavigationBar mw "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-boolean v4, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " isFullScreen "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const-string v2, "VideoCallButtonVGAFragment"
+
+    const-string v3, "updateNavigationBar : Activity is null."
+
+    invoke-static {v2, v3, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-boolean v2, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mIsDeviceLandScape:Z
+
+    if-nez v2, :cond_1
+
+    iget-boolean v2, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mNeedMultiWindowLayout:Z
+
+    if-eqz v2, :cond_2
+
+    :cond_1
+    invoke-static {v0, v1}, Lcom/android/incallui/util/ScreenControlUtils;->showNavigationBar(Landroid/app/Activity;Z)V
+
+    goto :goto_0
+
+    :cond_2
+    if-nez p1, :cond_3
+
+    :goto_1
+    invoke-static {v0, v1}, Lcom/android/incallui/util/ScreenControlUtils;->showNavigationBar(Landroid/app/Activity;Z)V
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_1
 .end method

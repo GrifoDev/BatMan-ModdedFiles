@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">দ্রুত মেসেজ পাঠাতে এবং ইনকামিং কল প্রত্যাখ্যান করতে ‘মেসেজ পাঠান’ বাটনটি উপরের দিকে টেনে আনুন৷</string>
     <string name="call_drug_up_panel_for_kk_tts">আপনি কোনও আগত কল প্রত্যাখ্যান করার সময় একটি কল প্রত্যাখ্যানের বার্তা পাঠাতে বার্তা সহ কল প্রত্যাখ্যানের বার্তাটি উপরে প্যানেলগুলোর দিকে টেনে আনুন।</string>
     <string name="call_ended_toast">কল সমাপ্ত</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">কল এখানে ফরোয়ার্ড করা হয়েছে:</string>
+    <string name="call_forwarding_from">কল এখান থেকে ফরোয়ার্ড করা হয়েছে:</string>
     <string name="call_incoming_voice_call2">কোনো কলের উত্তর দিতে %s ট্যাপ করুন।</string>
     <string name="call_incoming_voice_call2_tts">কোনো কলের উত্তর দিতে কলের উত্তর বাটনটি ট্যাপ করুন।</string>
     <string name="call_incoming_voice_call3">কল প্রত্যাখ্যান করতে %s ট্যাপ করুন৷</string>
@@ -525,6 +525,7 @@ IVR কল স্ক্রিন মেন্যু Dianhuabang নামের 
     <string name="outgoing_img_picture">চিত্রগুলো</string>
     <string name="outgoing_img_take_picture">ছবি তুলুন</string>
     <string name="outgoing_img_video">ভিডিও</string>
+    <string name="overlay_warning_toast">ফোন ব্যবহার করতে, যেসব অ্যাপ ফোনের সেটিংসে উপরে দেখানো যায় সেগুলো আপনাকে চালু করতে হবে৷</string>
     <string name="payphone_sbm">পে ফোন</string>
     <string name="phoneLabelsGroup">ফোন</string>
     <string name="phone_voice_recording_failed_by_secure_call">নিরাপদ কল রেকর্ড করা যাবে না৷</string>
@@ -681,6 +682,7 @@ IVR কল স্ক্রিন মেন্যু Dianhuabang নামের 
     <string name="secOnscreenUpdateContactText">বিদ্যমান আপডেট</string>
     <string name="secOnscreenUpdateContactText_tts">আপডেট বিদ্যমান</string>
     <string name="secOnscreenVideoCallText">ভিডিও কল</string>
+    <string name="secOnscreenVideoStopText">থামান</string>
     <string name="secOnscreenViewContactText">কন্টাক্ট দেখুন</string>
     <string name="secOnscreenVoiceCallText">কল</string>
     <string name="secOnscreenVoiceCallTextExtended">ভয়েস কল</string>

@@ -68,7 +68,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f04011f
+    const v7, 0x7f040120
 
     const/4 v8, 0x0
 
@@ -106,7 +106,7 @@
     invoke-virtual {v7, v8}, Landroid/widget/AutoCompleteTextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     :cond_1
-    const v7, 0x7f1003a7
+    const v7, 0x7f1003a9
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -223,7 +223,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090269
+    const v9, 0x7f09026a
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

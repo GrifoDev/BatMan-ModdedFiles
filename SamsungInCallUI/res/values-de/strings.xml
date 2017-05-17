@@ -526,6 +526,7 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="outgoing_img_picture">Eigene Bilder</string>
     <string name="outgoing_img_take_picture">Foto aufnehmen</string>
     <string name="outgoing_img_video">Videos</string>
+    <string name="overlay_warning_toast">Um die Telefon-App zu verwenden, müssen Sie in den Telefoneinstellungen die Funktion „Apps, die über anderen erscheinen können (Overlay)“ aktivieren.</string>
     <string name="payphone_sbm">Öffentliches Telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Sicherer Anruf kann nicht aufgenommen werden.</string>
@@ -682,6 +683,7 @@ Kamera"</string>
     <string name="secOnscreenUpdateContactText">Vorhandene aktualisieren</string>
     <string name="secOnscreenUpdateContactText_tts">Vorhandene aktualisieren</string>
     <string name="secOnscreenVideoCallText">Videoanruf</string>
+    <string name="secOnscreenVideoStopText">Stopp</string>
     <string name="secOnscreenViewContactText">Kontakt anzeigen</string>
     <string name="secOnscreenVoiceCallText">Anruf</string>
     <string name="secOnscreenVoiceCallTextExtended">Sprachanr.</string>

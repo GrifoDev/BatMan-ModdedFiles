@@ -92,7 +92,7 @@
 
     invoke-direct {v3, p0, v9}, Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter$ViewHolder;-><init>(Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter;Lcom/android/incallui/SelectSimActivity$1;)V
 
-    const v7, 0x7f100450
+    const v7, 0x7f10044f
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -102,7 +102,7 @@
 
     iput-object v7, v3, Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter$ViewHolder;->simcardName:Landroid/widget/TextView;
 
-    const v7, 0x7f100451
+    const v7, 0x7f100450
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

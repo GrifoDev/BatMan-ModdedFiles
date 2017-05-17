@@ -55,11 +55,11 @@
 
     iget v2, v3, Lcom/android/contacts/common/interactions/ImportExportDialogFragment$AdapterEntry;->mChoiceResourceId:I
 
-    const v3, 0x7f0904f5
+    const v3, 0x7f0904f7
 
     if-eq v2, v3, :cond_0
 
-    const v3, 0x7f0904f8
+    const v3, 0x7f0904fa
 
     if-ne v2, v3, :cond_2
 
@@ -90,7 +90,7 @@
     return-void
 
     :cond_2
-    const v3, 0x7f0904d7
+    const v3, 0x7f0904d9
 
     if-ne v2, v3, :cond_3
 
@@ -125,7 +125,7 @@
     goto :goto_0
 
     :cond_3
-    const v3, 0x7f09058c
+    const v3, 0x7f09058e
 
     if-ne v2, v3, :cond_5
 

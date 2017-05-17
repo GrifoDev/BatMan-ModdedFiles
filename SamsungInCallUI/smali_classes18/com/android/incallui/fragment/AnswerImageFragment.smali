@@ -382,7 +382,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01d8
+    const v7, 0x7f0a01da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -396,7 +396,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0108
+    const v7, 0x7f0a010a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -414,7 +414,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01e1
+    const v7, 0x7f0a01e3
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -630,7 +630,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0902b2
+    const v3, 0x7f0902b4
 
     invoke-virtual {v2, v3}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -648,7 +648,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090240
+    const v3, 0x7f090241
 
     invoke-virtual {v2, v3}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -670,7 +670,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09023f
+    const v3, 0x7f090240
 
     invoke-virtual {v2, v3}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -726,7 +726,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a01d8
+    const v4, 0x7f0a01da
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1112,7 +1112,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a02f9
+    const v4, 0x7f0a02fb
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1207,6 +1207,32 @@
     move-result v0
 
     if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isRejectCallWithMsgDrawerOpened()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment;->mRejectCallWithMsgDrawer:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment;->mRejectCallWithMsgDrawer:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
+
+    invoke-virtual {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->isOpened()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -1467,7 +1493,7 @@
 .method protected onFinishInflate(Landroid/view/View;)V
     .locals 8
 
-    const v7, 0x7f0902bf
+    const v7, 0x7f0902c1
 
     const/16 v6, 0x14
 
@@ -2420,7 +2446,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0360
+    const v2, 0x7f0a0362
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2452,7 +2478,7 @@
 .method public updateSmartCallRejectMsg(Lcom/android/incallui/Call;)V
     .locals 3
 
-    const v2, 0x7f0902bf
+    const v2, 0x7f0902c1
 
     invoke-static {p1}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState(Lcom/android/incallui/Call;)I
 

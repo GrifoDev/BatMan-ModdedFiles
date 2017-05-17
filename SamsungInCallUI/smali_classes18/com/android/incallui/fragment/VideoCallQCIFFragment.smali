@@ -126,7 +126,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a01da
+    const v2, 0x7f0a01dc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -326,7 +326,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f100393
+    const v0, 0x7f100395
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -334,7 +334,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mVideoViewsContainer:Landroid/view/View;
 
-    const v0, 0x7f100394
+    const v0, 0x7f100396
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -344,7 +344,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mVideoContainer:Landroid/view/ViewGroup;
 
-    const v0, 0x7f10039d
+    const v0, 0x7f10039f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -354,7 +354,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mPreviewContainer:Landroid/view/ViewGroup;
 
-    const v0, 0x7f1003cb
+    const v0, 0x7f1003ca
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -364,7 +364,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndContainerTemplate:Landroid/view/ViewGroup;
 
-    const v0, 0x7f1003cc
+    const v0, 0x7f1003cb
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -374,7 +374,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndContainerResizeTemplate:Landroid/view/ViewGroup;
 
-    const v0, 0x7f1003cd
+    const v0, 0x7f1003cc
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -384,7 +384,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mNearEndContainerTemplate:Landroid/view/ViewGroup;
 
-    const v0, 0x7f100396
+    const v0, 0x7f100398
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -392,7 +392,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mPreparingAnimation:Landroid/view/View;
 
-    const v0, 0x7f100399
+    const v0, 0x7f10039b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -400,7 +400,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndPhotoContainer:Landroid/view/View;
 
-    const v0, 0x7f10039a
+    const v0, 0x7f10039c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -410,7 +410,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f10039b
+    const v0, 0x7f10039d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -420,7 +420,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndDefaultImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f10039c
+    const v0, 0x7f10039e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -428,7 +428,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndCaptureAnimatinoView:Landroid/view/View;
 
-    const v0, 0x7f1003a0
+    const v0, 0x7f1003a2
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -436,7 +436,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mNearEndCaptureAnimatinoView:Landroid/view/View;
 
-    const v0, 0x7f10039f
+    const v0, 0x7f1003a1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -444,7 +444,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mNearEndSwitchAnimationView:Landroid/view/View;
 
-    const v0, 0x7f1003a2
+    const v0, 0x7f1003a4
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -452,7 +452,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mIncomingHideMeImageContainer:Landroid/view/View;
 
-    const v0, 0x7f1003a3
+    const v0, 0x7f1003a5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -462,7 +462,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mIncomingHideMePhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f1003a4
+    const v0, 0x7f1003a6
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -536,7 +536,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040131
+    const v0, 0x7f040132
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -546,7 +546,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f040130
+    const v0, 0x7f040131
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -704,7 +704,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a03ef
+    const v4, 0x7f0a03f1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -795,7 +795,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0056
+    const v3, 0x7f0a0058
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -907,7 +907,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a03ef
+    const v2, 0x7f0a03f1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1027,7 +1027,7 @@
 .method protected setHideMeContainerPosition()V
     .locals 6
 
-    const v5, 0x7f0a0056
+    const v5, 0x7f0a0058
 
     const/4 v1, 0x0
 
@@ -1102,7 +1102,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a00ce
+    const v4, 0x7f0a00d0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1116,7 +1116,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a00c9
+    const v4, 0x7f0a00cb
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1151,7 +1151,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a053a
+    const v4, 0x7f0a0543
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1263,7 +1263,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f01bb
+    const v6, 0x7f0f01bc
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1305,7 +1305,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f01ae
+    const v6, 0x7f0f01af
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1336,7 +1336,7 @@
 .method protected setPreviewPosition()V
     .locals 9
 
-    const v8, 0x7f0a053a
+    const v8, 0x7f0a0543
 
     const/4 v7, 0x4
 
@@ -1467,7 +1467,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a00ce
+    const v5, 0x7f0a00d0
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1481,7 +1481,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a00c9
+    const v5, 0x7f0a00cb
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1525,7 +1525,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0318
+    const v5, 0x7f0a031a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1549,7 +1549,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0056
+    const v5, 0x7f0a0058
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1627,7 +1627,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a00e7
+    const v5, 0x7f0a00e9
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1858,7 +1858,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a053a
+    const v2, 0x7f0a0543
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1875,7 +1875,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0318
+    const v2, 0x7f0a031a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1895,7 +1895,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00e7
+    const v2, 0x7f0a00e9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2133,7 +2133,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a05a0
+    const v4, 0x7f0a05aa
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2147,7 +2147,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a05ac
+    const v4, 0x7f0a05b6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2179,7 +2179,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a05ef
+    const v3, 0x7f0a05fa
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2196,7 +2196,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a05f0
+    const v3, 0x7f0a05fb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">Зображення</string>
     <string name="outgoing_img_take_picture">Зробити знімок</string>
     <string name="outgoing_img_video">Відео</string>
+    <string name="overlay_warning_toast">Щоб використати програму «Телефон», в її налаштуваннях необхідно ввімкнути параметр «Програми, що можуть відображатися вгорі».</string>
     <string name="payphone_sbm">Телефон-автомат</string>
     <string name="phoneLabelsGroup">Телефон</string>
     <string name="phone_voice_recording_failed_by_secure_call">Неможливо записати захищений виклик.</string>
@@ -683,6 +684,7 @@
     <string name="secOnscreenUpdateContactText">Оновити наявний</string>
     <string name="secOnscreenUpdateContactText_tts">Оновити наявний</string>
     <string name="secOnscreenVideoCallText">Відеовиклик</string>
+    <string name="secOnscreenVideoStopText">Зупинити</string>
     <string name="secOnscreenViewContactText">Перегл. контакт</string>
     <string name="secOnscreenVoiceCallText">Виклик</string>
     <string name="secOnscreenVoiceCallTextExtended">Гол. викл.</string>

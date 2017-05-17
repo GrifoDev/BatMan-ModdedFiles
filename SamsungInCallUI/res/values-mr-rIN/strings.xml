@@ -499,6 +499,7 @@ IVR कॉल स्क्रीन मेनू Dianhuabang नावाच्�
     <string name="outgoing_img_picture">प्रतिमा</string>
     <string name="outgoing_img_take_picture">चित्र घ्या</string>
     <string name="outgoing_img_video">व्हिडिओ</string>
+    <string name="overlay_warning_toast">फोन वापरण्या साठी, आपण फोन सेटिंग्स मध्ये शीर्षावर दिसणारे अनुप्रयोग चालू करणे आवश्यक आहे.</string>
     <string name="payphone_sbm">सशुल्क फोन</string>
     <string name="phoneLabelsGroup">फोन</string>
     <string name="phone_voice_recording_failed_by_secure_call">सुरक्षा कॉल रेकॉर्ड करू शकत नाही.</string>
@@ -655,6 +656,7 @@ IVR कॉल स्क्रीन मेनू Dianhuabang नावाच्�
     <string name="secOnscreenUpdateContactText">अस्तित्वात असलेले अद्यावत करा</string>
     <string name="secOnscreenUpdateContactText_tts">अस्तित्वात असलेले अद्यावत करा</string>
     <string name="secOnscreenVideoCallText">व्हिडिओ कॉल</string>
+    <string name="secOnscreenVideoStopText">थांबा</string>
     <string name="secOnscreenViewContactText">संपर्क पहा</string>
     <string name="secOnscreenVoiceCallText">कॉल</string>
     <string name="secOnscreenVoiceCallTextExtended">व्हॉइस कॉल</string>

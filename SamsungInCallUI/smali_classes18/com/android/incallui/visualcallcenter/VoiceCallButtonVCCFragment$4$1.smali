@@ -381,7 +381,7 @@
     # setter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->lastChar:C
     invoke-static {v4, v5}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$1102(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;C)C
 
-    const-wide/16 v4, 0x640
+    const-wide/16 v4, 0x7d0
 
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
 

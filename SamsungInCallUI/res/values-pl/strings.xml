@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Przec. w górę przycisk WYŚLIJ WIADOMOŚĆ, aby wysłać szybką wiad. i odrzucić poł.przychodz.</string>
     <string name="call_drug_up_panel_for_kk_tts">Przeciągnij w górę panel Odrzuć połączenie i wyślij wiadomość, aby wysłać wiadomość o odrzuceniu połączenia po odrzuceniu połączenia przychodzącego.</string>
     <string name="call_ended_toast">Połączenie zakończone.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Połączenie przekazane do:</string>
+    <string name="call_forwarding_from">Połączenie przekazane z:</string>
     <string name="call_incoming_voice_call2">Dotknij ikony %s, aby odebrać połączenie.</string>
     <string name="call_incoming_voice_call2_tts">Aby odebrać połączenie, dotknij przycisku odbierania połączeń.</string>
     <string name="call_incoming_voice_call3">Dotknij %s, aby odrzucić poł.</string>
@@ -526,6 +526,7 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="outgoing_img_picture">Obrazy</string>
     <string name="outgoing_img_take_picture">Zrób zdjęcie</string>
     <string name="outgoing_img_video">Filmy</string>
+    <string name="overlay_warning_toast">Aby korzystać z Telefonu, musisz włączyć w ustawieniach Telefonu opcję Aplikacje, które mogą pojawić się na wierzchu.</string>
     <string name="payphone_sbm">Automat telefoniczny</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Nie można nagrywać połączeń zabezpieczonych.</string>
@@ -682,6 +683,7 @@ jednokier."</string>
     <string name="secOnscreenUpdateContactText">Akt. istniejący</string>
     <string name="secOnscreenUpdateContactText_tts">Aktualizuj kontakt</string>
     <string name="secOnscreenVideoCallText">Poł. wideo</string>
+    <string name="secOnscreenVideoStopText">Stop</string>
     <string name="secOnscreenViewContactText">Wyświetl kontakt</string>
     <string name="secOnscreenVoiceCallText">Połącz</string>
     <string name="secOnscreenVoiceCallTextExtended">Poł. głos.</string>

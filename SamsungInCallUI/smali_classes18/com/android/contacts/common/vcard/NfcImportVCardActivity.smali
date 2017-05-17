@@ -159,7 +159,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x7f090544
+    const v6, 0x7f090546
 
     move-object/from16 v0, p0
 

@@ -127,7 +127,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090241
+    const v7, 0x7f090242
 
     invoke-virtual {v6, v7}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 

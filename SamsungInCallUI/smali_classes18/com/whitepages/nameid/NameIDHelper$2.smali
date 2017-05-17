@@ -102,17 +102,14 @@
     :catch_0
     move-exception v0
 
-    # getter for: Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
-    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$300()Ljava/lang/String;
-
-    move-result-object v2
+    const-string v2, "InCall_NameIDHelper"
 
     const-string v3, "Error calling addToContactsIntentForPhone"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     # getter for: Lcom/whitepages/nameid/NameIDHelper;->DBG:Z
-    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$400()Z
+    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$300()Z
 
     move-result v2
 
@@ -144,10 +141,7 @@
 
     iget-object p1, p0, Lcom/whitepages/nameid/NameIDHelper$2;->val$originalIntent:Landroid/content/Intent;
 
-    # getter for: Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
-    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$300()Ljava/lang/String;
-
-    move-result-object v1
+    const-string v1, "InCall_NameIDHelper"
 
     const-string v2, "name id data not found; using original intent"
 
@@ -166,10 +160,7 @@
     return-void
 
     :cond_1
-    # getter for: Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
-    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$300()Ljava/lang/String;
-
-    move-result-object v1
+    const-string v1, "InCall_NameIDHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -200,10 +191,7 @@
     :catch_0
     move-exception v0
 
-    # getter for: Lcom/whitepages/nameid/NameIDHelper;->TAG:Ljava/lang/String;
-    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$300()Ljava/lang/String;
-
-    move-result-object v1
+    const-string v1, "InCall_NameIDHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -230,7 +218,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     # getter for: Lcom/whitepages/nameid/NameIDHelper;->DBG:Z
-    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$400()Z
+    invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$300()Z
 
     move-result v1
 

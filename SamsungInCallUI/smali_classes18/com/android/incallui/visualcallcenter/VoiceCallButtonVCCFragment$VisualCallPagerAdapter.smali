@@ -88,7 +88,7 @@
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
     .locals 7
 
-    const v6, 0x7f04016d
+    const v6, 0x7f04016f
 
     const/4 v5, 0x0
 

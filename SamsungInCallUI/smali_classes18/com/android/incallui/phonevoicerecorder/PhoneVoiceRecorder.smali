@@ -1,5 +1,5 @@
 .class public Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
-.super Ljava/lang/Object;
+.super Landroid/os/HandlerThread;
 .source "PhoneVoiceRecorder.java"
 
 
@@ -11,7 +11,17 @@
 .end annotation
 
 
+# static fields
+.field private static final MSG_DISPATCH_START_RECORD:I = 0x1e0f3
+
+.field private static final TIME_DELAY_FOR_READY_TO_START_RECORD:I = 0x64
+
+.field private static final TIME_OUT_FOR_READY_TO_START_RECORD:I = 0x7d0
+
+
 # instance fields
+.field private mHandler:Landroid/os/Handler;
+
 .field private mInCallService:Landroid/telecom/InCallService;
 
 .field private mRecorderCallback:Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
@@ -20,17 +30,69 @@
 
 .field private mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
 
+.field private mWatingTimeForReady:I
+
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const-string v0, "PhoneVoiceRecorder"
+
+    invoke-direct {p0, v0}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+
+    new-instance v0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$1;
+
+    invoke-direct {v0, p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$1;-><init>(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)V
+
+    iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mHandler:Landroid/os/Handler;
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
+.method static synthetic access$000(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mWatingTimeForReady:I
+
+    return v0
+.end method
+
+.method static synthetic access$002(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mWatingTimeForReady:I
+
+    return p1
+.end method
+
+.method static synthetic access$100(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->isReadyStartRecord()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$200(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->startRecordInternal()V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->dispatchMsgStartRecord(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$500(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderCallback:Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
@@ -38,7 +100,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$102(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;)Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
+.method static synthetic access$502(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;)Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
     .locals 0
 
     iput-object p1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderCallback:Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
@@ -46,7 +108,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$200(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderService;
+.method static synthetic access$600(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
@@ -54,12 +116,142 @@
     return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;Lcom/android/phone/IPhoneVoiceRecorderService;)Lcom/android/phone/IPhoneVoiceRecorderService;
+.method static synthetic access$602(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;Lcom/android/phone/IPhoneVoiceRecorderService;)Lcom/android/phone/IPhoneVoiceRecorderService;
     .locals 0
 
     iput-object p1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
 
     return-object p1
+.end method
+
+.method private dispatchMsgStartRecord(I)V
+    .locals 4
+
+    iget v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mWatingTimeForReady:I
+
+    add-int/2addr v0, p1
+
+    iput v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mWatingTimeForReady:I
+
+    iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mHandler:Landroid/os/Handler;
+
+    const v1, 0x1e0f3
+
+    int-to-long v2, p1
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    return-void
+.end method
+
+.method private isReadyStartRecord()Z
+    .locals 5
+
+    const/4 v2, 0x0
+
+    iget-object v3, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mInCallService:Landroid/telecom/InCallService;
+
+    if-nez v3, :cond_0
+
+    :goto_0
+    return v2
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mInCallService:Landroid/telecom/InCallService;
+
+    const-string v4, "audio"
+
+    invoke-virtual {v3, v4}, Landroid/telecom/InCallService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/media/AudioManager;
+
+    invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
+
+    move-result v1
+
+    invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
+
+    move-result v3
+
+    const/4 v4, 0x2
+
+    if-eq v3, v4, :cond_1
+
+    invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
+
+    move-result v3
+
+    const/4 v4, 0x3
+
+    if-ne v3, v4, :cond_2
+
+    :cond_1
+    const/4 v2, 0x1
+
+    :cond_2
+    goto :goto_0
+.end method
+
+.method private startRecordInternal()V
+    .locals 3
+
+    const/4 v1, 0x0
+
+    iput v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mWatingTimeForReady:I
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->isRecording()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "startRecord"
+
+    const/4 v2, 0x1
+
+    invoke-static {p0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
+
+    invoke-interface {v1}, Lcom/android/phone/IPhoneVoiceRecorderService;->startRecord()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "startRecord() -"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p0, v1}, Lcom/android/incallui/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 
@@ -385,59 +577,13 @@
 .end method
 
 .method public startRecord()V
-    .locals 3
+    .locals 1
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
+    const/4 v0, 0x0
 
-    if-eqz v1, :cond_0
+    invoke-direct {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->dispatchMsgStartRecord(I)V
 
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->isRecording()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "startRecord"
-
-    const/4 v2, 0x1
-
-    invoke-static {p0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
-
-    iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
-
-    invoke-interface {v1}, Lcom/android/phone/IPhoneVoiceRecorderService;->startRecord()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "startRecord() -"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {p0, v1}, Lcom/android/incallui/Log;->e(Ljava/lang/Object;Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method public startService(Landroid/telecom/InCallService;)V

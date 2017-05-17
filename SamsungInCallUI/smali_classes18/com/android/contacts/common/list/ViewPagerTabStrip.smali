@@ -33,7 +33,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a0600
+    const v3, 0x7f0a060b
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -41,7 +41,7 @@
 
     iput v3, p0, Lcom/android/contacts/common/list/ViewPagerTabStrip;->mSelectedUnderlineThickness:I
 
-    const v3, 0x7f0f01f6
+    const v3, 0x7f0f01f7
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getColor(I)I
 

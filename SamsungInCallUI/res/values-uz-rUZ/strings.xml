@@ -499,6 +499,7 @@ IVR chaqiruv ekrani menyusida Dianhuabang deb nomlangan uchinchi tomon xizmat pr
     <string name="outgoing_img_picture">Tasvirlar</string>
     <string name="outgoing_img_take_picture">Rasmga olish</string>
     <string name="outgoing_img_video">Videolar</string>
+    <string name="overlay_warning_toast">Telefondan foydalanish uchun Telefon parametrlarida eng yuqorida ko‘rsatiladigan Ilovalarni yoqishingiz lozim.</string>
     <string name="payphone_sbm">Pulli telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Xavfsiz qo‘ng‘iroqni yozib olib bo‘lmaydi.</string>
@@ -656,6 +657,7 @@ Kamera"</string>
     <string name="secOnscreenUpdateContactText">Mavjudni yangila</string>
     <string name="secOnscreenUpdateContactText_tts">Mavjudni yangilash</string>
     <string name="secOnscreenVideoCallText">Video qo‘n.</string>
+    <string name="secOnscreenVideoStopText">To‘xtatish</string>
     <string name="secOnscreenViewContactText">Kontakt ko‘rish</string>
     <string name="secOnscreenVoiceCallText">Qo‘ng‘ir.</string>
     <string name="secOnscreenVoiceCallTextExtended">Ov-li qo‘n</string>

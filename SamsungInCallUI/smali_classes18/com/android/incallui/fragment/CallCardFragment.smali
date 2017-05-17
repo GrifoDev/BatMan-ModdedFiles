@@ -427,13 +427,31 @@
 .end method
 
 .method private getStringForElapsedTime(III)Ljava/lang/String;
-    .locals 11
+    .locals 12
 
-    const/4 v9, 0x1
+    const/4 v11, 0x1
 
     const/4 v10, 0x0
 
-    new-array v0, v9, [Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/CallCardFragment;->isAdded()Z
+
+    move-result v9
+
+    if-nez v9, :cond_0
+
+    const-string v9, "CallCardFragment"
+
+    const-string v10, "fragment is detached from activity, return"
+
+    invoke-static {v9, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v9, 0x0
+
+    :goto_0
+    return-object v9
+
+    :cond_0
+    new-array v0, v11, [Ljava/lang/String;
 
     const-string v9, "%d"
 
@@ -456,7 +474,7 @@
 
     aput-object v10, v7, v9
 
-    const v9, 0x7f0902ea
+    const v9, 0x7f0902ec
 
     invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/CallCardFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -478,7 +496,7 @@
 
     aput-object v10, v8, v9
 
-    const v9, 0x7f0902ec
+    const v9, 0x7f0902ee
 
     invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/CallCardFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -488,7 +506,7 @@
 
     move-result-object v3
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_1
 
     const/4 v9, 0x1
 
@@ -502,7 +520,7 @@
 
     aput-object v10, v6, v9
 
-    const v9, 0x7f0902e9
+    const v9, 0x7f0902eb
 
     invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/CallCardFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -514,7 +532,7 @@
 
     invoke-virtual {v5, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;
 
-    :cond_0
+    :cond_1
     const-string v9, " "
 
     invoke-virtual {v5, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -529,12 +547,12 @@
     :try_end_0
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
+    :goto_1
     invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    return-object v9
+    goto :goto_0
 
     :catch_0
     move-exception v4
@@ -549,7 +567,7 @@
 
     invoke-virtual {v5, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private hideVideoTogglingViews()V
@@ -781,7 +799,7 @@
 
     check-cast v4, Landroid/view/LayoutInflater;
 
-    const v15, 0x7f04018d
+    const v15, 0x7f040191
 
     const/16 v16, 0x0
 
@@ -791,7 +809,7 @@
 
     move-result-object v12
 
-    const v15, 0x7f100459
+    const v15, 0x7f100458
 
     invoke-virtual {v12, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1641,7 +1659,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100443
+    const v1, 0x7f100442
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2416,6 +2434,12 @@
     goto :goto_2
 
     :cond_6
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
     iget-object v2, p0, Lcom/android/incallui/fragment/CallCardFragment;->mRecordInfoStub:Landroid/view/ViewStub;
 
     if-eqz v2, :cond_7
@@ -2443,7 +2467,7 @@
 
     invoke-virtual {v2, v4, v5}, Landroid/widget/Chronometer;->setBase(J)V
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public needToShowMenu()Z
@@ -3074,8 +3098,71 @@
     :sswitch_data_0
     .sparse-switch
         0x7f100294 -> :sswitch_0
-        0x7f100443 -> :sswitch_1
+        0x7f100442 -> :sswitch_1
     .end sparse-switch
+.end method
+
+.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 3
+
+    const/4 v2, 0x1
+
+    invoke-super {p0, p1}, Lcom/android/incallui/BaseFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    const-string v0, "CallCardFragment"
+
+    const-string v1, "CallCardFragment onConfigurationChanged()"
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "ims_rcs"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->isInMultiWindowMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string v0, "CallCardFragment"
+
+    const-string v1, "CallCardFragmet isInMultiWindowMode()"
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    invoke-virtual {v0, v2}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->setonMultiWindowChange(Z)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->setonMultiWindowChange(Z)V
+
+    goto :goto_0
 .end method
 
 .method public onContentViewChanged(Landroid/graphics/Point;)V
@@ -3967,7 +4054,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100311
+    const v1, 0x7f100313
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4453,7 +4540,7 @@
 .method public showMenu(Z)V
     .locals 9
 
-    const v8, 0x7f0f0144
+    const v8, 0x7f0f0145
 
     const/4 v4, 0x0
 
@@ -4526,7 +4613,7 @@
 
     if-eqz v4, :cond_5
 
-    const v4, 0x7f0f01b3
+    const v4, 0x7f0f01b4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4548,7 +4635,7 @@
 
     if-eqz v4, :cond_2
 
-    const v4, 0x7f0f01b4
+    const v4, 0x7f0f01b5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4558,7 +4645,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0f01b5
+    const v4, 0x7f0f01b6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5129,7 +5216,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0f0138
+    const v17, 0x7f0f0139
 
     invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5139,7 +5226,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0f0137
+    const v17, 0x7f0f0138
 
     invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5149,7 +5236,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0f0121
+    const v17, 0x7f0f0122
 
     invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5159,7 +5246,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0f0134
+    const v17, 0x7f0f0135
 
     invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5169,7 +5256,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0f0133
+    const v17, 0x7f0f0134
 
     invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5179,7 +5266,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0f0132
+    const v17, 0x7f0f0133
 
     invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getColor(I)I
 

@@ -293,12 +293,6 @@
 
     div-float v5, v0, v4
 
-    iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
-
-    iget-boolean v6, v6, Lcom/android/incallui/service/HeadUpNotificationService;->mCanSlideOut:Z
-
-    if-eqz v6, :cond_6
-
     const v6, 0x3ecccccd    # 0.4f
 
     cmpl-float v6, v5, v6
@@ -389,12 +383,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    iget-boolean v6, v6, Lcom/android/incallui/service/HeadUpNotificationService;->mCanSlideOut:Z
-
-    if-eqz v6, :cond_8
-
-    iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
-
     const/4 v7, 0x0
 
     iput-boolean v7, v6, Lcom/android/incallui/service/HeadUpNotificationService;->mIsPopupShowing:Z
@@ -435,12 +423,6 @@
     goto/16 :goto_1
 
     :cond_b
-    iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
-
-    iget-boolean v6, v6, Lcom/android/incallui/service/HeadUpNotificationService;->mCanSlideOut:Z
-
-    if-eqz v6, :cond_7
-
     int-to-float v6, v3
 
     cmpl-float v6, v6, v0

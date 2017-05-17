@@ -179,7 +179,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f09057c
+    const v2, 0x7f09057e
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

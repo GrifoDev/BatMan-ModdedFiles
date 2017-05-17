@@ -499,6 +499,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="outgoing_img_picture">Сүрөттөр</string>
     <string name="outgoing_img_take_picture">Сүрөткө тартуу</string>
     <string name="outgoing_img_video">Видеолор</string>
+    <string name="overlay_warning_toast">Телефонду колдонуу үчүн, Телефон орнотууларынын Жогорусунда чыга турган колдонмолорду күйгүзүшүңүз керек.</string>
     <string name="payphone_sbm">Таксофон</string>
     <string name="phoneLabelsGroup">Телефон</string>
     <string name="phone_voice_recording_failed_by_secure_call">Коопсуз чалуу жаздырууга болбойт.</string>
@@ -655,6 +656,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="secOnscreenUpdateContactText">Жаңыртуу</string>
     <string name="secOnscreenUpdateContactText_tts">Жаңыртуу</string>
     <string name="secOnscreenVideoCallText">Вид.чалуу</string>
+    <string name="secOnscreenVideoStopText">Токтот</string>
     <string name="secOnscreenViewContactText">Катыштарды көрүү</string>
     <string name="secOnscreenVoiceCallText">Чалуу</string>
     <string name="secOnscreenVoiceCallTextExtended">Үн чалуусу</string>

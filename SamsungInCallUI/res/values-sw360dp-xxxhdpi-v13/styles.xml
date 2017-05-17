@@ -8,6 +8,7 @@
         <item name="android:layout_width">0.0dip</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:scaleType">center</item>
+        <item name="android:maxLines">2</item>
         <item name="android:shadowColor">@color/sec_video_qcif_videocall_button_text_shadow</item>
         <item name="android:shadowRadius">2.0</item>
         <item name="android:drawablePadding">@dimen/sec_video_incall_button_drawable_padding</item>

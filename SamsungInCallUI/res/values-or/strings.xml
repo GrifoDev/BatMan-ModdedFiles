@@ -479,6 +479,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="outgoing_img_picture">ଫଟୋଗୁଡିକ</string>
     <string name="outgoing_img_take_picture">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="outgoing_img_video">ଭିଡିଓ‌ଗୁଡିକ</string>
+    <string name="overlay_warning_toast">ଫୋନ୍ ବ୍ୟବହାର କରିବାକୁ, ଆପଣଙ୍କୁ ସେହି ଆପସ୍ ଟର୍ନ୍ ଅନ୍ କରିବା ଆବଶ୍ୟକ ଯାହା ଫୋନ୍ ସେଟିଂସର ଶୀର୍ଷରେ ଦୃଶ୍ୟମାନ ହୋଇପାରିବ।</string>
     <string name="payphone_sbm">ଦେୟ ଫୋନ୍</string>
     <string name="phoneLabelsGroup">ଫୋନ୍</string>
     <string name="phone_voice_recording_failed_by_secure_call">ସୁରକ୍ଷିତ କଲ୍ ରେକର୍ଡ୍ କରିପାରିବେ ନାହିଁ।</string>
@@ -635,6 +636,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="secOnscreenUpdateContactText">ବିଦ୍ୟମାନ ଅପଡେଟ୍</string>
     <string name="secOnscreenUpdateContactText_tts">ବିଦ୍ୟମାନ ଅପଡେଟ୍</string>
     <string name="secOnscreenVideoCallText">ଭିଡିଓ କଲ୍</string>
+    <string name="secOnscreenVideoStopText">ସ୍ଥଗିତ</string>
     <string name="secOnscreenViewContactText">ସମ୍ପର୍କ ଦର୍ଶନ</string>
     <string name="secOnscreenVoiceCallText">କଲ୍</string>
     <string name="secOnscreenVoiceCallTextExtended">ଭଏସ୍ କଲ୍</string>

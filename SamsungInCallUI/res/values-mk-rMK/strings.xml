@@ -133,8 +133,8 @@
     <string name="call_drug_up_panel_for_kk">Влечете го копч. ПРАТИ ПОРАКА нагоре за да пратите брза порака и да отфрл. дојдовен повик.</string>
     <string name="call_drug_up_panel_for_kk_tts">Повлечете ја таблата одбиј повик со порака нагоре за да пратите порака за одбивање повик додека одбивате дојдовен повик.</string>
     <string name="call_ended_toast">Повикот е прекинат.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Повик пренасочен на:</string>
+    <string name="call_forwarding_from">Повик пренасочен од:</string>
     <string name="call_incoming_voice_call2">Допрете %s за да одговорите на повик.</string>
     <string name="call_incoming_voice_call2_tts">Допрете го копчето за одговорање на повици за да одговорите на повик.</string>
     <string name="call_incoming_voice_call3">Допрете %s за да отфр. повик.</string>
@@ -497,6 +497,7 @@
     <string name="outgoing_img_picture">Слики</string>
     <string name="outgoing_img_take_picture">Сликај</string>
     <string name="outgoing_img_video">Видео-записи</string>
+    <string name="overlay_warning_toast">За да користите Телефон, треба да ги вклучите Апликациите што може да се појават на врвот во поставувањата за Телефон.</string>
     <string name="payphone_sbm">Телефонска говорница</string>
     <string name="phoneLabelsGroup">Телефон</string>
     <string name="phone_voice_recording_failed_by_secure_call">Не може да се сними безбеден повик.</string>
@@ -653,6 +654,7 @@
     <string name="secOnscreenUpdateContactText">Ажур. постојни</string>
     <string name="secOnscreenUpdateContactText_tts">Ажурирај постојни</string>
     <string name="secOnscreenVideoCallText">Видео повик</string>
+    <string name="secOnscreenVideoStopText">Стоп</string>
     <string name="secOnscreenViewContactText">Види контакт</string>
     <string name="secOnscreenVoiceCallText">Повик</string>
     <string name="secOnscreenVoiceCallTextExtended">Глас.повик</string>

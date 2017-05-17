@@ -111,7 +111,7 @@
 
     check-cast v4, Landroid/view/LayoutInflater;
 
-    const v12, 0x7f040171
+    const v12, 0x7f040175
 
     const/4 v13, 0x0
 
@@ -119,7 +119,7 @@
 
     move-result-object v7
 
-    const v12, 0x7f100438
+    const v12, 0x7f100437
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -208,7 +208,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0a0422
+    const v13, 0x7f0a0428
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -229,7 +229,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0a041d
+    const v13, 0x7f0a0423
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -250,7 +250,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0a0420
+    const v13, 0x7f0a0426
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -273,7 +273,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0a041f
+    const v13, 0x7f0a0425
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -296,7 +296,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0a0421
+    const v13, 0x7f0a0427
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
 

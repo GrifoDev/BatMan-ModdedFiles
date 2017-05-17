@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/InCallActivity;->onTtyNotification(Z)V
+    value = Lcom/android/incallui/InCallActivity;->showDataUsageLimitDialog(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,16 +35,25 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/incallui/InCallActivity$22;->this$0:Lcom/android/incallui/InCallActivity;
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mTtyNotificationDialog:Landroid/app/AlertDialog;
-    invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1700(Lcom/android/incallui/InCallActivity;)Landroid/app/AlertDialog;
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/incallui/UiAdapter;->getCallButtonPresenter()Lcom/android/incallui/CallButtonPresenter;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/incallui/CallButtonPresenter;->endCallClicked()V
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/incallui/InCallActivity$22;->this$0:Lcom/android/incallui/InCallActivity;
+
+    # invokes: Lcom/android/incallui/InCallActivity;->onDialogDismissed()V
+    invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$1500(Lcom/android/incallui/InCallActivity;)V
 
     return-void
 .end method

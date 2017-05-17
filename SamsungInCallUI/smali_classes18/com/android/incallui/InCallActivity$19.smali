@@ -40,7 +40,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->onOnehandModeChanged()V
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->onOnehandAnyScreenOnChanged()V
 
     return-void
 .end method

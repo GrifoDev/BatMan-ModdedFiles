@@ -317,7 +317,7 @@
 
     move-result v0
 
-    const v1, 0x7f10039d
+    const v1, 0x7f10039f
 
     if-ne v0, v1, :cond_0
 
@@ -331,7 +331,7 @@
 
     move-result v0
 
-    const v1, 0x7f100394
+    const v1, 0x7f100396
 
     if-ne v0, v1, :cond_1
 
@@ -352,7 +352,7 @@
 
     move-result v0
 
-    const v1, 0x7f10039d
+    const v1, 0x7f10039f
 
     if-ne v0, v1, :cond_0
 
@@ -366,7 +366,7 @@
 
     move-result v0
 
-    const v1, 0x7f100394
+    const v1, 0x7f100396
 
     if-ne v0, v1, :cond_1
 
@@ -379,7 +379,7 @@
 
     move-result v0
 
-    const v1, 0x7f100393
+    const v1, 0x7f100395
 
     if-ne v0, v1, :cond_2
 
@@ -1279,7 +1279,7 @@
     :cond_0
     if-eqz p1, :cond_3
 
-    const v1, 0x7f100393
+    const v1, 0x7f100395
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1287,7 +1287,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mVideoViewsContainer:Landroid/view/View;
 
-    const v1, 0x7f100394
+    const v1, 0x7f100396
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1310,7 +1310,7 @@
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mDisplayAnimator:Lcom/android/incallui/util/VideoAnimator;
 
     :cond_1
-    const v1, 0x7f10039d
+    const v1, 0x7f10039f
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1333,7 +1333,7 @@
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mPreviewAnimator:Lcom/android/incallui/util/VideoAnimator;
 
     :cond_2
-    const v1, 0x7f1003a1
+    const v1, 0x7f1003a3
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1341,7 +1341,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mPreviewBorder:Landroid/view/View;
 
-    const v1, 0x7f1003d1
+    const v1, 0x7f1003d0
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1349,7 +1349,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mDisplayBorder:Landroid/view/View;
 
-    const v1, 0x7f100396
+    const v1, 0x7f100398
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1357,7 +1357,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mPreparingAnimation:Landroid/view/View;
 
-    const v1, 0x7f10039c
+    const v1, 0x7f10039e
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1365,7 +1365,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mFarEndCaptureAnimatinoView:Landroid/view/View;
 
-    const v1, 0x7f1003a0
+    const v1, 0x7f1003a2
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1373,7 +1373,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mNearEndCaptureAnimatinoView:Landroid/view/View;
 
-    const v1, 0x7f10039f
+    const v1, 0x7f1003a1
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1381,7 +1381,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mNearEndSwitchAnimationView:Landroid/view/View;
 
-    const v1, 0x7f1003ce
+    const v1, 0x7f1003cd
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1389,7 +1389,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mFullScreenTouchArea:Landroid/view/View;
 
-    const v1, 0x7f1003cf
+    const v1, 0x7f1003ce
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1399,7 +1399,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment;->mFarEndPhoto:Landroid/widget/ImageView;
 
-    const v1, 0x7f1003d2
+    const v1, 0x7f1003d1
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1743,7 +1743,7 @@
 
     invoke-super {p0, p1, p2, p3}, Lcom/android/incallui/fragment/VideoCallFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
-    const v0, 0x7f040132
+    const v0, 0x7f040133
 
     const/4 v1, 0x0
 
@@ -1814,7 +1814,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f100393
+    .packed-switch 0x7f100395
         :pswitch_0
     .end packed-switch
 .end method
@@ -1838,7 +1838,7 @@
 
     move-result v0
 
-    const v1, 0x7f1003ce
+    const v1, 0x7f1003cd
 
     if-ne v0, v1, :cond_1
 
@@ -2077,7 +2077,7 @@
 
     move-result v9
 
-    const v10, 0x7f10039d
+    const v10, 0x7f10039f
 
     if-ne v9, v10, :cond_0
 
@@ -2090,7 +2090,7 @@
 
     move-result v9
 
-    const v10, 0x7f100394
+    const v10, 0x7f100396
 
     if-ne v9, v10, :cond_4
 

@@ -499,6 +499,7 @@ IVR કૉલ સ્ક્રીન મેનૂ Dianhuabang કહેવાત�
     <string name="outgoing_img_picture">છબીઓ</string>
     <string name="outgoing_img_take_picture">છબી લો</string>
     <string name="outgoing_img_video">વિડિયોઝ</string>
+    <string name="overlay_warning_toast">ફોનનો ઉપયોગ કરવા માટે, તમારે એ એપ્સને ચાલુ કરવાની જરૂર છે, જે ફોન સેટિંગ્સમાં ટોચ પર દેખાય છે.</string>
     <string name="payphone_sbm">ચુકવણી ફોન</string>
     <string name="phoneLabelsGroup">ફોન</string>
     <string name="phone_voice_recording_failed_by_secure_call">સુરક્ષા કૉલ રેકોર્ડ કરી શકાતો નથી.</string>
@@ -655,6 +656,7 @@ IVR કૉલ સ્ક્રીન મેનૂ Dianhuabang કહેવાત�
     <string name="secOnscreenUpdateContactText">હાજરને અપડેટ કરો</string>
     <string name="secOnscreenUpdateContactText_tts">હાજરને અપડેટ કરો</string>
     <string name="secOnscreenVideoCallText">વિડિયો કૉલ</string>
+    <string name="secOnscreenVideoStopText">રોકો</string>
     <string name="secOnscreenViewContactText">સંપર્ક જુઓ</string>
     <string name="secOnscreenVoiceCallText">કૉલ</string>
     <string name="secOnscreenVoiceCallTextExtended">અવાજ કૉલ</string>

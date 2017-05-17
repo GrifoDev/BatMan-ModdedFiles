@@ -526,6 +526,7 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="outgoing_img_picture">이미지</string>
     <string name="outgoing_img_take_picture">사진 촬영</string>
     <string name="outgoing_img_video">동영상</string>
+    <string name="overlay_warning_toast">전화 앱을 사용하려면 전화 앱 설정에서 [다른 앱 위에 표시되는 앱]을 실행해야 합니다.</string>
     <string name="payphone_sbm">공중전화</string>
     <string name="phoneLabelsGroup">전화번호</string>
     <string name="phone_voice_recording_failed_by_secure_call">보안 통화 중에는 녹음할 수 없습니다.</string>
@@ -682,6 +683,7 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="secOnscreenUpdateContactText">기존 연락처 추가</string>
     <string name="secOnscreenUpdateContactText_tts">기존 연락처에 추가</string>
     <string name="secOnscreenVideoCallText">영상통화</string>
+    <string name="secOnscreenVideoStopText">중지</string>
     <string name="secOnscreenViewContactText">연락처 보기</string>
     <string name="secOnscreenVoiceCallText">통화</string>
     <string name="secOnscreenVoiceCallTextExtended">음성통화</string>

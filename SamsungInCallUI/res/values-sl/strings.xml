@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Če želite poslati hitro spor. in zavrniti doh. klic, povlecite POŠLJI SPOROČILO navzgor.</string>
     <string name="call_drug_up_panel_for_kk_tts">Povlecite ploščo za zavrnitev klica s sporočilom navzgor, da ob zavrnitvi dohodnega klica pošljete sporočilo.</string>
     <string name="call_ended_toast">Klic končan.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Klic posredovan na številko:</string>
+    <string name="call_forwarding_from">Klic posredovan s številke:</string>
     <string name="call_incoming_voice_call2">Pritisnite %s, da sprejmete klic.</string>
     <string name="call_incoming_voice_call2_tts">Pritisnite gumb za sprejemanje klica, da sprejmete klic.</string>
     <string name="call_incoming_voice_call3">Prit. %s, da zavrnete klic.</string>
@@ -526,6 +526,7 @@ Meni zaslona za klic IVR uporablja vsebino, ki jo zagotavlja drugi ponudnik stor
     <string name="outgoing_img_picture">Slike</string>
     <string name="outgoing_img_take_picture">Posnemi sliko</string>
     <string name="outgoing_img_video">Videoposnetki</string>
+    <string name="overlay_warning_toast">Če želite uporabljati aplikacijo Telefon, morate v nastavitvah aplikacije Telefon vklopiti funkcijo Aplikacije, ki se lahko pojavijo na vrhu.</string>
     <string name="payphone_sbm">Javni telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Varnega klica ni mogoče snemati.</string>
@@ -682,6 +683,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Posod. obstoječe</string>
     <string name="secOnscreenUpdateContactText_tts">Posodobi obstoječe</string>
     <string name="secOnscreenVideoCallText">Videoklic</string>
+    <string name="secOnscreenVideoStopText">Ustavi</string>
     <string name="secOnscreenViewContactText">Prikaz stika</string>
     <string name="secOnscreenVoiceCallText">Klic</string>
     <string name="secOnscreenVoiceCallTextExtended">Glas. klic</string>

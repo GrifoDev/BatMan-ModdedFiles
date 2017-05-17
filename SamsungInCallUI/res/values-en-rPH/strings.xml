@@ -479,6 +479,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_picture">Images</string>
     <string name="outgoing_img_take_picture">Take picture</string>
     <string name="outgoing_img_video">Videos</string>
+    <string name="overlay_warning_toast">To use Phone, you need to turn on Apps that can appear on top in Phone settings.</string>
     <string name="payphone_sbm">Pay phone</string>
     <string name="phoneLabelsGroup">Phone</string>
     <string name="phone_voice_recording_failed_by_secure_call">Cannot record secure call.</string>
@@ -635,6 +636,7 @@ Camera"</string>
     <string name="secOnscreenUpdateContactText">Update existing</string>
     <string name="secOnscreenUpdateContactText_tts">Update existing</string>
     <string name="secOnscreenVideoCallText">Video call</string>
+    <string name="secOnscreenVideoStopText">Stop</string>
     <string name="secOnscreenViewContactText">View contact</string>
     <string name="secOnscreenVoiceCallText">Call</string>
     <string name="secOnscreenVoiceCallTextExtended">Voice call</string>

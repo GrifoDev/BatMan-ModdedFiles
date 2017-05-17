@@ -135,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">Dragðu hnappinn SENDA SKILABOÐ upp til að senda snarskilaboð og hafna símtali sem berst.</string>
     <string name="call_drug_up_panel_for_kk_tts">Dragðu svæðið til að hafna símtali með skilaboðum upp til að senda skilaboð símtalshöfnunar þegar þú hafnar símtali sem berst.</string>
     <string name="call_ended_toast">Símtali lokið.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Símtal framsent í:</string>
+    <string name="call_forwarding_from">Símtal framsent frá:</string>
     <string name="call_incoming_voice_call2">Pikkaðu á %s til að svara símtali.</string>
     <string name="call_incoming_voice_call2_tts">Pikkaðu á svarhnappinn til að svara símtali.</string>
     <string name="call_incoming_voice_call3">Pikk. á %s t.a. hafna símtali.</string>
@@ -499,6 +499,7 @@ IVR-símatalavalmyndin notar efni sem veitt er af þriðja aðila sem nefnist Di
     <string name="outgoing_img_picture">Myndir</string>
     <string name="outgoing_img_take_picture">Taka mynd</string>
     <string name="outgoing_img_video">Myndskeið</string>
+    <string name="overlay_warning_toast">Til að nota símann þarftu að kveikja á „Forrit sem geta birst efst“ í símastillingum.</string>
     <string name="payphone_sbm">Almenningssími</string>
     <string name="phoneLabelsGroup">Sími</string>
     <string name="phone_voice_recording_failed_by_secure_call">Ekki er hægt að taka upp öruggt símtal.</string>
@@ -655,6 +656,7 @@ mín megin"</string>
     <string name="secOnscreenUpdateContactText">Uppfæra</string>
     <string name="secOnscreenUpdateContactText_tts">Uppfæra núverandi</string>
     <string name="secOnscreenVideoCallText">Myndsímtal</string>
+    <string name="secOnscreenVideoStopText">Stöðva</string>
     <string name="secOnscreenViewContactText">Skoða tengilið</string>
     <string name="secOnscreenVoiceCallText">Símtal</string>
     <string name="secOnscreenVoiceCallTextExtended">Símtal</string>

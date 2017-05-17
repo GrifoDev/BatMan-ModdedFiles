@@ -371,7 +371,7 @@
 .end method
 
 .method private declared-synchronized buildAndSendNotification(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Z)V
-    .locals 32
+    .locals 33
 
     monitor-enter p0
 
@@ -430,7 +430,7 @@
 
     invoke-virtual {v10}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
 
-    move-result-object v23
+    move-result-object v24
 
     move-object/from16 v0, p0
 
@@ -438,9 +438,9 @@
 
     if-nez v10, :cond_2
 
-    if-eqz v23, :cond_3
+    if-eqz v24, :cond_3
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/incallui/InCallActivity;->isFromPopupForAnswer()Z
+    invoke-virtual/range {v24 .. v24}, Lcom/android/incallui/InCallActivity;->isFromPopupForAnswer()Z
 
     move-result v10
 
@@ -529,7 +529,7 @@
     :cond_4
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getState()I
 
-    move-result v31
+    move-result v32
 
     invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCall()Z
 
@@ -537,7 +537,7 @@
 
     if-eqz v10, :cond_5
 
-    const/16 v31, 0x4
+    const/16 v32, 0x4
 
     :cond_5
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -561,14 +561,14 @@
     if-eqz v10, :cond_a
 
     :cond_6
-    const/16 v25, 0x1
+    const/16 v26, 0x1
 
     :goto_1
     move-object/from16 v0, p0
 
     invoke-direct {v0, v5}, Lcom/android/incallui/StatusBarNotifier;->getIconToDisplay(Lcom/android/incallui/Call;)I
 
-    move-result v22
+    move-result v23
 
     invoke-static {v5}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall(Lcom/android/incallui/Call;)Z
 
@@ -586,28 +586,34 @@
 
     invoke-direct {v0, v5}, Lcom/android/incallui/StatusBarNotifier;->getIconToDisplayForVT(Lcom/android/incallui/Call;)I
 
-    move-result v22
+    move-result v23
 
     :cond_7
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
     invoke-direct {v0, v1, v2}, Lcom/android/incallui/StatusBarNotifier;->getLargeIconToDisplay(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Z)Landroid/graphics/Bitmap;
 
-    move-result-object v27
+    move-result-object v28
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
-    move/from16 v2, v25
+    move/from16 v2, v26
 
     invoke-direct {v0, v1, v2}, Lcom/android/incallui/StatusBarNotifier;->getContentTitle(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Z)Ljava/lang/String;
 
     move-result-object v7
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/incallui/StatusBarNotifier;->getContentString(Lcom/android/incallui/Call;)I
+
+    move-result v20
 
     const-wide/high16 v8, -0x8000000000000000L
 
@@ -615,7 +621,7 @@
 
     iget-wide v11, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->userType:J
 
-    if-nez v25, :cond_9
+    if-nez v26, :cond_9
 
     move-object/from16 v0, p2
 
@@ -631,21 +637,21 @@
 
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v31
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsContactManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsContactManager;
 
     move-result-object v10
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v31
 
     invoke-virtual {v10, v0}, Lcom/android/incallui/coreapps/CoreAppsContactManager;->getCoreAppsContact(Ljava/lang/String;)Lcom/android/incallui/coreapps/CoreAppsContact;
 
-    move-result-object v20
+    move-result-object v21
 
-    if-eqz v20, :cond_9
+    if-eqz v21, :cond_9
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     iget-object v10, v0, Lcom/android/incallui/coreapps/CoreAppsContact;->name:Ljava/lang/String;
 
@@ -655,18 +661,18 @@
 
     if-nez v10, :cond_8
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     iget-object v7, v0, Lcom/android/incallui/coreapps/CoreAppsContact;->name:Ljava/lang/String;
 
     :cond_8
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     iget-object v10, v0, Lcom/android/incallui/coreapps/CoreAppsContact;->drawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v10, :cond_9
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     iget-object v10, v0, Lcom/android/incallui/coreapps/CoreAppsContact;->drawable:Landroid/graphics/drawable/Drawable;
 
@@ -674,7 +680,7 @@
 
     invoke-virtual {v10}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
-    move-result-object v27
+    move-result-object v28
 
     :cond_9
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -683,17 +689,19 @@
 
     invoke-virtual {v10}, Lcom/android/incallui/CallList;->isOffhook()Z
 
-    move-result v26
+    move-result v27
+
+    const/4 v10, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
-    move/from16 v2, v31
+    move/from16 v2, v32
 
-    invoke-direct {v0, v1, v2}, Lcom/android/incallui/StatusBarNotifier;->showGreenBar(ZI)V
+    invoke-virtual {v0, v1, v2, v10}, Lcom/android/incallui/StatusBarNotifier;->showGreenBar(ZIZ)V
 
-    move/from16 v0, v31
+    move/from16 v0, v32
 
     move-object/from16 v1, p0
 
@@ -728,7 +736,7 @@
     goto/16 :goto_0
 
     :cond_a
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     goto/16 :goto_1
 
@@ -744,13 +752,13 @@
 
     invoke-direct {v0, v1}, Lcom/android/incallui/StatusBarNotifier;->createLaunchPendingIntent(Z)Landroid/app/PendingIntent;
 
-    move-result-object v24
+    move-result-object v25
 
-    new-instance v28, Landroid/app/Notification;
+    new-instance v29, Landroid/app/Notification;
 
-    invoke-direct/range {v28 .. v28}, Landroid/app/Notification;-><init>()V
+    invoke-direct/range {v29 .. v29}, Landroid/app/Notification;-><init>()V
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iget-object v10, v0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
@@ -760,37 +768,63 @@
 
     invoke-virtual {v10, v14, v15}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    move/from16 v0, v22
+    move-object/from16 v0, v29
 
-    move-object/from16 v1, v28
+    iget-object v10, v0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+
+    const-string v14, "android.title"
+
+    invoke-virtual {v10, v14, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, v29
+
+    iget-object v10, v0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+
+    const-string v14, "android.text"
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
+
+    move/from16 v0, v20
+
+    invoke-virtual {v15, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v10, v14, v15}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, v29
 
     iput v0, v1, Landroid/app/Notification;->icon:I
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iget v10, v0, Landroid/app/Notification;->flags:I
 
     or-int/lit8 v10, v10, 0x2
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iput v10, v0, Landroid/app/Notification;->flags:I
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v29
 
     iput-object v0, v1, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
     const/4 v10, 0x3
 
-    move/from16 v0, v31
+    move/from16 v0, v32
 
     if-eq v0, v10, :cond_d
 
     const/16 v10, 0x8
 
-    move/from16 v0, v31
+    move/from16 v0, v32
 
     if-ne v0, v10, :cond_12
 
@@ -841,7 +875,7 @@
 
     move-result-object v10
 
-    const v14, 0x7f0400ea
+    const v14, 0x7f0400eb
 
     invoke-direct {v4, v10, v14}, Lcom/android/incallui/widget/SecMiniController;-><init>(Ljava/lang/String;I)V
 
@@ -857,19 +891,19 @@
 
     invoke-virtual/range {v4 .. v12}, Lcom/android/incallui/widget/SecMiniController;->updateInCallQuickPanel(Lcom/android/incallui/Call;Lcom/android/incallui/Call;Ljava/lang/String;JZJ)V
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iput-object v4, v0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
     const/4 v10, 0x2
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iput v10, v0, Landroid/app/Notification;->priority:I
 
     const/16 v10, 0xa
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iput v10, v0, Landroid/app/Notification;->semPriority:I
 
@@ -887,29 +921,35 @@
 
     move-result-object v10
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iput-object v10, v0, Landroid/app/Notification;->publicVersion:Landroid/app/Notification;
 
     const/4 v10, 0x4
 
-    move/from16 v0, v31
+    move/from16 v0, v32
 
     if-eq v0, v10, :cond_f
 
     const/4 v10, 0x5
 
-    move/from16 v0, v31
+    move/from16 v0, v32
 
     if-ne v0, v10, :cond_13
 
     :cond_f
-    const/16 v29, 0x2
+    const/16 v30, 0x2
+
+    const-string v10, "call"
+
+    move-object/from16 v0, v29
+
+    iput-object v10, v0, Landroid/app/Notification;->category:Ljava/lang/String;
 
     :goto_3
     const/4 v10, 0x2
 
-    move/from16 v0, v29
+    move/from16 v0, v30
 
     if-ne v0, v10, :cond_10
 
@@ -927,9 +967,9 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v29
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v25
 
     invoke-direct {v0, v1, v2, v5}, Lcom/android/incallui/StatusBarNotifier;->configureFullScreenIntent(Landroid/app/Notification;Landroid/app/PendingIntent;Lcom/android/incallui/Call;)V
 
@@ -1004,17 +1044,17 @@
 
     const/4 v10, -0x2
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iput v10, v0, Landroid/app/Notification;->priority:I
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iget v10, v0, Landroid/app/Notification;->semFlags:I
 
     or-int/lit8 v10, v10, 0x2
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iput v10, v0, Landroid/app/Notification;->semFlags:I
 
@@ -1059,7 +1099,7 @@
     goto/16 :goto_2
 
     :cond_13
-    const/16 v29, 0x1
+    const/16 v30, 0x1
 
     goto/16 :goto_3
 
@@ -1074,7 +1114,7 @@
 
     move-result-object v10
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -1098,7 +1138,7 @@
 
     move-result-object v10
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     iget-object v14, v0, Landroid/app/Notification;->fullScreenIntent:Landroid/app/PendingIntent;
 
@@ -1124,7 +1164,7 @@
 
     move-result-object v10
 
-    move/from16 v0, v29
+    move/from16 v0, v30
 
     invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1142,7 +1182,7 @@
 
     iget v10, v0, Lcom/android/incallui/StatusBarNotifier;->mCurrentNotification:I
 
-    move/from16 v0, v29
+    move/from16 v0, v30
 
     if-eq v10, v0, :cond_15
 
@@ -1211,13 +1251,13 @@
     :try_start_4
     move-object/from16 v0, p0
 
-    move/from16 v1, v29
+    move/from16 v1, v30
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v29
 
     invoke-virtual {v0, v10, v1, v2}, Lcom/android/incallui/StatusBarNotifier;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;)V
 
-    move/from16 v0, v29
+    move/from16 v0, v30
 
     move-object/from16 v1, p0
 
@@ -1266,26 +1306,26 @@
     goto/16 :goto_0
 
     :catch_0
-    move-exception v21
+    move-exception v22
 
     const-string v10, "StatusBarNotifier"
 
     const-string v14, "Error cancelAsUser Exception"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-static {v10, v14, v0}, Lcom/android/incallui/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
     goto :goto_4
 
     :catch_1
-    move-exception v21
+    move-exception v22
 
     const-string v10, "StatusBarNotifier"
 
     const-string v14, "Error notifyAsUser Exception"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-static {v10, v14, v0}, Lcom/android/incallui/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     :try_end_5
@@ -2191,7 +2231,7 @@
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0f0179
+    const v2, 0x7f0f017a
 
     iget-object v3, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
 
@@ -2327,7 +2367,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a034d
+    const v10, 0x7f0a034f
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2616,7 +2656,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0f0142
+    const v3, 0x7f0f0143
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2635,7 +2675,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0f0141
+    const v3, 0x7f0f0142
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2762,7 +2802,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400eb
+    const v2, 0x7f0400ec
 
     invoke-direct {v0, v1, v2}, Lcom/android/incallui/widget/SecMiniControllerHidden;-><init>(Ljava/lang/String;I)V
 
@@ -2801,180 +2841,6 @@
     move-result-object v1
 
     return-object v1
-.end method
-
-.method private showGreenBar(ZI)V
-    .locals 5
-
-    const/16 v4, 0x65
-
-    invoke-static {p2}, Lcom/android/incallui/Call$State;->isDialing(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-static {p2}, Lcom/android/incallui/Call$State;->isIncoming(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget v0, p0, Lcom/android/incallui/StatusBarNotifier;->mFgCallState:I
-
-    if-ne v0, p2, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
-
-    if-nez v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
-
-    const-string v1, "sem_statusbar"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/SemStatusBarManager;
-
-    iput-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
-
-    :cond_2
-    const-string v0, "support_tphone"
-
-    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTPhoneMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    const/4 p1, 0x0
-
-    :cond_3
-    invoke-static {}, Lcom/android/incallui/accessory/AccessoryEventHandler;->getInstance()Lcom/android/incallui/accessory/AccessoryEventHandler;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/accessory/AccessoryEventHandler;->isCoverClosed()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const/4 p1, 0x0
-
-    :cond_4
-    const-string v0, "StatusBarNotifier"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "showGreenBar = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    if-eqz p1, :cond_5
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->isShowingInCallUi()Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->hasInCallUiFocus()Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v4}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mHandler:Landroid/os/Handler;
-
-    const-wide/16 v2, 0x3e8
-
-    invoke-virtual {v0, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    goto :goto_0
-
-    :cond_5
-    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v4}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v4}, Landroid/os/Handler;->removeMessages(I)V
-
-    :cond_6
-    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
-
-    iget-object v1, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0f0143
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/app/SemStatusBarManager;->setIndicatorBgColor(I)V
-
-    goto/16 :goto_0
 .end method
 
 .method private showNotification(Lcom/android/incallui/Call;Z)V
@@ -3774,7 +3640,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0143
+    const v3, 0x7f0f0144
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4095,7 +3961,7 @@
 
     iget-object v6, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f09053e
+    const v7, 0x7f090540
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4107,7 +3973,7 @@
 
     iget-object v6, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f09053d
+    const v7, 0x7f09053f
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4691,7 +4557,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0f0182
+    const v11, 0x7f0f0183
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4703,7 +4569,7 @@
 
     iget-object v10, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f090244
+    const v11, 0x7f090245
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4763,7 +4629,7 @@
 
     iget-object v7, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0902a1
+    const v9, 0x7f0902a3
 
     invoke-virtual {v7, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4779,7 +4645,7 @@
 
     iget-object v7, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f090243
+    const v9, 0x7f090244
 
     invoke-virtual {v7, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4857,6 +4723,182 @@
     iput-boolean p1, p0, Lcom/android/incallui/StatusBarNotifier;->mBlockToUpdate:Z
 
     return-void
+.end method
+
+.method public showGreenBar(ZIZ)V
+    .locals 5
+
+    const/16 v4, 0x65
+
+    if-nez p3, :cond_1
+
+    invoke-static {p2}, Lcom/android/incallui/Call$State;->isDialing(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {p2}, Lcom/android/incallui/Call$State;->isIncoming(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget v0, p0, Lcom/android/incallui/StatusBarNotifier;->mFgCallState:I
+
+    if-ne v0, p2, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
+
+    const-string v1, "sem_statusbar"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/SemStatusBarManager;
+
+    iput-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
+
+    :cond_2
+    const-string v0, "support_tphone"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTPhoneMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    const/4 p1, 0x0
+
+    :cond_3
+    invoke-static {}, Lcom/android/incallui/accessory/AccessoryEventHandler;->getInstance()Lcom/android/incallui/accessory/AccessoryEventHandler;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/accessory/AccessoryEventHandler;->isCoverClosed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    const/4 p1, 0x0
+
+    :cond_4
+    const-string v0, "StatusBarNotifier"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "showGreenBar = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-eqz p1, :cond_5
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->isShowingInCallUi()Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->hasInCallUiFocus()Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v4}, Landroid/os/Handler;->hasMessages(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mHandler:Landroid/os/Handler;
+
+    const-wide/16 v2, 0x3e8
+
+    invoke-virtual {v0, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto :goto_0
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v4}, Landroid/os/Handler;->hasMessages(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    :cond_6
+    iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier;->mStatusBarManager:Landroid/app/SemStatusBarManager;
+
+    iget-object v1, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0f0144
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/SemStatusBarManager;->setIndicatorBgColor(I)V
+
+    goto/16 :goto_0
 .end method
 
 .method public tearDown()V

@@ -34,9 +34,9 @@
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 9
 
-    const v4, 0x7f0902a8
+    const v4, 0x7f0902aa
 
-    const v5, 0x7f0902a7
+    const v5, 0x7f0902a9
 
     const/4 v7, 0x2
 
@@ -234,7 +234,7 @@
 
     new-array v7, v7, [I
 
-    const v2, 0x7f0902b2
+    const v2, 0x7f0902b4
 
     aput v2, v7, v3
 

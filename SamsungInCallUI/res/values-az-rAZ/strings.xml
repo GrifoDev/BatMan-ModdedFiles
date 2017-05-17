@@ -498,6 +498,7 @@ IVR zəng ekranı menyusu Dianhuabang adlı üçüncü tərəfin xidmət təmina
     <string name="outgoing_img_picture">Təsvirlər</string>
     <string name="outgoing_img_take_picture">Şəkil çək</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">Telefondan istifadə etmək üçün Telefon parametrlərində yuxarıda görünə bilən Proqramları yandırmalısınız.</string>
     <string name="payphone_sbm">Ödənişli telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Təhlükəsiz zəngi yaza bilmədi.</string>
@@ -655,6 +656,7 @@ Kamera"</string>
     <string name="secOnscreenUpdateContactText">Mvcd olanı yenlə</string>
     <string name="secOnscreenUpdateContactText_tts">Mövcud olanı yeniləyin</string>
     <string name="secOnscreenVideoCallText">Video zəng</string>
+    <string name="secOnscreenVideoStopText">Dayan</string>
     <string name="secOnscreenViewContactText">Kontakta bax</string>
     <string name="secOnscreenVoiceCallText">Zəng</string>
     <string name="secOnscreenVoiceCallTextExtended">Səsli zəng</string>

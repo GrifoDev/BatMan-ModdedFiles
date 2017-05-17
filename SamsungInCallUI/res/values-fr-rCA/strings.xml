@@ -526,6 +526,7 @@ Le menu d’écran d’appel IVR fait appel aux contenus d’un tiers fournisseu
     <string name="outgoing_img_picture">Images</string>
     <string name="outgoing_img_take_picture">Prendre une photo</string>
     <string name="outgoing_img_video">Vidéos</string>
+    <string name="overlay_warning_toast">"Pour utiliser l'application Téléphone, vous devez activer Applications qui peuvent apparaitre par-dessus dans les paramètres de l'application Téléphone."</string>
     <string name="payphone_sbm">Téléphone public</string>
     <string name="phoneLabelsGroup">Téléphone</string>
     <string name="phone_voice_recording_failed_by_secure_call">"Impossible d'enregistrer l'appel sécurisé."</string>
@@ -682,6 +683,7 @@ sens uniq."</string>
     <string name="secOnscreenUpdateContactText">MÀJ contact</string>
     <string name="secOnscreenUpdateContactText_tts">MÀJ les contacts existants</string>
     <string name="secOnscreenVideoCallText">Appel vidéo</string>
+    <string name="secOnscreenVideoStopText">Arrêter</string>
     <string name="secOnscreenViewContactText">Afficher contact</string>
     <string name="secOnscreenVoiceCallText">Appel</string>
     <string name="secOnscreenVoiceCallTextExtended">Appel vocal</string>

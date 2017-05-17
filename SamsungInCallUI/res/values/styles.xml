@@ -26,11 +26,13 @@
         <item name="android:textSize">@dimen/sec_video_incall_button_with_text_text_size</item>
         <item name="android:textColor">@drawable/sec_modify_button_text_color</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:background">@drawable/sec_incall_button_background</item>
+        <item name="android:background">@drawable/sec_video_vga_incall_button_background</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
         <item name="android:scaleType">center</item>
         <item name="android:singleLine">true</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:drawablePadding">@dimen/sec_video_modify_button_drawable_padding</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">sec-roboto-light</item>
@@ -39,11 +41,13 @@
         <item name="android:textSize">@dimen/sec_video_incall_button_with_text_text_size</item>
         <item name="android:textColor">@drawable/sec_modify_button_text_color</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:background">@drawable/sec_incall_button_background</item>
+        <item name="android:background">@drawable/sec_video_vga_incall_button_background</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
         <item name="android:scaleType">center</item>
         <item name="android:maxLines">2</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:drawablePadding">@dimen/sec_video_modify_oneway_button_drawable_padding</item>
         <item name="android:layout_centerInParent">true</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:fontFamily">sec-roboto-light</item>
@@ -57,6 +61,7 @@
         <item name="android:layout_width">0.0dip</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:scaleType">center</item>
+        <item name="android:maxLines">2</item>
         <item name="android:shadowColor">@color/sec_video_qcif_videocall_button_text_shadow</item>
         <item name="android:shadowRadius">2.0</item>
         <item name="android:drawablePadding">@dimen/sec_video_incall_button_drawable_padding</item>
@@ -1928,6 +1933,7 @@
         <item name="android:layout_width">0.0dip</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:scaleType">center</item>
+        <item name="android:maxLines">2</item>
         <item name="android:drawablePadding">@dimen/sec_mw_video_qcif_incall_button_drawable_padding</item>
         <item name="android:layout_weight">@integer/vga_button_width_weight</item>
         <item name="android:textAllCaps">false</item>
@@ -2125,6 +2131,7 @@
         <item name="android:textColor">@color/sec_videocall_dialpad_primary_text_color</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>

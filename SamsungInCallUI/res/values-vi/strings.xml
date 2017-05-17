@@ -526,6 +526,7 @@ Menu màn hình cuộc gọi IVR sử dụng nội dung được cung cấp bở
     <string name="outgoing_img_picture">Hình ảnh</string>
     <string name="outgoing_img_take_picture">Chụp ảnh</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">Để sử dụng Điện thoại, bạn cần bật Ứng dụng có thể xuất hiện trên cùng trong cài đặt Điện thoại.</string>
     <string name="payphone_sbm">Điện thoại trả phí</string>
     <string name="phoneLabelsGroup">Điện thoại</string>
     <string name="phone_voice_recording_failed_by_secure_call">Không thể ghi âm cuộc gọi bảo mật.</string>
@@ -682,6 +683,7 @@ một chiều"</string>
     <string name="secOnscreenUpdateContactText">Cập nhật</string>
     <string name="secOnscreenUpdateContactText_tts">Cập nhật</string>
     <string name="secOnscreenVideoCallText">Gọi video</string>
+    <string name="secOnscreenVideoStopText">Dừng</string>
     <string name="secOnscreenViewContactText">Xem danh bạ</string>
     <string name="secOnscreenVoiceCallText">Gọi</string>
     <string name="secOnscreenVoiceCallTextExtended">Gọi thoại</string>

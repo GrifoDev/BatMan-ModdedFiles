@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/InCallActivity;->showDataUsageLimitDialogforTMO()V
+    value = Lcom/android/incallui/InCallActivity;->showNotifyWifiToLteDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

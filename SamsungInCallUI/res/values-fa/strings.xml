@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">تصاوير</string>
     <string name="outgoing_img_take_picture">عکس گرفتن</string>
     <string name="outgoing_img_video">فیلمها</string>
+    <string name="overlay_warning_toast">برای استفاده از تلفن، باید برنامه‌هایی را که می‌توانند در بالای تنظیمات تلفن ظاهر ‌شوند روشن کنید.</string>
     <string name="payphone_sbm">پرداخت تلفن</string>
     <string name="phoneLabelsGroup">تلفن</string>
     <string name="phone_voice_recording_failed_by_secure_call">ضبط تماس ایمن ممکن نیست.</string>
@@ -682,6 +683,7 @@
     <string name="secOnscreenUpdateContactText">به‌روزرسانی مخاطب موجود</string>
     <string name="secOnscreenUpdateContactText_tts">به روز گردانی موجود</string>
     <string name="secOnscreenVideoCallText">تماس تصویری</string>
+    <string name="secOnscreenVideoStopText">توقف</string>
     <string name="secOnscreenViewContactText">مشاهده مخاطب</string>
     <string name="secOnscreenVoiceCallText">تماس</string>
     <string name="secOnscreenVoiceCallTextExtended">تماس صوتی</string>

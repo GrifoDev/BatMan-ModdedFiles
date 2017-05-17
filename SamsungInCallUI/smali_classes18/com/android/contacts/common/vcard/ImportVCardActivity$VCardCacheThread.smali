@@ -785,7 +785,7 @@
 
     iget-object v9, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
-    const v10, 0x7f0904e9
+    const v10, 0x7f0904eb
 
     invoke-virtual {v9, v10}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->showFailureNotification(I)V
     :try_end_4
@@ -887,7 +887,7 @@
 
     iget-object v12, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
-    const v13, 0x7f0904e7
+    const v13, 0x7f0904e9
 
     invoke-virtual {v12, v13}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->getString(I)Ljava/lang/String;
 
@@ -1032,7 +1032,7 @@
 
     iget-object v9, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
-    const v10, 0x7f0904e9
+    const v10, 0x7f0904eb
 
     invoke-virtual {v9, v10}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->showFailureNotification(I)V
     :try_end_a
@@ -1093,7 +1093,7 @@
 
     iget-object v9, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
-    const v10, 0x7f0904e6
+    const v10, 0x7f0904e8
 
     invoke-virtual {v9, v10}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->showFailureNotification(I)V
     :try_end_b
@@ -1183,7 +1183,7 @@
 
     iget-object v12, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
-    const v13, 0x7f0904e6
+    const v13, 0x7f0904e8
 
     invoke-virtual {v12, v13}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->getString(I)Ljava/lang/String;
 

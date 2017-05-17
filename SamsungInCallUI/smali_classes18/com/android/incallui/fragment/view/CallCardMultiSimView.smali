@@ -147,7 +147,7 @@
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_3
-    const v0, 0x7f100452
+    const v0, 0x7f100451
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -157,7 +157,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMultiSimView;->mSimIconLabel:Landroid/widget/ImageView;
 
-    const v0, 0x7f100453
+    const v0, 0x7f100452
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -187,7 +187,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f10033f
+    const v0, 0x7f100341
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -197,7 +197,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMultiSimView;->mSubIconLabel:Landroid/widget/ImageView;
 
-    const v0, 0x7f10033c
+    const v0, 0x7f10033e
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +227,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f100343
+    const v0, 0x7f100345
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -899,7 +899,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0138
+    const v5, 0x7f0f0139
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -915,7 +915,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0137
+    const v5, 0x7f0f0138
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -931,7 +931,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0134
+    const v5, 0x7f0f0135
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -947,7 +947,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0132
+    const v5, 0x7f0f0133
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 

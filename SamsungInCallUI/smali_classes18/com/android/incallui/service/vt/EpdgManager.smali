@@ -143,13 +143,15 @@
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->EPDG_ERROR_EVENT:Z
-
-    if-eqz v1, :cond_0
-
     const-string v1, "HANDOVER_WLAN_TO_LTE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_TMO()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
 
     const-string v1, "HANDOVER_LTE_TO_WLAN"
 

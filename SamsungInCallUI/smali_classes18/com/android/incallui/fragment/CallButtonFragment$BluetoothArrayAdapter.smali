@@ -202,14 +202,14 @@
 
     if-eqz v5, :cond_3
 
-    const v5, 0x7f0903f7
+    const v5, 0x7f0903f9
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
     :goto_1
-    const v5, 0x7f0903f5
+    const v5, 0x7f0903f7
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -224,7 +224,7 @@
     goto :goto_0
 
     :cond_3
-    const v5, 0x7f0903f6
+    const v5, 0x7f0903f8
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 

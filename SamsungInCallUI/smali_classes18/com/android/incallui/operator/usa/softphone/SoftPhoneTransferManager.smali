@@ -243,7 +243,7 @@
 
     move-result-object v5
 
-    const v11, 0x7f040115
+    const v11, 0x7f040116
 
     const/4 v12, 0x0
 
@@ -251,7 +251,7 @@
 
     move-result-object v4
 
-    const v11, 0x7f10037e
+    const v11, 0x7f100380
 
     invoke-virtual {v4, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -261,7 +261,7 @@
 
     iput-object v11, p0, Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager;->tvDeviceInfo:Landroid/widget/TextView;
 
-    const v11, 0x7f10037f
+    const v11, 0x7f100381
 
     invoke-virtual {v4, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

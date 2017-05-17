@@ -52,6 +52,10 @@
 
 .field private mKTtwophoneStub:Landroid/view/ViewStub;
 
+.field protected mKeypadButton:Landroid/widget/Button;
+
+.field protected mKeypadButtonStub:Landroid/view/ViewStub;
+
 .field protected mManageStub:Landroid/view/ViewStub;
 
 .field protected mMergeButton:Landroid/widget/Button;
@@ -217,6 +221,68 @@
 
     :cond_0
     return-void
+.end method
+
+.method private clickedKeypadButton(Z)V
+    .locals 4
+
+    const/4 v0, 0x1
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, v0}, Lcom/android/incallui/UiAdapter;->displayDialpad(ZZ)V
+
+    if-eqz p1, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mIsLandscape:Z
+
+    if-nez v1, :cond_0
+
+    :goto_0
+    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->showCallInfoContainer(Z)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mKeypadButton:Landroid/widget/Button;
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0900f0
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_1
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mKeypadButton:Landroid/widget/Button;
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f090265
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->showCallInfoContainer(Z)V
+
+    goto :goto_1
 .end method
 
 .method private dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;Landroid/view/View;)V
@@ -635,7 +701,7 @@
 
     aput-object v10, v7, v9
 
-    const v9, 0x7f0902ea
+    const v9, 0x7f0902ec
 
     invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -657,7 +723,7 @@
 
     aput-object v10, v8, v9
 
-    const v9, 0x7f0902ec
+    const v9, 0x7f0902ee
 
     invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -681,7 +747,7 @@
 
     aput-object v10, v6, v9
 
-    const v9, 0x7f0902e9
+    const v9, 0x7f0902eb
 
     invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -734,7 +800,7 @@
 .method private inflateVideoTypeIconLayout(Landroid/view/View;)V
     .locals 1
 
-    const v0, 0x7f100365
+    const v0, 0x7f100367
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -746,7 +812,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f100366
+    const v0, 0x7f100368
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -765,7 +831,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f10040b
+    const v0, 0x7f10040a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1039,7 +1105,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090263
+    const v2, 0x7f090264
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1056,7 +1122,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090265
+    const v2, 0x7f090266
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1780,7 +1846,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09046f
+    const v3, 0x7f090471
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2177,7 +2243,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0190
+    const v1, 0x7f0f0191
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2189,7 +2255,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0150
+    const v1, 0x7f0f0151
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2260,7 +2326,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mProfileIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f100368
+    const v0, 0x7f10036a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2270,7 +2336,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mProfileIconUpper:Landroid/widget/ImageView;
 
-    const v0, 0x7f100364
+    const v0, 0x7f100366
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2294,7 +2360,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f10034e
+    const v0, 0x7f100350
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2614,11 +2680,11 @@
 .method public onClick(Landroid/view/View;)V
     .locals 10
 
-    const v6, 0x7f090094
+    const v8, 0x7f090094
 
-    const/4 v9, 0x1
+    const/4 v3, 0x1
 
-    const/4 v8, 0x0
+    const/4 v4, 0x0
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -2632,43 +2698,43 @@
 
     move-result v2
 
-    const-string v3, "VideoCallCardBaseFragment"
+    const-string v5, "VideoCallCardBaseFragment"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "onClick(View "
+    const-string v7, "onClick(View "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    const-string v5, ", id "
+    const-string v7, ", id "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    const-string v5, ")..."
+    const-string v7, ")..."
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     sparse-switch v2, :sswitch_data_0
 
@@ -2702,15 +2768,15 @@
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v5
 
-    const v5, 0x7f0902a0
+    const v6, 0x7f0902a2
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -2728,7 +2794,7 @@
 
     move-result-object v3
 
-    invoke-static {v3, v6, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v3, v8, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v3
 
@@ -2754,7 +2820,7 @@
 
     move-result-object v3
 
-    invoke-static {v3, v6, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v3, v8, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v3
 
@@ -2812,202 +2878,216 @@
     goto :goto_0
 
     :sswitch_3
-    const-string v3, "SWAP Clicked"
+    iget-boolean v5, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mIsDialpadShowing:Z
 
-    invoke-static {v3}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
+    if-nez v5, :cond_5
 
-    if-eqz v0, :cond_6
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->setSwapProgressing()V
-
-    const-string v3, "feature_vzw"
-
-    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Lcom/android/incallui/UiAdapter;->updateCallButtons(Lcom/android/incallui/Call;)V
-
-    :cond_5
-    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Lcom/android/incallui/TelecomAdapter;->holdCall(Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallManager;->getInstance()Lcom/android/incallui/service/vt/VideoCallManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/service/vt/VideoCallManager;->isSwapProgressing()Z
-
-    move-result v3
-
-    if-nez v3, :cond_6
-
-    invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->enableSwapButton(Z)V
-
-    :cond_6
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v8, v8}, Lcom/android/incallui/UiAdapter;->displayDialpad(ZZ)V
+    :goto_1
+    invoke-direct {p0, v3}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->clickedKeypadButton(Z)V
 
     goto/16 :goto_0
 
+    :cond_5
+    move v3, v4
+
+    goto :goto_1
+
     :sswitch_4
-    const-string v3, "Merge Clicked"
+    const-string v5, "SWAP Clicked"
 
-    invoke-static {v3}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
+    invoke-static {v5}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
 
+    if-eqz v0, :cond_7
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->setSwapProgressing()V
+
+    const-string v5, "feature_vzw"
+
+    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Lcom/android/incallui/UiAdapter;->updateCallButtons(Lcom/android/incallui/Call;)V
+
+    :cond_6
+    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
+
+    move-result-object v5
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/incallui/TelecomAdapter;->holdCall(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallManager;->getInstance()Lcom/android/incallui/service/vt/VideoCallManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoCallManager;->isSwapProgressing()Z
+
+    move-result v5
+
+    if-nez v5, :cond_7
+
+    invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->enableSwapButton(Z)V
+
+    :cond_7
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->getConferenceCallManagerShowingState()Z
+    invoke-virtual {v3, v4, v4}, Lcom/android/incallui/UiAdapter;->displayDialpad(ZZ)V
 
-    move-result v3
+    goto/16 :goto_0
 
-    if-eqz v3, :cond_7
+    :sswitch_5
+    const-string v5, "Merge Clicked"
+
+    invoke-static {v5}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/UiAdapter;->getConferenceCallManagerShowingState()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_8
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->hideConferenceCallManager()V
 
-    :cond_7
+    :cond_8
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_ATT()Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_8
+    if-eqz v5, :cond_9
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->hasVideoOneway()Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_8
+    if-eqz v5, :cond_9
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->showMergeNotAllowDialog()V
 
     goto/16 :goto_0
 
-    :cond_8
-    if-eqz v0, :cond_9
+    :cond_9
+    if-eqz v0, :cond_a
 
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
-    move-result-object v3
+    move-result-object v5
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v3, v4}, Lcom/android/incallui/TelecomAdapter;->merge(Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Lcom/android/incallui/TelecomAdapter;->merge(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->setMergeProgressing(Z)V
+    invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->setMergeProgressing(Z)V
 
-    :cond_9
-    const-string v3, "canada_bmc_volte_ui"
+    :cond_a
+    const-string v5, "canada_bmc_volte_ui"
 
-    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_a
+    if-eqz v5, :cond_b
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
-    move-result-object v3
+    move-result-object v5
 
-    const v4, 0x7f0900dc
+    const v6, 0x7f0900dc
 
-    invoke-static {v3, v4, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v5, v6, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v5}, Landroid/widget/Toast;->show()V
 
-    :cond_a
-    iget-object v3, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mHandler:Landroid/os/Handler;
+    :cond_b
+    iget-object v5, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mHandler:Landroid/os/Handler;
 
-    const/16 v4, 0x66
+    const/16 v6, 0x66
 
-    const-wide/16 v6, 0x1388
+    const-wide/16 v8, 0x1388
 
-    invoke-virtual {v3, v4, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v5, v6, v8, v9}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    invoke-virtual {p0, v8}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->showSecondaryContainer(Z)V
+    invoke-virtual {p0, v4}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->showSecondaryContainer(Z)V
 
-    invoke-virtual {p0, v9}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->setMergeProgressing(Z)V
+    invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->setMergeProgressing(Z)V
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v3
 
-    invoke-virtual {v3, v8, v8}, Lcom/android/incallui/UiAdapter;->displayDialpad(ZZ)V
+    invoke-virtual {v3, v4, v4}, Lcom/android/incallui/UiAdapter;->displayDialpad(ZZ)V
 
     goto/16 :goto_0
 
-    :sswitch_5
-    const-string v3, "Manage Clicked"
+    :sswitch_6
+    const-string v5, "Manage Clicked"
 
-    invoke-static {v3}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
+    invoke-static {v5}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getConferenceCallManagerShowingState()Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_b
+    if-eqz v5, :cond_c
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->hideConferenceCallManager()V
 
-    invoke-direct {p0, v8}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->updateCallCardVTConference(Z)V
+    invoke-direct {p0, v4}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->updateCallCardVTConference(Z)V
 
-    invoke-static {v9}, Lcom/android/incallui/util/VideoCallAppLogging;->multipartyCall_manageConference(Z)V
+    invoke-static {v3}, Lcom/android/incallui/util/VideoCallAppLogging;->multipartyCall_manageConference(Z)V
 
     goto/16 :goto_0
 
-    :cond_b
-    invoke-static {v8}, Lcom/android/incallui/util/VideoCallAppLogging;->multipartyCall_manageConference(Z)V
+    :cond_c
+    invoke-static {v4}, Lcom/android/incallui/util/VideoCallAppLogging;->multipartyCall_manageConference(Z)V
 
-    invoke-direct {p0, v9}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->updateCallCardVTConference(Z)V
+    invoke-direct {p0, v3}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->updateCallCardVTConference(Z)V
 
     invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->animateForManager()V
 
     goto/16 :goto_0
 
-    :sswitch_6
+    :sswitch_7
     const-string v3, "Downgrade Clicked"
 
     invoke-static {v3}, Lcom/android/incallui/service/vt/VideoCallLog;->button(Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/incallui/util/VideoCallAppLogging;->duringCall_voiceCallDowngrade()V
 
-    invoke-static {v8}, Lcom/android/incallui/service/vt/VideoCallControl;->sendSessionModifyRequest(I)V
+    invoke-static {v4}, Lcom/android/incallui/service/vt/VideoCallControl;->sendSessionModifyRequest(I)V
 
     goto/16 :goto_0
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
-        0x7f10009b -> :sswitch_3
-        0x7f1000a1 -> :sswitch_4
-        0x7f100299 -> :sswitch_6
+        0x7f10009b -> :sswitch_4
+        0x7f1000a1 -> :sswitch_5
+        0x7f100299 -> :sswitch_7
         0x7f1002ae -> :sswitch_0
-        0x7f1002d3 -> :sswitch_5
-        0x7f100317 -> :sswitch_3
-        0x7f10034e -> :sswitch_1
-        0x7f100441 -> :sswitch_2
+        0x7f1002d3 -> :sswitch_3
+        0x7f1002d5 -> :sswitch_6
+        0x7f100319 -> :sswitch_4
+        0x7f100350 -> :sswitch_1
+        0x7f100440 -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -4921,7 +5001,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0a0322
+    const v7, 0x7f0a0324
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -5780,6 +5860,96 @@
     return-void
 .end method
 
+.method protected showCallInfoContainer(Z)V
+    .locals 5
+
+    const/16 v2, 0x8
+
+    move v1, p1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getPresenter()Lcom/android/incallui/Presenter;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/incallui/CallCardPresenter;
+
+    invoke-virtual {v3}, Lcom/android/incallui/CallCardPresenter;->getPrimaryCall()Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v3
+
+    const/4 v4, 0x3
+
+    if-eq v3, v4, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v3
+
+    if-ne v3, v2, :cond_1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :cond_1
+    if-eqz v1, :cond_2
+
+    const/4 v2, 0x0
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mCallInfoContainer:Landroid/view/View;
+
+    if-eqz v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mCallInfoContainer:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getVisibility()I
+
+    move-result v3
+
+    if-eq v3, v2, :cond_3
+
+    iget-object v3, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mCallInfoContainer:Landroid/view/View;
+
+    invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "showCallInfoContainer - "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
+
+    :cond_3
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Lcom/android/incallui/UiAdapter;->updateSwitchButtonLayout(Z)V
+
+    return-void
+.end method
+
 .method protected showConferenceCallManager()V
     .locals 1
 
@@ -5807,7 +5977,7 @@
 .method public showEndcallContactBtn(Z)V
     .locals 9
 
-    const v8, 0x7f090254
+    const v8, 0x7f090255
 
     const/4 v3, 0x0
 
@@ -6068,8 +6238,37 @@
 .end method
 
 .method public showMenu(Z)V
-    .locals 0
+    .locals 3
 
+    sget-boolean v2, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_OUTGOING_KEYPAD_BUTTON:Z
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getPresenter()Lcom/android/incallui/Presenter;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/incallui/CallCardPresenter;
+
+    invoke-virtual {v2}, Lcom/android/incallui/CallCardPresenter;->getPrimaryCall()Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/incallui/Call$State;->isDialing(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 p1, 0x0
+
+    :cond_0
     invoke-super {p0, p1}, Lcom/android/incallui/fragment/CallCardFragment;->showMenu(Z)V
 
     return-void
@@ -6086,7 +6285,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0905bb
+    const v1, 0x7f0905bd
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getString(I)Ljava/lang/String;
 
@@ -6158,7 +6357,7 @@
 .method protected updateBgColorForCallState(I)V
     .locals 6
 
-    const v5, 0x7f0f018c
+    const v5, 0x7f0f018d
 
     const v4, 0x7f0200ef
 
@@ -6261,7 +6460,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f01a3
+    const v3, 0x7f0f01a4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6532,7 +6731,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a02be
+    const v2, 0x7f0a02c0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -6655,6 +6854,52 @@
     iput v4, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     goto :goto_1
+.end method
+
+.method protected updateKeypadButtonVisibleForCallState(I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mKeypadButtonStub:Landroid/view/ViewStub;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mKeypadButton:Landroid/widget/Button;
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-static {p1}, Lcom/android/incallui/Call$State;->isDialing(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mKeypadButton:Landroid/widget/Button;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setSelected(Z)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mKeypadButtonStub:Landroid/view/ViewStub;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mKeypadButtonStub:Landroid/view/ViewStub;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    goto :goto_0
 .end method
 
 .method protected updateLowQualityInfo(Z)V
@@ -6975,11 +7220,11 @@
 .method protected updateTextColor(I)V
     .locals 5
 
-    const v4, 0x7f0f0121
+    const v4, 0x7f0f0122
 
-    const v3, 0x7f0f013b
+    const v3, 0x7f0f013c
 
-    const v2, 0x7f0f0138
+    const v2, 0x7f0f0139
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mCallStateLabel:Landroid/widget/TextView;
 
@@ -7175,9 +7420,9 @@
 .method protected updateTwoPhoneColor(I)V
     .locals 4
 
-    const v3, 0x7f0f013b
+    const v3, 0x7f0f013c
 
-    const v2, 0x7f0f0138
+    const v2, 0x7f0f0139
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->mKTPersonal:Landroid/widget/ImageView;
 

@@ -526,6 +526,7 @@ O menu do ecrã de chamadas IVR utiliza conteúdos disponibilizados por um forne
     <string name="outgoing_img_picture">Imagens</string>
     <string name="outgoing_img_take_picture">Tirar fotografia</string>
     <string name="outgoing_img_video">Vídeos</string>
+    <string name="overlay_warning_toast">Para utilizar o Telefone, tem de ligar as Aplicações que podem aparecer sobre outras, nas definições do Telefone.</string>
     <string name="payphone_sbm">Telefone pago</string>
     <string name="phoneLabelsGroup">Telefone</string>
     <string name="phone_voice_recording_failed_by_secure_call">Impossível gravar chamada segura.</string>
@@ -682,6 +683,7 @@ Unidirec."</string>
     <string name="secOnscreenUpdateContactText">Actualizar</string>
     <string name="secOnscreenUpdateContactText_tts">Actualizar existente</string>
     <string name="secOnscreenVideoCallText">Cham. vídeo</string>
+    <string name="secOnscreenVideoStopText">Parar</string>
     <string name="secOnscreenViewContactText">Ver contacto</string>
     <string name="secOnscreenVoiceCallText">Chamada</string>
     <string name="secOnscreenVoiceCallTextExtended">Cham. voz</string>

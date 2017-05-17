@@ -23,6 +23,8 @@
 
 .field private mIsReady:Z
 
+.field private mMultiWindowManager:Lcom/samsung/android/app/SemMultiWindowManager;
+
 .field private mNeedToSkipeOnDisconnect:Z
 
 .field private mStatus:I
@@ -93,11 +95,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->isInMultiWindowMode()Z
+    invoke-virtual {p0}, Lcom/android/incallui/PrivatePolicy;->isFreeFormMultiWindow()Z
 
     move-result v0
 
@@ -209,32 +207,55 @@
     return v0
 .end method
 
+.method public isFreeFormMultiWindow()Z
+    .locals 5
+
+    const/4 v1, 0x0
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->isFreeFormMultiWindow()Z
+
+    move-result v1
+
+    :cond_0
+    const-string v2, "SECVT-PrivatePolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "isFreeformMultiWindow "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    invoke-static {v2, v3, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    return v1
+.end method
+
 .method public isProhibit()Z
-    .locals 3
-
-    const-string v0, "SECVT-PrivatePolicy"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "isProhibit : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/incallui/PrivatePolicy;->mStatus:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
 
     iget v0, p0, Lcom/android/incallui/PrivatePolicy;->mStatus:I
 

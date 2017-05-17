@@ -318,7 +318,7 @@
     <string name="incall_popup_call_remove_title">删除快捷方式</string>
     <string name="incall_popup_call_remove_title_vzw">隐藏快捷方式</string>
     <string name="incall_popup_ended">已结束</string>
-    <string name="incall_spam_call_block">阻止号码</string>
+    <string name="incall_spam_call_block">拦截号码</string>
     <string name="incall_spam_call_reject">添加至黑名单</string>
     <string name="incall_spam_call_reject_toast">电话号码已添加至黑名单</string>
     <string name="incall_spam_call_report">举报号码</string>
@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">图片</string>
     <string name="outgoing_img_take_picture">拍照</string>
     <string name="outgoing_img_video">视频</string>
+    <string name="overlay_warning_toast">若要使用手机，您需要在【手机】设置中启用可出现在顶部的应用程序。</string>
     <string name="payphone_sbm">投币式公用电话</string>
     <string name="phoneLabelsGroup">电话</string>
     <string name="phone_voice_recording_failed_by_secure_call">不能录制安全通话</string>
@@ -682,6 +683,7 @@
     <string name="secOnscreenUpdateContactText">更新现有联系人</string>
     <string name="secOnscreenUpdateContactText_tts">更新现有联系人</string>
     <string name="secOnscreenVideoCallText">视频通话</string>
+    <string name="secOnscreenVideoStopText">停止</string>
     <string name="secOnscreenViewContactText">查看联系人</string>
     <string name="secOnscreenVoiceCallText">通话</string>
     <string name="secOnscreenVoiceCallTextExtended">语音电话</string>
@@ -712,7 +714,7 @@
     <string name="slide_left_to_reject_content_description">用两根手指向左拖动可拒接来电。</string>
     <string name="slide_right_to_answer_content_description">用两根手指向右拖动可接听电话。</string>
     <string name="smart_call_block_button">阻止</string>
-    <string name="smart_call_block_msg">阻止号码</string>
+    <string name="smart_call_block_msg">拦截号码</string>
     <string name="smart_call_block_report_number">拦截/报告号码</string>
     <string name="smart_call_label">智能通话</string>
     <string name="smart_call_probably">可能是：</string>

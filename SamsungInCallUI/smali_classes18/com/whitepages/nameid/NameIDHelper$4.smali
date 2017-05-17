@@ -40,7 +40,7 @@
     iget-wide v0, p0, Lcom/whitepages/nameid/NameIDHelper$4;->val$untilMillis:J
 
     # invokes: Lcom/whitepages/nameid/NameIDHelper;->tryReconnectUntil(J)V
-    invoke-static {v0, v1}, Lcom/whitepages/nameid/NameIDHelper;->access$500(J)V
+    invoke-static {v0, v1}, Lcom/whitepages/nameid/NameIDHelper;->access$400(J)V
 
     return-void
 .end method

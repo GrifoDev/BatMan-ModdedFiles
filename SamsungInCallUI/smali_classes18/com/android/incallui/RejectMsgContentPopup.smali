@@ -256,7 +256,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a04c0
+    const v6, 0x7f0a04c6
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -406,7 +406,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040109
+    const v1, 0x7f04010a
 
     const/4 v2, 0x0
 
@@ -424,7 +424,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ListView;->addFooterView(Landroid/view/View;)V
 
-    const v1, 0x7f100371
+    const v1, 0x7f100373
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 

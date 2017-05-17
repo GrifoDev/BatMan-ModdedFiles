@@ -526,6 +526,7 @@ IVR arama ekranı menüsünde, Dianhuabang adlı üçüncü taraf hizmet sağlay
     <string name="outgoing_img_picture">Resimler</string>
     <string name="outgoing_img_take_picture">Resim çek</string>
     <string name="outgoing_img_video">Videolar</string>
+    <string name="overlay_warning_toast">Telefonu kullanmak için Telefon ayarlarında üstte görünebilecek Uygulamaları açmanız gerekir.</string>
     <string name="payphone_sbm">Ankesörlü telefon</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Güvenli arama kaydedilemiyor.</string>
@@ -682,6 +683,7 @@ Kamera"</string>
     <string name="secOnscreenUpdateContactText">Kişiyi güncelle</string>
     <string name="secOnscreenUpdateContactText_tts">Mevcut kişiyi güncelle</string>
     <string name="secOnscreenVideoCallText">Video arama</string>
+    <string name="secOnscreenVideoStopText">Durdur</string>
     <string name="secOnscreenViewContactText">Kişiyi görüntüle</string>
     <string name="secOnscreenVoiceCallText">Arama</string>
     <string name="secOnscreenVoiceCallTextExtended">Sesli ara</string>

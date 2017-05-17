@@ -74,6 +74,8 @@
     <dimen name="sec_video_incall_modify_call_button_margin_top">43.0dip</dimen>
     <item type="dimen" name="sec_video_incall_modify_request_info_banner_att_height">@dimen/sec_video_incall_modify_call_button_margin_top</item>
     <dimen name="sec_video_incoming_hide_show_text_margin_top">20.0dip</dimen>
+    <dimen name="sec_video_modify_button_drawable_padding">-25.0dip</dimen>
+    <dimen name="sec_video_modify_oneway_button_drawable_padding">-15.0dip</dimen>
     <dimen name="sec_video_qcif_view_incoming_margin_top">0.0dip</dimen>
     <dimen name="sec_video_qvga_preview_height">121.0dip</dimen>
     <dimen name="sec_video_qvga_preview_position_x">0.0dip</dimen>

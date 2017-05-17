@@ -117,7 +117,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mView:Landroid/view/View;
 
-    const v1, 0x7f10040c
+    const v1, 0x7f10040b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -260,7 +260,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f040161
+    const v1, 0x7f040162
 
     invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -275,7 +275,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f040164
+    const v1, 0x7f040165
 
     invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -284,7 +284,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f04015b
+    const v1, 0x7f04015c
 
     invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -420,7 +420,7 @@
 
     move-result v10
 
-    const v11, 0x7f100320
+    const v11, 0x7f100322
 
     invoke-virtual {p1, v11}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -540,7 +540,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a05e3
+    const v12, 0x7f0a05ee
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -636,7 +636,7 @@
 .end method
 
 .method public setupLayout()V
-    .locals 30
+    .locals 32
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getViewId()V
 
@@ -646,15 +646,15 @@
 
     if-nez v5, :cond_0
 
-    const-string v25, "setupLayout : Activity is null."
+    const-string v27, "setupLayout : Activity is null."
 
-    const/16 v26, 0x1
+    const/16 v28, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v27
 
-    move/from16 v2, v26
+    move/from16 v2, v28
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
@@ -666,123 +666,123 @@
 
     invoke-virtual {v5}, Lcom/android/incallui/InCallActivity;->getVideoCallMetrics()Lcom/android/incallui/service/vt/VideoCallMetrics;
 
-    move-result-object v17
+    move-result-object v18
 
-    if-nez v17, :cond_1
+    if-nez v18, :cond_1
 
-    const-string v25, "setupLayout : VideoCallMetrics is null."
+    const-string v27, "setupLayout : VideoCallMetrics is null."
 
-    invoke-static/range {v25 .. v25}, Lcom/android/incallui/service/vt/VideoCallLog;->error(Ljava/lang/String;)V
+    invoke-static/range {v27 .. v27}, Lcom/android/incallui/service/vt/VideoCallLog;->error(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_1
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->needToMultiWindowLayout()Z
 
-    move-result v14
+    move-result v15
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mView:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    if-eqz v25, :cond_3
+    if-eqz v27, :cond_3
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mView:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v21
-
-    check-cast v21, Landroid/widget/FrameLayout;
-
-    if-eqz v21, :cond_2
-
-    invoke-virtual/range {v21 .. v21}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual/range {v27 .. v27}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v22
 
-    check-cast v22, Landroid/widget/FrameLayout$LayoutParams;
+    check-cast v22, Landroid/widget/FrameLayout;
 
-    const/16 v25, 0x50
+    if-eqz v22, :cond_2
 
-    move/from16 v0, v25
+    invoke-virtual/range {v22 .. v22}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-object/from16 v1, v22
+    move-result-object v23
+
+    check-cast v23, Landroid/widget/FrameLayout$LayoutParams;
+
+    const/16 v27, 0x50
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v23
 
     iput v0, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    invoke-virtual/range {v21 .. v22}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mView:Landroid/view/View;
 
-    move-object/from16 v25, v0
-
-    const/16 v26, 0x0
-
-    const/16 v27, 0x0
+    move-object/from16 v27, v0
 
     const/16 v28, 0x0
 
     const/16 v29, 0x0
 
-    invoke-virtual/range {v25 .. v29}, Landroid/view/View;->setPadding(IIII)V
+    const/16 v30, 0x0
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/incallui/service/vt/VideoCallMetrics;->hasNavigationBarZone()Z
+    const/16 v31, 0x0
 
-    move-result v25
+    invoke-virtual/range {v27 .. v31}, Landroid/view/View;->setPadding(IIII)V
 
-    if-eqz v25, :cond_3
+    invoke-virtual/range {v18 .. v18}, Lcom/android/incallui/service/vt/VideoCallMetrics;->hasNavigationBarZone()Z
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
+    move-result v27
 
-    move-result v25
+    if-eqz v27, :cond_3
 
-    if-eqz v25, :cond_3
+    invoke-virtual/range {v18 .. v18}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
+
+    move-result v27
+
+    if-eqz v27, :cond_3
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v25
+    move-result-object v27
 
-    invoke-static/range {v25 .. v25}, Lcom/android/incallui/util/ScreenControlUtils;->getNavigationBarWidth(Landroid/content/Context;)I
+    invoke-static/range {v27 .. v27}, Lcom/android/incallui/util/ScreenControlUtils;->getNavigationBarWidth(Landroid/content/Context;)I
 
-    move-result v19
+    move-result v20
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isLeftHandRotation()Z
+    invoke-virtual/range {v18 .. v18}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isLeftHandRotation()Z
 
-    move-result v25
+    move-result v27
 
-    if-eqz v25, :cond_6
+    if-eqz v27, :cond_6
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mView:Landroid/view/View;
 
-    move-object/from16 v25, v0
-
-    const/16 v26, 0x0
-
-    const/16 v27, 0x0
+    move-object/from16 v27, v0
 
     const/16 v28, 0x0
 
-    move-object/from16 v0, v25
+    const/16 v29, 0x0
 
-    move/from16 v1, v19
+    const/16 v30, 0x0
 
-    move/from16 v2, v26
+    move-object/from16 v0, v27
 
-    move/from16 v3, v27
+    move/from16 v1, v20
 
-    move/from16 v4, v28
+    move/from16 v2, v28
+
+    move/from16 v3, v29
+
+    move/from16 v4, v30
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/view/View;->setPadding(IIII)V
 
@@ -790,130 +790,130 @@
     :goto_1
     invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->isDesktopMode()Z
 
-    move-result v25
+    move-result v27
 
-    if-nez v25, :cond_7
+    if-nez v27, :cond_7
 
-    if-nez v14, :cond_7
+    if-nez v15, :cond_7
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
-    move/from16 v25, v0
+    move/from16 v27, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
-    move/from16 v26, v0
+    move/from16 v28, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
-    move/from16 v1, v26
+    move/from16 v1, v28
 
     if-ge v0, v1, :cond_7
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
     :goto_2
-    if-eqz v20, :cond_8
+    if-eqz v21, :cond_8
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v25
+    move-result-object v27
 
-    const v26, 0x7f0d0004
+    const v28, 0x7f0d0004
 
-    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v24
+    move-result v26
 
     :goto_3
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
-    move/from16 v25, v0
+    move/from16 v27, v0
 
-    mul-int v25, v25, v24
+    mul-int v27, v27, v26
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
     div-int/lit16 v0, v0, 0x3e8
 
-    move/from16 v23, v0
+    move/from16 v25, v0
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v25
+    move-result-object v27
 
-    const v26, 0x7f0a05ea
+    const v28, 0x7f0a05f5
 
-    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v25
+    move-result v27
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
     float-to-int v0, v0
 
-    move/from16 v16, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v23
+    move/from16 v0, v25
 
-    move/from16 v1, v16
+    move/from16 v1, v17
 
     if-le v0, v1, :cond_4
 
-    move/from16 v23, v16
+    move/from16 v25, v17
 
     :cond_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpadView:Lcom/android/incallui/widget/DialpadView;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    if-eqz v25, :cond_a
+    if-eqz v27, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpadView:Lcom/android/incallui/widget/DialpadView;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v25 .. v25}, Lcom/android/incallui/widget/DialpadView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual/range {v27 .. v27}, Lcom/android/incallui/widget/DialpadView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v9
 
     check-cast v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    const-string v25, "support_folder_single_lcd"
+    const-string v27, "support_folder_single_lcd"
 
-    invoke-static/range {v25 .. v25}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static/range {v27 .. v27}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v25
+    move-result v27
 
-    if-eqz v25, :cond_5
+    if-eqz v27, :cond_5
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v25
+    move-result-object v27
 
-    const v26, 0x7f0a00df
+    const v28, 0x7f0a00e1
 
-    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v25
+    move-result v27
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
     float-to-int v0, v0
 
-    move/from16 v25, v0
+    move/from16 v27, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
     iput v0, v9, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
@@ -922,79 +922,79 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpadView:Lcom/android/incallui/widget/DialpadView;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v9}, Lcom/android/incallui/widget/DialpadView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isPhoneLandscapeType()Z
+    invoke-virtual/range {v18 .. v18}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isPhoneLandscapeType()Z
 
-    move-result v25
+    move-result v27
 
-    if-eqz v25, :cond_9
+    if-eqz v27, :cond_9
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpadView:Lcom/android/incallui/widget/DialpadView;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v26
+    move-result-object v28
 
-    const v27, 0x106000d
+    const v29, 0x106000d
 
-    invoke-virtual/range {v26 .. v27}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getColor(I)I
 
-    move-result v26
+    move-result v28
 
-    invoke-virtual/range {v25 .. v26}, Lcom/android/incallui/widget/DialpadView;->setBackgroundColor(I)V
+    invoke-virtual/range {v27 .. v28}, Lcom/android/incallui/widget/DialpadView;->setBackgroundColor(I)V
 
     :goto_4
-    const/16 v25, 0xc
+    const/16 v27, 0xc
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
     new-array v7, v0, [I
 
     fill-array-data v7, :array_0
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
     :goto_5
     array-length v0, v7
 
-    move/from16 v25, v0
+    move/from16 v27, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
-    if-ge v13, v0, :cond_a
+    if-ge v14, v0, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpadView:Lcom/android/incallui/widget/DialpadView;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    aget v26, v7, v13
+    aget v28, v7, v14
 
-    invoke-virtual/range {v25 .. v26}, Lcom/android/incallui/widget/DialpadView;->findViewById(I)Landroid/view/View;
+    invoke-virtual/range {v27 .. v28}, Lcom/android/incallui/widget/DialpadView;->findViewById(I)Landroid/view/View;
 
     move-result-object v8
 
     check-cast v8, Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    div-int/lit8 v25, v23, 0x3
+    div-int/lit8 v27, v25, 0x3
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v25
+    move/from16 v1, v27
 
     invoke-virtual {v0, v8, v1}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->setupDialpadKeyButton(Lcom/android/phone/common/dialpad/DialpadKeyButton;I)V
 
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v14, v14, 0x1
 
     goto :goto_5
 
@@ -1003,43 +1003,43 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mView:Landroid/view/View;
 
-    move-object/from16 v25, v0
-
-    const/16 v26, 0x0
-
-    const/16 v27, 0x0
+    move-object/from16 v27, v0
 
     const/16 v28, 0x0
 
-    move-object/from16 v0, v25
+    const/16 v29, 0x0
 
-    move/from16 v1, v26
+    const/16 v30, 0x0
 
-    move/from16 v2, v27
+    move-object/from16 v0, v27
 
-    move/from16 v3, v19
+    move/from16 v1, v28
 
-    move/from16 v4, v28
+    move/from16 v2, v29
+
+    move/from16 v3, v20
+
+    move/from16 v4, v30
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/view/View;->setPadding(IIII)V
 
     goto/16 :goto_1
 
     :cond_7
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
     goto/16 :goto_2
 
     :cond_8
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v25
+    move-result-object v27
 
-    const v26, 0x7f0d0003
+    const v28, 0x7f0d0003
 
-    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v24
+    move-result v26
 
     goto/16 :goto_3
 
@@ -1048,19 +1048,19 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpadView:Lcom/android/incallui/widget/DialpadView;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v26
+    move-result-object v28
 
-    const v27, 0x7f0f01a4
+    const v29, 0x7f0f01a5
 
-    invoke-virtual/range {v26 .. v27}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual/range {v28 .. v29}, Landroid/content/res/Resources;->getColor(I)I
 
-    move-result v26
+    move-result v28
 
-    invoke-virtual/range {v25 .. v26}, Lcom/android/incallui/widget/DialpadView;->setBackgroundColor(I)V
+    invoke-virtual/range {v27 .. v28}, Lcom/android/incallui/widget/DialpadView;->setBackgroundColor(I)V
 
     goto :goto_4
 
@@ -1069,82 +1069,162 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDigitContainer:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    if-eqz v25, :cond_b
+    if-eqz v27, :cond_c
 
-    const-string v25, "support_folder_single_lcd"
+    const-string v27, "support_folder_single_lcd"
 
-    invoke-static/range {v25 .. v25}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static/range {v27 .. v27}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v25
+    move-result v27
 
-    if-nez v25, :cond_b
-
-    if-nez v14, :cond_b
+    if-nez v27, :cond_c
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDigitContainer:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual/range {v27 .. v27}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v10
+    move-result-object v11
 
-    check-cast v10, Landroid/widget/LinearLayout$LayoutParams;
+    check-cast v11, Landroid/widget/LinearLayout$LayoutParams;
 
-    move/from16 v0, v23
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    iput v0, v10, Landroid/widget/LinearLayout$LayoutParams;->width:I
+    move-result-object v27
 
-    move-object/from16 v0, p0
+    const v28, 0x7f0a0356
 
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDigitContainer:Landroid/view/View;
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-object/from16 v25, v0
+    move-result v27
 
-    move-object/from16 v0, v25
+    move/from16 v0, v27
 
-    invoke-virtual {v0, v10}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    float-to-int v10, v0
+
+    if-eqz v15, :cond_14
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v27
+
+    const v28, 0x7f0d006b
+
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v13
+
+    move-object/from16 v0, v18
+
+    iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, v18
+
+    iget-object v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCardMetrics;
+
+    move-object/from16 v28, v0
+
+    move-object/from16 v0, v28
+
+    iget v0, v0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_default_height:I
+
+    move/from16 v28, v0
+
+    sub-int v27, v27, v28
+
+    mul-int v27, v27, v13
+
+    move/from16 v0, v27
+
+    div-int/lit16 v10, v0, 0x3e8
+
+    const/16 v27, -0x1
+
+    move/from16 v0, v27
+
+    iput v0, v11, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    :goto_6
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v27
+
+    const v28, 0x7f0a05e7
+
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v27
+
+    move/from16 v0, v27
+
+    float-to-int v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    if-ge v10, v0, :cond_b
+
+    move/from16 v10, v19
 
     :cond_b
+    iput v10, v11, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDigitContainer:Landroid/view/View;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v11}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpad:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    if-eqz v25, :cond_e
+    if-eqz v27, :cond_10
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
 
-    move-result v15
+    move-result v16
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v27, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v26, "setupLayout() isMobileKeyboard : "
+    const-string v28, "setupLayout() isMobileKeyboard : "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v27
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move/from16 v1, v16
 
-    move-result-object v25
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v27
 
-    move-result-object v25
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v27
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v27
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1152,33 +1232,33 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpad:Landroid/view/View;
 
-    move-object/from16 v26, v0
+    move-object/from16 v28, v0
 
-    if-eqz v15, :cond_12
+    if-eqz v16, :cond_15
 
-    const/16 v25, 0x8
+    const/16 v27, 0x8
 
-    :goto_6
-    move-object/from16 v0, v26
+    :goto_7
+    move-object/from16 v0, v28
 
-    move/from16 v1, v25
+    move/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->showSoftInput()V
 
-    if-nez v15, :cond_c
+    if-nez v16, :cond_d
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->hideSoftInput()V
 
-    :cond_c
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpad:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual/range {v27 .. v27}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v9
 
@@ -1186,52 +1266,91 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v25
+    move-result-object v27
 
-    const v26, 0x7f0d006b
+    const v28, 0x7f0d006c
 
-    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v12
+    move-result v13
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
-    move/from16 v25, v0
+    move/from16 v27, v0
 
-    mul-int v25, v25, v12
+    mul-int v27, v27, v13
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
-    div-int/lit16 v11, v0, 0x3e8
+    div-int/lit16 v12, v0, 0x3e8
+
+    if-eqz v15, :cond_e
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v25
+    move-result-object v27
 
-    const v26, 0x7f0a05e9
+    const v28, 0x7f0d006d
 
-    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v25
+    move-result v13
 
-    move/from16 v0, v25
+    move-object/from16 v0, v18
+
+    iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, v18
+
+    iget-object v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCardMetrics;
+
+    move-object/from16 v28, v0
+
+    move-object/from16 v0, v28
+
+    iget v0, v0, Lcom/android/incallui/service/vt/VideoCardMetrics;->call_state_default_height:I
+
+    move/from16 v28, v0
+
+    sub-int v27, v27, v28
+
+    mul-int v27, v27, v13
+
+    move/from16 v0, v27
+
+    div-int/lit16 v12, v0, 0x3e8
+
+    :cond_e
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v27
+
+    const v28, 0x7f0a05f4
+
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v27
+
+    move/from16 v0, v27
 
     float-to-int v0, v0
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    if-ge v11, v0, :cond_d
+    if-ge v12, v0, :cond_f
 
-    move/from16 v11, v18
+    move/from16 v12, v19
 
-    :cond_d
-    iput v11, v9, Landroid/widget/LinearLayout$LayoutParams;->height:I
+    :cond_f
+    iput v12, v9, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     iput v0, v9, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
@@ -1239,169 +1358,192 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDialpad:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v9}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    :cond_e
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDtmfDialerField:Landroid/widget/EditText;
-
-    move-object/from16 v25, v0
-
-    if-eqz v25, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDtmfDialerField:Landroid/widget/EditText;
-
-    move-object/from16 v25, v0
-
-    const/16 v26, 0x0
-
-    invoke-virtual/range {v25 .. v26}, Landroid/widget/EditText;->setFocusable(Z)V
-
-    :cond_f
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mHideButton:Landroid/widget/ImageView;
-
-    move-object/from16 v25, v0
-
-    if-eqz v25, :cond_14
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mHideButton:Landroid/widget/ImageView;
-
-    move-object/from16 v26, v0
-
-    invoke-virtual/range {v17 .. v17}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isOrientationLandscapeInMultiWindow()Z
-
-    move-result v25
-
-    if-eqz v25, :cond_13
-
-    const/16 v25, 0x0
-
-    :goto_7
-    move-object/from16 v0, v26
-
-    move/from16 v1, v25
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    :goto_8
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mMenuContainer:Landroid/view/View;
-
-    move-object/from16 v25, v0
-
-    if-eqz v25, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mMenuContainer:Landroid/view/View;
-
-    move-object/from16 v25, v0
-
-    const/16 v26, 0x8
-
-    invoke-virtual/range {v25 .. v26}, Landroid/view/View;->setVisibility(I)V
 
     :cond_10
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mElapsedTimeContainer:Landroid/view/View;
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDtmfDialerField:Landroid/widget/EditText;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    if-eqz v25, :cond_11
+    if-eqz v27, :cond_11
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mElapsedTimeContainer:Landroid/view/View;
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mDtmfDialerField:Landroid/widget/EditText;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    const/16 v26, 0x8
+    const/16 v28, 0x0
 
-    invoke-virtual/range {v25 .. v26}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual/range {v27 .. v28}, Landroid/widget/EditText;->setFocusable(Z)V
 
     :cond_11
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mHideButton:Landroid/widget/ImageView;
+
+    move-object/from16 v27, v0
+
+    if-eqz v27, :cond_17
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v27
+
+    const v28, 0x7f0a05ec
+
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mHideButton:Landroid/widget/ImageView;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v24
+
+    move/from16 v2, v24
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/util/GraphicResourceUtils;->setRippleSize(Landroid/view/View;II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mHideButton:Landroid/widget/ImageView;
+
+    move-object/from16 v28, v0
+
+    if-eqz v15, :cond_16
+
+    const/16 v27, 0x0
+
+    :goto_8
+    move-object/from16 v0, v28
+
+    move/from16 v1, v27
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :goto_9
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mMenuContainer:Landroid/view/View;
+
+    move-object/from16 v27, v0
+
+    if-eqz v27, :cond_12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mMenuContainer:Landroid/view/View;
+
+    move-object/from16 v27, v0
+
+    const/16 v28, 0x8
+
+    invoke-virtual/range {v27 .. v28}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_12
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mElapsedTimeContainer:Landroid/view/View;
+
+    move-object/from16 v27, v0
+
+    if-eqz v27, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mElapsedTimeContainer:Landroid/view/View;
+
+    move-object/from16 v27, v0
+
+    const/16 v28, 0x8
+
+    invoke-virtual/range {v27 .. v28}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_13
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mBottomArea:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    if-eqz v25, :cond_16
+    if-eqz v27, :cond_19
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isOrientationLandscapeInMultiWindow()Z
-
-    move-result v25
-
-    if-eqz v25, :cond_15
+    if-eqz v15, :cond_18
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mBottomArea:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    const/16 v26, 0x8
+    const/16 v28, 0x8
 
-    invoke-virtual/range {v25 .. v26}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual/range {v27 .. v28}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_0
 
-    :cond_12
-    const/16 v25, 0x0
+    :cond_14
+    move/from16 v0, v25
+
+    iput v0, v11, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
     goto/16 :goto_6
 
-    :cond_13
-    const/16 v25, 0x8
+    :cond_15
+    const/16 v27, 0x0
 
-    goto :goto_7
+    goto/16 :goto_7
 
-    :cond_14
-    const-string v25, "setupLayout : mHideButton is null."
-
-    invoke-static/range {v25 .. v25}, Lcom/android/incallui/service/vt/VideoCallLog;->error(Ljava/lang/String;)V
+    :cond_16
+    const/16 v27, 0x8
 
     goto :goto_8
 
-    :cond_15
+    :cond_17
+    const-string v27, "setupLayout : mHideButton is null."
+
+    invoke-static/range {v27 .. v27}, Lcom/android/incallui/service/vt/VideoCallLog;->error(Ljava/lang/String;)V
+
+    goto :goto_9
+
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mBottomArea:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual/range {v27 .. v27}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v6
 
     check-cast v6, Landroid/widget/LinearLayout$LayoutParams;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoButtonMetrics;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget v0, v0, Lcom/android/incallui/service/vt/VideoButtonMetrics;->height_with_offset:I
 
-    move/from16 v25, v0
+    move/from16 v27, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v27
 
     iput v0, v6, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
@@ -1409,18 +1551,18 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mBottomArea:Landroid/view/View;
 
-    move-object/from16 v25, v0
+    move-object/from16 v27, v0
 
-    const/16 v26, 0x0
+    const/16 v28, 0x0
 
-    invoke-virtual/range {v25 .. v26}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual/range {v27 .. v28}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_0
 
-    :cond_16
-    const-string v25, "setupLayout : mBottomArea is null."
+    :cond_19
+    const-string v27, "setupLayout : mBottomArea is null."
 
-    invoke-static/range {v25 .. v25}, Lcom/android/incallui/service/vt/VideoCallLog;->error(Ljava/lang/String;)V
+    invoke-static/range {v27 .. v27}, Lcom/android/incallui/service/vt/VideoCallLog;->error(Ljava/lang/String;)V
 
     goto/16 :goto_0
 

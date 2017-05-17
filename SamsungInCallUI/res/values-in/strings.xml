@@ -526,6 +526,7 @@ Menu layar panggilan IVR menggunakan konten yang disediakan oleh penyedia layana
     <string name="outgoing_img_picture">Gambar</string>
     <string name="outgoing_img_take_picture">Ambil Gambar</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">Untuk menggunakan Telepon, aktifkan Aplikasi yang dapat ditampilkan di atas pengaturan Telepon.</string>
     <string name="payphone_sbm">Telepon berbayar</string>
     <string name="phoneLabelsGroup">Telepon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Tidak dapat merekam panggilan aman.</string>
@@ -682,6 +683,7 @@ Satu Arah"</string>
     <string name="secOnscreenUpdateContactText">Update yang ada</string>
     <string name="secOnscreenUpdateContactText_tts">Perbarui yg ada</string>
     <string name="secOnscreenVideoCallText">Pggln video</string>
+    <string name="secOnscreenVideoStopText">Stop</string>
     <string name="secOnscreenViewContactText">Lihat kontak</string>
     <string name="secOnscreenVoiceCallText">Panggilan</string>
     <string name="secOnscreenVoiceCallTextExtended">Pgln suara</string>

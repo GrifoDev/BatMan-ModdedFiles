@@ -3,12 +3,12 @@
 .source "InCallActivity.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/InCallActivity;->showErrorDialog(Ljava/lang/CharSequence;)V
+    value = Lcom/android/incallui/InCallActivity;->updatedVideoCallMenu()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,13 +34,12 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$16;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # invokes: Lcom/android/incallui/InCallActivity;->onDialogDismissed()V
-    invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1500(Lcom/android/incallui/InCallActivity;)V
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->showInCallMenu()V
 
     return-void
 .end method

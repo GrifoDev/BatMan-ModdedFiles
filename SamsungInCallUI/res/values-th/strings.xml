@@ -527,6 +527,7 @@
     <string name="outgoing_img_picture">รูป​ภาพ</string>
     <string name="outgoing_img_take_picture">ถ่ายภาพ</string>
     <string name="outgoing_img_video">วี​ดี​โอ</string>
+    <string name="overlay_warning_toast">หากต้องการใช้ โทรศัพท์ คุณต้องเปิดแอพที่สามารถปรากฏที่ด้านบนในการตั้งค่าโทรศัพท์</string>
     <string name="payphone_sbm">โทรศัพท์​หยอด​เหรียญ</string>
     <string name="phoneLabelsGroup">โทรศัพท์</string>
     <string name="phone_voice_recording_failed_by_secure_call">ไม่สามารถบันทึกการโทรที่ปลอดภัยได้</string>
@@ -683,6 +684,7 @@
     <string name="secOnscreenUpdateContactText">อัพ​เด​ทที่มีอ​ยู่</string>
     <string name="secOnscreenUpdateContactText_tts">อัพ​เด​ทที่มีอ​ยู่</string>
     <string name="secOnscreenVideoCallText">โทรวีดีโอ</string>
+    <string name="secOnscreenVideoStopText">หยุด</string>
     <string name="secOnscreenViewContactText">ดูรายชื่อ</string>
     <string name="secOnscreenVoiceCallText">โทร</string>
     <string name="secOnscreenVoiceCallTextExtended">การโทรปกติ</string>

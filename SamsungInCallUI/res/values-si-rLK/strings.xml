@@ -524,6 +524,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="outgoing_img_picture">පින්තූර</string>
     <string name="outgoing_img_take_picture">පින්තූරයක් ගන්න</string>
     <string name="outgoing_img_video">වීඩියෝ</string>
+    <string name="overlay_warning_toast">දුරකථනය භාවිතා කිරීමට, ඔබට දුරකථන සැකසුම් තුළ ඉහළම දිස් විය හැකි යෙදුම් ක්‍රියාත්මක කිරීමට අවශ්‍ය වේ.</string>
     <string name="payphone_sbm">ගෙවන දුරකථනය</string>
     <string name="phoneLabelsGroup">දුරකථනය</string>
     <string name="phone_voice_recording_failed_by_secure_call">සුරක්ෂිත ඇමතුම පටිගත කළ නොහැක.</string>
@@ -679,6 +680,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="secOnscreenUpdateContactText">පවත්නා දේ යාවත්. ක.</string>
     <string name="secOnscreenUpdateContactText_tts">පවත්නා දේ යාවත්කාලීන කරන්න</string>
     <string name="secOnscreenVideoCallText">වීඩියෝ ඇමතුම</string>
+    <string name="secOnscreenVideoStopText">නවතන්න</string>
     <string name="secOnscreenViewContactText">සබඳතාව බලන්න</string>
     <string name="secOnscreenVoiceCallText">අමතන්න</string>
     <string name="secOnscreenVoiceCallTextExtended">හඬ ඇමතුම</string>

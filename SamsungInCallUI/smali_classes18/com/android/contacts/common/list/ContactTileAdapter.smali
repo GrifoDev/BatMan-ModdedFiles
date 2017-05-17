@@ -114,7 +114,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03dd
+    const v1, 0x7f0a03df
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -128,7 +128,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03e0
+    const v1, 0x7f0a03e2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -218,7 +218,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactTileAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0904ee
+    const v1, 0x7f0904f0
 
     invoke-static {v0, v1}, Lcom/android/contacts/common/MoreContactUtils;->createHeaderView(Landroid/content/Context;I)Landroid/widget/TextView;
 
@@ -520,7 +520,7 @@
     :cond_6
     iget-object v10, p0, Lcom/android/contacts/common/list/ContactTileAdapter;->mResources:Landroid/content/res/Resources;
 
-    const v11, 0x7f09053f
+    const v11, 0x7f090541
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -509,7 +509,7 @@
 
     if-ne v0, v2, :cond_3
 
-    const v0, 0x7f09032a
+    const v0, 0x7f09032c
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -524,14 +524,14 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f090329
+    const v0, 0x7f09032b
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
     goto :goto_1
 
     :cond_6
-    const v0, 0x7f090328
+    const v0, 0x7f09032a
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 

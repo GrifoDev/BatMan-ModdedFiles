@@ -341,9 +341,9 @@
 .method private showRCSDialog(ILjava/lang/Long;)V
     .locals 10
 
-    const v9, 0x7f090226
+    const v9, 0x7f090227
 
-    const v8, 0x7f090223
+    const v8, 0x7f090224
 
     const/4 v7, 0x0
 
@@ -422,7 +422,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->indialogbuilder:Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f09023d
+    const v5, 0x7f09023e
 
     new-instance v6, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity$2;
 
@@ -437,7 +437,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->indialogbuilder:Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f090227
+    const v5, 0x7f090228
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 

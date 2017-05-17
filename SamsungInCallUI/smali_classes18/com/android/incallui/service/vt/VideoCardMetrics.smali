@@ -216,7 +216,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a05a9
+    const v1, 0x7f0a05b3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -230,7 +230,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0155
+    const v1, 0x7f0a0157
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -244,7 +244,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a005c
+    const v1, 0x7f0a005e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -258,7 +258,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0167
+    const v1, 0x7f0a0169
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -279,6 +279,7 @@
     <color name="sec_dialpad_digits_text_color">#ff252525</color>
     <color name="sec_dialpad_divider_color_theme">#ffe6e6e6</color>
     <color name="sec_dialpad_elapsed_time_text_color">#ff252525</color>
+    <color name="sec_dialpad_hide_button_focus_color">#ff000000</color>
     <color name="sec_dialpad_menu_button_text_color">@color/sec_dialpad_elapsed_time_text_color</color>
     <color name="sec_dialpad_menu_icon_color">#ff63aa4a</color>
     <color name="sec_dialpad_primary_text_color">#ff252525</color>
@@ -479,7 +480,7 @@
     <color name="show_button_background_light_stroke">#4d000000</color>
     <color name="show_button_background_stroke">#4dffffff</color>
     <color name="show_vga_videocall_button_background_color">#26000000</color>
-    <color name="show_vga_videocall_button_background_stroke">#99fafafa</color>
+    <color name="show_vga_videocall_button_background_stroke">#4dffffff</color>
     <color name="smart_call_content_provider_image_tint_theme">#99fafafa</color>
     <color name="smart_call_label_photo_tint_color">#fff5f5f5</color>
     <color name="smart_call_label_photo_tint_color_endcall">#ff979797</color>

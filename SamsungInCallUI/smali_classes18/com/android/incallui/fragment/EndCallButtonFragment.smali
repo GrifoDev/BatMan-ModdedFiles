@@ -662,6 +662,31 @@
     return-void
 .end method
 
+.method private unMute()V
+    .locals 3
+
+    invoke-static {}, Lcom/android/incallui/AudioModeProvider;->getInstance()Lcom/android/incallui/AudioModeProvider;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/incallui/AudioModeProvider;->getMute()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/android/incallui/TelecomAdapter;->mute(Z)V
+
+    :cond_0
+    return-void
+.end method
+
 .method private updateMultiSimEndCallButtonDrawable()V
     .locals 9
 
@@ -3981,7 +4006,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0902ca
+    const v5, 0x7f0902cc
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4581,7 +4606,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0902d8
+    const v3, 0x7f0902da
 
     const/4 v5, 0x1
 
@@ -6958,7 +6983,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a024e
+    const v9, 0x7f0a0250
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -7469,6 +7494,8 @@
     goto :goto_0
 
     :cond_5
+    invoke-direct {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->unMute()V
+
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
     move-result-object v5

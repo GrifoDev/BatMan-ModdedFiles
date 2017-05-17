@@ -1085,12 +1085,6 @@
     return v1
 .end method
 
-.method private maybeClearSessionModificationState(Lcom/android/incallui/Call;)V
-    .locals 0
-
-    return-void
-.end method
-
 .method private maybeSendAccessibilityEvent(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Z)V
     .locals 3
 
@@ -4675,6 +4669,23 @@
 
     invoke-virtual {v6, v7, v0}, Lcom/android/incallui/CallList;->removeCallUpdateListener(Ljava/lang/String;Lcom/android/incallui/CallList$CallUpdateListener;)V
 
+    :cond_14
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/incallui/CallCardPresenter;->mPrimary:Lcom/android/incallui/Call;
+
+    invoke-virtual {v7}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v7
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v6, v7, v0}, Lcom/android/incallui/CallList;->addCallUpdateListener(Ljava/lang/String;Lcom/android/incallui/CallList$CallUpdateListener;)V
+
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/CallCardPresenter;->getContext()Landroid/content/Context;
 
     move-result-object v7
@@ -4717,23 +4728,6 @@
     move-object/from16 v0, p0
 
     invoke-direct {v0, v6, v7}, Lcom/android/incallui/CallCardPresenter;->maybeStartSearch(Lcom/android/incallui/Call;Z)V
-
-    :cond_14
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v6
-
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/incallui/CallCardPresenter;->mPrimary:Lcom/android/incallui/Call;
-
-    invoke-virtual {v7}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
-
-    move-result-object v7
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v6, v7, v0}, Lcom/android/incallui/CallList;->addCallUpdateListener(Ljava/lang/String;Lcom/android/incallui/CallList$CallUpdateListener;)V
 
     const-string v6, "ecid_enable"
 
@@ -5213,14 +5207,6 @@
     move-object/from16 v0, p0
 
     invoke-direct {v0, v6, v7}, Lcom/android/incallui/CallCardPresenter;->maybeStartSearch(Lcom/android/incallui/Call;Z)V
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/incallui/CallCardPresenter;->mSecondary:Lcom/android/incallui/Call;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v6}, Lcom/android/incallui/CallCardPresenter;->maybeClearSessionModificationState(Lcom/android/incallui/Call;)V
 
     const-string v6, "ecid_enable"
 
@@ -6080,7 +6066,7 @@
 .end method
 
 .method public updatePrimaryDisplayInfo()V
-    .locals 31
+    .locals 29
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/CallCardPresenter;->getUi()Lcom/android/incallui/Ui;
 
@@ -6231,7 +6217,7 @@
 
     const/4 v6, 0x4
 
-    if-ne v3, v6, :cond_7
+    if-ne v3, v6, :cond_6
 
     const/4 v3, 0x1
 
@@ -6253,7 +6239,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7
 
     sget-object v3, Lcom/android/incallui/CallCardPresenter;->TAG:Ljava/lang/String;
 
@@ -6323,7 +6309,7 @@
 
     iget-object v3, v0, Lcom/android/incallui/CallCardPresenter;->mEmergencyCallListener:Lcom/android/incallui/CallCardPresenter$EmergencyCallListener;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_0
 
     move-object/from16 v0, p0
 
@@ -6331,7 +6317,7 @@
 
     invoke-virtual {v3}, Lcom/android/incallui/Call;->isEmergencyCall()Z
 
-    move-result v27
+    move-result v26
 
     move-object/from16 v0, p0
 
@@ -6339,74 +6325,23 @@
 
     check-cast v2, Lcom/android/incallui/BaseFragment;
 
-    move/from16 v0, v27
+    move/from16 v0, v26
 
     invoke-interface {v3, v2, v0}, Lcom/android/incallui/CallCardPresenter$EmergencyCallListener;->onCallUpdated(Lcom/android/incallui/BaseFragment;Z)V
 
-    :cond_6
-    const-string v3, "ecid_enable"
-
-    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v23
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getCoverScreen()Lcom/android/incallui/accessory/CoverScreen;
-
-    move-result-object v30
-
-    if-eqz v30, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getInCallState()Lcom/android/incallui/InCallPresenter$InCallState;
-
-    move-result-object v3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getInCallState()Lcom/android/incallui/InCallPresenter$InCallState;
-
-    move-result-object v4
-
-    move-object/from16 v0, v30
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v3, v4, v1}, Lcom/android/incallui/accessory/CoverScreen;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
-
     goto/16 :goto_0
 
-    :cond_7
+    :cond_6
     const/4 v3, 0x0
 
-    goto/16 :goto_1
+    goto :goto_1
 
-    :cond_8
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/CallCardPresenter;->mPrimaryContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    if-eqz v3, :cond_18
+    if-eqz v3, :cond_17
 
     sget-object v3, Lcom/android/incallui/CallCardPresenter;->TAG:Ljava/lang/String;
 
@@ -6456,9 +6391,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_e
 
-    const/16 v26, 0x1
+    const/16 v25, 0x1
 
     :goto_3
     move-object/from16 v0, p0
@@ -6473,9 +6408,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_f
 
-    const/16 v28, 0x1
+    const/16 v27, 0x1
 
     :goto_4
     move-object/from16 v0, p0
@@ -6486,9 +6421,9 @@
 
     invoke-direct {v0, v3}, Lcom/android/incallui/CallCardPresenter;->shouldShowCallSubject(Lcom/android/incallui/Call;)Z
 
-    move-result v25
+    move-result v24
 
-    if-eqz v25, :cond_11
+    if-eqz v24, :cond_10
 
     move-object/from16 v0, p0
 
@@ -6501,7 +6436,7 @@
     invoke-interface {v2, v3}, Lcom/android/incallui/CallCardUi;->setCallSubject(Ljava/lang/String;)V
 
     :goto_5
-    if-eqz v25, :cond_12
+    if-eqz v24, :cond_11
 
     const/4 v11, 0x0
 
@@ -6510,7 +6445,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8
 
     move-object/from16 v0, p0
 
@@ -6518,7 +6453,7 @@
 
     iget-object v3, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->number:Ljava/lang/String;
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8
 
     move-object/from16 v0, p0
 
@@ -6526,12 +6461,12 @@
 
     iget-object v12, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->number:Ljava/lang/String;
 
-    :cond_9
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/CallCardPresenter;->mPrimary:Lcom/android/incallui/Call;
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_9
 
     move-object/from16 v0, p0
 
@@ -6545,7 +6480,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_9
 
     sget-object v3, Lcom/android/incallui/CallCardPresenter;->TAG:Ljava/lang/String;
 
@@ -6555,7 +6490,7 @@
 
     const-string v12, "Conference call"
 
-    :cond_a
+    :cond_9
     sget-object v3, Lcom/android/incallui/CallCardPresenter;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -6588,13 +6523,13 @@
 
     invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     invoke-interface {v2, v0}, Lcom/android/incallui/CallCardUi;->showForwardIndicator(Z)V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/incallui/CallCardPresenter;->maybeShowHdAudioIcon()V
 
-    if-eqz v12, :cond_15
+    if-eqz v12, :cond_14
 
     move-object/from16 v0, p0
 
@@ -6606,7 +6541,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_14
 
     const/4 v13, 0x1
 
@@ -6621,9 +6556,9 @@
 
     cmp-long v3, v4, v6
 
-    if-nez v3, :cond_16
+    if-nez v3, :cond_15
 
-    const/16 v29, 0x1
+    const/16 v28, 0x1
 
     :goto_8
     const-string v3, "ecid_enable"
@@ -6632,7 +6567,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_a
 
     const-string v3, "feature_att"
 
@@ -6640,7 +6575,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_a
 
     move-object/from16 v0, p0
 
@@ -6648,7 +6583,7 @@
 
     iget-boolean v3, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_a
 
     move-object/from16 v0, p0
 
@@ -6656,15 +6591,15 @@
 
     iget-boolean v3, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isVoiceMail:Z
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_a
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/CallCardPresenter;->mPrimary:Lcom/android/incallui/Call;
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_a
 
     move-object/from16 v0, p0
 
@@ -6676,7 +6611,7 @@
 
     invoke-interface {v2, v3}, Lcom/android/incallui/CallCardUi;->setPrimaryPhoneNumber(Ljava/lang/String;)V
 
-    :cond_b
+    :cond_a
     const/4 v14, 0x0
 
     move-object/from16 v0, p0
@@ -6695,11 +6630,11 @@
 
     move-object/from16 v16, v0
 
-    if-nez v9, :cond_c
+    if-nez v9, :cond_b
 
-    if-eqz v29, :cond_17
+    if-eqz v28, :cond_16
 
-    :cond_c
+    :cond_b
     const/16 v17, 0x1
 
     :goto_9
@@ -6715,7 +6650,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_d
 
     const-string v3, "feature_vzw"
 
@@ -6723,7 +6658,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_c
 
     const-string v3, "feature_spr"
 
@@ -6731,22 +6666,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_d
 
-    :cond_d
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/CallCardPresenter;->mPrimaryContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
     iget-boolean v3, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isVoiceMail:Z
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_d
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/CallCardPresenter;->mPrimary:Lcom/android/incallui/Call;
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_d
 
     move-object/from16 v0, p0
 
@@ -6754,7 +6689,7 @@
 
     invoke-static {v3}, Lcom/android/incallui/service/EcidClient;->getCityId(Lcom/android/incallui/Call;)Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v23
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/CallCardPresenter;->getUi()Lcom/android/incallui/Ui;
 
@@ -6762,7 +6697,7 @@
 
     check-cast v3, Lcom/android/incallui/CallCardUi;
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     invoke-interface {v3, v0}, Lcom/android/incallui/CallCardUi;->setPrimaryCityId(Ljava/lang/String;)V
 
@@ -6772,15 +6707,15 @@
 
     iget-boolean v3, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_d
 
-    if-eqz v13, :cond_e
+    if-eqz v13, :cond_d
 
-    invoke-static/range {v24 .. v24}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v23 .. v23}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_d
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/CallCardPresenter;->getUi()Lcom/android/incallui/Ui;
 
@@ -6792,7 +6727,7 @@
 
     invoke-interface {v3, v4}, Lcom/android/incallui/CallCardUi;->setPrimaryPhoneNumber(Ljava/lang/String;)V
 
-    :cond_e
+    :cond_d
     const-string v3, "callprotect_enable"
 
     invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -6831,31 +6766,31 @@
 
     goto/16 :goto_2
 
-    :cond_f
-    const/16 v26, 0x0
+    :cond_e
+    const/16 v25, 0x0
 
     goto/16 :goto_3
 
-    :cond_10
-    const/16 v28, 0x0
+    :cond_f
+    const/16 v27, 0x0
 
     goto/16 :goto_4
 
-    :cond_11
+    :cond_10
     const/4 v3, 0x0
 
     invoke-interface {v2, v3}, Lcom/android/incallui/CallCardUi;->setCallSubject(Ljava/lang/String;)V
 
     goto/16 :goto_5
 
-    :cond_12
-    if-eqz v26, :cond_13
+    :cond_11
+    if-eqz v25, :cond_12
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/CallCardPresenter;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
-    const v4, 0x7f090470
+    const v4, 0x7f090472
 
     const/4 v5, 0x1
 
@@ -6879,8 +6814,8 @@
 
     goto/16 :goto_6
 
-    :cond_13
-    if-eqz v28, :cond_14
+    :cond_12
+    if-eqz v27, :cond_13
 
     move-object/from16 v0, p0
 
@@ -6892,7 +6827,7 @@
 
     goto/16 :goto_6
 
-    :cond_14
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/CallCardPresenter;->mPrimaryContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -6905,22 +6840,22 @@
 
     goto/16 :goto_6
 
-    :cond_15
+    :cond_14
     const/4 v13, 0x0
 
     goto/16 :goto_7
 
-    :cond_16
-    const/16 v29, 0x0
+    :cond_15
+    const/16 v28, 0x0
 
     goto/16 :goto_8
 
-    :cond_17
+    :cond_16
     const/16 v17, 0x0
 
     goto/16 :goto_9
 
-    :cond_18
+    :cond_17
     const/4 v15, 0x0
 
     const/16 v16, 0x0

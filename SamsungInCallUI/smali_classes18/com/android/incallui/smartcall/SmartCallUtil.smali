@@ -127,11 +127,9 @@
 .end method
 
 .method public static checkAlreadyCallBlocked(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 13
+    .locals 14
 
-    const/4 v4, 0x0
-
-    const/4 v11, 0x1
+    const/4 v13, 0x1
 
     const/4 v12, 0x0
 
@@ -145,45 +143,50 @@
 
     move-result-object v1
 
-    new-array v2, v11, [Ljava/lang/String;
+    new-array v2, v13, [Ljava/lang/String;
 
     const-string v0, "reject_number"
 
     aput-object v0, v2, v12
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     const-string v0, "reject_number=\'"
 
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v0, "\' AND reject_match="
 
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    const/4 v8, 0x0
+
+    :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    move-object v5, v4
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     sget-object v0, Lcom/android/incallui/smartcall/SmartCallUtil;->TAG:Ljava/lang/String;
 
@@ -215,29 +218,66 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    move v9, v11
+    move v10, v13
 
     :goto_0
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_1
-    return v9
+    if-eqz v8, :cond_0
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     :cond_0
-    move v9, v12
+    move v0, v10
+
+    :goto_2
+    return v0
+
+    :cond_1
+    move v10, v12
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
+    :try_start_1
     sget-object v0, Lcom/android/incallui/smartcall/SmartCallUtil;->TAG:Ljava/lang/String;
 
     const-string v3, "checkAlreadyCallBlocked : cursor is null"
 
     invoke-static {v0, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
+
+    :catch_0
+    move-exception v9
+
+    if-eqz v8, :cond_3
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    move v0, v12
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v0
+
+    if-eqz v8, :cond_4
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+
+    :cond_4
+    throw v0
 .end method
 
 .method public static existsSmartCallUri(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)Z
@@ -342,7 +382,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0902be
+    const v6, 0x7f0902c0
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -500,7 +540,7 @@
 
     if-ne p0, v2, :cond_1
 
-    const v2, 0x7f0902c7
+    const v2, 0x7f0902c9
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -515,7 +555,7 @@
 
     if-ne p0, v2, :cond_2
 
-    const v2, 0x7f0902c8
+    const v2, 0x7f0902ca
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -528,7 +568,7 @@
 
     if-ne p0, v2, :cond_0
 
-    const v2, 0x7f0902c9
+    const v2, 0x7f0902cb
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

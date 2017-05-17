@@ -212,7 +212,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a01da
+    const v12, 0x7f0a01dc
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -224,7 +224,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a0334
+    const v12, 0x7f0a0336
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -236,7 +236,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a03c3
+    const v12, 0x7f0a03c5
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -248,7 +248,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a0463
+    const v12, 0x7f0a0469
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -260,7 +260,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a0530
+    const v12, 0x7f0a0539
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -412,7 +412,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0313
+    const v3, 0x7f0a0315
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -753,7 +753,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
-    const v1, 0x7f090572
+    const v1, 0x7f090574
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -824,7 +824,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f100440
+    .packed-switch 0x7f10043f
         :pswitch_0
     .end packed-switch
 .end method
@@ -884,7 +884,7 @@
 
     invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
-    const v0, 0x7f04010c
+    const v0, 0x7f04010d
 
     const/4 v1, 0x0
 
@@ -1025,7 +1025,7 @@
 
     invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v0, 0x7f100306
+    const v0, 0x7f100308
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1139,7 +1139,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
-    const v0, 0x7f10030d
+    const v0, 0x7f10030f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1147,7 +1147,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mSecondaryContainer:Landroid/view/View;
 
-    const v0, 0x7f10030e
+    const v0, 0x7f100310
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1155,7 +1155,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mSecondaryCallInfoContainer:Landroid/view/View;
 
-    const v0, 0x7f100312
+    const v0, 0x7f100314
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1165,7 +1165,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mSecondaryCallName:Landroid/widget/TextView;
 
-    const v0, 0x7f100303
+    const v0, 0x7f100305
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1173,7 +1173,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mSecondaryPhotoContainer:Landroid/view/View;
 
-    const v0, 0x7f100304
+    const v0, 0x7f100306
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1183,7 +1183,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mSecondaryPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f100305
+    const v0, 0x7f100307
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1219,7 +1219,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mIndicatorArea:Landroid/view/ViewGroup;
 
-    const v0, 0x7f10030c
+    const v0, 0x7f10030e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1227,7 +1227,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteMultiPartyCallCardFragment;->mDivideLine:Landroid/view/View;
 
-    const v0, 0x7f1002fe
+    const v0, 0x7f100300
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1245,7 +1245,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100440
+    const v0, 0x7f10043f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1533,7 +1533,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0576
+    const v4, 0x7f0a0580
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1656,7 +1656,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0576
+    const v4, 0x7f0a0580
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2010,7 +2010,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0576
+    const v4, 0x7f0a0580
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2133,7 +2133,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0576
+    const v4, 0x7f0a0580
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2405,7 +2405,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01dc
+    const v7, 0x7f0a01de
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2482,7 +2482,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0138
+    const v6, 0x7f0f0139
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2492,7 +2492,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0137
+    const v6, 0x7f0f0138
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2502,7 +2502,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0121
+    const v6, 0x7f0f0122
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2512,7 +2512,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0133
+    const v6, 0x7f0f0134
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2522,7 +2522,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0132
+    const v6, 0x7f0f0133
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 

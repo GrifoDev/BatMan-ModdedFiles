@@ -247,7 +247,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090333
+    const v7, 0x7f090335
 
     const/4 v8, 0x2
 
@@ -338,6 +338,14 @@
     return v0
 .end method
 
+.method public isRejectCallWithMsgDrawerOpened()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public isShowIncomingHideShowLayout()Z
     .locals 1
 
@@ -356,6 +364,12 @@
     check-cast v0, Lcom/android/incallui/AnswerPresenter;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/incallui/AnswerPresenter;->onAnswer(ILandroid/content/Context;)V
+
+    return-void
+.end method
+
+.method public onCancelWaitingCallPopup()V
+    .locals 0
 
     return-void
 .end method

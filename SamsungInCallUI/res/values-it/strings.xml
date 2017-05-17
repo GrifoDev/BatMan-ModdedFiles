@@ -261,7 +261,7 @@ Questa videochiamata sta adesso utilizzando i dati e la connessione dati verrà 
     <string name="dialpad_8_sub_letters">TUV</string>
     <string name="dialpad_9_sub_letters">WXYZ</string>
     <string name="disable_app_dialog_message">"Impossibile aprire %s. L'applicazione è disattivata. Per attivarla, toccate IMPOSTAZIONI."</string>
-    <string name="disable_app_dialog_settings">Impostaz.</string>
+    <string name="disable_app_dialog_settings">Impostazioni</string>
     <string name="disable_video_call_while_ultra_saving_mode">Impossibile effettuare o ricevere videochiamate mentre la modalità Risparmio energetico avanzato è attivata.</string>
     <string name="disagree">Rifiuto</string>
     <string name="do_not_show_again">Non mostrare più</string>
@@ -526,6 +526,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="outgoing_img_picture">Immagini</string>
     <string name="outgoing_img_take_picture">Scatta foto</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">"Per utilizzare l'applicazione Telefono, occorre attivare la funzione Interazione comandi applicazioni nelle impostazioni di Telefono."</string>
     <string name="payphone_sbm">Telefono a pagamento</string>
     <string name="phoneLabelsGroup">Telefono</string>
     <string name="phone_voice_recording_failed_by_secure_call">Impossibile registrare la chiamata sicura.</string>
@@ -682,6 +683,7 @@ a 1 via"</string>
     <string name="secOnscreenUpdateContactText">Aggiorna</string>
     <string name="secOnscreenUpdateContactText_tts">Aggiorna</string>
     <string name="secOnscreenVideoCallText">Videochiama</string>
+    <string name="secOnscreenVideoStopText">Interrompi</string>
     <string name="secOnscreenViewContactText">Vedi contatto</string>
     <string name="secOnscreenVoiceCallText">Chiama</string>
     <string name="secOnscreenVoiceCallTextExtended">Chiam. voc.</string>

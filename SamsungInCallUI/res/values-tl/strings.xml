@@ -526,6 +526,7 @@ Gumagamit ang menu ng screen ng tawag ng IVR ng mga content na ibinibigay ng isa
     <string name="outgoing_img_picture">Mga Larawan</string>
     <string name="outgoing_img_take_picture">Kumuha ng litrato</string>
     <string name="outgoing_img_video">Mga Video</string>
+    <string name="overlay_warning_toast">Para magamit ang Phone, kailangan mong i-on ang Apps that can appear on top sa mga setting ng Phone.</string>
     <string name="payphone_sbm">Pay phone</string>
     <string name="phoneLabelsGroup">Telepono</string>
     <string name="phone_voice_recording_failed_by_secure_call">Hindi maire-record ang secure call.</string>
@@ -682,6 +683,7 @@ Camera"</string>
     <string name="secOnscreenUpdateContactText">I-update ang umiiral</string>
     <string name="secOnscreenUpdateContactText_tts">I-update ang kasalukuyan</string>
     <string name="secOnscreenVideoCallText">Video call</string>
+    <string name="secOnscreenVideoStopText">Ihinto</string>
     <string name="secOnscreenViewContactText">Tingnan ang contact</string>
     <string name="secOnscreenVoiceCallText">Tumawag</string>
     <string name="secOnscreenVoiceCallTextExtended">Voice call</string>

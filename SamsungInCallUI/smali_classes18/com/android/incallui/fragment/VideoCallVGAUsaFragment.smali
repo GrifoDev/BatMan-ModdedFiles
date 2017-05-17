@@ -197,7 +197,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1003d4
+    const v3, 0x7f1003d3
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -226,7 +226,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mEpdgNotifyBannerView:Landroid/view/View;
 
-    const v3, 0x7f100376
+    const v3, 0x7f100378
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -273,7 +273,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a027b
+    const v3, 0x7f0a027d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -309,7 +309,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mVideoViews:Landroid/view/View;
 
-    const v2, 0x7f1003d0
+    const v2, 0x7f1003cf
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -461,7 +461,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mEpdgNotifyInfoText:Landroid/widget/TextView;
 
-    const v2, 0x7f09031d
+    const v2, 0x7f09031f
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -531,7 +531,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mVideoViews:Landroid/view/View;
 
-    const v2, 0x7f1003d3
+    const v2, 0x7f1003d2
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1912,7 +1912,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0184
+    const v4, 0x7f0f0185
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1974,7 +1974,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f01aa
+    const v4, 0x7f0f01ab
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 

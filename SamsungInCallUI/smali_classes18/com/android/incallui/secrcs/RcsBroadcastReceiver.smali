@@ -543,7 +543,7 @@
 
     move-result v7
 
-    const v16, 0x7f090222
+    const v16, 0x7f090223
 
     const/16 v17, 0x1
 
@@ -661,7 +661,7 @@
     return-void
 
     :cond_4
-    const v16, 0x7f090226
+    const v16, 0x7f090227
 
     move-object/from16 v0, p1
 

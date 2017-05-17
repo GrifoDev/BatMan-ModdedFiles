@@ -526,6 +526,7 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="outgoing_img_picture">画像</string>
     <string name="outgoing_img_take_picture">写真撮影</string>
     <string name="outgoing_img_video">動画</string>
+    <string name="overlay_warning_toast">電話を使用するには、端末の設定で[フローティング表示するアプリ]をONにする必要があります。</string>
     <string name="payphone_sbm">公衆電話</string>
     <string name="phoneLabelsGroup">電話番号</string>
     <string name="phone_voice_recording_failed_by_secure_call">保護された通話は録音できません。</string>
@@ -682,6 +683,7 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="secOnscreenUpdateContactText">連絡先を更新</string>
     <string name="secOnscreenUpdateContactText_tts">連絡先を更新</string>
     <string name="secOnscreenVideoCallText">ビデオコール</string>
+    <string name="secOnscreenVideoStopText">停止</string>
     <string name="secOnscreenViewContactText">連絡先を表示</string>
     <string name="secOnscreenVoiceCallText">発信</string>
     <string name="secOnscreenVoiceCallTextExtended">音声通話</string>

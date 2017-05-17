@@ -1152,7 +1152,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00db
+    const v2, 0x7f0a00dd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1172,7 +1172,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a04d0
+    const v2, 0x7f0a04d6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3409,26 +3409,17 @@
     :cond_4
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
 
-    sget-object v2, Lcom/android/incallui/InCallPresenter$InCallState;->INCOMING:Lcom/android/incallui/InCallPresenter$InCallState;
-
-    if-eq p2, v2, :cond_10
-
-    move v2, v3
-
-    :goto_1
-    iput-boolean v2, p0, Lcom/android/incallui/service/SecCallPopupService;->mCanSlideOut:Z
-
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
 
     move-result v2
 
     const/16 v5, 0xa
 
-    if-ne v2, v5, :cond_11
+    if-ne v2, v5, :cond_10
 
     move v1, v3
 
-    :goto_2
+    :goto_1
     if-nez v1, :cond_6
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3470,11 +3461,11 @@
 
     move-result v2
 
-    if-ne v2, v7, :cond_12
+    if-ne v2, v7, :cond_11
 
     move v2, v3
 
-    :goto_3
+    :goto_2
     invoke-static {v5, v0, v2}, Lcom/android/incallui/ContactInfoCache;->buildCacheEntryFromCall(Landroid/content/Context;Lcom/android/incallui/Call;Z)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
     move-result-object v2
@@ -3576,7 +3567,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0903e0
+    const v5, 0x7f0903e2
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -3603,7 +3594,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0903a5
+    const v5, 0x7f0903a7
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -3728,19 +3719,14 @@
     goto/16 :goto_0
 
     :cond_10
-    move v2, v4
+    move v1, v4
 
     goto/16 :goto_1
 
     :cond_11
-    move v1, v4
-
-    goto/16 :goto_2
-
-    :cond_12
     move v2, v4
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 .end method
 
 .method public onSupportedAudioMode(I)V

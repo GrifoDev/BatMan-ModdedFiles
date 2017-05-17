@@ -499,6 +499,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="outgoing_img_picture">Зураг</string>
     <string name="outgoing_img_take_picture">Зураг авах</string>
     <string name="outgoing_img_video">Видео</string>
+    <string name="overlay_warning_toast">Утсыг ашиглахын тулд та Утасны тохиргоон дээрээс Дээд талд харагдах хэрэглүүрүүдийг асаах хэрэгтэй.</string>
     <string name="payphone_sbm">Төлбөртэй утас</string>
     <string name="phoneLabelsGroup">Утас</string>
     <string name="phone_voice_recording_failed_by_secure_call">Нууц дуудлага бичих боломжгүй.</string>
@@ -655,6 +656,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="secOnscreenUpdateContactText">Байгааг шинэчлэх</string>
     <string name="secOnscreenUpdateContactText_tts">Одоогийн шинэчлэлт</string>
     <string name="secOnscreenVideoCallText">Видео дуудлг</string>
+    <string name="secOnscreenVideoStopText">Зогсоох</string>
     <string name="secOnscreenViewContactText">Харилцагч харах</string>
     <string name="secOnscreenVoiceCallText">Дуудлага</string>
     <string name="secOnscreenVoiceCallTextExtended">Дуут дуудл</string>

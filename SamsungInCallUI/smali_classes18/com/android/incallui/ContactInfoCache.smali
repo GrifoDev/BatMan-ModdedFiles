@@ -868,7 +868,7 @@
     if-eqz v2, :cond_4
 
     :cond_2
-    const v2, 0x7f090219
+    const v2, 0x7f09021a
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -910,7 +910,7 @@
 
     if-eqz v2, :cond_6
 
-    const v2, 0x7f090205
+    const v2, 0x7f090206
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2020,7 +2020,7 @@
 
     iput-boolean v0, v1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isYellowPage:Z
 
-    const v18, 0x7f090336
+    const v18, 0x7f090338
 
     move-object/from16 v0, p0
 
@@ -2051,7 +2051,7 @@
 
     if-ne v0, v1, :cond_19
 
-    const v18, 0x7f090336
+    const v18, 0x7f090338
 
     move-object/from16 v0, p0
 

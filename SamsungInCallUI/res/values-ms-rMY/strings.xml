@@ -499,6 +499,7 @@ Menu skrin panggilan IVR menggunakan kandungan yang disediakan oleh pembekal per
     <string name="outgoing_img_picture">Imej</string>
     <string name="outgoing_img_take_picture">Tangkap gambar</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">Untuk menggunakan Telefon, anda perlu menghidupkan Aplikasi yang boleh muncul pada bahagian atas aturan Telefon.</string>
     <string name="payphone_sbm">Telefon awam</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Tidak dapat merakam panggilan selamat.</string>
@@ -655,6 +656,7 @@ sehala"</string>
     <string name="secOnscreenUpdateContactText">K.kini yg semasa</string>
     <string name="secOnscreenUpdateContactText_tts">Kemas kini yang sedia ada</string>
     <string name="secOnscreenVideoCallText">Panggilan video</string>
+    <string name="secOnscreenVideoStopText">Berhenti</string>
     <string name="secOnscreenViewContactText">Lihat kenalan</string>
     <string name="secOnscreenVoiceCallText">Panggil</string>
     <string name="secOnscreenVoiceCallTextExtended">Pgln suara</string>

@@ -263,14 +263,33 @@
 .end method
 
 .method private static determineUserType(J)J
-    .locals 10
+    .locals 12
+
+    const-wide v10, 0x7fffffff80000000L
 
     const-wide/32 v8, 0x6553f100
 
     const-wide/32 v6, 0x59682f00
 
+    const/4 v5, 0x1
+
     const-wide/16 v0, 0x0
 
+    invoke-static {p0, p1}, Landroid/provider/ContactsContract;->isProfileId(J)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    sub-long/2addr p0, v10
+
+    const-string v2, "CallerInfo"
+
+    const-string v3, "isProfileId"
+
+    invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_0
     const-string v2, "CallerInfo"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -291,49 +310,45 @@
 
     move-result-object v3
 
-    const/4 v4, 0x1
-
-    invoke-static {v2, v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     const-wide/32 v2, 0x3b9aca00
 
     cmp-long v2, p0, v2
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_2
 
     cmp-long v2, p0, v6
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_2
 
     const-wide/16 v0, 0x1
 
-    :cond_0
+    :cond_1
     :goto_0
     return-wide v0
 
-    :cond_1
+    :cond_2
     cmp-long v2, p0, v6
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_3
 
     cmp-long v2, p0, v8
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_3
 
     const-wide/16 v0, 0x2
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     cmp-long v2, p0, v8
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_1
 
-    const-wide v2, 0x7fffffff80000000L
+    cmp-long v2, p0, v10
 
-    cmp-long v2, p0, v2
-
-    if-gez v2, :cond_0
+    if-gez v2, :cond_1
 
     const-wide/16 v0, 0x3
 

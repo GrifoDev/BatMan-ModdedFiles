@@ -137,7 +137,7 @@
 
     sput v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->sTileFontColor:I
 
-    const v0, 0x7f0a044d
+    const v0, 0x7f0a0453
 
     invoke-virtual {p1, v0, v2, v2}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -171,7 +171,7 @@
 
     sget-object v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->sPaint:Landroid/graphics/Paint;
 
-    const v1, 0x7f090512
+    const v1, 0x7f090514
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

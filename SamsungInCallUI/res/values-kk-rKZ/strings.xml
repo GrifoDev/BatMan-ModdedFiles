@@ -499,6 +499,7 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="outgoing_img_picture">Суреттер</string>
     <string name="outgoing_img_take_picture">Суретке түсіру</string>
     <string name="outgoing_img_video">Бейнежазбалар</string>
+    <string name="overlay_warning_toast">Телефонды пайдалану үшін, телефон параметрлерінің жоғарғы жағында пайда болатын қолданбаларды қосу керек.</string>
     <string name="payphone_sbm">Телефонға төлеу</string>
     <string name="phoneLabelsGroup">Телефон</string>
     <string name="phone_voice_recording_failed_by_secure_call">Құпияландырылған қоңырауды жазу мүмкін емес.</string>
@@ -655,6 +656,7 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="secOnscreenUpdateContactText">Барын жаңарту</string>
     <string name="secOnscreenUpdateContactText_tts">Барын жаңарту</string>
     <string name="secOnscreenVideoCallText">Бейне қоңыр.</string>
+    <string name="secOnscreenVideoStopText">Тоқтату</string>
     <string name="secOnscreenViewContactText">Контактіні көру</string>
     <string name="secOnscreenVoiceCallText">Қоңырау</string>
     <string name="secOnscreenVoiceCallTextExtended">Дау.қоң.</string>

@@ -499,6 +499,7 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="outgoing_img_picture">ရုပ်ပုံများ</string>
     <string name="outgoing_img_take_picture">ဓါတ်ပုံရိုက်ပါ</string>
     <string name="outgoing_img_video">ဗီဒီယိုများ</string>
+    <string name="overlay_warning_toast">ဖုန်းကိုသုံးရန် ဖုန်းသတ်မှတ်ချက်များထဲတွင် ထိပ်ပိုင်း၌ ပေါ်လာနိုင်သော အက်ပ်များကို ဖွင့်ရန်လိုအပ်သည်။</string>
     <string name="payphone_sbm">Pay phone</string>
     <string name="phoneLabelsGroup">ဖုန်း</string>
     <string name="phone_voice_recording_failed_by_secure_call">စိတ်ချရသည့် ခေါ်ဖုန်းကို အသံသွင်း၍မရပါ။</string>
@@ -655,6 +656,7 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="secOnscreenUpdateContactText">ရှိပြီးသားကို အပ်ဒိတ်လုပ်ပါ</string>
     <string name="secOnscreenUpdateContactText_tts">ရှိပြီးသားကို အပ်ဒိတ်လုပ်ပါ</string>
     <string name="secOnscreenVideoCallText">ဗီဒီယို ဖုန်းခေါ်ဆိုမှု</string>
+    <string name="secOnscreenVideoStopText">ရပ်ပါ</string>
     <string name="secOnscreenViewContactText">အဆက်အသွယ်ကို ကြည့်ရှုပါ</string>
     <string name="secOnscreenVoiceCallText">ဖုန်းခေါ်မှု</string>
     <string name="secOnscreenVoiceCallTextExtended">အသံ ခေါ်ဆိုမှု</string>

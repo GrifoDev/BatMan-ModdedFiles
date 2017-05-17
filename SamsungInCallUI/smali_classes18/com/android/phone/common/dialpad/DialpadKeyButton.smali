@@ -58,6 +58,8 @@
 
 .field private mRippleEffectWidth:I
 
+.field private mVGARippleEffectSize:I
+
 .field private mWasClickable:Z
 
 .field private mWasLongClickable:Z
@@ -176,11 +178,23 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isCSVideoCall()Z
+    invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->isQCIF()Z
 
     move-result v0
 
     if-nez v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0a05e6
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton;->mVGARippleEffectSize:I
 
     :goto_0
     return-void
@@ -200,7 +214,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a04fb
+    const v1, 0x7f0a0501
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -212,7 +226,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a04fa
+    const v1, 0x7f0a0500
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -224,7 +238,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0119
+    const v1, 0x7f0f011a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -236,7 +250,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f011a
+    const v1, 0x7f0f011b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -661,11 +675,17 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isCSVideoCall()Z
+    invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->isQCIF()Z
 
     move-result v0
 
     if-nez v0, :cond_0
+
+    iget v0, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton;->mVGARippleEffectSize:I
+
+    iget v1, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton;->mVGARippleEffectSize:I
+
+    invoke-static {p0, v0, v1}, Lcom/android/incallui/util/GraphicResourceUtils;->setRippleSize(Landroid/view/View;II)V
 
     :goto_0
     return-void
@@ -743,7 +763,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isCSVideoCall()Z
+    invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->isQCIF()Z
 
     move-result v0
 

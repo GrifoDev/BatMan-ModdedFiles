@@ -499,6 +499,7 @@ IVR ზარის ეკრანული მენიუ იყენებ�
     <string name="outgoing_img_picture">გამოსახულებები</string>
     <string name="outgoing_img_take_picture">სურათის გადაღება</string>
     <string name="outgoing_img_video">ვიდეოები</string>
+    <string name="overlay_warning_toast">„ტელეფონი“ რომ გამოიყენოთ, უნდა ჩართოთ ის აპლიკაციები, რომლებიც შეიძლება გამოჩნდეს „ტელეფონის“ პარამეტრების ზემოთ.</string>
     <string name="payphone_sbm">ტაქსოფონი</string>
     <string name="phoneLabelsGroup">ტელეფონი</string>
     <string name="phone_voice_recording_failed_by_secure_call">დაცული ზარის ჩაწერა შეუძლებელია.</string>
@@ -656,6 +657,7 @@ IVR ზარის ეკრანული მენიუ იყენებ�
     <string name="secOnscreenUpdateContactText">განახლდეს არსებ.</string>
     <string name="secOnscreenUpdateContactText_tts">არსებულის განახლება</string>
     <string name="secOnscreenVideoCallText">ვიდეოზარი</string>
+    <string name="secOnscreenVideoStopText">გაჩერება</string>
     <string name="secOnscreenViewContactText">კონტაქტის ნახვა</string>
     <string name="secOnscreenVoiceCallText">დარეკვა</string>
     <string name="secOnscreenVoiceCallTextExtended">ხმოვ. ზარი</string>

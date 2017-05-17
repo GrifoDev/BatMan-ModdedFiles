@@ -184,19 +184,8 @@
 
     move-result v0
 
-    if-eq v2, v1, :cond_0
+    if-ne v2, v1, :cond_1
 
-    iget-object v4, p0, Lcom/android/incallui/InCallVideoCallCallback;->mCall:Lcom/android/incallui/Call;
-
-    invoke-virtual {v4}, Lcom/android/incallui/Call;->getSessionModificationState()I
-
-    move-result v4
-
-    const/4 v5, 0x1
-
-    if-ne v4, v5, :cond_2
-
-    :cond_0
     const-string v4, "PSTNVT-InCallVideoCallCallback"
 
     const-string v5, "previousVideoState and newVideoState are same"
@@ -207,16 +196,49 @@
 
     invoke-static {v4, v2}, Lcom/android/incallui/service/vt/VideoCallControl;->sendSessionModifyResponse(Lcom/android/incallui/Call;I)V
 
-    :cond_1
+    :cond_0
     :goto_0
     return-void
 
+    :cond_1
+    if-nez v3, :cond_2
+
+    invoke-static {v1}, Lcom/android/incallui/util/CallTypeUtils;->isVideoOneWayTx(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
     :cond_2
-    if-eqz v3, :cond_3
+    iget-object v4, p0, Lcom/android/incallui/InCallVideoCallCallback;->mCall:Lcom/android/incallui/Call;
 
-    if-eqz v0, :cond_3
+    invoke-virtual {v4}, Lcom/android/incallui/Call;->getSessionModificationState()I
 
-    if-eq v2, v1, :cond_3
+    move-result v4
+
+    const/4 v5, 0x1
+
+    if-ne v4, v5, :cond_4
+
+    :cond_3
+    const-string v4, "PSTNVT-InCallVideoCallCallback"
+
+    const-string v5, "This case is abnormal"
+
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/incallui/InCallVideoCallCallback;->mCall:Lcom/android/incallui/Call;
+
+    invoke-static {v4, v2}, Lcom/android/incallui/service/vt/VideoCallControl;->sendSessionModifyResponse(Lcom/android/incallui/Call;I)V
+
+    goto :goto_0
+
+    :cond_4
+    if-eqz v3, :cond_5
+
+    if-eqz v0, :cond_5
+
+    if-eq v2, v1, :cond_5
 
     invoke-static {}, Lcom/android/incallui/InCallVideoCallCallbackNotifier;->getInstance()Lcom/android/incallui/InCallVideoCallCallbackNotifier;
 
@@ -228,12 +250,12 @@
 
     goto :goto_0
 
-    :cond_3
-    if-eqz v3, :cond_4
+    :cond_5
+    if-eqz v3, :cond_6
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_6
 
-    if-eq v2, v1, :cond_4
+    if-eq v2, v1, :cond_6
 
     invoke-static {}, Lcom/android/incallui/InCallVideoCallCallbackNotifier;->getInstance()Lcom/android/incallui/InCallVideoCallCallbackNotifier;
 
@@ -245,12 +267,12 @@
 
     goto :goto_0
 
-    :cond_4
-    if-nez v3, :cond_1
+    :cond_6
+    if-nez v3, :cond_0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    if-eq v2, v1, :cond_1
+    if-eq v2, v1, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallVideoCallCallbackNotifier;->getInstance()Lcom/android/incallui/InCallVideoCallCallbackNotifier;
 

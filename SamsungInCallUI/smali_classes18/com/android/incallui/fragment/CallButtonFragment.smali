@@ -1790,7 +1790,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a050e
+    const v7, 0x7f0a0515
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2231,7 +2231,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a024e
+    const v12, 0x7f0a0250
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2247,7 +2247,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a0246
+    const v12, 0x7f0a0248
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2263,7 +2263,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a01e1
+    const v12, 0x7f0a01e3
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2316,27 +2316,7 @@
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "updateVerticalMargin activityHeight = "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, ", parentViewHeight = "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, ", marginHeight = "
+    const-string v13, "updateVerticalMargin marginHeight = "
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

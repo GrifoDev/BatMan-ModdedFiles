@@ -691,6 +691,8 @@
     <item type="id" name="device_list">false</item>
     <item type="id" name="input_radio">false</item>
     <item type="id" name="transfer_number">false</item>
+    <item type="id" name="keypad_button_stub">false</item>
+    <item type="id" name="vt_keypad_button">false</item>
     <item type="id" name="manage_stub">false</item>
     <item type="id" name="vt_conference_manage_button">false</item>
     <item type="id" name="greeting_text">false</item>
@@ -908,9 +910,6 @@
     <item type="id" name="video_banner_container">false</item>
     <item type="id" name="video_banner_info_divider">false</item>
     <item type="id" name="video_banner_info_text">false</item>
-    <item type="id" name="inCallButtonsBgWrapper">false</item>
-    <item type="id" name="buttonWrapperBg">false</item>
-    <item type="id" name="bottomBlendEffect">false</item>
     <item type="id" name="hideShowMeButtonStub">false</item>
     <item type="id" name="cameraButtonStub">false</item>
     <item type="id" name="modifyCallTypeButtonStub">false</item>

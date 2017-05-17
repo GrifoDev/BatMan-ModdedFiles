@@ -281,7 +281,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0087
+    const v6, 0x7f0a0089
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -512,7 +512,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0a0087
+    const v13, 0x7f0a0089
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -874,7 +874,7 @@
 .method private onViewCreated(Lcom/android/incallui/fragment/VoiceCallCardFragment;Landroid/view/View;)V
     .locals 5
 
-    const v4, 0x7f0a0086
+    const v4, 0x7f0a0088
 
     const/4 v3, 0x1
 
@@ -886,7 +886,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f100348
+    const v0, 0x7f10034a
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -978,7 +978,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallName:Landroid/widget/TextView;
 
-    const v0, 0x7f10033e
+    const v0, 0x7f100340
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1027,7 +1027,7 @@
     invoke-virtual {v0, v3, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_2
-    const v0, 0x7f100340
+    const v0, 0x7f100342
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1047,7 +1047,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f100339
+    const v0, 0x7f10033b
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1057,7 +1057,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallSmallIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f100346
+    const v0, 0x7f100348
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1065,7 +1065,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallInfoView:Landroid/view/View;
 
-    const v0, 0x7f100347
+    const v0, 0x7f100349
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1083,7 +1083,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100454
+    const v0, 0x7f100453
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1122,7 +1122,7 @@
     invoke-virtual {v0, v3, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_3
-    const v0, 0x7f100455
+    const v0, 0x7f100454
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1653,7 +1653,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0322
+    const v2, 0x7f0a0324
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1733,7 +1733,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902d5
+    const v2, 0x7f0902d7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1836,7 +1836,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902d7
+    const v2, 0x7f0902d9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2015,7 +2015,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0082
+    const v9, 0x7f0a0084
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2185,7 +2185,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f01e6
+    const v6, 0x7f0f01e7
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2395,7 +2395,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0322
+    const v2, 0x7f0a0324
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2497,7 +2497,7 @@
 
     move-result-object v4
 
-    const v13, 0x7f0a0087
+    const v13, 0x7f0a0089
 
     invoke-virtual {v4, v13}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2524,7 +2524,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0322
+    const v2, 0x7f0a0324
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2668,7 +2668,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0082
+    const v7, 0x7f0a0084
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2798,7 +2798,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0f0138
+    const v13, 0x7f0f0139
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2808,7 +2808,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0f0137
+    const v13, 0x7f0f0138
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2818,7 +2818,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0f01e1
+    const v13, 0x7f0f01e2
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2828,7 +2828,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0f0133
+    const v13, 0x7f0f0134
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2838,7 +2838,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0f0132
+    const v13, 0x7f0f0133
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2848,7 +2848,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0f01e2
+    const v13, 0x7f0f01e3
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4321,7 +4321,7 @@
 
     iget-object v7, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallStatusText:Landroid/widget/TextView;
 
-    const v8, 0x7f0902c5
+    const v8, 0x7f0902c7
 
     invoke-virtual {p2, v8}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getString(I)Ljava/lang/String;
 

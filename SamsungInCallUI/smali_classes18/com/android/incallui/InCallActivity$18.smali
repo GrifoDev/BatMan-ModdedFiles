@@ -32,29 +32,15 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 2
+    .locals 1
 
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    sget-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->DEVICE_ROTATION:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/incallui/InCallActivity$18;->this$0:Lcom/android/incallui/InCallActivity;
-
-    const/4 v1, 0x0
-
-    # invokes: Lcom/android/incallui/InCallActivity;->updateScreenType(Z)V
-    invoke-static {v0, v1}, Lcom/android/incallui/InCallActivity;->access$1600(Lcom/android/incallui/InCallActivity;Z)V
-
-    invoke-static {}, Lcom/android/incallui/InCallNotifier;->getInstance()Lcom/android/incallui/InCallNotifier;
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
 
-    const/16 v1, 0x1f4
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->onOnehandModeChanged()V
 
-    invoke-virtual {v0, v1}, Lcom/android/incallui/InCallNotifier;->notifyVideoCallUiEvent(I)V
-
-    :cond_0
     return-void
 .end method

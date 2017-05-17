@@ -3,12 +3,12 @@
 .source "InCallActivity.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnCancelListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/InCallActivity;->onKeyUp(ILandroid/view/KeyEvent;)Z
+    value = Lcom/android/incallui/InCallActivity;->showErrorDialog(Ljava/lang/CharSequence;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,12 +34,13 @@
 
 
 # virtual methods
-.method public run()V
+.method public onCancel(Landroid/content/DialogInterface;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$14;->this$0:Lcom/android/incallui/InCallActivity;
 
-    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->showInCallMenu()V
+    # invokes: Lcom/android/incallui/InCallActivity;->onDialogDismissed()V
+    invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1500(Lcom/android/incallui/InCallActivity;)V
 
     return-void
 .end method

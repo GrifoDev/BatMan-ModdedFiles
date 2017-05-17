@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Arrossegui botó ENVIAR MISSATGE amunt per enviar missatge ràpid i rebutjar trucad entrada.</string>
     <string name="call_drug_up_panel_for_kk_tts">"Arrossegui el tauler de rebutjar trucada amb missatge cap amunt per enviar un missatge de rebuig de trucada quan rebutja una trucada d'entrada"</string>
     <string name="call_ended_toast">Fi de trucada</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Trucada desviada a:</string>
+    <string name="call_forwarding_from">Trucada desviada de:</string>
     <string name="call_incoming_voice_call2">Toqui %s per respondre una trucada</string>
     <string name="call_incoming_voice_call2_tts">Toqui el botó respondre trucada per respondre una trucada</string>
     <string name="call_incoming_voice_call3">Toqui %s per rebutjar trucada.</string>
@@ -526,6 +526,7 @@ El menú de la pantalla de trucades d’IVR utilitza el contingut proporcionat p
     <string name="outgoing_img_picture">Imatges</string>
     <string name="outgoing_img_take_picture">Fer foto</string>
     <string name="outgoing_img_video">Vídeos</string>
+    <string name="overlay_warning_toast">Per utilitzar el telèfon, cal que activi les aplicacions que puguin aparèixer a la part superior de la Configuració del telèfon.</string>
     <string name="payphone_sbm">Telèfon de pagament</string>
     <string name="phoneLabelsGroup">Telèfon</string>
     <string name="phone_voice_recording_failed_by_secure_call">No es pot registrar la trucada segura.</string>
@@ -682,6 +683,7 @@ unidirecc"</string>
     <string name="secOnscreenUpdateContactText">Actual existents</string>
     <string name="secOnscreenUpdateContactText_tts">Actualitza els existents</string>
     <string name="secOnscreenVideoCallText">Vídeotrucada</string>
+    <string name="secOnscreenVideoStopText">Parar</string>
     <string name="secOnscreenViewContactText">Veure contacte</string>
     <string name="secOnscreenVoiceCallText">Trucar</string>
     <string name="secOnscreenVoiceCallTextExtended">Truc veu</string>
@@ -740,7 +742,7 @@ unidirecc"</string>
     <string name="spam_call_type_and_count">Denunciat com a %1$s %2$d vegades</string>
     <string name="sub_number_item">Alternatiu %d</string>
     <string name="suguden_guide_do_not_show_again_dcm">No tornar a mostrar</string>
-    <string name="suguden_guide_main_text_dcm">"Respongui la trucada apropant el dispositiu a l'orella."</string>
+    <string name="suguden_guide_main_text_dcm">"Respongui a la trucada apropant el dispositiu a l'orella."</string>
     <string name="swipe_left">Despl. a esquerra.</string>
     <string name="swipe_right">"Desplaci's dreta."</string>
     <string name="swipe_right_to_answer_call_with_video">"Desplaci's cap a la dreta per respondre la trucada amb vídeo."</string>

@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Presunutím tlačidla ODOSLAŤ SPRÁVU nahor odošlete rýchlu správu a odmietnete prich. hovor.</string>
     <string name="call_drug_up_panel_for_kk_tts">Presunutím panela odmietnutia hovoru s odoslaním správy smerom nahor môžete pri odmietnutí prichádzajúceho hovoru odoslať správu odosielanú pri odmietnutí hovoru.</string>
     <string name="call_ended_toast">Hovor ukončený.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Hovor presmerovaný na:</string>
+    <string name="call_forwarding_from">Hovor presmerovaný z:</string>
     <string name="call_incoming_voice_call2">Ťuknutím na tlačidlo %s môžete prijať hovor.</string>
     <string name="call_incoming_voice_call2_tts">Ťuknutím na tlačidlo prijatia hovoru môžete prijať hovor.</string>
     <string name="call_incoming_voice_call3">Ťuknutím na %s odmiet. hovor.</string>
@@ -526,6 +526,7 @@ Menu IHO na obrazovke hovoru používa obsah, ktorý poskytuje externý subjekt,
     <string name="outgoing_img_picture">Obrázky</string>
     <string name="outgoing_img_take_picture">Fotografovať</string>
     <string name="outgoing_img_video">Videá</string>
+    <string name="overlay_warning_toast">Ak chcete používať funkciu Telefón, v menu Nastavenia telefónu musíte povoliť aplikácie, ktoré sa môžu zobrazovať navrchu.</string>
     <string name="payphone_sbm">Telefónny automat</string>
     <string name="phoneLabelsGroup">Telefón</string>
     <string name="phone_voice_recording_failed_by_secure_call">Zabezpečený hovor sa nedá nahrať.</string>
@@ -682,6 +683,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Aktualizovať</string>
     <string name="secOnscreenUpdateContactText_tts">Aktualizovať existujúci</string>
     <string name="secOnscreenVideoCallText">Videohovor</string>
+    <string name="secOnscreenVideoStopText">Zastaviť</string>
     <string name="secOnscreenViewContactText">Zobraziť kontakt</string>
     <string name="secOnscreenVoiceCallText">Hovor</string>
     <string name="secOnscreenVoiceCallTextExtended">Hlas. hov.</string>

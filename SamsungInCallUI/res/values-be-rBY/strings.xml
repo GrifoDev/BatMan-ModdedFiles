@@ -495,6 +495,7 @@
     <string name="outgoing_img_picture">Відарысы</string>
     <string name="outgoing_img_take_picture">Зрабіць фота</string>
     <string name="outgoing_img_video">Відэа</string>
+    <string name="overlay_warning_toast">Для выкарыстання тэлефона трэба ўключыць «Праграмы, якія могуць адлюстроўвацца паверх іншых» у наладах тэлефона.</string>
     <string name="payphone_sbm">Таксафон</string>
     <string name="phoneLabelsGroup">Тэлефон</string>
     <string name="phone_voice_recording_failed_by_secure_call">Немагчыма запісаць бяспечны выклік.</string>
@@ -650,6 +651,7 @@
     <string name="secOnscreenUpdateContactText">Абн. існыя</string>
     <string name="secOnscreenUpdateContactText_tts">Абнавіць існае</string>
     <string name="secOnscreenVideoCallText">Відэавыклік</string>
+    <string name="secOnscreenVideoStopText">Спыніцеся</string>
     <string name="secOnscreenViewContactText">Праглядз кантакт</string>
     <string name="secOnscreenVoiceCallText">Выклік</string>
     <string name="secOnscreenVoiceCallTextExtended">Гал выклік</string>

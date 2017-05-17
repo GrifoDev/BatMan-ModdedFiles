@@ -102,13 +102,13 @@
 .method public static getMessageForVideoState(IZ)Ljava/lang/String;
     .locals 10
 
-    const v9, 0x7f09030a
+    const v9, 0x7f09030c
 
-    const v8, 0x7f0902fd
+    const v8, 0x7f0902ff
 
-    const v7, 0x7f0902fb
+    const v7, 0x7f0902fd
 
-    const v6, 0x7f0902f5
+    const v6, 0x7f0902f7
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
@@ -284,7 +284,7 @@
 
     if-eqz v4, :cond_8
 
-    const v4, 0x7f09030b
+    const v4, 0x7f09030d
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -305,7 +305,7 @@
 
     if-eqz v4, :cond_9
 
-    const v4, 0x7f0902f6
+    const v4, 0x7f0902f8
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -320,7 +320,7 @@
     goto/16 :goto_0
 
     :cond_9
-    const v4, 0x7f0902fc
+    const v4, 0x7f0902fe
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -341,7 +341,7 @@
 
     if-eqz v4, :cond_a
 
-    const v4, 0x7f09030d
+    const v4, 0x7f09030f
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -384,7 +384,7 @@
 
     if-eqz v4, :cond_c
 
-    const v4, 0x7f09030c
+    const v4, 0x7f09030e
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -406,7 +406,7 @@
     goto/16 :goto_0
 
     :pswitch_5
-    const v4, 0x7f0902fe
+    const v4, 0x7f090300
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -451,30 +451,6 @@
     goto/16 :goto_0
 
     :pswitch_7
-    const v4, 0x7f090305
-
-    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, "%s"
-
-    invoke-virtual {v4, v5, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto/16 :goto_0
-
-    :pswitch_8
-    const v4, 0x7f0902fa
-
-    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto/16 :goto_0
-
-    :pswitch_9
     const v4, 0x7f090307
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -489,22 +465,16 @@
 
     goto/16 :goto_0
 
-    :pswitch_a
-    const v4, 0x7f090308
+    :pswitch_8
+    const v4, 0x7f0902fc
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, "%s"
-
-    invoke-virtual {v4, v5, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
     move-result-object v1
 
     goto/16 :goto_0
 
-    :pswitch_b
+    :pswitch_9
     const v4, 0x7f090309
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -519,8 +489,38 @@
 
     goto/16 :goto_0
 
+    :pswitch_a
+    const v4, 0x7f09030a
+
+    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "%s"
+
+    invoke-virtual {v4, v5, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto/16 :goto_0
+
+    :pswitch_b
+    const v4, 0x7f09030b
+
+    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "%s"
+
+    invoke-virtual {v4, v5, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto/16 :goto_0
+
     :pswitch_c
-    const v4, 0x7f09030e
+    const v4, 0x7f090310
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -529,7 +529,7 @@
     goto/16 :goto_0
 
     :pswitch_d
-    const v4, 0x7f09031a
+    const v4, 0x7f09031c
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -544,7 +544,7 @@
     goto/16 :goto_0
 
     :pswitch_e
-    const v4, 0x7f090317
+    const v4, 0x7f090319
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -565,7 +565,7 @@
 
     if-eqz v4, :cond_e
 
-    const v4, 0x7f090319
+    const v4, 0x7f09031b
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -574,7 +574,7 @@
     goto/16 :goto_0
 
     :cond_e
-    const v4, 0x7f0902ff
+    const v4, 0x7f090301
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -583,7 +583,7 @@
     goto/16 :goto_0
 
     :pswitch_10
-    const v4, 0x7f09031c
+    const v4, 0x7f09031e
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -598,7 +598,7 @@
     goto/16 :goto_0
 
     :pswitch_11
-    const v4, 0x7f090306
+    const v4, 0x7f090308
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -613,7 +613,7 @@
     goto/16 :goto_0
 
     :pswitch_12
-    const v4, 0x7f09031b
+    const v4, 0x7f09031d
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -622,7 +622,7 @@
     goto/16 :goto_0
 
     :pswitch_13
-    const v4, 0x7f090318
+    const v4, 0x7f09031a
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

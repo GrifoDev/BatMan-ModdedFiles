@@ -329,7 +329,7 @@
 
     iget-object v14, v0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0902ea
+    const v15, 0x7f0902ec
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -355,7 +355,7 @@
 
     iget-object v14, v0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0902ec
+    const v15, 0x7f0902ee
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -387,7 +387,7 @@
 
     iget-object v14, v0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0902e9
+    const v15, 0x7f0902eb
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -435,7 +435,7 @@
 .method protected updateHoldState(Z)V
     .locals 3
 
-    const v2, 0x7f1002e4
+    const v2, 0x7f1002e6
 
     if-eqz p1, :cond_0
 
@@ -445,7 +445,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f017d
+    const v1, 0x7f0f017e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -463,7 +463,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f017b
+    const v1, 0x7f0f017c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -591,7 +591,7 @@
     const/16 v20, 0x1
 
     :goto_3
-    const v2, 0x7f1002d9
+    const v2, 0x7f1002db
 
     const/4 v3, 0x0
 
@@ -621,7 +621,7 @@
 
     if-nez v2, :cond_f
 
-    const v2, 0x7f1002e3
+    const v2, 0x7f1002e5
 
     const v3, 0x7f02039d
 
@@ -631,7 +631,7 @@
 
     :cond_2
     :goto_4
-    const v2, 0x7f1002e3
+    const v2, 0x7f1002e5
 
     const/4 v3, 0x0
 
@@ -670,7 +670,7 @@
     const/16 v25, 0x1
 
     :goto_6
-    const v3, 0x7f1002e8
+    const v3, 0x7f1002ea
 
     if-eqz v25, :cond_13
 
@@ -699,7 +699,7 @@
 
     if-lez v2, :cond_14
 
-    const v3, 0x7f1002e8
+    const v3, 0x7f1002ea
 
     const/4 v6, 0x0
 
@@ -709,7 +709,7 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/incallui/widget/InCallQuickPanel;->setChronometer(IJLjava/lang/String;Z)V
 
-    const v2, 0x7f1002e8
+    const v2, 0x7f1002ea
 
     move-object/from16 v0, p0
 
@@ -727,7 +727,7 @@
     const/16 v26, 0x1
 
     :goto_9
-    const v3, 0x7f1002e7
+    const v3, 0x7f1002e9
 
     if-eqz v26, :cond_16
 
@@ -738,7 +738,7 @@
 
     invoke-virtual {v0, v3, v2}, Lcom/android/incallui/widget/InCallQuickPanel;->setViewVisibility(II)V
 
-    const v2, 0x7f1002e7
+    const v2, 0x7f1002e9
 
     move-object/from16 v0, p0
 
@@ -782,7 +782,7 @@
 
     if-lez v2, :cond_18
 
-    const v2, 0x7f1002ec
+    const v2, 0x7f1002ee
 
     const/4 v3, 0x0
 
@@ -798,7 +798,7 @@
 
     if-nez v2, :cond_17
 
-    const v7, 0x7f1002f0
+    const v7, 0x7f1002f2
 
     const/4 v10, 0x0
 
@@ -808,7 +808,7 @@
 
     invoke-virtual/range {v6 .. v11}, Lcom/android/incallui/widget/InCallQuickPanel;->setChronometer(IJLjava/lang/String;Z)V
 
-    const v2, 0x7f1002ee
+    const v2, 0x7f1002f0
 
     const-string v3, "setBackgroundResource"
 
@@ -818,7 +818,7 @@
 
     invoke-virtual {v0, v2, v3, v6}, Lcom/android/incallui/widget/InCallQuickPanel;->setInt(ILjava/lang/String;I)V
 
-    const v2, 0x7f1002ee
+    const v2, 0x7f1002f0
 
     const/4 v3, 0x0
 
@@ -834,7 +834,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f017a
+    const v3, 0x7f0f017b
 
     const/4 v6, 0x0
 
@@ -842,7 +842,7 @@
 
     move-result v23
 
-    const v2, 0x7f1002f0
+    const v2, 0x7f1002f2
 
     move-object/from16 v0, p0
 
@@ -910,7 +910,7 @@
 
     if-lez v2, :cond_19
 
-    const v2, 0x7f1002ec
+    const v2, 0x7f1002ee
 
     const/4 v3, 0x0
 
@@ -918,7 +918,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/incallui/widget/InCallQuickPanel;->setViewVisibility(II)V
 
-    const v7, 0x7f1002f0
+    const v7, 0x7f1002f2
 
     const/4 v10, 0x0
 
@@ -941,7 +941,7 @@
     const/16 v27, 0x1
 
     :goto_d
-    const v3, 0x7f1002f1
+    const v3, 0x7f1002f3
 
     if-eqz v27, :cond_1b
 
@@ -956,7 +956,7 @@
 
     if-eqz v22, :cond_1c
 
-    const v2, 0x7f1002f3
+    const v2, 0x7f1002f5
 
     move-object/from16 v0, p0
 
@@ -974,21 +974,10 @@
 
     :cond_8
     :goto_f
-    if-eqz v20, :cond_1d
+    invoke-static/range {p1 .. p1}, Lcom/android/incallui/util/VideoCallUtils;->hasVideoPauseState(Lcom/android/incallui/Call;)Z
 
-    if-eqz v25, :cond_1d
+    move-result v28
 
-    if-nez v27, :cond_1d
-
-    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->hasVideoState()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1d
-
-    const/16 v28, 0x1
-
-    :goto_10
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_CDMA()Z
 
     move-result v2
@@ -1005,32 +994,32 @@
 
     if-eqz v12, :cond_9
 
-    if-eqz v28, :cond_1e
+    if-eqz v28, :cond_1d
 
     invoke-virtual {v12}, Lcom/android/incallui/InCallActivity;->isForegroundActivity()Z
 
     move-result v2
 
-    if-nez v2, :cond_1e
+    if-nez v2, :cond_1d
 
     const/16 v28, 0x1
 
     :cond_9
-    :goto_11
-    const v3, 0x7f1002e9
+    :goto_10
+    const v3, 0x7f1002eb
 
-    if-eqz v28, :cond_1f
+    if-eqz v28, :cond_1e
 
     const/4 v2, 0x0
 
-    :goto_12
+    :goto_11
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v2}, Lcom/android/incallui/widget/InCallQuickPanel;->setViewVisibility(II)V
 
     if-eqz v28, :cond_a
 
-    const v2, 0x7f1002f1
+    const v2, 0x7f1002f3
 
     const/16 v3, 0x8
 
@@ -1078,7 +1067,7 @@
 
     if-nez v2, :cond_10
 
-    const v2, 0x7f1002e3
+    const v2, 0x7f1002e5
 
     const v3, 0x7f020397
 
@@ -1099,7 +1088,7 @@
 
     if-nez v2, :cond_2
 
-    const v2, 0x7f1002e3
+    const v2, 0x7f1002e5
 
     const v3, 0x7f02039b
 
@@ -1110,7 +1099,7 @@
     goto/16 :goto_4
 
     :cond_11
-    const v2, 0x7f1002e3
+    const v2, 0x7f1002e5
 
     const/16 v3, 0x8
 
@@ -1131,7 +1120,7 @@
     goto/16 :goto_7
 
     :cond_14
-    const v3, 0x7f1002e8
+    const v3, 0x7f1002ea
 
     const/4 v6, 0x0
 
@@ -1154,7 +1143,7 @@
     goto/16 :goto_a
 
     :cond_17
-    const v7, 0x7f1002f0
+    const v7, 0x7f1002f2
 
     const/4 v10, 0x0
 
@@ -1164,7 +1153,7 @@
 
     invoke-virtual/range {v6 .. v11}, Lcom/android/incallui/widget/InCallQuickPanel;->setChronometer(IJLjava/lang/String;Z)V
 
-    const v2, 0x7f1002ee
+    const v2, 0x7f1002f0
 
     const-string v3, "setBackgroundResource"
 
@@ -1174,7 +1163,7 @@
 
     invoke-virtual {v0, v2, v3, v6}, Lcom/android/incallui/widget/InCallQuickPanel;->setInt(ILjava/lang/String;I)V
 
-    const v2, 0x7f1002ee
+    const v2, 0x7f1002f0
 
     const v3, 0x7f0203ef
 
@@ -1190,7 +1179,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f017e
+    const v3, 0x7f0f017f
 
     const/4 v6, 0x0
 
@@ -1198,7 +1187,7 @@
 
     move-result v19
 
-    const v2, 0x7f1002f0
+    const v2, 0x7f1002f2
 
     move-object/from16 v0, p0
 
@@ -1209,7 +1198,7 @@
     goto/16 :goto_b
 
     :cond_18
-    const v2, 0x7f1002ec
+    const v2, 0x7f1002ee
 
     const/16 v3, 0x8
 
@@ -1217,7 +1206,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/incallui/widget/InCallQuickPanel;->setViewVisibility(II)V
 
-    const v7, 0x7f1002f0
+    const v7, 0x7f1002f2
 
     const/4 v10, 0x0
 
@@ -1230,7 +1219,7 @@
     goto/16 :goto_b
 
     :cond_19
-    const v2, 0x7f1002ec
+    const v2, 0x7f1002ee
 
     const/16 v3, 0x8
 
@@ -1238,7 +1227,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/incallui/widget/InCallQuickPanel;->setViewVisibility(II)V
 
-    const v7, 0x7f1002f0
+    const v7, 0x7f1002f2
 
     const/4 v10, 0x0
 
@@ -1271,7 +1260,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0902aa
+    const v3, 0x7f0902ac
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1295,7 +1284,7 @@
 
     move-result-object v18
 
-    const v2, 0x7f1002f3
+    const v2, 0x7f1002f5
 
     move-object/from16 v0, p0
 
@@ -1311,14 +1300,9 @@
     goto/16 :goto_10
 
     :cond_1e
-    const/16 v28, 0x0
-
-    goto/16 :goto_11
-
-    :cond_1f
     const/16 v2, 0x8
 
-    goto/16 :goto_12
+    goto/16 :goto_11
 .end method
 
 .method public updateInCallQuickPanel(Lcom/android/incallui/Call;Lcom/android/incallui/Call;Ljava/lang/String;JZJ)V
@@ -1366,7 +1350,7 @@
 
     move-result v4
 
-    const v10, 0x7f1002db
+    const v10, 0x7f1002dd
 
     if-eqz v4, :cond_8
 
@@ -1379,7 +1363,7 @@
 
     move-result v7
 
-    const v10, 0x7f1002df
+    const v10, 0x7f1002e1
 
     if-eqz v7, :cond_9
 
@@ -1393,7 +1377,7 @@
     const/4 v5, 0x1
 
     :goto_3
-    const v10, 0x7f1002e0
+    const v10, 0x7f1002e2
 
     if-eqz v5, :cond_b
 
@@ -1402,7 +1386,7 @@
     :goto_4
     invoke-virtual {p0, v10, v9}, Lcom/android/incallui/widget/InCallQuickPanel;->setViewVisibility(II)V
 
-    const v10, 0x7f1002dc
+    const v10, 0x7f1002de
 
     if-eqz v2, :cond_c
 
@@ -1483,7 +1467,7 @@
     const/4 v8, 0x0
 
     :cond_3
-    const v10, 0x7f1002de
+    const v10, 0x7f1002e0
 
     if-eqz v6, :cond_f
 
@@ -1505,13 +1489,13 @@
     if-eqz v9, :cond_10
 
     :cond_4
-    const v9, 0x7f1002de
+    const v9, 0x7f1002e0
 
     const v10, 0x7f0203aa
 
     invoke-virtual {p0, v9, v10}, Lcom/android/incallui/widget/InCallQuickPanel;->setImageViewResource(II)V
 
-    const v9, 0x7f1002de
+    const v9, 0x7f1002e0
 
     const/4 v10, 0x0
 
@@ -1519,7 +1503,7 @@
 
     :cond_5
     :goto_9
-    const v10, 0x7f1002dd
+    const v10, 0x7f1002df
 
     if-eqz v8, :cond_12
 
@@ -1545,7 +1529,7 @@
     const/4 v3, 0x1
 
     :goto_b
-    const v10, 0x7f1002dd
+    const v10, 0x7f1002df
 
     if-eqz v3, :cond_14
 
@@ -1611,7 +1595,7 @@
 
     move-result v1
 
-    const v10, 0x7f1002de
+    const v10, 0x7f1002e0
 
     if-eqz v1, :cond_11
 
@@ -1724,7 +1708,7 @@
 
     :cond_1
     :goto_1
-    const v3, 0x7f1002d8
+    const v3, 0x7f1002da
 
     invoke-virtual {p0, v3, v2}, Lcom/android/incallui/widget/InCallQuickPanel;->setImageViewResource(II)V
 

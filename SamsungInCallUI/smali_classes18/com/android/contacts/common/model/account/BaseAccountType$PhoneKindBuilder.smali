@@ -457,7 +457,7 @@
         }
     .end annotation
 
-    const v7, 0x7f090206
+    const v7, 0x7f090207
 
     const/4 v4, 0x0
 
@@ -493,7 +493,7 @@
 
     iput v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->iconAltRes:I
 
-    const v0, 0x7f0902cb
+    const v0, 0x7f0902cd
 
     iput v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->iconAltDescriptionRes:I
 

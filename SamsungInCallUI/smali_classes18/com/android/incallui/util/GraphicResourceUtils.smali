@@ -1533,7 +1533,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a034d
+    const v3, 0x7f0a034f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1545,7 +1545,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0177
+    const v3, 0x7f0f0178
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1555,7 +1555,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0563
+    const v3, 0x7f0a056d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1576,7 +1576,7 @@
     :cond_0
     if-nez p2, :cond_1
 
-    const p2, 0x7f0f0179
+    const p2, 0x7f0f017a
 
     :cond_1
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
@@ -2601,7 +2601,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a0364
+    const v19, 0x7f0a0366
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2617,7 +2617,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a0361
+    const v19, 0x7f0a0363
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2637,7 +2637,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a0363
+    const v19, 0x7f0a0365
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2855,7 +2855,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a0362
+    const v19, 0x7f0a0364
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimension(I)F
     :try_end_0
@@ -2951,7 +2951,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a034d
+    const v4, 0x7f0a034f
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2963,7 +2963,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a0350
+    const v4, 0x7f0a0352
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2975,7 +2975,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0f0179
+    const v4, 0x7f0f017a
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2985,7 +2985,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a0563
+    const v4, 0x7f0a056d
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 

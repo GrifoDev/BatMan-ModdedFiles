@@ -132,6 +132,12 @@
 
     if-lez v2, :cond_0
 
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isFindService()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
     const/4 v1, 0x1
 
     goto :goto_0
@@ -660,13 +666,13 @@
 .method protected initValue(I)V
     .locals 7
 
-    const v6, 0x7f090236
+    const v6, 0x7f090237
 
-    const v5, 0x7f090235
+    const v5, 0x7f090236
 
-    const v4, 0x7f090233
+    const v4, 0x7f090234
 
-    const v3, 0x7f090231
+    const v3, 0x7f090232
 
     const-string v0, "RecorderStorageManager"
 
@@ -697,7 +703,7 @@
     return-void
 
     :pswitch_1
-    const v0, 0x7f090237
+    const v0, 0x7f090238
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -705,7 +711,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mContentTitle:Ljava/lang/CharSequence;
 
-    const v0, 0x7f090234
+    const v0, 0x7f090235
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -713,7 +719,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mContentText:Ljava/lang/CharSequence;
 
-    const v0, 0x7f090232
+    const v0, 0x7f090233
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -739,7 +745,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mButtonCloseIntent:Landroid/app/PendingIntent;
 
-    const v0, 0x7f09024a
+    const v0, 0x7f09024b
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -750,7 +756,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f090238
+    const v0, 0x7f090239
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -797,7 +803,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v0, 0x7f090239
+    const v0, 0x7f09023a
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -901,7 +907,7 @@
 .end method
 
 .method protected onCreateCustomView(Landroid/view/ViewGroup;)V
-    .locals 5
+    .locals 4
 
     iget v2, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mNotificationType:I
 
@@ -942,19 +948,17 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->getInstance()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mToastMessage:Ljava/lang/CharSequence;
 
-    const/4 v4, 0x0
+    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    invoke-static {v2, v3, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    move-result-object v3
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v2, v3}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->showRecordToast(Ljava/lang/String;)V
 
     goto :goto_0
 .end method

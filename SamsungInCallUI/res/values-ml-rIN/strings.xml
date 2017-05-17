@@ -499,6 +499,7 @@ IVR കോൾ സ്ക്രീൻ മെനു ഉപയോഗിക്കു�
     <string name="outgoing_img_picture">ഇമേജുകള്‍</string>
     <string name="outgoing_img_take_picture">ചിത്രമെടുക്കുക</string>
     <string name="outgoing_img_video">വീഡിയോകള്‍</string>
+    <string name="overlay_warning_toast">ഫോൺ ഉപയോഗിക്കുന്നതിന്, ഫോൺ ക്രമീകരണങ്ങൾക്ക് മുകൾഭാഗത്ത് ദൃശ്യമാക്കാവുന്ന ആപ്ലിക്കേഷനുകളെ നിങ്ങൾ ഓൺ ചെയ്യേണ്ടതാവശ്യമാണ്.</string>
     <string name="payphone_sbm">പേ ഫോണ്‍</string>
     <string name="phoneLabelsGroup">ഫോണ്‍</string>
     <string name="phone_voice_recording_failed_by_secure_call">സുരക്ഷിത കോൾ റെക്കോർഡ് ചെയ്യാനാവില്ല.</string>
@@ -655,6 +656,7 @@ IVR കോൾ സ്ക്രീൻ മെനു ഉപയോഗിക്കു�
     <string name="secOnscreenUpdateContactText">നിലവിലുള്ളത് അപ്‌ഡേറ്റ് ചെയ്യുക</string>
     <string name="secOnscreenUpdateContactText_tts">നിലവിലുള്ളത് അപ്‌ഡേറ്റ് ചെയ്യുക</string>
     <string name="secOnscreenVideoCallText">വീഡിയോ കോള്‍</string>
+    <string name="secOnscreenVideoStopText">നിർത്തുക</string>
     <string name="secOnscreenViewContactText">കോണ്‍‌ടാക്ടിനെ കാണുക</string>
     <string name="secOnscreenVoiceCallText">കോള്‍</string>
     <string name="secOnscreenVoiceCallTextExtended">വോയ്സ് കോൾ</string>

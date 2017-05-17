@@ -208,7 +208,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a02af
+    const v6, 0x7f0a02b1
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -228,7 +228,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a02ad
+    const v6, 0x7f0a02af
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -321,9 +321,9 @@
 .method private updateTwoPhoneColor(Lcom/android/incallui/fragment/CallCardFragment;I)V
     .locals 6
 
-    const v5, 0x7f0f0138
+    const v5, 0x7f0f0139
 
-    const v4, 0x7f0f0132
+    const v4, 0x7f0f0133
 
     const/high16 v3, 0x3f800000    # 1.0f
 

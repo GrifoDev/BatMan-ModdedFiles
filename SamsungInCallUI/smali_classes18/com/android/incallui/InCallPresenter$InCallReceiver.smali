@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 15
+    .locals 16
 
     if-nez p2, :cond_1
 
@@ -101,7 +101,9 @@
 
     if-nez v12, :cond_0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-virtual {v12}, Lcom/android/incallui/InCallPresenter;->attemptFinishActivity()V
 
@@ -146,9 +148,13 @@
 
     const/4 v13, 0x1
 
-    invoke-static {p0, v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    invoke-static {v0, v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-virtual {v12, v10}, Lcom/android/incallui/InCallPresenter;->onEmergencyModeChange(I)V
 
@@ -161,7 +167,9 @@
     if-ne v10, v12, :cond_4
 
     :cond_3
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$800(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallPresenter$InCallState;
@@ -172,7 +180,9 @@
 
     if-ne v12, v13, :cond_4
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     const/4 v13, 0x0
 
@@ -183,7 +193,9 @@
 
     invoke-static {v12}, Lcom/android/incallui/util/InCallUtils;->setFullScreenMode(Z)V
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-virtual {v12}, Lcom/android/incallui/InCallPresenter;->updateNotification()V
 
@@ -200,7 +212,9 @@
 
     const-string v12, "==> ACTION_AUDIO_STATE_CHANGED"
 
-    invoke-static {p0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isCSVideoCall()Z
 
@@ -208,7 +222,9 @@
 
     if-eqz v12, :cond_6
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -217,7 +233,9 @@
 
     if-eqz v12, :cond_6
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -227,7 +245,9 @@
     invoke-virtual {v12}, Lcom/android/incallui/InCallActivity;->updatedVideoCallMenu()V
 
     :cond_6
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mBluetoothProfileManager:Lcom/android/incallui/BluetoothProfileManager;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$900(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/BluetoothProfileManager;
@@ -305,7 +325,9 @@
 
     if-eqz v12, :cond_0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -314,7 +336,9 @@
 
     if-eqz v12, :cond_0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -327,7 +351,9 @@
 
     if-eqz v12, :cond_0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -356,7 +382,9 @@
 
     if-eqz v12, :cond_0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -365,7 +393,9 @@
 
     if-eqz v12, :cond_0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -378,7 +408,9 @@
 
     if-eqz v12, :cond_0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -450,7 +482,9 @@
 
     const/4 v13, 0x1
 
-    invoke-static {p0, v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -490,7 +524,9 @@
 
     invoke-static {v12}, Lcom/android/incallui/util/IMSErrorUtils;->setPSBarringEventReceived(Z)V
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     move-object/from16 v0, p1
 
@@ -513,9 +549,13 @@
 
     const-string v12, "DATAUSAGE_REACH_TO_WARNING"
 
-    invoke-static {p0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -539,7 +579,9 @@
 
     const-string v12, "VIDEO_DATAUSAGE_REACH_TO_LIMIT"
 
-    invoke-static {p0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
     const/4 v8, -0x1
 
@@ -549,7 +591,9 @@
 
     const v8, 0x7f0900ea
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -567,7 +611,9 @@
 
     if-eqz v12, :cond_f
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -581,7 +627,9 @@
     :cond_f
     const v8, 0x7f0900eb
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
@@ -603,9 +651,13 @@
 
     const-string v12, "THEME_APPLY"
 
-    invoke-static {p0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     invoke-virtual {v12}, Lcom/android/incallui/InCallPresenter;->cancelAndUpdateNotification()V
 
@@ -618,7 +670,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_0
+    if-eqz v12, :cond_12
 
     const-string v12, "android.bluetooth.adapter.extra.STATE"
 
@@ -648,9 +700,13 @@
 
     move-result-object v12
 
-    invoke-static {p0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mBluetoothProfileManager:Lcom/android/incallui/BluetoothProfileManager;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$900(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/BluetoothProfileManager;
@@ -669,9 +725,13 @@
 
     const-string v12, "Get bluetooth profile proxy again after STATE_ON"
 
-    invoke-static {p0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+    invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
 
     # getter for: Lcom/android/incallui/InCallPresenter;->mBluetoothProfileManager:Lcom/android/incallui/BluetoothProfileManager;
     invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$900(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/BluetoothProfileManager;
@@ -679,6 +739,54 @@
     move-result-object v12
 
     invoke-virtual {v12}, Lcom/android/incallui/BluetoothProfileManager;->initBluetoothProfileProxy()V
+
+    goto/16 :goto_0
+
+    :cond_12
+    const-string v12, "com.samsung.systemui.statusbar.STARTED"
+
+    invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/incallui/CallList;->hasLiveCall()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+
+    invoke-virtual {v12}, Lcom/android/incallui/InCallPresenter;->isShowingInCallUi()Z
+
+    move-result v12
+
+    if-nez v12, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/InCallPresenter$InCallReceiver;->this$0:Lcom/android/incallui/InCallPresenter;
+
+    # getter for: Lcom/android/incallui/InCallPresenter;->mStatusBarNotifier:Lcom/android/incallui/StatusBarNotifier;
+    invoke-static {v12}, Lcom/android/incallui/InCallPresenter;->access$200(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/StatusBarNotifier;
+
+    move-result-object v12
+
+    const/4 v13, 0x1
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x1
+
+    invoke-virtual {v12, v13, v14, v15}, Lcom/android/incallui/StatusBarNotifier;->showGreenBar(ZIZ)V
 
     goto/16 :goto_0
 .end method

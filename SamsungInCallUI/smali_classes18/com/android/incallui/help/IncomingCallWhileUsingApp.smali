@@ -637,7 +637,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0264
+    const v2, 0x7f0a0266
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -671,7 +671,7 @@
     invoke-virtual {v1, v3}, Landroid/widget/Button;->setClickable(Z)V
 
     :cond_5
-    const v1, 0x7f100415
+    const v1, 0x7f100414
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -688,7 +688,7 @@
     invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
 
     :cond_6
-    const v1, 0x7f1003b1
+    const v1, 0x7f1003b0
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -698,7 +698,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mAddButton:Landroid/widget/Button;
 
-    const v1, 0x7f100370
+    const v1, 0x7f100372
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -708,7 +708,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mRecordButton:Landroid/widget/Button;
 
-    const v1, 0x7f10038d
+    const v1, 0x7f10038f
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +754,7 @@
     invoke-virtual {v1, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_9
-    const v1, 0x7f10040f
+    const v1, 0x7f10040e
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1005,7 +1005,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0a04b3
+    const v16, 0x7f0a04b9
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1147,7 +1147,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0a048e
+    const v16, 0x7f0a0494
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1159,7 +1159,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0a02e9
+    const v16, 0x7f0a02eb
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1171,7 +1171,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0a02ec
+    const v16, 0x7f0a02ee
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1728,7 +1728,7 @@
         0x7f100184 -> :sswitch_0
         0x7f100185 -> :sswitch_1
         0x7f10018d -> :sswitch_2
-        0x7f10038d -> :sswitch_2
+        0x7f10038f -> :sswitch_2
     .end sparse-switch
 .end method
 

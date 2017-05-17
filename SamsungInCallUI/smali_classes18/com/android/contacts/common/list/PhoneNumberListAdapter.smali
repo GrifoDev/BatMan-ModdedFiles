@@ -75,7 +75,7 @@
 
     iput-wide v6, p0, Lcom/android/contacts/common/list/PhoneNumberListAdapter;->mFirstExtendedDirectoryId:J
 
-    const v2, 0x7f09051e
+    const v2, 0x7f090520
 
     invoke-virtual {p0, v2}, Lcom/android/contacts/common/list/PhoneNumberListAdapter;->setDefaultFilterHeaderText(I)V
 

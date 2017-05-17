@@ -125,208 +125,167 @@
     goto :goto_0
 .end method
 
-.method public static setButtonFullScreen(Landroid/view/View;Landroid/view/View;IZZ)V
-    .locals 10
+.method public static setButtonFullScreen(Landroid/view/View;IZZ)V
+    .locals 9
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_1
 
-    if-nez p1, :cond_2
+    const-string v5, "VideoAnimator"
+
+    const-string v6, "setButtonFullScreen : bg or button is null."
+
+    invoke-static {v5, v6}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
-    const-string v6, "VideoAnimator"
-
-    const-string v7, "setButtonFullScreen : bg or button is null."
-
-    invoke-static {v6, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_1
     :goto_0
     return-void
 
-    :cond_2
-    move v5, p2
+    :cond_1
+    move v4, p1
 
     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
-    move-result v3
+    move-result v2
 
-    if-lez v3, :cond_3
+    if-lez v2, :cond_2
 
-    move v5, v3
+    move v4, v2
 
-    :cond_3
-    const/4 v2, 0x0
-
+    :cond_2
     const/4 v1, 0x0
 
     const/4 v0, 0x0
 
-    new-instance v4, Landroid/animation/AnimatorSet;
+    new-instance v3, Landroid/animation/AnimatorSet;
 
-    invoke-direct {v4}, Landroid/animation/AnimatorSet;-><init>()V
+    invoke-direct {v3}, Landroid/animation/AnimatorSet;-><init>()V
 
-    if-eqz p3, :cond_4
+    if-eqz p2, :cond_3
 
-    sget-object v6, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
+    sget-object v5, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    new-array v7, v7, [F
+    new-array v6, v6, [F
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    int-to-float v9, v5
+    int-to-float v8, v4
 
-    aput v9, v7, v8
+    aput v8, v6, v7
 
-    invoke-static {p0, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v2
-
-    sget-object v6, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
-
-    const/4 v7, 0x1
-
-    new-array v7, v7, [F
-
-    const/4 v8, 0x0
-
-    int-to-float v9, v5
-
-    aput v9, v7, v8
-
-    invoke-static {p1, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v1
 
-    const-string v6, "alpha"
+    const-string v5, "alpha"
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    new-array v7, v7, [F
+    new-array v6, v6, [F
 
-    fill-array-data v7, :array_0
+    fill-array-data v6, :array_0
 
-    invoke-static {p0, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v0
 
     :goto_1
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_0
 
-    const/4 v6, 0x2
+    const/4 v5, 0x1
 
-    new-array v6, v6, [Landroid/animation/Animator;
+    new-array v5, v5, [Landroid/animation/Animator;
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    aput-object v2, v6, v7
+    aput-object v1, v5, v6
 
-    const/4 v7, 0x1
+    invoke-virtual {v3, v5}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    aput-object v1, v6, v7
-
-    invoke-virtual {v4, v6}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
-
-    if-eqz p4, :cond_5
+    if-eqz p3, :cond_4
 
     const-wide/16 v6, 0x12c
 
     :goto_2
-    invoke-virtual {v4, v6, v7}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
+    invoke-virtual {v3, v6, v7}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
-    const v6, 0x3ea8f5c3    # 0.33f
+    const v5, 0x3ea8f5c3    # 0.33f
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    const v8, 0x3e4ccccd    # 0.2f
+    const v7, 0x3e4ccccd    # 0.2f
 
-    const v9, 0x3dcccccd    # 0.1f
+    const v8, 0x3dcccccd    # 0.1f
 
-    invoke-static {v6, v7, v8, v9}, Landroid/support/v4/view/animation/PathInterpolatorCompat;->create(FFFF)Landroid/view/animation/Interpolator;
+    invoke-static {v5, v6, v7, v8}, Landroid/support/v4/view/animation/PathInterpolatorCompat;->create(FFFF)Landroid/view/animation/Interpolator;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v4, v6}, Landroid/animation/AnimatorSet;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v3, v5}, Landroid/animation/AnimatorSet;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    invoke-virtual {v4}, Landroid/animation/AnimatorSet;->isRunning()Z
+    invoke-virtual {v3}, Landroid/animation/AnimatorSet;->isRunning()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_6
+    if-eqz v5, :cond_5
 
-    const-string v6, "VideoAnimator"
+    const-string v5, "VideoAnimator"
 
-    const-string v7, "setButtonFullScreen : moveAnim is already running."
+    const-string v6, "setButtonFullScreen : moveAnim is already running."
 
-    invoke-static {v6, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v6}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
-    :cond_4
-    sget-object v6, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
+    :cond_3
+    sget-object v5, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    new-array v7, v7, [F
+    new-array v6, v6, [F
 
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    aput v9, v7, v8
-
-    invoke-static {p0, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v2
-
-    sget-object v6, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
-
-    const/4 v7, 0x1
-
-    new-array v7, v7, [F
+    const/4 v7, 0x0
 
     const/4 v8, 0x0
 
-    const/4 v9, 0x0
+    aput v8, v6, v7
 
-    aput v9, v7, v8
-
-    invoke-static {p1, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v1
 
-    const-string v6, "alpha"
+    const-string v5, "alpha"
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    new-array v7, v7, [F
+    new-array v6, v6, [F
 
-    fill-array-data v7, :array_1
+    fill-array-data v6, :array_1
 
-    invoke-static {p0, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v0
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     const-wide/16 v6, 0x0
 
     goto :goto_2
 
-    :cond_6
-    invoke-virtual {v4}, Landroid/animation/AnimatorSet;->start()V
+    :cond_5
+    invoke-virtual {v3}, Landroid/animation/AnimatorSet;->start()V
 
     const-wide/16 v6, 0xc8
 
     invoke-virtual {v0, v6, v7}, Landroid/animation/ObjectAnimator;->setStartDelay(J)V
 
-    if-eqz p4, :cond_7
+    if-eqz p3, :cond_6
 
     const-wide/16 v6, 0xc8
 
@@ -335,11 +294,11 @@
 
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
 
-    invoke-static {p3}, Lcom/android/incallui/util/VideoCallAppLogging;->cleanViewEnter(Z)V
+    invoke-static {p2}, Lcom/android/incallui/util/VideoCallAppLogging;->cleanViewEnter(Z)V
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_6
     const-wide/16 v6, 0x0
 
     goto :goto_3

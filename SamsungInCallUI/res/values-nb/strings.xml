@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Dra SEND MELDING-knappen oppover for å sende en hurtigmelding og avvise innkommende anrop.</string>
     <string name="call_drug_up_panel_for_kk_tts">Dra panelet for avvis anrop med melding oppover for å sende en anropsavvisningsmelding når du avviser et innkommende anrop.</string>
     <string name="call_ended_toast">Samtale avsluttet.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Anrop viderekoblet til:</string>
+    <string name="call_forwarding_from">Anrop viderekoblet fra:</string>
     <string name="call_incoming_voice_call2">Trykk på %s for å svare på et anrop.</string>
     <string name="call_incoming_voice_call2_tts">Trykk på svar på anrop-knappen for å svare på et anrop.</string>
     <string name="call_incoming_voice_call3">Trykk på %s og avvis et anrop.</string>
@@ -526,6 +526,7 @@ Skjermmenyen for IVR-samtaler bruker innhold som leveres av en tredjeparts tjene
     <string name="outgoing_img_picture">Bilder</string>
     <string name="outgoing_img_take_picture">Ta bilde</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">For å bruke Telefon må du slå på Apper som kan vises øverst i Telefoninnstillinger.</string>
     <string name="payphone_sbm">Telefonkiosk</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Kan ikke ta opp sikker samtale.</string>
@@ -682,6 +683,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Oppdater kontakt</string>
     <string name="secOnscreenUpdateContactText_tts">Oppdater kontakt</string>
     <string name="secOnscreenVideoCallText">Videoanrop</string>
+    <string name="secOnscreenVideoStopText">Stopp</string>
     <string name="secOnscreenViewContactText">Vis kontakt</string>
     <string name="secOnscreenVoiceCallText">Ring</string>
     <string name="secOnscreenVoiceCallTextExtended">Taleanrop</string>

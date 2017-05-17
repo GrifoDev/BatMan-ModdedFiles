@@ -109,7 +109,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0080
+    const v8, 0x7f0a0082
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -125,7 +125,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a01b6
+    const v8, 0x7f0a01b8
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -183,7 +183,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a0087
+    const v8, 0x7f0a0089
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -354,7 +354,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090254
+    const v2, 0x7f090255
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -540,7 +540,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0902a0
+    const v4, 0x7f0902a2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -618,8 +618,8 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f10034e -> :sswitch_0
-        0x7f100440 -> :sswitch_1
+        0x7f100350 -> :sswitch_0
+        0x7f10043f -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -847,7 +847,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallCardFragment;->mEriInfoText:Landroid/widget/TextView;
 
-    const v0, 0x7f1002fe
+    const v0, 0x7f100300
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -865,7 +865,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100440
+    const v0, 0x7f10043f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -886,7 +886,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setElegantTextHeight(Z)V
 
-    const v0, 0x7f10031e
+    const v0, 0x7f100320
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -894,7 +894,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallCardFragment;->mBelowButtonLayout:Landroid/view/View;
 
-    const v0, 0x7f10034e
+    const v0, 0x7f100350
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -968,7 +968,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0576
+    const v3, 0x7f0a0580
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1232,7 +1232,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090572
+    const v2, 0x7f090574
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1254,7 +1254,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090574
+    const v2, 0x7f090576
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1271,7 +1271,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090573
+    const v2, 0x7f090575
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1318,7 +1318,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01dc
+    const v7, 0x7f0a01de
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1395,7 +1395,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0138
+    const v6, 0x7f0f0139
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1405,7 +1405,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0137
+    const v6, 0x7f0f0138
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1415,7 +1415,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0121
+    const v6, 0x7f0f0122
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1425,7 +1425,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0133
+    const v6, 0x7f0f0134
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1435,7 +1435,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0132
+    const v6, 0x7f0f0133
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 

@@ -283,7 +283,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0a01ea
+    const v26, 0x7f0a01ec
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -311,7 +311,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0a007d
+    const v26, 0x7f0a007f
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -359,7 +359,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0a0325
+    const v26, 0x7f0a0327
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -381,7 +381,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0a01da
+    const v26, 0x7f0a01dc
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -853,6 +853,10 @@
     move-result v25
 
     if-eqz v25, :cond_12
+
+    sget-boolean v25, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-nez v25, :cond_12
 
     if-nez v13, :cond_12
 

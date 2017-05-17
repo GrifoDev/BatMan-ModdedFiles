@@ -499,6 +499,7 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="outgoing_img_picture">చిత్రాలు</string>
     <string name="outgoing_img_take_picture">చిత్రాన్ని తీయి</string>
     <string name="outgoing_img_video">వీడియోలు</string>
+    <string name="overlay_warning_toast">ఫోన్‌ని ఉపయోగించడానికి, ఫోన్ సెట్టింగ్‌లలో ఎగువన కనిపిస్తున్న అప్లికేషన్‌లను మీరు ఆన్ చేయాలి.</string>
     <string name="payphone_sbm">పే ఫోన్</string>
     <string name="phoneLabelsGroup">ఫోన్</string>
     <string name="phone_voice_recording_failed_by_secure_call">సురక్షిత కాల్‌ను రికార్డ్ చేయడం సాధ్యం కాదు.</string>
@@ -655,6 +656,7 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="secOnscreenUpdateContactText">ఉన్నదానిని అప్‌డేట్ చే.</string>
     <string name="secOnscreenUpdateContactText_tts">ఉన్నదానిని అప్డేట్ చేయి</string>
     <string name="secOnscreenVideoCallText">వీడియో కాల్</string>
+    <string name="secOnscreenVideoStopText">ఆపివేయి</string>
     <string name="secOnscreenViewContactText">పరిచయాన్ని వీక్షించు</string>
     <string name="secOnscreenVoiceCallText">కాల్</string>
     <string name="secOnscreenVoiceCallTextExtended">వాయిస్ కాల్</string>

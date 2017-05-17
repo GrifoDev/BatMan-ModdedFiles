@@ -44,6 +44,8 @@
 
 .field private static final ACTION_PS_BARRED:Ljava/lang/String; = "com.android.intent.action.PSBARRED_FOR_VOLTE"
 
+.field private static final ACTION_STATUSBAR_STARTED:Ljava/lang/String; = "com.samsung.systemui.statusbar.STARTED"
+
 .field private static final BLOCK_QUERY_TIMEOUT_MS:J = 0x3e8L
 
 .field private static final CHECK_UI_LOCKED:I = 0x3ed
@@ -747,17 +749,17 @@
 
     iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
-    if-nez v4, :cond_12
+    if-nez v4, :cond_13
 
     iget-boolean v4, p0, Lcom/android/incallui/InCallPresenter;->mServiceConnected:Z
 
-    if-nez v4, :cond_12
+    if-nez v4, :cond_13
 
     iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
 
     sget-object v5, Lcom/android/incallui/InCallPresenter$InCallState;->NO_CALLS:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-ne v4, v5, :cond_12
+    if-ne v4, v5, :cond_13
 
     move v1, v2
 
@@ -872,7 +874,7 @@
     :cond_1
     invoke-static {v3}, Lcom/android/incallui/util/InCallUtils;->setMergeAfterAnswer(Z)V
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_12
 
     iput-boolean v3, p0, Lcom/android/incallui/InCallPresenter;->mIsActivityPreviouslyStarted:Z
 
@@ -1143,13 +1145,24 @@
     invoke-virtual {v2}, Lcom/android/incallui/bike/BikeModeController;->cleanUp()V
 
     :cond_e
+    iget-object v2, p0, Lcom/android/incallui/InCallPresenter;->mAnswerMemoController:Lcom/android/incallui/operator/dcm/AnswerMemoController;
+
+    if-eqz v2, :cond_f
+
+    iget-object v2, p0, Lcom/android/incallui/InCallPresenter;->mAnswerMemoController:Lcom/android/incallui/operator/dcm/AnswerMemoController;
+
+    invoke-virtual {v2}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->cleanUp()V
+
+    iput-object v6, p0, Lcom/android/incallui/InCallPresenter;->mAnswerMemoController:Lcom/android/incallui/operator/dcm/AnswerMemoController;
+
+    :cond_f
     const-string v2, "ims_rcs"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_10
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
@@ -1157,20 +1170,20 @@
 
     invoke-virtual {v2}, Lcom/android/incallui/secrcs/RcsShareUI;->tearDown()V
 
-    :cond_f
-    invoke-direct {p0}, Lcom/android/incallui/InCallPresenter;->initCoverStateControls()V
+    :cond_10
+    invoke-virtual {p0}, Lcom/android/incallui/InCallPresenter;->destroyCoverView()V
 
     iput v3, p0, Lcom/android/incallui/InCallPresenter;->mKnoxCustomDisabledItems:I
 
     iget-object v2, p0, Lcom/android/incallui/InCallPresenter;->mDesktopModeManager:Lcom/android/incallui/util/DesktopModeManager;
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_11
 
     iget-object v2, p0, Lcom/android/incallui/InCallPresenter;->mDesktopModeManager:Lcom/android/incallui/util/DesktopModeManager;
 
     invoke-virtual {v2}, Lcom/android/incallui/util/DesktopModeManager;->tearDown()V
 
-    :cond_10
+    :cond_11
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v2
@@ -1181,10 +1194,10 @@
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_11
+    :cond_12
     return-void
 
-    :cond_12
+    :cond_13
     move v1, v3
 
     goto/16 :goto_0
@@ -1207,7 +1220,7 @@
     :catch_3
     move-exception v2
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :catch_4
     move-exception v2
@@ -1469,33 +1482,6 @@
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->hideDialpadForDisconnect()V
 
     :cond_0
-    return-void
-.end method
-
-.method private initCoverStateControls()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/incallui/InCallPresenter;->mCoverViewManager:Lcom/android/incallui/accessory/CoverViewManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/incallui/InCallPresenter;->mCoverViewManager:Lcom/android/incallui/accessory/CoverViewManager;
-
-    invoke-virtual {v0}, Lcom/android/incallui/accessory/CoverViewManager;->dismissView()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/incallui/InCallPresenter;->mCoverViewManager:Lcom/android/incallui/accessory/CoverViewManager;
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/incallui/InCallPresenter;->mIsCoverClosed:Z
-
-    iget-object v0, p0, Lcom/android/incallui/InCallPresenter;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/incallui/motion/CallSContextMotion;->stopPutDownListening(Landroid/content/Context;)V
-
     return-void
 .end method
 
@@ -2064,7 +2050,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0903e0
+    const v5, 0x7f0903e2
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -2122,7 +2108,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0903a5
+    const v5, 0x7f0903a7
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -2165,7 +2151,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f09038f
+    const v5, 0x7f090391
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -2387,7 +2373,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0902e8
+    const v5, 0x7f0902ea
 
     invoke-static {v4, v5, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2665,7 +2651,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f09035d
+    const v5, 0x7f09035f
 
     invoke-static {v5}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -2789,7 +2775,7 @@
 
     iget-object v6, p0, Lcom/android/incallui/InCallPresenter;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f09044a
+    const v7, 0x7f09044c
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3307,8 +3293,6 @@
     const/4 v1, 0x1
 
     iput-object v3, p0, Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
-
-    invoke-direct {p0}, Lcom/android/incallui/InCallPresenter;->initCoverStateControls()V
 
     invoke-static {}, Lcom/android/incallui/InCallUIFeature;->isTablet()Z
 
@@ -3954,8 +3938,6 @@
 
     invoke-virtual {v1}, Lcom/android/incallui/InCallActivity;->finish()V
 
-    invoke-direct {p0}, Lcom/android/incallui/InCallPresenter;->initCoverStateControls()V
-
     iget-boolean v1, p0, Lcom/android/incallui/InCallPresenter;->mAccountSelectionCancelled:Z
 
     if-eqz v1, :cond_1
@@ -4204,6 +4186,33 @@
     goto :goto_0
 .end method
 
+.method public destroyCoverView()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/InCallPresenter;->mCoverViewManager:Lcom/android/incallui/accessory/CoverViewManager;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/InCallPresenter;->mCoverViewManager:Lcom/android/incallui/accessory/CoverViewManager;
+
+    invoke-virtual {v0}, Lcom/android/incallui/accessory/CoverViewManager;->dismissView()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/incallui/InCallPresenter;->mCoverViewManager:Lcom/android/incallui/accessory/CoverViewManager;
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/incallui/InCallPresenter;->mIsCoverClosed:Z
+
+    iget-object v0, p0, Lcom/android/incallui/InCallPresenter;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/incallui/motion/CallSContextMotion;->stopPutDownListening(Landroid/content/Context;)V
+
+    return-void
+.end method
+
 .method public enableScreenTimeout(Z)V
     .locals 4
 
@@ -4443,7 +4452,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03ef
+    const v9, 0x7f0a03f1
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4478,7 +4487,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03f4
+    const v9, 0x7f0a03f6
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4492,7 +4501,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03f5
+    const v9, 0x7f0a03f7
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4612,7 +4621,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03f6
+    const v9, 0x7f0a03f8
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4626,7 +4635,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03f7
+    const v9, 0x7f0a03f9
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4649,7 +4658,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03f2
+    const v9, 0x7f0a03f4
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4665,7 +4674,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03f3
+    const v9, 0x7f0a03f5
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4682,7 +4691,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03f8
+    const v9, 0x7f0a03fa
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4698,7 +4707,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a03f9
+    const v9, 0x7f0a03fb
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -6114,7 +6123,7 @@
 
     if-nez v4, :cond_0
 
-    const v4, 0x7f0902f4
+    const v4, 0x7f0902f6
 
     invoke-static {v4}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -6127,7 +6136,7 @@
 
     if-eqz v4, :cond_0
 
-    const v4, 0x7f0905ba
+    const v4, 0x7f0905bc
 
     invoke-static {v4}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -6387,6 +6396,25 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method public isFromPopupForAnswer()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v1}, Lcom/android/incallui/InCallActivity;->isFromPopupForAnswer()Z
+
+    move-result v0
+
+    :cond_0
+    return v0
 .end method
 
 .method public isFullscreen()Z
@@ -6777,21 +6805,7 @@
 
     if-eq v14, v0, :cond_18
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
-
-    move-object/from16 v19, v0
-
-    if-eqz v19, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
-
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v19 .. v19}, Lcom/android/incallui/InCallActivity;->isFromPopupForAnswer()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/InCallPresenter;->isFromPopupForAnswer()Z
 
     move-result v19
 
@@ -7658,23 +7672,6 @@
     :cond_1e
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
-
-    move-object/from16 v19, v0
-
-    sget-object v20, Lcom/android/incallui/InCallPresenter$InCallState;->NO_CALLS:Lcom/android/incallui/InCallPresenter$InCallState;
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v20
-
-    if-ne v0, v1, :cond_1f
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/incallui/InCallPresenter;->initCoverStateControls()V
-
-    :cond_1f
-    move-object/from16 v0, p0
-
     iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mListeners:Ljava/util/List;
 
     move-object/from16 v19, v0
@@ -7684,6 +7681,90 @@
     move-result-object v19
 
     :goto_5
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_1f
+
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Lcom/android/incallui/InCallPresenter$InCallStateListener;
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v21, "Notify "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    const-string v21, " of state "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lcom/android/incallui/InCallPresenter$InCallState;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, p1
+
+    invoke-interface {v12, v15, v0, v1}, Lcom/android/incallui/InCallPresenter$InCallStateListener;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
+
+    goto :goto_5
+
+    :cond_1f
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mListenersOfManager:Ljava/util/Set;
+
+    move-object/from16 v19, v0
+
+    invoke-interface/range {v19 .. v19}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v19
+
+    :goto_6
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v20
@@ -7754,93 +7835,9 @@
 
     invoke-interface {v12, v15, v0, v1}, Lcom/android/incallui/InCallPresenter$InCallStateListener;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
 
-    goto :goto_5
-
-    :cond_20
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mListenersOfManager:Ljava/util/Set;
-
-    move-object/from16 v19, v0
-
-    invoke-interface/range {v19 .. v19}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v19
-
-    :goto_6
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v20
-
-    if-eqz v20, :cond_21
-
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/incallui/InCallPresenter$InCallStateListener;
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v21, "Notify "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    const-string v21, " of state "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
-
-    move-object/from16 v21, v0
-
-    invoke-virtual/range {v21 .. v21}, Lcom/android/incallui/InCallPresenter$InCallState;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v20
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v20
-
-    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, p1
-
-    invoke-interface {v12, v15, v0, v1}, Lcom/android/incallui/InCallPresenter$InCallStateListener;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
-
     goto :goto_6
 
-    :cond_21
+    :cond_20
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/InCallPresenter;->isActivityStarted()Z
 
     move-result v19
@@ -7851,7 +7848,7 @@
 
     move-result-object v19
 
-    if-nez v19, :cond_22
+    if-nez v19, :cond_21
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/incallui/CallList;->getOutgoingCall()Lcom/android/incallui/Call;
 
@@ -7859,7 +7856,7 @@
 
     if-eqz v19, :cond_32
 
-    :cond_22
+    :cond_21
     const/4 v10, 0x1
 
     :goto_7
@@ -7905,8 +7902,15 @@
 
     move-object/from16 v1, v21
 
-    if-ne v0, v1, :cond_33
+    if-eq v0, v1, :cond_22
 
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_33
+
+    :cond_22
     const/16 v19, 0x1
 
     :goto_8
@@ -8896,7 +8900,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0143
+    const v2, 0x7f0f0144
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -9353,7 +9357,7 @@
 .method public onDowngradeToAudioRequest(Lcom/android/incallui/Call;I)V
     .locals 6
 
-    const v5, 0x7f0902e4
+    const v5, 0x7f0902e6
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -9473,7 +9477,7 @@
 
     if-eqz v3, :cond_5
 
-    const v3, 0x7f0902e5
+    const v3, 0x7f0902e7
 
     invoke-static {v3}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
@@ -9529,7 +9533,7 @@
     :cond_8
     iget-object v3, p0, Lcom/android/incallui/InCallPresenter;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0902e6
+    const v4, 0x7f0902e8
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -9909,6 +9913,45 @@
     :cond_7
     iput-object v2, p0, Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
 
+    iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mInCallState:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    sget-object v5, Lcom/android/incallui/InCallPresenter$InCallState;->NO_CALLS:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    if-eq v4, v5, :cond_8
+
+    sget-object v4, Lcom/android/incallui/InCallPresenter$InCallState;->NO_CALLS:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    if-ne v3, v4, :cond_8
+
+    invoke-virtual {p0}, Lcom/android/incallui/InCallPresenter;->isActivityStarted()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isInLockTaskMode()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mCoverViewManager:Lcom/android/incallui/accessory/CoverViewManager;
+
+    if-eqz v4, :cond_8
+
+    iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mAccessoryEventHandler:Lcom/android/incallui/accessory/AccessoryEventHandler;
+
+    if-eqz v4, :cond_8
+
+    iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mAccessoryEventHandler:Lcom/android/incallui/accessory/AccessoryEventHandler;
+
+    invoke-virtual {v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->isCoverClosed()Z
+
+    move-result v4
+
+    invoke-virtual {p0, v4}, Lcom/android/incallui/InCallPresenter;->onCoverStateChanged(Z)V
+
+    :cond_8
     iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mIncomingCallListeners:Ljava/util/List;
 
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -9920,7 +9963,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_9
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9934,14 +9977,14 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     const-string v4, "auto_call_test"
 
     invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_a
 
     invoke-static {}, Lcom/android/incallui/util/VTAutoTestProxy;->getInstance()Lcom/android/incallui/util/VTAutoTestProxy;
 
@@ -9951,16 +9994,16 @@
 
     invoke-virtual {v4, v5}, Lcom/android/incallui/util/VTAutoTestProxy;->handleMessage(I)V
 
-    :cond_9
+    :cond_a
     const-string v4, "UI"
 
     invoke-static {v4}, Lcom/android/incallui/util/InCallUtils;->isEcholocateEnabled(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_b
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
@@ -9968,7 +10011,7 @@
 
     invoke-static {v4}, Lcom/android/incallui/util/InCallUtils;->sendEcholocateUIState(I)V
 
-    :cond_a
+    :cond_b
     iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
     if-eqz v4, :cond_0
@@ -11650,7 +11693,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0f01ef
+    const v3, 0x7f0f01f0
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -11956,6 +11999,10 @@
 
     invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    const-string v4, "com.samsung.systemui.statusbar.STARTED"
+
+    invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v4
@@ -12118,6 +12165,10 @@
     move-result v4
 
     if-eqz v4, :cond_13
+
+    iget-object v4, p0, Lcom/android/incallui/InCallPresenter;->mAnswerMemoController:Lcom/android/incallui/operator/dcm/AnswerMemoController;
+
+    if-nez v4, :cond_13
 
     new-instance v4, Lcom/android/incallui/operator/dcm/AnswerMemoController;
 

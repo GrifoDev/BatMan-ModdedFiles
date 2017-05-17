@@ -225,27 +225,31 @@
 
 .field public static final vga_button_width_weight:I = 0x7f0d006a
 
-.field public static final vga_dialpad_keys_height_weight:I = 0x7f0d006b
+.field public static final vga_dialpad_container_height_weight_multiwindow:I = 0x7f0d006b
+
+.field public static final vga_dialpad_keys_height_weight:I = 0x7f0d006c
+
+.field public static final vga_dialpad_keys_height_weight_multiwindow:I = 0x7f0d006d
 
 .field public static final vga_dialpad_width_weight:I = 0x7f0d0003
 
 .field public static final vga_dialpad_width_weight_landscape:I = 0x7f0d0004
 
-.field public static final vga_incoming_three_widget_bottom_weight:I = 0x7f0d006c
+.field public static final vga_incoming_three_widget_bottom_weight:I = 0x7f0d006e
 
-.field public static final vga_incoming_three_widget_top_weight:I = 0x7f0d006d
+.field public static final vga_incoming_three_widget_top_weight:I = 0x7f0d006f
 
-.field public static final vga_incoming_two_widget_bottom_weight:I = 0x7f0d006e
+.field public static final vga_incoming_two_widget_bottom_weight:I = 0x7f0d0070
 
-.field public static final vga_incoming_two_widget_top_weight:I = 0x7f0d006f
+.field public static final vga_incoming_two_widget_top_weight:I = 0x7f0d0071
 
-.field public static final vga_incoming_widget_external_margin_weight:I = 0x7f0d0070
+.field public static final vga_incoming_widget_external_margin_weight:I = 0x7f0d0072
 
-.field public static final vga_incoming_widget_internal_margin_weight:I = 0x7f0d0071
+.field public static final vga_incoming_widget_internal_margin_weight:I = 0x7f0d0073
 
-.field public static final video_animation_duration:I = 0x7f0d0072
+.field public static final video_animation_duration:I = 0x7f0d0074
 
-.field public static final video_call_auto_fullscreen_timeout:I = 0x7f0d0073
+.field public static final video_call_auto_fullscreen_timeout:I = 0x7f0d0075
 
 
 # direct methods

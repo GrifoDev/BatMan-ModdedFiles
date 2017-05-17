@@ -76,12 +76,6 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
-
-    move-result-object v0
-
-    const-string v1, ""
-
     sparse-switch p1, :sswitch_data_0
 
     :goto_0
@@ -106,7 +100,11 @@
     goto :goto_0
 
     :sswitch_2
-    const v2, 0x7f090207
+    invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
+
+    move-result-object v0
+
+    const v2, 0x7f090208
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

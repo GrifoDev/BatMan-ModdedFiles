@@ -526,6 +526,7 @@ Le menu de l'écran des appels SVI utilise le contenu fourni par un fournisseur 
     <string name="outgoing_img_picture">Images</string>
     <string name="outgoing_img_take_picture">Photographier</string>
     <string name="outgoing_img_video">Vidéos</string>
+    <string name="overlay_warning_toast">"Pour utiliser l'application Téléphone, vous devez activer Applications qui peuvent apparaître par-dessus dans les paramètres de l'application Téléphone."</string>
     <string name="payphone_sbm">Téléphone public</string>
     <string name="phoneLabelsGroup">Téléphone</string>
     <string name="phone_voice_recording_failed_by_secure_call">"Impossible d'enregistrer l'appel sécurisé."</string>
@@ -610,7 +611,7 @@ Le menu de l'écran des appels SVI utilise le contenu fourni par un fournisseur 
     <string name="secOnscreenArrowRightText">Droitier</string>
     <string name="secOnscreenCalendarText">Calendrier</string>
     <string name="secOnscreenCallTypeText">Type appel</string>
-    <string name="secOnscreenCameraText">Appareil photo</string>
+    <string name="secOnscreenCameraText">Caméra</string>
     <string name="secOnscreenContactText">Contacts</string>
     <string name="secOnscreenCreateContactText">Créer un contact</string>
     <string name="secOnscreenEmailText">E-mail</string>
@@ -682,6 +683,7 @@ sens uniq."</string>
     <string name="secOnscreenUpdateContactText">MAJ cont. exist.</string>
     <string name="secOnscreenUpdateContactText_tts">Mettre à jour les contacts existants</string>
     <string name="secOnscreenVideoCallText">Appel visio</string>
+    <string name="secOnscreenVideoStopText">Arrêter</string>
     <string name="secOnscreenViewContactText">Afficher contact</string>
     <string name="secOnscreenVoiceCallText">Appeler</string>
     <string name="secOnscreenVoiceCallTextExtended">Appel voc.</string>

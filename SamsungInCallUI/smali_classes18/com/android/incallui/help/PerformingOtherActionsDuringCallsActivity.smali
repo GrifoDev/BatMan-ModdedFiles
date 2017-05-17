@@ -141,7 +141,7 @@
 
     new-array v5, v7, [Ljava/lang/Object;
 
-    const v6, 0x7f090268
+    const v6, 0x7f090269
 
     invoke-virtual {p0, v6}, Lcom/android/incallui/help/PerformingOtherActionsDuringCallsActivity;->getString(I)Ljava/lang/String;
 
@@ -179,7 +179,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v7, 0x7f09028b
+    const v7, 0x7f09028c
 
     invoke-virtual {p0, v7}, Lcom/android/incallui/help/PerformingOtherActionsDuringCallsActivity;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f09026f
+    const v7, 0x7f090270
 
     invoke-virtual {p0, v7}, Lcom/android/incallui/help/PerformingOtherActionsDuringCallsActivity;->getString(I)Ljava/lang/String;
 

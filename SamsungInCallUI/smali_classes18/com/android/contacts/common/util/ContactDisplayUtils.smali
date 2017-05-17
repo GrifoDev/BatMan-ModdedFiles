@@ -117,7 +117,7 @@
 .method public static getPhoneLabelResourceId(Ljava/lang/Integer;)I
     .locals 2
 
-    const v0, 0x7f090458
+    const v0, 0x7f09045a
 
     if-nez p0, :cond_0
 
@@ -132,102 +132,102 @@
 
     packed-switch v1, :pswitch_data_0
 
-    const v0, 0x7f090450
-
-    goto :goto_0
-
-    :pswitch_1
-    const v0, 0x7f090453
-
-    goto :goto_0
-
-    :pswitch_2
-    const v0, 0x7f090457
-
-    goto :goto_0
-
-    :pswitch_3
-    const v0, 0x7f090464
-
-    goto :goto_0
-
-    :pswitch_4
     const v0, 0x7f090452
 
     goto :goto_0
 
-    :pswitch_5
-    const v0, 0x7f090451
-
-    goto :goto_0
-
-    :pswitch_6
-    const v0, 0x7f09045a
-
-    goto :goto_0
-
-    :pswitch_7
-    const v0, 0x7f09044d
-
-    goto :goto_0
-
-    :pswitch_8
-    const v0, 0x7f09044e
-
-    goto :goto_0
-
-    :pswitch_9
-    const v0, 0x7f09044f
-
-    goto :goto_0
-
-    :pswitch_a
-    const v0, 0x7f090454
-
-    goto :goto_0
-
-    :pswitch_b
+    :pswitch_1
     const v0, 0x7f090455
 
     goto :goto_0
 
-    :pswitch_c
+    :pswitch_2
     const v0, 0x7f090459
 
     goto :goto_0
 
-    :pswitch_d
-    const v0, 0x7f09045b
-
-    goto :goto_0
-
-    :pswitch_e
-    const v0, 0x7f090461
-
-    goto :goto_0
-
-    :pswitch_f
-    const v0, 0x7f090462
-
-    goto :goto_0
-
-    :pswitch_10
-    const v0, 0x7f090465
-
-    goto :goto_0
-
-    :pswitch_11
+    :pswitch_3
     const v0, 0x7f090466
 
     goto :goto_0
 
+    :pswitch_4
+    const v0, 0x7f090454
+
+    goto :goto_0
+
+    :pswitch_5
+    const v0, 0x7f090453
+
+    goto :goto_0
+
+    :pswitch_6
+    const v0, 0x7f09045c
+
+    goto :goto_0
+
+    :pswitch_7
+    const v0, 0x7f09044f
+
+    goto :goto_0
+
+    :pswitch_8
+    const v0, 0x7f090450
+
+    goto :goto_0
+
+    :pswitch_9
+    const v0, 0x7f090451
+
+    goto :goto_0
+
+    :pswitch_a
+    const v0, 0x7f090456
+
+    goto :goto_0
+
+    :pswitch_b
+    const v0, 0x7f090457
+
+    goto :goto_0
+
+    :pswitch_c
+    const v0, 0x7f09045b
+
+    goto :goto_0
+
+    :pswitch_d
+    const v0, 0x7f09045d
+
+    goto :goto_0
+
+    :pswitch_e
+    const v0, 0x7f090463
+
+    goto :goto_0
+
+    :pswitch_f
+    const v0, 0x7f090464
+
+    goto :goto_0
+
+    :pswitch_10
+    const v0, 0x7f090467
+
+    goto :goto_0
+
+    :pswitch_11
+    const v0, 0x7f090468
+
+    goto :goto_0
+
     :pswitch_12
-    const v0, 0x7f09044b
+    const v0, 0x7f09044d
 
     goto :goto_0
 
     :pswitch_13
-    const v0, 0x7f090456
+    const v0, 0x7f090458
 
     goto :goto_0
 
@@ -357,7 +357,7 @@
 .method public static getSmsLabelResourceId(Ljava/lang/Integer;)I
     .locals 2
 
-    const v0, 0x7f0905a0
+    const v0, 0x7f0905a2
 
     if-nez p0, :cond_0
 
@@ -372,102 +372,102 @@
 
     packed-switch v1, :pswitch_data_0
 
-    const v0, 0x7f090598
-
-    goto :goto_0
-
-    :pswitch_1
-    const v0, 0x7f09059b
-
-    goto :goto_0
-
-    :pswitch_2
-    const v0, 0x7f09059f
-
-    goto :goto_0
-
-    :pswitch_3
-    const v0, 0x7f0905a6
-
-    goto :goto_0
-
-    :pswitch_4
     const v0, 0x7f09059a
 
     goto :goto_0
 
-    :pswitch_5
-    const v0, 0x7f090599
-
-    goto :goto_0
-
-    :pswitch_6
-    const v0, 0x7f0905a2
-
-    goto :goto_0
-
-    :pswitch_7
-    const v0, 0x7f090595
-
-    goto :goto_0
-
-    :pswitch_8
-    const v0, 0x7f090596
-
-    goto :goto_0
-
-    :pswitch_9
-    const v0, 0x7f090597
-
-    goto :goto_0
-
-    :pswitch_a
-    const v0, 0x7f09059c
-
-    goto :goto_0
-
-    :pswitch_b
+    :pswitch_1
     const v0, 0x7f09059d
 
     goto :goto_0
 
-    :pswitch_c
+    :pswitch_2
     const v0, 0x7f0905a1
 
     goto :goto_0
 
-    :pswitch_d
-    const v0, 0x7f0905a3
-
-    goto :goto_0
-
-    :pswitch_e
-    const v0, 0x7f0905a4
-
-    goto :goto_0
-
-    :pswitch_f
-    const v0, 0x7f0905a5
-
-    goto :goto_0
-
-    :pswitch_10
-    const v0, 0x7f0905a7
-
-    goto :goto_0
-
-    :pswitch_11
+    :pswitch_3
     const v0, 0x7f0905a8
 
     goto :goto_0
 
+    :pswitch_4
+    const v0, 0x7f09059c
+
+    goto :goto_0
+
+    :pswitch_5
+    const v0, 0x7f09059b
+
+    goto :goto_0
+
+    :pswitch_6
+    const v0, 0x7f0905a4
+
+    goto :goto_0
+
+    :pswitch_7
+    const v0, 0x7f090597
+
+    goto :goto_0
+
+    :pswitch_8
+    const v0, 0x7f090598
+
+    goto :goto_0
+
+    :pswitch_9
+    const v0, 0x7f090599
+
+    goto :goto_0
+
+    :pswitch_a
+    const v0, 0x7f09059e
+
+    goto :goto_0
+
+    :pswitch_b
+    const v0, 0x7f09059f
+
+    goto :goto_0
+
+    :pswitch_c
+    const v0, 0x7f0905a3
+
+    goto :goto_0
+
+    :pswitch_d
+    const v0, 0x7f0905a5
+
+    goto :goto_0
+
+    :pswitch_e
+    const v0, 0x7f0905a6
+
+    goto :goto_0
+
+    :pswitch_f
+    const v0, 0x7f0905a7
+
+    goto :goto_0
+
+    :pswitch_10
+    const v0, 0x7f0905a9
+
+    goto :goto_0
+
+    :pswitch_11
+    const v0, 0x7f0905aa
+
+    goto :goto_0
+
     :pswitch_12
-    const v0, 0x7f090593
+    const v0, 0x7f090595
 
     goto :goto_0
 
     :pswitch_13
-    const v0, 0x7f09059e
+    const v0, 0x7f0905a0
 
     goto :goto_0
 

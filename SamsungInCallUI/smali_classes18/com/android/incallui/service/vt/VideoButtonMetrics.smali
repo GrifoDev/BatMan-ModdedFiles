@@ -208,7 +208,7 @@
 
     move/from16 v23, v0
 
-    const v26, 0x7f0a0358
+    const v26, 0x7f0a035a
 
     move-object/from16 v0, p1
 
@@ -231,7 +231,7 @@
 
     iput v0, v1, Lcom/android/incallui/service/vt/VideoButtonMetrics;->width:I
 
-    const v26, 0x7f0a02d9
+    const v26, 0x7f0a02db
 
     move-object/from16 v0, p1
 
@@ -414,7 +414,7 @@
     iput v0, v1, Lcom/android/incallui/service/vt/VideoButtonMetrics;->answer_incoming_area_width:I
 
     :goto_5
-    const v26, 0x7f0a01d8
+    const v26, 0x7f0a01da
 
     move-object/from16 v0, p1
 
@@ -424,7 +424,7 @@
 
     move-result v19
 
-    const v26, 0x7f0a01e1
+    const v26, 0x7f0a01e3
 
     move-object/from16 v0, p1
 
@@ -446,7 +446,7 @@
 
     move/from16 v26, v0
 
-    const v27, 0x7f0d006c
+    const v27, 0x7f0d006e
 
     move-object/from16 v0, p1
 
@@ -466,7 +466,7 @@
 
     move/from16 v26, v0
 
-    const v27, 0x7f0d006d
+    const v27, 0x7f0d006f
 
     move-object/from16 v0, p1
 
@@ -492,7 +492,7 @@
 
     add-int v26, v26, v20
 
-    const v27, 0x7f0a051a
+    const v27, 0x7f0a0523
 
     move-object/from16 v0, p1
 
@@ -643,7 +643,7 @@
     iput v0, v1, Lcom/android/incallui/service/vt/VideoButtonMetrics;->answer_floating_button_bottom_offset:I
 
     :cond_7
-    const v26, 0x7f0d0070
+    const v26, 0x7f0d0072
 
     move-object/from16 v0, p1
 
@@ -653,7 +653,7 @@
 
     move-result v5
 
-    const v26, 0x7f0d0071
+    const v26, 0x7f0d0073
 
     move-object/from16 v0, p1
 
@@ -786,7 +786,7 @@
 
     move/from16 v26, v0
 
-    const v27, 0x7f0d006e
+    const v27, 0x7f0d0070
 
     move-object/from16 v0, p1
 
@@ -806,7 +806,7 @@
 
     move/from16 v26, v0
 
-    const v27, 0x7f0d006f
+    const v27, 0x7f0d0071
 
     move-object/from16 v0, p1
 

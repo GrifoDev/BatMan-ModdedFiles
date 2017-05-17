@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Arrastre ENVIAR MENSAJE hacia arriba para enviar un mensaje rápido y rechazar la llamada.</string>
     <string name="call_drug_up_panel_for_kk_tts">Arrastre la llamada rechazada con un panel de mensajes hacia arriba para enviar un mensaje de rechazo de llamada cuando rechace una llamada entrante.</string>
     <string name="call_ended_toast">Llamada finalizada.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Llamada desviada a:</string>
+    <string name="call_forwarding_from">Llamada desviada desde:</string>
     <string name="call_incoming_voice_call2">Pulse %s para responder una llamada.</string>
     <string name="call_incoming_voice_call2_tts">Pulse el botón de contestar llamada para contestar una llamada.</string>
     <string name="call_incoming_voice_call3">Pulse %s para rechazar.</string>
@@ -526,6 +526,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="outgoing_img_picture">Imágenes</string>
     <string name="outgoing_img_take_picture">Capturar imagen</string>
     <string name="outgoing_img_video">Videos</string>
+    <string name="overlay_warning_toast">Para usar Teléfono, vaya a los ajustes de Teléfono y active la función Aplicaciones que pueden aparecer arriba.</string>
     <string name="payphone_sbm">Teléfono público</string>
     <string name="phoneLabelsGroup">Teléfono</string>
     <string name="phone_voice_recording_failed_by_secure_call">No es posible grabar una llamada segura.</string>
@@ -681,6 +682,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="secOnscreenUpdateContactText">Actualizar</string>
     <string name="secOnscreenUpdateContactText_tts">Actualizar</string>
     <string name="secOnscreenVideoCallText">Videollamada</string>
+    <string name="secOnscreenVideoStopText">Detener</string>
     <string name="secOnscreenViewContactText">Ver contacto</string>
     <string name="secOnscreenVoiceCallText">Llamar</string>
     <string name="secOnscreenVoiceCallTextExtended">Llam. voz</string>

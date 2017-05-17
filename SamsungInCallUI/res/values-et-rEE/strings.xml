@@ -499,6 +499,7 @@ IVR-i kõnekuvamenüü kasutab muu osapoole teenusepakkuja Dianhuabang pakutavat
     <string name="outgoing_img_picture">Pildid</string>
     <string name="outgoing_img_take_picture">Pildista</string>
     <string name="outgoing_img_video">Videod</string>
+    <string name="overlay_warning_toast">Telefoni kasutamiseks peate lülitama sisse funktsiooni Rakendused, mida võidakse kuvada telefoni seadete peal.</string>
     <string name="payphone_sbm">Taksofon</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Turvalist kõnet ei saa salvestada.</string>
@@ -655,6 +656,7 @@ kaamera"</string>
     <string name="secOnscreenUpdateContactText">Uuenda praegune</string>
     <string name="secOnscreenUpdateContactText_tts">Värskenda olemasolevaid</string>
     <string name="secOnscreenVideoCallText">Videokõne</string>
+    <string name="secOnscreenVideoStopText">Lõpeta</string>
     <string name="secOnscreenViewContactText">Kuva kontakt</string>
     <string name="secOnscreenVoiceCallText">Helista</string>
     <string name="secOnscreenVoiceCallTextExtended">Häälkõne</string>

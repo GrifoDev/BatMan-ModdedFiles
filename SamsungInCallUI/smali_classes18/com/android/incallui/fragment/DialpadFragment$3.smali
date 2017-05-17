@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/fragment/DialpadFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+    value = Lcom/android/incallui/fragment/DialpadFragment;->onResume()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

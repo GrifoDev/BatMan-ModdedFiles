@@ -77,7 +77,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f04016d
+    const v3, 0x7f04016f
 
     const/4 v4, 0x0
 

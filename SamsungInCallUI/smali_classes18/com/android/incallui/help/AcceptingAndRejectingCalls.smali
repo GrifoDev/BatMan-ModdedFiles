@@ -549,7 +549,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0264
+    const v4, 0x7f0a0266
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -626,7 +626,7 @@
 
     iput-object v3, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mPhotoContainer:Landroid/view/View;
 
-    const v3, 0x7f100415
+    const v3, 0x7f100414
 
     invoke-virtual {p0, v3}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -653,7 +653,7 @@
     invoke-virtual {v3, v6}, Landroid/widget/Button;->setClickable(Z)V
 
     :cond_1
-    const v3, 0x7f10041e
+    const v3, 0x7f10041d
 
     invoke-virtual {p0, v3}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -768,7 +768,7 @@
 
     iput-object v3, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTabView:Landroid/widget/ImageView;
 
-    const v3, 0x7f10040f
+    const v3, 0x7f10040e
 
     invoke-virtual {p0, v3}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -809,7 +809,7 @@
 
     iput-object v3, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTapReject:Landroid/widget/ImageView;
 
-    const v3, 0x7f10038d
+    const v3, 0x7f10038f
 
     invoke-virtual {p0, v3}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -1402,7 +1402,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0264
+    const v3, 0x7f0a0266
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1425,7 +1425,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0265
+    const v3, 0x7f0a0267
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1448,7 +1448,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a007f
+    const v3, 0x7f0a0081
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1487,7 +1487,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f10038d
+    .packed-switch 0x7f10038f
         :pswitch_0
     .end packed-switch
 .end method

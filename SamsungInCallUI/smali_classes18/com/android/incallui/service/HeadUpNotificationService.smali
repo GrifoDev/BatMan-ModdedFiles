@@ -16,8 +16,6 @@
 
 
 # instance fields
-.field protected mCanSlideOut:Z
-
 .field protected mContext:Landroid/content/Context;
 
 .field protected mDoLaunchFullScreen:Z
@@ -66,10 +64,6 @@
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/incallui/service/HeadUpNotificationService;->mStartId:I
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/incallui/service/HeadUpNotificationService;->mCanSlideOut:Z
 
     new-instance v0, Lcom/android/incallui/service/HeadUpNotificationService$1;
 
@@ -215,15 +209,6 @@
 
     const/4 v8, 0x0
 
-    iget-boolean v5, p0, Lcom/android/incallui/service/HeadUpNotificationService;->mCanSlideOut:Z
-
-    if-nez v5, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     iget-object v5, p0, Lcom/android/incallui/service/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/service/HeadUpNotificationView;
 
     if-eqz v5, :cond_0
@@ -262,7 +247,7 @@
 
     move-result v3
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/incallui/service/HeadUpNotificationService;->getMaxX()I
 
@@ -272,7 +257,7 @@
 
     neg-float v2, v5
 
-    :goto_1
+    :goto_0
     iget-object v5, p0, Lcom/android/incallui/service/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/service/HeadUpNotificationView;
 
     sget-object v6, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
@@ -333,16 +318,17 @@
 
     invoke-static {}, Lcom/android/incallui/util/VoiceCallAppLogging;->popupDuringCall_HideCallPopupBySwipeLeft()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 
-    :cond_2
+    :cond_1
     invoke-virtual {p0}, Lcom/android/incallui/service/HeadUpNotificationService;->getMaxX()I
 
     move-result v5
 
     int-to-float v2, v5
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method private setDefaultPosition()V
@@ -366,7 +352,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a01da
+    const v2, 0x7f0a01dc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -395,7 +381,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04cf
+    const v3, 0x7f0a04d5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

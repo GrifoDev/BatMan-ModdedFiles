@@ -5825,7 +5825,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_12
 
     const-string v5, "com.skt.prod.phone"
 
@@ -5833,8 +5833,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_11
+    if-nez v5, :cond_b
 
+    const-string v5, "com.skt.prod.dialer"
+
+    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasPackage(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_12
+
+    :cond_b
     move v5, v7
 
     :goto_6
@@ -5934,21 +5943,21 @@
 
     move-result v5
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_c
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v5
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_c
 
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v5
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_13
 
-    :cond_b
+    :cond_c
     move v5, v7
 
     :goto_7
@@ -5964,7 +5973,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_d
 
     sget-object v5, Lcom/android/incallui/InCallUIFeature;->mFeatureList:Ljava/util/HashMap;
 
@@ -6012,7 +6021,7 @@
 
     invoke-virtual {v5, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_c
+    :cond_d
     sget-object v5, Lcom/android/incallui/InCallUIFeature;->mFeatureList:Ljava/util/HashMap;
 
     const-string v8, "handle_sip_error_code"
@@ -6033,7 +6042,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_e
 
     sget-object v5, Lcom/android/incallui/InCallUIFeature;->mFeatureList:Ljava/util/HashMap;
 
@@ -6085,7 +6094,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_13
+    if-nez v5, :cond_14
 
     move v5, v7
 
@@ -6096,7 +6105,7 @@
 
     invoke-virtual {v8, v9, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_d
+    :cond_e
     sget-object v5, Lcom/android/incallui/InCallUIFeature;->mFeatureList:Ljava/util/HashMap;
 
     const-string v8, "ims_ps_barring"
@@ -6167,15 +6176,15 @@
 
     move-result v5
 
-    if-nez v5, :cond_e
+    if-nez v5, :cond_f
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_10
 
-    :cond_e
+    :cond_f
     sget-object v5, Lcom/android/incallui/InCallUIFeature;->mFeatureList:Ljava/util/HashMap;
 
     const-string v8, "support_conference_call"
@@ -6186,7 +6195,7 @@
 
     invoke-virtual {v5, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_f
+    :cond_10
     sget-object v5, Lcom/android/incallui/InCallUIFeature;->mFeatureList:Ljava/util/HashMap;
 
     const-string v8, "support_merge_call"
@@ -6233,7 +6242,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_15
 
     const-string v5, "com.android.email"
 
@@ -6241,7 +6250,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_14
+    if-nez v5, :cond_15
 
     const-string v5, "com.google.android.gm"
 
@@ -6249,7 +6258,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_14
+    if-nez v5, :cond_15
 
     move v5, v7
 
@@ -6320,7 +6329,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_16
 
     sget-object v5, Lcom/android/incallui/InCallUIFeature;->opStyleForHDicon:Ljava/lang/String;
 
@@ -6330,7 +6339,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_16
 
     move v5, v7
 
@@ -6429,7 +6438,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_10
+    if-nez v9, :cond_11
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -6441,9 +6450,9 @@
 
     move-result v9
 
-    if-eqz v9, :cond_16
+    if-eqz v9, :cond_17
 
-    :cond_10
+    :cond_11
     :goto_b
     invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -6473,32 +6482,32 @@
 
     goto/16 :goto_5
 
-    :cond_11
+    :cond_12
     move v5, v6
 
     goto/16 :goto_6
 
-    :cond_12
+    :cond_13
     move v5, v6
 
     goto/16 :goto_7
 
-    :cond_13
+    :cond_14
     move v5, v6
 
     goto/16 :goto_8
 
-    :cond_14
+    :cond_15
     move v5, v6
 
     goto/16 :goto_9
 
-    :cond_15
+    :cond_16
     move v5, v6
 
     goto/16 :goto_a
 
-    :cond_16
+    :cond_17
     move v7, v6
 
     goto :goto_b

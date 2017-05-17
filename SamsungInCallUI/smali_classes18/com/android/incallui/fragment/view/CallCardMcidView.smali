@@ -441,7 +441,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a02f7
+    const v9, 0x7f0a02f9
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -453,7 +453,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a02f6
+    const v9, 0x7f0a02f8
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -746,7 +746,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f09020b
+    const v2, 0x7f09020c
 
     const/4 v3, 0x0
 
@@ -756,7 +756,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    const v2, 0x7f09020c
+    const v2, 0x7f09020d
 
     const/4 v3, 0x0
 
@@ -802,7 +802,7 @@
     goto :goto_0
 
     :cond_4
-    const v2, 0x7f09020b
+    const v2, 0x7f09020c
 
     const/4 v3, 0x0
 
@@ -812,7 +812,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    const v2, 0x7f09020c
+    const v2, 0x7f09020d
 
     const/4 v3, 0x0
 
@@ -1032,7 +1032,7 @@
 
     if-eqz v2, :cond_c
 
-    const v2, 0x7f090209
+    const v2, 0x7f09020a
 
     const/4 v3, 0x0
 
@@ -1127,7 +1127,7 @@
     throw v2
 
     :cond_e
-    const v2, 0x7f090209
+    const v2, 0x7f09020a
 
     const/4 v3, 0x0
 
@@ -1174,7 +1174,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f10032e
+    const v3, 0x7f100330
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1210,7 +1210,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a02f8
+    const v3, 0x7f0a02fa
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2123,7 +2123,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f09020a
+    const v7, 0x7f09020b
 
     const/4 v8, 0x0
 
@@ -2165,7 +2165,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f09020a
+    const v7, 0x7f09020b
 
     const/4 v8, 0x0
 

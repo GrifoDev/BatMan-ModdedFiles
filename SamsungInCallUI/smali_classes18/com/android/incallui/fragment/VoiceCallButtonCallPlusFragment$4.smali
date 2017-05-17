@@ -206,7 +206,7 @@
 
     check-cast v9, Landroid/view/LayoutInflater;
 
-    const v19, 0x7f040171
+    const v19, 0x7f040175
 
     const/16 v20, 0x0
 
@@ -218,7 +218,7 @@
 
     move-result-object v12
 
-    const v19, 0x7f100438
+    const v19, 0x7f100437
 
     move/from16 v0, v19
 
@@ -349,7 +349,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0a0422
+    const v20, 0x7f0a0428
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -375,7 +375,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0a041d
+    const v20, 0x7f0a0423
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -399,7 +399,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0a041e
+    const v20, 0x7f0a0424
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -427,7 +427,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0a041e
+    const v20, 0x7f0a0424
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -455,7 +455,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0a0421
+    const v20, 0x7f0a0427
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1397,6 +1397,16 @@
 
     invoke-virtual {v13, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    const-string v19, "speaker_default_value"
+
+    const/16 v20, 0x1
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v20
+
+    invoke-virtual {v13, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
@@ -1514,28 +1524,30 @@
 
     goto/16 :goto_0
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x7f100098 -> :sswitch_a
         0x7f100099 -> :sswitch_9
         0x7f1001ad -> :sswitch_12
-        0x7f100323 -> :sswitch_5
-        0x7f100370 -> :sswitch_4
-        0x7f10038d -> :sswitch_b
-        0x7f10038e -> :sswitch_8
-        0x7f10038f -> :sswitch_7
-        0x7f1003b1 -> :sswitch_3
-        0x7f100411 -> :sswitch_13
-        0x7f100413 -> :sswitch_14
-        0x7f10041b -> :sswitch_2
-        0x7f10041e -> :sswitch_6
-        0x7f10042a -> :sswitch_1
-        0x7f10042c -> :sswitch_0
-        0x7f100430 -> :sswitch_c
-        0x7f100432 -> :sswitch_d
-        0x7f100433 -> :sswitch_e
-        0x7f100435 -> :sswitch_f
-        0x7f100436 -> :sswitch_10
-        0x7f100437 -> :sswitch_11
+        0x7f100325 -> :sswitch_5
+        0x7f100372 -> :sswitch_4
+        0x7f10038f -> :sswitch_b
+        0x7f100390 -> :sswitch_8
+        0x7f100391 -> :sswitch_7
+        0x7f1003b0 -> :sswitch_3
+        0x7f100410 -> :sswitch_13
+        0x7f100412 -> :sswitch_14
+        0x7f10041a -> :sswitch_2
+        0x7f10041d -> :sswitch_6
+        0x7f100429 -> :sswitch_1
+        0x7f10042b -> :sswitch_0
+        0x7f10042f -> :sswitch_c
+        0x7f100431 -> :sswitch_d
+        0x7f100432 -> :sswitch_e
+        0x7f100434 -> :sswitch_f
+        0x7f100435 -> :sswitch_10
+        0x7f100436 -> :sswitch_11
     .end sparse-switch
 .end method

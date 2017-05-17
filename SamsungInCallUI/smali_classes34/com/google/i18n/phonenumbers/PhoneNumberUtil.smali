@@ -1721,7 +1721,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_4
+    if-ltz v2, :cond_4
 
     const-string v6, ";phone-context="
 
@@ -1730,6 +1730,14 @@
     move-result v6
 
     add-int v5, v2, v6
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v6
+
+    add-int/lit8 v6, v6, -0x1
+
+    if-ge v5, v6, :cond_0
 
     invoke-virtual {p1, v5}, Ljava/lang/String;->charAt(I)C
 
@@ -4281,7 +4289,7 @@
 
     if-eqz v8, :cond_6
 
-    sget-object v8, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->IS_POSSIBLE:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
+    sget-object v8, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->IS_POSSIBLE_LOCAL_ONLY:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
     goto :goto_1
 
@@ -4358,7 +4366,7 @@
     goto/16 :goto_1
 
     :cond_a
-    sget-object v8, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->TOO_LONG:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
+    sget-object v8, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->INVALID_LENGTH:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
     goto/16 :goto_1
 .end method
@@ -8181,15 +8189,20 @@
 
     sget-object v1, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->IS_POSSIBLE:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_0
 
-    const/4 v0, 0x1
+    sget-object v1, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->IS_POSSIBLE_LOCAL_ONLY:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
-    :goto_0
-    return v0
+    if-ne v0, v1, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -8228,15 +8241,20 @@
 
     sget-object v1, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->IS_POSSIBLE:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_0
 
-    const/4 v0, 0x1
+    sget-object v1, Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->IS_POSSIBLE_LOCAL_ONLY:Lcom/google/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
-    :goto_0
-    return v0
+    if-ne v0, v1, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method

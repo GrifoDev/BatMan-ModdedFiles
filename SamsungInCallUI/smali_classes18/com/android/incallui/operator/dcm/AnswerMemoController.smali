@@ -176,45 +176,28 @@
     goto :goto_0
 .end method
 
-.method public clearAMView()V
-    .locals 4
-
-    const-string v2, "AnswerMemoController"
-
-    const-string v3, "clearAMView"
-
-    invoke-static {v2, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+.method public cleanUp()V
+    .locals 1
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Lcom/android/incallui/InCallPresenter;->getCallPopupService()Lcom/android/incallui/service/SecCallPopupService;
+    invoke-virtual {v0, p0}, Lcom/android/incallui/InCallPresenter;->removeListener(Lcom/android/incallui/InCallPresenter$InCallStateListener;)V
 
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Lcom/android/incallui/service/SecCallPopupService;->clearAmViews()V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/incallui/UiAdapter;->getCallCardUi()Lcom/android/incallui/CallCardUi;
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0, p0}, Lcom/android/incallui/InCallPresenter;->removeIncomingCallListener(Lcom/android/incallui/InCallPresenter$IncomingCallListener;)V
 
-    invoke-interface {v0}, Lcom/android/incallui/CallCardUi;->clearAMView()V
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    goto :goto_0
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/android/incallui/CallList;->removeListener(Lcom/android/incallui/CallList$Listener;)V
+
+    return-void
 .end method
 
 .method public getRecorderManager()Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
@@ -226,181 +209,230 @@
 .end method
 
 .method public handleUserEvent(I)Z
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const-string v3, "AnswerMemoController"
+    const-string v4, "AnswerMemoController"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "handleUserEvent : event_id = "
+    const-string v6, "handleUserEvent : event_id = "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     packed-switch p1, :pswitch_data_0
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     :cond_0
     :goto_0
-    return v2
+    return v3
 
     :pswitch_0
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_1
 
     invoke-virtual {p0}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->resetAutoAnsTimer()V
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     goto :goto_0
 
     :cond_1
-    const-string v3, "AnswerMemoController"
+    const-string v4, "AnswerMemoController"
 
-    const-string v4, "CALL_ACCEPT"
+    const-string v5, "CALL_ACCEPT"
 
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->stopAnswerMemo()V
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getCallPopupService()Lcom/android/incallui/service/SecCallPopupService;
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getCallPopupService()Lcom/android/incallui/service/SecCallPopupService;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->sendMsgCallListChange()V
+    if-nez v4, :cond_0
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->getCallButtonUi()Lcom/android/incallui/CallButtonUi;
+    invoke-virtual {v4}, Lcom/android/incallui/UiAdapter;->getCallCardUi()Lcom/android/incallui/CallCardUi;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    const/4 v4, 0x3
+
+    invoke-interface {v2, v4}, Lcom/android/incallui/CallCardUi;->changeCallCardForAM(I)V
+
+    invoke-interface {v2, v7}, Lcom/android/incallui/CallCardUi;->showMenu(Z)V
+
+    invoke-interface {v2}, Lcom/android/incallui/CallCardUi;->showModifySwitchButtonAM()V
+
+    :cond_2
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    invoke-interface {v0, v6}, Lcom/android/incallui/CallButtonUi;->setCallButtonContainerVisibility(Z)V
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->updateKeepScreenOnFlag()V
 
-    :cond_2
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->updateGradientBackground()V
+
+    :cond_3
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->getCallCardUi()Lcom/android/incallui/CallCardUi;
+    invoke-virtual {v4}, Lcom/android/incallui/UiAdapter;->getCallButtonUi()Lcom/android/incallui/CallButtonUi;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    const/4 v3, 0x3
+    invoke-interface {v1, v7}, Lcom/android/incallui/CallButtonUi;->setVisible(Z)V
 
-    invoke-interface {v1, v3}, Lcom/android/incallui/CallCardUi;->changeCallCardForAM(I)V
+    invoke-interface {v1, v7}, Lcom/android/incallui/CallButtonUi;->setCallButtonContainerVisibility(Z)V
 
-    invoke-interface {v1}, Lcom/android/incallui/CallCardUi;->clearAMView()V
-
-    invoke-interface {v1, v6}, Lcom/android/incallui/CallCardUi;->showMenu(Z)V
-
-    invoke-interface {v1}, Lcom/android/incallui/CallCardUi;->showModifySwitchButtonAM()V
-
-    :cond_3
+    :cond_4
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getRecorderMgr()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getRecorderMgr()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_5
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getRecorderMgr()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getRecorderMgr()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->onRecorderStateChanged()V
+    invoke-virtual {v4}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->onRecorderStateChanged()V
 
-    goto :goto_0
+    :cond_5
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_6
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/UiAdapter;->getCallButtonPresenter()Lcom/android/incallui/CallButtonPresenter;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_6
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/UiAdapter;->getCallButtonPresenter()Lcom/android/incallui/CallButtonPresenter;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/incallui/InCallPresenter$InCallState;->INCALL:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    sget-object v6, Lcom/android/incallui/InCallPresenter$InCallState;->INCALL:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v5, v6, v7}, Lcom/android/incallui/CallButtonPresenter;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
+
+    :cond_6
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->sendMsgCallListChange()V
+
+    goto/16 :goto_0
 
     :pswitch_1
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_4
+    if-nez v4, :cond_7
 
     invoke-virtual {p0}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->resetAutoAnsTimer()V
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_4
-    const-string v3, "AnswerMemoController"
+    :cond_7
+    const-string v4, "AnswerMemoController"
 
-    const-string v4, "CALL_REJECT"
+    const-string v5, "CALL_REJECT"
 
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->stopAnswerMemo()V
 
-    invoke-virtual {p0}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->clearAMView()V
-
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getCallPopupService()Lcom/android/incallui/service/SecCallPopupService;
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getCallPopupService()Lcom/android/incallui/service/SecCallPopupService;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->getCallButtonUi()Lcom/android/incallui/CallButtonUi;
+    invoke-virtual {v4}, Lcom/android/incallui/UiAdapter;->getCallButtonUi()Lcom/android/incallui/CallButtonUi;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v0}, Lcom/android/incallui/CallButtonUi;->aMEndButtonClick()V
+    invoke-interface {v1}, Lcom/android/incallui/CallButtonUi;->aMEndButtonClick()V
 
     goto/16 :goto_0
 
@@ -425,6 +457,8 @@
     const-string v1, "onDisconnect"
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->resetAutoAnsTimer()V
 
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
 
@@ -585,23 +619,23 @@
     return-void
 
     :cond_1
-    sget-object v0, Lcom/android/incallui/InCallPresenter$InCallState;->INCOMING:Lcom/android/incallui/InCallPresenter$InCallState;
-
-    if-ne p1, v0, :cond_0
-
     sget-object v0, Lcom/android/incallui/InCallPresenter$InCallState;->INCALL:Lcom/android/incallui/InCallPresenter$InCallState;
 
     if-ne p2, v0, :cond_0
 
-    const/4 v0, 0x0
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnsweringMode()Z
 
-    invoke-virtual {p0, v0}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->setAMView(Z)V
+    move-result v0
+
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
     invoke-static {v0}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->setAutoAnsweringMode(Z)V
 
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->playGuidance()V
+
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->setAMView()V
 
     goto :goto_0
 .end method
@@ -625,23 +659,9 @@
     return-void
 
     :cond_0
-    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isGuidancePlaying()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x1
-
-    :goto_1
-    invoke-virtual {p0, v0}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->setAMView(Z)V
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->setAMView()V
 
     goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_1
 .end method
 
 .method public onUpgradeToVideo(Lcom/android/incallui/Call;)V
@@ -681,88 +701,6 @@
 
     :cond_0
     return-void
-.end method
-
-.method public setAMView(Z)V
-    .locals 6
-
-    const-string v3, "AnswerMemoController"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "setAMView : isRecording = "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getCallPopupService()Lcom/android/incallui/service/SecCallPopupService;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v2, p1}, Lcom/android/incallui/service/SecCallPopupService;->setAMView(Z)V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->getCallCardUi()Lcom/android/incallui/CallCardUi;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    invoke-interface {v1, p1}, Lcom/android/incallui/CallCardUi;->setAMView(Z)V
-
-    :cond_2
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->getAnswerUi()Lcom/android/incallui/AnswerUi;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    const-string v3, "AnswerMemoController"
-
-    const-string v4, "showAnswerUi"
-
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v3, 0x1
-
-    invoke-interface {v0, v3}, Lcom/android/incallui/AnswerUi;->showAnswerUi(Z)V
-
-    const/4 v3, 0x0
-
-    invoke-interface {v0, v3}, Lcom/android/incallui/AnswerUi;->showRejectCallWithMessage(Z)V
-
-    goto :goto_0
 .end method
 
 .method public setRecorderManager(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)V

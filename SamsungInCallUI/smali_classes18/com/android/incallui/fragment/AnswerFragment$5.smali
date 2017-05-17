@@ -39,6 +39,10 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$5;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
+    invoke-virtual {v0}, Lcom/android/incallui/fragment/AnswerFragment;->onCancelWaitingCallPopup()V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$5;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
+
     invoke-virtual {v0}, Lcom/android/incallui/fragment/AnswerFragment;->dismissWaitingCallPopup()V
 
     const-string v0, "calling enableButtonAnswerAsShowOrHide"

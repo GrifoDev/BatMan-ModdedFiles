@@ -1887,7 +1887,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090298
+    const v2, 0x7f090299
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1903,7 +1903,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090294
+    const v2, 0x7f090295
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1980,7 +1980,7 @@
 
     if-eqz v1, :cond_0
 
-    const v3, 0x7f090588
+    const v3, 0x7f09058a
 
     const/4 v4, 0x1
 
@@ -3271,7 +3271,7 @@
     :cond_15
     const/4 v0, 0x1
 
-    const v2, 0x7f100490
+    const v2, 0x7f10048f
 
     iput v2, p0, Lcom/android/incallui/InCallMenu;->mUniqueMenuId:I
 
@@ -3379,7 +3379,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f100490
+    .packed-switch 0x7f10048f
         :pswitch_0
     .end packed-switch
 .end method
@@ -3719,21 +3719,21 @@
     .sparse-switch
         0x7f100098 -> :sswitch_0
         0x7f10009a -> :sswitch_3
-        0x7f100370 -> :sswitch_4
-        0x7f1003b1 -> :sswitch_2
-        0x7f10048f -> :sswitch_c
-        0x7f100490 -> :sswitch_d
-        0x7f100491 -> :sswitch_e
+        0x7f100372 -> :sswitch_4
+        0x7f1003b0 -> :sswitch_2
+        0x7f10048e -> :sswitch_c
+        0x7f10048f -> :sswitch_d
+        0x7f100490 -> :sswitch_e
+        0x7f100491 -> :sswitch_5
         0x7f100492 -> :sswitch_5
-        0x7f100493 -> :sswitch_5
-        0x7f100494 -> :sswitch_6
-        0x7f100495 -> :sswitch_7
-        0x7f100496 -> :sswitch_8
-        0x7f100497 -> :sswitch_9
-        0x7f100499 -> :sswitch_a
+        0x7f100493 -> :sswitch_6
+        0x7f100494 -> :sswitch_7
+        0x7f100495 -> :sswitch_8
+        0x7f100496 -> :sswitch_9
+        0x7f100498 -> :sswitch_a
+        0x7f100499 -> :sswitch_b
         0x7f10049a -> :sswitch_b
-        0x7f10049b -> :sswitch_b
-        0x7f10049c -> :sswitch_1
+        0x7f10049b -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -3789,7 +3789,7 @@
 
     move-result-object v15
 
-    const v21, 0x7f10049c
+    const v21, 0x7f10049b
 
     move-object/from16 v0, p1
 
@@ -3841,7 +3841,7 @@
     goto :goto_1
 
     :sswitch_1
-    const v21, 0x7f1003b1
+    const v21, 0x7f1003b0
 
     move-object/from16 v0, p1
 
@@ -3875,7 +3875,7 @@
     goto :goto_2
 
     :sswitch_3
-    const v21, 0x7f100370
+    const v21, 0x7f100372
 
     move-object/from16 v0, p1
 
@@ -3894,7 +3894,7 @@
     goto :goto_2
 
     :sswitch_4
-    const v21, 0x7f100492
+    const v21, 0x7f100491
 
     move-object/from16 v0, p1
 
@@ -3904,7 +3904,7 @@
 
     move-result-object v11
 
-    const v21, 0x7f100493
+    const v21, 0x7f100492
 
     move-object/from16 v0, p1
 
@@ -3921,7 +3921,7 @@
     goto :goto_2
 
     :sswitch_5
-    const v21, 0x7f100494
+    const v21, 0x7f100493
 
     move-object/from16 v0, p1
 
@@ -3940,7 +3940,7 @@
     goto :goto_2
 
     :sswitch_6
-    const v21, 0x7f100495
+    const v21, 0x7f100494
 
     move-object/from16 v0, p1
 
@@ -3957,7 +3957,7 @@
     goto :goto_2
 
     :sswitch_7
-    const v21, 0x7f100496
+    const v21, 0x7f100495
 
     move-object/from16 v0, p1
 
@@ -3976,7 +3976,7 @@
     goto/16 :goto_2
 
     :sswitch_8
-    const v21, 0x7f100497
+    const v21, 0x7f100496
 
     move-object/from16 v0, p1
 
@@ -3994,7 +3994,7 @@
 
     if-eqz v21, :cond_2
 
-    const v21, 0x7f090265
+    const v21, 0x7f090266
 
     move/from16 v0, v21
 
@@ -4008,7 +4008,7 @@
     goto/16 :goto_2
 
     :sswitch_9
-    const v21, 0x7f100499
+    const v21, 0x7f100498
 
     move-object/from16 v0, p1
 
@@ -4112,7 +4112,7 @@
     goto/16 :goto_2
 
     :sswitch_a
-    const v21, 0x7f10049a
+    const v21, 0x7f100499
 
     move-object/from16 v0, p1
 
@@ -4122,7 +4122,7 @@
 
     move-result-object v7
 
-    const v21, 0x7f10049b
+    const v21, 0x7f10049a
 
     move-object/from16 v0, p1
 
@@ -4139,7 +4139,7 @@
     goto/16 :goto_2
 
     :sswitch_b
-    const v21, 0x7f10048f
+    const v21, 0x7f10048e
 
     move-object/from16 v0, p1
 
@@ -4156,7 +4156,7 @@
     goto/16 :goto_2
 
     :sswitch_c
-    const v21, 0x7f100490
+    const v21, 0x7f10048f
 
     move-object/from16 v0, p1
 
@@ -4183,7 +4183,7 @@
     goto/16 :goto_2
 
     :sswitch_d
-    const v21, 0x7f100491
+    const v21, 0x7f100490
 
     move-object/from16 v0, p1
 
@@ -4207,20 +4207,20 @@
     :sswitch_data_0
     .sparse-switch
         0x7f10009a -> :sswitch_2
-        0x7f100370 -> :sswitch_3
-        0x7f1003b1 -> :sswitch_1
-        0x7f10048f -> :sswitch_b
-        0x7f100490 -> :sswitch_c
-        0x7f100491 -> :sswitch_d
-        0x7f100492 -> :sswitch_0
-        0x7f100493 -> :sswitch_4
-        0x7f100494 -> :sswitch_5
-        0x7f100495 -> :sswitch_6
-        0x7f100496 -> :sswitch_7
-        0x7f100497 -> :sswitch_8
-        0x7f100499 -> :sswitch_9
-        0x7f10049a -> :sswitch_0
-        0x7f10049b -> :sswitch_a
+        0x7f100372 -> :sswitch_3
+        0x7f1003b0 -> :sswitch_1
+        0x7f10048e -> :sswitch_b
+        0x7f10048f -> :sswitch_c
+        0x7f100490 -> :sswitch_d
+        0x7f100491 -> :sswitch_0
+        0x7f100492 -> :sswitch_4
+        0x7f100493 -> :sswitch_5
+        0x7f100494 -> :sswitch_6
+        0x7f100495 -> :sswitch_7
+        0x7f100496 -> :sswitch_8
+        0x7f100498 -> :sswitch_9
+        0x7f100499 -> :sswitch_0
+        0x7f10049a -> :sswitch_a
     .end sparse-switch
 .end method
 

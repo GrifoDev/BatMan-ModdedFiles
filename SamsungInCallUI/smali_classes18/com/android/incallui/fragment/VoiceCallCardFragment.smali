@@ -631,7 +631,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01ea
+    const v7, 0x7f0a01ec
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -641,7 +641,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a007d
+    const v8, 0x7f0a007f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -653,7 +653,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a04d4
+    const v8, 0x7f0a04da
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1024,122 +1024,138 @@
 .end method
 
 .method private animateForMoveInfo()V
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    iget-boolean v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsMoveInfoAnimationRunning:Z
+    iget-boolean v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsMoveInfoAnimationRunning:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    const-string v2, "VoiceCallCardFragment"
+    const-string v3, "VoiceCallCardFragment"
 
-    const-string v3, "animateForMoveInfo: already running"
+    const-string v4, "animateForMoveInfo: already running"
 
-    invoke-static {v2, v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
 
-    invoke-virtual {v2}, Landroid/view/ViewGroup;->getHeight()I
+    invoke-virtual {v3}, Landroid/view/ViewGroup;->getHeight()I
 
-    move-result v1
+    move-result v2
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfoBannerContainer:Landroid/view/View;
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfoBannerContainer:Landroid/view/View;
 
-    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
 
     move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
     if-nez v0, :cond_1
 
-    const-string v2, "VoiceCallCardFragment"
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
 
-    const-string v3, "start and end height is zero"
+    invoke-virtual {v3}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    invoke-static {v2, v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v3, -0x1
+
+    iput v3, v1, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+
+    invoke-virtual {v3, v1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    const-string v3, "VoiceCallCardFragment"
+
+    const-string v4, "start and end height is zero"
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     goto :goto_0
 
     :cond_1
-    iput-boolean v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsMoveInfoAnimationRunning:Z
+    iput-boolean v5, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsMoveInfoAnimationRunning:Z
 
-    const-string v2, "VoiceCallCardFragment"
+    const-string v3, "VoiceCallCardFragment"
 
-    const-string v3, "animateForMoveInfo"
+    const-string v4, "animateForMoveInfo"
 
-    invoke-static {v2, v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    new-array v2, v2, [I
+    new-array v3, v3, [I
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    aput v1, v2, v3
+    aput v2, v3, v4
 
-    aput v0, v2, v4
+    aput v0, v3, v5
 
-    invoke-static {v2}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
-
-    new-instance v3, Lcom/android/incallui/fragment/VoiceCallCardFragment$5;
-
-    invoke-direct {v3, p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment$5;-><init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
-
-    invoke-virtual {v2, v3}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
-
-    new-instance v3, Lcom/android/incallui/fragment/VoiceCallCardFragment$6;
-
-    invoke-direct {v3, p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment$6;-><init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
-
-    invoke-virtual {v2, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getResources()Landroid/content/res/Resources;
+    invoke-static {v3}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
 
     move-result-object v3
 
-    const v4, 0x7f0d001b
+    iput-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
 
-    move-result v3
+    new-instance v4, Lcom/android/incallui/fragment/VoiceCallCardFragment$5;
 
-    int-to-long v4, v3
+    invoke-direct {v4, p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment$5;-><init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
 
-    invoke-virtual {v2, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {v3, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v3, Landroid/view/animation/PathInterpolator;
+    new-instance v4, Lcom/android/incallui/fragment/VoiceCallCardFragment$6;
 
-    const v4, 0x3ea8f5c3    # 0.33f
+    invoke-direct {v4, p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment$6;-><init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
 
-    const/high16 v5, 0x3f800000    # 1.0f
+    invoke-virtual {v3, v4}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-direct {v3, v4, v6, v6, v5}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {v2, v3}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getResources()Landroid/content/res/Resources;
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
+    move-result-object v4
 
-    invoke-virtual {v2}, Landroid/animation/ValueAnimator;->start()V
+    const v5, 0x7f0d001b
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v4
+
+    int-to-long v4, v4
+
+    invoke-virtual {v3, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
+
+    new-instance v4, Landroid/view/animation/PathInterpolator;
+
+    const v5, 0x3ea8f5c3    # 0.33f
+
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    invoke-direct {v4, v5, v7, v7, v6}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+
+    invoke-virtual {v3, v4}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMoveInfoAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v3}, Landroid/animation/ValueAnimator;->start()V
 
     goto :goto_0
 .end method
@@ -1420,14 +1436,14 @@
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_4
+    if-eqz p5, :cond_5
 
     move v3, v4
 
     :goto_1
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
-    if-nez p6, :cond_5
+    if-nez p6, :cond_6
 
     move v2, v4
 
@@ -1436,11 +1452,18 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-nez v6, :cond_3
 
-    const/4 p1, 0x4
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
 
     :cond_3
+    const/4 p1, 0x4
+
+    :cond_4
     packed-switch p1, :pswitch_data_0
 
     :pswitch_1
@@ -1468,27 +1491,27 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     move v3, v5
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     move v2, v5
 
     goto :goto_2
 
     :pswitch_2
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     move-object v0, p5
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     const/4 v6, 0x2
 
-    if-ne p3, v6, :cond_7
+    if-ne p3, v6, :cond_8
 
     const v4, 0x7f090024
 
@@ -1498,8 +1521,8 @@
 
     goto :goto_0
 
-    :cond_7
-    if-ne p3, v4, :cond_8
+    :cond_8
+    if-ne p3, v4, :cond_9
 
     const v4, 0x7f090025
 
@@ -1509,7 +1532,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_9
     invoke-static {}, Lcom/android/incallui/util/VoWifiStateTracker;->getInstance()Lcom/android/incallui/util/VoWifiStateTracker;
 
     move-result-object v6
@@ -1520,7 +1543,7 @@
 
     if-eqz v6, :cond_1
 
-    const v6, 0x7f09046e
+    const v6, 0x7f090470
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -1533,7 +1556,7 @@
     goto :goto_0
 
     :pswitch_3
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_a
 
     const v6, 0x7f090017
 
@@ -1545,20 +1568,20 @@
 
     move-result-object v0
 
-    :cond_9
+    :cond_a
     const-string v6, "spr_display_hd_icon"
 
     invoke-static {v6}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b
 
     const-string v0, ""
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     invoke-static {}, Lcom/android/incallui/util/VoWifiStateTracker;->getInstance()Lcom/android/incallui/util/VoWifiStateTracker;
 
     move-result-object v6
@@ -1567,9 +1590,9 @@
 
     move-result v6
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_c
 
-    const v6, 0x7f09046f
+    const v6, 0x7f090471
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -1581,7 +1604,7 @@
 
     goto/16 :goto_0
 
-    :cond_b
+    :cond_c
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->getCallCardDialingString()Ljava/lang/String;
 
     move-result-object v0
@@ -1607,13 +1630,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
     const-string v0, ""
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_d
     const v4, 0x7f090022
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -1623,7 +1646,7 @@
     goto/16 :goto_0
 
     :pswitch_5
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_e
 
     const v6, 0x7f090038
 
@@ -1637,7 +1660,7 @@
 
     goto/16 :goto_0
 
-    :cond_d
+    :cond_e
     invoke-direct {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isFromPopupForAnswer()Z
 
     move-result v4
@@ -1665,7 +1688,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_f
 
     const v6, 0x7f0900ce
 
@@ -1679,7 +1702,7 @@
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_f
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
@@ -1702,8 +1725,6 @@
     move-result-object v0
 
     goto/16 :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x2
@@ -1847,7 +1868,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01da
+    const v7, 0x7f0a01dc
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1859,7 +1880,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0108
+    const v7, 0x7f0a010a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1871,7 +1892,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a01d8
+    const v7, 0x7f0a01da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1883,7 +1904,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0078
+    const v7, 0x7f0a007a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1901,7 +1922,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a026c
+    const v7, 0x7f0a026e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1913,7 +1934,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a026b
+    const v7, 0x7f0a026d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1925,7 +1946,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a026a
+    const v7, 0x7f0a026c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2499,12 +2520,12 @@
     goto :goto_0
 .end method
 
-.method private relayoutCallInfoContainer(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
-    .locals 10
+.method private relayoutCallInfoContainer(ILcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+    .locals 9
 
-    const/16 v9, 0xc
+    const/16 v8, 0xc
 
-    const/16 v8, 0xd
+    const/16 v6, 0xd
 
     const/4 v7, -0x1
 
@@ -2520,29 +2541,21 @@
 
     check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
 
-    invoke-virtual {v0, v8}, Landroid/widget/RelativeLayout$LayoutParams;->removeRule(I)V
+    invoke-virtual {v0, v6}, Landroid/widget/RelativeLayout$LayoutParams;->removeRule(I)V
 
-    invoke-virtual {v0, v9}, Landroid/widget/RelativeLayout$LayoutParams;->removeRule(I)V
+    invoke-virtual {v0, v8}, Landroid/widget/RelativeLayout$LayoutParams;->removeRule(I)V
 
     const/16 v5, 0xa
 
     invoke-virtual {v0, v5}, Landroid/widget/RelativeLayout$LayoutParams;->removeRule(I)V
 
-    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
+    const/4 v5, 0x4
 
-    move-result v5
+    if-eq p1, v5, :cond_0
 
-    const/4 v6, 0x4
+    const/4 v5, 0x5
 
-    if-eq v5, v6, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v5
-
-    const/4 v6, 0x5
-
-    if-ne v5, v6, :cond_3
+    if-ne p1, v5, :cond_3
 
     :cond_0
     invoke-direct {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isFromPopupForAnswer()Z
@@ -2582,7 +2595,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0522
+    const v6, 0x7f0a052b
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2590,7 +2603,7 @@
 
     float-to-int v1, v5
 
-    invoke-virtual {v0, v9, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
+    invoke-virtual {v0, v8, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
     :goto_1
     iget-object v5, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mTwoPhoneView:Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;
@@ -2609,7 +2622,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a02ae
+    const v6, 0x7f0a02b0
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2638,7 +2651,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0325
+    const v6, 0x7f0a0327
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2665,12 +2678,12 @@
     goto :goto_0
 
     :cond_4
-    invoke-virtual {v0, v8, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
+    invoke-virtual {v0, v6, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
     goto :goto_1
 
     :cond_5
-    invoke-virtual {v0, v8, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
+    invoke-virtual {v0, v6, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
     goto :goto_1
 .end method
@@ -2767,7 +2780,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a01f6
+    const v10, 0x7f0a01f8
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2801,7 +2814,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a026f
+    const v10, 0x7f0a0271
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2850,7 +2863,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a0266
+    const v12, 0x7f0a0268
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2866,7 +2879,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a0266
+    const v12, 0x7f0a0268
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2878,7 +2891,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a0309
+    const v10, 0x7f0a030b
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2954,7 +2967,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a0087
+    const v10, 0x7f0a0089
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2981,7 +2994,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a01f6
+    const v10, 0x7f0a01f8
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3025,7 +3038,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0a057e
+    const v11, 0x7f0a0588
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3040,7 +3053,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a0082
+    const v10, 0x7f0a0084
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3276,7 +3289,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0073
+    const v9, 0x7f0a0075
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3303,7 +3316,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0078
+    const v9, 0x7f0a007a
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3315,7 +3328,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0108
+    const v9, 0x7f0a010a
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3339,7 +3352,11 @@
 
     move-result v8
 
-    if-nez v8, :cond_5
+    if-eqz v8, :cond_4
+
+    sget-boolean v8, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-eqz v8, :cond_5
 
     :cond_4
     iget-object v8, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -3567,7 +3584,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0322
+    const v2, 0x7f0a0324
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3714,7 +3731,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0155
+    const v3, 0x7f0f0156
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3906,11 +3923,11 @@
 .method private showEndCallContactBtn()V
     .locals 9
 
-    const v8, 0x7f0902a0
+    const v8, 0x7f0902a2
 
     const/4 v7, 0x0
 
-    const v6, 0x7f090254
+    const v6, 0x7f090255
 
     const/16 v5, 0x8
 
@@ -4467,7 +4484,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a01ea
+    const v6, 0x7f0a01ec
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4477,7 +4494,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a007d
+    const v7, 0x7f0a007f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4489,7 +4506,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a04d4
+    const v7, 0x7f0a04da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4638,7 +4655,7 @@
 .method private updateBelowButtonMargin(Z)V
     .locals 5
 
-    const v4, 0x7f0a007d
+    const v4, 0x7f0a007f
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mBelowButtonLayout:Landroid/view/View;
 
@@ -4648,7 +4665,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a045f
+    const v3, 0x7f0a0465
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4725,7 +4742,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a007e
+    const v3, 0x7f0a0080
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4792,42 +4809,59 @@
     iput-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mLastestCallTime:Ljava/lang/String;
 
     :cond_1
+    const-string v0, "automatic_answering_machine"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 p1, 0x4
+
+    :cond_2
     iput-object p2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mLastestCallStateLabel:Ljava/lang/CharSequence;
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->manageCallEndTimeBlink(I)V
 
     const/16 v0, 0xa
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_3
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->removeMessageForBlinkTime()V
 
-    :cond_2
+    :cond_3
     const/16 v0, 0x9
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_4
 
     iget v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOldCallState:I
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_6
 
     iput-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mLastestCallTime:Ljava/lang/String;
 
-    :cond_3
+    :cond_4
     :goto_1
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_9
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isBlinkForEndCall(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     const-string v0, "VoiceCallCardFragment"
 
@@ -4836,7 +4870,7 @@
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_2
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_5
 
     const-string v0, "feature_multisim"
 
@@ -4844,21 +4878,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    :cond_4
+    :cond_5
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallStateIcon:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     iget-object p2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mLastestCallTime:Ljava/lang/String;
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -4873,7 +4907,7 @@
 
     goto :goto_2
 
-    :cond_7
+    :cond_8
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallStateIcon:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -4888,14 +4922,14 @@
 
     invoke-virtual {v0, p3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_8
+    :cond_9
     invoke-virtual {p0, p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isBlinkForEndCall(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     const-string v0, "VoiceCallCardFragment"
 
@@ -4916,7 +4950,7 @@
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -5028,6 +5062,23 @@
     goto :goto_0
 
     :cond_5
+    const-string v4, "automatic_answering_machine"
+
+    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    const/4 p1, 0x4
+
+    :cond_6
     const/4 v2, -0x1
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
@@ -5040,11 +5091,11 @@
 
     const/4 v4, 0x4
 
-    if-eq p1, v4, :cond_6
+    if-eq p1, v4, :cond_7
 
     const/4 v4, 0x5
 
-    if-eq p1, v4, :cond_6
+    if-eq p1, v4, :cond_7
 
     invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCall()Z
 
@@ -5052,7 +5103,7 @@
 
     if-eqz v4, :cond_a
 
-    :cond_6
+    :cond_7
     invoke-direct {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isFromPopupForAnswer()Z
 
     move-result v4
@@ -5071,45 +5122,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
+
+    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-nez v4, :cond_8
 
     iget v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mDisplayHeight:I
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_8
 
     iget v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mDisplayHeight:I
 
     div-int/lit8 v2, v4, 0x2
 
-    :cond_7
-    :goto_1
-    const-string v4, "automatic_answering_machine"
-
-    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_8
-
-    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_8
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x7f0a0004
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v4
-
-    float-to-int v2, v4
-
     :cond_8
+    :goto_1
     if-gtz v2, :cond_9
 
     const/4 v4, -0x1
@@ -5150,6 +5178,12 @@
 
     if-ne p1, v7, :cond_d
 
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnsweringMode()Z
+
+    move-result v4
+
+    if-nez v4, :cond_d
+
     invoke-direct {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->animateForMoveInfo()V
 
     goto/16 :goto_0
@@ -5157,7 +5191,7 @@
     :cond_d
     if-eq p1, v8, :cond_e
 
-    if-ne p1, v5, :cond_7
+    if-ne p1, v5, :cond_8
 
     :cond_e
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
@@ -5168,17 +5202,22 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-eqz v4, :cond_f
 
+    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-eqz v4, :cond_8
+
+    :cond_f
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_8
 
     iget v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mDisplayHeight:I
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_8
 
     iget v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mDisplayHeight:I
 
@@ -5196,13 +5235,13 @@
 
     check-cast v0, Lcom/android/incallui/InCallActivity;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallButtonFragment()Lcom/android/incallui/CallButtonUi;
 
     move-result-object v4
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_10
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallButtonFragment()Lcom/android/incallui/CallButtonUi;
 
@@ -5214,7 +5253,7 @@
 
     add-int/2addr v1, v4
 
-    :cond_f
+    :cond_10
     move v2, v1
 
     goto :goto_1
@@ -5324,7 +5363,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0154
+    const v4, 0x7f0f0155
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5732,17 +5771,17 @@
 .end method
 
 .method public arrangePrimaryLayout()V
-    .locals 6
+    .locals 7
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v3
-
-    const/4 v4, 0x0
+    move-result-object v4
 
     const/4 v5, 0x0
 
-    invoke-static {v3, v4, v5}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    const/4 v6, 0x0
+
+    invoke-static {v4, v5, v6}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v1
 
@@ -5750,153 +5789,176 @@
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string v3, "VoiceCallCardFragment"
+    const-string v4, "VoiceCallCardFragment"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "arrangePrimaryLayout: "
+    const-string v6, "arrangePrimaryLayout: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v5
-
-    invoke-static {v5}, Lcom/android/incallui/Call$State;->toString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
 
-    move-result-object v4
+    move-result v6
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v6}, Lcom/android/incallui/Call$State;->toString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_2
+    if-nez v4, :cond_2
 
-    const-string v3, "VoiceCallCardFragment"
+    const-string v4, "VoiceCallCardFragment"
 
-    const-string v4, "activity is null"
+    const-string v5, "activity is null"
 
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_2
-    invoke-direct {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isVideoState()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
     invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
 
-    move-result v3
+    move-result v2
 
-    const/16 v4, 0xa
+    const-string v4, "automatic_answering_machine"
 
-    if-ne v3, v4, :cond_3
-
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->updateTextColor(I)V
-
-    :cond_3
-    :goto_1
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
-
-    move-result-object v3
-
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
-
-    move-result-object v2
-
-    if-nez v2, :cond_5
-
-    const-string v3, "VoiceCallCardFragment"
-
-    const-string v4, "entry is null"
-
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_4
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->updateTextColor(I)V
-
-    goto :goto_1
-
-    :cond_5
-    iget-boolean v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsAnswerProcessing:Z
-
-    if-eqz v3, :cond_6
-
-    const-string v3, "VoiceCallCardFragment"
-
-    const-string v4, "arrangePrimaryLayout: mIsAnswerProcessing"
-
-    invoke-static {v3, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_6
-    invoke-direct {p0, v1, v2}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->relayoutCallInfoContainer(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
-
-    invoke-direct {p0, v1, v2}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->relayoutNameNumberTextView(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
-
-    iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mViewAdapters:Ljava/util/List;
-
-    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_2
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const/4 v4, 0x3
+
+    if-ne v2, v4, :cond_3
+
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->setAMView()V
+
+    const/4 v2, 0x4
+
+    :cond_3
+    invoke-direct {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isVideoState()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v4
+
+    const/16 v5, 0xa
+
+    if-ne v4, v5, :cond_4
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v4
+
+    invoke-virtual {p0, v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->updateTextColor(I)V
+
+    :cond_4
+    :goto_1
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
+
+    move-result-object v4
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+
+    move-result-object v3
+
+    if-nez v3, :cond_6
+
+    const-string v4, "VoiceCallCardFragment"
+
+    const-string v5, "entry is null"
+
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_5
+    invoke-virtual {p0, v2}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->updateTextColor(I)V
+
+    goto :goto_1
+
+    :cond_6
+    iget-boolean v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsAnswerProcessing:Z
+
+    if-eqz v4, :cond_7
+
+    const-string v4, "VoiceCallCardFragment"
+
+    const-string v5, "arrangePrimaryLayout: mIsAnswerProcessing"
+
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_7
+    invoke-direct {p0, v2, v1, v3}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->relayoutCallInfoContainer(ILcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+
+    invoke-direct {p0, v1, v3}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->relayoutNameNumberTextView(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+
+    iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mViewAdapters:Ljava/util/List;
+
+    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_2
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_8
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -5905,14 +5967,39 @@
     invoke-interface {v0}, Lcom/android/incallui/fragment/view/ICallCardViewAdapter;->arrangePrimaryLayout()V
 
     goto :goto_2
+
+    :cond_8
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->checkMWandUpdateLayout()V
+
+    goto/16 :goto_0
 .end method
 
 .method public changeCallCardForAM(I)V
-    .locals 0
+    .locals 3
 
     invoke-direct {p0, p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->updatePanelForCallState(I)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->arrangePrimaryLayout()V
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mDummyPrimaryCallBanner:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result v0
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/LinearLayout$LayoutParams;
+
+    iput v0, v1, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+
+    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 .end method
@@ -5957,6 +6044,107 @@
     const/16 v0, 0x8
 
     goto :goto_2
+.end method
+
+.method checkMWandUpdateLayout()V
+    .locals 5
+
+    const/16 v4, 0x3c
+
+    const-string v2, "VoiceCallCardFragment"
+
+    const-string v3, "VoiceCallCardFragment checkMWandUpdateLayout()"
+
+    invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v2, "ims_rcs"
+
+    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string v2, "ims_rcs_bb"
+
+    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfoDummy:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfoBannerContainer:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/incallui/UiAdapter;->isShowMultiWindowMode()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string v2, "VoiceCallCardFragment"
+
+    const-string v3, "VoiceCallCardFragment checkMWandUpdateLayout() isInMultiWindowMode()"
+
+    invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->setonMultiWindowChange(Z)V
+
+    :cond_0
+    iput v4, v1, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    iput v4, v0, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    :cond_1
+    :goto_0
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfoBannerContainer:Landroid/view/View;
+
+    invoke-virtual {v2, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfoDummy:Landroid/view/View;
+
+    invoke-virtual {v2, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_2
+    return-void
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->setonMultiWindowChange(Z)V
+
+    goto :goto_0
 .end method
 
 .method public clearAMView()V
@@ -6081,7 +6269,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09046f
+    const v3, 0x7f090471
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6205,7 +6393,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100374
+    const v1, 0x7f100376
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6232,6 +6420,8 @@
     check-cast v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->checkMWandUpdateLayout()V
 
     :cond_0
     return-void
@@ -6521,7 +6711,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0902a0
+    const v4, 0x7f0902a2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6650,10 +6840,10 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f10031f -> :sswitch_1
-        0x7f10034e -> :sswitch_0
-        0x7f100354 -> :sswitch_2
-        0x7f100442 -> :sswitch_2
+        0x7f100321 -> :sswitch_1
+        0x7f100350 -> :sswitch_0
+        0x7f100356 -> :sswitch_2
+        0x7f100441 -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -6938,7 +7128,7 @@
 
     invoke-super {p0, p1, p2, p3}, Lcom/android/incallui/fragment/CallCardFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
-    const v0, 0x7f040173
+    const v0, 0x7f040177
 
     const/4 v1, 0x0
 
@@ -6992,6 +7182,8 @@
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     iput-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryImageDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->dismissInCallMenu()V
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
@@ -7100,6 +7292,8 @@
 
     invoke-direct {p0, v1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->setCallCardPriority(I)V
 
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->checkMWandUpdateLayout()V
+
     return-void
 .end method
 
@@ -7155,7 +7349,7 @@
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->updateNavigationBar()V
 
-    const v7, 0x7f10032f
+    const v7, 0x7f100331
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7193,7 +7387,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0086
+    const v9, 0x7f0a0088
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -7272,7 +7466,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0086
+    const v9, 0x7f0a0088
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -7298,7 +7492,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPhoto:Landroid/widget/ImageView;
 
-    const v7, 0x7f10033a
+    const v7, 0x7f10033c
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7308,7 +7502,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mBizInOut:Landroid/widget/ImageView;
 
-    const v7, 0x7f10033b
+    const v7, 0x7f10033d
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7362,7 +7556,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallNumberAndLabel:Landroid/view/View;
 
-    const v7, 0x7f100344
+    const v7, 0x7f100346
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7390,7 +7584,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOnholdForwardSlash:Landroid/widget/TextView;
 
-    const v7, 0x7f1002ff
+    const v7, 0x7f100301
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7408,7 +7602,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallCardContainer:Landroid/view/View;
 
-    const v7, 0x7f10043c
+    const v7, 0x7f10043b
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7416,7 +7610,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfoBannerContainer:Landroid/view/View;
 
-    const v7, 0x7f10043d
+    const v7, 0x7f10043c
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7450,7 +7644,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallInfoContainer:Landroid/view/View;
 
-    const v7, 0x7f10031e
+    const v7, 0x7f100320
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7462,7 +7656,7 @@
 
     if-eqz v7, :cond_2
 
-    const v7, 0x7f10034e
+    const v7, 0x7f100350
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7492,7 +7686,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a01ec
+    const v9, 0x7f0a01ee
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -7509,7 +7703,7 @@
 
     if-nez v7, :cond_2
 
-    const v7, 0x7f10031f
+    const v7, 0x7f100321
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7539,7 +7733,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a01ec
+    const v9, 0x7f0a01ee
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -7548,7 +7742,7 @@
     invoke-direct {p0, v7, v8}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->setTextSizeUntilLargeSize(Landroid/widget/TextView;F)V
 
     :cond_2
-    const v7, 0x7f100345
+    const v7, 0x7f100347
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7556,7 +7750,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mThirdPriorityInfoLayout:Landroid/view/View;
 
-    const v7, 0x7f10034c
+    const v7, 0x7f10034e
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7564,7 +7758,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mForthPriorityInfoLayout:Landroid/view/View;
 
-    const v7, 0x7f10034d
+    const v7, 0x7f10034f
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7620,7 +7814,7 @@
     invoke-virtual {v1}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->onAMRecorderStateChanged()V
 
     :cond_4
-    const v7, 0x7f10032d
+    const v7, 0x7f10032f
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7630,7 +7824,7 @@
 
     iput-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mMultiTouchDummyStub:Landroid/view/ViewStub;
 
-    const v7, 0x7f10043e
+    const v7, 0x7f10043d
 
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7660,7 +7854,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
@@ -7670,13 +7864,18 @@
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-eqz v7, :cond_5
 
+    sget-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-eqz v7, :cond_6
+
+    :cond_5
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
 
     move-result v7
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_6
 
     const v7, 0x7f100123
 
@@ -7688,7 +7887,7 @@
 
     invoke-virtual {v3, v7}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_5
+    :cond_6
     iget-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mViewAdapters:Ljava/util/List;
 
     invoke-interface {v7}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -7700,7 +7899,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_7
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7712,7 +7911,7 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->arrangePrimaryLayout()V
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -7727,7 +7926,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getState()I
 
@@ -7735,7 +7934,7 @@
 
     const/16 v8, 0xd
 
-    if-eq v7, v8, :cond_7
+    if-eq v7, v8, :cond_8
 
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getState()I
 
@@ -7743,9 +7942,9 @@
 
     const/4 v8, 0x6
 
-    if-ne v7, v8, :cond_9
+    if-ne v7, v8, :cond_a
 
-    :cond_7
+    :cond_8
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getContext()Landroid/content/Context;
 
     move-result-object v7
@@ -7764,7 +7963,7 @@
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_b
 
     const-string v7, "VoiceCallCardFragment"
 
@@ -7777,7 +7976,7 @@
     const/4 v4, 0x1
 
     :goto_1
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_a
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
@@ -7795,7 +7994,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_9
 
     iget-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mHandler:Landroid/os/Handler;
 
@@ -7803,7 +8002,7 @@
 
     invoke-virtual {v7, v8}, Landroid/os/Handler;->removeMessages(I)V
 
-    :cond_8
+    :cond_9
     iget-object v7, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mHandler:Landroid/os/Handler;
 
     const/16 v8, 0xa0
@@ -7812,7 +8011,9 @@
 
     invoke-virtual {v7, v8, v10, v11}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_9
+    :cond_a
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->checkMWandUpdateLayout()V
+
     const-string v7, "VoiceCallCardFragment"
 
     const-string v8, "onViewCreated : end"
@@ -7823,10 +8024,10 @@
 
     return-void
 
-    :cond_a
+    :cond_b
     iget-boolean v7, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->queryCompleted:Z
 
-    if-nez v7, :cond_b
+    if-nez v7, :cond_c
 
     const-string v7, "VoiceCallCardFragment"
 
@@ -7840,14 +8041,14 @@
 
     goto :goto_1
 
-    :cond_b
+    :cond_c
     iget-object v7, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->displayPhotoUri:Landroid/net/Uri;
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_d
 
     iget-object v7, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->photo:Landroid/graphics/drawable/Drawable;
 
-    if-nez v7, :cond_c
+    if-nez v7, :cond_d
 
     const-string v7, "VoiceCallCardFragment"
 
@@ -7861,7 +8062,7 @@
 
     goto :goto_1
 
-    :cond_c
+    :cond_d
     const-string v7, "VoiceCallCardFragment"
 
     const-string v8, "onViewCreated : visible"
@@ -8082,33 +8283,31 @@
 .end method
 
 .method public setAMView(Z)V
-    .locals 9
+    .locals 8
 
-    const/4 v5, 0x1
-
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     const-string v4, "VoiceCallCardFragment"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "setAMView isRecording "
+    const-string v7, "setAMView isRecording "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v4, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v6}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
@@ -8116,9 +8315,9 @@
 
     move-result-object v4
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    invoke-static {v4, v7, v6}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static {v4, v6, v5}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v2
 
@@ -8126,11 +8325,11 @@
 
     move-result v4
 
-    const/4 v7, 0x3
+    const/4 v6, 0x3
 
-    if-ne v4, v7, :cond_4
+    if-ne v4, v6, :cond_2
 
-    move v4, v5
+    const/4 v4, 0x1
 
     :goto_0
     invoke-virtual {p0, v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->manageAnswerMemoRecord(Z)V
@@ -8140,27 +8339,54 @@
 
     move-result-object v4
 
+    if-nez v4, :cond_3
+
+    const-string v4, "VoiceCallCardFragment"
+
+    const-string v5, "setAMView view is null"
+
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
+    move v4, v5
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
+
+    move-result-object v4
+
     invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
+    iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    if-eqz v4, :cond_4
+
+    iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    const/16 v6, 0x8
+
+    invoke-virtual {v4, v6}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->setVisibility(I)V
+
+    :cond_4
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mAMStub:Landroid/view/ViewStub;
 
-    if-nez v4, :cond_5
-
-    const-string v4, "VoiceCallCardFragment"
-
-    const-string v6, "setAMView mAMStub == null"
-
-    invoke-static {v4, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    if-nez v4, :cond_7
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
     move-result-object v4
 
-    const v6, 0x7f100375
+    const v5, 0x7f100377
 
-    invoke-virtual {v4, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -8170,20 +8396,14 @@
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mAMStub:Landroid/view/ViewStub;
 
-    if-eqz v4, :cond_1
-
-    const-string v4, "VoiceCallCardFragment"
-
-    const-string v6, "setAMView mAMStub inflate"
-
-    invoke-static {v4, v6, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    if-eqz v4, :cond_5
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mAMStub:Landroid/view/ViewStub;
 
     invoke-virtual {v4}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    :cond_1
-    :goto_1
+    :cond_5
+    :goto_2
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
     move-result-object v4
@@ -8208,25 +8428,29 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_6
 
-    const-string v4, "VoiceCallCardFragment"
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    const-string v5, "setAMView : amStatusImage"
+    move-result-object v4
 
-    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v4}, Lcom/android/incallui/UiAdapter;->isInMultiWindowMode()Z
 
-    if-eqz p1, :cond_6
+    move-result v4
+
+    if-nez v4, :cond_6
+
+    if-eqz p1, :cond_8
 
     const v4, 0x7f020051
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    :cond_2
-    :goto_2
-    if-eqz v1, :cond_3
+    :cond_6
+    :goto_3
+    if-eqz v1, :cond_1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_9
 
     const v4, 0x7f090092
 
@@ -8240,7 +8464,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_1
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getActivity()Landroid/app/Activity;
 
@@ -8250,36 +8474,23 @@
 
     invoke-virtual {v4}, Lcom/android/incallui/InCallActivity;->updateKeepScreenOnFlag()V
 
-    :cond_3
-    :goto_3
-    return-void
-
-    :cond_4
-    move v4, v6
-
-    goto :goto_0
-
-    :cond_5
-    const-string v4, "VoiceCallCardFragment"
-
-    const-string v7, "setAMView mAMStub set Visible"
-
-    invoke-static {v4, v7, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mAMStub:Landroid/view/ViewStub;
-
-    invoke-virtual {v4, v6}, Landroid/view/ViewStub;->setVisibility(I)V
-
     goto :goto_1
 
-    :cond_6
+    :cond_7
+    iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mAMStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v4, v5}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    goto :goto_2
+
+    :cond_8
     const v4, 0x7f020050
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_7
+    :cond_9
     const v4, 0x7f090091
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -8288,7 +8499,7 @@
 
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_3
+    goto/16 :goto_1
 .end method
 
 .method public setCallState(IIILandroid/telecom/DisconnectCause;Ljava/lang/String;Landroid/graphics/drawable/Drawable;Ljava/lang/String;ZZZ)V
@@ -8298,7 +8509,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5
 
     const/4 v9, 0x1
 
@@ -8405,17 +8616,34 @@
 
     invoke-static {v3, v4}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
+    const-string v3, "automatic_answering_machine"
+
+    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/16 p1, 0x4
+
+    :cond_0
     const/4 v3, 0x4
 
     move/from16 v0, p1
 
-    if-eq v0, v3, :cond_0
+    if-eq v0, v3, :cond_1
 
     const/4 v3, 0x5
 
     move/from16 v0, p1
 
-    if-eq v0, v3, :cond_0
+    if-eq v0, v3, :cond_1
 
     const/4 v3, 0x0
 
@@ -8423,21 +8651,21 @@
 
     iput-boolean v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsAnswerProcessing:Z
 
-    :cond_0
+    :cond_1
     invoke-direct/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isFromPopupForAnswer()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     const/16 p1, 0x3
 
-    :cond_1
+    :cond_2
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->needToShowMultiparty()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     const-string v3, "VoiceCallCardFragment"
 
@@ -8449,7 +8677,7 @@
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mRecordInfoStub:Landroid/view/ViewStub;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     move-object/from16 v0, p0
 
@@ -8459,18 +8687,18 @@
 
     invoke-virtual {v3, v4}, Landroid/view/ViewStub;->setVisibility(I)V
 
-    :cond_2
+    :cond_3
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->displayCtcSubscriberName()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mChnFeatureView:Lcom/android/incallui/fragment/view/CallCardChnFeatureView;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     move-object/from16 v0, p0
 
@@ -8480,21 +8708,21 @@
 
     invoke-virtual {v3, v0}, Lcom/android/incallui/fragment/view/CallCardChnFeatureView;->manageCardName(I)V
 
-    :cond_3
+    :cond_4
     :goto_1
     return-void
 
-    :cond_4
+    :cond_5
     const/4 v9, 0x0
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isIncomingVideoCall()Z
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7
 
     const-string v3, "VoiceCallCardFragment"
 
@@ -8504,14 +8732,14 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOldCallState:I
 
     move/from16 v0, p1
 
-    if-ne v3, v0, :cond_7
+    if-ne v3, v0, :cond_8
 
     move-object/from16 v0, p0
 
@@ -8525,14 +8753,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_4
 
-    :cond_7
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mEndAnimatorSet:Landroid/animation/AnimatorSet;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_9
 
     move-object/from16 v0, p0
 
@@ -8542,13 +8770,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_9
 
     invoke-direct/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isVideoState()Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_9
 
     move-object/from16 v0, p0
 
@@ -8556,7 +8784,7 @@
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_9
 
     move-object/from16 v0, p0
 
@@ -8564,7 +8792,7 @@
 
     invoke-virtual {v3}, Landroid/animation/AnimatorSet;->end()V
 
-    :cond_8
+    :cond_9
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v3
@@ -8573,21 +8801,21 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_b
 
     const/16 v3, 0xa
 
     move/from16 v0, p1
 
-    if-eq v0, v3, :cond_9
+    if-eq v0, v3, :cond_a
 
     const/16 v3, 0x9
 
     move/from16 v0, p1
 
-    if-ne v0, v3, :cond_a
+    if-ne v0, v3, :cond_b
 
-    :cond_9
+    :cond_a
     const-string v3, "VoiceCallCardFragment"
 
     const-string v4, "not update callend in hold status"
@@ -8596,7 +8824,7 @@
 
     goto :goto_1
 
-    :cond_a
+    :cond_b
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v3
@@ -8609,15 +8837,15 @@
 
     move/from16 v0, p1
 
-    if-ne v3, v0, :cond_b
+    if-ne v3, v0, :cond_c
 
     sget-object v3, Lcom/android/incallui/InCallPresenter$InCallState;->PENDING_OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
 
     move-object/from16 v0, v17
 
-    if-ne v0, v3, :cond_c
+    if-ne v0, v3, :cond_d
 
-    :cond_b
+    :cond_c
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v3
@@ -8626,7 +8854,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_d
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -8636,7 +8864,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_d
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -8650,9 +8878,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_e
 
-    :cond_c
+    :cond_d
     const-string v3, "VoiceCallCardFragment"
 
     const-string v4, "skip setCallState : not update callend in current state"
@@ -8663,19 +8891,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     const/4 v3, 0x2
 
     move/from16 v0, p1
 
-    if-ne v3, v0, :cond_3
+    if-ne v3, v0, :cond_4
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mEndCallContactBtn:Landroid/widget/Button;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     move-object/from16 v0, p0
 
@@ -8685,7 +8913,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_4
 
     move-object/from16 v0, p0
 
@@ -8697,7 +8925,7 @@
 
     goto/16 :goto_1
 
-    :cond_d
+    :cond_e
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v3
@@ -8706,13 +8934,13 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_e
+    if-eqz v14, :cond_f
 
     invoke-interface {v14}, Lcom/android/incallui/AnswerUi;->isAnswerAnimationRunning()Z
 
     move-result v3
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_f
 
     const-string v3, "VoiceCallCardFragment"
 
@@ -8724,26 +8952,26 @@
 
     goto/16 :goto_1
 
-    :cond_e
+    :cond_f
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v11
 
     check-cast v11, Lcom/android/incallui/InCallActivity;
 
-    if-eqz v11, :cond_11
+    if-eqz v11, :cond_12
 
     invoke-virtual {v11}, Lcom/android/incallui/InCallActivity;->isShrinkBackgroundRunning()Z
 
     move-result v3
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_10
 
     const/16 v3, 0xa
 
     move/from16 v0, p1
 
-    if-eq v0, v3, :cond_f
+    if-eq v0, v3, :cond_10
 
     const-string v3, "perf - Skip onCallListChange when scale animation is running"
 
@@ -8755,18 +8983,18 @@
 
     goto/16 :goto_1
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOldCallState:I
 
     move/from16 v0, p1
 
-    if-eq v3, v0, :cond_10
+    if-eq v3, v0, :cond_11
 
     invoke-virtual {v11}, Lcom/android/incallui/InCallActivity;->dismissInCallMenu()V
 
-    :cond_10
+    :cond_11
     move/from16 v0, p1
 
     invoke-virtual {v11, v0}, Lcom/android/incallui/InCallActivity;->updateStatusBarColor(I)V
@@ -8783,13 +9011,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_11
+    if-nez v3, :cond_12
 
     const/4 v3, 0x4
 
     move/from16 v0, p1
 
-    if-ne v3, v0, :cond_11
+    if-ne v3, v0, :cond_12
 
     const/4 v3, 0x0
 
@@ -8797,12 +9025,12 @@
 
     iput-boolean v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsMoveInfoAnimationRunning:Z
 
-    :cond_11
+    :cond_12
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isHideCallerInfo()Z
 
     move-result v3
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_17
 
     move-object/from16 v0, p0
 
@@ -8812,13 +9040,13 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_12
+    :cond_13
     :goto_2
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mDimPanel:Landroid/view/View;
 
-    if-eqz v3, :cond_13
+    if-eqz v3, :cond_14
 
     move-object/from16 v0, p0
 
@@ -8828,7 +9056,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_13
+    :cond_14
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->setDisplaySize()V
 
     move-object/from16 v0, p0
@@ -8851,7 +9079,7 @@
 
     move/from16 v0, p1
 
-    if-ne v0, v3, :cond_18
+    if-ne v0, v3, :cond_19
 
     const/4 v3, 0x1
 
@@ -8868,19 +9096,19 @@
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_14
+    if-ne v3, v4, :cond_15
 
     const/16 v3, 0xa
 
     move/from16 v0, p1
 
-    if-ne v0, v3, :cond_14
+    if-ne v0, v3, :cond_15
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mElapsedTime:Landroid/widget/TextView;
 
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_15
 
     move-object/from16 v0, p0
 
@@ -8890,7 +9118,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_14
+    if-nez v3, :cond_15
 
     move-object/from16 v0, p0
 
@@ -8900,7 +9128,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_14
+    :cond_15
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v3
@@ -8909,13 +9137,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_19
+    if-eqz v3, :cond_1a
 
     invoke-direct/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->isFromPopupForAnswer()Z
 
     move-result v3
 
-    if-nez v3, :cond_19
+    if-nez v3, :cond_1a
 
     const/16 v18, 0x1
 
@@ -8924,7 +9152,7 @@
 
     iget-object v4, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfoDummy:Landroid/view/View;
 
-    if-eqz v18, :cond_1a
+    if-eqz v18, :cond_1b
 
     const/16 v3, 0x8
 
@@ -8935,7 +9163,7 @@
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_16
 
     invoke-direct/range {p0 .. p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->needToShowCallerInfoCardView(I)Z
 
@@ -8945,7 +9173,7 @@
 
     iget-object v4, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallerInfoCardView:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    if-eqz v19, :cond_1b
+    if-eqz v19, :cond_1c
 
     const/4 v3, 0x0
 
@@ -8958,7 +9186,7 @@
 
     invoke-virtual {v3}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->clear()V
 
-    :cond_15
+    :cond_16
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mViewAdapters:Ljava/util/List;
@@ -8972,7 +9200,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1c
+    if-eqz v4, :cond_1d
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8986,18 +9214,18 @@
 
     goto :goto_7
 
-    :cond_16
+    :cond_17
     const/4 v3, 0x4
 
     move/from16 v0, p1
 
-    if-eq v0, v3, :cond_12
+    if-eq v0, v3, :cond_13
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPhoneNumber:Landroid/widget/TextView;
 
-    if-eqz v3, :cond_12
+    if-eqz v3, :cond_13
 
     move-object/from16 v0, p0
 
@@ -9007,7 +9235,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_12
+    if-nez v3, :cond_13
 
     move-object/from16 v0, p0
 
@@ -9025,7 +9253,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_12
+    if-nez v3, :cond_13
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
@@ -9035,11 +9263,11 @@
 
     move-result-object v16
 
-    if-eqz v16, :cond_17
+    if-eqz v16, :cond_18
 
     invoke-virtual/range {v16 .. v16}, Lcom/android/incallui/CallCardPresenter;->updatePrimaryDisplayInfo()V
 
-    :cond_17
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallNumberAndLabel:Landroid/view/View;
@@ -9050,27 +9278,27 @@
 
     goto/16 :goto_2
 
-    :cond_18
+    :cond_19
     const/4 v3, 0x0
 
     goto/16 :goto_3
 
-    :cond_19
+    :cond_1a
     const/16 v18, 0x0
 
     goto/16 :goto_4
 
-    :cond_1a
+    :cond_1b
     const/4 v3, 0x0
 
     goto :goto_5
 
-    :cond_1b
+    :cond_1c
     const/16 v3, 0x8
 
     goto :goto_6
 
-    :cond_1c
+    :cond_1d
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->arrangePrimaryLayout()V
 
     const/4 v13, 0x0
@@ -9081,33 +9309,33 @@
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_1d
+    if-ne v3, v4, :cond_1e
 
     const/16 v3, 0x8
 
     move/from16 v0, p1
 
-    if-eq v0, v3, :cond_1e
+    if-eq v0, v3, :cond_1f
 
-    :cond_1d
+    :cond_1e
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOldCallState:I
 
     const/4 v4, 0x6
 
-    if-ne v3, v4, :cond_22
+    if-ne v3, v4, :cond_24
 
     const/16 v3, 0x8
 
     move/from16 v0, p1
 
-    if-ne v0, v3, :cond_22
-
-    :cond_1e
-    const/4 v13, 0x1
+    if-ne v0, v3, :cond_24
 
     :cond_1f
+    const/4 v13, 0x1
+
+    :cond_20
     :goto_8
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
@@ -9117,13 +9345,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_20
+    if-eqz v3, :cond_21
 
+    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-eqz v3, :cond_22
+
+    :cond_21
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPhotoContainer:Landroid/view/View;
 
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_26
 
     move-object/from16 v0, p0
 
@@ -9133,9 +9366,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_24
+    if-nez v3, :cond_26
 
-    :cond_20
+    :cond_22
     move-object/from16 v0, p0
 
     invoke-direct {v0, v13}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->setCallCardPriority(I)V
@@ -9145,19 +9378,19 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_21
+    if-eqz v3, :cond_23
 
     const/16 v3, 0xd
 
     move/from16 v0, p1
 
-    if-eq v0, v3, :cond_21
+    if-eq v0, v3, :cond_23
 
     const/4 v3, 0x6
 
     move/from16 v0, p1
 
-    if-eq v0, v3, :cond_21
+    if-eq v0, v3, :cond_23
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
@@ -9167,7 +9400,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_21
+    :cond_23
     move/from16 v0, p1
 
     move-object/from16 v1, p0
@@ -9176,31 +9409,31 @@
 
     goto/16 :goto_1
 
-    :cond_22
+    :cond_24
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOldCallState:I
 
     const/16 v4, 0x8
 
-    if-ne v3, v4, :cond_23
+    if-ne v3, v4, :cond_25
 
     const/4 v3, 0x3
 
     move/from16 v0, p1
 
-    if-ne v0, v3, :cond_23
+    if-ne v0, v3, :cond_25
 
     const/4 v13, 0x2
 
     goto :goto_8
 
-    :cond_23
+    :cond_25
     const/16 v3, 0xa
 
     move/from16 v0, p1
 
-    if-ne v0, v3, :cond_1f
+    if-ne v0, v3, :cond_20
 
     move-object/from16 v0, p0
 
@@ -9208,7 +9441,7 @@
 
     const/16 v4, 0xa
 
-    if-eq v3, v4, :cond_1f
+    if-eq v3, v4, :cond_20
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -9218,13 +9451,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_1f
+    if-nez v3, :cond_20
 
     const/4 v13, 0x3
 
     goto :goto_8
 
-    :cond_24
+    :cond_26
     move-object/from16 v0, p0
 
     invoke-direct {v0, v13}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->arrangeBelowButtonLayout(I)V
@@ -9826,7 +10059,24 @@
     return-void
 
     :cond_1
-    if-eqz p1, :cond_6
+    const-string v0, "automatic_answering_machine"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 p1, 0x0
+
+    :cond_2
+    if-eqz p1, :cond_7
 
     iput-object p2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mLastestCallTime:Ljava/lang/String;
 
@@ -9836,13 +10086,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
@@ -9852,7 +10102,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
 
@@ -9864,14 +10114,14 @@
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->sendBroadcastContactCallState(Landroid/content/Context;)V
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mElapsedTime:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
@@ -9879,13 +10129,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mCallStateLabel:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mElapsedTime:Landroid/widget/TextView;
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -9894,13 +10144,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mElapsedTime:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_4
+    :cond_5
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getPresenter()Lcom/android/incallui/Presenter;
 
     move-result-object v0
@@ -9915,7 +10165,7 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->setTTS(JLandroid/view/View;)V
 
-    :cond_5
+    :cond_6
     :goto_1
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getActivity()Landroid/app/Activity;
 
@@ -9933,14 +10183,14 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mElapsedTime:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mDivider:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mDivider:Landroid/widget/TextView;
 
@@ -10446,7 +10696,7 @@
 
     move-result-object v6
 
-    const v10, 0x7f0a0322
+    const v10, 0x7f0a0324
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -10654,7 +10904,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0087
+    const v7, 0x7f0a0089
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -10670,7 +10920,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0080
+    const v7, 0x7f0a0082
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -11041,11 +11291,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPhotoContainer:Landroid/view/View;
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
 
     if-eqz v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPhotoContainer:Landroid/view/View;
+
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPhotoContainer:Landroid/view/View;
 
@@ -11053,14 +11308,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->setCallCardPriority(I)V
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 

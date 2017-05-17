@@ -125,7 +125,7 @@
 .method private static updateAccountFilterTitle(Landroid/view/View;Lcom/android/contacts/common/list/ContactListFilter;ZZ)Z
     .locals 9
 
-    const v8, 0x7f090513
+    const v8, 0x7f090515
 
     const/4 v7, 0x1
 
@@ -159,7 +159,7 @@
 
     if-eqz p2, :cond_0
 
-    const v3, 0x7f09051e
+    const v3, 0x7f090520
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -195,7 +195,7 @@
 
     if-ne v3, v4, :cond_3
 
-    const v3, 0x7f090514
+    const v3, 0x7f090516
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -243,7 +243,7 @@
 
     if-eqz p2, :cond_0
 
-    const v3, 0x7f09051b
+    const v3, 0x7f09051d
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -277,7 +277,7 @@
 
     if-ne v3, v4, :cond_7
 
-    const v3, 0x7f090514
+    const v3, 0x7f090516
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -292,7 +292,7 @@
 
     if-ne v3, v4, :cond_8
 
-    const v3, 0x7f090516
+    const v3, 0x7f090518
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 

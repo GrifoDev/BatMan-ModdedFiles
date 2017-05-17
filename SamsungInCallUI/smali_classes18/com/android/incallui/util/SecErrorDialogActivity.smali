@@ -181,13 +181,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f09046b
+    const v2, 0x7f09046d
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0905d6
+    const v2, 0x7f0905d8
 
     new-instance v3, Lcom/android/incallui/util/SecErrorDialogActivity$11;
 
@@ -197,7 +197,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090546
+    const v2, 0x7f090548
 
     new-instance v3, Lcom/android/incallui/util/SecErrorDialogActivity$10;
 
@@ -251,13 +251,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0905d2
+    const v2, 0x7f0905d4
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0905d3
+    const v2, 0x7f0905d5
 
     new-instance v3, Lcom/android/incallui/util/SecErrorDialogActivity$3;
 
@@ -267,7 +267,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0905d1
+    const v2, 0x7f0905d3
 
     new-instance v3, Lcom/android/incallui/util/SecErrorDialogActivity$2;
 
@@ -536,7 +536,7 @@
 
     move-result-object v3
 
-    const v7, 0x7f040194
+    const v7, 0x7f040198
 
     const/4 v8, 0x0
 
@@ -560,7 +560,7 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    const v7, 0x7f09031f
+    const v7, 0x7f090321
 
     invoke-virtual {p0, v7}, Lcom/android/incallui/util/SecErrorDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -572,7 +572,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f090320
+    const v7, 0x7f090322
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -604,7 +604,7 @@
     return-void
 
     :cond_0
-    const v7, 0x7f090322
+    const v7, 0x7f090324
 
     invoke-static {p0, v7, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

@@ -3,10 +3,6 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:id="@id/indicator_area" android:layout_width="fill_parent" android:layout_height="@dimen/indicator_area_height" />
     <FrameLayout android:id="@id/inCallButtonContainer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
-        <FrameLayout android:gravity="bottom|center" android:id="@id/inCallButtonsBgWrapper" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <View android:layout_gravity="bottom|center" android:id="@id/buttonWrapperBg" android:layout_width="fill_parent" android:layout_height="@dimen/sec_video_vga_incall_button_wrapper_height" />
-            <View android:layout_gravity="bottom|center" android:id="@id/bottomBlendEffect" android:background="@drawable/gradation_vga_button_background" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-        </FrameLayout>
         <LinearLayout android:gravity="bottom|center" android:layout_gravity="bottom|center" android:orientation="horizontal" android:id="@id/inCallButtons" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/buttonWrapper" android:layout_width="fill_parent" android:layout_height="@dimen/sec_video_vga_incall_button_wrapper_height">
                 <ViewStub android:id="@id/hideShowMeButtonStub" android:layout="@layout/sec_video_hide_show_me_button_viewstub" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="@integer/vga_button_width_weight" />

@@ -441,7 +441,7 @@
     # setter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v8, v9}, Lcom/android/incallui/service/vt/EpdgManager;->access$102(Lcom/android/incallui/service/vt/EpdgManager;Z)Z
 
-    const v8, 0x7f0902f4
+    const v8, 0x7f0902f6
 
     invoke-static {v8}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 
@@ -498,7 +498,7 @@
     # setter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v8, v9}, Lcom/android/incallui/service/vt/EpdgManager;->access$102(Lcom/android/incallui/service/vt/EpdgManager;Z)Z
 
-    const v8, 0x7f0902f4
+    const v8, 0x7f0902f6
 
     invoke-static {v8}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 

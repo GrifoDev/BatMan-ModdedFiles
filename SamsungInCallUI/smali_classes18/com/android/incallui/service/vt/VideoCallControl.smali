@@ -1180,7 +1180,7 @@
 .method public static showModifyCallException(ILcom/android/incallui/Call;Landroid/telecom/VideoProfile;)V
     .locals 3
 
-    const v2, 0x7f0902df
+    const v2, 0x7f0902e1
 
     const/4 v0, 0x1
 
@@ -1275,7 +1275,7 @@
 
     if-nez v0, :cond_6
 
-    const v0, 0x7f0902e2
+    const v0, 0x7f0902e4
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
@@ -1300,14 +1300,14 @@
 
     if-eqz v0, :cond_7
 
-    const v0, 0x7f0902e1
+    const v0, 0x7f0902e3
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
     goto :goto_0
 
     :cond_7
-    const v0, 0x7f0902e0
+    const v0, 0x7f0902e2
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 

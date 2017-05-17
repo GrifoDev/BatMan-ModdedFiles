@@ -105,7 +105,7 @@
 .method private updateKeypadLayout()V
     .locals 3
 
-    const v2, 0x7f0a02cd
+    const v2, 0x7f0a02cf
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mDialContainer:Landroid/view/View;
 
@@ -133,7 +133,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a053a
+    const v2, 0x7f0a0543
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -308,7 +308,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f040154
+    const v1, 0x7f040155
 
     invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -317,7 +317,7 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f04013d
+    const v1, 0x7f04013e
 
     invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -370,7 +370,7 @@
 .method public setupLayout()V
     .locals 14
 
-    const v13, 0x7f0a0279
+    const v13, 0x7f0a027b
 
     const/16 v9, 0x8
 
@@ -476,7 +476,7 @@
 
     move-result-object v8
 
-    const v11, 0x7f0a00df
+    const v11, 0x7f0a00e1
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -500,7 +500,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0f0186
+    const v12, 0x7f0f0187
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -635,7 +635,7 @@
 
     move-result-object v8
 
-    const v11, 0x7f0a0377
+    const v11, 0x7f0a0379
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getDimension(I)F
 

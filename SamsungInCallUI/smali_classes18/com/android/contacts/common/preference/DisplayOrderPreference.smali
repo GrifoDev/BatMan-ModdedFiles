@@ -57,7 +57,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/preference/DisplayOrderPreference;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0904cc
+    const v2, 0x7f0904ce
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -67,7 +67,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/preference/DisplayOrderPreference;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0904cb
+    const v2, 0x7f0904cd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -129,7 +129,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/contacts/common/preference/DisplayOrderPreference;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0904cc
+    const v1, 0x7f0904ce
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -140,7 +140,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/contacts/common/preference/DisplayOrderPreference;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0904cb
+    const v1, 0x7f0904cd
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

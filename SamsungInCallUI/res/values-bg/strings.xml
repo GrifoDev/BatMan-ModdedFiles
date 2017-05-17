@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Плъз. бут. ИЗПРАЩАНЕ НА СЪОБЩЕНИЕ нагоре за изпр. бързо съобщ. и да отхв. вход. повик.</string>
     <string name="call_drug_up_panel_for_kk_tts">Плъзнете панела за отхвърляне на повикване със съобщение нагоре, за да пратите съобщение за отхвърляне на повикване, когато отхвърляте входящо повикване.</string>
     <string name="call_ended_toast">Край на разговор</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Повикването е препратено към:</string>
+    <string name="call_forwarding_from">Повикването е препратено от:</string>
     <string name="call_incoming_voice_call2">Чукнете %s, за да отговорите на повикване.</string>
     <string name="call_incoming_voice_call2_tts">Чукнете бутона за отговор на разговор, за да отговорите на разговора.</string>
     <string name="call_incoming_voice_call3">Докос. %s за отхв. разговор.</string>
@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">Изображения</string>
     <string name="outgoing_img_take_picture">Направи снимка</string>
     <string name="outgoing_img_video">Видеоклипове</string>
+    <string name="overlay_warning_toast">За да използвате „Телефон“, трябва да включите „Приложения, които може да се появят отгоре“ в настройките на „Телефон“.</string>
     <string name="payphone_sbm">Телефонен автомат</string>
     <string name="phoneLabelsGroup">Телефон</string>
     <string name="phone_voice_recording_failed_by_secure_call">Не може да се запише защитен разговор.</string>
@@ -682,6 +683,7 @@
     <string name="secOnscreenUpdateContactText">Актуал. съществ.</string>
     <string name="secOnscreenUpdateContactText_tts">Актуализиране съществуващ</string>
     <string name="secOnscreenVideoCallText">Видео пов.</string>
+    <string name="secOnscreenVideoStopText">Стоп</string>
     <string name="secOnscreenViewContactText">Преглед контакт</string>
     <string name="secOnscreenVoiceCallText">Повикване</string>
     <string name="secOnscreenVoiceCallTextExtended">Гл. пов.</string>

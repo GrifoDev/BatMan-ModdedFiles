@@ -135,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">Zvarrit butonin DËRGO MESAZH lart për të drg. një mesazh të shpejtë dhe refuzuar thirrjen.</string>
     <string name="call_drug_up_panel_for_kk_tts">Zvarrite nga poshtë lart panelin e refuzimit të thirrjes me mesazh, për të dërguar një mesazh refuzimi të thirrjes, kur je duke refuzuar një thirrje hyrëse.</string>
     <string name="call_ended_toast">Telefonata përfundoi.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Thirrja u përcoll te:</string>
+    <string name="call_forwarding_from">Thirrje përcjellë nga:</string>
     <string name="call_incoming_voice_call2">"Trokit mbi %s për t'iu përgjigjur një thirrjeje."</string>
     <string name="call_incoming_voice_call2_tts">"Trokit mbi butonin e përgjigjes të thirrjes për t'iu përgjigjur një thirrjeje."</string>
     <string name="call_incoming_voice_call3">Trokit mbi %s për të refuzuar.</string>
@@ -499,6 +499,7 @@ Menuja e ekranit të thirrjes IVR përdor materiale nga një ofrues shërbimesh 
     <string name="outgoing_img_picture">Imazhe</string>
     <string name="outgoing_img_take_picture">Nxirr foto</string>
     <string name="outgoing_img_video">Videot</string>
+    <string name="overlay_warning_toast">Për të përdorur Telefonin, duhet të ndezësh App-et që mund të shfaqen sipër, në cilësimet e Telefonit.</string>
     <string name="payphone_sbm">Telefon publik</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Nuk mund të regjistrosh thirrje të sigurt.</string>
@@ -655,6 +656,7 @@ njëkahshe"</string>
     <string name="secOnscreenUpdateContactText">Përdit. ekzist.</string>
     <string name="secOnscreenUpdateContactText_tts">Përditëso ekzistueset</string>
     <string name="secOnscreenVideoCallText">Thirr. video</string>
+    <string name="secOnscreenVideoStopText">Ndalo</string>
     <string name="secOnscreenViewContactText">Shih kontaktin</string>
     <string name="secOnscreenVoiceCallText">Telefonatë</string>
     <string name="secOnscreenVoiceCallTextExtended">Th. zanore</string>

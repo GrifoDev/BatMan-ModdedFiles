@@ -69,9 +69,11 @@
 .end method
 
 .method public static addToContactClicked()V
-    .locals 14
+    .locals 15
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
+
+    const/4 v13, 0x1
 
     const/4 v12, 0x0
 
@@ -89,7 +91,7 @@
 
     move-result-object v9
 
-    invoke-static {v9, v13, v12}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static {v9, v14, v12}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v1
 
@@ -130,7 +132,7 @@
 
     const-string v10, "tel"
 
-    invoke-static {v10, v8, v13}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v10, v8, v14}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v10
 
@@ -138,9 +140,7 @@
 
     const-string v9, "from_call"
 
-    const/4 v10, 0x1
-
-    invoke-virtual {v6, v9, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v6, v9, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     const-string v9, "feature_usa"
 
@@ -216,13 +216,15 @@
     invoke-virtual {v0, v6}, Lcom/android/incallui/InCallActivity;->startActivity(Landroid/content/Intent;)V
 
     :cond_4
-    const-string v9, "tablet_device"
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    invoke-static {v9}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    move-result-object v9
+
+    invoke-virtual {v9}, Lcom/android/incallui/CallList;->getLiveCallCounts()I
 
     move-result v9
 
-    if-eqz v9, :cond_5
+    if-ge v9, v13, :cond_5
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -2451,7 +2453,7 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x7f090267
+    const v1, 0x7f090268
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallActivity;->getString(I)Ljava/lang/String;
 
@@ -3666,7 +3668,9 @@
 .end method
 
 .method public static viewContactClicked()V
-    .locals 10
+    .locals 11
+
+    const/4 v10, 0x1
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -3726,9 +3730,7 @@
 
     const-string v5, "from_call"
 
-    const/4 v8, 0x1
-
-    invoke-virtual {v4, v5, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v4, v5, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     const/high16 v5, 0x30000000
 
@@ -3740,13 +3742,15 @@
     invoke-virtual {v0, v4}, Lcom/android/incallui/InCallActivity;->startActivity(Landroid/content/Intent;)V
 
     :cond_0
-    const-string v5, "tablet_device"
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/CallList;->getLiveCallCounts()I
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-ge v5, v10, :cond_1
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -3799,7 +3803,9 @@
 .end method
 
 .method public static viewContactClicked(J)V
-    .locals 8
+    .locals 10
+
+    const/4 v8, 0x1
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -3855,9 +3861,7 @@
 
     const-string v5, "from_call"
 
-    const/4 v6, 0x1
-
-    invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v4, v5, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     const/high16 v5, 0x30000000
 
@@ -3869,13 +3873,15 @@
     invoke-virtual {v2, v4}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     :cond_0
-    const-string v5, "tablet_device"
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/CallList;->getLiveCallCounts()I
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-ge v5, v8, :cond_1
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 

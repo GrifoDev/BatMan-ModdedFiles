@@ -331,7 +331,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f090501
+    const v19, 0x7f090503
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -519,7 +519,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f04018c
+    const v20, 0x7f040190
 
     # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mArrayList:Ljava/util/ArrayList;
     invoke-static/range {p1 .. p1}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$200(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/util/ArrayList;
@@ -694,7 +694,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->setView(Landroid/view/View;)V
 
-    const v18, 0x7f090502
+    const v18, 0x7f090504
 
     move-object/from16 v0, p0
 
@@ -713,7 +713,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f090269
+    const v20, 0x7f09026a
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -171,7 +171,7 @@
 
     if-ne v2, v6, :cond_9
 
-    const v6, 0x7f0903fe
+    const v6, 0x7f090400
 
     invoke-static {v6}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -260,7 +260,7 @@
 
     if-ne v2, v6, :cond_4
 
-    const v6, 0x7f0903ff
+    const v6, 0x7f090401
 
     invoke-static {v6}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 

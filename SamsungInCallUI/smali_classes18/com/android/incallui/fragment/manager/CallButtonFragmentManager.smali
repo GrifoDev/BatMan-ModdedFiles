@@ -702,7 +702,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_11
+    if-eqz v9, :cond_12
 
     iput-boolean v8, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mIsBGCall:Z
 
@@ -719,7 +719,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_13
+    if-eqz v9, :cond_14
 
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
@@ -769,7 +769,7 @@
     move v5, v8
 
     :cond_c
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_16
 
     sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->ENDCALL:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
@@ -802,38 +802,52 @@
 
     :cond_e
     :goto_4
+    iget-object v9, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mFragmentType:Ljava/lang/Enum;
+
+    if-eq v4, v9, :cond_f
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->getFragment()Lcom/android/incallui/fragment/CallButtonFragment;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_f
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->removeCurrentFragment()V
+
+    :cond_f
+    :goto_5
     const-string v9, "support_tphone"
 
     invoke-static {v9}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_10
+    if-eqz v9, :cond_11
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTPhoneMode()Z
 
     move-result v9
 
-    if-eqz v9, :cond_10
+    if-eqz v9, :cond_11
 
     invoke-static {v0}, Lcom/android/incallui/util/CallTypeUtils;->isVoiceCall(Lcom/android/incallui/Call;)Z
 
     move-result v9
 
-    if-nez v9, :cond_f
+    if-nez v9, :cond_10
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_11
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
 
     move-result v9
 
-    if-ne v9, v11, :cond_10
-
-    :cond_f
-    sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->EMPTY:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
+    if-ne v9, v11, :cond_11
 
     :cond_10
+    sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->EMPTY:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
+
+    :cond_11
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v9
@@ -856,14 +870,14 @@
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_12
     iget-boolean v9, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mIsBGCall:Z
 
-    if-ne v9, v8, :cond_12
+    if-ne v9, v8, :cond_13
 
     iput-boolean v8, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mIsBGCallChanged:Z
 
-    :goto_5
+    :goto_6
     iput-boolean v5, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mIsBGCall:Z
 
     const-string v9, "no BackgroundCall() "
@@ -872,12 +886,12 @@
 
     goto/16 :goto_2
 
-    :cond_12
+    :cond_13
     iput-boolean v5, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mIsBGCallChanged:Z
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_13
+    :cond_14
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v9
@@ -888,7 +902,7 @@
 
     sget-object v10, Lcom/android/incallui/InCallPresenter$InCallState;->OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-eq v9, v10, :cond_14
+    if-eq v9, v10, :cond_15
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -900,7 +914,7 @@
 
     sget-object v10, Lcom/android/incallui/InCallPresenter$InCallState;->PENDING_OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-eq v9, v10, :cond_14
+    if-eq v9, v10, :cond_15
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -912,13 +926,13 @@
 
     sget-object v10, Lcom/android/incallui/InCallPresenter$InCallState;->INCALL:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-eq v9, v10, :cond_14
+    if-eq v9, v10, :cond_15
 
     iget-boolean v9, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mIsBGCallChanged:Z
 
     if-eqz v9, :cond_a
 
-    :cond_14
+    :cond_15
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
@@ -933,29 +947,16 @@
 
     goto/16 :goto_3
 
-    :cond_15
+    :cond_16
     sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->VGA_VIDEO:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallUtils;->getVideoResolution(Lcom/android/incallui/Call;)I
 
     move-result v6
 
-    if-ne v6, v8, :cond_16
+    if-ne v6, v8, :cond_e
 
     sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->QCIF_VIDEO:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
-
-    :cond_16
-    iget-object v9, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mFragmentType:Ljava/lang/Enum;
-
-    if-eq v4, v9, :cond_e
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->getFragment()Lcom/android/incallui/fragment/CallButtonFragment;
-
-    move-result-object v9
-
-    if-eqz v9, :cond_e
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->removeCurrentFragment()V
 
     goto/16 :goto_4
 
@@ -998,12 +999,12 @@
 
     move-result v9
 
-    if-nez v9, :cond_e
+    if-nez v9, :cond_f
 
     :cond_18
     sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->EMPTY:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :cond_19
     iget-object v7, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mCurrentFragment:Lcom/android/incallui/fragment/CallButtonFragment;
@@ -1109,7 +1110,7 @@
 
     invoke-static {v9, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :cond_1d
     sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->VOICE:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
@@ -1120,21 +1121,21 @@
 
     move-result v9
 
-    if-nez v9, :cond_e
+    if-nez v9, :cond_f
 
     iget-object v9, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mFragmentType:Ljava/lang/Enum;
 
-    if-eq v4, v9, :cond_e
+    if-eq v4, v9, :cond_f
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->getFragment()Lcom/android/incallui/fragment/CallButtonFragment;
 
     move-result-object v9
 
-    if-eqz v9, :cond_e
+    if-eqz v9, :cond_f
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->removeCurrentFragment()V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :cond_1e
     iget-object v7, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mCurrentFragment:Lcom/android/incallui/fragment/CallButtonFragment;
@@ -1666,7 +1667,7 @@
 .end method
 
 .method public onSMultiWindowOnChanged()V
-    .locals 1
+    .locals 2
 
     const-string v0, "CallButtonFragmentManager - onSMultiWindowOnChanged"
 
@@ -1676,6 +1677,55 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->checkAndSet(Z)Lcom/android/incallui/fragment/CallButtonFragment;
 
+    const-string v0, "automatic_answering_machine"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onSMultiWindowOnChanged : isAutoAnswered - "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->log(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mCurrentFragment:Lcom/android/incallui/fragment/CallButtonFragment;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mCurrentFragment:Lcom/android/incallui/fragment/CallButtonFragment;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/fragment/CallButtonFragment;->setCallButtonContainerVisibility(Z)V
+
+    :cond_0
     return-void
 .end method
 

@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">Картинки</string>
     <string name="outgoing_img_take_picture">Сделать снимок</string>
     <string name="outgoing_img_video">Видео</string>
+    <string name="overlay_warning_toast">Чтобы использовать приложение “Телефон”, необходимо включить приложения, которые могут отображаться сверху, в его настройках.</string>
     <string name="payphone_sbm">Телефон-автомат</string>
     <string name="phoneLabelsGroup">Телефон</string>
     <string name="phone_voice_recording_failed_by_secure_call">Невозможно записать защищенный вызов.</string>
@@ -682,6 +683,7 @@
     <string name="secOnscreenUpdateContactText">Обновить контакт</string>
     <string name="secOnscreenUpdateContactText_tts">Обновить контакт</string>
     <string name="secOnscreenVideoCallText">Видеовызов</string>
+    <string name="secOnscreenVideoStopText">Стоп</string>
     <string name="secOnscreenViewContactText">Просм. контакт</string>
     <string name="secOnscreenVoiceCallText">Вызов</string>
     <string name="secOnscreenVoiceCallTextExtended">Голос.выз.</string>

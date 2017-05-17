@@ -134,8 +134,8 @@
     <string name="call_drug_up_panel_for_kk">Arrastra o botón ENVIAR MENSAXE arriba para enviar msx. rápida e rexeitar cham. entrante.</string>
     <string name="call_drug_up_panel_for_kk_tts">Arrastra o panel de rexeitar chamada cunha mensaxe cara arriba para enviar unha mensaxe de rexeitar a chamada cando rexeitas unha chamada entrante.</string>
     <string name="call_ended_toast">Chamada finalizada</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Chamada desviada a:</string>
+    <string name="call_forwarding_from">Chamada desviada de:</string>
     <string name="call_incoming_voice_call2">Toca %s para responder unha chamada.</string>
     <string name="call_incoming_voice_call2_tts">Toca o botón Responder chamada para responder unha chamada.</string>
     <string name="call_incoming_voice_call3">Toca %s para rexeitar chamadas.</string>
@@ -498,6 +498,7 @@ O menú da pantalla de chamadas de IVR usa contidos fornecidos por un provedor d
     <string name="outgoing_img_picture">Imaxes</string>
     <string name="outgoing_img_take_picture">Facer unha foto</string>
     <string name="outgoing_img_video">Vídeos</string>
+    <string name="overlay_warning_toast">Para usar Teléfono, necesitas activar as aplicacións que poden aparecer na parte superior en Axustes do teléfono.</string>
     <string name="payphone_sbm">Teléfono público</string>
     <string name="phoneLabelsGroup">Teléfono</string>
     <string name="phone_voice_recording_failed_by_secure_call">Non se pode gravar a chamada segura.</string>
@@ -654,6 +655,7 @@ unidireccional"</string>
     <string name="secOnscreenUpdateContactText">Actualizar exist</string>
     <string name="secOnscreenUpdateContactText_tts">Actualizar existentes</string>
     <string name="secOnscreenVideoCallText">Videochamada</string>
+    <string name="secOnscreenVideoStopText">Deter</string>
     <string name="secOnscreenViewContactText">Ver contacto</string>
     <string name="secOnscreenVoiceCallText">Chamar</string>
     <string name="secOnscreenVoiceCallTextExtended">Chama. voz</string>

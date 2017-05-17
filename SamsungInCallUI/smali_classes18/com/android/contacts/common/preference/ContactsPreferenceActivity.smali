@@ -96,7 +96,7 @@
 
     if-lez v0, :cond_0
 
-    const v0, 0x7f090445
+    const v0, 0x7f090447
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/preference/ContactsPreferenceActivity;->setActivityTitle(I)V
 
@@ -118,7 +118,7 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 6
 
-    const v2, 0x7f090445
+    const v2, 0x7f090447
 
     const/4 v3, 0x4
 
@@ -181,7 +181,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f09058a
+    const v2, 0x7f09058c
 
     goto :goto_1
 .end method
@@ -241,7 +241,7 @@
 
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
-    const v0, 0x7f09058a
+    const v0, 0x7f09058c
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/preference/ContactsPreferenceActivity;->setActivityTitle(I)V
 

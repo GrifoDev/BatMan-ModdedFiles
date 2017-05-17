@@ -226,7 +226,7 @@
 
     invoke-virtual {v1, v7}, Landroid/widget/CheckBox;->setVisibility(I)V
 
-    const v7, 0x7f0904c7
+    const v7, 0x7f0904c9
 
     invoke-virtual {v5, v7}, Landroid/widget/TextView;->setText(I)V
 

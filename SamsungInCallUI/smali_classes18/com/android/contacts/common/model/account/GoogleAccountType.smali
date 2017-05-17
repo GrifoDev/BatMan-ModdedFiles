@@ -265,7 +265,7 @@
         }
     .end annotation
 
-    const v6, 0x7f090245
+    const v6, 0x7f090246
 
     const/16 v5, 0xe
 
@@ -743,7 +743,7 @@
 
     const-string v3, "data1"
 
-    const v4, 0x7f090206
+    const v4, 0x7f090207
 
     invoke-direct {v2, v3, v4, v5}, Lcom/android/contacts/common/model/account/AccountType$EditField;-><init>(Ljava/lang/String;II)V
 

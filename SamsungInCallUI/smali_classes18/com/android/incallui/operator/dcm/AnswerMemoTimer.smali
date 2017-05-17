@@ -58,6 +58,17 @@
 
     move-result-object v1
 
+    if-nez v1, :cond_1
+
+    const-string v2, "AnswerMemoTimer"
+
+    const-string v3, "onFinish : controller is null. Returning..."
+
+    invoke-static {v2, v3}, Lcom/android/incallui/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {v1}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->resetAutoAnsTimer()V
 
     const-string v2, "feature_kdi"
@@ -66,7 +77,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -80,7 +91,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     const-string v2, "AnswerMemoTimer"
 
@@ -136,7 +147,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {v1}, Lcom/android/incallui/operator/dcm/AnswerMemoController;->answeringMode()V
 
     goto :goto_0

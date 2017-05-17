@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">תמונות</string>
     <string name="outgoing_img_take_picture">צלם תמונה</string>
     <string name="outgoing_img_video">סרטונים</string>
+    <string name="overlay_warning_toast">"כדי להשתמש ביישום 'טלפון' עליך להפעיל (דרך הגדרות הטלפון) יישומים המורשים להופיע מעל."</string>
     <string name="payphone_sbm">טלפון ציבורי</string>
     <string name="phoneLabelsGroup">טלפון</string>
     <string name="phone_voice_recording_failed_by_secure_call">לא ניתן להקליט שיחה מאובטחת.</string>
@@ -682,6 +683,7 @@
     <string name="secOnscreenUpdateContactText">עדכן</string>
     <string name="secOnscreenUpdateContactText_tts">עדכן</string>
     <string name="secOnscreenVideoCallText">שיחת וידאו</string>
+    <string name="secOnscreenVideoStopText">עצור</string>
     <string name="secOnscreenViewContactText">הצג איש קשר</string>
     <string name="secOnscreenVoiceCallText">שיחה</string>
     <string name="secOnscreenVoiceCallTextExtended">שיחה קולית</string>

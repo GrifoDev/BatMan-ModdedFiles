@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Povucite gumb POŠALJI PORUKU prema gore za slanje brze poruke i odbijanje dolaznog poziva.</string>
     <string name="call_drug_up_panel_for_kk_tts">Povucite odbijeni poziv s porukom prema gore za slanje poruke pri odbijanju poziva dok odbijate dolazni poziv.</string>
     <string name="call_ended_toast">Poziv završen.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Poziv proslijeđen na:</string>
+    <string name="call_forwarding_from">Poziv proslijeđen s:</string>
     <string name="call_incoming_voice_call2">Dodirnite %s za preuzimanje poziva.</string>
     <string name="call_incoming_voice_call2_tts">Dodirnite gumb za prihvaćanje poziva da biste prihvatili poziv.</string>
     <string name="call_incoming_voice_call3">Dodir. %s za odbijanje poziva.</string>
@@ -526,6 +526,7 @@ Izbornik IVR zaslona za pozivanje upotrebljava sadržaj koji pruža davatelj usl
     <string name="outgoing_img_picture">Slike</string>
     <string name="outgoing_img_take_picture">Fotografiranje</string>
     <string name="outgoing_img_video">Video</string>
+    <string name="overlay_warning_toast">Da biste upotrijebili Telefon, trebate uključiti Aplikacije koje se prikazuju na vrhu u postavkama Telefona.</string>
     <string name="payphone_sbm">Javna govornica</string>
     <string name="phoneLabelsGroup">Telefon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Nije moguće snimiti sigurni poziv.</string>
@@ -682,6 +683,7 @@ kamera"</string>
     <string name="secOnscreenUpdateContactText">Aktualiziraj</string>
     <string name="secOnscreenUpdateContactText_tts">Aktualiziraj postojeće</string>
     <string name="secOnscreenVideoCallText">Videopoziv</string>
+    <string name="secOnscreenVideoStopText">Zaustavi</string>
     <string name="secOnscreenViewContactText">Prikaži kontakt</string>
     <string name="secOnscreenVoiceCallText">Poziv</string>
     <string name="secOnscreenVoiceCallTextExtended">Gla. poziv</string>

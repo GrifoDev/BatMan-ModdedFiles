@@ -89,7 +89,7 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v3, 0x7f0904dc
+    const v3, 0x7f0904de
 
     const/4 v4, 0x1
 
@@ -207,7 +207,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v1, 0x7f0904da
+    const v1, 0x7f0904dc
 
     const/4 v4, 0x1
 
@@ -223,7 +223,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v1, 0x7f0904db
+    const v1, 0x7f0904dd
 
     invoke-virtual {v0, v1}, Lcom/android/contacts/common/vcard/VCardService;->getString(I)Ljava/lang/String;
 
@@ -263,7 +263,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v2, 0x7f09048a
+    const v2, 0x7f09048c
 
     invoke-virtual {v1, v2}, Lcom/android/contacts/common/vcard/VCardService;->getString(I)Ljava/lang/String;
 
@@ -403,7 +403,7 @@
 
     iget-object v4, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v5, 0x7f09047e
+    const v5, 0x7f090480
 
     invoke-virtual {v4, v5}, Lcom/android/contacts/common/vcard/VCardService;->getString(I)Ljava/lang/String;
 
@@ -506,7 +506,7 @@
 
     iget-object v4, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v5, 0x7f0904e1
+    const v5, 0x7f0904e3
 
     const/4 v6, 0x1
 
@@ -574,7 +574,7 @@
 
     iget-object v4, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v5, 0x7f0904e2
+    const v5, 0x7f0904e4
 
     const/4 v6, 0x2
 
@@ -710,7 +710,7 @@
 
     iget-object v4, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v5, 0x7f0904e8
+    const v5, 0x7f0904ea
 
     invoke-virtual {v4, v5}, Lcom/android/contacts/common/vcard/VCardService;->getString(I)Ljava/lang/String;
 
@@ -937,7 +937,7 @@
 
     iget-object v4, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v5, 0x7f0904e3
+    const v5, 0x7f0904e5
 
     const/4 v6, 0x1
 
@@ -1108,7 +1108,7 @@
 
     iget-object v4, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v5, 0x7f0904df
+    const v5, 0x7f0904e1
 
     invoke-virtual {v4, v5}, Lcom/android/contacts/common/vcard/VCardService;->getString(I)Ljava/lang/String;
 
@@ -1118,7 +1118,7 @@
 
     iget-object v5, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v6, 0x7f0905b5
+    const v6, 0x7f0905b7
 
     invoke-virtual {v5, v6}, Lcom/android/contacts/common/vcard/VCardService;->getString(I)Ljava/lang/String;
 
@@ -1171,7 +1171,7 @@
 
     iget-object v4, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v5, 0x7f0904df
+    const v5, 0x7f0904e1
 
     invoke-virtual {v4, v5}, Lcom/android/contacts/common/vcard/VCardService;->getString(I)Ljava/lang/String;
 
@@ -1230,7 +1230,7 @@
 
     iget-object v4, v0, Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
 
-    const v5, 0x7f0904de
+    const v5, 0x7f0904e0
 
     const/4 v6, 0x1
 
@@ -1332,7 +1332,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f090477
+    const v1, 0x7f090479
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1351,7 +1351,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f090478
+    const v1, 0x7f09047a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1368,7 +1368,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f090479
+    const v1, 0x7f09047b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

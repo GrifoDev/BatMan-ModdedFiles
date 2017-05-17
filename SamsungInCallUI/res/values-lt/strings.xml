@@ -526,6 +526,7 @@ IVR skambučių ekrano meniu naudoja turinį, teikiamą trečiosios šalies – 
     <string name="outgoing_img_picture">Vaizdai</string>
     <string name="outgoing_img_take_picture">Fotografuoti</string>
     <string name="outgoing_img_video">Vaizdo įrašai</string>
+    <string name="overlay_warning_toast">Jei norite naudoti telefoną, telefono nustatymuose turite įjungti programas, kurios gali būti rodomos viršuje.</string>
     <string name="payphone_sbm">Telefono automatas</string>
     <string name="phoneLabelsGroup">Telefonas</string>
     <string name="phone_voice_recording_failed_by_secure_call">Negalima įrašyti saugaus skambučio.</string>
@@ -683,6 +684,7 @@ fotoap."</string>
     <string name="secOnscreenUpdateContactText">Naujinti esamus</string>
     <string name="secOnscreenUpdateContactText_tts">Atnaujinti esamus</string>
     <string name="secOnscreenVideoCallText">Vaizdo skam.</string>
+    <string name="secOnscreenVideoStopText">Stabdyti</string>
     <string name="secOnscreenViewContactText">Perž. adresatą</string>
     <string name="secOnscreenVoiceCallText">Skamb.</string>
     <string name="secOnscreenVoiceCallTextExtended">Bals.skam.</string>

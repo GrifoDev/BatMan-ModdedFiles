@@ -478,6 +478,7 @@ El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor
     <string name="outgoing_img_picture">Imágenes</string>
     <string name="outgoing_img_take_picture">Hacer foto</string>
     <string name="outgoing_img_video">Vídeos</string>
+    <string name="overlay_warning_toast">Para usar Teléfono, vaya a los ajustes de Teléfono y active las aplicaciones que puedan aparecer encima.</string>
     <string name="payphone_sbm">Teléfono público</string>
     <string name="phoneLabelsGroup">Teléfono</string>
     <string name="phone_voice_recording_failed_by_secure_call">No se puede grabar la llamada segura.</string>
@@ -491,7 +492,7 @@ El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor
     <string name="postal_city">Ciudad</string>
     <string name="postal_country">País</string>
     <string name="postal_postcode">Código postal</string>
-    <string name="postal_region">Estado</string>
+    <string name="postal_region">Provincia</string>
     <string name="postal_street">Calle</string>
     <string name="pre_img_during_call">Imagen predeterminada</string>
     <string name="preferred_sim_for_callback">SIM preferida - Llamadas</string>
@@ -540,7 +541,7 @@ El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor
     <string name="reject_call_with_msg_content_description_open">Deslice hacia arriba con dos dedos para seleccionar el mensaje de rechazo rápido.</string>
     <string name="reject_call_with_msg_content_item_description">Pulse dos veces para enviar el mensaje.</string>
     <string name="reject_call_with_msg_tts">Rechazar llamada con mensaje</string>
-    <string name="rejected_call_notification_action_reminder">Establ recordat</string>
+    <string name="rejected_call_notification_action_reminder">Recordatorio</string>
     <string name="rejected_call_notification_title">Llamada rechazada</string>
     <string name="relationLabelsGroup">Relación</string>
     <string name="requested_video_call">El receptor desea cambiar a videollamada. ¿Desea aceptar?</string>
@@ -634,6 +635,7 @@ cional"</string>
     <string name="secOnscreenUpdateContactText">Actualiz. exist.</string>
     <string name="secOnscreenUpdateContactText_tts">Actualizar existente</string>
     <string name="secOnscreenVideoCallText">Videollamada</string>
+    <string name="secOnscreenVideoStopText">Parar</string>
     <string name="secOnscreenViewContactText">Ver contacto</string>
     <string name="secOnscreenVoiceCallText">Llamar</string>
     <string name="secOnscreenVoiceCallTextExtended">Llam. voz</string>

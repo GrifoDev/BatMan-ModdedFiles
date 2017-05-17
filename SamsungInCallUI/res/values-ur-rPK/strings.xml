@@ -499,6 +499,7 @@ IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہ�
     <string name="outgoing_img_picture">تصویریں</string>
     <string name="outgoing_img_take_picture">تصویر لیں</string>
     <string name="outgoing_img_video">ویڈیوز</string>
+    <string name="overlay_warning_toast">فون استعمال کرنے کے لیے، ان ایپلیکیشنز کو آن کرنے کی ضرورت ہے جو فون سیٹنگز کے بالائی میں ظاہر ہوسکتا ہے۔</string>
     <string name="payphone_sbm">پے فون</string>
     <string name="phoneLabelsGroup">فون</string>
     <string name="phone_voice_recording_failed_by_secure_call">محفوظ کال ریکارڈ نہیں کرسکتے۔</string>
@@ -570,7 +571,7 @@ IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہ�
     <string name="rich_screen_save_success">کالر ID تصویر/ویڈیو محفوظ کردیا گیا۔</string>
     <string name="save_record_msg_myfiles">ریکارڈنگ مائی فائلز میں محفوظ ہوگئی۔</string>
     <string name="secConferenceCallDrop">ڈراپ</string>
-    <string name="secConferenceCallLabel">لوگوں کے ساتھ %d</string>
+    <string name="secConferenceCallLabel">لوگوں کے ساتھ d%</string>
     <string name="secConferenceCallLabel_vzw">%d لوگ</string>
     <string name="secConferenceCallMerged">%s شامل کردہ کال۔</string>
     <string name="secConferenceCallMerging">کال ضم کررہا ہے…</string>
@@ -655,6 +656,7 @@ IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہ�
     <string name="secOnscreenUpdateContactText">موجودہ تازہ کاری</string>
     <string name="secOnscreenUpdateContactText_tts">موجودہ اپڈیٹ</string>
     <string name="secOnscreenVideoCallText">ویڈیو کال</string>
+    <string name="secOnscreenVideoStopText">روکیں</string>
     <string name="secOnscreenViewContactText">رابطہ دیکھیں</string>
     <string name="secOnscreenVoiceCallText">کال</string>
     <string name="secOnscreenVoiceCallTextExtended">صوتی کال</string>

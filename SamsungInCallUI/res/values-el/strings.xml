@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Σύρ. το κουμπί ΑΠΟΣΤΟΛΗ ΜΗΝΥΜΑΤΟΣ προς τα πάνω, για αποστ. γρήγ. μνμ και απορρ. εισ. κλήσ.</string>
     <string name="call_drug_up_panel_for_kk_tts">Σύρετε το πλαίσιο απόρριψης κλήσης με μήνυμα προς τα επάνω, για να στείλετε ένα μήνυμα απόρριψης κλήσης καθώς απορρίπτετε μια εισερχόμενη κλήση.</string>
     <string name="call_ended_toast">Τέλος κλήσης.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Η κλήση προωθήθηκε στον αριθμό:</string>
+    <string name="call_forwarding_from">Η κλήση προωθήθηκε από:</string>
     <string name="call_incoming_voice_call2">Πατήστε %s για να απαντήσετε σε μια κλήση.</string>
     <string name="call_incoming_voice_call2_tts">Πατήστε το κουμπί απάντησης κλήσης, για να απαντήσετε σε μια κλήση.</string>
     <string name="call_incoming_voice_call3">Πατ. %s για απόρρ. της κλήσης.</string>
@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">Εικόνες</string>
     <string name="outgoing_img_take_picture">Λήψη φωτογραφίας</string>
     <string name="outgoing_img_video">Βίντεο</string>
+    <string name="overlay_warning_toast">Για να χρησιμοποιήσετε το Τηλέφωνο, πρέπει να ενεργοποιήσετε την επιλογή «Εφαρμογές που μπορούν να εμφανιστούν επάνω» από τις ρυθμίσεις του Τηλεφώνου.</string>
     <string name="payphone_sbm">Καρτοτηλέφωνο</string>
     <string name="phoneLabelsGroup">Τηλέφωνο</string>
     <string name="phone_voice_recording_failed_by_secure_call">Δεν είναι δυνατή η καταγραφή της ασφαλούς κλήσης.</string>
@@ -682,6 +683,7 @@
     <string name="secOnscreenUpdateContactText">Ενημ. υπαρχόντων</string>
     <string name="secOnscreenUpdateContactText_tts">Ενημέρωση υπάρχοντων</string>
     <string name="secOnscreenVideoCallText">Κλήση βίντεο</string>
+    <string name="secOnscreenVideoStopText">Διακ</string>
     <string name="secOnscreenViewContactText">Προβολή επαφής</string>
     <string name="secOnscreenVoiceCallText">Κλήση</string>
     <string name="secOnscreenVoiceCallTextExtended">Φων. κλήση</string>

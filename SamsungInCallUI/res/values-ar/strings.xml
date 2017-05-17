@@ -33,7 +33,7 @@
     <string name="card_title_dialing">جار الاتصال</string>
     <string name="card_title_hanging_up">إنهاء المكالمة</string>
     <string name="card_title_in_call">في مكالمة</string>
-    <string name="card_title_incoming_call">المكالمة الواردة</string>
+    <string name="card_title_incoming_call">مكالمة واردة</string>
     <string name="card_title_my_phone_number">رقمي هو %s.</string>
     <string name="card_title_on_hold">معلقة</string>
     <string name="card_title_redialing">جارٍ إعادة المحاولة</string>
@@ -208,7 +208,7 @@
     <string name="cancel">إلغاء</string>
     <string name="capture_failure">فشل التقاط الشاشة.</string>
     <string name="captured">تم الالتقاط.</string>
-    <string name="card_title_dialing_for_quick_panel">جاري الاتصال…</string>
+    <string name="card_title_dialing_for_quick_panel">جارٍ الاتصال…</string>
     <string name="card_title_dialing_to_korea">الاتصال بكوريا الجنوبية</string>
     <string name="card_title_wifi_call_ended">تم إنهاء المكالمة عبر شبكة Wi-Fi</string>
     <string name="cdnip_service_prefix">أرقامي</string>
@@ -526,6 +526,7 @@
     <string name="outgoing_img_picture">الصور</string>
     <string name="outgoing_img_take_picture">التقاط صورة</string>
     <string name="outgoing_img_video">الفيديو</string>
+    <string name="overlay_warning_toast">لاستخدام الهاتف، عليك تشغيل التطبيقات التي يمكن أن تظهر في الأعلى في ضبط الهاتف.</string>
     <string name="payphone_sbm">الدفع بواسطة الهاتف</string>
     <string name="phoneLabelsGroup">الهاتف</string>
     <string name="phone_voice_recording_failed_by_secure_call">يتعذر تسجيل مكالمة آمنة.</string>
@@ -658,7 +659,7 @@
     <string name="secOnscreenMenuViewInFullScreenText">عرض في وضع ملء الشاشة</string>
     <string name="secOnscreenMenuViewInOriginalSizeText">عرض بالحجم الأصلي</string>
     <string name="secOnscreenMergeText">دمج</string>
-    <string name="secOnscreenMessageText">الرسالة</string>
+    <string name="secOnscreenMessageText">رسالة</string>
     <string name="secOnscreenMinimiseWindowText">تصغير الإطار</string>
     <string name="secOnscreenMoreButton">المزيد</string>
     <string name="secOnscreenMoreText">مزيد من الخيارات</string>
@@ -682,6 +683,7 @@
     <string name="secOnscreenUpdateContactText">تحديث الموجود</string>
     <string name="secOnscreenUpdateContactText_tts">تحديث القائمة</string>
     <string name="secOnscreenVideoCallText">مكالمة فيديو</string>
+    <string name="secOnscreenVideoStopText">إيقاف</string>
     <string name="secOnscreenViewContactText">عرض جهة الاتصال</string>
     <string name="secOnscreenVoiceCallText">اتصال</string>
     <string name="secOnscreenVoiceCallTextExtended">مكالمة صوتية</string>

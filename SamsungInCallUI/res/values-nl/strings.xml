@@ -526,6 +526,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="outgoing_img_picture">Afbeeldingen</string>
     <string name="outgoing_img_take_picture">Foto maken</string>
     <string name="outgoing_img_video">"Video's"</string>
+    <string name="overlay_warning_toast">Als u Telefoon wilt gebruiken, moet u Apps inschakelen die bovenop kunnen worden weergegeven in Telefooninstellingen.</string>
     <string name="payphone_sbm">Munttelefoon</string>
     <string name="phoneLabelsGroup">Telefoon</string>
     <string name="phone_voice_recording_failed_by_secure_call">Kan veilige oproep niet vastleggen.</string>
@@ -682,6 +683,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="secOnscreenUpdateContactText">Best. bijwerken</string>
     <string name="secOnscreenUpdateContactText_tts">Bestaande bijwerken</string>
     <string name="secOnscreenVideoCallText">Video-oproep</string>
+    <string name="secOnscreenVideoStopText">Stop</string>
     <string name="secOnscreenViewContactText">Contact weerg.</string>
     <string name="secOnscreenVoiceCallText">Bellen</string>
     <string name="secOnscreenVoiceCallTextExtended">Spraakoprp</string>

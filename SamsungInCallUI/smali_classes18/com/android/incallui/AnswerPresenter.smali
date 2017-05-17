@@ -49,6 +49,8 @@
 # instance fields
 .field private final GSM_CONFERENCECALL_MAX_SIZE:I
 
+.field private mAnsVTasVoiceAfterConfCallDisconnect:Z
+
 .field private mAnswerCallAfterThisDisconnect:I
 
 .field private mAnswerVideoStateAfterThisDisconnect:I
@@ -97,6 +99,8 @@
     iput v0, p0, Lcom/android/incallui/AnswerPresenter;->mAnswerCallAfterThisDisconnect:I
 
     iput v1, p0, Lcom/android/incallui/AnswerPresenter;->mAnswerVideoStateAfterThisDisconnect:I
+
+    iput-boolean v1, p0, Lcom/android/incallui/AnswerPresenter;->mAnsVTasVoiceAfterConfCallDisconnect:Z
 
     new-instance v0, Lcom/android/incallui/AnswerPresenter$1;
 
@@ -361,7 +365,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090330
+    const v4, 0x7f090332
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -381,7 +385,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090331
+    const v4, 0x7f090333
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -401,7 +405,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09032f
+    const v4, 0x7f090331
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -415,7 +419,7 @@
 
     aput-object v3, v12, v1
 
-    const v1, 0x7f090334
+    const v1, 0x7f090336
 
     invoke-virtual {v11, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -532,7 +536,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090330
+    const v4, 0x7f090332
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -552,7 +556,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09032f
+    const v4, 0x7f090331
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -566,7 +570,7 @@
 
     aput-object v3, v12, v1
 
-    const v1, 0x7f090334
+    const v1, 0x7f090336
 
     invoke-virtual {v11, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -624,7 +628,7 @@
 
     move-result-object v9
 
-    const v18, 0x7f090334
+    const v18, 0x7f090336
 
     const v14, 0x7f090113
 
@@ -748,7 +752,7 @@
     const-string v8, ""
 
     :cond_3
-    const v1, 0x7f09032f
+    const v1, 0x7f090331
 
     if-ne v14, v1, :cond_6
 
@@ -941,9 +945,9 @@
 
     move-result-object v8
 
-    const v18, 0x7f090334
+    const v18, 0x7f090336
 
-    const v14, 0x7f09032f
+    const v14, 0x7f090331
 
     goto/16 :goto_1
 
@@ -1035,6 +1039,105 @@
     iget v0, p0, Lcom/android/incallui/AnswerPresenter;->mAnswerVideoStateAfterThisDisconnect:I
 
     return v0
+.end method
+
+.method private answerVTAsVoiceDuringConfCall(Lcom/android/incallui/Call;)V
+    .locals 3
+
+    if-eqz p1, :cond_1
+
+    sget-object v0, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "answerVTAsVoiceDuringConfCall : isPSDomain:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {p1}, Lcom/android/incallui/util/CallTypeUtils;->isPSDomain(Lcom/android/incallui/Call;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " isVideo : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " VideoStateAfterThisDisconnect :"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/incallui/AnswerPresenter;->mAnswerVideoStateAfterThisDisconnect:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    if-eqz p1, :cond_0
+
+    invoke-static {p1}, Lcom/android/incallui/util/CallTypeUtils;->isPSDomain(Lcom/android/incallui/Call;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p1}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall(Lcom/android/incallui/Call;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/incallui/AnswerPresenter;->mAnswerVideoStateAfterThisDisconnect:I
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
+
+    const-string v1, "answerVTAsVoiceDuringConfCall sendSessionModifyRequest "
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallControl;->sendSessionModifyRequest(I)V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    sget-object v0, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
+
+    const-string v1, "answerVTAsVoiceDuringConfCall call is null "
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method private configureAnswerTargetsForSms(Lcom/android/incallui/Call;Ljava/util/List;)V
@@ -2426,7 +2529,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090250
+    const v2, 0x7f090251
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3511,7 +3614,7 @@
 
     if-nez v3, :cond_0
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_6
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
@@ -3519,13 +3622,22 @@
 
     const/4 v4, 0x4
 
-    if-eq v3, v4, :cond_5
+    if-eq v3, v4, :cond_6
 
+    iget-boolean v3, p0, Lcom/android/incallui/AnswerPresenter;->mAnsVTasVoiceAfterConfCallDisconnect:Z
+
+    if-eqz v3, :cond_2
+
+    invoke-direct {p0, p1}, Lcom/android/incallui/AnswerPresenter;->answerVTAsVoiceDuringConfCall(Lcom/android/incallui/Call;)V
+
+    iput-boolean v5, p0, Lcom/android/incallui/AnswerPresenter;->mAnsVTasVoiceAfterConfCallDisconnect:Z
+
+    :cond_2
     invoke-direct {p0, p1}, Lcom/android/incallui/AnswerPresenter;->isVideoUpgradePending(Lcom/android/incallui/Call;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -3535,7 +3647,7 @@
 
     invoke-virtual {v3, v4, p0}, Lcom/android/incallui/CallList;->removeCallUpdateListener(Ljava/lang/String;Lcom/android/incallui/CallList$CallUpdateListener;)V
 
-    :cond_2
+    :cond_3
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v3
@@ -3544,11 +3656,11 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
-    :cond_3
+    :cond_4
     invoke-direct {p0, v6}, Lcom/android/incallui/AnswerPresenter;->showAnswerUi(Z)Z
 
     :goto_1
@@ -3556,12 +3668,12 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     invoke-direct {p0, v5}, Lcom/android/incallui/AnswerPresenter;->showAnswerUi(Z)Z
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     iget-boolean v3, p0, Lcom/android/incallui/AnswerPresenter;->mHasTextMessages:Z
 
     if-nez v3, :cond_0
@@ -3576,7 +3688,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7
 
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState()I
 
@@ -3584,16 +3696,16 @@
 
     const/4 v4, 0x2
 
-    if-ge v3, v4, :cond_7
+    if-ge v3, v4, :cond_8
 
-    :cond_6
+    :cond_7
     const-string v3, "support_spam_call"
 
     invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_9
 
     invoke-virtual {p0}, Lcom/android/incallui/AnswerPresenter;->getContext()Landroid/content/Context;
 
@@ -3603,9 +3715,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_9
 
-    :cond_7
+    :cond_8
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->getBlockReportMessage()Ljava/util/List;
 
     move-result-object v2
@@ -3617,7 +3729,7 @@
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_9
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v3
@@ -3849,7 +3961,9 @@
 .end method
 
 .method public onDisconnect(Lcom/android/incallui/Call;)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x1
 
     const/4 v3, 0x0
 
@@ -3887,9 +4001,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     iget v0, p0, Lcom/android/incallui/AnswerPresenter;->mAnswerCallAfterThisDisconnect:I
 
@@ -3916,6 +4028,8 @@
     move-result-object v1
 
     invoke-virtual {p0, v0, v1}, Lcom/android/incallui/AnswerPresenter;->onAnswer(ILandroid/content/Context;)V
+
+    iput-boolean v4, p0, Lcom/android/incallui/AnswerPresenter;->mAnsVTasVoiceAfterConfCallDisconnect:Z
 
     :cond_0
     :goto_0
