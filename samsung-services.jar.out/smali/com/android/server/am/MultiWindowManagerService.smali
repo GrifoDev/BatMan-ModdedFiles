@@ -12513,9 +12513,9 @@
 .end method
 
 .method public minimizeTopTask()Z
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     sget-boolean v5, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
@@ -12526,6 +12526,12 @@
     monitor-enter v6
 
     :try_start_0
+    const-string/jumbo v5, "MultiWindowManagerService"
+
+    const-string/jumbo v7, "[bixby] minimizeTopTask"
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     const/4 v7, 0x2
@@ -12540,30 +12546,50 @@
 
     move-result-object v1
 
-    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :cond_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    add-int/lit8 v2, v5, -0x1
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :goto_0
+    if-ltz v2, :cond_1
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/am/TaskRecord;
+
+    const-string/jumbo v5, "MultiWindowManagerService"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "[bixby] minimizeTopTask()  tr = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v4}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/server/am/TaskRecord;
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v3}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    iget v5, v3, Lcom/android/server/am/TaskRecord;->mHiddenState:I
+    iget v5, v4, Lcom/android/server/am/TaskRecord;->mHiddenState:I
 
     if-nez v5, :cond_0
 
@@ -12579,7 +12605,7 @@
 
     move-result-object v7
 
-    iget v8, v3, Lcom/android/server/am/TaskRecord;->taskId:I
+    iget v8, v4, Lcom/android/server/am/TaskRecord;->taskId:I
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -12591,7 +12617,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -12601,7 +12627,7 @@
 
     invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v5, v2, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+    iget-object v5, v3, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
     iget v5, v5, Lcom/android/server/am/TaskRecord;->taskId:I
 
@@ -12615,6 +12641,11 @@
 
     return v5
 
+    :cond_0
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_0
+
     :cond_1
     monitor-exit v6
 
@@ -12625,7 +12656,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v8
+    return v9
 
     :catchall_0
     move-exception v5

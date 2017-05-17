@@ -19429,9 +19429,7 @@
 .end method
 
 .method public isPossibleEndCallByPowerKey()Z
-    .locals 3
-
-    const/4 v2, 0x2
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
@@ -19439,7 +19437,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -19447,19 +19445,16 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mSleepReason:I
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-ne v0, v1, :cond_0
 
-    iget v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mSleepReason:I
-
-    if-ne v0, v2, :cond_1
-
-    :cond_0
     const-string/jumbo v0, "SamsungPhoneWindowManager"
 
     const-string/jumbo v1, "skip endCall. screenoff by timeout during call"
@@ -19470,7 +19465,7 @@
 
     return v0
 
-    :cond_1
+    :cond_0
     const/4 v0, 0x1
 
     return v0
