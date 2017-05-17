@@ -117,7 +117,7 @@
 
     const-string/jumbo v5, "CHECK_PERMISSIONS"
 
-    invoke-static {v4, v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap4(Lcom/android/settings/wifi/AdvancedWifiSettings;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap5(Lcom/android/settings/wifi/AdvancedWifiSettings;Ljava/lang/String;)V
 
     iget-object v4, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
@@ -191,7 +191,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v4, v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap9(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
+    invoke-static {v4, v5}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap10(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
 
     :cond_3
     :goto_0
@@ -366,7 +366,7 @@
     if-ne v2, v7, :cond_8
 
     :goto_2
-    invoke-static {v4, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap9(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
+    invoke-static {v4, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap10(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
 
     goto/16 :goto_0
 
@@ -401,7 +401,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v4, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap9(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
+    invoke-static {v4, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap10(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
 
     goto/16 :goto_0
 
@@ -422,7 +422,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$2;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-static {v4, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap9(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
+    invoke-static {v4, v6}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap10(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
 
     goto/16 :goto_0
 .end method

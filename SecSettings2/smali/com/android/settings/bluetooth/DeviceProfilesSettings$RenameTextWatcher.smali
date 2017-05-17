@@ -57,7 +57,7 @@
 
     iget-object v5, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v5}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get1(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/app/AlertDialog;
+    invoke-static {v5}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get0(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/app/AlertDialog;
 
     move-result-object v5
 
@@ -114,7 +114,7 @@
 
     iget-object v6, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v6}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    invoke-static {v6}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get6(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     move-result-object v6
 
@@ -288,7 +288,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -301,7 +301,7 @@
     :goto_1
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -325,7 +325,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get9(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -335,7 +335,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get9(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -343,7 +343,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -354,7 +354,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -369,7 +369,7 @@
     :cond_3
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -393,7 +393,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get9(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/TextView;
 
     move-result-object v1
 

@@ -681,6 +681,30 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.samsung.android.settings.bluetooth.BluetoothDualPlaySettings"/>
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
         </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/bluetooth_control_history_title" android:name="com.android.settings.Settings$BluetoothControlHistoryActivity" android:taskAffinity="" android:theme="@style/Theme.Settings">
+            <intent-filter android:priority="1">
+                <action android:name="com.samsung.settings.BluetoothControlHistory"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.samsung.android.settings.bluetooth.BluetoothControlHistory"/>
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/bluetooth_help_title" android:name="com.android.settings.Settings$BluetoothHelpPageActivity" android:taskAffinity="" android:theme="@style/Theme.Settings">
+            <intent-filter android:priority="1">
+                <action android:name="com.samsung.settings.BluetoothHelpPage"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.samsung.android.settings.guide.BluetoothHelpPage"/>
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
+        </activity>
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/bluetooth_avc_title" android:name="com.android.settings.Settings$BluetoothAVCSettingsActivity" android:taskAffinity="" android:theme="@style/Theme.Settings">
             <intent-filter android:priority="1">
                 <action android:name="com.samsung.settings.BLUETOOTH_AVC_SETTINGS"/>

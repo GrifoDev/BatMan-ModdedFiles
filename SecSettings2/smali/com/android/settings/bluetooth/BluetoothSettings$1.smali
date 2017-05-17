@@ -113,7 +113,7 @@
 
     const/4 v4, 0x0
 
-    invoke-static {v2, v3, v4}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;IZ)V
+    invoke-static {v2, v3, v4}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap7(Lcom/android/settings/bluetooth/BluetoothSettings;IZ)V
 
     :cond_1
     :goto_0
@@ -198,13 +198,13 @@
 
     iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothSettings$1;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap4(Lcom/android/settings/bluetooth/BluetoothSettings;)V
+    invoke-static {v2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;)V
 
     iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothSettings$1;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
     const/4 v3, 0x1
 
-    invoke-static {v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap5(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
+    invoke-static {v2, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-wrap6(Lcom/android/settings/bluetooth/BluetoothSettings;Z)V
 
     goto :goto_0
 .end method

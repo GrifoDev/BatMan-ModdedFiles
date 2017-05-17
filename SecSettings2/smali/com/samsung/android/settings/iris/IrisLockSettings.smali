@@ -3033,12 +3033,6 @@
     invoke-virtual {p0, v1, v1}, Lcom/samsung/android/settings/iris/IrisLockSettings;->overridePendingTransition(II)V
 
     :cond_0
-    iget-object v0, p0, Lcom/samsung/android/settings/iris/IrisLockSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v1, "IrisesEntry"
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
-
     return-void
 .end method
 
@@ -3093,4 +3087,18 @@
     invoke-virtual {p0}, Lcom/samsung/android/settings/iris/IrisLockSettings;->finish()V
 
     goto :goto_0
+.end method
+
+.method protected onStop()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/samsung/android/settings/iris/IrisLockSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v1, "IrisesEntry"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
+
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
+
+    return-void
 .end method

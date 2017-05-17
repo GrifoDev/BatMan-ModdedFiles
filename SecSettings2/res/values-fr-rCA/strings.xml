@@ -4138,7 +4138,7 @@ Note : Votre empreinte risque d'être moins sécurisée qu'un modèle ou un code
     <string name="unlock_set_unlock_none_summary">Pas de sécurité</string>
     <string name="unlock_set_unlock_pattern_title">Modèle</string>
     <string name="unlock_set_unlock_pattern_summary">Sécurité moyenne</string>
-    <string name="unlock_set_unlock_pin_title">Code NIP</string>
+    <string name="unlock_set_unlock_pin_title">NIP</string>
     <string name="unlock_set_unlock_pin_summary">Sécurité de niveau moyen à élevé</string>
     <string name="unlock_set_unlock_password_title">Mot de passe</string>
     <string name="unlock_set_unlock_password_summary">Sécurité maximale</string>

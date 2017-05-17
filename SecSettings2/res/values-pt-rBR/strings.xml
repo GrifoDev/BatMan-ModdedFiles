@@ -2341,7 +2341,7 @@ A determinação da sua localização utilizará a rede móvel. O uso de dados s
     <string name="confirm_lockpassword_your_password_header">Insira a senha atual.</string>
     <string name="lockscreen_notification_header_text">Selecione os aplicativos para exibir notificações na Tela de bloqueio e no Always On Display. Selecione se deseja ocultar os detalhes do conteúdo e da notificação na Tela de bloqueio.</string>
     <string name="lockscreen_notification_off_desc">Defina as opções de exibição para notificações na Tela de bloqueio e no Always On Display.</string>
-    <string name="lockscreen_notification_icons_only">Somente ícones notificaç.</string>
+    <string name="lockscreen_notification_icons_only">Somente ícones de notif.</string>
     <string name="lockscreen_notification_icons_only_summary">Oculte os detalhes da notificação e mostre apenas o ícone.</string>
     <string name="lockscreen_block_on_app_noti">Bloqueado em Configurações > Notificações</string>
     <string name="security_warning_title">Config. bloqueio de tela</string>

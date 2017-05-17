@@ -35,673 +35,693 @@
 
 # virtual methods
 .method public onStateReceived()V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v4, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v4}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "NavigationBarDefaultBackgroundColor"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;
+    invoke-virtual {v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->isDefaultBackgroundColor()Z
+    const-string/jumbo v4, "NavigationBarDefaultBackgroundColor"
 
-    move-result v1
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v1, :cond_2
+    move-result v4
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    if-eqz v4, :cond_3
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->setDefaultBackgroundColor()V
+    move-result-object v2
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    invoke-virtual {v2}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->isDefaultBackgroundColor()Z
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result v2
 
-    move-result-object v1
+    if-nez v2, :cond_2
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    move-result v1
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;
 
-    if-eqz v1, :cond_0
+    move-result-object v2
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    invoke-virtual {v2}, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference;->setDefaultBackgroundColor()V
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    const-string/jumbo v2, "NavigationBarBackgroundColor"
+    move-result-object v2
 
-    const-string/jumbo v3, "AlreadySet"
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
 
-    const-string/jumbo v4, "No"
+    move-result v2
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "NavigationBar"
+    const-string/jumbo v3, "NavigationBarBackgroundColor"
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    const-string/jumbo v4, "AlreadySet"
+
+    const-string/jumbo v5, "No"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "NavigationBar"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
     :cond_0
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "NavigationBarBackgroundColor"
+    const-string/jumbo v3, "NavigationBarBackgroundColor"
 
-    const-string/jumbo v3, "AlreadySet"
+    const-string/jumbo v4, "AlreadySet"
 
-    const-string/jumbo v4, "Yes"
+    const-string/jumbo v5, "Yes"
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "NavigationBar"
+    const-string/jumbo v3, "NavigationBar"
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v1, "ButtonLayoutRecentsHomeBack"
+    const-string/jumbo v4, "ButtonLayoutRecentsHomeBack"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_6
+    if-eqz v4, :cond_7
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v4, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get2(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/android/settings/SecDropDownPreference;
+    invoke-static {v4}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-wrap0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Lcom/android/settings/SecDropDownPreference;->getValue()Ljava/lang/String;
+    const-string/jumbo v5, "navigationbar_key_order"
 
-    move-result-object v1
+    invoke-static {v4, v5, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    const-string/jumbo v2, "1"
+    move-result v4
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v4, :cond_5
 
-    move-result v1
+    move v0, v2
 
-    if-eqz v1, :cond_5
+    :goto_1
+    if-nez v0, :cond_6
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get2(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/android/settings/SecDropDownPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get2(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/android/settings/SecDropDownPreference;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "0"
+    invoke-virtual {v2, v3}, Lcom/android/settings/SecDropDownPreference;->setValueIndex(I)V
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/SecDropDownPreference;->setValue(Ljava/lang/String;)V
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-wrap0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/content/ContentResolver;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-wrap0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/content/ContentResolver;
+    move-result-object v2
 
-    move-result-object v1
+    const-string/jumbo v4, "navigationbar_key_order"
 
-    const-string/jumbo v2, "navigationbar_key_order"
+    invoke-static {v2, v4, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+    move-result v2
 
-    move-result v1
+    if-eqz v2, :cond_4
 
-    if-eqz v1, :cond_4
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v2
 
-    move-result-object v1
+    const-string/jumbo v3, "ButtonLayoutRecentsHomeBack"
 
-    const-string/jumbo v2, "ButtonLayoutRecentsHomeBack"
+    const-string/jumbo v4, "AlreadySet"
 
-    const-string/jumbo v3, "AlreadySet"
+    const-string/jumbo v5, "No"
 
-    const-string/jumbo v4, "No"
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result-object v2
 
-    move-result-object v1
+    const-string/jumbo v3, "NavigationBar"
 
-    const-string/jumbo v2, "NavigationBar"
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
     :cond_4
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :cond_5
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    move v0, v3
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "ButtonLayoutRecentsHomeBack"
-
-    const-string/jumbo v3, "AlreadySet"
-
-    const-string/jumbo v4, "Yes"
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "NavigationBar"
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_0
+    goto :goto_1
 
     :cond_6
-    const-string/jumbo v1, "ButtonLayoutBackHomeRecents"
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result v1
+    move-result-object v2
 
-    if-eqz v1, :cond_9
+    const-string/jumbo v3, "ButtonLayoutRecentsHomeBack"
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    const-string/jumbo v4, "AlreadySet"
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get2(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/android/settings/SecDropDownPreference;
+    const-string/jumbo v5, "Yes"
 
-    move-result-object v1
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Lcom/android/settings/SecDropDownPreference;->getValue()Ljava/lang/String;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    const-string/jumbo v2, "0"
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v3, "NavigationBar"
 
-    move-result v1
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
 
-    if-eqz v1, :cond_8
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get2(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/android/settings/SecDropDownPreference;
+    move-result-object v2
 
-    move-result-object v1
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    const-string/jumbo v2, "1"
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/SecDropDownPreference;->setValue(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-wrap0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "navigationbar_key_order"
-
-    invoke-static {v1, v2, v4}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "ButtonLayoutBackHomeRecents"
-
-    const-string/jumbo v3, "AlreadySet"
-
-    const-string/jumbo v4, "No"
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "NavigationBar"
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_7
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
+    :cond_7
+    const-string/jumbo v4, "ButtonLayoutBackHomeRecents"
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_b
+
+    iget-object v4, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v4}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-wrap0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "navigationbar_key_order"
+
+    invoke-static {v4, v5, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-ne v4, v2, :cond_9
+
+    move v0, v2
+
+    :goto_2
+    if-nez v0, :cond_a
+
+    iget-object v3, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get2(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/android/settings/SecDropDownPreference;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Lcom/android/settings/SecDropDownPreference;->setValueIndex(I)V
+
+    iget-object v3, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-wrap0(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "navigationbar_key_order"
+
+    invoke-static {v3, v4, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "ButtonLayoutBackHomeRecents"
+
+    const-string/jumbo v4, "AlreadySet"
+
+    const-string/jumbo v5, "No"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "NavigationBar"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
     :cond_8
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "ButtonLayoutBackHomeRecents"
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    const-string/jumbo v3, "AlreadySet"
-
-    const-string/jumbo v4, "Yes"
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "NavigationBar"
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :cond_9
-    const-string/jumbo v1, "UnlockWithHomeButtonOn"
+    move v0, v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_c
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get4(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/preference/SwitchPreference;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/preference/SwitchPreference;->isChecked()Z
-
-    move-result v1
-
-    if-nez v1, :cond_b
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get4(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/preference/SwitchPreference;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_a
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "UnlockWithHomeButtonOn"
-
-    const-string/jumbo v3, "AlreadyON"
-
-    const-string/jumbo v4, "No"
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "NavigationBar"
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    goto :goto_2
 
     :cond_a
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    const-string/jumbo v3, "ButtonLayoutBackHomeRecents"
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    const-string/jumbo v4, "AlreadySet"
+
+    const-string/jumbo v5, "Yes"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "NavigationBar"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :cond_b
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
     const-string/jumbo v2, "UnlockWithHomeButtonOn"
 
-    const-string/jumbo v3, "AlreadyON"
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v4, "Yes"
+    move-result v2
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v2, :cond_e
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get4(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/preference/SwitchPreference;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "NavigationBar"
+    invoke-virtual {v2}, Landroid/preference/SwitchPreference;->isChecked()Z
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    move-result v2
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    if-nez v2, :cond_d
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get4(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/preference/SwitchPreference;
 
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    iget-object v3, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-virtual {v3}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_c
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "UnlockWithHomeButtonOn"
+
+    const-string/jumbo v4, "AlreadyON"
+
+    const-string/jumbo v5, "No"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "NavigationBar"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_c
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
-    :cond_c
-    const-string/jumbo v1, "UnlockWithHomeButtonOff"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_f
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get4(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/preference/SwitchPreference;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/preference/SwitchPreference;->isChecked()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_e
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get4(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/preference/SwitchPreference;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_d
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "UnlockWithHomeButtonOff"
-
-    const-string/jumbo v3, "AlreadyOFF"
-
-    const-string/jumbo v4, "No"
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "NavigationBar"
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
     :cond_d
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    const-string/jumbo v3, "UnlockWithHomeButtonOn"
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    const-string/jumbo v4, "AlreadyON"
+
+    const-string/jumbo v5, "Yes"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "NavigationBar"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :cond_e
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
     const-string/jumbo v2, "UnlockWithHomeButtonOff"
 
-    const-string/jumbo v3, "AlreadyOFF"
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v4, "Yes"
+    move-result v2
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v2, :cond_11
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get4(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/preference/SwitchPreference;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "NavigationBar"
+    invoke-virtual {v2}, Landroid/preference/SwitchPreference;->isChecked()Z
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    move-result v2
 
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    if-eqz v2, :cond_10
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get4(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Landroid/preference/SwitchPreference;
 
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    iget-object v3, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-virtual {v3}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_f
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "UnlockWithHomeButtonOff"
+
+    const-string/jumbo v4, "AlreadyOFF"
+
+    const-string/jumbo v5, "No"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "NavigationBar"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_f
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
-    :cond_f
-    const-string/jumbo v1, "HardPressSensitivity"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_10
-
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
     :cond_10
-    iget-object v1, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    const-string/jumbo v3, "UnlockWithHomeButtonOff"
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    const-string/jumbo v4, "AlreadyOFF"
+
+    const-string/jumbo v5, "Yes"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "NavigationBar"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_11
+    const-string/jumbo v2, "HardPressSensitivity"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_12
+
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_12
+    iget-object v2, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings$3;->this$0:Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->-get1(Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 .end method

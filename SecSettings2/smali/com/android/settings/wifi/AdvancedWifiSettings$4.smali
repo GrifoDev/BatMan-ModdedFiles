@@ -41,7 +41,7 @@
 
     const/4 v1, 0x2
 
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap6(Lcom/android/settings/wifi/AdvancedWifiSettings;I)V
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->-wrap7(Lcom/android/settings/wifi/AdvancedWifiSettings;I)V
 
     const/4 v0, 0x1
 

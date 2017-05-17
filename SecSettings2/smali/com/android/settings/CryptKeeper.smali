@@ -2061,9 +2061,7 @@
 
     iget-object v9, p0, Lcom/android/settings/CryptKeeper;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
-    invoke-virtual {v7}, Lcom/android/internal/widget/LockPatternUtils;->isTactileFeedbackEnabled()Z
-
-    move-result v10
+    const/4 v10, 0x0
 
     invoke-virtual {v9, v10}, Lcom/android/internal/widget/LockPatternView;->setTactileFeedbackEnabled(Z)V
 
@@ -2486,6 +2484,8 @@
     invoke-virtual {v9, v10, v12, v13}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_1
+
+    nop
 
     :array_0
     .array-data 4

@@ -1,5 +1,5 @@
 Signature-Version: 1.0
-SHA-256-Digest-Manifest: yr7OiaDnbvSg+9a/Un/q+c8PeXrtRFCM5lsAcnigCCg=
+SHA-256-Digest-Manifest: BrOgDiGAESPhBd9uHPdgG7m5RFlUnvgS2orK+JfyKqI=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/layout/display.xml
@@ -757,7 +757,7 @@ Name: res/layout/suw_no_scroll_template_header.xml
 SHA-256-Digest: XEWawyspwT900LApVFliA9PwOiFWRY+gui/nBBdq24g=
 
 Name: AndroidManifest.xml
-SHA-256-Digest: JsJ2Wyu3tA8LFPaMWPOiz9wMeeKefGeVYbLmdNmNGBE=
+SHA-256-Digest: 5zAgkGKVSkSN9pFh6u1SYGTOg7V2fBBm2tCbG1f4K9M=
 
 Name: res/drawable-xxxhdpi-v4/ic_menu_add_dark.pio
 SHA-256-Digest: DELpM71o5ZuoqB2Yp88d+E32UTpGpXT3/4sKcmPlGLA=
@@ -4131,7 +4131,7 @@ Name: res/drawable/ic_expand_more.xml
 SHA-256-Digest: bCx4Mfntgfoykc3sysmRAUZYYSTJ2FRfYTdlXkTlk48=
 
 Name: resources.arsc
-SHA-256-Digest: K5KJDtLI1zl5ZrJofIjy+6T2IJLCRQs9yVQc3KyBBFA=
+SHA-256-Digest: c1dDnd0yhMeOaetxg0Rh9CQkhNMmyORazv9+w9+BQP4=
 
 Name: res/drawable-xhdpi-v4/tutorial_smart_stay_tablet_03.qmg
 SHA-256-Digest: DWWYzt526RpU2O6PGVqcm5wjNuaLf6UMVMMKLn/GNEc=
@@ -4289,7 +4289,7 @@ Name: res/drawable-xxhdpi-v4/motion_pick_up_soft_03.qmg
 SHA-256-Digest: 6Ww45QNUOyVwmlqLRXJZPfCRJcyXB0rX/5taW36dt20=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: GZno4DhpAgDRlBJthaHkUdr+Hu5OGaoNbiS2Rkf2tQ0=
+SHA-256-Digest: FLT4S9HJARCVLxMLfJvdNhmYN7WdQirUVv6DZVuUd6U=
 
 Name: res/drawable/motion_multi_window_anim.xml
 SHA-256-Digest: Lndot13pzbOPrPb7haegWuQ/NF/S9KEvP1KdkD9geCM=

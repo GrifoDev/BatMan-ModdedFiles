@@ -215,7 +215,7 @@
 .method static synthetic -wrap2(Lcom/samsung/android/settings/wifi/WifiSettingsBase;)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->isEnabledMobileHotstpot()Z
+    invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->isMobileHotstpotEnabled()Z
 
     move-result v0
 
@@ -1275,7 +1275,7 @@
     return v0
 .end method
 
-.method private isEnabledMobileHotstpot()Z
+.method private isMobileHotstpotEnabled()Z
     .locals 4
 
     const/4 v3, 0x0
@@ -1286,7 +1286,7 @@
 
     const-string/jumbo v1, "WifiSettingsBase"
 
-    const-string/jumbo v2, "Wifi Manager is null so returning false"
+    const-string/jumbo v2, "isMobileHotstpotEnabled, Wifi Manager is null so returning false"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1531,7 +1531,7 @@
 
     const-string/jumbo v1, "WifiSettingsBase"
 
-    const-string/jumbo v2, "isWifiSharingEnabled : SettingNotFoundException"
+    const-string/jumbo v2, "isWifiSharingEnabled, SettingNotFoundException"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1555,7 +1555,7 @@
     iput-object v1, p0, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->mBixbyWaitWifiOnTimer:Landroid/os/CountDownTimer;
 
     :cond_0
-    invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->isEnabledMobileHotstpot()Z
+    invoke-direct {p0}, Lcom/samsung/android/settings/wifi/WifiSettingsBase;->isMobileHotstpotEnabled()Z
 
     move-result v0
 

@@ -44,6 +44,8 @@
 
 .field private mBatteryPreference:Lcom/samsung/android/settings/ProgressPreference;
 
+.field private mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
 .field private mChartData:Lcom/android/settingslib/net/ChartData;
 
 .field private final mCheckKillProcessesReceiver:Landroid/content/BroadcastReceiver;
@@ -105,6 +107,8 @@
 .field private mLaunchPreference:Landroid/preference/Preference;
 
 .field private mMemoryPreference:Lcom/samsung/android/settings/ProgressPreference;
+
+.field private mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
 
 .field private mNotificationPreference:Landroid/preference/Preference;
 
@@ -4502,7 +4506,7 @@
     iget-object v11, v0, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->label:Ljava/lang/String;
 
     :cond_0
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_7
 
     const-string/jumbo v0, "ApplicationInfoBattery"
 
@@ -4510,7 +4514,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4538,17 +4542,18 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
 
+    :cond_2
     :goto_1
     return-void
 
-    :cond_2
+    :cond_3
     const-string/jumbo v0, "ApplicationInfoStorage"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4558,14 +4563,14 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     const-string/jumbo v0, "Memory"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4581,14 +4586,14 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     const-string/jumbo v0, "MobileData"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4604,7 +4609,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     const-string/jumbo v0, "Storage"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -4627,14 +4632,14 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     const-string/jumbo v0, "ApplicationInfoBattery"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_a
 
     sget-object v3, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4656,22 +4661,46 @@
 
     invoke-virtual/range {v3 .. v10}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_7
-    :goto_2
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
+    if-eqz v0, :cond_9
+
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
+    invoke-virtual {v0}, Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;->getStatus()Landroid/os/AsyncTask$Status;
+
+    move-result-object v0
+
+    sget-object v1, Landroid/os/AsyncTask$Status;->FINISHED:Landroid/os/AsyncTask$Status;
+
+    if-eq v0, v1, :cond_9
+
+    :cond_8
+    sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/applications/EmHandler;->retryAction()V
+
+    goto/16 :goto_1
+
+    :cond_9
     sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
     invoke-virtual {v0}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_a
     const-string/jumbo v0, "ApplicationInfoStorage"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b
 
     sget-object v3, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4687,16 +4716,20 @@
 
     invoke-virtual/range {v3 .. v8}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_2
+    sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
-    :cond_9
+    invoke-virtual {v0}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
+
+    :cond_b
     const-string/jumbo v0, "Memory"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_e
 
     sget-object v3, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4712,16 +4745,46 @@
 
     invoke-virtual/range {v3 .. v8}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_2
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
 
-    :cond_a
+    if-eqz v0, :cond_c
+
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
+
+    if-eqz v0, :cond_d
+
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
+
+    invoke-virtual {v0}, Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;->getStatus()Landroid/os/AsyncTask$Status;
+
+    move-result-object v0
+
+    sget-object v1, Landroid/os/AsyncTask$Status;->FINISHED:Landroid/os/AsyncTask$Status;
+
+    if-eq v0, v1, :cond_d
+
+    :cond_c
+    sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/applications/EmHandler;->retryAction()V
+
+    goto/16 :goto_1
+
+    :cond_d
+    sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
+
+    :cond_e
     const-string/jumbo v0, "MobileData"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_f
 
     sget-object v3, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4737,16 +4800,20 @@
 
     invoke-virtual/range {v3 .. v8}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_2
+    sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
-    :cond_b
+    invoke-virtual {v0}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
+
+    :cond_f
     const-string/jumbo v0, "Storage"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_2
 
     sget-object v3, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
 
@@ -4762,7 +4829,11 @@
 
     invoke-virtual/range {v3 .. v8}, Lcom/samsung/android/settings/applications/EmHandler;->setResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_2
+    sget-object v0, Lcom/android/settings/applications/InstalledAppDetails;->mEmHandler:Lcom/samsung/android/settings/applications/EmHandler;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/applications/EmHandler;->finish()V
+
+    goto/16 :goto_1
 .end method
 
 .method public exeViewAction()V
@@ -5916,8 +5987,34 @@
 .end method
 
 .method public onPause()V
-    .locals 2
+    .locals 3
 
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
+    invoke-virtual {v0, v2}, Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;->cancel(Z)Z
+
+    iput-object v1, p0, Lcom/android/settings/applications/InstalledAppDetails;->mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
+
+    invoke-virtual {v0, v2}, Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;->cancel(Z)Z
+
+    iput-object v1, p0, Lcom/android/settings/applications/InstalledAppDetails;->mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/settings/applications/InstalledAppDetails;->getLoaderManager()Landroid/app/LoaderManager;
 
     move-result-object v0
@@ -5930,7 +6027,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
@@ -5938,16 +6035,16 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
 
-    :cond_0
+    :cond_2
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-static {}, Lcom/android/settings/Utils;->isDesktopModeSupported()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
@@ -5955,7 +6052,7 @@
 
     invoke-static {v0}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->unregisterListener(Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;)V
 
-    :cond_1
+    :cond_3
     return-void
 .end method
 
@@ -6580,6 +6677,10 @@
 
     invoke-direct {v1, p0, v5}, Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;-><init>(Lcom/android/settings/applications/InstalledAppDetails;Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;)V
 
+    iput-object v1, p0, Lcom/android/settings/applications/InstalledAppDetails;->mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
+    iget-object v1, p0, Lcom/android/settings/applications/InstalledAppDetails;->mBatteryUpdater:Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;
+
     new-array v2, v6, [Ljava/lang/Void;
 
     invoke-virtual {v1, v2}, Lcom/android/settings/applications/InstalledAppDetails$BatteryUpdater;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
@@ -6587,6 +6688,10 @@
     new-instance v1, Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
 
     invoke-direct {v1, p0, v5}, Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;-><init>(Lcom/android/settings/applications/InstalledAppDetails;Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;)V
+
+    iput-object v1, p0, Lcom/android/settings/applications/InstalledAppDetails;->mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
+
+    iget-object v1, p0, Lcom/android/settings/applications/InstalledAppDetails;->mMemoryUpdater:Lcom/android/settings/applications/InstalledAppDetails$MemoryUpdater;
 
     new-array v2, v6, [Ljava/lang/Void;
 

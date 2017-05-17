@@ -756,7 +756,7 @@ Name: res/layout/suw_no_scroll_template_header.xml
 SHA-256-Digest: xG6xJzcpmpup96ujcmJkTtQhqe39d2j30qSXMmQbNjs=
 
 Name: AndroidManifest.xml
-SHA-256-Digest: oXBHvKoY7QYBfy9wAfXCwA+xDZPWin9+HMo63tb7d5A=
+SHA-256-Digest: 8SH8qwwSRsPJ9UcZCWPRz+betVGC9E5w3d/u6UQv2a4=
 
 Name: res/drawable-xxxhdpi-v4/ic_menu_add_dark.pio
 SHA-256-Digest: 5mka1Y5BRUfZsZvUalzjSiyCIJQqNnl9ca9LsuSfcJk=
@@ -4130,7 +4130,7 @@ Name: res/drawable/ic_expand_more.xml
 SHA-256-Digest: oupIvY8eDuS1y830dKT3ePA5f5PzZM2LOdmoR7SUybs=
 
 Name: resources.arsc
-SHA-256-Digest: EHGvmyvzUnGLPUSSf/2j20MY0aLhcpBM2r4PTG3k678=
+SHA-256-Digest: 0LYVVeEZClNpKHGv0MfS4rAY0vFbI1LB5K1RAKfHst4=
 
 Name: res/drawable-xhdpi-v4/tutorial_smart_stay_tablet_03.qmg
 SHA-256-Digest: QOonfW21RhntMvt2P61Bq/MGA+ziRjQH6B6kP0G32hI=
@@ -4288,7 +4288,7 @@ Name: res/drawable-xxhdpi-v4/motion_pick_up_soft_03.qmg
 SHA-256-Digest: xq/RrxDJ+X1lqHCSTZIhxMTP3gM1zaNRorb9smyb30c=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: Mm5noA97qPrtnmwimE8my0QONam4Qcxrf+CtgFHpsbY=
+SHA-256-Digest: X2PghXtF1qSHr/2QJvgd4cMI8Q8hz/6k0JrdfKuBMIQ=
 
 Name: res/drawable/motion_multi_window_anim.xml
 SHA-256-Digest: jieAl2ls3Pp3GtMJzl8pX8m01gctueLmkN3uaqG2ChA=

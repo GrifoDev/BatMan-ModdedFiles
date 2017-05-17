@@ -199,17 +199,27 @@
 .method static synthetic -wrap0(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->isEnabledMobileHotstpot()Z
+    invoke-direct {p0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->isMobileHotstpotEnabled()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
+.method static synthetic -wrap1(Lcom/android/settings/wifi/AdvancedWifiSettings;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->isWifiSharingEnabled()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap10(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->changeHotspot20(Z)V
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->updateXfinitySetting(Z)V
 
     return-void
 .end method
@@ -217,12 +227,20 @@
 .method static synthetic -wrap2(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
     .locals 0
 
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->changeHotspot20(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap3(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
+    .locals 0
+
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->enableHotspot20ByBixby(Z)V
 
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
+.method static synthetic -wrap4(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->refreshWifiInfo()V
@@ -230,7 +248,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/android/settings/wifi/AdvancedWifiSettings;Ljava/lang/String;)V
+.method static synthetic -wrap5(Lcom/android/settings/wifi/AdvancedWifiSettings;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->sendBroadcastToNetwiseClient(Ljava/lang/String;)V
@@ -238,7 +256,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/settings/wifi/AdvancedWifiSettings;I)V
+.method static synthetic -wrap6(Lcom/android/settings/wifi/AdvancedWifiSettings;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->setSleepPolicykByBixby(I)V
@@ -246,7 +264,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Lcom/android/settings/wifi/AdvancedWifiSettings;I)V
+.method static synthetic -wrap7(Lcom/android/settings/wifi/AdvancedWifiSettings;I)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->showDialog(I)V
@@ -254,7 +272,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
+.method static synthetic -wrap8(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->showWpsDialogByBixby()V
@@ -262,18 +280,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap8(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
+.method static synthetic -wrap9(Lcom/android/settings/wifi/AdvancedWifiSettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->startManageNetworkByBixby()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap9(Lcom/android/settings/wifi/AdvancedWifiSettings;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->updateXfinitySetting(Z)V
 
     return-void
 .end method
@@ -1605,7 +1615,7 @@
     return-void
 .end method
 
-.method private isEnabledMobileHotstpot()Z
+.method private isMobileHotstpotEnabled()Z
     .locals 4
 
     const/4 v3, 0x0
@@ -1616,7 +1626,7 @@
 
     const-string/jumbo v1, "AdvancedWifiSettings"
 
-    const-string/jumbo v2, "Wifi Manager is null so returning false"
+    const-string/jumbo v2, "isMobileHotstpotEnabled, Wifi Manager is null so returning false"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1643,6 +1653,66 @@
     return v1
 
     :cond_2
+    return v3
+.end method
+
+.method private isWifiSharingEnabled()Z
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "wifi_ap_wifi_sharing"
+
+    invoke-static {v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+
+    move-result v1
+
+    if-ne v1, v4, :cond_0
+
+    return v4
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "wifi_ap_wifi_sharing"
+
+    invoke-static {v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    return v3
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "AdvancedWifiSettings"
+
+    const-string/jumbo v2, "isWifiSharingEnabled, SettingNotFoundException"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
     return v3
 .end method
 

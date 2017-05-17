@@ -69,7 +69,7 @@
 
     check-cast p2, Landroid/widget/TextView;
 
-    invoke-static {v0, p2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set7(Lcom/android/settings/bluetooth/BluetoothSettings;Landroid/widget/TextView;)Landroid/widget/TextView;
+    invoke-static {v0, p2}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set6(Lcom/android/settings/bluetooth/BluetoothSettings;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$2;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
@@ -120,7 +120,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSettings$2;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v0, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set7(Lcom/android/settings/bluetooth/BluetoothSettings;Landroid/widget/TextView;)Landroid/widget/TextView;
+    invoke-static {v0, v3}, Lcom/android/settings/bluetooth/BluetoothSettings;->-set6(Lcom/android/settings/bluetooth/BluetoothSettings;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     :cond_0
     return-void

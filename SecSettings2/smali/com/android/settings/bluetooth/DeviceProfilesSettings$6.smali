@@ -52,7 +52,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$6;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get6(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     move-result-object v0
 
@@ -69,7 +69,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$6;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get6(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     move-result-object v0
 

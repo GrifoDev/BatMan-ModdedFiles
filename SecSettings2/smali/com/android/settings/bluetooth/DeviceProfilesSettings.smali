@@ -26,8 +26,6 @@
 # instance fields
 .field private isFinished:Z
 
-.field private isQuickConnect:Z
-
 .field private mAlertDialog:Landroid/app/AlertDialog;
 
 .field private final mAutoConnectPrefs:Ljava/util/HashMap;
@@ -64,6 +62,8 @@
 
 .field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
+.field private mIsCalledFromSetting:Z
+
 .field private mIsDismissed:Z
 
 .field private mManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
@@ -86,15 +86,7 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isQuickConnect:Z
-
-    return v0
-.end method
-
-.method static synthetic -get1(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/app/AlertDialog;
+.method static synthetic -get0(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/app/AlertDialog;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mAlertDialog:Landroid/app/AlertDialog;
@@ -102,12 +94,20 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+.method static synthetic -get1(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mBixbyDeviceName:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method static synthetic -get10(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mIsCalledFromSetting:Z
+
+    return v0
 .end method
 
 .method static synthetic -get11(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Z
@@ -129,20 +129,12 @@
 .method static synthetic -get2(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mBixbyDeviceName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Ljava/lang/String;
-    .locals 1
-
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mBixbyProfName:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
+.method static synthetic -get3(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mBixbyProfile:Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
@@ -150,7 +142,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get4(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/preference/SwitchPreference;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mBixbyProfilePreference:Landroid/preference/SwitchPreference;
@@ -158,7 +150,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Ljava/lang/String;
+.method static synthetic -get5(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mBixbyStateId:Ljava/lang/String;
@@ -166,7 +158,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+.method static synthetic -get6(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
@@ -174,7 +166,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
+.method static synthetic -get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mDeviceNameEditText:Landroid/widget/EditText;
@@ -182,10 +174,18 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/TextView;
+.method static synthetic -get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/TextView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mDeviceNameErrorText:Landroid/widget/TextView;
+
+    return-object v0
+.end method
+
+.method static synthetic -get9(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     return-object v0
 .end method
@@ -301,7 +301,7 @@
 
     iput-object v0, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mAutoConnectPrefs:Ljava/util/HashMap;
 
-    iput-boolean v2, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isQuickConnect:Z
+    iput-boolean v2, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mIsCalledFromSetting:Z
 
     iput-boolean v2, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isFinished:Z
 
@@ -2361,9 +2361,9 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 8
 
-    const/4 v7, 0x0
+    const/4 v7, 0x1
 
-    const/4 v6, 0x1
+    const/4 v6, 0x0
 
     const/4 v5, 0x0
 
@@ -2383,17 +2383,42 @@
 
     move-result-object v0
 
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "isCalledFromSetting"
+
+    invoke-virtual {v3, v4, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    iput-boolean v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mIsCalledFromSetting:Z
+
     if-eqz v0, :cond_0
+
+    iget-boolean v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mIsCalledFromSetting:Z
+
+    if-eqz v3, :cond_1
+
+    :cond_0
+    if-eqz p1, :cond_2
 
     const-string/jumbo v3, "device"
 
-    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v1
 
     check-cast v1, Landroid/bluetooth/BluetoothDevice;
 
-    iput-boolean v6, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isQuickConnect:Z
+    const-string/jumbo v3, "remote_device_rename_edited"
+
+    invoke-virtual {p1, v3, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    iput-boolean v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mNameEditedButtonEnabled:Z
 
     :goto_0
     const v3, 0x7f080033
@@ -2404,7 +2429,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v7}, Landroid/preference/PreferenceScreen;->setOrderingAsAdded(Z)V
+    invoke-virtual {v3, v6}, Landroid/preference/PreferenceScreen;->setOrderingAsAdded(Z)V
 
     const-string/jumbo v3, "profile_container"
 
@@ -2424,7 +2449,7 @@
 
     iput-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mDeviceRenamePref:Landroid/preference/Preference;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     const-string/jumbo v3, "DeviceProfilesSettings"
 
@@ -2432,7 +2457,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v6, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isFinished:Z
+    iput-boolean v7, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isFinished:Z
 
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
 
@@ -2442,28 +2467,18 @@
 
     return-void
 
-    :cond_0
-    if-eqz p1, :cond_1
-
+    :cond_1
     const-string/jumbo v3, "device"
 
-    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v1
 
     check-cast v1, Landroid/bluetooth/BluetoothDevice;
 
-    const-string/jumbo v3, "remote_device_rename_edited"
-
-    invoke-virtual {p1, v3, v7}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    iput-boolean v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mNameEditedButtonEnabled:Z
-
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -2478,7 +2493,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     new-instance v3, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;
 
     invoke-direct {v3, p0, v5}, Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;-><init>(Lcom/android/settings/bluetooth/DeviceProfilesSettings;Lcom/android/settings/bluetooth/DeviceProfilesSettings$RenameTextWatcher;)V
@@ -2519,13 +2534,35 @@
 
     if-nez v3, :cond_4
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_5
 
-    iget-boolean v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isQuickConnect:Z
+    iget-boolean v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mIsCalledFromSetting:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
-    :cond_3
+    :cond_4
+    :goto_1
+    iget-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+
+    if-nez v3, :cond_6
+
+    const-string/jumbo v3, "DeviceProfilesSettings"
+
+    const-string/jumbo v4, "Device not found, cannot connect to it"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-boolean v7, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isFinished:Z
+
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_5
     iget-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     invoke-virtual {v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getBluetoothAdapter()Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
@@ -2546,28 +2583,9 @@
 
     iput-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    :cond_4
-    iget-object v3, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    goto :goto_1
 
-    if-nez v3, :cond_5
-
-    const-string/jumbo v3, "DeviceProfilesSettings"
-
-    const-string/jumbo v4, "Device not found, cannot connect to it"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput-boolean v6, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isFinished:Z
-
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/app/Activity;->finish()V
-
-    return-void
-
-    :cond_5
+    :cond_6
     invoke-direct {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->addPreferencesForProfiles()V
 
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->getActivity()Landroid/app/Activity;
@@ -3470,9 +3488,9 @@
 
     move-result-object v2
 
-    iget-boolean v5, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->isQuickConnect:Z
+    iget-boolean v5, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->mIsCalledFromSetting:Z
 
-    if-eqz v5, :cond_6
+    if-nez v5, :cond_6
 
     if-eqz v2, :cond_6
 

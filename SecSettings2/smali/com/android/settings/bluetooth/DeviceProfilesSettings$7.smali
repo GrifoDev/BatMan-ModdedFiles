@@ -39,7 +39,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$7;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -57,7 +57,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$7;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get8(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->-get7(Lcom/android/settings/bluetooth/DeviceProfilesSettings;)Landroid/widget/EditText;
 
     move-result-object v1
 

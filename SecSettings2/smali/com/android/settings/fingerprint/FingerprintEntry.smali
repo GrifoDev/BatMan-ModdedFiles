@@ -1605,17 +1605,6 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/settings/fingerprint/FingerprintEntry;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/fingerprint/FingerprintEntry;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    const-string/jumbo v1, "FingerprintsEntry"
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
-
-    :cond_0
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     return-void
@@ -1682,6 +1671,12 @@
 
     :cond_0
     :goto_0
+    iget-object v1, p0, Lcom/android/settings/fingerprint/FingerprintEntry;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    const-string/jumbo v2, "FingerprintsEntry"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->clearEmService(Ljava/lang/Object;)V
+
     invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
     return-void
