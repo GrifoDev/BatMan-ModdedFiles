@@ -93,7 +93,7 @@
 
     iget-object v0, v0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0, v2}, Lcom/android/server/desktopmode/DesktopModeService;->-set11(Lcom/android/server/desktopmode/DesktopModeService;Ljava/util/List;)Ljava/util/List;
+    invoke-static {v0, v2}, Lcom/android/server/desktopmode/DesktopModeService;->-set10(Lcom/android/server/desktopmode/DesktopModeService;Ljava/util/List;)Ljava/util/List;
 
     :cond_0
     invoke-static {}, Lcom/android/server/desktopmode/DesktopModeService;->-get0()Z

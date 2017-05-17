@@ -33,11 +33,11 @@
 .method private static getPrepareBody(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;
     .locals 4
 
-    sget-object v0, Lcom/samsung/android/rlc/receiver/handler/PrepareHandler;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/rlc/receiver/handler/PrepareHandler;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v1, "[getPrepareBody]"
+    const-string/jumbo v2, "[getPrepareBody]"
 
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     new-instance v0, Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;
 
@@ -101,138 +101,134 @@
 .end method
 
 .method public static run(Landroid/content/Context;Landroid/content/Intent;)Landroid/os/Bundle;
-    .locals 5
+    .locals 14
 
-    const/4 v4, 0x0
+    const/4 v13, 0x0
 
-    sget-object v0, Lcom/samsung/android/rlc/receiver/handler/PrepareHandler;->TAG:Ljava/lang/String;
+    sget-object v10, Lcom/samsung/android/rlc/receiver/handler/PrepareHandler;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v1, "RLC_PrepareHandler run"
+    const-string/jumbo v11, "RLC_PrepareHandler run"
 
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v10, v11}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v0
-
-    const-string/jumbo v1, "MID"
-
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v1
 
-    const-string/jumbo v2, "OID"
+    const-string/jumbo v10, "MID"
 
-    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v10}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-static {v1, v0, p0}, Lcom/samsung/android/rlc/receiver/handler/PrepareHandler;->getPrepareBody(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;
+    const-string/jumbo v10, "OID"
 
-    move-result-object v0
+    invoke-virtual {v1, v10}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v1, "https://%s/dm/v1/dev/getCmd"
+    move-result-object v6
 
-    invoke-static {p0, v1}, Lcom/samsung/android/rlc/util/PushUtil;->getDMURL(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {p0, v0, v1}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler;->httpRequest(Landroid/content/Context;Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;Ljava/lang/String;)Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
+    invoke-static {v5, v6, p0}, Lcom/samsung/android/rlc/receiver/handler/PrepareHandler;->getPrepareBody(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    const-string/jumbo v10, "https://%s/dm/v1/dev/getCmd"
 
-    :cond_0
-    :goto_0
-    return-object v4
+    invoke-static {p0, v10}, Lcom/samsung/android/rlc/util/PushUtil;->getDMURL(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    :cond_1
-    invoke-virtual {v0}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getHttpStatusCode()I
+    move-result-object v9
 
-    move-result v1
+    invoke-static {p0, v0, v9}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler;->httpRequest(Landroid/content/Context;Lcom/samsung/android/rlc/vo/DeviceApiRequestVO;Ljava/lang/String;)Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;
 
-    const/16 v2, 0xc8
+    move-result-object v8
 
-    if-ne v1, v2, :cond_0
+    if-eqz v8, :cond_0
 
-    invoke-virtual {v0}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
+    invoke-virtual {v8}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getHttpStatusCode()I
 
-    move-result-object v0
+    move-result v10
 
-    new-instance v1, Lorg/json/JSONObject;
+    const/16 v11, 0xc8
 
-    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+    if-ne v10, v11, :cond_0
 
-    const-string/jumbo v2, "cmd"
+    invoke-virtual {v8}, Lcom/samsung/android/rlc/receiver/handler/HttpRequestHandler$RESPONSE;->getResponseBean()Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;
 
-    invoke-virtual {v0}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getCmd()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v3
+    new-instance v3, Lorg/json/JSONObject;
 
-    invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-direct {v3}, Lorg/json/JSONObject;-><init>()V
 
-    const-string/jumbo v2, "oprtId"
+    const-string/jumbo v10, "cmd"
 
-    invoke-virtual {v0}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getOprtId()Ljava/lang/String;
+    invoke-virtual {v7}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getCmd()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v11
 
-    invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v3, v10, v11}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const-string/jumbo v2, "cert"
+    const-string/jumbo v10, "oprtId"
 
-    invoke-virtual {v0}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getCert()Ljava/lang/String;
+    invoke-virtual {v7}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getOprtId()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v11
 
-    invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v3, v10, v11}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const-string/jumbo v2, "nonceSvr"
+    const-string/jumbo v10, "cert"
 
-    invoke-virtual {v0}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getNonceSvr()Ljava/lang/String;
+    invoke-virtual {v7}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getCert()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v11
 
-    invoke-virtual {v1, v2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v3, v10, v11}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    invoke-static {v1, p0}, Lcom/samsung/android/rlc/receiver/handler/CompleteHandler;->makeCompleteBundle(Lorg/json/JSONObject;Landroid/content/Context;)Landroid/os/Bundle;
+    const-string/jumbo v10, "nonceSvr"
+
+    invoke-virtual {v7}, Lcom/samsung/android/rlc/vo/DeviceApiResponseVO;->getNonceSvr()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v3, v10, v11}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    invoke-static {v3, p0}, Lcom/samsung/android/rlc/receiver/handler/CompleteHandler;->makeCompleteBundle(Lorg/json/JSONObject;Landroid/content/Context;)Landroid/os/Bundle;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
-
-    return-object v0
-
-    :catch_0
-    move-exception v0
-
-    sget-object v1, Lcom/samsung/android/rlc/receiver/handler/PrepareHandler;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Exception: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    return-object v2
 
-    move-result-object v0
+    :catch_0
+    move-exception v4
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v10, Lcom/samsung/android/rlc/receiver/handler/PrepareHandler;->TAG:Ljava/lang/String;
 
-    move-result-object v0
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v0
+    const-string/jumbo v12, "Exception: "
 
-    invoke-static {v1, v0}, Lcom/samsung/android/rlc/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    move-result-object v11
+
+    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Lcom/samsung/android/rlc/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    return-object v13
 .end method

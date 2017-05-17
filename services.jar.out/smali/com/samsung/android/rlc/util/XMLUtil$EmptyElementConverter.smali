@@ -71,15 +71,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    :goto_0
-    return-object v0
-
-    :cond_0
     const-string/jumbo v0, ""
 
-    goto :goto_0
+    :cond_0
+    return-object v0
 .end method
 
 .method public bridge synthetic write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
@@ -105,15 +102,12 @@
         }
     .end annotation
 
-    if-eqz p2, :cond_0
+    if-nez p2, :cond_0
 
-    :goto_0
+    const-string/jumbo p2, ""
+
+    :cond_0
     invoke-interface {p1, p2}, Lorg/simpleframework/xml/stream/OutputNode;->setValue(Ljava/lang/String;)V
 
     return-void
-
-    :cond_0
-    const-string/jumbo p2, ""
-
-    goto :goto_0
 .end method

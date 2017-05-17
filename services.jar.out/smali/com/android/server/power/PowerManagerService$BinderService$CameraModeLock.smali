@@ -83,7 +83,7 @@
 
     iget-object v0, v0, Lcom/android/server/power/PowerManagerService$BinderService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get38(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/lights/LightsManager;
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get39(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/lights/LightsManager;
 
     move-result-object v0
 

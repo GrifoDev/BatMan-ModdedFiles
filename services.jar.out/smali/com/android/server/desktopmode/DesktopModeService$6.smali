@@ -61,7 +61,7 @@
     move v0, v1
 
     :cond_0
-    invoke-static {v2, v0}, Lcom/android/server/desktopmode/DesktopModeService;->-set8(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
+    invoke-static {v2, v0}, Lcom/android/server/desktopmode/DesktopModeService;->-set7(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$6;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 

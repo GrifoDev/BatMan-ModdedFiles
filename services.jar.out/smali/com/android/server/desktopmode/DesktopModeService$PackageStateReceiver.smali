@@ -138,7 +138,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     :cond_3
     const-string/jumbo v5, "com.sec.android.app.desktoplauncher"
@@ -147,7 +147,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_4
 
     iget-object v5, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -167,7 +167,7 @@
 
     iget-object v5, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v5, v1}, Lcom/android/server/desktopmode/DesktopModeService;->-set9(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
+    invoke-static {v5, v1}, Lcom/android/server/desktopmode/DesktopModeService;->-set8(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
 
     iget-object v5, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -186,36 +186,13 @@
     goto :goto_1
 
     :cond_6
-    const-string/jumbo v3, "com.sec.knox.kccagent"
-
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
-
-    iget-object v5, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
-
-    const-string/jumbo v6, "com.sec.knox.kccagent"
-
-    invoke-static {v5, v6, v4}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap2(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;Z)Z
-
-    move-result v4
-
-    invoke-static {v3, v4}, Lcom/android/server/desktopmode/DesktopModeService;->-set7(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
-
-    goto :goto_2
-
-    :cond_7
     const-string/jumbo v5, "android.intent.action.PACKAGE_REMOVED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_7
 
     const-string/jumbo v5, "android.intent.extra.REPLACING"
 
@@ -231,7 +208,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_4
 
     iget-object v5, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -243,7 +220,7 @@
 
     iget-object v5, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v5, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-set9(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
+    invoke-static {v5, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-set8(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
 
     iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -251,29 +228,14 @@
 
     goto :goto_2
 
-    :cond_8
-    const-string/jumbo v4, "com.sec.knox.kccagent"
-
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
-
-    invoke-static {v4, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-set7(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
-
-    goto :goto_2
-
-    :cond_9
+    :cond_7
     const-string/jumbo v3, "android.intent.action.PACKAGE_REPLACED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_8
 
     const-string/jumbo v3, "android.intent.action.PACKAGE_DATA_CLEARED"
 
@@ -283,14 +245,14 @@
 
     if-eqz v3, :cond_4
 
-    :cond_a
+    :cond_8
     const-string/jumbo v3, "com.sec.android.app.desktoplauncher"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_9
 
     iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -308,13 +270,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_9
 
     iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
     invoke-static {v3}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap36(Lcom/android/server/desktopmode/DesktopModeService;)V
 
-    :cond_b
+    :cond_9
     iget-object v3, p0, Lcom/android/server/desktopmode/DesktopModeService$PackageStateReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
     invoke-static {v3}, Lcom/android/server/desktopmode/DesktopModeService;->-get2(Lcom/android/server/desktopmode/DesktopModeService;)Landroid/content/Context;
@@ -335,5 +297,5 @@
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    goto/16 :goto_2
+    goto :goto_2
 .end method

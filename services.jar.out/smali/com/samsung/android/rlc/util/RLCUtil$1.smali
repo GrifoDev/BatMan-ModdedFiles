@@ -37,21 +37,19 @@
 .method public onUnlockedByPasscode()V
     .locals 3
 
-    iget-object v0, p0, Lcom/samsung/android/rlc/util/RLCUtil$1;->this$0:Lcom/samsung/android/rlc/util/RLCUtil;
+    iget-object v1, p0, Lcom/samsung/android/rlc/util/RLCUtil$1;->this$0:Lcom/samsung/android/rlc/util/RLCUtil;
 
-    # getter for: Lcom/samsung/android/rlc/util/RLCUtil;->mcontext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/samsung/android/rlc/util/RLCUtil;->access$000(Lcom/samsung/android/rlc/util/RLCUtil;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/samsung/android/rlc/util/RLCUtil;->-get0(Lcom/samsung/android/rlc/util/RLCUtil;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/samsung/android/rlc/receiver/handler/UnlockReportHandler;->makeUnlockReportBundle(Landroid/content/Context;)Landroid/os/Bundle;
+    invoke-static {v1}, Lcom/samsung/android/rlc/receiver/handler/UnlockReportHandler;->makeUnlockReportBundle(Landroid/content/Context;)Landroid/os/Bundle;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/samsung/android/rlc/util/RLCUtil$1;->this$0:Lcom/samsung/android/rlc/util/RLCUtil;
 
-    # getter for: Lcom/samsung/android/rlc/util/RLCUtil;->mcontext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/samsung/android/rlc/util/RLCUtil;->access$000(Lcom/samsung/android/rlc/util/RLCUtil;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/samsung/android/rlc/util/RLCUtil;->-get0(Lcom/samsung/android/rlc/util/RLCUtil;)Landroid/content/Context;
 
     move-result-object v1
 

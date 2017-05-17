@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$UserActivityTask;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get44(Lcom/android/server/power/PowerManagerService;)Z
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get45(Lcom/android/server/power/PowerManagerService;)Z
 
     move-result v0
 
@@ -75,7 +75,7 @@
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$UserActivityTask;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get61(Lcom/android/server/power/PowerManagerService;)Landroid/content/Intent;
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get62(Lcom/android/server/power/PowerManagerService;)Landroid/content/Intent;
 
     move-result-object v1
 
@@ -91,7 +91,7 @@
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$UserActivityTask;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get62(Lcom/android/server/power/PowerManagerService;)Landroid/content/Intent;
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get63(Lcom/android/server/power/PowerManagerService;)Landroid/content/Intent;
 
     move-result-object v1
 

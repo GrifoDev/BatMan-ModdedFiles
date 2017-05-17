@@ -592,15 +592,7 @@
     return p1
 .end method
 
-.method static synthetic -set10(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mModeChangeLock:Z
-
-    return p1
-.end method
-
-.method static synthetic -set11(Lcom/android/server/desktopmode/DesktopModeService;Ljava/util/List;)Ljava/util/List;
+.method static synthetic -set10(Lcom/android/server/desktopmode/DesktopModeService;Ljava/util/List;)Ljava/util/List;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mToasts:Ljava/util/List;
@@ -608,7 +600,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set12(Lcom/android/server/desktopmode/DesktopModeService;Lcom/android/server/desktopmode/DesktopModeService$Enabler;)Lcom/android/server/desktopmode/DesktopModeService$Enabler;
+.method static synthetic -set11(Lcom/android/server/desktopmode/DesktopModeService;Lcom/android/server/desktopmode/DesktopModeService$Enabler;)Lcom/android/server/desktopmode/DesktopModeService$Enabler;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mTouchScreenEnabler:Lcom/android/server/desktopmode/DesktopModeService$Enabler;
@@ -616,7 +608,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set13(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
+.method static synthetic -set12(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mWallpaperShown:Z
@@ -667,7 +659,7 @@
 .method static synthetic -set7(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKccAvailable:Z
+    iput-boolean p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKeyboardCoverEnabled:Z
 
     return p1
 .end method
@@ -675,7 +667,7 @@
 .method static synthetic -set8(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKeyboardCoverEnabled:Z
+    iput-boolean p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
 
     return p1
 .end method
@@ -683,7 +675,7 @@
 .method static synthetic -set9(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
+    iput-boolean p1, p0, Lcom/android/server/desktopmode/DesktopModeService;->mModeChangeLock:Z
 
     return p1
 .end method
@@ -3880,14 +3872,6 @@
     move-result v2
 
     iput-boolean v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsLauncherAvailable:Z
-
-    const-string/jumbo v2, "com.sec.knox.kccagent"
-
-    invoke-direct {p0, v2, v3}, Lcom/android/server/desktopmode/DesktopModeService;->isPackageInstalled(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    iput-boolean v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mIsKccAvailable:Z
 
     iget-object v2, p0, Lcom/android/server/desktopmode/DesktopModeService;->mContext:Landroid/content/Context;
 

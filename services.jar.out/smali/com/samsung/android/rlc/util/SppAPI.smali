@@ -31,54 +31,44 @@
 .end method
 
 .method public static deregistration(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
 
-    const-string/jumbo v1, "[deregistration]"
+    const-string/jumbo v2, "[deregistration]"
 
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "appId : ("
+    const-string/jumbo v3, "appId : ("
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, ")"
+    const-string/jumbo v3, ")"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-nez p0, :cond_0
+    if-eqz p0, :cond_0
 
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
-
-    const-string/jumbo v1, "[SPP] broadcast intent for unreg : fail"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "com.sec.spp.action.SPP_REQUEST"
@@ -99,92 +89,92 @@
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
 
-    const-string/jumbo v1, "[SPP] broadcast intent for unreg : success"
+    const-string/jumbo v2, "[SPP] broadcast intent for unreg : success"
 
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-.end method
-
-.method public static registration(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
-
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
-
-    const-string/jumbo v1, "[registration]"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "appId : ("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ")"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
-
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "userData : ("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ")"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
-
-    if-nez p0, :cond_0
-
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
-
-    const-string/jumbo v1, "[SPP] broadcast intent for regid :  failed"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_0
     return-void
 
     :cond_0
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+
+    const-string/jumbo v2, "[SPP] broadcast intent for unreg : fail"
+
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
+.method public static registration(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+
+    const-string/jumbo v2, "[registration]"
+
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "appId : ("
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ")"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "userData : ("
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ")"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p0, :cond_0
+
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "com.sec.spp.action.SPP_REQUEST"
@@ -209,11 +199,21 @@
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    sget-object v0, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
 
-    const-string/jumbo v1, "[SPP] broadcast intent for regid : success"
+    const-string/jumbo v2, "[SPP] broadcast intent for regid : success"
 
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    sget-object v1, Lcom/samsung/android/rlc/util/SppAPI;->Tag:Ljava/lang/String;
+
+    const-string/jumbo v2, "[SPP] broadcast intent for regid :  failed"
+
+    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

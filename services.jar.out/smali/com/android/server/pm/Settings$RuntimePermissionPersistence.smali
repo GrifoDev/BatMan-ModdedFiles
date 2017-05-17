@@ -901,7 +901,7 @@
 .method private writePermissionsSync(I)V
     .locals 31
 
-    new-instance v5, Landroid/util/AtomicFile;
+    new-instance v5, Landroid/util/XmlMoreAtomicFile;
 
     move-object/from16 v0, p0
 
@@ -919,7 +919,7 @@
 
     move-object/from16 v0, v28
 
-    invoke-direct {v5, v0}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+    invoke-direct {v5, v0}, Landroid/util/XmlMoreAtomicFile;-><init>(Ljava/io/File;)V
 
     new-instance v14, Landroid/util/ArrayMap;
 
@@ -1145,7 +1145,7 @@
     const/4 v9, 0x0
 
     :try_start_1
-    invoke-virtual {v5}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
+    invoke-virtual {v5}, Landroid/util/XmlMoreAtomicFile;->startWrite()Ljava/io/FileOutputStream;
 
     move-result-object v9
 
@@ -1686,7 +1686,7 @@
     :cond_d
     invoke-interface/range {v22 .. v22}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
 
-    invoke-virtual {v5, v9}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    invoke-virtual {v5, v9}, Landroid/util/XmlMoreAtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
 
     sget-object v28, Landroid/os/Build;->FINGERPRINT:Ljava/lang/String;
 
@@ -1727,6 +1727,36 @@
     move-exception v26
 
     :try_start_3
+    new-instance v28, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v29, "Failed to write settings, restoring backup: "
+
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    const/16 v29, 0x6
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, v28
+
+    invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService;->reportSettingsProblem(ILjava/lang/String;)V
+
     const-string/jumbo v28, "PackageManager"
 
     const-string/jumbo v29, "Failed to write settings, restoring backup"
@@ -1739,7 +1769,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {v5, v9}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+    invoke-virtual {v5, v9}, Landroid/util/XmlMoreAtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -1798,100 +1828,119 @@
 .end method
 
 .method public readStateForUserSyncLPr(I)V
-    .locals 8
+    .locals 9
 
-    iget-object v5, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->this$0:Lcom/android/server/pm/Settings;
+    iget-object v7, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->this$0:Lcom/android/server/pm/Settings;
 
-    invoke-static {v5, p1}, Lcom/android/server/pm/Settings;->-wrap0(Lcom/android/server/pm/Settings;I)Ljava/io/File;
+    invoke-static {v7, p1}, Lcom/android/server/pm/Settings;->-wrap0(Lcom/android/server/pm/Settings;I)Ljava/io/File;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+    const/4 v4, 0x0
 
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    return-void
-
-    :cond_0
     :try_start_0
-    new-instance v5, Landroid/util/AtomicFile;
+    new-instance v5, Landroid/util/XmlMoreAtomicFile;
 
-    invoke-direct {v5, v4}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
-
-    invoke-virtual {v5}, Landroid/util/AtomicFile;->openRead()Ljava/io/FileInputStream;
+    invoke-direct {v5, v6}, Landroid/util/XmlMoreAtomicFile;-><init>(Ljava/io/File;)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :try_start_1
+    invoke-virtual {v5}, Landroid/util/XmlMoreAtomicFile;->openRead()Ljava/io/FileInputStream;
+    :try_end_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
+
     move-result-object v2
 
-    :try_start_1
+    :try_start_2
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v3
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    invoke-interface {v3, v2, v5}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
+    invoke-interface {v3, v2, v7}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
     invoke-direct {p0, v3, p1}, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->parseRuntimePermissionsLPr(Lorg/xmlpull/v1/XmlPullParser;I)V
-    :try_end_1
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
+    :goto_0
     return-void
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v5, "PackageManager"
+    :goto_1
+    const-string/jumbo v7, "No permissions state"
 
-    const-string/jumbo v6, "No permissions state"
+    const/4 v8, 0x4
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v7}, Lcom/android/server/pm/PackageManagerService;->reportSettingsProblem(ILjava/lang/String;)V
+
+    const-string/jumbo v7, "PackageManager"
+
+    const-string/jumbo v8, "No permissions state"
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :catch_1
     move-exception v0
 
-    :try_start_2
-    new-instance v5, Ljava/lang/IllegalStateException;
+    :try_start_3
+    invoke-virtual {v5}, Landroid/util/XmlMoreAtomicFile;->processDamagedFile()V
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Failed parsing permissions file: "
+    const-string/jumbo v8, "Failed parsing permissions file: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-direct {v5, v6, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    const/4 v8, 0x6
 
-    throw v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-static {v8, v7}, Lcom/android/server/pm/PackageManagerService;->reportSettingsProblem(ILjava/lang/String;)V
 
-    :catchall_0
-    move-exception v5
+    iget-object v7, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->this$0:Lcom/android/server/pm/Settings;
+
+    invoke-virtual {v7}, Lcom/android/server/pm/Settings;->resetSystemServer()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    throw v5
+    goto :goto_0
+
+    :catchall_0
+    move-exception v7
+
+    invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    throw v7
+
+    :catch_2
+    move-exception v1
+
+    move-object v4, v5
+
+    goto :goto_1
 .end method
 
 .method public rememberRestoredUserGrantLPr(Ljava/lang/String;Ljava/lang/String;ZII)V

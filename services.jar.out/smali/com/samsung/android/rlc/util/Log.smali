@@ -129,12 +129,8 @@
 
     sget-boolean v0, Lcom/samsung/android/rlc/util/Log;->DEFAULT_LOGON:Z
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    :goto_0
-    return-void
-
-    :cond_0
     packed-switch p2, :pswitch_data_0
 
     :pswitch_0
@@ -158,7 +154,9 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :cond_0
+    :goto_0
+    return-void
 
     :pswitch_1
     new-instance v0, Ljava/lang/StringBuilder;
@@ -251,6 +249,8 @@
     invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x2

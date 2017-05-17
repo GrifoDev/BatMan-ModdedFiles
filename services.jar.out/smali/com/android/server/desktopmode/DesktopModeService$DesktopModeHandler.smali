@@ -151,7 +151,7 @@
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {v6, v7}, Lcom/android/server/desktopmode/DesktopModeService;->-set11(Lcom/android/server/desktopmode/DesktopModeService;Ljava/util/List;)Ljava/util/List;
+    invoke-static {v6, v7}, Lcom/android/server/desktopmode/DesktopModeService;->-set10(Lcom/android/server/desktopmode/DesktopModeService;Ljava/util/List;)Ljava/util/List;
 
     :cond_3
     iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
@@ -443,7 +443,7 @@
     :goto_5
     iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v6, v7}, Lcom/android/server/desktopmode/DesktopModeService;->-set10(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
+    invoke-static {v6, v7}, Lcom/android/server/desktopmode/DesktopModeService;->-set9(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
 
     iget-object v6, p0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeHandler;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 

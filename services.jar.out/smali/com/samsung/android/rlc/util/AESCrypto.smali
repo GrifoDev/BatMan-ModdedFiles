@@ -15,107 +15,37 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
-
-    const/16 v4, 0x8
-
-    const/4 v3, 0x1
+    .locals 1
 
     const/16 v0, 0x10
 
     new-array v0, v0, [B
 
-    const/4 v1, 0x0
-
-    const/16 v2, 0x3e
-
-    aput-byte v2, v0, v1
-
-    const/16 v1, -0x4b
-
-    aput-byte v1, v0, v3
-
-    const/4 v1, 0x2
-
-    aput-byte v3, v0, v1
-
-    const/4 v1, 0x3
-
-    const/16 v2, 0x45
-
-    aput-byte v2, v0, v1
-
-    const/4 v1, 0x4
-
-    const/16 v2, -0x1c
-
-    aput-byte v2, v0, v1
-
-    const/4 v1, 0x5
-
-    const/4 v2, -0x8
-
-    aput-byte v2, v0, v1
-
-    const/4 v1, 0x6
-
-    const/16 v2, 0x75
-
-    aput-byte v2, v0, v1
-
-    const/4 v1, 0x7
-
-    const/16 v2, 0x3f
-
-    aput-byte v2, v0, v1
-
-    aput-byte v4, v0, v4
-
-    const/16 v1, 0x9
-
-    const/16 v2, -0x63
-
-    aput-byte v2, v0, v1
-
-    const/16 v1, 0xa
-
-    const/16 v2, -0x61
-
-    aput-byte v2, v0, v1
-
-    const/16 v1, 0xb
-
-    const/16 v2, 0x57
-
-    aput-byte v2, v0, v1
-
-    const/16 v1, 0xc
-
-    const/16 v2, 0x3b
-
-    aput-byte v2, v0, v1
-
-    const/16 v1, 0xd
-
-    const/16 v2, 0x63
-
-    aput-byte v2, v0, v1
-
-    const/16 v1, 0xe
-
-    const/16 v2, -0x11
-
-    aput-byte v2, v0, v1
-
-    const/16 v1, 0xf
-
-    const/16 v2, 0x4b
-
-    aput-byte v2, v0, v1
+    fill-array-data v0, :array_0
 
     sput-object v0, Lcom/samsung/android/rlc/util/AESCrypto;->iv:[B
 
     return-void
+
+    :array_0
+    .array-data 1
+        0x3et
+        -0x4bt
+        0x1t
+        0x45t
+        -0x1ct
+        -0x8t
+        0x75t
+        0x3ft
+        0x8t
+        -0x63t
+        -0x61t
+        0x57t
+        0x3bt
+        0x63t
+        -0x11t
+        0x4bt
+    .end array-data
 .end method
 
 .method public constructor <init>()V
@@ -127,255 +57,281 @@
 .end method
 
 .method public static decryptAES(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
     :try_start_0
-    const-string/jumbo v0, "AESCrypto"
+    const-string/jumbo v8, "AESCrypto"
 
-    const-string/jumbo v1, "decryptAES begin"
+    const-string/jumbo v9, "decryptAES begin"
 
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v8, v9}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "UTF-8"
+    const-string/jumbo v8, "UTF-8"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-virtual {p1, v8}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object v8
 
-    const/4 v1, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Base64;->decode([BI)[B
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    new-instance v1, Ljavax/crypto/spec/SecretKeySpec;
-
-    const-string/jumbo v2, "UTF-8"
-
-    invoke-virtual {p0, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-static {v8, v9}, Landroid/util/Base64;->decode([BI)[B
 
     move-result-object v2
 
-    const-string/jumbo v3, "AES/CBC/PKCS5Padding"
+    if-nez v2, :cond_0
 
-    invoke-direct {v1, v2, v3}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
+    return-object v6
 
-    new-instance v2, Ljavax/crypto/spec/IvParameterSpec;
+    :cond_0
+    new-instance v4, Ljavax/crypto/spec/SecretKeySpec;
 
-    sget-object v3, Lcom/samsung/android/rlc/util/AESCrypto;->iv:[B
+    const-string/jumbo v8, "UTF-8"
 
-    invoke-direct {v2, v3}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
+    invoke-virtual {p0, v8}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    const-string/jumbo v3, "AES/CBC/PKCS5Padding"
+    move-result-object v8
 
-    invoke-static {v3}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+    const-string/jumbo v9, "AES/CBC/PKCS5Padding"
 
-    move-result-object v3
+    invoke-direct {v4, v8, v9}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
 
-    const/4 v4, 0x2
+    new-instance v3, Ljavax/crypto/spec/IvParameterSpec;
 
-    invoke-virtual {v3, v4, v1, v2}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    sget-object v8, Lcom/samsung/android/rlc/util/AESCrypto;->iv:[B
 
-    invoke-virtual {v3, v0}, Ljavax/crypto/Cipher;->doFinal([B)[B
+    invoke-direct {v3, v8}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
+
+    const-string/jumbo v8, "AES/CBC/PKCS5Padding"
+
+    invoke-static {v8}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/String;
+    const/4 v8, 0x2
 
-    const-string/jumbo v2, "UTF-8"
+    invoke-virtual {v0, v8, v4, v3}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
-    invoke-direct {v1, v0, v2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljavax/crypto/Cipher;->doFinal([B)[B
 
-    const-string/jumbo v0, "AESCrypto"
+    move-result-object v5
 
-    const-string/jumbo v2, "decryptAES end"
+    new-instance v7, Ljava/lang/String;
 
-    invoke-static {v0, v2}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v8, "UTF-8"
+
+    invoke-direct {v7, v5, v8}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    :try_start_1
+    const-string/jumbo v8, "AESCrypto"
 
-    :cond_0
-    return-object v2
+    const-string/jumbo v9, "decryptAES end"
+
+    invoke-static {v8, v9}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    return-object v7
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    :goto_0
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    throw v0
+    throw v1
+
+    :catch_1
+    move-exception v1
+
+    move-object v6, v7
+
+    goto :goto_0
 .end method
 
 .method public static encryptAES(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    const/4 v5, 0x0
+
     :try_start_0
-    const-string/jumbo v0, "AESCrypto"
+    const-string/jumbo v7, "AESCrypto"
 
-    const-string/jumbo v1, "encryptAES begin"
+    const-string/jumbo v8, "encryptAES begin"
 
-    invoke-static {v0, v1}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v7, v8}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Ljavax/crypto/spec/SecretKeySpec;
+    new-instance v3, Ljavax/crypto/spec/SecretKeySpec;
 
-    const-string/jumbo v1, "UTF-8"
+    const-string/jumbo v7, "UTF-8"
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-virtual {p0, v7}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v1
+    move-result-object v7
 
-    const-string/jumbo v2, "AES/CBC/PKCS5Padding"
+    const-string/jumbo v8, "AES/CBC/PKCS5Padding"
 
-    invoke-direct {v0, v1, v2}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
+    invoke-direct {v3, v7, v8}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
 
-    new-instance v1, Ljavax/crypto/spec/IvParameterSpec;
+    new-instance v2, Ljavax/crypto/spec/IvParameterSpec;
 
-    sget-object v2, Lcom/samsung/android/rlc/util/AESCrypto;->iv:[B
+    sget-object v7, Lcom/samsung/android/rlc/util/AESCrypto;->iv:[B
 
-    invoke-direct {v1, v2}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
+    invoke-direct {v2, v7}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
 
-    const-string/jumbo v2, "AES/CBC/PKCS5Padding"
+    const-string/jumbo v7, "AES/CBC/PKCS5Padding"
 
-    invoke-static {v2}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3, v0, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
-
-    const-string/jumbo v0, "UTF-8"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-static {v7}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljavax/crypto/Cipher;->doFinal([B)[B
+    const/4 v7, 0x1
 
-    move-result-object v0
+    invoke-virtual {v0, v7, v3, v2}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
-    new-instance v1, Ljava/lang/String;
+    const-string/jumbo v7, "UTF-8"
 
-    const/4 v2, 0x0
+    invoke-virtual {p1, v7}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    invoke-static {v0, v2}, Landroid/util/Base64;->encode([BI)[B
+    move-result-object v7
 
-    move-result-object v0
+    invoke-virtual {v0, v7}, Ljavax/crypto/Cipher;->doFinal([B)[B
 
-    const-string/jumbo v2, "UTF-8"
+    move-result-object v4
 
-    invoke-direct {v1, v0, v2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    new-instance v6, Ljava/lang/String;
 
-    const-string/jumbo v0, "AESCrypto"
+    const/4 v7, 0x0
 
-    const-string/jumbo v2, "encryptAES end"
+    invoke-static {v4, v7}, Landroid/util/Base64;->encode([BI)[B
 
-    invoke-static {v0, v2}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v7
+
+    const-string/jumbo v8, "UTF-8"
+
+    invoke-direct {v6, v7, v8}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    :try_start_1
+    const-string/jumbo v7, "AESCrypto"
+
+    const-string/jumbo v8, "encryptAES end"
+
+    invoke-static {v7, v8}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    return-object v6
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    :goto_0
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    throw v0
+    throw v1
+
+    :catch_1
+    move-exception v1
+
+    move-object v5, v6
+
+    goto :goto_0
 .end method
 
 .method public static generateContentKey(Landroid/content/Context;)Ljava/lang/String;
-    .locals 3
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    const/4 v3, 0x0
+
     :try_start_0
-    sget-object v0, Lcom/samsung/android/rlc/util/SecureStringData;->CONTENT_ENCRYPT_KEY_SEED_TEXT:[B
+    sget-object v6, Lcom/samsung/android/rlc/util/SecureStringData;->CONTENT_ENCRYPT_KEY_SEED_TEXT:[B
 
-    invoke-static {v0}, Lcom/samsung/android/rlc/util/SecureStringData;->getSecureString([B)Ljava/lang/String;
+    invoke-static {v6}, Lcom/samsung/android/rlc/util/SecureStringData;->getSecureString([B)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
     invoke-static {p0}, Lcom/samsung/android/rlc/util/DeviceUtil;->getDeviceID(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget-object v1, Lcom/samsung/android/rlc/util/SecureStringData;->MD5:[B
+    sget-object v6, Lcom/samsung/android/rlc/util/SecureStringData;->MD5:[B
 
-    invoke-static {v1}, Lcom/samsung/android/rlc/util/SecureStringData;->getSecureString([B)Ljava/lang/String;
+    invoke-static {v6}, Lcom/samsung/android/rlc/util/SecureStringData;->getSecureString([B)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-static {v1}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "UTF-8"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-static {v6}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/security/MessageDigest;->update([B)V
+    const-string/jumbo v6, "UTF-8"
 
-    new-instance v0, Ljava/lang/String;
+    invoke-virtual {v2, v6}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    invoke-virtual {v1}, Ljava/security/MessageDigest;->digest()[B
+    move-result-object v6
 
-    move-result-object v1
+    invoke-virtual {v0, v6}, Ljava/security/MessageDigest;->update([B)V
 
-    const/4 v2, 0x0
+    new-instance v3, Ljava/lang/String;
 
-    invoke-static {v1, v2}, Landroid/util/Base64;->encode([BI)[B
+    invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v1
+    move-result-object v6
 
-    const-string/jumbo v2, "UTF-8"
+    const/4 v7, 0x0
 
-    invoke-direct {v0, v1, v2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    invoke-static {v6, v7}, Landroid/util/Base64;->encode([BI)[B
+
+    move-result-object v6
+
+    const-string/jumbo v7, "UTF-8"
+
+    invoke-direct {v3, v6, v7}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v3
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    throw v0
+    throw v1
 .end method

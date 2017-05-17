@@ -4,7 +4,7 @@
 
 
 # static fields
-.field public static final BACKOFF_MAX_VALUE:I = 0x5265c00
+.field public static final BACKOFF_MAX_VALUE:I = 0x44aa200
 
 .field public static final BOOT_TIME:Ljava/lang/String; = "boot_time"
 
@@ -247,19 +247,19 @@
 .end method
 
 .method public static getMessageGatewayURL(Landroid/content/Context;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
-    new-instance v0, Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    new-instance v1, Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
 
-    sput-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sput-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    sget-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sget-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    const-string/jumbo v1, "GCM"
+    const-string/jumbo v2, "GCM"
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->getDeliveryURL(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->getDeliveryURL(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -305,15 +305,15 @@
 .method public static getRetryBackoff(Landroid/content/Context;Ljava/lang/String;)I
     .locals 2
 
-    new-instance v0, Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    new-instance v1, Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
 
-    sput-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sput-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    sget-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sget-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    invoke-virtual {v0, p1}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -321,36 +321,36 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    const-string/jumbo v1, "180000"
 
-    move-result v0
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    return v0
+    move-result v1
+
+    return v1
 
     :cond_0
-    const-string/jumbo v0, "180000"
-
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method public static getString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
-    new-instance v0, Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    new-instance v1, Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
 
-    sput-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sput-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    sget-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sget-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    invoke-virtual {v0, p1}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -394,79 +394,80 @@
 
     const/4 v3, 0x0
 
-    const-class v1, Lcom/samsung/android/rlc/util/PreferencesUtil;
+    const-class v2, Lcom/samsung/android/rlc/util/PreferencesUtil;
 
-    monitor-enter v1
+    monitor-enter v2
 
     :try_start_0
-    new-instance v0, Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    new-instance v1, Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
 
-    sput-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sput-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    sget-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sget-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    invoke-virtual {v0, p1}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->isRegistered(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->isRegistered(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string/jumbo v2, "Y"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-eqz v1, :cond_0
 
-    monitor-exit v1
+    monitor-exit v2
 
     return v3
 
     :cond_0
-    monitor-exit v1
+    :try_start_1
+    const-string/jumbo v1, "Y"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x1
+
+    monitor-exit v2
+
+    return v1
+
+    :cond_1
+    monitor-exit v2
 
     return v3
 
-    :cond_1
-    const/4 v0, 0x1
-
-    monitor-exit v1
-
-    return v0
-
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method public static isRlcClear(Landroid/content/Context;)Ljava/lang/Boolean;
     .locals 3
 
-    const/4 v2, 0x0
+    new-instance v1, Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    new-instance v0, Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    invoke-direct {v1, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v0, p0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;-><init>(Landroid/content/Context;)V
+    sput-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    sput-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    sget-object v1, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
 
-    sget-object v0, Lcom/samsung/android/rlc/util/PreferencesUtil;->handler:Lcom/samsung/android/rlc/db/MGRegDBHandler;
+    const-string/jumbo v2, "clear_rlc"
 
-    const-string/jumbo v1, "clear_rlc"
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -474,24 +475,26 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v1, 0x1
 
-    move-result-object v0
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    return-object v0
+    move-result-object v1
+
+    return-object v1
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x0
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public static declared-synchronized markMGRegistered(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
@@ -533,9 +536,9 @@
 
     const/4 v0, 0x1
 
-    if-eq p1, v0, :cond_0
+    if-ne p1, v0, :cond_0
 
-    const-string/jumbo v0, "N"
+    const-string/jumbo v0, "Y"
 
     :goto_0
     invoke-virtual {v1, v0, p2, p3}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->updateRegStatus(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
@@ -543,7 +546,7 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "Y"
+    const-string/jumbo v0, "N"
 
     goto :goto_0
 .end method
@@ -641,9 +644,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v0, "false"
+    const-string/jumbo v0, "true"
 
     :goto_0
     invoke-virtual {v1, v2, v0}, Lcom/samsung/android/rlc/db/MGRegDBHandler;->insertValue(Ljava/lang/String;Ljava/lang/String;)Z
@@ -651,7 +654,7 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "true"
+    const-string/jumbo v0, "false"
 
     goto :goto_0
 .end method
@@ -711,12 +714,12 @@
 
     monitor-enter v1
 
-    const/4 v0, 0x0
-
     :try_start_0
-    const-string/jumbo v2, ""
+    const-string/jumbo v0, ""
 
-    invoke-static {p0, v0, p1, v2}, Lcom/samsung/android/rlc/util/PreferencesUtil;->saveMGRegistrationStatus(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;)V
+    const/4 v2, 0x0
+
+    invoke-static {p0, v2, p1, v0}, Lcom/samsung/android/rlc/util/PreferencesUtil;->saveMGRegistrationStatus(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

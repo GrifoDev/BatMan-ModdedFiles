@@ -216,7 +216,7 @@
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0, v7}, Lcom/android/server/desktopmode/DesktopModeService;->-set12(Lcom/android/server/desktopmode/DesktopModeService;Lcom/android/server/desktopmode/DesktopModeService$Enabler;)Lcom/android/server/desktopmode/DesktopModeService$Enabler;
+    invoke-static {v0, v7}, Lcom/android/server/desktopmode/DesktopModeService;->-set11(Lcom/android/server/desktopmode/DesktopModeService;Lcom/android/server/desktopmode/DesktopModeService$Enabler;)Lcom/android/server/desktopmode/DesktopModeService$Enabler;
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
@@ -308,7 +308,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v0, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-set13(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
+    invoke-static {v0, v3}, Lcom/android/server/desktopmode/DesktopModeService;->-set12(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
 
     iget-object v0, p0, Lcom/android/server/desktopmode/DesktopModeService$10;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 

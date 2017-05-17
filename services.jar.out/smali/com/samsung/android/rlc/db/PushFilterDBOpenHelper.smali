@@ -25,7 +25,7 @@
 
     sput-object v0, Lcom/samsung/android/rlc/db/PushFilterDBOpenHelper;->factory:Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
 
-    const/4 v0, 0x1
+    const/4 v0, 0x2
 
     sput v0, Lcom/samsung/android/rlc/db/PushFilterDBOpenHelper;->version:I
 
@@ -49,12 +49,12 @@
 
 # virtual methods
 .method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "CREATE TABLE pushfilter ( _id INTEGER PRIMARY KEY autoincrement, time INTEGER , messageid TEXT,savetime DATETIME DEFAULT (date(\'now\')))"
+    const-string/jumbo v1, "CREATE TABLE pushfilter ( _id INTEGER PRIMARY KEY autoincrement, time INTEGER , messageid TEXT,savetime DATETIME DEFAULT (date(\'now\')))"
 
     :try_start_0
-    invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -64,11 +64,11 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, "PCWCLIENTTRACE_PushFilterDBOpenHelper"
+    const-string/jumbo v2, "PCWCLIENTTRACE_PushFilterDBOpenHelper"
 
-    const-string/jumbo v2, "Create DB FAIL"
+    const-string/jumbo v3, "Create DB FAIL"
 
-    invoke-static {v1, v2}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/samsung/android/rlc/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 

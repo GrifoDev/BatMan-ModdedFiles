@@ -95,5 +95,6 @@
         :pswitch_2
         :pswitch_3
         :pswitch_4
+        :pswitch_4
     .end packed-switch
 .end method

@@ -78,7 +78,7 @@
 
 .field private static final PROXIMITY_SENSOR_NEGATIVE_DEBOUNCE_DELAY:I = 0x32
 
-.field private static final PROXIMITY_SENSOR_POSITIVE_DEBOUNCE_DELAY:I = 0x12c
+.field private static final PROXIMITY_SENSOR_POSITIVE_DEBOUNCE_DELAY:I = 0xc8
 
 .field private static final PROXIMITY_UNKNOWN:I = -0x1
 
@@ -5114,7 +5114,7 @@
 
     iput v3, p0, Lcom/android/server/display/DisplayPowerController;->mPendingProximity:I
 
-    const-wide/16 v0, 0x12c
+    const-wide/16 v0, 0xc8
 
     add-long/2addr v0, p1
 

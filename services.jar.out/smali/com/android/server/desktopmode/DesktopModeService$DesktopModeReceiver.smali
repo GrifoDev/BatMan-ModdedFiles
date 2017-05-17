@@ -543,7 +543,7 @@
 
     iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v4, v5}, Lcom/android/server/desktopmode/DesktopModeService;->-set13(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
+    invoke-static {v4, v5}, Lcom/android/server/desktopmode/DesktopModeService;->-set12(Lcom/android/server/desktopmode/DesktopModeService;Z)Z
 
     iget-object v4, p0, Lcom/android/server/desktopmode/DesktopModeService$DesktopModeReceiver;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 

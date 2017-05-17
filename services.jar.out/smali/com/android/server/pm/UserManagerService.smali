@@ -7386,7 +7386,7 @@
 
     monitor-exit v6
 
-    new-instance v5, Landroid/util/AtomicFile;
+    new-instance v5, Landroid/util/XmlMoreAtomicFile;
 
     new-instance v6, Ljava/io/File;
 
@@ -7412,9 +7412,9 @@
 
     invoke-direct {v6, v7, v8}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-direct {v5, v6}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+    invoke-direct {v5, v6}, Landroid/util/XmlMoreAtomicFile;-><init>(Ljava/io/File;)V
 
-    invoke-virtual {v5}, Landroid/util/AtomicFile;->delete()V
+    invoke-virtual {v5}, Landroid/util/XmlMoreAtomicFile;->delete()V
 
     invoke-direct {p0}, Lcom/android/server/pm/UserManagerService;->updateUserIds()V
 
@@ -10486,6 +10486,16 @@
 
     :try_start_8
     monitor-exit v19
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/pm/UserManagerService;->mPm:Lcom/android/server/pm/PackageManagerService;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v15}, Lcom/android/server/pm/PackageManagerService;->onBeforeUserStartUninitialized(I)V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_3
 

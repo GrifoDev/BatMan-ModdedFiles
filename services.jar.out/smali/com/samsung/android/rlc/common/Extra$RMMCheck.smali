@@ -17,11 +17,15 @@
 # static fields
 .field public static final BOOT_TIME:Ljava/lang/String; = "bootTime"
 
+.field public static final CSC_ENABLE:Ljava/lang/String; = "cscEnable"
+
 .field public static final FACTORY_RESET:Ljava/lang/String; = "factoryReset"
 
 .field public static final INTENT_INIT_DVC:Ljava/lang/String; = "com.samsung.android.rmm.initialize"
 
 .field public static final INTENT_PERMISSION:Ljava/lang/String; = "com.samsung.android.permission.RMM_INIT"
+
+.field public static final RETRY_TIME:Ljava/lang/String; = "retry_"
 
 .field public static final SECOND_ACTION:Ljava/lang/String; = "com.samsung.android.rlc.SECOND_CHECK_DEVICE"
 
