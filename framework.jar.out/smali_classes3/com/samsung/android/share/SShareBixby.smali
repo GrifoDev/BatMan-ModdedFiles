@@ -293,7 +293,7 @@
 .method private StringReplace(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
 
-    const-string/jumbo v0, "[^\uac00-\ud7a3xfe0-9a-zA-Z\\s]"
+    const-string/jumbo v0, "[[?][$]\\(\\)\\{\\}[*][+]\\^[|]\\[\\]\\n!#%&@`:;~,<>.~\'-=]"
 
     const-string/jumbo v1, "\\s"
 
@@ -319,7 +319,7 @@
 .method private StringReplaceSmartView(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
 
-    const-string/jumbo v0, "[^\uac00-\ud7a3xfe0-9a-zA-Z\\s]"
+    const-string/jumbo v0, "[[?][$]\\(\\)\\{\\}[*][+]\\^[|]\\[\\]\\n!#%&@`:;~,<>.~\'-=]"
 
     const-string/jumbo v1, "Smart View"
 

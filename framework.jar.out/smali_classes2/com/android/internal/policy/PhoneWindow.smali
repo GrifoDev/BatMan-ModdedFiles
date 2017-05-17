@@ -34,6 +34,8 @@
 
 .field private static final DEFAULT_BACKGROUND_FADE_DURATION_MS:I = 0x12c
 
+.field static final DEX_NAVIBAR_COLOR:I = -0xa0a0b
+
 .field private static final DISPLAY_ASPECT_RATIO_DIVIDE_THRESHOLD:F = 1.8f
 
 .field static final FLAG_RESOURCE_SET_ICON:I = 0x1

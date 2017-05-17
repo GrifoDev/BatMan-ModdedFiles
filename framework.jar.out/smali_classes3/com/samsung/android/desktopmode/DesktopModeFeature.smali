@@ -4,6 +4,8 @@
 
 
 # static fields
+.field public static final CHECK_KCC:Z = false
+
 .field public static final CLEAR_HOME_STACK:Z = true
 
 .field public static final DEBUG:Z
