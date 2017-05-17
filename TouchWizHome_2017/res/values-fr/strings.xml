@@ -19,7 +19,7 @@
     <string name="apps_button_setting_guide_text">"Lorsque la touche Applis est activée, l'élément à droite est déplacé de sa position actuelle vers l'écran d'accueil."</string>
     <string name="apps_button_show">Touche Afficher applis</string>
     <string name="apps_button_summary">"Affichez sur l'écran d'accueil une touche qui ouvre l'écran Applis."</string>
-    <string name="apps_button_title">Bouton Applications</string>
+    <string name="apps_button_title">Touche Applications</string>
     <string name="apps_screen">Écran Applications</string>
     <string name="autoalign_popup_message">Une fois les éléments alignés, il est impossible de rétablir la disposition précédente.</string>
     <string name="autoalign_popup_title">Aligner les éléments de la page ?</string>

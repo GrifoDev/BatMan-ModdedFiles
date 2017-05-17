@@ -652,7 +652,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f07018c
+    const v3, 0x7f08018c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -664,7 +664,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f07011b
+    const v3, 0x7f08011b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -836,7 +836,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0049
+    const v1, 0x7f0f0049
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -846,7 +846,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->recyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    const v1, 0x7f0e0048
+    const v1, 0x7f0f0048
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -856,7 +856,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
 
-    const v1, 0x7f0e0047
+    const v1, 0x7f0f0047
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -870,7 +870,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0009
+    const v3, 0x7f100009
 
     invoke-direct {v1, v2, v3}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 

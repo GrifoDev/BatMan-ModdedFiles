@@ -378,7 +378,7 @@
 
     move/from16 v25, v0
 
-    const v28, 0x7f0800fb
+    const v28, 0x7f090101
 
     move-object/from16 v0, v22
 
@@ -388,7 +388,7 @@
 
     move-result v20
 
-    const v28, 0x7f0800fa
+    const v28, 0x7f090100
 
     move-object/from16 v0, v22
 
@@ -398,7 +398,7 @@
 
     move-result v18
 
-    const v28, 0x7f0800ff
+    const v28, 0x7f090105
 
     move-object/from16 v0, v22
 
@@ -408,7 +408,7 @@
 
     move-result v7
 
-    const v28, 0x7f0800fe
+    const v28, 0x7f090104
 
     move-object/from16 v0, v22
 
@@ -418,7 +418,7 @@
 
     move-result v6
 
-    const v28, 0x7f080100
+    const v28, 0x7f090106
 
     move-object/from16 v0, v22
 
@@ -428,7 +428,7 @@
 
     move-result v8
 
-    const v28, 0x7f08002d
+    const v28, 0x7f09002d
 
     move-object/from16 v0, v22
 
@@ -438,7 +438,7 @@
 
     move-result v16
 
-    const v28, 0x7f0e00a4
+    const v28, 0x7f0f00a9
 
     move-object/from16 v0, p0
 
@@ -448,7 +448,7 @@
 
     move-result-object v19
 
-    const v28, 0x7f0e00a8
+    const v28, 0x7f0f00ad
 
     move-object/from16 v0, p0
 
@@ -607,7 +607,7 @@
 
     if-lt v0, v15, :cond_0
 
-    const v28, 0x7f0e00a6
+    const v28, 0x7f0f00ab
 
     move-object/from16 v0, p0
 
@@ -625,7 +625,7 @@
 
     sub-int v29, v15, v8
 
-    const v30, 0x7f0800fd
+    const v30, 0x7f090103
 
     move-object/from16 v0, v22
 
@@ -1155,7 +1155,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f0e00a7
+    const v0, 0x7f0f00ac
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;->findViewById(I)Landroid/view/View;
 

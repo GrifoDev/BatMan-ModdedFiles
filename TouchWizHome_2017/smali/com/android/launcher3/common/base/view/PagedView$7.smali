@@ -32,7 +32,9 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, -0x1
 
     const-string v0, "PagedView"
 
@@ -72,7 +74,7 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
@@ -83,16 +85,13 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    const/4 v1, -0x1
-
     # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->access$502(Lcom/android/launcher3/common/base/view/PagedView;I)I
+    invoke-static {v0, v3}, Lcom/android/launcher3/common/base/view/PagedView;->access$502(Lcom/android/launcher3/common/base/view/PagedView;I)I
 
-    :cond_0
     :goto_0
     return-void
 
-    :cond_1
+    :cond_0
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
     # getter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
@@ -102,7 +101,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
@@ -117,6 +116,18 @@
 
     # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mContinuallyScroll:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->access$702(Lcom/android/launcher3/common/base/view/PagedView;Z)Z
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/base/view/PagedView;->resetPulledPages()V
+
+    iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
+
+    # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
+    invoke-static {v0, v3}, Lcom/android/launcher3/common/base/view/PagedView;->access$502(Lcom/android/launcher3/common/base/view/PagedView;I)I
 
     goto :goto_0
 .end method

@@ -49,7 +49,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f08009a
+    const v1, 0x7f09009a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -283,7 +283,7 @@
 
     sparse-switch p2, :sswitch_data_0
 
-    const v2, 0x7f02005e
+    const v2, 0x7f02009c
 
     :goto_0
     # getter for: Lcom/android/launcher3/theme/OpenThemeManager;->mContext:Landroid/content/Context;
@@ -319,22 +319,22 @@
     return-void
 
     :sswitch_0
-    const v2, 0x7f02005d
+    const v2, 0x7f02009b
 
     goto :goto_0
 
     :sswitch_1
-    const v2, 0x7f02005f
+    const v2, 0x7f02009d
 
     goto :goto_0
 
     :sswitch_2
-    const v2, 0x7f020060
+    const v2, 0x7f02009e
 
     goto :goto_0
 
     :sswitch_3
-    const v2, 0x7f020061
+    const v2, 0x7f02009f
 
     goto :goto_0
 

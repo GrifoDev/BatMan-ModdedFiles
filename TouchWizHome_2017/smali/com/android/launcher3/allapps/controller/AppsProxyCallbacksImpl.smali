@@ -74,60 +74,15 @@
 .end method
 
 .method public changeScreengrid(Ljava/lang/String;)V
-    .locals 6
+    .locals 1
 
-    const/4 v3, 0x2
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsProxyCallbacksImpl;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    new-array v1, v3, [I
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v2, "x"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsScreenGridPanel()Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
     move-result-object v0
 
-    array-length v2, v0
-
-    if-ne v2, v3, :cond_0
-
-    aget-object v2, v0, v5
-
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    aput v2, v1, v5
-
-    aget-object v2, v0, v4
-
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    aput v2, v1, v4
-
-    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsProxyCallbacksImpl;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
-
-    aget v3, v1, v5
-
-    aget v4, v1, v4
-
-    invoke-virtual {v2, v5, v3, v4}, Lcom/android/launcher3/allapps/controller/AppsController;->changeScreenGrid(ZII)Z
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsProxyCallbacksImpl;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
-
-    invoke-virtual {v2}, Lcom/android/launcher3/allapps/controller/AppsController;->applyScreenGrid()V
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->setScreenGridProxy(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -209,7 +164,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090004
+    const v4, 0x7f0a0004
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

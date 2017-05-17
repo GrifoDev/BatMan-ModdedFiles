@@ -135,7 +135,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a003b
+    const v5, 0x7f0b003f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -229,7 +229,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f070177
+    const v3, 0x7f080177
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -239,7 +239,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0700db
+    const v4, 0x7f0800db
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -260,7 +260,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f070196
+    const v3, 0x7f080196
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -346,7 +346,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0800c7
+    const v21, 0x7f0900c7
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -356,7 +356,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0800c8
+    const v21, 0x7f0900c8
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -497,7 +497,7 @@
     goto :goto_1
 
     :cond_0
-    const v20, 0x7f02005e
+    const v20, 0x7f02009c
 
     move-object/from16 v0, p0
 
@@ -565,7 +565,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f08009f
+    const v8, 0x7f09009f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -897,7 +897,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08009f
+    const v3, 0x7f09009f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1338,7 +1338,7 @@
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    const v2, 0x7f03001e
+    const v2, 0x7f03001f
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setCustomView(I)V
 
@@ -1346,7 +1346,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e0013
+    const v3, 0x7f0f0013
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1358,7 +1358,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e0055
+    const v3, 0x7f0f0059
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1388,7 +1388,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f0e0054
+    const v2, 0x7f0f0058
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1400,7 +1400,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02002b
+    const v3, 0x7f020069
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1417,7 +1417,7 @@
 
     const/4 v1, 0x1
 
-    const v0, 0x7f0e001d
+    const v0, 0x7f0f001d
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1427,7 +1427,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mPreview:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f0e001e
+    const v0, 0x7f0f001e
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1437,7 +1437,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mHelpText:Landroid/widget/TextView;
 
-    const v0, 0x7f0e001a
+    const v0, 0x7f0f001a
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1447,7 +1447,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mShowAppsRadio:Landroid/widget/RadioButton;
 
-    const v0, 0x7f0e001c
+    const v0, 0x7f0f001c
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1466,7 +1466,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/RadioButton;->setChecked(Z)V
 
     :goto_0
-    const v0, 0x7f0e0019
+    const v0, 0x7f0f0019
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1474,7 +1474,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0e001b
+    const v0, 0x7f0f001b
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1511,7 +1511,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f070177
+    const v2, 0x7f080177
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1523,7 +1523,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f07015e
+    const v3, 0x7f08015e
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1539,7 +1539,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f07011e
+    const v3, 0x7f08011e
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1665,7 +1665,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f070177
+    const v2, 0x7f080177
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1675,7 +1675,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0700f4
+    const v3, 0x7f0800f4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1716,10 +1716,10 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f0e0013 -> :sswitch_0
-        0x7f0e0019 -> :sswitch_2
-        0x7f0e001b -> :sswitch_3
-        0x7f0e0055 -> :sswitch_1
+        0x7f0f0013 -> :sswitch_0
+        0x7f0f0019 -> :sswitch_2
+        0x7f0f001b -> :sswitch_3
+        0x7f0f0059 -> :sswitch_1
     .end sparse-switch
 .end method
 

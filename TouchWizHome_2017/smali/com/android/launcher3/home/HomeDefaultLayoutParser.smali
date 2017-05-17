@@ -1537,7 +1537,7 @@
 
     if-eqz v2, :cond_a
 
-    const v16, 0x7f06000a
+    const v16, 0x7f07000a
 
     :goto_3
     move-object/from16 v0, p0
@@ -1553,7 +1553,7 @@
     goto/16 :goto_1
 
     :cond_a
-    const v16, 0x7f06000b
+    const v16, 0x7f07000b
 
     goto :goto_3
 
@@ -1564,7 +1564,7 @@
 
     if-eqz v2, :cond_c
 
-    const v16, 0x7f060007
+    const v16, 0x7f070007
 
     goto :goto_3
 
@@ -1590,7 +1590,7 @@
 
     if-eqz v2, :cond_e
 
-    const v16, 0x7f060009
+    const v16, 0x7f070009
 
     goto :goto_3
 
@@ -1601,7 +1601,7 @@
 
     if-eqz v2, :cond_f
 
-    const v16, 0x7f060008
+    const v16, 0x7f070008
 
     goto :goto_3
 
@@ -1612,12 +1612,12 @@
 
     if-eqz v2, :cond_10
 
-    const v16, 0x7f06000c
+    const v16, 0x7f07000c
 
     goto :goto_3
 
     :cond_10
-    const v16, 0x7f060006
+    const v16, 0x7f070006
 
     goto :goto_3
 

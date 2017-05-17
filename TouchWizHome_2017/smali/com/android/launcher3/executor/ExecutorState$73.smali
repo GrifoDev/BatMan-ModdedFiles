@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/AppsSingleAppClearBadgeStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/AppsSingleAppAddToSecureFolderStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_CLEAR_BADGE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_TO_SECUREFOLDER:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/AppsSingleAppClearBadgeStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/AppsSingleAppAddToSecureFolderStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

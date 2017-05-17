@@ -122,7 +122,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080048
+    const v2, 0x7f090048
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -130,7 +130,7 @@
 
     iput v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerGap:I
 
-    const v2, 0x7f08011a
+    const v2, 0x7f090120
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -138,7 +138,7 @@
 
     iput v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerMargin:I
 
-    const v2, 0x7f080047
+    const v2, 0x7f090047
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -289,7 +289,7 @@
     :cond_4
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f030035
+    const v3, 0x7f030036
 
     invoke-virtual {v2, v3, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -644,19 +644,19 @@
 
     move-result-object v3
 
-    const v5, 0x7f08011c
+    const v5, 0x7f090122
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v5, 0x7f08011d
+    const v5, 0x7f090123
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v5, 0x7f080137
+    const v5, 0x7f09013d
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1000,7 +1000,7 @@
     :cond_2
     iget-object v6, p0, Lcom/android/launcher3/common/view/PageIndicator;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f030036
+    const v7, 0x7f030037
 
     invoke-virtual {v6, v7, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1008,7 +1008,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v6, 0x7f0e00b6
+    const v6, 0x7f0f00bb
 
     invoke-virtual {v1, v6}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

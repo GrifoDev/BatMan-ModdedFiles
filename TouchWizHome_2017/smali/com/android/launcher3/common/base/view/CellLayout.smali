@@ -323,7 +323,7 @@
 
     move-result-object v8
 
-    const v1, 0x7f0a0016
+    const v1, 0x7f0b0017
 
     invoke-virtual {v8, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -405,7 +405,7 @@
 
     if-nez v1, :cond_2
 
-    const v1, 0x7f02002d
+    const v1, 0x7f02006b
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2374,7 +2374,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0700a7
+    const v1, 0x7f0800a7
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

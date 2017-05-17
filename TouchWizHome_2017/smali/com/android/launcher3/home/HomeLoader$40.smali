@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
-.field final synthetic val$r:Ljava/lang/Runnable;
+.field final synthetic val$id:J
+
+.field final synthetic val$intent:Landroid/content/Intent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;JLandroid/content/Intent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$40;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$40;->val$r:Ljava/lang/Runnable;
+    iput-wide p2, p0, Lcom/android/launcher3/home/HomeLoader$40;->val$id:J
+
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$40;->val$intent:Landroid/content/Intent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,51 +43,84 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 10
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sIsLoadingAndBindingWorkspace:Z
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9100()Z
+    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgLock:Ljava/lang/Object;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9100()Ljava/lang/Object;
 
-    move-result v0
+    move-result-object v5
 
-    if-eqz v0, :cond_0
-
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBindCompleteRunnables:Ljava/util/ArrayList;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9200()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    monitor-enter v1
+    monitor-enter v5
 
     :try_start_0
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBindCompleteRunnables:Ljava/util/ArrayList;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9300()Ljava/util/ArrayList;
+    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgItemsIdMap:Lcom/android/launcher3/util/LongArrayMap;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9200()Lcom/android/launcher3/util/LongArrayMap;
 
-    move-result-object v0
+    move-result-object v4
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$40;->val$r:Ljava/lang/Runnable;
+    iget-wide v6, p0, Lcom/android/launcher3/home/HomeLoader$40;->val$id:J
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v6, v7}, Lcom/android/launcher3/util/LongArrayMap;->get(J)Ljava/lang/Object;
 
-    monitor-exit v1
+    move-result-object v3
 
-    :goto_0
+    check-cast v3, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    instance-of v4, v3, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    if-eqz v4, :cond_0
+
+    iget v4, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
+
+    const/4 v6, 0x1
+
+    if-ne v4, v6, :cond_0
+
+    move-object v0, v3
+
+    check-cast v0, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    move-object v2, v0
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeLoader$40;->val$intent:Landroid/content/Intent;
+
+    iput-object v4, v2, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+
+    const-string v4, "HomeLoader"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "updateContactShortcutInfo "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-wide v8, p0, Lcom/android/launcher3/home/HomeLoader$40;->val$id:J
+
+    invoke-virtual {v6, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    monitor-exit v5
+
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v4
 
-    monitor-exit v1
+    monitor-exit v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$40;->val$r:Ljava/lang/Runnable;
-
-    # invokes: Lcom/android/launcher3/home/HomeLoader;->runOnWorkerThread(Ljava/lang/Runnable;)V
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$9400(Ljava/lang/Runnable;)V
-
-    goto :goto_0
+    throw v4
 .end method

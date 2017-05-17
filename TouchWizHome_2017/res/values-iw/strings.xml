@@ -16,7 +16,7 @@
     <string name="appsPicker_search_result_found">%d נמצא/ו</string>
     <string name="apps_button_hide">הסתר לחצן יישומים</string>
     <string name="apps_button_label">יישומים</string>
-    <string name="apps_button_setting_guide_text">"הפעלת לחצן 'יישומים' תגרום להעברת הפריט שבצד ימין ממיקומו הנוכחי אל מסך הבית."</string>
+    <string name="apps_button_setting_guide_text">"הפעלת לחצן 'יישומים' תגרום להעברת הפריט שבצד שמאל ממיקומו הנוכחי אל מסך הבית."</string>
     <string name="apps_button_show">הצג לחצן יישומים</string>
     <string name="apps_button_summary">הצג במסך הבית לחצן לפתיחת מסך היישומים.</string>
     <string name="apps_button_title">"לחצן 'יישומים'"</string>

@@ -3,12 +3,12 @@
 .source "HomeLoader.java"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->filterCurrentPageItems(JLjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+    value = Lcom/android/launcher3/home/HomeLoader;->bindItemsSync(ILcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,26 +16,24 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Lcom/android/launcher3/common/base/item/ItemInfo;",
-        ">;"
-    }
-.end annotation
-
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
+.field final synthetic val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+
+.field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$30;->this$0:Lcom/android/launcher3/home/HomeLoader;
+
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$30;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$30;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,30 +42,29 @@
 
 
 # virtual methods
-.method public compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
+.method public run()V
     .locals 4
 
-    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$30;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iget-wide v2, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$30;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    sub-long/2addr v0, v2
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$30;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    long-to-int v0, v0
+    # invokes: Lcom/android/launcher3/home/HomeLoader;->tryGetCallbacks(Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$4000(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    return v0
-.end method
+    move-result-object v0
 
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    if-eqz v0, :cond_0
 
-    check-cast p1, Lcom/android/launcher3/common/base/item/ItemInfo;
+    invoke-interface {v0}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->finishBindingItems()V
 
-    check-cast p2, Lcom/android/launcher3/common/base/item/ItemInfo;
+    :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$30;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/home/HomeLoader$30;->compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
+    # invokes: Lcom/android/launcher3/home/HomeLoader;->runAllBindCompleteRunnables()V
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$4200(Lcom/android/launcher3/home/HomeLoader;)V
 
-    move-result v0
-
-    return v0
+    return-void
 .end method

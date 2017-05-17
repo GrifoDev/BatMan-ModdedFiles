@@ -185,7 +185,7 @@
 
     move-result-object v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_0
 
     sget-object v7, Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
 
@@ -219,11 +219,10 @@
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
-    :cond_0
     :goto_0
     return-void
 
-    :cond_1
+    :cond_0
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v7
@@ -236,13 +235,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_1
 
     invoke-interface {v6}, Lcom/android/launcher3/executor/StateHandler;->isAllowedInHomeOnlyMode()Z
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_1
 
     sget-object v7, Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
 
@@ -300,7 +299,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-interface {v6, p1}, Lcom/android/launcher3/executor/StateHandler;->parseParameters(Lcom/samsung/android/sdk/bixby/data/State;)Ljava/lang/String;
 
     move-result-object v3
@@ -311,7 +310,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_2
 
     new-instance v7, Lcom/android/launcher3/executor/StateManager$3;
 
@@ -321,7 +320,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     sget-object v7, Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -352,7 +351,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3
 
     sget-object v7, Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
 
@@ -395,7 +394,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_3
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -439,12 +438,12 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_3
     invoke-interface {v6}, Lcom/android/launcher3/executor/StateHandler;->getNlgRequestInfo()Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     move-result-object v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     iget-object v7, p0, Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
@@ -478,14 +477,23 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_4
     sget-boolean v7, Lcom/android/launcher3/executor/StateManager;->DEBUG_MODE:Z
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_5
 
     iget-object v7, p0, Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     sget-object v8, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v7, v8}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_5
+    iget-object v7, p0, Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    sget-object v8, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 

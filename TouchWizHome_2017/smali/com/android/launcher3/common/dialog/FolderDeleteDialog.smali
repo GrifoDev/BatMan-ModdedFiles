@@ -154,7 +154,7 @@
 
     if-nez v3, :cond_2
 
-    const v3, 0x7f070080
+    const v3, 0x7f080080
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getString(I)Ljava/lang/String;
 
@@ -173,13 +173,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f07007e
+    const v4, 0x7f08007e
 
     invoke-virtual {v3, v4, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f07001d
+    const v4, 0x7f08001d
 
     invoke-virtual {v3, v4, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -192,7 +192,7 @@
     goto :goto_0
 
     :cond_2
-    const v3, 0x7f07007f
+    const v3, 0x7f08007f
 
     const/4 v4, 0x1
 

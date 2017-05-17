@@ -268,7 +268,7 @@
     invoke-virtual {v1, v3}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     :cond_0
-    const v1, 0x7f03003a
+    const v1, 0x7f03003b
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setContentView(I)V
 
@@ -276,7 +276,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00bd
+    const v2, 0x7f0f00c2
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -290,7 +290,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00be
+    const v2, 0x7f0f00c3
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -396,7 +396,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f07018c
+    const v2, 0x7f08018c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -406,7 +406,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070140
+    const v3, 0x7f080140
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -496,7 +496,7 @@
 
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
-    const v1, 0x7f07001a
+    const v1, 0x7f08001a
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setTitle(I)V
 
@@ -563,7 +563,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f07003a
+    const v1, 0x7f08003a
 
     :goto_0
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setTitle(I)V
@@ -571,7 +571,7 @@
     return-void
 
     :cond_2
-    const v1, 0x7f070045
+    const v1, 0x7f080045
 
     goto :goto_0
 .end method

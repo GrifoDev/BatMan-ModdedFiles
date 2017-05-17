@@ -208,6 +208,12 @@
     <dimen name="ged_home_cellwidth_port">80.0dip</dimen>
     <dimen name="hint_page_scroll_zone">30.0dip</dimen>
     <dimen name="hint_page_width">10.0dip</dimen>
+    <dimen name="home_edge_light_anim_arrow_translate_x">8.0dip</dimen>
+    <dimen name="home_edge_light_arrow1_margin_start">3.0dip</dimen>
+    <dimen name="home_edge_light_arrow2_margin_start">9.0dip</dimen>
+    <dimen name="home_edge_light_arrow_height">20.0dip</dimen>
+    <dimen name="home_edge_light_arrow_width">8.0dip</dimen>
+    <dimen name="home_edge_light_image_width">2.0dip</dimen>
     <dimen name="home_editTitleBar">55.0dip</dimen>
     <dimen name="home_icon_text_theme_extra_padding_bottom">6.0dip</dimen>
     <dimen name="home_icon_text_theme_extra_padding_width">4.0dip</dimen>

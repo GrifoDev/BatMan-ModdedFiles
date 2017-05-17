@@ -115,7 +115,7 @@
 .method protected clickNotAllowed(Landroid/view/View;)V
     .locals 8
 
-    const v4, 0x7f07004b
+    const v4, 0x7f08004b
 
     const/4 v6, 0x1
 
@@ -144,7 +144,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080052
+    const v4, 0x7f090052
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -152,7 +152,7 @@
 
     int-to-float v1, v3
 
-    const v3, 0x7f0e00d0
+    const v3, 0x7f0f00d5
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -244,7 +244,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f08007d
+    const v1, 0x7f09007d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

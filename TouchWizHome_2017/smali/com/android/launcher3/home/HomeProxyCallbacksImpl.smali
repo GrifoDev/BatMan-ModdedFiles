@@ -841,23 +841,25 @@
 .end method
 
 .method public createShortcut(Landroid/content/ComponentName;Lcom/android/launcher3/common/base/item/ItemInfo;I)V
-    .locals 14
+    .locals 12
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
-    if-eqz p1, :cond_5
+    const/4 v4, 0x1
+
+    const/4 v8, 0x0
+
+    if-eqz p1, :cond_4
 
     invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     move-result-object v2
 
-    const/4 v3, 0x1
+    invoke-static {p1, v2, v4}, Lcom/android/launcher3/common/model/DataLoader;->getItemInfoByComponentName(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)Ljava/util/ArrayList;
 
-    invoke-static {p1, v2, v3}, Lcom/android/launcher3/common/model/DataLoader;->getItemInfoByComponentName(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)Ljava/util/ArrayList;
+    move-result-object v9
 
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
@@ -868,17 +870,15 @@
     return-void
 
     :cond_1
-    const/4 v2, 0x0
+    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v10, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object v8
 
-    move-result-object v9
-
-    check-cast v9, Lcom/android/launcher3/common/base/item/ItemInfo;
+    check-cast v8, Lcom/android/launcher3/common/base/item/ItemInfo;
 
     :cond_2
     :goto_1
-    if-eqz v9, :cond_0
+    if-eqz v8, :cond_0
 
     const/4 v2, 0x2
 
@@ -894,7 +894,7 @@
 
     move-result-object v0
 
-    move/from16 v8, p3
+    move v7, p3
 
     :goto_2
     iget-object v2, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
@@ -907,7 +907,7 @@
 
     move-result v2
 
-    if-ge v8, v2, :cond_4
+    if-ge v7, v2, :cond_3
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
@@ -915,33 +915,31 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v8}, Lcom/android/launcher3/home/HomeLoader;->getWorkspaceScreenId(I)J
+    invoke-virtual {v2, v7}, Lcom/android/launcher3/home/HomeLoader;->getWorkspaceScreenId(I)J
 
     move-result-wide v2
 
-    const/4 v4, 0x1
-
-    const/4 v5, 0x1
+    move v5, v4
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/launcher3/home/HomeItemPositionHelper;->findEmptyCell([IJII)Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
-
-    const/4 v7, 0x0
-
-    instance-of v2, v9, Lcom/android/launcher3/folder/FolderInfo;
-
     if-eqz v2, :cond_6
 
-    move-object v2, v9
+    const/4 v6, 0x0
+
+    instance-of v2, v8, Lcom/android/launcher3/folder/FolderInfo;
+
+    if-eqz v2, :cond_5
+
+    move-object v2, v8
 
     check-cast v2, Lcom/android/launcher3/folder/FolderInfo;
 
     invoke-virtual {v2}, Lcom/android/launcher3/folder/FolderInfo;->makeCloneInfo()Lcom/android/launcher3/folder/FolderInfo;
 
-    move-result-object v7
+    move-result-object v6
 
     invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
@@ -951,7 +949,7 @@
 
     move-result-wide v2
 
-    iput-wide v2, v7, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
+    iput-wide v2, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
 
     :goto_3
     iget-object v2, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
@@ -960,88 +958,31 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v8}, Lcom/android/launcher3/home/HomeLoader;->getWorkspaceScreenId(I)J
+    invoke-virtual {v2, v7}, Lcom/android/launcher3/home/HomeLoader;->getWorkspaceScreenId(I)J
 
     move-result-wide v2
 
-    iput-wide v2, v7, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
+    iput-wide v2, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
 
-    const/4 v2, 0x0
+    aget v2, v1, v10
 
-    aget v2, v1, v2
+    iput v2, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
 
-    iput v2, v7, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
+    aget v2, v1, v4
 
-    const/4 v2, 0x1
+    iput v2, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
 
-    aget v2, v1, v2
+    iput v4, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->spanY:I
 
-    iput v2, v7, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
-
-    const/4 v2, 0x1
-
-    iput v2, v7, Lcom/android/launcher3/common/base/item/ItemInfo;->spanY:I
-
-    iput v2, v7, Lcom/android/launcher3/common/base/item/ItemInfo;->spanX:I
-
-    new-instance v6, Ljava/util/ArrayList;
-
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iput v4, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->spanX:I
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
+    iget-wide v10, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
 
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v6, v4}, Lcom/android/launcher3/home/HomeLoader;->addAndBindAddedWorkspaceItems(Landroid/content/Context;Ljava/util/ArrayList;Z)V
-
-    instance-of v2, v9, Lcom/android/launcher3/folder/FolderInfo;
-
-    if-eqz v2, :cond_3
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    new-instance v4, Ljava/util/ArrayList;
-
-    move-object v2, v7
-
-    check-cast v2, Lcom/android/launcher3/folder/FolderInfo;
-
-    iget-object v2, v2, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
-
-    invoke-direct {v4, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    iget-wide v12, v7, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
-
-    invoke-virtual {v3, v4, v12, v13}, Lcom/android/launcher3/home/HomeController;->addFolderItemsToDb(Ljava/util/ArrayList;J)V
+    invoke-virtual {v2, v6, v1, v10, v11}, Lcom/android/launcher3/home/HomeController;->addItemOnHome(Lcom/android/launcher3/common/base/item/ItemInfo;[IJ)V
 
     :cond_3
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v8, v3}, Lcom/android/launcher3/home/Workspace;->moveToScreen(IZ)V
-
-    :cond_4
     iget-object v2, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
     invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->getLauncher()Lcom/android/launcher3/Launcher;
@@ -1070,34 +1011,32 @@
 
     move-result-object v2
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/launcher3/common/stage/StageManager;->startStage(ILcom/android/launcher3/common/stage/StageEntry;)V
+    invoke-virtual {v2, v4, v3}, Lcom/android/launcher3/common/stage/StageManager;->startStage(ILcom/android/launcher3/common/stage/StageEntry;)V
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_4
     if-eqz p2, :cond_2
 
-    move-object/from16 v9, p2
+    move-object v8, p2
 
     goto/16 :goto_1
 
-    :cond_6
-    move-object v2, v9
+    :cond_5
+    move-object v2, v8
 
     check-cast v2, Lcom/android/launcher3/common/base/item/IconInfo;
 
     invoke-virtual {v2}, Lcom/android/launcher3/common/base/item/IconInfo;->makeCloneInfo()Lcom/android/launcher3/common/base/item/IconInfo;
 
-    move-result-object v7
+    move-result-object v6
 
-    goto/16 :goto_3
+    goto :goto_3
 
-    :cond_7
-    add-int/lit8 v8, v8, 0x1
+    :cond_6
+    add-int/lit8 v7, v7, 0x1
 
     goto/16 :goto_2
 .end method

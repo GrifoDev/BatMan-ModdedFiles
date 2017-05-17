@@ -11,11 +11,11 @@ doNotCompress:
 - res/drawable-sw411dp-xxhdpi-v13/homescreen_badge.9.qmg
 - res/drawable-sw411dp-xxhdpi-v13/homescreen_ic_shortcut.9.qmg
 - qio
+- qmg
 - res/drawable-xxhdpi-v4/help_bubble_bg.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_apptray_btn_bg.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_badge.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_btn_bg.9.qmg
-- qmg
 - res/drawable-xxhdpi-v4/quantum_panel_dark_bitmap.9.qmg
 - res/drawable-xxhdpi-v4/quick_option_popup_bg.9.qmg
 - res/drawable-xxxhdpi-v4/quantum_panel_dark_bitmap.9.qmg
@@ -36,5 +36,5 @@ usesFramework:
   tag: null
 version: 2.2.2
 versionInfo:
-  versionCode: '609401000'
-  versionName: 6.0.94
+  versionCode: '610201000'
+  versionName: 6.1.02

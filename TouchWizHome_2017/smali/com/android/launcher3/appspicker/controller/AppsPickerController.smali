@@ -465,7 +465,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a001b
+    const v8, 0x7f0b001f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -574,7 +574,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a001e
+    const v8, 0x7f0b0022
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1149,7 +1149,7 @@
 .method public onClick(Landroid/view/View;)Z
     .locals 10
 
-    const v7, 0x7f070101
+    const v7, 0x7f080101
 
     const/4 v4, 0x1
 
@@ -1157,7 +1157,7 @@
 
     move-result v5
 
-    const v6, 0x7f0e0024
+    const v6, 0x7f0f0024
 
     if-ne v5, v6, :cond_4
 
@@ -1181,7 +1181,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f07017d
+    const v7, 0x7f08017d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1193,7 +1193,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f070119
+    const v8, 0x7f080119
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1293,7 +1293,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f070184
+    const v6, 0x7f080184
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1334,7 +1334,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f070178
+    const v6, 0x7f080178
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1514,7 +1514,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f050002
+    const v2, 0x7f050004
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -1744,7 +1744,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f050008
+    const v2, 0x7f05000a
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -1850,7 +1850,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0020
+    const v1, 0x7f0b0024
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

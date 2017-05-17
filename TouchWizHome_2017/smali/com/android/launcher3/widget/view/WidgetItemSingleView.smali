@@ -218,10 +218,10 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f020080
+    const v0, 0x7f0200be
 
     :goto_0
-    const v2, 0x7f0e00dd
+    const v2, 0x7f0f00e2
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->findViewById(I)Landroid/view/View;
 
@@ -232,7 +232,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f02007f
+    const v0, 0x7f0200bd
 
     goto :goto_0
 .end method
@@ -244,7 +244,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f080067
+    const v1, 0x7f090067
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -260,7 +260,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f080068
+    const v1, 0x7f090068
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -319,7 +319,7 @@
 
     invoke-super {p0}, Lcom/android/launcher3/widget/view/WidgetItemView;->onFinishInflate()V
 
-    const v0, 0x7f0e00ce
+    const v0, 0x7f0f00d3
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->findViewById(I)Landroid/view/View;
 
@@ -329,7 +329,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f0e00cf
+    const v0, 0x7f0f00d4
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->findViewById(I)Landroid/view/View;
 
@@ -339,7 +339,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->mDims:Landroid/widget/TextView;
 
-    const v0, 0x7f0e00d0
+    const v0, 0x7f0f00d5
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->findViewById(I)Landroid/view/View;
 
@@ -349,7 +349,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->mImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f0e00dc
+    const v0, 0x7f0f00e1
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->findViewById(I)Landroid/view/View;
 
@@ -397,7 +397,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v1, 0x7f0e00ce
+    const v1, 0x7f0f00d3
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/widget/view/WidgetItemSingleView;->findViewById(I)Landroid/view/View;
 

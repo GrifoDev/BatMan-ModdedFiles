@@ -171,7 +171,7 @@
     goto :goto_0
 
     :pswitch_10
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_GRID_SETTING_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_CHANGE_TO_HOME_APPS_POPUP:Lcom/android/launcher3/executor/ExecutorState;
 
     invoke-virtual {v1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
@@ -180,7 +180,7 @@
     goto :goto_0
 
     :pswitch_11
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_ADD_ICON_SEARCH_RESULT:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_GRID_SETTING_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     invoke-virtual {v1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
@@ -189,7 +189,7 @@
     goto :goto_0
 
     :pswitch_12
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_SEARCH_RESULT:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_ADD_ICON_SEARCH_RESULT:Lcom/android/launcher3/executor/ExecutorState;
 
     invoke-virtual {v1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
@@ -198,7 +198,7 @@
     goto/16 :goto_0
 
     :pswitch_13
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_STYLE_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_SEARCH_RESULT:Lcom/android/launcher3/executor/ExecutorState;
 
     invoke-virtual {v1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
@@ -207,7 +207,7 @@
     goto/16 :goto_0
 
     :pswitch_14
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_PAGE_AUTO_RE_ARRANGE_POPUP:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_STYLE_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     invoke-virtual {v1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
@@ -216,6 +216,15 @@
     goto/16 :goto_0
 
     :pswitch_15
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_PAGE_AUTO_RE_ARRANGE_POPUP:Lcom/android/launcher3/executor/ExecutorState;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :pswitch_16
     sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_PAGE_WIDGET_EDIT_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     invoke-virtual {v1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
@@ -242,11 +251,12 @@
         :pswitch_e
         :pswitch_f
         :pswitch_7
-        :pswitch_10
         :pswitch_11
         :pswitch_12
         :pswitch_13
         :pswitch_14
         :pswitch_15
+        :pswitch_16
+        :pswitch_10
     .end packed-switch
 .end method

@@ -45,6 +45,7 @@
     <uses-permission android:name="com.samsung.android.game.gamehome.permission.ENABLE_GAMEHOME"/>
     <uses-permission android:name="com.samsung.android.launcher.permission.CHANGE_HOMEONLYMODE"/>
     <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="com.samsung.android.app.spage.permission.READ_NOTIFICATION_STATUS"/>
     <meta-data android:name="android.support.VERSION" android:value="26.0.0-alpha1"/>
     <application android:allowBackup="@bool/enable_backup" android:backupAgent="com.android.launcher3.common.bnr.google.LauncherBackupAgentHelper" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher_home" android:label="@string/application_name" android:largeHeap="@bool/config_largeHeap" android:name="com.android.launcher3.LauncherApplication" android:restoreAnyVersion="true" android:supportsRtl="true">
         <activity android:clearTaskOnLaunch="true" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:enabled="true" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.android.launcher3.Launcher" android:resumeWhilePausing="true" android:screenOrientation="nosensor" android:stateNotNeeded="true" android:taskAffinity="" android:theme="@style/Theme" android:windowSoftInputMode="adjustPan">
@@ -137,7 +138,7 @@
                 <action android:name="com.samsung.android.sdk.bixby.APP_SERVICE"/>
             </intent-filter>
         </service>
-        <meta-data android:name="SPDE.build.signature" android:value="3716116/11857575/2017-release/TouchWizHome-601000-6.0.94"/>
+        <meta-data android:name="SPDE.build.signature" android:value="3855790/12601567/2017-release/TouchWizHome-601000-6.1.02"/>
         <meta-data android:name="SPDE.env.version" android:value="2.1.3/L24.3.7/24.3.3"/>
     </application>
 </manifest>

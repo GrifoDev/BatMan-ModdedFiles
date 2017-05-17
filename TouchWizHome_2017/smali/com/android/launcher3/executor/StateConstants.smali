@@ -28,6 +28,8 @@
 
 .field static final PARAM_ATTR_EXIST:Ljava/lang/String; = "Exist"
 
+.field static final PARAM_ATTR_HIDDEN:Ljava/lang/String; = "Hidden"
+
 .field static final PARAM_ATTR_HOME_AND_APPS_SCREEN_ALREADY_SET:Ljava/lang/String; = "HomeAndAppsScreenAlreadySet"
 
 .field static final PARAM_ATTR_IN_PAGE:Ljava/lang/String; = "InPage"
@@ -35,6 +37,8 @@
 .field static final PARAM_ATTR_MATCH:Ljava/lang/String; = "Match"
 
 .field static final PARAM_ATTR_SET_UP:Ljava/lang/String; = "Setup"
+
+.field static final PARAM_ATTR_UNHIDED:Ljava/lang/String; = "Unhided"
 
 .field static final PARAM_ATTR_UNINSTALL:Ljava/lang/String; = "Uninstall"
 

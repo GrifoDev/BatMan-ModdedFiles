@@ -291,7 +291,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0e00b4
+    const v0, 0x7f0f00b9
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->findViewById(I)Landroid/view/View;
 
@@ -301,7 +301,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mActiveMarker:Landroid/widget/ImageView;
 
-    const v0, 0x7f0e00b3
+    const v0, 0x7f0f00b8
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->findViewById(I)Landroid/view/View;
 

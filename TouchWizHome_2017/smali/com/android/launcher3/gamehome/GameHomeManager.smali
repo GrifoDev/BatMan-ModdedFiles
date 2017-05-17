@@ -888,7 +888,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/gamehome/GameHomeManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v14, 0x7f070096
+    const v14, 0x7f080096
 
     const/4 v15, 0x0
 

@@ -129,7 +129,7 @@
 
     if-nez v3, :cond_0
 
-    const v3, 0x7f070117
+    const v3, 0x7f080117
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f07018d
+    const v4, 0x7f08018d
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -151,7 +151,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f070118
+    const v3, 0x7f080118
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

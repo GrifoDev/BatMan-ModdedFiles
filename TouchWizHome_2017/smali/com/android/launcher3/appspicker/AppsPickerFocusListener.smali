@@ -96,7 +96,7 @@
 
     move-result-object v19
 
-    const/high16 v20, 0x7f0a0000
+    const/high16 v20, 0x7f0b0000
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getInteger(I)I
 

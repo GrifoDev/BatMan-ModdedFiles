@@ -78,7 +78,7 @@
 
     if-eqz p1, :cond_3
 
-    const v3, 0x7f0c0003
+    const v3, 0x7f0d0003
 
     :goto_0
     iget-object v4, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->mContext:Landroid/content/Context;
@@ -122,7 +122,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0200d5
+    const v5, 0x7f020113
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -159,7 +159,7 @@
     return-void
 
     :cond_3
-    const v3, 0x7f0c0004
+    const v3, 0x7f0d0004
 
     goto :goto_0
 .end method
@@ -209,7 +209,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->mSearchView:Landroid/view/View;
 
-    const v7, 0x7f0e0032
+    const v7, 0x7f0f0032
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

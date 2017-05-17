@@ -103,7 +103,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a003e
+    const v1, 0x7f0b0042
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -117,7 +117,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0024
+    const v1, 0x7f0b0028
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -131,7 +131,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0022
+    const v1, 0x7f0b0026
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -145,7 +145,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0023
+    const v1, 0x7f0b0027
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -287,7 +287,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f05000d
+    const v5, 0x7f05000f
 
     invoke-static {v4, v5}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -494,7 +494,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f050003
+    const v2, 0x7f050005
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -524,7 +524,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f050009
+    const v2, 0x7f05000b
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 

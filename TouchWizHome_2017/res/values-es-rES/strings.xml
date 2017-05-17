@@ -16,7 +16,7 @@
     <string name="appsPicker_search_result_found">%d encontrado</string>
     <string name="apps_button_hide">Ocultar Botón Aplicaciones</string>
     <string name="apps_button_label">Apps</string>
-    <string name="apps_button_setting_guide_text">Cuando se active el botón Aplicaciones, el elemento de la derecha se moverá de su posición actual en la pantalla Inicio.</string>
+    <string name="apps_button_setting_guide_text">Cuando se active el boton Aplicaciones, el elemento de la derecha se moverá de su posición actual a la pantalla Inicio.</string>
     <string name="apps_button_show">Mostrar botón Aplicaciones</string>
     <string name="apps_button_summary">Muestra un botón en la pantalla Inicio que abre la pantalla Aplicaciones.</string>
     <string name="apps_button_title">Botón Aplicaciones</string>

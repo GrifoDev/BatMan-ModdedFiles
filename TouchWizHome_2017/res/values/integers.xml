@@ -13,6 +13,7 @@
     <integer name="home_cellCountY">4</integer>
     <integer name="config_workspaceScreenGridShrinkPercentage">70</integer>
     <integer name="config_badgePositionPercentage">30</integer>
+    <integer name="config_EdgeLightArrowShowTranslateXDuration">667</integer>
     <integer name="config_appsDragTransitionDuration">333</integer>
     <integer name="config_appsScreenGridTransitionDuration">333</integer>
     <integer name="config_appsSearchTransitionDuration">333</integer>
@@ -24,6 +25,9 @@
     <integer name="config_dropAnimMaxDist">800</integer>
     <integer name="config_dropAnimMaxDuration">500</integer>
     <integer name="config_dropAnimMinDuration">100</integer>
+    <integer name="config_edgeLightArrowHideDuration">667</integer>
+    <integer name="config_edgeLightArrowShowDuration">333</integer>
+    <integer name="config_edgelightArrowHideStartDelay">200</integer>
     <integer name="config_enterAppsDuration">444</integer>
     <integer name="config_enterFolderAddAppsDuration">333</integer>
     <integer name="config_enterHomeFromAppsPickerDuration">250</integer>

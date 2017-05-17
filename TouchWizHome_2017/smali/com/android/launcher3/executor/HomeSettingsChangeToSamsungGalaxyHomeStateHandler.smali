@@ -69,7 +69,7 @@
 
     new-instance v1, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_CHANGE_TO_HOME_APPS:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_CHANGE_TO_HOME_APPS_POPUP:Lcom/android/launcher3/executor/ExecutorState;
 
     invoke-virtual {v2}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 

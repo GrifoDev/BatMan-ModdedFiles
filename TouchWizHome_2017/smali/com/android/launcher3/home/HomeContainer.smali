@@ -133,7 +133,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0008
+    const v1, 0x7f0e0008
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -141,7 +141,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/HomeContainer;->mHomeShrinkFactor:F
 
-    const v1, 0x7f0d0005
+    const v1, 0x7f0e0005
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -149,7 +149,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/HomeContainer;->mHomeAlphaRatio:F
 
-    const v1, 0x7f0d0007
+    const v1, 0x7f0e0007
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -157,7 +157,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/HomeContainer;->mPageIndicatorShrinkFactor:F
 
-    const v1, 0x7f0d0006
+    const v1, 0x7f0e0006
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -184,7 +184,7 @@
     iput-boolean v1, p0, Lcom/android/launcher3/home/HomeContainer;->mIsInstalledSFinder:Z
 
     :cond_0
-    const v1, 0x7f080142
+    const v1, 0x7f090148
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

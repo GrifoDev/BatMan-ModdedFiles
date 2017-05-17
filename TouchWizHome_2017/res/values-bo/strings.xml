@@ -87,8 +87,8 @@
     <string name="multi_select_create_folder_one_item_notice">ཉུང་མཐར་རྣམ་གྲངས་ %d དག་འདེམས།</string>
     <string name="multi_select_create_folder_select_folder_notice">ཡིག་སྣོད་གདམ་ཚེ་ ཡིག་སྣོད་གསར་པོ་མི་བཏུབ་པ།</string>
     <string name="multi_select_disable">ནུས་མེད།</string>
-    <string name="multi_select_disable_app_notice_one">无法禁用%s</string>
-    <string name="multi_select_disable_app_notice_other">无法禁用%1$s和其他 %2$d 个应用程序</string>
+    <string name="multi_select_disable_app_notice_one">%sབཀག་མི་ཐུབ།</string>
+    <string name="multi_select_disable_app_notice_other">%1$sདང་ཉེར་སྤྱོད་བྱ་རིམ་གཞན་%2$dབཀག་མི་ཐུབ།</string>
     <string name="multi_select_help_dialog_notice">རྣམ་གྲངས་དག་གནས་སྤོ་བྱེད་པར་འདེམས་ཟིན་པའི་རྣམ་གྲངས་དེ་དག་སྟེང་རེག་པ་དང་འཛིན།</string>
     <string name="multi_select_max_count_notice">འདི%d ལྷག་པའི་དངོས་པོ་གདམ་མི་ནུས།</string>
     <string name="multi_select_personal_mode">个人</string>
@@ -98,7 +98,7 @@
     <string name="multi_select_secure_folder_notice_one">%1$s ནས་ %2$s བར་སྣོན་མ་ཐུབ།</string>
     <string name="multi_select_secure_folder_notice_other">%3$s ལས་གཞན་པའི་ %1$s དང་ %2$d སྣོན་མ་ཐུབ།</string>
     <string name="multi_select_secure_folder_notice_two">%1$s དང་གཞན་ 1 དེ་གཉིས་ %2$s ལ་སྣོན་མི་ཐུབ།</string>
-    <string name="multi_select_uninstall">卸载</string>
+    <string name="multi_select_uninstall">ཕབ་དོར།</string>
     <string name="multi_select_uninstall_app_notice_one">%s བཤིག་འདོན་མི་ཐུབ།</string>
     <string name="new_item">རྣམ་གྲངས་གསར་པ་1</string>
     <string name="new_items">%d ཡོ་བྱས་གསར་པོ</string>
@@ -121,10 +121,10 @@
     <string name="permdesc_install_widget">此应用程序可在主屏幕上添加小组件。</string>
     <string name="permlab_install_widget">添加小组件</string>
     <string name="quick_option_add_apps">ཉེར་སྤྱོད་བྱ་རིམ་སྣོན་འཇུག་བྱས།</string>
-    <string name="quick_option_add_shortcut_to_home">添加快捷方式至主屏幕</string>
+    <string name="quick_option_add_shortcut_to_home">མྱུར་མགྱོགས་འགྲོས་ཐབས་དེ་བརྙན་ཡོལ་མ་ངོས་ཐོག་སྣོན་འཇུག་བྱས།</string>
     <string name="quick_option_add_to_personal">མི་སྒེར་ཐོག་སྣོན་འཇུག་བྱས།</string>
     <string name="quick_option_app_info">ཉེར་སྤྱོད་བྱ་རིམ་ཆ་འཕྲིན།</string>
-    <string name="quick_option_cant_disable">无法禁用%s</string>
+    <string name="quick_option_cant_disable">%sབཀག་མི་ཐུབ།</string>
     <string name="quick_option_clear_badge">ཟུར་རྟགས་སུབ་པ།</string>
     <string name="quick_option_delete_folder">ཡིག་སྣོད་སུབ་པ།</string>
     <string name="quick_option_delete_folder_alert">将删除 %s 文件夹，但您仍然可以在应用程序屏幕上访问此文件夹内的应用程序。</string>
@@ -140,13 +140,13 @@
     <string name="quick_option_select">选择多个项目</string>
     <string name="quick_option_sleep">མལ་འདུག།</string>
     <string name="quick_option_sleep_alert">ཉེར་སྤྱོད་བྱ་རིམ་འདི་མལ་འདུག་ཏུ་སྒྲིག་ཏེ་དེས་རྒྱབ་སྟེགས་ནས་གློག་རྫས་ཟད་གྲོན་གཏོང་རྒྱུ་འགོག་དགོས།ཉེར་སྤྱོད་བྱ་རིམ་མལ་འདུག་བྱས་ཚེ་གསར་བརྗེས་མི་ཐུབ་པ་དང་བརྡ་ཐོ་གཏོང་མི་ཐུབ།ཡིན་ཡང་ཁྱེད་ནས་དེ་དག་ཁ་ཕྱེ་སྐབས་དེ་ཡང་ཁ་ཕྱེ་སྲིད།</string>
-    <string name="quick_option_uninstall">卸载</string>
+    <string name="quick_option_uninstall">ཕབ་དོར།</string>
     <string name="quick_option_unlock">མ་བསྡམ་པ་ཞིག</string>
     <string name="remove_popup_msg">ཤོག་ལྷེ་དོར་དགོས་སམ།</string>
     <string name="remove_popup_positive">བསུབ་འདོར།</string>
     <string name="screen_grid_explain_text">"ཉེར་སྤྱོད་བྱ་རིམ་བརྙན་ཡོལ་ཁྱབ་བཀོད་དེ་
 %1$d x %2$dལ་སྒྱུར་ནས་བརྙན་ཡོལ་མ་ངོས་ཁྱབ་བཀོད་དང་མཐུན་པ་བྱེད་སྲིད།"</string>
-    <string name="search_for_widgets">搜索小组件</string>
+    <string name="search_for_widgets">ལྷུ་ཤས་འཚོལ་བ།</string>
     <string name="selected">བདམས་ཟིན།</string>
     <string name="setting_apps_screen_grid">ཉེར་སྤྱོད་བྱ་རིམ་བརྙན་ཡོལ་དྲ་མིག</string>
     <string name="shortcut_duplicate">མྱུར་མགྱོགས་འགྲོས་ཐབས་ %s སྔོན་ནས་ཡོད་པ།</string>

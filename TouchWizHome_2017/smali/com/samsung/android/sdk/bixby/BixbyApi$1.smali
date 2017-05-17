@@ -70,7 +70,7 @@
 
     move-result-object v1
 
-    const-string v2, "Failed to call onStateReceived()"
+    const-string v2, "sendState: Failed to call onStateReceived()"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -101,7 +101,7 @@
 
     move-result-object v1
 
-    const-string v2, "Interim Listener is not set. Waiting for it."
+    const-string v2, "sendState: Interim Listener is not set. Waiting for it."
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -117,7 +117,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Call onStateReceived() :"
+    const-string v3, "sendState: Call onStateReceived() :"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

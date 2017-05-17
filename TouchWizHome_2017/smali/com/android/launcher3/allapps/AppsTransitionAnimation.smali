@@ -99,7 +99,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0027
+    const v1, 0x7f0b002b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -113,7 +113,7 @@
 
     iput v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mDragDrakenAlpha:F
 
-    const v1, 0x7f0d0004
+    const v1, 0x7f0e0004
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -500,7 +500,7 @@
 .method private getStageAnimationDuration(II)I
     .locals 6
 
-    const v5, 0x7f0a001a
+    const v5, 0x7f0b001e
 
     const/4 v4, 0x5
 
@@ -518,7 +518,7 @@
 
     if-ne p2, v4, :cond_0
 
-    const v1, 0x7f0a0021
+    const v1, 0x7f0b0025
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -552,7 +552,7 @@
 
     if-ne p2, v2, :cond_3
 
-    const v1, 0x7f0a0022
+    const v1, 0x7f0b0026
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -579,7 +579,7 @@
 
     if-ne p1, v1, :cond_0
 
-    const v1, 0x7f0a0011
+    const v1, 0x7f0b0012
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -593,7 +593,7 @@
 
     if-ne p1, v1, :cond_1
 
-    const v1, 0x7f0a000f
+    const v1, 0x7f0b0010
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -606,7 +606,7 @@
 
     if-ne p1, v1, :cond_2
 
-    const v1, 0x7f0a0012
+    const v1, 0x7f0b0013
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -619,7 +619,7 @@
 
     if-ne p1, v1, :cond_3
 
-    const v1, 0x7f0a0013
+    const v1, 0x7f0b0014
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -630,7 +630,7 @@
     :cond_3
     if-nez p1, :cond_4
 
-    const v1, 0x7f0a0014
+    const v1, 0x7f0b0015
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -643,7 +643,7 @@
 
     if-ne p1, v1, :cond_5
 
-    const v1, 0x7f0a0010
+    const v1, 0x7f0b0011
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3011,7 +3011,7 @@
     const v15, 0x3f2b851f    # 0.67f
 
     :goto_1
-    const v4, 0x7f0800a5
+    const v4, 0x7f0900a5
 
     move-object/from16 v0, v25
 
@@ -3055,7 +3055,7 @@
     const/4 v14, 0x0
 
     :goto_5
-    const v4, 0x7f0800a4
+    const v4, 0x7f0900a4
 
     move-object/from16 v0, v25
 

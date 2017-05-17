@@ -638,7 +638,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080089
+    const v2, 0x7f090089
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -670,7 +670,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080053
+    const v2, 0x7f090053
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1069,7 +1069,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080053
+    const v4, 0x7f090053
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1095,7 +1095,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080089
+    const v4, 0x7f090089
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1134,7 +1134,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v0, 0x7f0e00d2
+    const v0, 0x7f0f00d7
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1144,7 +1144,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f0e00d3
+    const v0, 0x7f0f00d8
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1154,7 +1154,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mPagedView:Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
 
-    const v0, 0x7f0e00d5
+    const v0, 0x7f0f00da
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1188,7 +1188,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0036
+    const v1, 0x7f0b003a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

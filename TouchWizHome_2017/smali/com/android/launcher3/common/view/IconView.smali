@@ -195,7 +195,7 @@
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Lcom/android/launcher3/theme/OpenThemeManager;->getBoolean(I)Z
+    invoke-virtual {v2, v3, v4}, Lcom/android/launcher3/theme/OpenThemeManager;->getBoolean(IZ)Z
 
     move-result v2
 
@@ -909,6 +909,10 @@
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/android/launcher3/common/view/IconView;->refreshIcon(Lcom/android/launcher3/common/base/item/IconInfo;ZLandroid/graphics/Bitmap;)V
 
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->changeTextColorForBg(Z)V
+
     invoke-static {}, Lcom/android/launcher3/Utilities;->isNeededToTestLauncherResume()Z
 
     move-result v0
@@ -1429,40 +1433,66 @@
 .end method
 
 .method public changeTextColorForBg(Z)V
-    .locals 4
+    .locals 8
 
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Lcom/android/launcher3/theme/OpenThemeManager;->isPinkTheme()Z
+    invoke-virtual {v2}, Lcom/android/launcher3/theme/OpenThemeManager;->isPinkTheme()Z
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_0
+    if-nez v3, :cond_2
 
-    iget-object v1, p0, Lcom/android/launcher3/common/view/IconView;->mIconTextBackground:Landroid/graphics/drawable/Drawable;
+    iget-object v3, p0, Lcom/android/launcher3/common/view/IconView;->mIconTextBackground:Landroid/graphics/drawable/Drawable;
 
-    if-nez v1, :cond_0
+    if-nez v3, :cond_2
 
-    iget-object v1, p0, Lcom/android/launcher3/common/view/IconView;->mLauncher:Lcom/android/launcher3/Launcher;
+    const/4 v0, 0x1
 
-    invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
+    invoke-virtual {p0}, Lcom/android/launcher3/common/view/IconView;->getTag()Ljava/lang/Object;
 
-    move-result v2
+    move-result-object v1
 
-    const/4 v3, 0x0
+    check-cast v1, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-static {v1, p0, v2, v3}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Lcom/android/launcher3/common/view/IconView;ZZ)V
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isContainApps()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-wide v4, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    const-wide/16 v6, 0x0
+
+    cmp-long v3, v4, v6
+
+    if-ltz v3, :cond_1
 
     :cond_0
+    const/4 v0, 0x0
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/launcher3/common/view/IconView;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    const/4 v4, 0x1
+
+    invoke-static {v3, p0, p1, v0, v4}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Lcom/android/launcher3/common/view/IconView;ZZZ)V
+
+    :cond_2
     return-void
 .end method
 
 .method protected decorateViewComponent()V
     .locals 9
 
-    const v7, 0x1ffffff
+    const v8, 0x1ffffff
+
+    const/4 v7, 0x0
 
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
 
@@ -1521,24 +1551,30 @@
 
     if-nez v6, :cond_1
 
+    invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
     iget-object v6, p0, Lcom/android/launcher3/common/view/IconView;->mIconTextBackground:Landroid/graphics/drawable/Drawable;
 
     if-eqz v6, :cond_4
 
     :cond_1
-    if-eq v3, v7, :cond_2
+    if-eq v3, v8, :cond_2
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/common/view/IconView;->setTextColor(I)V
 
     :cond_2
-    if-eq v4, v7, :cond_3
+    if-eq v4, v8, :cond_3
 
     iget-object v6, p0, Lcom/android/launcher3/common/view/IconView;->mTitleView:Landroid/widget/TextView;
 
     invoke-virtual {v6, v4}, Landroid/widget/TextView;->setHighlightColor(I)V
 
     :cond_3
-    if-eq v5, v7, :cond_4
+    if-eq v5, v8, :cond_6
 
     iget-object v6, p0, Lcom/android/launcher3/common/view/IconView;->mTitleView:Landroid/widget/TextView;
 
@@ -1561,7 +1597,8 @@
     invoke-virtual {p0, v6, v7, v8, v5}, Lcom/android/launcher3/common/view/IconView;->setShadowLayer(FFFI)V
 
     :cond_4
-    const v6, 0x7f0e0071
+    :goto_0
+    const v6, 0x7f0f0075
 
     invoke-virtual {p0, v6}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -1585,6 +1622,13 @@
 
     :cond_5
     return-void
+
+    :cond_6
+    const/4 v6, 0x0
+
+    invoke-virtual {p0, v7, v7, v7, v6}, Lcom/android/launcher3/common/view/IconView;->setShadowLayer(FFFI)V
+
+    goto :goto_0
 .end method
 
 .method public disableShortcutIconToTitle()V
@@ -1931,7 +1975,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/view/IconView;->mTitleView:Landroid/widget/TextView;
 
-    const v2, 0x7f020089
+    const v2, 0x7f0200c7
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -1943,7 +1987,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08008f
+    const v3, 0x7f09008f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2217,7 +2261,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0e0007
+    const v0, 0x7f0f0007
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2227,7 +2271,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mIconView:Landroid/widget/ImageView;
 
-    const v0, 0x7f0e0008
+    const v0, 0x7f0f0008
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2237,7 +2281,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mTitleView:Landroid/widget/TextView;
 
-    const v0, 0x7f0e006d
+    const v0, 0x7f0f0071
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2247,7 +2291,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mShadow:Landroid/widget/ImageView;
 
-    const v0, 0x7f0e0070
+    const v0, 0x7f0f0074
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2257,7 +2301,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mCountBadgeView:Landroid/widget/TextView;
 
-    const v0, 0x7f0e0071
+    const v0, 0x7f0f0075
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2283,7 +2327,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02004a
+    const v2, 0x7f020088
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2297,7 +2341,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800b3
+    const v2, 0x7f0900b3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2306,7 +2350,7 @@
     invoke-virtual {v0, v3, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_0
-    const v0, 0x7f0e006f
+    const v0, 0x7f0f0073
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2341,7 +2385,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a000e
+    const v1, 0x7f0b000e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3046,7 +3090,7 @@
 
     move-result-object v11
 
-    const v13, 0x7f070064
+    const v13, 0x7f080064
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3154,7 +3198,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f070065
+    const v14, 0x7f080065
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3769,7 +3813,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0e0070
+    const v0, 0x7f0f0074
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 

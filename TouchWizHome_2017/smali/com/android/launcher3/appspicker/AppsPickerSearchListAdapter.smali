@@ -63,7 +63,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0006
+    const v1, 0x7f0d0006
 
     const/4 v2, 0x0
 
@@ -263,7 +263,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0c0003
+    const v0, 0x7f0d0003
 
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
@@ -283,7 +283,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0c0004
+    const v0, 0x7f0d0004
 
     goto :goto_0
 .end method
@@ -438,7 +438,7 @@
 
     move-result-object p2
 
-    const v12, 0x7f0e002a
+    const v12, 0x7f0f002a
 
     move-object/from16 v0, p2
 
@@ -483,7 +483,7 @@
 
     aget-object v13, v3, v4
 
-    const v12, 0x7f0e002e
+    const v12, 0x7f0f002e
 
     invoke-virtual {v9, v12}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -495,7 +495,7 @@
 
     aget-object v13, v3, v4
 
-    const v12, 0x7f0e002f
+    const v12, 0x7f0f002f
 
     invoke-virtual {v9, v12}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -507,7 +507,7 @@
 
     aget-object v13, v3, v4
 
-    const v12, 0x7f0e0030
+    const v12, 0x7f0f0030
 
     invoke-virtual {v9, v12}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

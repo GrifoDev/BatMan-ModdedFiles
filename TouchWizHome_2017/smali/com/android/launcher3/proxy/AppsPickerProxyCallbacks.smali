@@ -10,10 +10,10 @@
 .method public abstract addResultApps()V
 .end method
 
-.method public abstract getItem(Landroid/content/ComponentName;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+.method public abstract getItem(Landroid/content/ComponentName;)Lcom/android/launcher3/common/base/item/ItemInfo;
 .end method
 
-.method public abstract getItem(Ljava/lang/String;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+.method public abstract getItem(Ljava/lang/String;)Lcom/android/launcher3/common/base/item/ItemInfo;
 .end method
 
 .method public abstract getSearchResultListCount()I

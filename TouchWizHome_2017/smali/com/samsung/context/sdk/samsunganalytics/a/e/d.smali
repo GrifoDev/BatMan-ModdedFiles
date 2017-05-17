@@ -279,70 +279,62 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     return-void
 .end method
 
 .method public static a(Landroid/content/Context;)Z
-    .locals 6
+    .locals 8
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v6, 0x0
 
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
     invoke-static {p0}, Lcom/samsung/context/sdk/samsunganalytics/a/i/c;->a(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "quota_reset_date"
+    const-string v1, "quota_reset_date"
 
-    invoke-interface {v1, v2, v4, v5}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
+    invoke-interface {v0, v1, v6, v7}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v2
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
-
-    invoke-static {v0, v2}, Lcom/samsung/context/sdk/samsunganalytics/a/i/d;->a(ILjava/lang/Long;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-static {v1}, Lcom/samsung/context/sdk/samsunganalytics/a/e/d;->a(Landroid/content/SharedPreferences;)V
-
-    :cond_0
-    const-string v2, "rint"
-
-    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v2
-
-    const-string v3, "policy_received_date"
-
-    invoke-interface {v1, v3, v4, v5}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
-
-    move-result-wide v4
-
-    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
     move-result-object v1
 
-    invoke-static {v2, v1}, Lcom/samsung/context/sdk/samsunganalytics/a/i/d;->a(ILjava/lang/Long;)Z
+    invoke-static {v4, v1}, Lcom/samsung/context/sdk/samsunganalytics/a/i/d;->a(ILjava/lang/Long;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    :goto_0
+    invoke-static {v0}, Lcom/samsung/context/sdk/samsunganalytics/a/e/d;->a(Landroid/content/SharedPreferences;)V
+
+    :cond_0
+    const-string v1, "rint"
+
+    invoke-interface {v0, v1, v4}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    const-string v2, "policy_received_date"
+
+    invoke-interface {v0, v2, v6, v7}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lcom/samsung/context/sdk/samsunganalytics/a/i/d;->a(ILjava/lang/Long;)Z
+
+    move-result v0
+
     return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method public static a(Landroid/content/Context;II)Z

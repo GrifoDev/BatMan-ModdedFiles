@@ -7,6 +7,7 @@
         <include android:id="@id/multi_select_help_bubble" android:visibility="gone" layout="@layout/multi_select_help_dialog" />
         <include android:id="@id/drop_target_bar" layout="@layout/drop_target_bar" />
         <include android:id="@id/home_view" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/home" />
+        <include android:layout_gravity="start" android:id="@id/edge_light_container" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/edge_light" />
         <include android:id="@id/lighting_effect" layout="@layout/lighting_effect" />
         <include android:id="@id/widget_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/widget" />
     </com.android.launcher3.common.view.DragLayer>

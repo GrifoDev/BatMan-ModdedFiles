@@ -15,9 +15,9 @@
 
 
 # static fields
-.field public static final action_bar:I = 0x7f0e0054
+.field public static final action_bar:I = 0x7f0f0058
 
-.field public static final icon:I = 0x7f0e0006
+.field public static final icon:I = 0x7f0f0006
 
 
 # direct methods

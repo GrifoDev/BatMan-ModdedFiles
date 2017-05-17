@@ -176,7 +176,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0022
+    const v2, 0x7f0d0023
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -188,7 +188,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0023
+    const v2, 0x7f0d0024
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -214,7 +214,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200b9
+    const v2, 0x7f0200f7
 
     iget v3, p0, Lcom/android/launcher3/common/model/IconCache;->mIconDpi:I
 

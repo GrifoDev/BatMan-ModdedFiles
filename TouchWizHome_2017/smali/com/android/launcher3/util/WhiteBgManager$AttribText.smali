@@ -51,7 +51,7 @@
     return-void
 .end method
 
-.method static setup(Landroid/content/Context;Z)V
+.method static setup(Landroid/content/Context;ZZ)V
     .locals 2
 
     if-eqz p1, :cond_0
@@ -60,7 +60,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0044
+    const v1, 0x7f0b0048
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -74,7 +74,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0042
+    const v1, 0x7f0b0046
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -84,7 +84,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sDy:F
 
-    const v0, 0x7f0c002f
+    const v0, 0x7f0d0030
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -92,7 +92,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
 
-    const v0, 0x7f0c002d
+    const v0, 0x7f0d002e
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -108,7 +108,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0043
+    const v1, 0x7f0b0047
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -122,7 +122,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0041
+    const v1, 0x7f0b0045
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -132,7 +132,44 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sDy:F
 
-    const v0, 0x7f0c002e
+    if-eqz p2, :cond_1
+
+    invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->TEXT_SHADOW_COLOR:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/theme/OpenThemeManager;->getPreloadColor(I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
+
+    invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->HOME_TEXT_COLOR:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/theme/OpenThemeManager;->getPreloadColor(I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sColor:I
+
+    goto :goto_0
+
+    :cond_1
+    const v0, 0x7f0d002f
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -140,7 +177,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
 
-    const v0, 0x7f0c002c
+    const v0, 0x7f0d002d
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 

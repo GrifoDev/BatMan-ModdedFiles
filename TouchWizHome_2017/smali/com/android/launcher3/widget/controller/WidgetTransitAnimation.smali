@@ -101,7 +101,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f0a0036
+    const v1, 0x7f0b003a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -115,7 +115,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f0a0037
+    const v1, 0x7f0b003b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -267,7 +267,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f050007
+    const v2, 0x7f050009
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -309,7 +309,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f050006
+    const v2, 0x7f050008
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -469,7 +469,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f05000c
+    const v2, 0x7f05000e
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -505,7 +505,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f05000b
+    const v2, 0x7f05000d
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 

@@ -753,7 +753,7 @@
 
     move-result-object v0
 
-    const/high16 v1, 0x7f0b0000
+    const/high16 v1, 0x7f0c0000
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -761,7 +761,7 @@
 
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportRotate:Z
 
-    const v1, 0x7f0b0006
+    const v1, 0x7f0c0006
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -769,7 +769,7 @@
 
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sIsTablet:Z
 
-    const v1, 0x7f0b0005
+    const v1, 0x7f0c0005
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

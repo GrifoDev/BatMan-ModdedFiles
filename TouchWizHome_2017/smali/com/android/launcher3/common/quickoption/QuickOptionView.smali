@@ -175,7 +175,7 @@
 
     if-eqz v13, :cond_3
 
-    const v13, 0x7f080049
+    const v13, 0x7f090049
 
     :goto_0
     invoke-virtual {v14, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -190,7 +190,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f080137
+    const v14, 0x7f09013d
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -204,7 +204,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f080128
+    const v14, 0x7f09012e
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -312,7 +312,7 @@
     int-to-float v5, v13
 
     :cond_0
-    const v13, 0x7f0e00b7
+    const v13, 0x7f0f00bc
 
     move-object/from16 v0, p0
 
@@ -406,7 +406,7 @@
     return-void
 
     :cond_3
-    const v13, 0x7f080129
+    const v13, 0x7f09012f
 
     goto/16 :goto_0
 
@@ -471,7 +471,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v13, 0x7f0e00b9
+    const v13, 0x7f0f00be
 
     move-object/from16 v0, p0
 
@@ -537,7 +537,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0c0024
+    const v4, 0x7f0d0025
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -855,7 +855,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080127
+    const v7, 0x7f09012d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1233,7 +1233,7 @@
 
     check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    const v1, 0x7f0e00b8
+    const v1, 0x7f0f00bd
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->findViewById(I)Landroid/view/View;
 

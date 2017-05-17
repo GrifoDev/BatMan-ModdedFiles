@@ -47,48 +47,97 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 5
 
-    iget-object v1, p0, Lcom/android/launcher3/util/logging/SALogging$29;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$29;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$29;->val$eventID:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$29;->val$eventID:Ljava/lang/String;
 
     # invokes: Lcom/android/launcher3/util/logging/SALogging;->changeIdByMode(Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->access$900(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$900(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    :try_start_0
     invoke-static {}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->getInstance()Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;
+
+    move-result-object v3
+
+    new-instance v2, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;
+
+    invoke-direct {v2}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;-><init>()V
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$29;->val$screenID:Ljava/lang/String;
+
+    invoke-virtual {v2, v4}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;->setScreenView(Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
 
     move-result-object v2
 
-    new-instance v1, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;
+    check-cast v2, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;
 
-    invoke-direct {v1}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;-><init>()V
+    invoke-virtual {v2, v0}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;->setEventName(Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;
 
-    iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$29;->val$screenID:Ljava/lang/String;
+    move-result-object v4
 
-    invoke-virtual {v1, v3}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;->setScreenView(Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
+    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$29;->val$detail:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
-    check-cast v1, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;
+    move-result v2
 
-    invoke-virtual {v1, v0}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;->setEventName(Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;
+    if-eqz v2, :cond_0
 
-    move-result-object v1
+    const-string v2, " "
 
-    iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$29;->val$detail:Ljava/lang/String;
+    :goto_0
+    invoke-virtual {v4, v2}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;->setEventDetail(Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;
 
-    invoke-virtual {v1, v3}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;->setEventDetail(Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v2}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;->build()Ljava/util/Map;
 
-    invoke-virtual {v1}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$EventBuilder;->build()Ljava/util/Map;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v3, v2}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->sendLog(Ljava/util/Map;)I
 
-    invoke-virtual {v2, v1}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->sendLog(Ljava/util/Map;)I
-
+    :goto_1
     return-void
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$29;->val$detail:Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    const-string v2, "Launcher.SALogging"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "insertEventLog : Exception "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 .end method

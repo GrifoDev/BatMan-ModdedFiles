@@ -739,7 +739,7 @@
     goto/16 :goto_0
 
     :sswitch_14
-    const-string v2, "homescreen_menu_page_navi_home_f"
+    const-string v2, "enable_text_shadow"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -752,7 +752,7 @@
     goto/16 :goto_0
 
     :sswitch_15
-    const-string v2, "homescreen_menu_page_navi_default_f"
+    const-string v2, "homescreen_menu_page_navi_home_f"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -765,7 +765,7 @@
     goto/16 :goto_0
 
     :sswitch_16
-    const-string v2, "homescreen_menu_page_navi_headlines_f"
+    const-string v2, "homescreen_menu_page_navi_default_f"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -778,7 +778,7 @@
     goto/16 :goto_0
 
     :sswitch_17
-    const-string v2, "title_background"
+    const-string v2, "homescreen_menu_page_navi_headlines_f"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -791,7 +791,7 @@
     goto/16 :goto_0
 
     :sswitch_18
-    const-string v2, "homescreen_ic_folder_default"
+    const-string v2, "title_background"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -804,7 +804,7 @@
     goto/16 :goto_0
 
     :sswitch_19
-    const-string v2, "home_folder_bg_default"
+    const-string v2, "homescreen_ic_folder_default"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -817,7 +817,7 @@
     goto/16 :goto_0
 
     :sswitch_1a
-    const-string v2, "ic_allapps"
+    const-string v2, "home_folder_bg_default"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -830,7 +830,7 @@
     goto/16 :goto_0
 
     :sswitch_1b
-    const-string v2, "ic_icon_bg"
+    const-string v2, "ic_allapps"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -843,7 +843,7 @@
     goto/16 :goto_0
 
     :sswitch_1c
-    const-string v2, "counter_bubble"
+    const-string v2, "ic_icon_bg"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -852,6 +852,19 @@
     if-eqz v2, :cond_0
 
     const/16 v1, 0x1c
+
+    goto/16 :goto_0
+
+    :sswitch_1d
+    const-string v2, "counter_bubble"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/16 v1, 0x1d
 
     goto/16 :goto_0
 
@@ -938,26 +951,27 @@
         -0x4928bbe5 -> :sswitch_f
         -0x4928bbe4 -> :sswitch_10
         -0x3cc8375c -> :sswitch_3
-        -0x3bffbea8 -> :sswitch_19
+        -0x3bffbea8 -> :sswitch_1a
         -0x38b8cf80 -> :sswitch_a
-        -0x3174feed -> :sswitch_15
-        -0x2ddf9e45 -> :sswitch_14
+        -0x3174feed -> :sswitch_16
+        -0x2ddf9e45 -> :sswitch_15
         -0x25136bfb -> :sswitch_11
-        -0x21327a92 -> :sswitch_1a
+        -0x21327a92 -> :sswitch_1b
         -0x20697ef3 -> :sswitch_9
-        -0x1b507bff -> :sswitch_18
+        -0x1b507bff -> :sswitch_19
         -0x162ee473 -> :sswitch_b
         -0x143370a4 -> :sswitch_6
-        0x36a2175 -> :sswitch_17
-        0x3e0e82f -> :sswitch_1c
+        0x36a2175 -> :sswitch_18
+        0x3e0e82f -> :sswitch_1d
         0x4867bc6 -> :sswitch_7
         0xef38dc9 -> :sswitch_0
-        0x1c26f9b1 -> :sswitch_16
+        0x1c26f9b1 -> :sswitch_17
+        0x2949cbb6 -> :sswitch_14
         0x38c9f60b -> :sswitch_2
         0x3b2e6956 -> :sswitch_8
         0x4b15a75c -> :sswitch_13
         0x6333a7ed -> :sswitch_12
-        0x76d3afa6 -> :sswitch_1b
+        0x76d3afa6 -> :sswitch_1c
     .end sparse-switch
 
     :pswitch_data_0
@@ -981,6 +995,7 @@
         :pswitch_2
         :pswitch_3
         :pswitch_3
+        :pswitch_4
         :pswitch_4
         :pswitch_5
         :pswitch_5
@@ -1020,57 +1035,79 @@
 .end method
 
 .method private preloadColor()V
-    .locals 1
+    .locals 3
 
-    sget-object v0, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->HOME_TEXT_COLOR:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
+    sget-object v1, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->HOME_TEXT_COLOR:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
+    invoke-virtual {v1}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/theme/OpenThemeManager;->getColor(I)I
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/theme/OpenThemeManager;->getColor(I)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadTextColor:I
+    iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadTextColor:I
 
-    sget-object v0, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->TEXT_HIGHLIGHT:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
+    sget-object v1, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->TEXT_HIGHLIGHT:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
+    invoke-virtual {v1}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/theme/OpenThemeManager;->getColor(I)I
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/theme/OpenThemeManager;->getColor(I)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadTextHighlightColor:I
+    iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadTextHighlightColor:I
 
-    sget-object v0, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->TEXT_SHADOW_COLOR:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
+    sget-object v1, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->TEXT_SHADOW:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
+    invoke-virtual {v1}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/theme/OpenThemeManager;->getColor(I)I
+    const/4 v2, 0x1
 
-    move-result v0
-
-    iput v0, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadTextShadowColor:I
-
-    sget-object v0, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->BADGE_TEXT_COLOR:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
+    invoke-virtual {p0, v1, v2}, Lcom/android/launcher3/theme/OpenThemeManager;->getBoolean(IZ)Z
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/theme/OpenThemeManager;->getColor(I)I
+    if-eqz v0, :cond_0
 
-    move-result v0
+    sget-object v1, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->TEXT_SHADOW_COLOR:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
 
-    iput v0, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadBadgeTextColor:I
+    invoke-virtual {v1}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/theme/OpenThemeManager;->getColor(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadTextShadowColor:I
+
+    :goto_0
+    sget-object v1, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->BADGE_TEXT_COLOR:Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeItems;->value()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/theme/OpenThemeManager;->getColor(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadBadgeTextColor:I
 
     return-void
+
+    :cond_0
+    const v1, 0x1ffffff
+
+    iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mPreloadTextShadowColor:I
+
+    goto :goto_0
 .end method
 
 .method private preloadDrawable()V
@@ -1084,7 +1121,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f02007b
+    const v1, 0x7f0200b9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1171,7 +1208,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0800d4
+    const v1, 0x7f0900da
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1179,7 +1216,7 @@
 
     iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mTextBackgroundExtraPadding:I
 
-    const v1, 0x7f0800d3
+    const v1, 0x7f0900d9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1304,7 +1341,7 @@
     goto :goto_1
 .end method
 
-.method public getBoolean(I)Z
+.method public getBoolean(IZ)Z
     .locals 8
 
     iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
@@ -1321,7 +1358,7 @@
 
     move-result-object v1
 
-    const/4 v0, 0x0
+    move v0, p2
 
     iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
@@ -2500,9 +2537,9 @@
 .method public preloadBadgeDrawable()Landroid/graphics/drawable/Drawable;
     .locals 9
 
-    const v8, 0x7f02004a
+    const v8, 0x7f020088
 
-    const v7, 0x7f020049
+    const v7, 0x7f020087
 
     sget-object v6, Lcom/android/launcher3/theme/OpenThemeManager;->mContext:Landroid/content/Context;
 

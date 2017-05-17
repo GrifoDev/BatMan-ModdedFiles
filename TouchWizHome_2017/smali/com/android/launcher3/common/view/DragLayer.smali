@@ -550,7 +550,7 @@
 
     move-result-object v32
 
-    const v5, 0x7f0a0017
+    const v5, 0x7f0b0018
 
     move-object/from16 v0, v32
 
@@ -564,7 +564,7 @@
 
     if-gez p9, :cond_1
 
-    const v5, 0x7f0a0018
+    const v5, 0x7f0b0019
 
     move-object/from16 v0, v32
 
@@ -597,7 +597,7 @@
     move/from16 p9, v0
 
     :cond_0
-    const v5, 0x7f0a0019
+    const v5, 0x7f0b001a
 
     move-object/from16 v0, v32
 
@@ -2346,7 +2346,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/launcher3/common/drag/DragManager;->setScrollView(Landroid/view/View;)V
 
-    const v0, 0x7f0e008f
+    const v0, 0x7f0f0093
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/DragLayer;->findViewById(I)Landroid/view/View;
 

@@ -12,6 +12,7 @@
         Lcom/sec/android/app/launcher/R$string;,
         Lcom/sec/android/app/launcher/R$menu;,
         Lcom/sec/android/app/launcher/R$layout;,
+        Lcom/sec/android/app/launcher/R$interpolator;,
         Lcom/sec/android/app/launcher/R$integer;,
         Lcom/sec/android/app/launcher/R$id;,
         Lcom/sec/android/app/launcher/R$fraction;,

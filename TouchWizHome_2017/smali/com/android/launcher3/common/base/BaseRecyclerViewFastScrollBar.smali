@@ -129,7 +129,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    const v0, 0x7f0c000b
+    const v0, 0x7f0d000b
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -141,7 +141,7 @@
 
     iput v0, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbInactiveColor:I
 
-    const v0, 0x7f0c000a
+    const v0, 0x7f0d000a
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -173,7 +173,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    const v0, 0x7f0800bd
+    const v0, 0x7f0900bd
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -183,7 +183,7 @@
 
     iput v0, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbWidth:I
 
-    const v0, 0x7f0800bc
+    const v0, 0x7f0900bc
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -191,7 +191,7 @@
 
     iput v0, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbMaxWidth:I
 
-    const v0, 0x7f0800bb
+    const v0, 0x7f0900bb
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -207,7 +207,7 @@
 
     iput v0, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbCurvature:I
 
-    const v0, 0x7f0800be
+    const v0, 0x7f0900be
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

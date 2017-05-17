@@ -3172,7 +3172,7 @@
 .method private setupDefaultGridInfo(Lcom/android/launcher3/common/deviceprofile/DeviceProfile;[I)V
     .locals 12
 
-    const v10, 0x7f0a0001
+    const v10, 0x7f0b0001
 
     const/4 v8, 0x1
 
@@ -3214,7 +3214,7 @@
     move-result v3
 
     :goto_1
-    const v9, 0x7f090004
+    const v9, 0x7f0a0004
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -3385,7 +3385,7 @@
 
     aput v9, p2, v7
 
-    const v9, 0x7f0a0002
+    const v9, 0x7f0b0002
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3646,7 +3646,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090004
+    const v5, 0x7f0a0004
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

@@ -37,7 +37,7 @@
 .method public onFocusChange(Landroid/view/View;Z)V
     .locals 5
 
-    const v4, 0x7f070102
+    const v4, 0x7f080102
 
     const/4 v3, 0x1
 
@@ -89,13 +89,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f07017d
+    const v3, 0x7f08017d
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f07011a
+    const v4, 0x7f08011a
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -137,7 +137,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070178
+    const v3, 0x7f080178
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -156,7 +156,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070184
+    const v3, 0x7f080184
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

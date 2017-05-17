@@ -99,7 +99,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0027
+    const v1, 0x7f0b002b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -111,7 +111,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mDragDrakenAlpha:F
 
-    const v1, 0x7f0a0029
+    const v1, 0x7f0b002d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -123,7 +123,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mOverviewDrakenAlpha:F
 
-    const v1, 0x7f0d0004
+    const v1, 0x7f0e0004
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -1071,7 +1071,7 @@
 .method private getStageAnimationDuration(II)I
     .locals 6
 
-    const v5, 0x7f0a001a
+    const v5, 0x7f0b001e
 
     const/4 v4, 0x5
 
@@ -1089,7 +1089,7 @@
 
     if-ne p2, v4, :cond_0
 
-    const v1, 0x7f0a0021
+    const v1, 0x7f0b0025
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1123,7 +1123,7 @@
 
     if-ne p2, v2, :cond_3
 
-    const v1, 0x7f0a0022
+    const v1, 0x7f0b0026
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1150,7 +1150,7 @@
 
     if-ne p1, v1, :cond_0
 
-    const v1, 0x7f0a002d
+    const v1, 0x7f0b0031
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1164,7 +1164,7 @@
 
     if-ne p1, v1, :cond_1
 
-    const v1, 0x7f0a0028
+    const v1, 0x7f0b002c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1177,7 +1177,7 @@
 
     if-ne p1, v1, :cond_2
 
-    const v1, 0x7f0a002a
+    const v1, 0x7f0b002e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1190,7 +1190,7 @@
 
     if-ne p1, v1, :cond_3
 
-    const v1, 0x7f0a002c
+    const v1, 0x7f0b0030
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1846,7 +1846,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v3, 0x7f050004
+    const v3, 0x7f050006
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -2260,7 +2260,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v3, 0x7f050005
+    const v3, 0x7f050007
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -2452,7 +2452,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080145
+    const v3, 0x7f09014b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2766,7 +2766,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v3, 0x7f05000a
+    const v3, 0x7f05000c
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -2912,7 +2912,7 @@
     :goto_0
     if-eqz p4, :cond_4
 
-    const v2, 0x7f080026
+    const v2, 0x7f090026
 
     move-object/from16 v0, v22
 
@@ -2949,7 +2949,7 @@
 
     move-result v18
 
-    const v2, 0x7f080029
+    const v2, 0x7f090029
 
     move-object/from16 v0, v22
 
@@ -3403,7 +3403,7 @@
     move/from16 v34, v0
 
     :goto_0
-    const v2, 0x7f080026
+    const v2, 0x7f090026
 
     move-object/from16 v0, v27
 
@@ -3415,7 +3415,7 @@
 
     move/from16 v35, v0
 
-    const v2, 0x7f080027
+    const v2, 0x7f090027
 
     move-object/from16 v0, v27
 
@@ -3484,7 +3484,7 @@
 
     move-result v22
 
-    const v2, 0x7f080029
+    const v2, 0x7f090029
 
     move-object/from16 v0, v27
 
@@ -3492,7 +3492,7 @@
 
     move-result v23
 
-    const v2, 0x7f08002a
+    const v2, 0x7f09002a
 
     move-object/from16 v0, v27
 
@@ -4366,7 +4366,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0003
+    const v1, 0x7f0b0003
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4384,7 +4384,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a000b
+    const v1, 0x7f0b000b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4404,7 +4404,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f0e0094
+    const v1, 0x7f0f0098
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 

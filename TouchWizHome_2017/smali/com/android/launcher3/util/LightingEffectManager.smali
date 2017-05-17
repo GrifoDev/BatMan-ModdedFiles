@@ -207,7 +207,7 @@
 .method public setup(Landroid/app/Activity;)V
     .locals 2
 
-    const v0, 0x7f0e0095
+    const v0, 0x7f0f009a
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -221,7 +221,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/util/LightingEffectManager;->mEffectLayer:Landroid/view/View;
 
-    const v1, 0x7f0e009e
+    const v1, 0x7f0f00a3
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -231,7 +231,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/util/LightingEffectManager;->mEffectLayer:Landroid/view/View;
 
-    const v1, 0x7f0e00a0
+    const v1, 0x7f0f00a5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -241,7 +241,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/util/LightingEffectManager;->mEffectLayer:Landroid/view/View;
 
-    const v1, 0x7f0e009f
+    const v1, 0x7f0f00a4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

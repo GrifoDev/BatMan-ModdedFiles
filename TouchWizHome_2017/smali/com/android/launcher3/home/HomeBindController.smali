@@ -628,7 +628,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f070173
+    const v4, 0x7f080173
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -679,7 +679,7 @@
 
     iget-object v2, v0, Lcom/android/launcher3/home/HomeBindController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f070164
+    const v4, 0x7f080164
 
     invoke-virtual {v2, v4}, Lcom/android/launcher3/Launcher;->getText(I)Ljava/lang/CharSequence;
 
@@ -3192,7 +3192,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f030029
+    const v2, 0x7f03002a
 
     invoke-virtual {v1, v2, p1, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

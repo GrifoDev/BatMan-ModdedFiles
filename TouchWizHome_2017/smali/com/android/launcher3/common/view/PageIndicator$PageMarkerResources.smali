@@ -56,7 +56,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f020070
+    const v2, 0x7f0200ae
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -64,7 +64,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources;->active:Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f02006f
+    const v2, 0x7f0200ad
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -138,7 +138,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f020070
+    const v2, 0x7f0200ae
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -146,7 +146,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources;->active:Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f02006f
+    const v2, 0x7f0200ad
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -164,7 +164,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f020075
+    const v2, 0x7f0200b3
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -172,7 +172,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources;->active:Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f020074
+    const v2, 0x7f0200b2
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -210,7 +210,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v2, 0x7f020077
+    const v2, 0x7f0200b5
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -218,7 +218,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources;->active:Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f020076
+    const v2, 0x7f0200b4
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -235,7 +235,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f020073
+    const v2, 0x7f0200b1
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -243,7 +243,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources;->active:Landroid/graphics/drawable/Drawable;
 
-    const v2, 0x7f020072
+    const v2, 0x7f0200b0
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

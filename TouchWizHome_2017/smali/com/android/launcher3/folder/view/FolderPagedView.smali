@@ -1579,7 +1579,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f030029
+    const v3, 0x7f03002a
 
     const/4 v4, 0x0
 
@@ -1768,7 +1768,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f070034
+    const v1, 0x7f080034
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2601,20 +2601,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mFolder:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-virtual {v8}, Lcom/android/launcher3/folder/view/FolderView;->getBaseController()Lcom/android/launcher3/common/base/controller/ControllerBase;
-
-    move-result-object v8
-
-    instance-of v8, v8, Lcom/android/launcher3/allapps/controller/AppsController;
-
-    if-eqz v8, :cond_1
-
-    :cond_0
-    return-void
-
-    :cond_1
-    iget-object v8, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mFolder:Lcom/android/launcher3/folder/view/FolderView;
-
     invoke-virtual {v8}, Lcom/android/launcher3/folder/view/FolderView;->isWhiteBg()Z
 
     move-result v4
@@ -2626,7 +2612,7 @@
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v6, :cond_0
+    if-ge v3, v6, :cond_3
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderPagedView;->getChildAt(I)Landroid/view/View;
 
@@ -2645,7 +2631,7 @@
     const/4 v5, 0x0
 
     :goto_1
-    if-ge v5, v0, :cond_3
+    if-ge v5, v0, :cond_2
 
     invoke-virtual {v2, v5}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
@@ -2653,8 +2639,43 @@
 
     instance-of v8, v7, Lcom/android/launcher3/common/view/IconView;
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_0
 
+    iget-object v8, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mFolder:Lcom/android/launcher3/folder/view/FolderView;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/folder/view/FolderView;->getBaseController()Lcom/android/launcher3/common/base/controller/ControllerBase;
+
+    move-result-object v8
+
+    instance-of v8, v8, Lcom/android/launcher3/allapps/controller/AppsController;
+
+    if-eqz v8, :cond_1
+
+    move-object v8, v7
+
+    check-cast v8, Lcom/android/launcher3/common/view/IconView;
+
+    invoke-virtual {v7}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    invoke-virtual {v8, v9}, Lcom/android/launcher3/common/view/IconView;->reapplyItemInfo(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+
+    check-cast v7, Lcom/android/launcher3/common/view/IconView;
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v7, v8}, Lcom/android/launcher3/common/view/IconView;->changeTextColorForBg(Z)V
+
+    :cond_0
+    :goto_2
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_1
+
+    :cond_1
     move-object v8, v7
 
     check-cast v8, Lcom/android/launcher3/common/view/IconView;
@@ -2671,15 +2692,15 @@
 
     invoke-virtual {v7, v4}, Lcom/android/launcher3/common/view/IconView;->changeTextColorForBg(Z)V
 
+    goto :goto_2
+
     :cond_2
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_1
-
-    :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
+
+    :cond_3
+    return-void
 .end method
 
 .method protected onPageBeginMoving()V
@@ -3917,7 +3938,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mKeyListener:Lcom/android/launcher3/folder/controller/FolderFocusListener;
 
-    const v0, 0x7f0e0060
+    const v0, 0x7f0f0064
 
     invoke-virtual {p1, v0}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -4024,7 +4045,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mAddButton:Landroid/view/View;
 
-    const v5, 0x7f0e0072
+    const v5, 0x7f0f0076
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4188,14 +4209,14 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f07017b
+    const v4, 0x7f08017b
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     :goto_1
-    const v4, 0x7f07010d
+    const v4, 0x7f08010d
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4218,7 +4239,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f070187
+    const v4, 0x7f080187
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4239,14 +4260,14 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f070179
+    const v4, 0x7f080179
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     :goto_3
-    const v4, 0x7f070104
+    const v4, 0x7f080104
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4255,7 +4276,7 @@
     goto :goto_2
 
     :cond_3
-    const v4, 0x7f070185
+    const v4, 0x7f080185
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

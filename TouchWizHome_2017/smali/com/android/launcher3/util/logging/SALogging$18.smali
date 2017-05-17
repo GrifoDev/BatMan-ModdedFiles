@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/logging/SALogging$18;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    const v2, 0x7f0701ad
+    const v2, 0x7f0801ad
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -61,7 +61,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/logging/SALogging$18;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    const v2, 0x7f0701a9
+    const v2, 0x7f0801a9
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

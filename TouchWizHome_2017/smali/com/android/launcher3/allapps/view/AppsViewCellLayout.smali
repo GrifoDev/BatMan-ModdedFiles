@@ -130,9 +130,9 @@
 .method public setBgImage(I)V
     .locals 5
 
-    const v4, 0x7f020090
+    const v4, 0x7f0200ce
 
-    const v3, 0x7f02002c
+    const v3, 0x7f02006a
 
     const/4 v2, 0x0
 

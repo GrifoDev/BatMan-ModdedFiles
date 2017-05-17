@@ -85,7 +85,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/widget/view/WidgetCell;->mStylusEventHelper:Lcom/android/launcher3/util/event/StylusEventHelper;
 
-    const v1, 0x7f0701ba
+    const v1, 0x7f0801ba
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -458,7 +458,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f0e00d0
+    const v0, 0x7f0f00d5
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetCell;->findViewById(I)Landroid/view/View;
 
@@ -468,7 +468,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetCell;->mWidgetImage:Lcom/android/launcher3/widget/view/WidgetImageView;
 
-    const v0, 0x7f0e00ce
+    const v0, 0x7f0f00d3
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetCell;->findViewById(I)Landroid/view/View;
 
@@ -478,7 +478,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetCell;->mWidgetName:Landroid/widget/TextView;
 
-    const v0, 0x7f0e00cf
+    const v0, 0x7f0f00d4
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetCell;->findViewById(I)Landroid/view/View;
 

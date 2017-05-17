@@ -443,7 +443,7 @@
 .method private getWidgetState(Lcom/android/launcher3/widget/controller/WidgetState$State;)Lcom/android/launcher3/widget/controller/WidgetState;
     .locals 5
 
-    const v4, 0x7f0e00c8
+    const v4, 0x7f0f00cd
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetStateMap:Ljava/util/HashMap;
 
@@ -499,7 +499,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
 
-    const v4, 0x7f0e00c7
+    const v4, 0x7f0f00cc
 
     invoke-virtual {v3, v4}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -977,7 +977,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0035
+    const v2, 0x7f0b0039
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -993,7 +993,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0e009c
+    const v2, 0x7f0f00a1
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1031,7 +1031,7 @@
     :goto_1
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0e00cc
+    const v2, 0x7f0f00d1
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1043,7 +1043,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0e00ca
+    const v2, 0x7f0f00cf
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1055,7 +1055,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0e00cb
+    const v2, 0x7f0f00d0
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 

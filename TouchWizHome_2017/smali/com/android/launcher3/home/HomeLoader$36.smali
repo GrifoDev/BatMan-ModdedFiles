@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->updatePackageFlags(Lcom/android/launcher3/util/StringFilter;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/util/FlagOp;)V
+    value = Lcom/android/launcher3/home/HomeLoader;->insertWorkspaceScreen(Landroid/content/Context;IJ)J
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
-.field final synthetic val$oldCallback:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+.field final synthetic val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-.field final synthetic val$updatedShortcuts:Ljava/util/ArrayList;
+.field final synthetic val$insertIndex:I
 
-.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+.field final synthetic val$screenId:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
-    .locals 0
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;JI)V
+    .locals 1
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$36;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$oldCallback:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$updatedShortcuts:Ljava/util/ArrayList;
+    iput-wide p3, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$screenId:J
 
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    iput p5, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$insertIndex:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -58,19 +58,15 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$oldCallback:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     if-ne v1, v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$updatedShortcuts:Ljava/util/ArrayList;
+    iget-wide v2, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$screenId:J
 
-    new-instance v2, Ljava/util/ArrayList;
+    iget v1, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$insertIndex:I
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$36;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    invoke-interface {v0, v2, v3, v1}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindInsertScreens(JI)V
 
     :cond_0
     return-void

@@ -89,7 +89,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->mAppsPositionInfoMap:Ljava/util/HashMap;
 
-    const/high16 v1, 0x7f0a0000
+    const/high16 v1, 0x7f0b0000
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

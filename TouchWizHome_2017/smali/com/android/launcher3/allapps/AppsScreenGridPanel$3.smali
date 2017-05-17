@@ -79,7 +79,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f07017e
+    const v2, 0x7f08017e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -91,7 +91,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f07014d
+    const v3, 0x7f08014d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

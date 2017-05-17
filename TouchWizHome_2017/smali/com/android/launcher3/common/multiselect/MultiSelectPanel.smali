@@ -194,7 +194,7 @@
 
     const/4 v3, 0x1
 
-    const v1, 0x7f0e00a9
+    const v1, 0x7f0f00ae
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -525,7 +525,7 @@
 
     if-eqz p2, :cond_4
 
-    const v4, 0x7f0a0043
+    const v4, 0x7f0b0047
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -533,7 +533,7 @@
 
     int-to-float v4, v4
 
-    const v5, 0x7f0a0041
+    const v5, 0x7f0b0045
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -541,7 +541,7 @@
 
     int-to-float v5, v5
 
-    const v6, 0x7f0c002e
+    const v6, 0x7f0d002f
 
     const/4 v7, 0x0
 
@@ -815,7 +815,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08002e
+    const v2, 0x7f09002e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -836,7 +836,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f070062
+    const v2, 0x7f080062
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -852,7 +852,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f070056
+    const v2, 0x7f080056
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -1449,7 +1449,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08002d
+    const v2, 0x7f09002d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1489,7 +1489,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f0e00aa
+    const v0, 0x7f0f00af
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1511,7 +1511,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0e00ab
+    const v0, 0x7f0f00b0
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1533,7 +1533,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0e00ac
+    const v0, 0x7f0f00b1
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1555,7 +1555,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0e00ad
+    const v0, 0x7f0f00b2
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1577,7 +1577,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0e00ae
+    const v0, 0x7f0f00b3
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1679,7 +1679,7 @@
     move v0, v8
 
     :goto_0
-    const v9, 0x7f0e00a9
+    const v9, 0x7f0f00ae
 
     invoke-virtual {p0, v9}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1695,7 +1695,7 @@
 
     move-result-object v4
 
-    const v9, 0x7f080104
+    const v9, 0x7f09010a
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1844,7 +1844,7 @@
 .method public setEditTextBg()V
     .locals 5
 
-    const v4, 0x7f020092
+    const v4, 0x7f0200d0
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getContext()Landroid/content/Context;
 
@@ -1858,7 +1858,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080101
+    const v3, 0x7f090107
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

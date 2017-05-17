@@ -8,6 +8,7 @@
         <include android:id="@id/apps_view" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/apps" />
         <include android:id="@id/drop_target_bar" layout="@layout/drop_target_bar" />
         <include android:id="@id/home_view" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/home" />
+        <include android:layout_gravity="start" android:id="@id/edge_light_container" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/edge_light" />
         <include android:id="@id/lighting_effect" layout="@layout/lighting_effect" />
         <ViewStub android:id="@id/tray_fake_view_top_stub" android:inflatedId="@id/tray_fake_view_top" android:layout_width="fill_parent" android:layout_height="wrap_content" />
         <ViewStub android:id="@id/tray_fake_view_bottom_stub" android:inflatedId="@id/tray_fake_view_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" />

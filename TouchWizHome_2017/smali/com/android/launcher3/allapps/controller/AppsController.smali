@@ -583,7 +583,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0a0022
+    const v15, 0x7f0b0026
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -909,7 +909,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f07001f
+    const v3, 0x7f08001f
 
     const/4 v4, 0x2
 
@@ -2736,7 +2736,7 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v6, 0x7f070164
+    const v6, 0x7f080164
 
     invoke-virtual {v2, v6}, Lcom/android/launcher3/Launcher;->getText(I)Ljava/lang/CharSequence;
 
@@ -3783,7 +3783,7 @@
 .method public applyOrCancelTideUpPages()V
     .locals 6
 
-    const v4, 0x7f070180
+    const v4, 0x7f080180
 
     const/4 v5, 0x0
 
@@ -3831,7 +3831,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0700e6
+    const v4, 0x7f0800e6
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3861,7 +3861,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0700e5
+    const v4, 0x7f0800e5
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4449,7 +4449,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f07017f
+    const v5, 0x7f08017f
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4461,7 +4461,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0700ea
+    const v6, 0x7f0800ea
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4939,6 +4939,16 @@
 
     invoke-virtual {v2, v11, v5}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
 
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    iget-wide v12, v4, Lcom/android/launcher3/folder/FolderInfo;->screenId:J
+
+    long-to-int v12, v12
+
+    invoke-virtual {v11, v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->snapToPage(I)V
+
     new-instance v8, Landroid/os/Handler;
 
     invoke-direct {v8}, Landroid/os/Handler;-><init>()V
@@ -5257,7 +5267,7 @@
 
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v12, 0x7f0e0092
+    const v12, 0x7f0f0096
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5333,7 +5343,7 @@
 
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v12, 0x7f0e000e
+    const v12, 0x7f0f000e
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5369,7 +5379,7 @@
 
     move-result-object v8
 
-    const v11, 0x7f08013b
+    const v11, 0x7f090141
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5377,7 +5387,7 @@
 
     iput v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsSlipY:I
 
-    const v11, 0x7f08013c
+    const v11, 0x7f090142
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5385,7 +5395,7 @@
 
     iput v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayBorderLimit:I
 
-    const v11, 0x7f08009d
+    const v11, 0x7f09009d
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5393,7 +5403,7 @@
 
     iput v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mMoveToHomeApproachingStart:I
 
-    const v11, 0x7f08009b
+    const v11, 0x7f09009b
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5403,7 +5413,7 @@
 
     const/high16 v11, 0x3f800000    # 1.0f
 
-    const v12, 0x7f0d0009
+    const v12, 0x7f0e0009
 
     const/4 v13, 0x1
 
@@ -5417,7 +5427,7 @@
 
     iput v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageSnapMovingRatioOnApps:F
 
-    const v11, 0x7f0d0003
+    const v11, 0x7f0e0003
 
     const/4 v12, 0x1
 
@@ -5429,7 +5439,7 @@
 
     iput v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsShrinkFactor:F
 
-    const/high16 v11, 0x7f0d0000
+    const/high16 v11, 0x7f0e0000
 
     const/4 v12, 0x1
 
@@ -5441,7 +5451,7 @@
 
     iput v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsAlphaRatio:F
 
-    const v11, 0x7f0d0002
+    const v11, 0x7f0e0002
 
     const/4 v12, 0x1
 
@@ -5453,7 +5463,7 @@
 
     iput v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorShrinkFactor:F
 
-    const v11, 0x7f0d0001
+    const v11, 0x7f0e0001
 
     const/4 v12, 0x1
 
@@ -5465,7 +5475,7 @@
 
     iput v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorScaleRatio:F
 
-    const v11, 0x7f080142
+    const v11, 0x7f090148
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5517,7 +5527,7 @@
 
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v12, 0x7f0e0011
+    const v12, 0x7f0f0011
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5531,7 +5541,7 @@
     :goto_1
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v12, 0x7f0e000f
+    const v12, 0x7f0f000f
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5703,7 +5713,7 @@
     :cond_5
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v12, 0x7f0e0012
+    const v12, 0x7f0f0012
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5713,7 +5723,7 @@
 
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v12, 0x7f0e0014
+    const v12, 0x7f0f0014
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5727,7 +5737,7 @@
 
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v12, 0x7f0e0013
+    const v12, 0x7f0f0013
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5747,18 +5757,18 @@
 
     if-eqz v11, :cond_6
 
-    const v11, 0x7f020092
+    const v11, 0x7f0200d0
 
     invoke-virtual {v3, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
-    const v11, 0x7f020092
+    const v11, 0x7f0200d0
 
     invoke-virtual {v1, v11}, Landroid/view/View;->setBackgroundResource(I)V
 
     :cond_6
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v12, 0x7f0e0018
+    const v12, 0x7f0f0018
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5804,7 +5814,7 @@
 
     iget-object v11, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
 
-    const v12, 0x7f0e0010
+    const v12, 0x7f0f0010
 
     invoke-virtual {v11, v12}, Lcom/android/launcher3/allapps/view/AppsContainer;->findViewById(I)Landroid/view/View;
 
@@ -6694,13 +6704,13 @@
 
     move-result-object v1
 
-    const v3, 0x7f07017f
+    const v3, 0x7f08017f
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f0700ea
+    const v4, 0x7f0800ea
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6971,7 +6981,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f070182
+    const v5, 0x7f080182
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7103,7 +7113,7 @@
 
     check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    const v5, 0x7f080081
+    const v5, 0x7f090081
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7902,7 +7912,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f070014
+    const v13, 0x7f080014
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8331,7 +8341,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f070067
+    const v2, 0x7f080067
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -9998,9 +10008,9 @@
 .method public setViewType(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
     .locals 10
 
-    const v7, 0x7f070182
+    const v7, 0x7f080182
 
-    const v6, 0x7f0700f1
+    const v6, 0x7f0800f1
 
     const/4 v9, 0x1
 
@@ -10087,7 +10097,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f07019c
+    const v4, 0x7f08019c
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -11207,7 +11217,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0e0018
+    const v2, 0x7f0f0018
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 

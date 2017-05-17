@@ -41,7 +41,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00ee
+    const v1, 0x7f0f00f3
 
     if-ne v0, v1, :cond_0
 
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00f2
+    const v1, 0x7f0f00f7
 
     if-ne v0, v1, :cond_1
 
@@ -85,7 +85,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00f3
+    const v1, 0x7f0f00f8
 
     if-ne v0, v1, :cond_2
 
@@ -105,7 +105,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00ef
+    const v1, 0x7f0f00f4
 
     if-ne v0, v1, :cond_3
 
@@ -125,7 +125,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00f4
+    const v1, 0x7f0f00f9
 
     if-ne v0, v1, :cond_4
 
@@ -149,7 +149,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00f0
+    const v1, 0x7f0f00f5
 
     if-ne v0, v1, :cond_5
 
@@ -169,7 +169,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00f1
+    const v1, 0x7f0f00f6
 
     if-ne v0, v1, :cond_6
 

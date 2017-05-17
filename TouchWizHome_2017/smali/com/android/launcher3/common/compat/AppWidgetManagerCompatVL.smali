@@ -423,7 +423,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f080121
+    const v8, 0x7f090127
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -435,7 +435,7 @@
 
     sub-int/2addr v8, v0
 
-    const v9, 0x7f080122
+    const v9, 0x7f090128
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -604,7 +604,7 @@
 .method public startConfigActivity(Landroid/appwidget/AppWidgetProviderInfo;ILandroid/app/Activity;Landroid/appwidget/AppWidgetHost;I)V
     .locals 9
 
-    const v8, 0x7f070002
+    const v8, 0x7f080002
 
     const/4 v7, 0x0
 

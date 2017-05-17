@@ -1009,96 +1009,6 @@
     goto :goto_b
 
     :cond_e
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mOp:I
-
-    move/from16 v30, v0
-
-    const/16 v31, 0x1
-
-    move/from16 v0, v30
-
-    move/from16 v1, v31
-
-    if-eq v0, v1, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mOp:I
-
-    move/from16 v30, v0
-
-    const/16 v31, 0x2
-
-    move/from16 v0, v30
-
-    move/from16 v1, v31
-
-    if-ne v0, v1, :cond_10
-
-    :cond_f
-    invoke-virtual {v7}, Ljava/util/HashMap;->isEmpty()Z
-
-    move-result v30
-
-    if-nez v30, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher3/LauncherModel;
-
-    move-object/from16 v30, v0
-
-    move-object/from16 v0, v30
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
-
-    move-object/from16 v30, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mUser:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    move-object/from16 v31, v0
-
-    move-object/from16 v0, v30
-
-    move-object/from16 v1, v20
-
-    move-object/from16 v2, v31
-
-    invoke-virtual {v0, v1, v6, v7, v2}, Lcom/android/launcher3/home/HomeLoader;->addOrUpdater([Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/HashMap;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
-
-    if-nez v16, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher3/LauncherModel;
-
-    move-object/from16 v30, v0
-
-    move-object/from16 v0, v30
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mAppsLoader:Lcom/android/launcher3/allapps/model/AppsLoader;
-
-    move-object/from16 v30, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mUser:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    move-object/from16 v31, v0
-
-    move-object/from16 v0, v30
-
-    move-object/from16 v1, v20
-
-    move-object/from16 v2, v31
-
-    invoke-virtual {v0, v1, v7, v2}, Lcom/android/launcher3/allapps/model/AppsLoader;->addOrUpdater([Ljava/lang/String;Ljava/util/HashMap;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
-
-    :cond_10
     new-instance v28, Ljava/util/ArrayList;
 
     invoke-direct/range {v28 .. v28}, Ljava/util/ArrayList;-><init>()V
@@ -1115,7 +1025,7 @@
 
     move/from16 v1, v31
 
-    if-eq v0, v1, :cond_11
+    if-eq v0, v1, :cond_f
 
     move-object/from16 v0, p0
 
@@ -1131,7 +1041,7 @@
 
     if-ne v0, v1, :cond_16
 
-    :cond_11
+    :cond_f
     invoke-static/range {v20 .. v20}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v30
@@ -1142,20 +1052,20 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    :cond_12
+    :cond_10
     invoke-virtual/range {v28 .. v28}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v30
 
-    if-eqz v30, :cond_13
+    if-eqz v30, :cond_11
 
     invoke-virtual/range {v27 .. v27}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v30
 
-    if-nez v30, :cond_14
+    if-nez v30, :cond_12
 
-    :cond_13
+    :cond_11
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mOp:I
@@ -1205,7 +1115,7 @@
 
     move-result-object v26
 
-    if-nez v16, :cond_14
+    if-nez v16, :cond_12
 
     move-object/from16 v0, p0
 
@@ -1232,6 +1142,96 @@
     move-object/from16 v2, v31
 
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/allapps/model/AppsLoader;->removePackagesAndComponents(Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+
+    :cond_12
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mOp:I
+
+    move/from16 v30, v0
+
+    const/16 v31, 0x1
+
+    move/from16 v0, v30
+
+    move/from16 v1, v31
+
+    if-eq v0, v1, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mOp:I
+
+    move/from16 v30, v0
+
+    const/16 v31, 0x2
+
+    move/from16 v0, v30
+
+    move/from16 v1, v31
+
+    if-ne v0, v1, :cond_14
+
+    :cond_13
+    invoke-virtual {v7}, Ljava/util/HashMap;->isEmpty()Z
+
+    move-result v30
+
+    if-nez v30, :cond_14
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher3/LauncherModel;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, v30
+
+    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mUser:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-object/from16 v31, v0
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v6, v7, v2}, Lcom/android/launcher3/home/HomeLoader;->addOrUpdater([Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/HashMap;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+
+    if-nez v16, :cond_14
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher3/LauncherModel;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, v30
+
+    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mAppsLoader:Lcom/android/launcher3/allapps/model/AppsLoader;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mUser:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-object/from16 v31, v0
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v1, v7, v2}, Lcom/android/launcher3/allapps/model/AppsLoader;->addOrUpdater([Ljava/lang/String;Ljava/util/HashMap;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     :cond_14
     move-object/from16 v0, p0
@@ -1322,12 +1322,12 @@
 
     move/from16 v1, v31
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_10
 
     const/4 v15, 0x0
 
     :goto_e
-    if-ge v15, v5, :cond_12
+    if-ge v15, v5, :cond_10
 
     aget-object v30, v20, v15
 

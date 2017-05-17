@@ -121,7 +121,7 @@
     <string name="permdesc_install_widget">Diese App kann Widgets zum Startbildschirm hinzufügen.</string>
     <string name="permlab_install_widget">Widgets hinzufügen</string>
     <string name="quick_option_add_apps">Apps hinzufügen</string>
-    <string name="quick_option_add_shortcut_to_home">Verknüpfung zu Start hzfg.</string>
+    <string name="quick_option_add_shortcut_to_home">Verknüpfung zu Start hinzufügen</string>
     <string name="quick_option_add_to_personal">Zu persönlich hzfg.</string>
     <string name="quick_option_app_info">App-Info</string>
     <string name="quick_option_cant_disable">%s kann nicht deaktiviert werden.</string>

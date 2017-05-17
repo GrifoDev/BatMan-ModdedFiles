@@ -22,18 +22,26 @@
 
 .field final synthetic val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-.field final synthetic val$widgets:Ljava/util/ArrayList;
+.field final synthetic val$removedIcons:Ljava/util/ArrayList;
+
+.field final synthetic val$updatedIcons:Ljava/util/ArrayList;
+
+.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$22;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
     iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$widgets:Ljava/util/ArrayList;
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$updatedIcons:Ljava/util/ArrayList;
+
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$removedIcons:Ljava/util/ArrayList;
+
+    iput-object p5, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 4
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$22;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
@@ -58,9 +66,13 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$widgets:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$updatedIcons:Ljava/util/ArrayList;
 
-    invoke-interface {v0, v1}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindWidgetsRestored(Ljava/util/ArrayList;)V
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$removedIcons:Ljava/util/ArrayList;
+
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$22;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     :cond_0
     return-void

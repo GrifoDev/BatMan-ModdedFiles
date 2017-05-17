@@ -445,7 +445,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c002d
+    const v2, 0x7f0d002e
 
     invoke-static {v1, v2}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -469,7 +469,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c002c
+    const v2, 0x7f0d002d
 
     invoke-static {v1, v2}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -638,7 +638,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f07001d
+    const v4, 0x7f08001d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -658,7 +658,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f07001c
+    const v4, 0x7f08001c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1020,7 +1020,7 @@
     :cond_0
     sget-object v5, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    const v9, 0x7f07001d
+    const v9, 0x7f08001d
 
     invoke-virtual {v5, v9}, Lcom/android/launcher3/util/Talk;->say(I)V
 
@@ -1233,7 +1233,7 @@
 
     check-cast v1, Landroid/widget/FrameLayout;
 
-    const v2, 0x7f0e0053
+    const v2, 0x7f0f0053
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1243,7 +1243,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/home/CancelDropTarget;->mTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0e0052
+    const v2, 0x7f0f0052
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1253,7 +1253,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/home/CancelDropTarget;->mImageView:Landroid/widget/ImageView;
 
-    const v2, 0x7f0e0051
+    const v2, 0x7f0f0051
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1299,9 +1299,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_1
-    const v2, 0x7f07001d
+    const v2, 0x7f08001d
 
-    const v3, 0x7f0200bb
+    const v3, 0x7f0200f9
 
     const v4, 0x7f02002a
 

@@ -618,7 +618,7 @@
 
     move-result-object v6
 
-    const v9, 0x7f0a0025
+    const v9, 0x7f0b0029
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -700,7 +700,7 @@
 
     move-result-object v6
 
-    const v9, 0x7f0a0026
+    const v9, 0x7f0b002a
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -776,7 +776,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f080031
+    const v5, 0x7f090031
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -981,7 +981,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f070051
+    const v1, 0x7f080051
 
     const/4 v2, 0x0
 
@@ -2186,14 +2186,14 @@
 
     if-eqz v12, :cond_e
 
-    const v12, 0x7f070179
+    const v12, 0x7f080179
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
     :goto_4
-    const v12, 0x7f070106
+    const v12, 0x7f080106
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2283,7 +2283,7 @@
     goto :goto_3
 
     :cond_e
-    const v12, 0x7f070185
+    const v12, 0x7f080185
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2409,7 +2409,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0020
+    const v1, 0x7f0b0024
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2429,7 +2429,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0023
+    const v1, 0x7f0b0027
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2439,7 +2439,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f030020
+    const v1, 0x7f030021
 
     const/4 v2, 0x0
 

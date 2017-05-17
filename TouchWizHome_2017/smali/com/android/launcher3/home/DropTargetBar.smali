@@ -47,7 +47,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080020
+    const v3, 0x7f090020
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -77,7 +77,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/DropTargetBar;->setVisibility(I)V
 
-    const v0, 0x7f0e004f
+    const v0, 0x7f0f004f
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/DropTargetBar;->findViewById(I)Landroid/view/View;
 

@@ -172,7 +172,7 @@
     :cond_0
     iput-object p1, p0, Lcom/android/launcher3/widget/controller/WidgetStateUninstall;->mTitleBar:Landroid/view/View;
 
-    const v2, 0x7f0e00e4
+    const v2, 0x7f0f00e9
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -196,7 +196,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f07016c
+    const v3, 0x7f08016c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -239,7 +239,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00e4
+    const v1, 0x7f0f00e9
 
     if-ne v0, v1, :cond_0
 
@@ -274,7 +274,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08007d
+    const v2, 0x7f09007d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -306,7 +306,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetStateUninstall;->mTitleBar:Landroid/view/View;
 
-    const v2, 0x7f0e00e4
+    const v2, 0x7f0f00e9
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

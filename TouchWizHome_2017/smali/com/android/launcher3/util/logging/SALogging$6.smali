@@ -82,7 +82,7 @@
 
     if-ne v4, v7, :cond_5
 
-    const v6, 0x7f07018d
+    const v6, 0x7f08018d
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -98,7 +98,7 @@
 
     const-string v5, "Folder"
 
-    const v6, 0x7f0700d2
+    const v6, 0x7f0800d2
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -148,7 +148,7 @@
     :cond_5
     if-ne v4, v8, :cond_6
 
-    const v6, 0x7f07017f
+    const v6, 0x7f08017f
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -169,7 +169,7 @@
 
     if-ne v3, v7, :cond_7
 
-    const v6, 0x7f070185
+    const v6, 0x7f080185
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -180,7 +180,7 @@
     :cond_7
     if-ne v3, v8, :cond_2
 
-    const v6, 0x7f070179
+    const v6, 0x7f080179
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
 
     const-string v5, "APP"
 
-    const v6, 0x7f0700d0
+    const v6, 0x7f0800d0
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

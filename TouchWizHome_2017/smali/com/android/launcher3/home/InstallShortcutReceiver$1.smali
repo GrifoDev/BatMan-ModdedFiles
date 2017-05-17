@@ -1021,7 +1021,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f070094
+    const v19, 0x7f080094
 
     const/16 v20, 0x1
 
@@ -1120,7 +1120,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f070095
+    const v19, 0x7f080095
 
     const/16 v20, 0x1
 

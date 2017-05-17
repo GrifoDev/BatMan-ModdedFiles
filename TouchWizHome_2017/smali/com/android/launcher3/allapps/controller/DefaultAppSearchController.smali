@@ -77,9 +77,9 @@
 
     const/4 v6, 0x0
 
-    const v5, 0x7f0c0033
+    const v5, 0x7f0d0034
 
-    const v4, 0x7f0c0025
+    const v4, 0x7f0d0026
 
     const/4 v3, 0x1
 
@@ -103,7 +103,7 @@
 
     aget-object v0, v0, v2
 
-    const v1, 0x7f0c0032
+    const v1, 0x7f0d0033
 
     iput v1, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$Style;->textColorId:I
 
@@ -123,7 +123,7 @@
 
     aget-object v0, v0, v2
 
-    const v1, 0x7f0c0027
+    const v1, 0x7f0d0028
 
     iput v1, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$Style;->dividerColorId:I
 
@@ -151,7 +151,7 @@
 
     aget-object v0, v0, v3
 
-    const v1, 0x7f0c0026
+    const v1, 0x7f0d0027
 
     iput v1, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$Style;->backgroundColorId:I
 
@@ -159,7 +159,7 @@
 
     aget-object v0, v0, v3
 
-    const v1, 0x7f0c0028
+    const v1, 0x7f0d0029
 
     iput v1, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$Style;->dividerColorId:I
 
@@ -289,43 +289,43 @@
 
     move-result v5
 
-    const v8, 0x7f0e00ee
+    const v8, 0x7f0f00f3
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v7
 
-    const v8, 0x7f0e00f2
+    const v8, 0x7f0f00f7
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v8, 0x7f0e00ef
+    const v8, 0x7f0f00f4
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v6
 
-    const v8, 0x7f0e00f3
+    const v8, 0x7f0f00f8
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v4
 
-    const v8, 0x7f0e00f4
+    const v8, 0x7f0f00f9
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v8, 0x7f0e00f0
+    const v8, 0x7f0f00f5
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v3
 
-    const v8, 0x7f0e00f1
+    const v8, 0x7f0f00f6
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -441,7 +441,7 @@
 
     move-result-object v0
 
-    const/high16 v1, 0x7f100000
+    const/high16 v1, 0x7f110000
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
 
@@ -639,9 +639,9 @@
 
     const/4 v8, 0x0
 
-    const v1, 0x7f0c0008
+    const v1, 0x7f0d0008
 
-    const v9, 0x7f0200b5
+    const v9, 0x7f0200f3
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -767,7 +767,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchView:Landroid/view/View;
 
-    const v7, 0x7f0e003d
+    const v7, 0x7f0f003d
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -777,7 +777,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarContainerView:Landroid/view/View;
 
-    const v7, 0x7f0e003f
+    const v7, 0x7f0f003f
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -866,7 +866,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarContainerView:Landroid/view/View;
 
-    const v7, 0x7f0e003e
+    const v7, 0x7f0f003e
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -951,7 +951,7 @@
     :goto_0
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarContainerView:Landroid/view/View;
 
-    const v7, 0x7f0e00a1
+    const v7, 0x7f0f00a6
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

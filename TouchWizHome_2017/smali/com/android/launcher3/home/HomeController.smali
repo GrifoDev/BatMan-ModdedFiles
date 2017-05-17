@@ -127,6 +127,8 @@
 
 .field private mDropTargetBar:Lcom/android/launcher3/home/DropTargetBar;
 
+.field private mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
 .field private mEnabledCustomLayoutAnimation:Z
 
 .field private mExitDragStateHandler:Landroid/os/Handler;
@@ -1907,7 +1909,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f0a0022
+    const v14, 0x7f0b0026
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2187,13 +2189,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f07017f
+    const v3, 0x7f08017f
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f0700ea
+    const v4, 0x7f0800ea
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2397,130 +2399,6 @@
 
     :cond_3
     return-void
-.end method
-
-.method private findEmptyCellFromNextPageOfDefaultHome()Landroid/util/Pair;
-    .locals 8
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroid/util/Pair",
-            "<",
-            "Ljava/lang/Long;",
-            "[I>;"
-        }
-    .end annotation
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x2
-
-    new-array v1, v5, [I
-
-    iget-object v5, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
-
-    move-result v5
-
-    add-int/lit8 v5, v5, 0x1
-
-    iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v6}, Lcom/android/launcher3/home/Workspace;->getPageCount()I
-
-    move-result v6
-
-    if-ge v5, v6, :cond_1
-
-    iget-object v5, p0, Lcom/android/launcher3/home/HomeController;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/home/HomeLoader;->getItemPositionHelper()Lcom/android/launcher3/home/HomeItemPositionHelper;
-
-    move-result-object v0
-
-    iget-object v5, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
-
-    move-result v5
-
-    add-int/lit8 v7, v5, 0x1
-
-    :goto_0
-    iget-object v5, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/home/Workspace;->getPageCount()I
-
-    move-result v5
-
-    if-ge v7, v5, :cond_1
-
-    iget-object v5, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v5, v7}, Lcom/android/launcher3/home/Workspace;->getScreenIdForPageIndex(I)J
-
-    move-result-wide v2
-
-    const/4 v6, 0x0
-
-    move v5, v4
-
-    invoke-virtual/range {v0 .. v6}, Lcom/android/launcher3/home/HomeItemPositionHelper;->findEmptyCell([IJIIZ)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v4
-
-    invoke-static {v4, v1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v4
-
-    :goto_1
-    return-object v4
-
-    :cond_0
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/home/Workspace;->addExtraEmptyScreen()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/home/Workspace;->commitExtraEmptyScreen()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v4
-
-    invoke-static {v4, v1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v4
-
-    goto :goto_1
-
-    :cond_2
-    new-instance v4, Ljava/lang/RuntimeException;
-
-    const-string v5, "Can\'t find space to add the item"
-
-    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v4
 .end method
 
 .method private findSearchedApp(Landroid/content/ComponentName;)V
@@ -4411,7 +4289,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f070190
+    const v6, 0x7f080190
 
     move-object/from16 v0, v16
 
@@ -4419,7 +4297,7 @@
 
     move-result-object v6
 
-    const v9, 0x7f0700c7
+    const v9, 0x7f0800c7
 
     move-object/from16 v0, v16
 
@@ -4585,44 +4463,18 @@
     return-void
 .end method
 
-.method public addItemOnNextPageOfDefaultHome(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+.method addItemOnHome(Lcom/android/launcher3/common/base/item/ItemInfo;[IJ)V
     .locals 25
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/HomeController;->findEmptyCellFromNextPageOfDefaultHome()Landroid/util/Pair;
-
-    move-result-object v24
 
     const-wide/16 v22, -0x64
 
-    move-object/from16 v0, v24
+    const/4 v2, 0x0
 
-    iget-object v2, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
+    aget v10, p2, v2
 
-    check-cast v2, Ljava/lang/Long;
+    const/4 v2, 0x1
 
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v16
-
-    move-object/from16 v0, v24
-
-    iget-object v2, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v2, [I
-
-    const/4 v4, 0x0
-
-    aget v10, v2, v4
-
-    move-object/from16 v0, v24
-
-    iget-object v2, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v2, [I
-
-    const/4 v4, 0x1
-
-    aget v11, v2, v4
+    aget v11, p2, v2
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
@@ -4640,7 +4492,7 @@
 
     iget-object v4, v0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    move-wide/from16 v0, v16
+    move-wide/from16 v0, p3
 
     invoke-virtual {v4, v0, v1}, Lcom/android/launcher3/home/Workspace;->getPageIndexForScreenId(J)I
 
@@ -4717,7 +4569,7 @@
 
     iget-object v4, v0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    move-wide/from16 v0, v16
+    move-wide/from16 v0, p3
 
     invoke-virtual {v4, v0, v1}, Lcom/android/launcher3/home/Workspace;->getPageIndexForScreenId(J)I
 
@@ -4733,7 +4585,7 @@
 
     move-object/from16 v4, p0
 
-    move-wide/from16 v8, v16
+    move-wide/from16 v8, p3
 
     invoke-virtual/range {v4 .. v13}, Lcom/android/launcher3/home/HomeController;->addInScreen(Landroid/view/View;JJIIII)V
 
@@ -4750,6 +4602,8 @@
     move-object/from16 v12, p0
 
     move-object/from16 v13, p1
+
+    move-wide/from16 v16, p3
 
     move/from16 v18, v10
 
@@ -4852,6 +4706,30 @@
         :pswitch_0
         :pswitch_1
     .end packed-switch
+.end method
+
+.method public addItemOnNextPageOfDefaultHome(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+    .locals 4
+
+    const/4 v3, 0x2
+
+    new-array v2, v3, [I
+
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
+
+    move-result v3
+
+    add-int/lit8 v3, v3, 0x1
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/launcher3/home/HomeController;->findEmptyCell([II)J
+
+    move-result-wide v0
+
+    invoke-virtual {p0, p1, v2, v0, v1}, Lcom/android/launcher3/home/HomeController;->addItemOnHome(Lcom/android/launcher3/common/base/item/ItemInfo;[IJ)V
+
+    return-void
 .end method
 
 .method public addItemToDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJII)J
@@ -5546,7 +5424,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0015
+    const v2, 0x7f0b0016
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6196,6 +6074,121 @@
     goto :goto_0
 .end method
 
+.method checkEdgeLightDisplayAvailability()Z
+    .locals 5
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/common/stage/StageManager;->getTopStage()Lcom/android/launcher3/common/stage/Stage;
+
+    move-result-object v4
+
+    if-ne v4, p0, :cond_0
+
+    move v0, v2
+
+    :goto_0
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportQuickOption()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/Launcher;->getDragMgr()Lcom/android/launcher3/common/drag/DragManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/common/drag/DragManager;->isQuickOptionShowing()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    move v1, v2
+
+    :goto_1
+    if-eqz v0, :cond_2
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/Launcher;->isPaused()Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/home/Workspace;->isPageMoving()Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    if-nez v1, :cond_2
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mState:Lcom/android/launcher3/home/HomeController$State;
+
+    # invokes: Lcom/android/launcher3/home/HomeController$State;->equal(I)Z
+    invoke-static {v4, v2}, Lcom/android/launcher3/home/HomeController$State;->access$000(Lcom/android/launcher3/home/HomeController$State;I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mZeroPageController:Lcom/android/launcher3/home/ZeroPageController;
+
+    invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->isMoving()Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    :goto_2
+    return v2
+
+    :cond_0
+    move v0, v3
+
+    goto :goto_0
+
+    :cond_1
+    move v1, v3
+
+    goto :goto_1
+
+    :cond_2
+    move v2, v3
+
+    goto :goto_2
+.end method
+
 .method clearDropTargets()V
     .locals 2
 
@@ -6321,7 +6314,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0e007d
+    const v2, 0x7f0f0081
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -6536,7 +6529,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f07018d
+    const v5, 0x7f08018d
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6548,7 +6541,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0700dd
+    const v6, 0x7f0800dd
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7516,13 +7509,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f070190
+    const v4, 0x7f080190
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v5, 0x7f0700ff
+    const v5, 0x7f0800ff
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7542,7 +7535,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f070039
+    const v6, 0x7f080039
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7615,19 +7608,29 @@
 .end method
 
 .method public findEmptyCell([I)J
-    .locals 14
+    .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
     invoke-virtual {v0}, Lcom/android/launcher3/home/Workspace;->getNextPage()I
 
-    move-result v10
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/home/HomeController;->findEmptyCell([II)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public findEmptyCell([II)J
+    .locals 12
 
     const/4 v6, 0x0
 
     const/4 v7, 0x0
 
-    move v9, v10
+    move v9, p2
 
     :goto_0
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
@@ -7670,11 +7673,11 @@
 
     invoke-virtual {v0, v9}, Lcom/android/launcher3/home/Workspace;->getScreenIdForPageIndex(I)J
 
-    move-result-wide v12
+    move-result-wide v10
 
     const-wide/16 v0, -0xc9
 
-    cmp-long v0, v12, v0
+    cmp-long v0, v10, v0
 
     if-nez v0, :cond_2
 
@@ -7696,7 +7699,7 @@
     if-eqz v0, :cond_3
 
     :goto_1
-    return-wide v12
+    return-wide v10
 
     :cond_3
     const/4 v1, 0x1
@@ -7743,7 +7746,7 @@
 
     invoke-virtual {v0}, Lcom/android/launcher3/home/Workspace;->commitExtraEmptyScreen()J
 
-    move-result-wide v12
+    move-result-wide v10
 
     goto :goto_1
 .end method
@@ -8297,7 +8300,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f0e0094
+    const v7, 0x7f0f0098
 
     invoke-virtual {v6, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -8333,7 +8336,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_8
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mHomeContainer:Lcom/android/launcher3/home/HomeContainer;
 
@@ -8345,7 +8348,7 @@
     :goto_0
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f0e0004
+    const v7, 0x7f0f0004
 
     invoke-virtual {v6, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -8381,7 +8384,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f0e0003
+    const v7, 0x7f0f0003
 
     invoke-virtual {v6, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -8416,7 +8419,7 @@
     :cond_1
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f0e0093
+    const v7, 0x7f0f0097
 
     invoke-virtual {v6, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -8434,7 +8437,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f0e007b
+    const v7, 0x7f0f007f
 
     invoke-virtual {v6, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -8450,7 +8453,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f0e007c
+    const v7, 0x7f0f0080
 
     invoke-virtual {v6, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -8478,7 +8481,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f0e007a
+    const v7, 0x7f0f007e
 
     invoke-virtual {v6, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -8533,7 +8536,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_9
 
     add-int/lit8 v2, v1, 0x1
 
@@ -8559,7 +8562,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0009
+    const v6, 0x7f0e0009
 
     invoke-virtual {v5, v6, v9, v9}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -8567,7 +8570,7 @@
 
     iput v6, p0, Lcom/android/launcher3/home/HomeController;->mPageSnapMovingRatioOnHome:F
 
-    const v6, 0x7f08009e
+    const v6, 0x7f09009e
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8575,7 +8578,7 @@
 
     iput v6, p0, Lcom/android/launcher3/home/HomeController;->mMoveToAppsApproachingStart:I
 
-    const v6, 0x7f08009c
+    const v6, 0x7f09009c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8583,7 +8586,7 @@
 
     iput v6, p0, Lcom/android/launcher3/home/HomeController;->mMoveToAppsApproachingEnd:I
 
-    const v6, 0x7f0800ea
+    const v6, 0x7f0900f0
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8611,7 +8614,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mZeroPageController:Lcom/android/launcher3/home/ZeroPageController;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mZeroPageController:Lcom/android/launcher3/home/ZeroPageController;
 
@@ -8652,11 +8655,32 @@
     invoke-virtual {v6}, Lcom/android/launcher3/home/ZeroPageController;->startZeroPage()V
 
     :cond_4
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    const v7, 0x7f0f0099
+
+    invoke-virtual {v6, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/launcher3/home/EdgeLight;
+
+    iput-object v6, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    if-eqz v6, :cond_5
+
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    invoke-virtual {v6, p0}, Lcom/android/launcher3/home/EdgeLight;->registerContentObserver(Lcom/android/launcher3/home/HomeController;)V
+
+    :cond_5
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportMultiSelect()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -8668,18 +8692,18 @@
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v6, p0}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addMultiSelectCallbacks(Lcom/android/launcher3/common/multiselect/MultiSelectManager$MultiSelectListener;)V
 
-    :cond_5
+    :cond_6
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFestivalPage()Z
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_7
 
     new-instance v6, Lcom/android/launcher3/home/FestivalPageController;
 
@@ -8689,12 +8713,12 @@
 
     iput-object v6, p0, Lcom/android/launcher3/home/HomeController;->mFestivalPageController:Lcom/android/launcher3/home/FestivalPageController;
 
-    :cond_6
+    :cond_7
     invoke-super {p0}, Lcom/android/launcher3/common/stage/Stage;->initStageView()V
 
     return-void
 
-    :cond_7
+    :cond_8
     iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mHomeContainer:Lcom/android/launcher3/home/HomeContainer;
 
     iget v7, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->navigationBarHeight:I
@@ -8703,7 +8727,7 @@
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_9
     add-int/lit8 v1, v1, 0x1
 
     goto/16 :goto_1
@@ -9437,51 +9461,47 @@
 
     invoke-virtual {v3}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
 
-    move-result-object v2
+    move-result-object v1
 
     iget-wide v4, p1, Lcom/android/launcher3/common/base/item/IconInfo;->container:J
 
-    invoke-virtual {v2, v4, v5}, Lcom/android/launcher3/home/HomeLoader;->getItemById(J)Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/launcher3/folder/FolderInfo;
-
-    invoke-virtual {v1, p1}, Lcom/android/launcher3/folder/FolderInfo;->remove(Lcom/android/launcher3/common/base/item/IconInfo;)V
-
-    invoke-direct {p0}, Lcom/android/launcher3/home/HomeController;->findEmptyCellFromNextPageOfDefaultHome()Landroid/util/Pair;
+    invoke-virtual {v1, v4, v5}, Lcom/android/launcher3/home/HomeLoader;->getItemById(J)Lcom/android/launcher3/common/base/item/ItemInfo;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/folder/FolderInfo;
+
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/folder/FolderInfo;->remove(Lcom/android/launcher3/common/base/item/IconInfo;)V
+
+    const/4 v3, 0x2
+
+    new-array v2, v3, [I
 
     const-wide/16 v4, -0x64
 
     iput-wide v4, p1, Lcom/android/launcher3/common/base/item/IconInfo;->container:J
 
-    iget-object v3, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    check-cast v3, Ljava/lang/Long;
+    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
 
-    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
+    move-result v3
+
+    add-int/lit8 v3, v3, 0x1
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/launcher3/home/HomeController;->findEmptyCell([II)J
 
     move-result-wide v4
 
     iput-wide v4, p1, Lcom/android/launcher3/common/base/item/IconInfo;->screenId:J
 
-    iget-object v3, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v3, [I
-
-    aget v3, v3, v6
+    aget v3, v2, v6
 
     iput v3, p1, Lcom/android/launcher3/common/base/item/IconInfo;->cellX:I
 
-    iget-object v3, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
+    const/4 v3, 0x1
 
-    check-cast v3, [I
-
-    const/4 v4, 0x1
-
-    aget v3, v3, v4
+    aget v3, v2, v3
 
     iput v3, p1, Lcom/android/launcher3/common/base/item/IconInfo;->cellY:I
 
@@ -10478,7 +10498,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f070176
+    const v5, 0x7f080176
 
     invoke-static {v4, v5, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -10545,13 +10565,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f07018d
+    const v2, 0x7f08018d
 
     invoke-virtual {v7, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v4, 0x7f0700dd
+    const v4, 0x7f0800dd
 
     invoke-virtual {v7, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10618,7 +10638,7 @@
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f070001
+    const v0, 0x7f080001
 
     iget v1, v8, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
 
@@ -10626,7 +10646,7 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x7f070175
+    const v0, 0x7f080175
 
     :cond_4
     iget-object v1, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
@@ -11062,6 +11082,15 @@
     invoke-virtual {v2, v3}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
     :cond_a
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    if-eqz v2, :cond_b
+
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/EdgeLight;->unregisterContentObserver()V
+
+    :cond_b
     iget-object v2, p0, Lcom/android/launcher3/home/HomeController;->mHomeCapturePreview:Lcom/android/launcher3/util/capture/CapturePreview;
 
     invoke-virtual {v2}, Lcom/android/launcher3/util/capture/CapturePreview;->stopCapture()V
@@ -11083,9 +11112,9 @@
 .method public onLongClick(Landroid/view/View;)Z
     .locals 12
 
-    const v11, 0x7f07018d
+    const v11, 0x7f08018d
 
-    const v10, 0x7f07011f
+    const v10, 0x7f08011f
 
     const v9, 0xc369
 
@@ -11566,6 +11595,8 @@
     invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commit()I
 
     :cond_5
+    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->stopEdgeLight()V
+
     iget-object v2, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
     invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->onPause()V
@@ -11605,21 +11636,24 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_1
 
     iget-boolean v9, p0, Lcom/android/launcher3/home/HomeController;->mIsStartedTrayEventSetY:Z
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_1
 
     cmpl-float v9, v6, v10
 
-    if-eqz v9, :cond_0
+    if-eqz v9, :cond_1
 
     iput-boolean v7, p0, Lcom/android/launcher3/home/HomeController;->mIsStartedTrayEventSetY:Z
 
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mSwipeAffordance:Lcom/android/launcher3/home/SwipeAffordance;
 
     invoke-virtual {v7, v8}, Lcom/android/launcher3/home/SwipeAffordance;->startCancelAnim(Z)V
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->stopEdgeLight()V
 
     goto :goto_0
 
@@ -11654,7 +11688,7 @@
 
     cmpg-float v7, v0, v1
 
-    if-gez v7, :cond_1
+    if-gez v7, :cond_2
 
     sub-float v7, v1, v0
 
@@ -11662,7 +11696,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mHotseat:Lcom/android/launcher3/home/Hotseat;
 
     invoke-virtual {v7}, Lcom/android/launcher3/home/Hotseat;->getTranslationY()F
@@ -11684,7 +11718,7 @@
 
     float-to-int v5, v8
 
-    if-lez v5, :cond_4
+    if-lez v5, :cond_5
 
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -11692,17 +11726,17 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4
 
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mSwipeAffordance:Lcom/android/launcher3/home/SwipeAffordance;
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mSwipeAffordance:Lcom/android/launcher3/home/SwipeAffordance;
 
     invoke-virtual {v7}, Lcom/android/launcher3/home/SwipeAffordance;->appsVisitCountUp()V
 
-    :cond_2
+    :cond_3
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
     invoke-virtual {v7}, Lcom/android/launcher3/Launcher;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
@@ -11713,7 +11747,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
     invoke-virtual {v7}, Lcom/android/launcher3/Launcher;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
@@ -11724,7 +11758,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     iget-object v8, p0, Lcom/android/launcher3/home/HomeController;->mHomeAnimation:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
     iget-object v9, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
@@ -11748,12 +11782,12 @@
 
     cmpl-float v9, v9, v10
 
-    if-lez v9, :cond_5
+    if-lez v9, :cond_6
 
     move v3, v7
 
     :goto_1
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7
 
     invoke-virtual {p0, v8, v7}, Lcom/android/launcher3/home/HomeController;->enterNormalState(ZZ)V
 
@@ -11785,12 +11819,12 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     move v3, v8
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     new-instance v2, Lcom/android/launcher3/common/stage/StageEntry;
 
     invoke-direct {v2}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
@@ -11803,7 +11837,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_8
 
     invoke-virtual {v2, v11}, Lcom/android/launcher3/common/stage/StageEntry;->setInternalStateTo(I)V
 
@@ -11824,10 +11858,12 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_8
     invoke-virtual {v2, v7}, Lcom/android/launcher3/common/stage/StageEntry;->setInternalStateTo(I)V
 
     goto :goto_2
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -11897,7 +11933,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_6
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
 
@@ -11907,7 +11943,7 @@
 
     move-result-object v8
 
-    if-ne v8, p0, :cond_7
+    if-ne v8, p0, :cond_6
 
     move v4, v6
 
@@ -12043,12 +12079,54 @@
 
     invoke-virtual {v7}, Lcom/android/launcher3/home/Workspace;->onResume()V
 
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHotword()Z
+    iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mState:Lcom/android/launcher3/home/HomeController$State;
+
+    const/4 v8, 0x4
+
+    # invokes: Lcom/android/launcher3/home/HomeController$State;->equal(I)Z
+    invoke-static {v7, v8}, Lcom/android/launcher3/home/HomeController$State;->access$000(Lcom/android/launcher3/home/HomeController$State;I)Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_7
 
+    iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v7}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/launcher3/util/BlurUtils;->blurByWindowManager(ZLandroid/view/Window;)V
+
+    :cond_4
+    :goto_1
+    invoke-static {}, Lcom/samsung/android/feature/SemGateConfig;->isGateEnabled()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    if-eqz v4, :cond_5
+
+    const-string v6, "GATE"
+
+    const-string v7, "<GATE-M>SCREEN_LOADED_HOME</GATE-M>"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
+
+    invoke-virtual {v6}, Lcom/android/launcher3/home/HomeLoader;->clearPreservedPosition()V
+
+    return-void
+
+    :cond_6
+    move v4, v7
+
+    goto/16 :goto_0
+
+    :cond_7
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mState:Lcom/android/launcher3/home/HomeController$State;
 
     # invokes: Lcom/android/launcher3/home/HomeController$State;->equal(I)Z
@@ -12057,6 +12135,12 @@
     move-result v7
 
     if-eqz v7, :cond_4
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHotword()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_8
 
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -12070,58 +12154,16 @@
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_8
 
     iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
     invoke-virtual {v7, v6}, Lcom/android/launcher3/Launcher;->setHotWordDetection(Z)V
 
-    :cond_4
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mState:Lcom/android/launcher3/home/HomeController$State;
+    :cond_8
+    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->startEdgeLight()V
 
-    const/4 v8, 0x4
-
-    # invokes: Lcom/android/launcher3/home/HomeController$State;->equal(I)Z
-    invoke-static {v7, v8}, Lcom/android/launcher3/home/HomeController$State;->access$000(Lcom/android/launcher3/home/HomeController$State;I)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_5
-
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v7}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Lcom/android/launcher3/util/BlurUtils;->blurByWindowManager(ZLandroid/view/Window;)V
-
-    :cond_5
-    invoke-static {}, Lcom/samsung/android/feature/SemGateConfig;->isGateEnabled()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6
-
-    if-eqz v4, :cond_6
-
-    const-string v6, "GATE"
-
-    const-string v7, "<GATE-M>SCREEN_LOADED_HOME</GATE-M>"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_6
-    iget-object v6, p0, Lcom/android/launcher3/home/HomeController;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
-
-    invoke-virtual {v6}, Lcom/android/launcher3/home/HomeLoader;->clearPreservedPosition()V
-
-    return-void
-
-    :cond_7
-    move v4, v7
-
-    goto/16 :goto_0
+    goto :goto_1
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
@@ -12488,7 +12530,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f070039
+    const v6, 0x7f080039
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12680,6 +12722,8 @@
     invoke-virtual {v2, v4}, Lcom/android/launcher3/Launcher;->setHotWordDetection(Z)V
 
     :cond_8
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/HomeController;->startEdgeLight()V
+
     return-object v10
 
     :cond_9
@@ -13140,6 +13184,8 @@
     invoke-virtual {v5, v6}, Lcom/android/launcher3/Launcher;->setHotWordDetection(Z)V
 
     :cond_3
+    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->stopEdgeLight()V
+
     return-object v2
 
     :cond_4
@@ -13711,6 +13757,8 @@
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mZeroPageController:Lcom/android/launcher3/home/ZeroPageController;
 
     invoke-virtual {v0, v2, v1}, Lcom/android/launcher3/home/ZeroPageController;->updatePageIndicatorForZeroPage(ZZ)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->startEdgeLight()V
 
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
@@ -15720,7 +15768,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f070074
+    const v1, 0x7f080074
 
     const/4 v2, 0x0
 
@@ -15913,6 +15961,21 @@
     goto :goto_3
 .end method
 
+.method startEdgeLight()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/EdgeLight;->startEdgeLight()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public startTrayMove()V
     .locals 1
 
@@ -15927,6 +15990,21 @@
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mHomeContainer:Lcom/android/launcher3/home/HomeContainer;
 
     invoke-virtual {v0}, Lcom/android/launcher3/home/HomeContainer;->semClearAccessibilityFocus()V
+
+    :cond_0
+    return-void
+.end method
+
+.method stopEdgeLight()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/EdgeLight;->stopEdgeLight()V
 
     :cond_0
     return-void
@@ -15974,11 +16052,11 @@
 
     const/4 v0, 0x1
 
-    if-ne v6, v0, :cond_6
+    if-ne v6, v0, :cond_5
 
     const/4 v0, 0x4
 
-    if-ne v8, v0, :cond_4
+    if-ne v8, v0, :cond_3
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mHomeAnimation:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
@@ -16019,7 +16097,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
@@ -16027,7 +16105,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
     :cond_1
     const/4 v0, 0x1
@@ -16037,7 +16115,7 @@
 
     const/4 v0, 0x1
 
-    if-ne v8, v0, :cond_12
+    if-ne v8, v0, :cond_11
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->notifyCaptureIfNecessary()V
 
@@ -16066,7 +16144,6 @@
     :cond_2
     invoke-static {}, Lcom/android/launcher3/util/GlobalSettingUtils;->resetSettingsValue()V
 
-    :cond_3
     :goto_2
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
@@ -16076,10 +16153,10 @@
 
     return-object v7
 
-    :cond_4
+    :cond_3
     const/4 v0, 0x2
 
-    if-ne v8, v0, :cond_5
+    if-ne v8, v0, :cond_4
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mHomeAnimation:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
@@ -16095,7 +16172,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     const/4 v0, 0x6
 
     if-ne v8, v0, :cond_0
@@ -16120,14 +16197,14 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     const/4 v0, 0x4
 
-    if-ne v6, v0, :cond_8
+    if-ne v6, v0, :cond_7
 
     const/4 v0, 0x1
 
-    if-ne v8, v0, :cond_7
+    if-ne v8, v0, :cond_6
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mHomeAnimation:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
@@ -16141,7 +16218,7 @@
 
     goto :goto_0
 
-    :cond_7
+    :cond_6
     const/4 v0, 0x5
 
     if-ne v8, v0, :cond_0
@@ -16160,32 +16237,32 @@
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_7
     const/4 v0, 0x2
 
-    if-eq v6, v0, :cond_9
+    if-eq v6, v0, :cond_8
 
     const/4 v0, 0x3
 
-    if-ne v6, v0, :cond_d
+    if-ne v6, v0, :cond_c
 
-    :cond_9
+    :cond_8
     const/4 v0, 0x3
 
-    if-ne v6, v0, :cond_a
+    if-ne v6, v0, :cond_9
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mDragLayer:Lcom/android/launcher3/common/view/DragLayer;
 
     invoke-virtual {v0}, Lcom/android/launcher3/common/view/DragLayer;->clearAllResizeFrames()Z
 
-    :cond_a
+    :cond_9
     const/4 v0, 0x1
 
-    if-ne v8, v0, :cond_c
+    if-ne v8, v0, :cond_b
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
@@ -16193,7 +16270,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -16205,7 +16282,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/HomeController;->updateCheckBox(Z)V
 
-    :cond_b
+    :cond_a
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mHomeAnimation:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
     const/4 v3, 0x0
@@ -16220,7 +16297,7 @@
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_b
     const/4 v0, 0x6
 
     if-ne v8, v0, :cond_0
@@ -16245,10 +16322,10 @@
 
     goto/16 :goto_0
 
-    :cond_d
+    :cond_c
     const/4 v0, 0x5
 
-    if-ne v6, v0, :cond_f
+    if-ne v6, v0, :cond_e
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mHomeAnimation:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
@@ -16258,7 +16335,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v8, v5, :cond_e
+    if-ne v8, v5, :cond_d
 
     const/4 v5, 0x1
 
@@ -16269,19 +16346,19 @@
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_d
     const/4 v5, 0x0
 
     goto :goto_3
 
-    :cond_f
+    :cond_e
     const/4 v0, 0x6
 
     if-ne v6, v0, :cond_0
 
     const/4 v0, 0x1
 
-    if-ne v8, v0, :cond_10
+    if-ne v8, v0, :cond_f
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mHomeAnimation:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
@@ -16305,7 +16382,7 @@
 
     goto/16 :goto_0
 
-    :cond_10
+    :cond_f
     const/4 v0, 0x2
 
     if-ne v8, v0, :cond_0
@@ -16328,17 +16405,17 @@
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_10
     const/4 v0, 0x0
 
     goto/16 :goto_1
 
-    :cond_12
+    :cond_11
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHotword()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -16346,7 +16423,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -16357,6 +16434,9 @@
     const/4 v3, 0x0
 
     invoke-virtual {v0, v3}, Lcom/android/launcher3/home/HotWord;->setEnableHotWord(Z)V
+
+    :cond_12
+    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeController;->stopEdgeLight()V
 
     goto/16 :goto_2
 .end method
@@ -16385,6 +16465,21 @@
 
     invoke-direct {p0, v1, v2}, Lcom/android/launcher3/home/HomeController;->mapOverItems(ZLcom/android/launcher3/common/base/item/ItemOperator;)V
 
+    return-void
+.end method
+
+.method updateBixbyHomeEnterCount()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mEdgeLight:Lcom/android/launcher3/home/EdgeLight;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/EdgeLight;->updateBixbyHomeEnterCount()V
+
+    :cond_0
     return-void
 .end method
 
@@ -16847,7 +16942,7 @@
     return-void
 .end method
 
-.method public updateZeroPage(Z)V
+.method public updateZeroPage(I)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mZeroPageController:Lcom/android/launcher3/home/ZeroPageController;
@@ -16856,7 +16951,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mZeroPageController:Lcom/android/launcher3/home/ZeroPageController;
 
-    invoke-virtual {v0, p1}, Lcom/android/launcher3/home/ZeroPageController;->updateZeroPage(Z)V
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/home/ZeroPageController;->updateZeroPage(I)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController;->mZeroPageController:Lcom/android/launcher3/home/ZeroPageController;
 
@@ -16880,7 +16975,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 

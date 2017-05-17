@@ -15,47 +15,47 @@
 
 
 # static fields
-.field public static final Badge:I = 0x7f0f0000
+.field public static final Badge:I = 0x7f100000
 
-.field public static final Checkbox:I = 0x7f0f0001
+.field public static final Checkbox:I = 0x7f100001
 
-.field public static final CountBadge:I = 0x7f0f0002
+.field public static final CountBadge:I = 0x7f100002
 
-.field public static final DropTargetCancelButton:I = 0x7f0f0003
+.field public static final DropTargetCancelButton:I = 0x7f100003
 
-.field public static final DropTargetCancelButtonContainer:I = 0x7f0f0004
+.field public static final DropTargetCancelButtonContainer:I = 0x7f100004
 
-.field public static final DropTargetCancelCircle:I = 0x7f0f0005
+.field public static final DropTargetCancelCircle:I = 0x7f100005
 
-.field public static final HomeAppSettingsTheme:I = 0x7f0f0006
+.field public static final HomeAppSettingsTheme:I = 0x7f100006
 
-.field public static final IconText:I = 0x7f0f0007
+.field public static final IconText:I = 0x7f100007
 
-.field public static final LauncherActionBar:I = 0x7f0f0008
+.field public static final LauncherActionBar:I = 0x7f100008
 
-.field public static final LoadingTheme:I = 0x7f0f0009
+.field public static final LoadingTheme:I = 0x7f100009
 
-.field public static final MultiselectPannelStyle:I = 0x7f0f000a
+.field public static final MultiselectPannelStyle:I = 0x7f10000a
 
-.field public static final OverviewPannelStyle:I = 0x7f0f000b
+.field public static final OverviewPannelStyle:I = 0x7f10000b
 
-.field public static final ScreenGridButton:I = 0x7f0f000c
+.field public static final ScreenGridButton:I = 0x7f10000c
 
-.field public static final ScreenGridTopButton:I = 0x7f0f000d
+.field public static final ScreenGridTopButton:I = 0x7f10000d
 
-.field public static final SettingsTheme:I = 0x7f0f000e
+.field public static final SettingsTheme:I = 0x7f10000e
 
-.field public static final Theme:I = 0x7f0f000f
+.field public static final Theme:I = 0x7f10000f
 
-.field public static final TidyUpButton:I = 0x7f0f0010
+.field public static final TidyUpButton:I = 0x7f100010
 
-.field public static final ViewMoreBtnTransparent:I = 0x7f0f0011
+.field public static final ViewMoreBtnTransparent:I = 0x7f100011
 
-.field public static final WidgetListText:I = 0x7f0f0012
+.field public static final WidgetListText:I = 0x7f100012
 
-.field public static final ZeroPageSwitch:I = 0x7f0f0013
+.field public static final ZeroPageSwitch:I = 0x7f100013
 
-.field public static final body_text_style:I = 0x7f0f0014
+.field public static final body_text_style:I = 0x7f100014
 
 
 # direct methods

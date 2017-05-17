@@ -30,5 +30,5 @@
 .method public abstract setLoadOnResume()Z
 .end method
 
-.method public abstract updateZeroPage(Z)V
+.method public abstract updateZeroPage(I)V
 .end method

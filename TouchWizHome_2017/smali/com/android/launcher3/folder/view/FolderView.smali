@@ -375,7 +375,7 @@
 
     if-nez v2, :cond_0
 
-    const v2, 0x7f070164
+    const v2, 0x7f080164
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -388,7 +388,7 @@
 
     if-nez v2, :cond_1
 
-    const v2, 0x7f070030
+    const v2, 0x7f080030
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -524,7 +524,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0023
+    const v3, 0x7f0b0027
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -536,7 +536,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08010e
+    const v3, 0x7f090114
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1280,7 +1280,7 @@
 .method private createAddButton()Landroid/view/View;
     .locals 3
 
-    const v2, 0x7f0e0064
+    const v2, 0x7f0f0068
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -1302,7 +1302,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f020092
+    const v2, 0x7f0200d0
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -1553,7 +1553,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f03001f
+    const v1, 0x7f030020
 
     const/4 v2, 0x0
 
@@ -3331,7 +3331,7 @@
 
     if-eqz p1, :cond_1
 
-    const v2, 0x7f070168
+    const v2, 0x7f080168
 
     :goto_0
     const/16 v3, 0x8
@@ -3362,7 +3362,7 @@
     return-void
 
     :cond_1
-    const v2, 0x7f070167
+    const v2, 0x7f080167
 
     goto :goto_0
 .end method
@@ -3522,7 +3522,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f020059
+    const v21, 0x7f020097
 
     const/16 v22, 0x0
 
@@ -3540,7 +3540,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const v20, 0x7f0c0003
+    const v20, 0x7f0d0003
 
     const/16 v21, 0x0
 
@@ -3589,7 +3589,7 @@
 
     if-nez v17, :cond_5
 
-    const v17, 0x7f0c0015
+    const v17, 0x7f0d0015
 
     const/16 v18, 0x0
 
@@ -3665,7 +3665,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f020058
+    const v18, 0x7f020096
 
     move-object/from16 v0, v17
 
@@ -3798,7 +3798,7 @@
     return-void
 
     :cond_8
-    const v17, 0x7f080039
+    const v17, 0x7f090039
 
     move/from16 v0, v17
 
@@ -3806,7 +3806,7 @@
 
     move-result v7
 
-    const v17, 0x7f08010f
+    const v17, 0x7f090115
 
     move/from16 v0, v17
 
@@ -3885,7 +3885,7 @@
 
     if-nez v10, :cond_9
 
-    const v17, 0x7f02003c
+    const v17, 0x7f02007a
 
     move/from16 v0, v17
 
@@ -3951,7 +3951,7 @@
 
     if-ne p1, v1, :cond_1
 
-    const v0, 0x7f07002b
+    const v0, 0x7f08002b
 
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView;->mFolderOptionButton:Landroid/widget/ImageView;
@@ -3974,7 +3974,7 @@
 
     if-ne p1, v1, :cond_2
 
-    const v0, 0x7f07002d
+    const v0, 0x7f08002d
 
     goto :goto_0
 
@@ -3983,7 +3983,7 @@
 
     if-ne p1, v1, :cond_3
 
-    const v0, 0x7f07002e
+    const v0, 0x7f08002e
 
     goto :goto_0
 
@@ -3992,12 +3992,12 @@
 
     if-ne p1, v1, :cond_4
 
-    const v0, 0x7f07002f
+    const v0, 0x7f08002f
 
     goto :goto_0
 
     :cond_4
-    const v0, 0x7f07002a
+    const v0, 0x7f08002a
 
     goto :goto_0
 .end method
@@ -4009,7 +4009,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080107
+    const v4, 0x7f09010d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4021,7 +4021,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08002f
+    const v4, 0x7f09002f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4033,7 +4033,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080030
+    const v4, 0x7f090030
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4109,7 +4109,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080035
+    const v4, 0x7f090035
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4985,7 +4985,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0003
+    const v1, 0x7f0d0003
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -4999,7 +4999,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0004
+    const v1, 0x7f0d0004
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -5458,7 +5458,7 @@
 
     move-result v6
 
-    const v7, 0x7f0e0065
+    const v7, 0x7f0f0069
 
     if-ne v6, v7, :cond_0
 
@@ -5504,14 +5504,14 @@
 
     if-eqz v6, :cond_5
 
-    const v6, 0x7f070179
+    const v6, 0x7f080179
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
     :goto_1
-    const v6, 0x7f070100
+    const v6, 0x7f080100
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5526,7 +5526,7 @@
     goto/16 :goto_0
 
     :cond_5
-    const v6, 0x7f070185
+    const v6, 0x7f080185
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6247,7 +6247,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0700a9
+    const v5, 0x7f0800a9
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -7119,7 +7119,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v3, 0x7f0e0056
+    const v3, 0x7f0f005a
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7127,7 +7127,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/folder/view/FolderView;->mFolderContainer:Landroid/view/View;
 
-    const v3, 0x7f0e005f
+    const v3, 0x7f0f0063
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7135,7 +7135,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/folder/view/FolderView;->mContentContainer:Landroid/view/View;
 
-    const v3, 0x7f0e005c
+    const v3, 0x7f0f0060
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7149,7 +7149,7 @@
 
     invoke-virtual {v3, p0}, Lcom/android/launcher3/folder/view/FolderPagedView;->setFolder(Lcom/android/launcher3/folder/view/FolderView;)V
 
-    const v3, 0x7f0e0059
+    const v3, 0x7f0f005d
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7247,7 +7247,7 @@
 
     invoke-virtual {v3, v4}, Lcom/android/launcher3/folder/view/FolderNameEditText;->setFilters([Landroid/text/InputFilter;)V
 
-    const v3, 0x7f0e005a
+    const v3, 0x7f0f005e
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7257,7 +7257,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/folder/view/FolderView;->mFolderOptionButton:Landroid/widget/ImageView;
 
-    const v3, 0x7f0e005d
+    const v3, 0x7f0f0061
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7281,7 +7281,7 @@
 
     invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    const v3, 0x7f0e0057
+    const v3, 0x7f0f005b
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7289,7 +7289,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/folder/view/FolderView;->mHeader:Landroid/view/View;
 
-    const v3, 0x7f0e005e
+    const v3, 0x7f0f0062
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7297,7 +7297,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/folder/view/FolderView;->mHeaderBottomLine:Landroid/view/View;
 
-    const v3, 0x7f0e0061
+    const v3, 0x7f0f0065
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7305,7 +7305,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/folder/view/FolderView;->mFooter:Landroid/view/View;
 
-    const v3, 0x7f0e0063
+    const v3, 0x7f0f0067
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7313,7 +7313,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/folder/view/FolderView;->mOuterAddButtonContainer:Landroid/view/View;
 
-    const v3, 0x7f0e0062
+    const v3, 0x7f0f0066
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7343,7 +7343,7 @@
 
     sget-object v5, Lcom/android/launcher3/folder/view/FolderView$FolderColor;->FOLDER_COLOR_1:Lcom/android/launcher3/folder/view/FolderView$FolderColor;
 
-    const v3, 0x7f0e0068
+    const v3, 0x7f0f006c
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7357,7 +7357,7 @@
 
     sget-object v5, Lcom/android/launcher3/folder/view/FolderView$FolderColor;->FOLDER_COLOR_2:Lcom/android/launcher3/folder/view/FolderView$FolderColor;
 
-    const v3, 0x7f0e0069
+    const v3, 0x7f0f006d
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7371,7 +7371,7 @@
 
     sget-object v5, Lcom/android/launcher3/folder/view/FolderView$FolderColor;->FOLDER_COLOR_3:Lcom/android/launcher3/folder/view/FolderView$FolderColor;
 
-    const v3, 0x7f0e006a
+    const v3, 0x7f0f006e
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7385,7 +7385,7 @@
 
     sget-object v5, Lcom/android/launcher3/folder/view/FolderView$FolderColor;->FOLDER_COLOR_4:Lcom/android/launcher3/folder/view/FolderView$FolderColor;
 
-    const v3, 0x7f0e006b
+    const v3, 0x7f0f006f
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -7399,7 +7399,7 @@
 
     sget-object v5, Lcom/android/launcher3/folder/view/FolderView$FolderColor;->FOLDER_COLOR_5:Lcom/android/launcher3/folder/view/FolderView$FolderColor;
 
-    const v3, 0x7f0e006c
+    const v3, 0x7f0f0070
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -8796,7 +8796,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/view/FolderView;->mAddButton:Landroid/view/View;
 
-    const v4, 0x7f0e0073
+    const v4, 0x7f0f0077
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -9004,14 +9004,14 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f070179
+    const v3, 0x7f080179
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     :goto_0
-    const v3, 0x7f070109
+    const v3, 0x7f080109
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9026,7 +9026,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f070185
+    const v3, 0x7f080185
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

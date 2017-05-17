@@ -30,6 +30,7 @@
     <color name="home_settings_easy_mode_tips_button_text_color">#ff499ebd</color>
     <color name="home_settings_easy_mode_tips_msg_text_color">#ff6b6f72</color>
     <color name="home_settings_easy_mode_tips_title_text_color">#ff252525</color>
+    <color name="home_title_color">#fffafafa</color>
     <color name="launcher_accent_color">#ff009688</color>
     <color name="menu_edit_done_button_shadow_color">#99000000</color>
     <color name="menu_title_selected_text">#ffffffff</color>

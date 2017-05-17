@@ -918,7 +918,7 @@
 
     if-eqz v2, :cond_6
 
-    const v14, 0x7f060004
+    const v14, 0x7f070004
 
     :goto_3
     move-object/from16 v0, p0
@@ -956,12 +956,12 @@
 
     if-eqz v2, :cond_8
 
-    const v14, 0x7f060003
+    const v14, 0x7f070003
 
     goto :goto_3
 
     :cond_8
-    const v14, 0x7f060002
+    const v14, 0x7f070002
 
     goto :goto_3
 

@@ -271,7 +271,7 @@
     invoke-direct {p0, v2, v4}, Lcom/android/launcher3/home/Workspace;->updateHomeDefaultZeroPageKey(IZ)V
 
     :cond_1
-    const v2, 0x7f0800e9
+    const v2, 0x7f0900ef
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -295,7 +295,7 @@
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/home/Workspace;->setMotionEventSplittingEnabled(Z)V
 
-    const v2, 0x7f0800d1
+    const v2, 0x7f0900d1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -303,7 +303,7 @@
 
     iput v2, p0, Lcom/android/launcher3/home/Workspace;->mHintPageWidth:I
 
-    const v2, 0x7f0800d0
+    const v2, 0x7f0900d0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -323,7 +323,7 @@
 
     iput v2, p0, Lcom/android/launcher3/home/Workspace;->mHintPageRightZone:I
 
-    const v2, 0x7f0800d5
+    const v2, 0x7f0900db
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -787,7 +787,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f03004f
+    const v2, 0x7f030050
 
     invoke-virtual {v1, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1126,7 +1126,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f07009b
+    const v5, 0x7f08009b
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1151,7 +1151,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f07001f
+    const v6, 0x7f08001f
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1215,7 +1215,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f07001e
+    const v6, 0x7f08001e
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1254,7 +1254,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f070049
+    const v6, 0x7f080049
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1724,7 +1724,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f07008e
+    const v1, 0x7f08008e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1736,7 +1736,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f07008f
+    const v1, 0x7f08008f
 
     new-instance v2, Lcom/android/launcher3/home/Workspace$18;
 
@@ -2077,7 +2077,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070092
+    const v3, 0x7f080092
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2092,7 +2092,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f07001e
+    const v4, 0x7f08001e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2132,7 +2132,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070068
+    const v3, 0x7f080068
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2224,7 +2224,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070189
+    const v3, 0x7f080189
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2234,7 +2234,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0700f6
+    const v4, 0x7f0800f6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2560,7 +2560,7 @@
 
     sget-object v5, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    const v6, 0x7f070066
+    const v6, 0x7f080066
 
     invoke-virtual {v5, v6}, Lcom/android/launcher3/util/Talk;->say(I)V
 
@@ -2572,7 +2572,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f070189
+    const v7, 0x7f080189
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2582,7 +2582,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0700ca
+    const v8, 0x7f0800ca
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2659,7 +2659,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f070189
+    const v3, 0x7f080189
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2673,7 +2673,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0700cc
+    const v4, 0x7f0800cc
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2704,7 +2704,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0700cb
+    const v4, 0x7f0800cb
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3095,7 +3095,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f03004f
+    const v8, 0x7f030050
 
     invoke-virtual {v7, v8, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -3115,7 +3115,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f020094
+    const v8, 0x7f0200d2
 
     const/4 v9, 0x0
 
@@ -3137,7 +3137,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0003
+    const v9, 0x7f0b0003
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4196,7 +4196,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f070045
+    const v2, 0x7f080045
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4643,7 +4643,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f0e0074
+    const v1, 0x7f0f0078
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -5857,7 +5857,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080041
+    const v7, 0x7f090041
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -5901,7 +5901,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080026
+    const v7, 0x7f090026
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -5925,7 +5925,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f080029
+    const v8, 0x7f090029
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -5971,7 +5971,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a000b
+    const v7, 0x7f0b000b
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5991,7 +5991,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080027
+    const v7, 0x7f090027
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -6015,7 +6015,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f08002a
+    const v8, 0x7f09002a
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -6383,13 +6383,13 @@
 
     move-result-object v4
 
-    const v6, 0x7f07018d
+    const v6, 0x7f08018d
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    const v7, 0x7f07011f
+    const v7, 0x7f08011f
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6605,7 +6605,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a002d
+    const v7, 0x7f0b0031
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6802,6 +6802,10 @@
     invoke-virtual {v0}, Lcom/android/launcher3/common/drag/DragManager;->removeQuickOptionView()V
 
     :cond_2
+    iget-object v0, p0, Lcom/android/launcher3/home/Workspace;->mHomeController:Lcom/android/launcher3/home/HomeController;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeController;->stopEdgeLight()V
+
     return-void
 .end method
 
@@ -6839,7 +6843,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     const/4 v2, 0x0
 
@@ -6914,12 +6918,6 @@
     invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->notifyCaptureIfNecessary()V
 
     :cond_4
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHotword()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
     iget-object v2, p0, Lcom/android/launcher3/home/Workspace;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
     invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->getState()I
@@ -6928,7 +6926,13 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_6
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHotword()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/launcher3/home/Workspace;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -6945,9 +6949,14 @@
     invoke-virtual {v2, v3}, Lcom/android/launcher3/Launcher;->setHotWordDetection(Z)V
 
     :cond_5
-    return-void
+    iget-object v2, p0, Lcom/android/launcher3/home/Workspace;->mHomeController:Lcom/android/launcher3/home/HomeController;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->startEdgeLight()V
 
     :cond_6
+    return-void
+
+    :cond_7
     invoke-direct {p0}, Lcom/android/launcher3/home/Workspace;->clearChildrenCache()V
 
     goto :goto_0
@@ -8099,7 +8108,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070189
+    const v3, 0x7f080189
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8109,7 +8118,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0700f6
+    const v4, 0x7f0800f6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8526,7 +8535,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0003
+    const v1, 0x7f0b0003
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -8756,13 +8765,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f07018f
+    const v3, 0x7f08018f
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f070155
+    const v4, 0x7f080155
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8795,13 +8804,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f070189
+    const v3, 0x7f080189
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f0700f9
+    const v4, 0x7f0800f9
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8818,13 +8827,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f07018d
+    const v3, 0x7f08018d
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f070132
+    const v4, 0x7f080132
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

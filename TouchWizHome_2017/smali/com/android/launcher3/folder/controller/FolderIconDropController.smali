@@ -781,7 +781,7 @@
 
     iget-object v4, v0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f0700a5
+    const v5, 0x7f0800a5
 
     const/4 v7, 0x2
 
@@ -819,7 +819,7 @@
 
     iget-object v4, v0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f0700ae
+    const v5, 0x7f0800ae
 
     invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -848,7 +848,7 @@
 
     iget-object v2, v0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f070033
+    const v4, 0x7f080033
 
     const/4 v5, 0x1
 
@@ -987,7 +987,7 @@
 
     iget-object v2, v0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f0700ad
+    const v4, 0x7f0800ad
 
     invoke-virtual {v2, v4}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2087,7 +2087,7 @@
 
     move-object/from16 v26, v0
 
-    const v27, 0x7f0700a3
+    const v27, 0x7f0800a3
 
     invoke-virtual/range {v26 .. v27}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 

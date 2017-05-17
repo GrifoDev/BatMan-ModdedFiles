@@ -45,14 +45,44 @@
 
     iget-object v3, p0, Lcom/android/launcher3/executor/HomeSettingsHideAppsStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    const/4 v4, 0x1
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/launcher3/proxy/LauncherProxy;->getItemInfoInHideApps(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/proxy/LauncherProxy;->getItemInfoInHideApps(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Lcom/android/launcher3/common/base/item/ItemInfo;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
+    invoke-virtual {v0}, Lcom/android/launcher3/common/base/item/ItemInfo;->isHiddenByUser()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSettingsHideAppsStateHandler;->mNlgTargetState:Ljava/lang/String;
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "SingleAppOrdinal"
+
+    const-string v4, "Hidden"
+
+    const-string v5, "yes"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeSettingsHideAppsStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const/4 v1, 0x1
+
+    :goto_0
+    invoke-virtual {p0, p1, v1}, Lcom/android/launcher3/executor/HomeSettingsHideAppsStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
+
+    return-void
+
+    :cond_0
     iget-object v2, p0, Lcom/android/launcher3/executor/HomeSettingsHideAppsStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
     invoke-virtual {v2, v0}, Lcom/android/launcher3/executor/StateAppInfo;->setItemInfo(Lcom/android/launcher3/common/base/item/ItemInfo;)V
@@ -101,12 +131,9 @@
 
     iput-object v2, p0, Lcom/android/launcher3/executor/HomeSettingsHideAppsStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    :goto_0
-    invoke-virtual {p0, p1, v1}, Lcom/android/launcher3/executor/HomeSettingsHideAppsStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
+    goto :goto_0
 
-    return-void
-
-    :cond_0
+    :cond_1
     new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     iget-object v3, p0, Lcom/android/launcher3/executor/HomeSettingsHideAppsStateHandler;->mNlgTargetState:Ljava/lang/String;

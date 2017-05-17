@@ -1384,7 +1384,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f07000f
+    const v2, 0x7f08000f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2414,7 +2414,7 @@
 
     new-array v0, v3, [Landroid/text/InputFilter;
 
-    const v2, 0x7f07004c
+    const v2, 0x7f08004c
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -4699,7 +4699,7 @@
 .method public static startActivityForResultSafely(Landroid/app/Activity;Landroid/content/Intent;I)V
     .locals 4
 
-    const v2, 0x7f070002
+    const v2, 0x7f080002
 
     const/4 v1, 0x0
 
@@ -4788,7 +4788,7 @@
 
     if-nez v8, :cond_0
 
-    const v8, 0x7f070175
+    const v8, 0x7f080175
 
     const/4 v9, 0x0
 
@@ -4911,7 +4911,7 @@
     :catch_0
     move-exception v0
 
-    const v8, 0x7f070002
+    const v8, 0x7f080002
 
     const/4 v9, 0x0
 
@@ -4961,7 +4961,7 @@
     :catch_1
     move-exception v0
 
-    const v8, 0x7f070002
+    const v8, 0x7f080002
 
     const/4 v9, 0x0
 
@@ -5269,7 +5269,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070098
+    const v3, 0x7f080098
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

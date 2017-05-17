@@ -167,6 +167,8 @@
 
 .field public static final enum HOME_SETTINGS_CHANGE_TO_HOME_APPS:Lcom/android/launcher3/executor/ExecutorState;
 
+.field public static final enum HOME_SETTINGS_CHANGE_TO_HOME_APPS_POPUP:Lcom/android/launcher3/executor/ExecutorState;
+
 .field public static final enum HOME_SETTINGS_CHANGE_TO_HOME_ONLY:Lcom/android/launcher3/executor/ExecutorState;
 
 .field public static final enum HOME_SETTINGS_DISABLE_APPS_BADGE:Lcom/android/launcher3/executor/ExecutorState;
@@ -1262,15 +1264,31 @@
 
     new-instance v0, Lcom/android/launcher3/executor/ExecutorState;
 
-    const-string v1, "HOME_SINGLE_APP_UNINSTALL_DISABLE"
+    const-string v1, "HOME_SETTINGS_CHANGE_TO_HOME_APPS_POPUP"
 
     const/16 v2, 0x40
 
-    const-string v3, "HomeSingleAppUninstallDisable"
+    const-string v3, "HomeSettingsChangeToHomeAppsScreenPopup"
 
     new-instance v4, Lcom/android/launcher3/executor/ExecutorState$65;
 
     invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$65;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
+
+    sput-object v0, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_CHANGE_TO_HOME_APPS_POPUP:Lcom/android/launcher3/executor/ExecutorState;
+
+    new-instance v0, Lcom/android/launcher3/executor/ExecutorState;
+
+    const-string v1, "HOME_SINGLE_APP_UNINSTALL_DISABLE"
+
+    const/16 v2, 0x41
+
+    const-string v3, "HomeSingleAppUninstallDisable"
+
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$66;
+
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$66;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1280,13 +1298,13 @@
 
     const-string v1, "HOME_SINGLE_APP_UNINSTALL_DISABLE_POP_UP"
 
-    const/16 v2, 0x41
+    const/16 v2, 0x42
 
     const-string v3, "HomeSingleAppUninstallDisabledPopUp"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$66;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$67;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$66;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$67;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1296,13 +1314,13 @@
 
     const-string v1, "HOME_SINGLE_APP_TO_SLEEP"
 
-    const/16 v2, 0x42
+    const/16 v2, 0x43
 
     const-string v3, "HomeSingleAppPutToSleepMode"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$67;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$68;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$67;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$68;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1312,13 +1330,13 @@
 
     const-string v1, "HOME_SINGLE_APP_TO_SECUREFOLDER"
 
-    const/16 v2, 0x43
+    const/16 v2, 0x44
 
     const-string v3, "HomeSingleAppAddToSecureFolder"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$68;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$69;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$68;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$69;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1328,13 +1346,13 @@
 
     const-string v1, "HOME_SINGLE_APP_CLEAR_BADGE"
 
-    const/16 v2, 0x44
+    const/16 v2, 0x45
 
     const-string v3, "HomeSingleAppClearBadge"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$69;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$70;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$69;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$70;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1344,13 +1362,13 @@
 
     const-string v1, "APPS_SINGLE_APP_UNINSTALL_DISABLE"
 
-    const/16 v2, 0x45
+    const/16 v2, 0x46
 
     const-string v3, "AppsSingleAppUninstallDisabled"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$70;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$71;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$70;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$71;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1360,13 +1378,13 @@
 
     const-string v1, "APPS_SINGLE_APP_TO_SLEEP"
 
-    const/16 v2, 0x46
+    const/16 v2, 0x47
 
     const-string v3, "AppsSingleAppPutToSleepMode"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$71;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$72;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$71;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$72;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1376,13 +1394,13 @@
 
     const-string v1, "APPS_SINGLE_APP_TO_SECUREFOLDER"
 
-    const/16 v2, 0x47
+    const/16 v2, 0x48
 
     const-string v3, "AppsSingleAppAddToSecureFolder"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$72;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$73;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$72;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$73;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1392,13 +1410,13 @@
 
     const-string v1, "APPS_SINGLE_APP_CLEAR_BADGE"
 
-    const/16 v2, 0x48
+    const/16 v2, 0x49
 
     const-string v3, "AppsSingleAppClearBadge"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$73;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$74;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$73;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$74;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1408,13 +1426,13 @@
 
     const-string v1, "HOME_WIDGET_SELECTED_VIEW"
 
-    const/16 v2, 0x49
+    const/16 v2, 0x4a
 
     const-string v3, "HomeWidgetSelectedView"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$74;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$75;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$74;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$75;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1424,13 +1442,13 @@
 
     const-string v1, "HOME_WIDGET_REMOVE"
 
-    const/16 v2, 0x4a
+    const/16 v2, 0x4b
 
     const-string v3, "HomeRemoveWidget"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$75;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$76;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$75;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$76;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1440,13 +1458,13 @@
 
     const-string v1, "HOME_WIDGET_MOVE"
 
-    const/16 v2, 0x4b
+    const/16 v2, 0x4c
 
     const-string v3, "HomeWidgetMove"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$76;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$77;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$76;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$77;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1456,13 +1474,13 @@
 
     const-string v1, "HOME_WIDGET_RESIZE_VIEW"
 
-    const/16 v2, 0x4c
+    const/16 v2, 0x4d
 
     const-string v3, "HomeWidgetResizeView"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$77;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$78;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$77;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$78;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1472,13 +1490,13 @@
 
     const-string v1, "APPS_FOLDER_VIEW"
 
-    const/16 v2, 0x4d
+    const/16 v2, 0x4e
 
     const-string v3, "AppsFolderView"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$78;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$79;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$78;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$79;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1488,13 +1506,13 @@
 
     const-string v1, "APPS_FOLDER_MOVE"
 
-    const/16 v2, 0x4e
+    const/16 v2, 0x4f
 
     const-string v3, "AppsFolderMove"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$79;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$80;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$79;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$80;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1504,13 +1522,13 @@
 
     const-string v1, "APPS_FOLDER_PAGE_MOVE"
 
-    const/16 v2, 0x4f
+    const/16 v2, 0x50
 
     const-string v3, "AppsFolderPageMove"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$80;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$81;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$80;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$81;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1520,13 +1538,13 @@
 
     const-string v1, "APPS_FOLDER_CHANGE_TITLE"
 
-    const/16 v2, 0x50
+    const/16 v2, 0x51
 
     const-string v3, "AppsFolderEditName"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$81;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$82;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$81;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$82;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1536,13 +1554,13 @@
 
     const-string v1, "APPS_FOLDER_CHANGE_COLOR_VIEW"
 
-    const/16 v2, 0x51
+    const/16 v2, 0x52
 
     const-string v3, "AppsFolderChangeBackgroundColorSelectView"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$82;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$83;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$82;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$83;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1552,13 +1570,13 @@
 
     const-string v1, "APPS_FOLDER_SELECTED_VIEW"
 
-    const/16 v2, 0x52
+    const/16 v2, 0x53
 
     const-string v3, "AppsFolderSelectedView"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$83;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$84;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$83;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$84;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1568,13 +1586,13 @@
 
     const-string v1, "APPS_FOLDER_ADD_ICON"
 
-    const/16 v2, 0x53
+    const/16 v2, 0x54
 
     const-string v3, "AppsFolderAddIcon"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$84;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$85;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$84;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$85;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1584,13 +1602,13 @@
 
     const-string v1, "APPS_FOLDER_ADD_ICON_VIEW"
 
-    const/16 v2, 0x54
+    const/16 v2, 0x55
 
     const-string v3, "AppsFolderAddIconView"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$85;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$86;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$85;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$86;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1600,13 +1618,13 @@
 
     const-string v1, "APPS_FOLDER_CLEAR_BADGE"
 
-    const/16 v2, 0x55
+    const/16 v2, 0x56
 
     const-string v3, "AppsFolderClearBadge"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$86;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$87;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$86;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$87;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1616,13 +1634,13 @@
 
     const-string v1, "APPS_FOLDER_ADD_ICON_SEARCH_VIEW"
 
-    const/16 v2, 0x56
+    const/16 v2, 0x57
 
     const-string v3, "AppsFolderAddIconSearchView"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$87;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$88;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$87;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$88;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1632,13 +1650,13 @@
 
     const-string v1, "APPS_FOLDER_ADD_ICON_SEARCH_RESULT"
 
-    const/16 v2, 0x57
+    const/16 v2, 0x58
 
     const-string v3, "AppsFolderAddIconSearchResult"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$88;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$89;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$88;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$89;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1648,13 +1666,13 @@
 
     const-string v1, "APPS_FOLDER_REMOVE_ICON"
 
-    const/16 v2, 0x58
+    const/16 v2, 0x59
 
     const-string v3, "AppsFolderRemoveIcon"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$89;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$90;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$89;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$90;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1664,13 +1682,13 @@
 
     const-string v1, "APPS_FOLDER_REMOVE"
 
-    const/16 v2, 0x59
+    const/16 v2, 0x5a
 
     const-string v3, "AppsFolderRemove"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$90;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$91;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$90;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$91;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1680,13 +1698,13 @@
 
     const-string v1, "APPS_FOLDER_MAKE_SHORTCUT"
 
-    const/16 v2, 0x5a
+    const/16 v2, 0x5b
 
     const-string v3, "AppsFolderMakeShortcut"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$91;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$92;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$91;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$92;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1696,13 +1714,13 @@
 
     const-string v1, "HOME_SETTINGS_BADGE_MANAGE_VIEW"
 
-    const/16 v2, 0x5b
+    const/16 v2, 0x5c
 
     const-string v3, "HomeSettingsBadgeManagementView"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$92;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$93;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$92;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$93;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1712,13 +1730,13 @@
 
     const-string v1, "HOME_SETTINGS_ENABLE_APPS_BADGE"
 
-    const/16 v2, 0x5c
+    const/16 v2, 0x5d
 
     const-string v3, "HomeSettingsBadgeAllAppsEnable"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$93;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$94;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$93;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$94;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1728,13 +1746,13 @@
 
     const-string v1, "HOME_SETTINGS_DISABLE_APPS_BADGE"
 
-    const/16 v2, 0x5d
+    const/16 v2, 0x5e
 
     const-string v3, "HomeSettingsBadgeAllAppsDisable"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$94;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$95;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$94;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$95;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1744,13 +1762,13 @@
 
     const-string v1, "HOME_SETTINGS_ENABLE_SINGLE_APP_BADGE"
 
-    const/16 v2, 0x5e
+    const/16 v2, 0x5f
 
     const-string v3, "HomeSettingsBadgeSingleAppEnable"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$95;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$96;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$95;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$96;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1760,13 +1778,13 @@
 
     const-string v1, "HOME_SETTINGS_DISABLE_SINGLE_APP_BADGE"
 
-    const/16 v2, 0x5f
+    const/16 v2, 0x60
 
     const-string v3, "HomeSettingsBadgeSingleAppDisable"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$96;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$97;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$96;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$97;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1776,13 +1794,13 @@
 
     const-string v1, "HOME_SINGLE_APP_LOCK"
 
-    const/16 v2, 0x60
+    const/16 v2, 0x61
 
     const-string v3, "HomeSingleAppLock"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$97;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$98;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$97;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$98;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1792,13 +1810,13 @@
 
     const-string v1, "HOME_SINGLE_APP_UNLOCK"
 
-    const/16 v2, 0x61
+    const/16 v2, 0x62
 
     const-string v3, "HomeSingleAppUnlock"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$98;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$99;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$98;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$99;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1808,13 +1826,13 @@
 
     const-string v1, "APPS_SINGLE_APP_LOCK"
 
-    const/16 v2, 0x62
+    const/16 v2, 0x63
 
     const-string v3, "AppsSingleAppLock"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$99;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$100;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$99;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$100;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1824,13 +1842,13 @@
 
     const-string v1, "APPS_SINGLE_APP_UNLOCK"
 
-    const/16 v2, 0x63
+    const/16 v2, 0x64
 
     const-string v3, "AppsSingleAppUnlock"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$100;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$101;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$100;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$101;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1840,13 +1858,13 @@
 
     const-string v1, "HOME_FOLDER_LOCK"
 
-    const/16 v2, 0x64
+    const/16 v2, 0x65
 
     const-string v3, "HomeFolderLock"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$101;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$102;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$101;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$102;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1856,13 +1874,13 @@
 
     const-string v1, "HOME_FOLDER_UNLOCK"
 
-    const/16 v2, 0x65
+    const/16 v2, 0x66
 
     const-string v3, "HomeFolderUnlock"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$102;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$103;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$102;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$103;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1872,13 +1890,13 @@
 
     const-string v1, "APPS_FOLDER_LOCK"
 
-    const/16 v2, 0x66
+    const/16 v2, 0x67
 
     const-string v3, "AppsFolderLock"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$103;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$104;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$103;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$104;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
@@ -1888,19 +1906,19 @@
 
     const-string v1, "APPS_FOLDER_UNLOCK"
 
-    const/16 v2, 0x67
+    const/16 v2, 0x68
 
     const-string v3, "AppsFolderUnlock"
 
-    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$104;
+    new-instance v4, Lcom/android/launcher3/executor/ExecutorState$105;
 
-    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$104;-><init>()V
+    invoke-direct {v4}, Lcom/android/launcher3/executor/ExecutorState$105;-><init>()V
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher3/executor/ExecutorState;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/android/launcher3/executor/StateHandlerCreator;)V
 
     sput-object v0, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_UNLOCK:Lcom/android/launcher3/executor/ExecutorState;
 
-    const/16 v0, 0x68
+    const/16 v0, 0x69
 
     new-array v0, v0, [Lcom/android/launcher3/executor/ExecutorState;
 
@@ -2280,239 +2298,245 @@
 
     const/16 v1, 0x40
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_UNINSTALL_DISABLE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_CHANGE_TO_HOME_APPS_POPUP:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x41
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_UNINSTALL_DISABLE_POP_UP:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_UNINSTALL_DISABLE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x42
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_TO_SLEEP:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_UNINSTALL_DISABLE_POP_UP:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x43
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_TO_SECUREFOLDER:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_TO_SLEEP:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x44
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_CLEAR_BADGE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_TO_SECUREFOLDER:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x45
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_UNINSTALL_DISABLE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_CLEAR_BADGE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x46
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_TO_SLEEP:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_UNINSTALL_DISABLE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x47
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_TO_SECUREFOLDER:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_TO_SLEEP:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x48
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_CLEAR_BADGE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_TO_SECUREFOLDER:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x49
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_WIDGET_SELECTED_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_CLEAR_BADGE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4a
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_WIDGET_REMOVE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_WIDGET_SELECTED_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4b
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_WIDGET_MOVE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_WIDGET_REMOVE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4c
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_WIDGET_RESIZE_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_WIDGET_MOVE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4d
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_WIDGET_RESIZE_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4e
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_MOVE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4f
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_PAGE_MOVE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_MOVE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x50
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_CHANGE_TITLE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_PAGE_MOVE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x51
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_CHANGE_COLOR_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_CHANGE_TITLE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x52
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_SELECTED_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_CHANGE_COLOR_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x53
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_SELECTED_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x54
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x55
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_CLEAR_BADGE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x56
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_SEARCH_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_CLEAR_BADGE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x57
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_SEARCH_RESULT:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_SEARCH_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x58
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_REMOVE_ICON:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_SEARCH_RESULT:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x59
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_REMOVE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_REMOVE_ICON:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5a
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_MAKE_SHORTCUT:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_REMOVE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5b
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_BADGE_MANAGE_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_MAKE_SHORTCUT:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5c
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_ENABLE_APPS_BADGE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_BADGE_MANAGE_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5d
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_DISABLE_APPS_BADGE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_ENABLE_APPS_BADGE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5e
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_ENABLE_SINGLE_APP_BADGE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_DISABLE_APPS_BADGE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5f
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_DISABLE_SINGLE_APP_BADGE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_ENABLE_SINGLE_APP_BADGE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x60
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_LOCK:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_DISABLE_SINGLE_APP_BADGE:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x61
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_UNLOCK:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_LOCK:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x62
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_LOCK:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_UNLOCK:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x63
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_UNLOCK:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_LOCK:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x64
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_LOCK:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_SINGLE_APP_UNLOCK:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x65
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_UNLOCK:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_LOCK:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x66
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_LOCK:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_UNLOCK:Lcom/android/launcher3/executor/ExecutorState;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x67
+
+    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_LOCK:Lcom/android/launcher3/executor/ExecutorState;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x68
 
     sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_UNLOCK:Lcom/android/launcher3/executor/ExecutorState;
 

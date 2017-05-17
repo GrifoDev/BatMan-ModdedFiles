@@ -581,11 +581,11 @@
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f070082
+    const v5, 0x7f080082
 
     invoke-virtual {v0, v5, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f07001d
+    const v5, 0x7f08001d
 
     invoke-virtual {v0, v5, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -595,7 +595,7 @@
 
     if-eqz v5, :cond_1
 
-    const v5, 0x7f0700c6
+    const v5, 0x7f0800c6
 
     new-array v6, v9, [Ljava/lang/Object;
 
@@ -646,7 +646,7 @@
 
     if-eqz v5, :cond_2
 
-    const v5, 0x7f070021
+    const v5, 0x7f080021
 
     new-array v6, v9, [Ljava/lang/Object;
 
@@ -661,7 +661,7 @@
     goto :goto_0
 
     :cond_2
-    const v5, 0x7f070020
+    const v5, 0x7f080020
 
     const/4 v6, 0x2
 

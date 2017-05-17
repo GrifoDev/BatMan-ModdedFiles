@@ -133,7 +133,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f070189
+    const v2, 0x7f080189
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -143,7 +143,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070138
+    const v3, 0x7f080138
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -183,7 +183,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f070189
+    const v2, 0x7f080189
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -193,7 +193,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070161
+    const v3, 0x7f080161
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -275,7 +275,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070189
+    const v3, 0x7f080189
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -285,7 +285,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f070161
+    const v4, 0x7f080161
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -325,7 +325,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/OverviewPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f070176
+    const v1, 0x7f080176
 
     invoke-static {v0, v1, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -354,7 +354,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f070189
+    const v2, 0x7f080189
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -364,7 +364,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070162
+    const v3, 0x7f080162
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -385,7 +385,7 @@
 .method private setEditTextBg()V
     .locals 5
 
-    const v4, 0x7f020092
+    const v4, 0x7f0200d0
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/OverviewPanel;->getContext()Landroid/content/Context;
 
@@ -399,7 +399,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080113
+    const v3, 0x7f090119
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -446,7 +446,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080045
+    const v4, 0x7f090045
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -456,7 +456,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080044
+    const v4, 0x7f090044
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -470,7 +470,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f080046
+    const v5, 0x7f090046
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -482,7 +482,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080042
+    const v4, 0x7f090042
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -596,7 +596,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080043
+    const v2, 0x7f090043
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -628,7 +628,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v1, 0x7f0e00b0
+    const v1, 0x7f0f00b5
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/home/OverviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -672,7 +672,7 @@
 
     move-result v0
 
-    const v1, 0x7f0e00af
+    const v1, 0x7f0f00b4
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/home/OverviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -690,7 +690,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0700b8
+    const v3, 0x7f0800b8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -704,7 +704,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f020087
+    const v3, 0x7f0200c5
 
     invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -738,7 +738,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :goto_0
-    const v1, 0x7f0e00b2
+    const v1, 0x7f0f00b7
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/home/OverviewPanel;->findViewById(I)Landroid/view/View;
 

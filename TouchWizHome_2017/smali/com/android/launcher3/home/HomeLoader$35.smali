@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->insertWorkspaceScreen(Landroid/content/Context;IJ)J
+    value = Lcom/android/launcher3/home/HomeLoader;->updateContainerForDexSync(ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,28 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
-.field final synthetic val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+.field final synthetic val$addToFolder:Z
 
-.field final synthetic val$insertIndex:I
+.field final synthetic val$folder:Lcom/android/launcher3/folder/FolderInfo;
 
-.field final synthetic val$screenId:J
+.field final synthetic val$item:Lcom/android/launcher3/common/base/item/IconInfo;
+
+.field final synthetic val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;JI)V
-    .locals 1
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$35;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    iput-wide p3, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$screenId:J
+    iput-boolean p3, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$addToFolder:Z
 
-    iput p5, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$insertIndex:I
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$folder:Lcom/android/launcher3/folder/FolderInfo;
+
+    iput-object p5, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -58,15 +62,17 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    if-ne v1, v0, :cond_0
+    if-ne v0, v1, :cond_0
 
-    iget-wide v2, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$screenId:J
+    iget-boolean v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$addToFolder:Z
 
-    iget v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$insertIndex:I
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$folder:Lcom/android/launcher3/folder/FolderInfo;
 
-    invoke-interface {v0, v2, v3, v1}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindInsertScreens(JI)V
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindUpdateContainer(ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
 
     :cond_0
     return-void

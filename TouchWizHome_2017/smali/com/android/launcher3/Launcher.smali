@@ -1017,7 +1017,7 @@
 .method private setupViews()V
     .locals 2
 
-    const v0, 0x7f0e008d
+    const v0, 0x7f0f0091
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1025,7 +1025,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/Launcher;->mLauncherView:Landroid/view/View;
 
-    const v0, 0x7f0e008e
+    const v0, 0x7f0f0092
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1921,7 +1921,7 @@
 
     if-eqz p1, :cond_0
 
-    const v2, 0x7f0c002d
+    const v2, 0x7f0d002e
 
     :goto_0
     invoke-static {p0, v2}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
@@ -1944,7 +1944,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f0c002c
+    const v2, 0x7f0d002d
 
     goto :goto_0
 
@@ -2153,7 +2153,7 @@
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 5
 
-    const v4, 0x7f0700c2
+    const v4, 0x7f0800c2
 
     invoke-super {p0, p1}, Landroid/app/Activity;->dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
 
@@ -2173,7 +2173,7 @@
 
     if-ne v2, v3, :cond_0
 
-    const v3, 0x7f07000f
+    const v3, 0x7f08000f
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2189,7 +2189,7 @@
 
     if-ne v2, v3, :cond_1
 
-    const v3, 0x7f0700ba
+    const v3, 0x7f0800ba
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -4404,7 +4404,7 @@
 
     if-eqz v5, :cond_12
 
-    const v5, 0x7f03002d
+    const v5, 0x7f03002e
 
     invoke-virtual {p0, v5}, Lcom/android/launcher3/Launcher;->setContentView(I)V
 
@@ -4732,7 +4732,7 @@
     goto/16 :goto_2
 
     :cond_12
-    const v5, 0x7f03002b
+    const v5, 0x7f03002c
 
     invoke-virtual {p0, v5}, Lcom/android/launcher3/Launcher;->setContentView(I)V
 
@@ -7762,7 +7762,7 @@
 
     if-eqz p4, :cond_0
 
-    const v6, 0x7f070063
+    const v6, 0x7f080063
 
     invoke-virtual {p0, v6}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -8041,7 +8041,7 @@
     return-void
 .end method
 
-.method public updateZeroPage(Z)V
+.method public updateZeroPage(I)V
     .locals 1
 
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->supportVirtualScreen()Z
@@ -8056,7 +8056,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/Launcher;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
-    invoke-virtual {v0, p1}, Lcom/android/launcher3/home/HomeController;->updateZeroPage(Z)V
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/home/HomeController;->updateZeroPage(I)V
 
     :cond_0
     return-void

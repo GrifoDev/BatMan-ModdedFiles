@@ -46,6 +46,8 @@
 
 .field public static final LAUNCHER_VIEW_HOME_SETTINGS_CHANGE_TO_HOMESCREEN_ONLY_POPUP:I = 0xf
 
+.field public static final LAUNCHER_VIEW_HOME_SETTINGS_CHANGE_TO_HOME_APPS_POPUP:I = 0x17
+
 .field public static final LAUNCHER_VIEW_HOME_SETTINGS_GRID:I = 0x11
 
 .field public static final LAUNCHER_VIEW_NONE:I

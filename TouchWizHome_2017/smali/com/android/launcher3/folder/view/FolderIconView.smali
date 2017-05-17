@@ -478,7 +478,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800c7
+    const v2, 0x7f0900c7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -507,7 +507,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800c6
+    const v2, 0x7f0900c6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1032,7 +1032,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0200b8
+    const v19, 0x7f0200f6
 
     const/16 v20, 0x0
 
@@ -1566,7 +1566,7 @@
     const/4 v4, 0x0
 
     :cond_1
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3
 
     const-string v7, "FolderIconView"
 
@@ -1623,16 +1623,15 @@
 
     invoke-virtual {v4, v0}, Lcom/android/launcher3/folder/view/FolderIconView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    :cond_3
     :goto_0
     return-object v4
 
-    :cond_4
+    :cond_3
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v7
 
-    const v8, 0x7f030022
+    const v8, 0x7f030023
 
     const/4 v9, 0x0
 
@@ -1642,7 +1641,7 @@
 
     instance-of v7, v6, Lcom/android/launcher3/folder/view/FolderIconView;
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_6
 
     move-object v4, v6
 
@@ -1652,7 +1651,7 @@
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->setClipToPadding(Z)V
 
-    const v7, 0x7f0e0008
+    const v7, 0x7f0f0008
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1666,7 +1665,7 @@
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->setText(Ljava/lang/CharSequence;)V
 
-    const v7, 0x7f0e0007
+    const v7, 0x7f0f0007
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1676,7 +1675,7 @@
 
     iput-object v7, v4, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewBackground:Landroid/widget/ImageView;
 
-    const v7, 0x7f0e006e
+    const v7, 0x7f0f0072
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1686,7 +1685,7 @@
 
     iput-object v7, v4, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewIcons:Landroid/widget/ImageView;
 
-    const v7, 0x7f0e006d
+    const v7, 0x7f0f0071
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1712,7 +1711,7 @@
 
     iget v7, p2, Lcom/android/launcher3/folder/FolderInfo;->color:I
 
-    if-nez v7, :cond_5
+    if-nez v7, :cond_4
 
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
 
@@ -1722,14 +1721,14 @@
 
     move-result v7
 
-    if-nez v7, :cond_6
+    if-nez v7, :cond_5
 
-    :cond_5
+    :cond_4
     iget v7, p2, Lcom/android/launcher3/folder/FolderInfo;->color:I
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->setIconBackgroundColor(I)V
 
-    :cond_6
+    :cond_5
     invoke-virtual {v4, p2}, Lcom/android/launcher3/folder/view/FolderIconView;->setTag(Ljava/lang/Object;)V
 
     move-object/from16 v0, p4
@@ -1742,7 +1741,7 @@
 
     iput-object p2, v4, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
 
-    const v7, 0x7f070033
+    const v7, 0x7f080033
 
     invoke-virtual {p0, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -1800,7 +1799,7 @@
 
     invoke-virtual {p2, v4}, Lcom/android/launcher3/folder/FolderInfo;->addListener(Lcom/android/launcher3/folder/FolderEventListener;)V
 
-    const v7, 0x7f0e0071
+    const v7, 0x7f0f0075
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1818,7 +1817,7 @@
 
     cmp-long v7, v8, v10
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_7
 
     invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
 
@@ -1828,7 +1827,7 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_6
     new-instance v7, Ljava/lang/IllegalArgumentException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1852,6 +1851,13 @@
     invoke-direct {v7, v8}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v7
+
+    :cond_7
+    const/4 v7, 0x0
+
+    invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->changeTextColorForBg(Z)V
+
+    goto/16 :goto_0
 .end method
 
 .method private getDrawable(Lcom/android/launcher3/common/view/IconView;)Landroid/graphics/drawable/Drawable;
@@ -2222,7 +2228,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800c8
+    const v2, 0x7f0900c8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2857,7 +2863,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0700a9
+    const v2, 0x7f0800a9
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3067,7 +3073,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f02005e
+    const v10, 0x7f02009c
 
     iget-object v11, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -3755,7 +3761,7 @@
 .method public onTitleChanged(Ljava/lang/CharSequence;)V
     .locals 7
 
-    const v4, 0x7f070033
+    const v4, 0x7f080033
 
     const/4 v6, 0x0
 
@@ -3815,7 +3821,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f070065
+    const v4, 0x7f080065
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3884,7 +3890,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f070064
+    const v4, 0x7f080064
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4414,7 +4420,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f070033
+    const v22, 0x7f080033
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4454,7 +4460,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f070064
+    const v22, 0x7f080064
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4580,7 +4586,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f070033
+    const v22, 0x7f080033
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4620,7 +4626,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f070065
+    const v22, 0x7f080065
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4702,7 +4708,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f070033
+    const v21, 0x7f080033
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

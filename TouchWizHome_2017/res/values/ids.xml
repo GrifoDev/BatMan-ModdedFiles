@@ -80,6 +80,10 @@
     <item type="id" name="drop_target_cancel_circle">false</item>
     <item type="id" name="drop_target_cancel_image">false</item>
     <item type="id" name="drop_target_cancel_text">false</item>
+    <item type="id" name="edge_light_image">false</item>
+    <item type="id" name="edge_light_arrow_frame">false</item>
+    <item type="id" name="edge_light_arrow1">false</item>
+    <item type="id" name="edge_light_arrow2">false</item>
     <item type="id" name="action_bar">false</item>
     <item type="id" name="save_button">false</item>
     <item type="id" name="folder_container">false</item>
@@ -145,6 +149,7 @@
     <item type="id" name="apps_view">false</item>
     <item type="id" name="drop_target_bar">false</item>
     <item type="id" name="home_view">false</item>
+    <item type="id" name="edge_light_container">false</item>
     <item type="id" name="lighting_effect">false</item>
     <item type="id" name="tray_fake_view_top_stub">false</item>
     <item type="id" name="tray_fake_view_top">false</item>

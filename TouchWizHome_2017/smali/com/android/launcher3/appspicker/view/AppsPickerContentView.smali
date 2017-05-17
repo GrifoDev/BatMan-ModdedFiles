@@ -115,7 +115,7 @@
 
     const/4 v1, 0x0
 
-    const v0, 0x7f0e0029
+    const v0, 0x7f0f0029
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -146,7 +146,7 @@
 
     const/4 v8, 0x0
 
-    const v4, 0x7f0e0009
+    const v4, 0x7f0f0009
 
     invoke-virtual {p1, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -172,7 +172,7 @@
 
     invoke-virtual {v1}, Landroid/view/View;->invalidate()V
 
-    const v4, 0x7f0e002b
+    const v4, 0x7f0f002b
 
     invoke-virtual {p1, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -182,13 +182,13 @@
 
     invoke-virtual {v2, v8}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v4, 0x7f07000c
+    const v4, 0x7f08000c
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
     iput-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mDefaultSearchViewText:Landroid/widget/TextView;
 
-    const v4, 0x7f0e002c
+    const v4, 0x7f0f002c
 
     invoke-virtual {p1, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -196,7 +196,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mHeader:Landroid/view/View;
 
-    const v4, 0x7f0e0035
+    const v4, 0x7f0f0035
 
     invoke-virtual {p1, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -206,7 +206,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mEmptyView:Landroid/widget/TextView;
 
-    const v4, 0x7f0e002d
+    const v4, 0x7f0f002d
 
     invoke-virtual {p1, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -218,7 +218,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mSearchResultText:Landroid/widget/TextView;
 
-    const v4, 0x7f0e0033
+    const v4, 0x7f0f0033
 
     invoke-virtual {p1, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -228,7 +228,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mSearchListView:Landroid/widget/ListView;
 
-    const v4, 0x7f0e0034
+    const v4, 0x7f0f0034
 
     invoke-virtual {p1, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -295,7 +295,7 @@
 
     if-eqz p1, :cond_3
 
-    const v2, 0x7f02002e
+    const v2, 0x7f02006c
 
     invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->getContext()Landroid/content/Context;
 
@@ -354,7 +354,7 @@
     return-void
 
     :cond_3
-    const v2, 0x7f02002f
+    const v2, 0x7f02006d
 
     invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->getContext()Landroid/content/Context;
 
@@ -403,7 +403,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0e0027
+    const v0, 0x7f0f0027
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->findViewById(I)Landroid/view/View;
 
@@ -417,7 +417,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->initAllListView(Landroid/view/ViewGroup;)V
 
-    const v0, 0x7f0e0028
+    const v0, 0x7f0f0028
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->findViewById(I)Landroid/view/View;
 
@@ -517,7 +517,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f08001a
+    const v11, 0x7f09001a
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -553,7 +553,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f09000a
+    const v11, 0x7f0a000a
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -746,7 +746,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f080147
+    const v11, 0x7f09014d
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -790,7 +790,7 @@
 .method public setSearchResultText(I)V
     .locals 8
 
-    const v7, 0x7f07000c
+    const v7, 0x7f08000c
 
     const/4 v5, 0x1
 
@@ -814,7 +814,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mEmptyView:Landroid/widget/TextView;
 
-    const v4, 0x7f070007
+    const v4, 0x7f080007
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -835,7 +835,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f07000d
+    const v4, 0x7f08000d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

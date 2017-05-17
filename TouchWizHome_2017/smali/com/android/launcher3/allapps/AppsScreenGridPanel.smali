@@ -162,7 +162,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080113
+    const v7, 0x7f090119
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -172,7 +172,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080130
+    const v7, 0x7f090136
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -192,7 +192,7 @@
 
     invoke-virtual {v5, v8, v4, v8, v8}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    const v6, 0x7f0f000c
+    const v6, 0x7f10000c
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setTextAppearance(I)V
 
@@ -204,13 +204,13 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    const v6, 0x7f020031
+    const v6, 0x7f02006f
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
     if-eqz v0, :cond_0
 
-    const v6, 0x7f020092
+    const v6, 0x7f0200d0
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -223,7 +223,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800a7
+    const v7, 0x7f0900a7
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -235,7 +235,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08008e
+    const v7, 0x7f09008e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -427,13 +427,13 @@
 
     move-result-object v1
 
-    const v4, 0x7f070092
+    const v4, 0x7f080092
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f070068
+    const v4, 0x7f080068
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -448,7 +448,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0701b8
+    const v5, 0x7f0801b8
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -589,7 +589,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08004e
+    const v2, 0x7f09004e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -632,7 +632,7 @@
 .method public initScreenGridTopContainer()V
     .locals 4
 
-    const v3, 0x7f020092
+    const v3, 0x7f0200d0
 
     const/4 v2, 0x0
 
@@ -642,7 +642,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f0e0015
+    const v1, 0x7f0f0015
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -652,7 +652,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/view/View;
 
-    const v1, 0x7f0e0017
+    const v1, 0x7f0f0017
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -662,7 +662,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/view/View;
 
-    const v1, 0x7f0e0016
+    const v1, 0x7f0f0016
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -734,7 +734,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08004c
+    const v4, 0x7f09004c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -746,7 +746,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f0e0076
+    const v4, 0x7f0f007a
 
     invoke-virtual {v3, v4}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -762,7 +762,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08004d
+    const v4, 0x7f09004d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -796,7 +796,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0701b8
+    const v5, 0x7f0801b8
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -838,7 +838,7 @@
 
     if-nez v5, :cond_1
 
-    const/high16 v5, 0x7f090000
+    const/high16 v5, 0x7f0a0000
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -897,7 +897,7 @@
 
     if-lez v5, :cond_3
 
-    const v5, 0x7f0e0036
+    const v5, 0x7f0f0036
 
     invoke-virtual {p0, v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->findViewById(I)Landroid/view/View;
 
@@ -925,7 +925,7 @@
     goto :goto_1
 
     :cond_2
-    const v5, 0x7f090004
+    const v5, 0x7f0a0004
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -942,11 +942,11 @@
 .method setApplyDescription(Landroid/view/View;Z)V
     .locals 6
 
-    const v5, 0x7f07000a
+    const v5, 0x7f08000a
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f070026
+    const v4, 0x7f080026
 
     invoke-virtual {v3, v4}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -956,7 +956,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0700c1
+    const v4, 0x7f0800c1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1045,6 +1045,79 @@
     move-result-object v0
 
     goto :goto_0
+.end method
+
+.method public setScreenGridProxy(Ljava/lang/String;)V
+    .locals 11
+
+    const/4 v7, 0x0
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    const/4 v4, 0x0
+
+    invoke-virtual {p1, v7}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v6
+
+    add-int/lit8 v6, v6, -0x1
+
+    invoke-virtual {p1, v6}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    iget-object v8, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsGridButtonMap:[Ljava/lang/String;
+
+    array-length v9, v8
+
+    move v6, v7
+
+    :goto_1
+    if-ge v6, v9, :cond_0
+
+    aget-object v5, v8, v6
+
+    invoke-virtual {v5, v7}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    const/4 v10, 0x2
+
+    invoke-virtual {v5, v10}, Ljava/lang/String;->charAt(I)C
+
+    move-result v1
+
+    if-ne v2, v0, :cond_2
+
+    if-ne v3, v1, :cond_2
+
+    iget-object v6, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mGridButtonClickListener:Landroid/view/View$OnClickListener;
+
+    iget-object v7, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mGridBtnLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v7, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v7
+
+    invoke-interface {v6, v7}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_2
+    add-int/lit8 v4, v4, 0x1
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_1
 .end method
 
 .method public updateButtonStatus()V
@@ -1249,7 +1322,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090004
+    const v9, 0x7f0a0004
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

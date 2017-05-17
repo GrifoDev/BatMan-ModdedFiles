@@ -6,6 +6,10 @@
 # static fields
 .field private static final DEFAULT_SCALE:I = 0x46
 
+.field public static final FOLLOWING_THEME:Z = true
+
+.field public static final NOT_FOLLOWING_THEME:Z
+
 .field private static mPaint:Landroid/graphics/Paint;
 
 

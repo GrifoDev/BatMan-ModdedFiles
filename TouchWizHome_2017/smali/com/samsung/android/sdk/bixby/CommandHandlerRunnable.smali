@@ -48,7 +48,7 @@
 
     move-result-object v0
 
-    const-string v1, "_0.1.6"
+    const-string v1, "_0.2.0"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -244,6 +244,10 @@
 
     move-result-object v8
 
+    iget-object v12, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v12, v8}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handleLandingKeyboardOffMode(Ljava/lang/String;)V
+
     invoke-static {v8}, Lcom/samsung/android/sdk/bixby/PathRuleInfoReader;->read(Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;
 
     move-result-object v10
@@ -283,7 +287,7 @@
 
     invoke-virtual {v12, v1, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendChatText(Ljava/lang/String;Z)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_4
     const-string v12, "emes_split_state"

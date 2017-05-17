@@ -5,7 +5,7 @@
     <string name="activity_not_found">Applicazione non installata.</string>
     <string name="align_to_bottom">Allinea in basso</string>
     <string name="align_to_top">Allinea in alto</string>
-    <string name="app_search">Cerca telefono</string>
+    <string name="app_search">Cerca nel telefono</string>
     <string name="app_search_no_apps">Potete aggiungere sulla schermata Home dei collegamenti dai risultati di ricerca.</string>
     <string name="app_search_no_results_found">Nessun risultato trovato</string>
     <string name="app_search_tablet">Cerca tablet</string>

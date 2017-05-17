@@ -474,6 +474,10 @@
 
     invoke-virtual {v4, v2, v5, v6, v7}, Lcom/android/launcher3/proxy/LauncherProxy;->moveHomeItemToPage(Landroid/view/View;III)I
 
+    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    if-nez v4, :cond_6
+
     new-instance v4, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     sget-object v5, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
@@ -512,88 +516,170 @@
 .end method
 
 .method public parseParameters(Lcom/samsung/android/sdk/bixby/data/State;)Ljava/lang/String;
-    .locals 7
+    .locals 6
 
-    const/16 v6, -0x3e7
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
 
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Map;->size()I
+
+    move-result v2
+
+    if-gez v2, :cond_1
+
+    :cond_0
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    sget-object v3, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "AppName"
+
+    const-string v4, "Exist"
+
+    const-string v5, "no"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const-string v2, "PARAM_CHECK_ERROR"
+
+    :goto_0
+    return-object v2
+
+    :cond_1
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    invoke-static {v2}, Lcom/android/launcher3/executor/StateParamHelper;->newHelper(Ljava/util/Map;)Lcom/android/launcher3/executor/StateParamHelper;
 
-    invoke-interface {v2}, Ljava/util/Map;->size()I
+    move-result-object v0
 
-    move-result v3
+    iget-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mObjectName:Ljava/lang/String;
 
-    if-gez v3, :cond_1
+    sget-object v3, Lcom/android/launcher3/executor/StateParamHelper$Type;->STRING:Lcom/android/launcher3/executor/StateParamHelper$Type;
 
-    :cond_0
-    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    invoke-virtual {v0, v2, v3}, Lcom/android/launcher3/executor/StateParamHelper;->hasSlotValue(Ljava/lang/String;Lcom/android/launcher3/executor/StateParamHelper$Type;)Z
 
-    sget-object v4, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
+    move-result v2
 
-    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+    if-nez v2, :cond_2
 
-    move-result-object v4
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+    sget-object v3, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
 
-    const-string v4, "AppName"
-
-    const-string v5, "Exist"
-
-    const-string v6, "no"
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    iput-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
 
-    const-string v3, "PARAM_CHECK_ERROR"
+    const-string v3, "AppName"
 
-    :goto_0
-    return-object v3
+    const-string v4, "Exist"
 
-    :cond_1
-    const/4 v1, 0x1
+    const-string v5, "no"
 
-    const-string v3, "FolderName"
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mObjectName:Ljava/lang/String;
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    move-result v3
+    const-string v2, "PARAM_CHECK_ERROR"
 
-    if-eqz v3, :cond_4
+    goto :goto_0
 
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+    :cond_2
+    iget-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mObjectName:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mObjectName:Ljava/lang/String;
 
-    sget-object v5, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {p0, v2, v4, v5}, Lcom/android/launcher3/executor/StateParamHelper;->getStringParamValue(Lcom/android/launcher3/executor/AbstractStateHandler;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/executor/StateAppInfo;->setName(Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/executor/StateAppInfo;->getName()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Lcom/android/launcher3/executor/StateParamHelper;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/executor/StateAppInfo;->setComponentName(Ljava/lang/String;)V
 
-    const-string v3, ""
+    iget-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/executor/StateAppInfo;->isValid()Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    sget-object v3, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "AppName"
+
+    const-string v4, "Match"
+
+    const-string v5, "no"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const-string v2, "PARAM_CHECK_ERROR"
+
+    goto :goto_0
+
+    :cond_3
+    const-string v2, "Page"
+
+    sget-object v3, Lcom/android/launcher3/executor/StateParamHelper$Type;->INTEGER:Lcom/android/launcher3/executor/StateParamHelper$Type;
+
+    invoke-virtual {v0, v2, v3}, Lcom/android/launcher3/executor/StateParamHelper;->hasSlotValue(Ljava/lang/String;Lcom/android/launcher3/executor/StateParamHelper$Type;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    sget-object v3, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "Page"
+
+    const-string v4, "Exist"
+
+    const-string v5, "no"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v2
+
+    const-string v3, "AppName"
 
     iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
@@ -601,229 +687,51 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addResultParam(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    move-result v3
+    move-result-object v2
 
-    if-eqz v3, :cond_3
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    :cond_2
-    const/4 v1, 0x0
+    const/4 v2, -0x2
 
-    :cond_3
+    iput v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
+
     :goto_1
-    if-nez v1, :cond_5
+    iget v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
 
-    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    if-gez v2, :cond_5
 
-    sget-object v4, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
+    iget v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
 
-    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+    iput v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPageDirection:I
 
-    move-result-object v4
+    const/16 v2, -0x3e7
 
-    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+    iput v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
 
-    const-string v4, "AppName"
+    :goto_2
+    const-string v2, "PARAM_CHECK_OK"
 
-    const-string v5, "Exist"
-
-    const-string v6, "no"
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    const-string v3, "PARAM_CHECK_ERROR"
-
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_4
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+    const-string v2, "Page"
 
-    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mObjectName:Ljava/lang/String;
+    invoke-virtual {v0, v2}, Lcom/android/launcher3/executor/StateParamHelper;->getInt(Ljava/lang/String;)I
 
-    sget-object v5, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
+    move-result v2
 
-    invoke-virtual {v5}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {p0, v2, v4, v5}, Lcom/android/launcher3/executor/StateParamHelper;->getStringParamValue(Lcom/android/launcher3/executor/AbstractStateHandler;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/executor/StateAppInfo;->setComponentName(Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/executor/StateAppInfo;->isValid()Z
-
-    move-result v1
+    iput v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
 
     goto :goto_1
 
     :cond_5
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+    iget v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
 
-    invoke-virtual {v3}, Lcom/android/launcher3/executor/StateAppInfo;->getComponentName()Landroid/content/ComponentName;
+    add-int/lit8 v2, v2, -0x1
 
-    move-result-object v3
-
-    if-eqz v3, :cond_6
-
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/executor/StateAppInfo;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "\u00a0"
-
-    if-ne v3, v4, :cond_6
-
-    invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/proxy/LauncherProxy;->getAppNamebyComponentName(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    invoke-virtual {v3, v0}, Lcom/android/launcher3/executor/StateAppInfo;->setName(Ljava/lang/String;)V
-
-    :cond_6
-    const-string v3, "Page"
-
-    sget-object v4, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {p0, v2, v3, v4}, Lcom/android/launcher3/executor/StateParamHelper;->getIntParamValue(Lcom/android/launcher3/executor/AbstractStateHandler;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
-
-    iget v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
-
-    if-ne v3, v6, :cond_7
-
-    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    sget-object v4, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    const-string v4, "Page"
-
-    const-string v5, "Exist"
-
-    const-string v6, "no"
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    move-result-object v3
-
-    const-string v4, "AppName"
-
-    iget-object v5, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/executor/StateAppInfo;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addResultParam(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    const-string v3, "PARAM_CHECK_ERROR"
-
-    goto/16 :goto_0
-
-    :cond_7
-    iget v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
-
-    if-gez v3, :cond_8
-
-    iget v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
-
-    iput v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPageDirection:I
-
-    iput v6, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
-
-    :goto_2
-    iget v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
-
-    if-ne v3, v6, :cond_9
-
-    iget v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPageDirection:I
-
-    if-ne v3, v6, :cond_9
-
-    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    sget-object v4, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    const-string v4, "Page"
-
-    const-string v5, "Exist"
-
-    const-string v6, "no"
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    move-result-object v3
-
-    const-string v4, "AppName"
-
-    iget-object v5, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/executor/StateAppInfo;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addResultParam(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    const-string v3, "PARAM_CHECK_ERROR"
-
-    goto/16 :goto_0
-
-    :cond_8
-    iget v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
-
-    add-int/lit8 v3, v3, -0x1
-
-    iput v3, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
+    iput v2, p0, Lcom/android/launcher3/executor/HomeSingleAppMoveStateHandler;->mPage:I
 
     goto :goto_2
-
-    :cond_9
-    const-string v3, "PARAM_CHECK_OK"
-
-    goto/16 :goto_0
 .end method

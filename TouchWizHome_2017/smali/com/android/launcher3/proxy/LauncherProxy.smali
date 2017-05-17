@@ -2247,7 +2247,7 @@
     goto :goto_0
 .end method
 
-.method public final getItemInfoInHideApps(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+.method public final getItemInfoInHideApps(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Lcom/android/launcher3/common/base/item/ItemInfo;
     .locals 2
 
     const/4 v0, 0x0
@@ -2271,7 +2271,7 @@
 
     move-result-object v1
 
-    invoke-interface {v0, v1, p2}, Lcom/android/launcher3/proxy/AppsPickerProxyCallbacks;->getItem(Landroid/content/ComponentName;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+    invoke-interface {v0, v1}, Lcom/android/launcher3/proxy/AppsPickerProxyCallbacks;->getItem(Landroid/content/ComponentName;)Lcom/android/launcher3/common/base/item/ItemInfo;
 
     move-result-object v0
 
@@ -2290,7 +2290,7 @@
 
     move-result-object v1
 
-    invoke-interface {v0, v1, p2}, Lcom/android/launcher3/proxy/AppsPickerProxyCallbacks;->getItem(Ljava/lang/String;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+    invoke-interface {v0, v1}, Lcom/android/launcher3/proxy/AppsPickerProxyCallbacks;->getItem(Ljava/lang/String;)Lcom/android/launcher3/common/base/item/ItemInfo;
 
     move-result-object v0
 

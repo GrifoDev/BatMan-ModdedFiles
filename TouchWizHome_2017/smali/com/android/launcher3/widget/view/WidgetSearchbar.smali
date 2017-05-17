@@ -68,9 +68,9 @@
 
     const/4 v6, 0x0
 
-    const v5, 0x7f0c0033
+    const v5, 0x7f0d0034
 
-    const v4, 0x7f0c0025
+    const v4, 0x7f0d0026
 
     const/4 v3, 0x1
 
@@ -94,7 +94,7 @@
 
     aget-object v0, v0, v2
 
-    const v1, 0x7f0c0032
+    const v1, 0x7f0d0033
 
     iput v1, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$Style;->textColorId:I
 
@@ -114,7 +114,7 @@
 
     aget-object v0, v0, v2
 
-    const v1, 0x7f0c0027
+    const v1, 0x7f0d0028
 
     iput v1, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$Style;->dividerColorId:I
 
@@ -142,7 +142,7 @@
 
     aget-object v0, v0, v3
 
-    const v1, 0x7f0c0026
+    const v1, 0x7f0d0027
 
     iput v1, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$Style;->backgroundColorId:I
 
@@ -150,7 +150,7 @@
 
     aget-object v0, v0, v3
 
-    const v1, 0x7f0c0028
+    const v1, 0x7f0d0029
 
     iput v1, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$Style;->dividerColorId:I
 
@@ -684,7 +684,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f070192
+    const v2, 0x7f080192
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -694,7 +694,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f07015d
+    const v4, 0x7f08015d
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -850,7 +850,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080073
+    const v2, 0x7f090073
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -880,7 +880,7 @@
 
     iput-boolean v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSamsungMembersEnabled:Z
 
-    const v4, 0x7f0e00e0
+    const v4, 0x7f0f00e5
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -890,7 +890,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchbarWrapper:Landroid/widget/LinearLayout;
 
-    const v4, 0x7f0e00e1
+    const v4, 0x7f0f00e6
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -1027,7 +1027,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchCloseButton:Landroid/widget/ImageView;
 
-    const v4, 0x7f0e00e2
+    const v4, 0x7f0f00e7
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -1035,7 +1035,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mDivider:Landroid/view/View;
 
-    const v4, 0x7f0e00e3
+    const v4, 0x7f0f00e8
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -1043,7 +1043,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mMoreButtonContainer:Landroid/view/View;
 
-    const v4, 0x7f0e00de
+    const v4, 0x7f0f00e3
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -1377,7 +1377,7 @@
 
     check-cast v2, Landroid/view/ViewGroup;
 
-    const v3, 0x7f0e00c9
+    const v3, 0x7f0f00ce
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1401,7 +1401,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f100001
+    const v3, 0x7f110001
 
     iget-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mPopupMenu:Landroid/widget/PopupMenu;
 
@@ -1431,13 +1431,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00f5
+    const v2, 0x7f0f00fa
 
     iget-boolean v3, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mHasUninstallableApps:Z
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->updateMenuItemVisibility(Landroid/view/Menu;IZ)V
 
-    const v2, 0x7f0e00f6
+    const v2, 0x7f0f00fb
 
     iget-boolean v3, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSamsungMembersEnabled:Z
 

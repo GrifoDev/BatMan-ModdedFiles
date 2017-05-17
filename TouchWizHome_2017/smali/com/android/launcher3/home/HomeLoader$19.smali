@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->removeWorkspaceItem(Ljava/util/ArrayList;)V
+    value = Lcom/android/launcher3/home/HomeLoader;->bindItems(Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,18 +22,18 @@
 
 .field final synthetic val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-.field final synthetic val$workspaceApps:Ljava/util/ArrayList;
+.field final synthetic val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Ljava/util/ArrayList;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/base/item/ItemInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$19;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$workspaceApps:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,134 +43,119 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 6
 
-    new-instance v1, Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgLock:Ljava/lang/Object;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$8200()Ljava/lang/Object;
-
-    move-result-object v3
-
-    monitor-enter v3
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$workspaceApps:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    # invokes: Lcom/android/launcher3/home/HomeLoader;->getCallback()Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeLoader;->access$3900(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgItemsIdMap:Lcom/android/launcher3/util/LongArrayMap;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$8300()Lcom/android/launcher3/util/LongArrayMap;
+    if-ne v2, v0, :cond_0
 
-    move-result-object v4
+    if-eqz v0, :cond_0
 
-    iget-wide v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-virtual {v4, v6, v7}, Lcom/android/launcher3/util/LongArrayMap;->get(J)Ljava/lang/Object;
+    instance-of v2, v2, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    move-result-object v4
+    if-eqz v2, :cond_1
 
-    if-eqz v4, :cond_0
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    goto :goto_0
+    check-cast v2, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
+    invoke-interface {v3, v2}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindAppWidget(Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
 
     :cond_0
-    :try_start_1
-    const-string v4, "HomeLoader"
+    :goto_0
+    return-void
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    :cond_1
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    iget-wide v2, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    const-string v6, "removeWorkspaceItem : no cached item ("
+    const-wide/16 v4, 0x0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    cmp-long v2, v2, v4
 
-    move-result-object v5
+    if-lez v2, :cond_3
 
-    iget-object v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    move-result-object v5
+    iget-wide v4, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    const-string v6, "),"
+    invoke-virtual {v2, v4, v5}, Lcom/android/launcher3/home/HomeLoader;->getItemById(J)Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v5
+    instance-of v2, v1, Lcom/android/launcher3/folder/FolderInfo;
 
-    iget-wide v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    move-result-object v5
+    instance-of v2, v2, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v2, :cond_2
 
-    move-result-object v5
+    check-cast v1, Lcom/android/launcher3/folder/FolderInfo;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    check-cast v2, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/folder/FolderInfo;->add(Lcom/android/launcher3/common/base/item/IconInfo;)V
 
     goto :goto_0
 
-    :cond_1
-    monitor-exit v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->this$0:Lcom/android/launcher3/home/HomeLoader;
-
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeLoader;->access$8400(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Lcom/android/launcher3/common/model/FavoritesUpdater;->deleteItemsFromDatabase(Ljava/util/ArrayList;)V
-
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->this$0:Lcom/android/launcher3/home/HomeLoader;
-
-    new-instance v3, Lcom/android/launcher3/home/HomeLoader$19$1;
-
-    invoke-direct {v3, p0, v1}, Lcom/android/launcher3/home/HomeLoader$19$1;-><init>(Lcom/android/launcher3/home/HomeLoader$19;Ljava/util/ArrayList;)V
-
-    # invokes: Lcom/android/launcher3/home/HomeLoader;->runOnMainThread(Ljava/lang/Runnable;)V
-    invoke-static {v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$8500(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
-
     :cond_2
-    return-void
+    const-string v2, "HomeLoader"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Non Folder is exist : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/common/base/item/ItemInfo;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$19;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v4}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindItem(Lcom/android/launcher3/common/base/item/ItemInfo;Z)V
+
+    goto :goto_0
 .end method

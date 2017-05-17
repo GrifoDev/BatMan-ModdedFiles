@@ -45,9 +45,9 @@
 .method public run()V
     .locals 12
 
-    const v8, 0x7f070143
+    const v8, 0x7f080143
 
-    const v11, 0x7f070142
+    const v11, 0x7f080142
 
     const/4 v10, 0x2
 
@@ -75,7 +75,7 @@
 
     if-ne v5, v9, :cond_5
 
-    const v7, 0x7f07018d
+    const v7, 0x7f08018d
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -184,7 +184,7 @@
 
     if-eqz v7, :cond_0
 
-    const v7, 0x7f070144
+    const v7, 0x7f080144
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
     :cond_5
     if-ne v5, v10, :cond_7
 
-    const v7, 0x7f07017f
+    const v7, 0x7f08017f
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -277,7 +277,7 @@
 
     if-ne v4, v9, :cond_9
 
-    const v7, 0x7f070185
+    const v7, 0x7f080185
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -285,7 +285,7 @@
 
     :cond_8
     :goto_1
-    const v7, 0x7f070108
+    const v7, 0x7f080108
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -296,7 +296,7 @@
     :cond_9
     if-ne v4, v10, :cond_8
 
-    const v7, 0x7f07017a
+    const v7, 0x7f08017a
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

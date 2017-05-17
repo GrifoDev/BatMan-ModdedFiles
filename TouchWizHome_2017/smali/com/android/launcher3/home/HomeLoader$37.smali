@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->updateShortcutIcons()V
+    value = Lcom/android/launcher3/home/HomeLoader;->updatePackageFlags(Lcom/android/launcher3/util/StringFilter;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/util/FlagOp;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
-.field final synthetic val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+.field final synthetic val$oldCallback:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-.field final synthetic val$updatedIcons:Ljava/util/ArrayList;
+.field final synthetic val$updatedShortcuts:Ljava/util/ArrayList;
+
+.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$37;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$oldCallback:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$updatedIcons:Ljava/util/ArrayList;
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$updatedShortcuts:Ljava/util/ArrayList;
+
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,9 +47,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 4
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$37;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
@@ -54,13 +56,21 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$oldCallback:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     if-ne v1, v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$updatedIcons:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$updatedShortcuts:Ljava/util/ArrayList;
 
-    invoke-interface {v0, v1, v2, v2}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$37;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     :cond_0
     return-void
