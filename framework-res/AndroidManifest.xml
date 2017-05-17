@@ -1360,6 +1360,8 @@
     <protected-broadcast android:name="android.intent.action.IRIS_START"/>
     <protected-broadcast android:name="android.intent.action.IRIS_STOP"/>
     <protected-broadcast android:name="com.samsung.android.softsim.ServiceStatus"/>
+    <protected-broadcast android:name="com.samsung.android.appwidget.action.APPWIDGET_UNBIND"/>
+    <protected-broadcast android:name="com.samsung.android.security.SemSdCardEncryption.UNMOUNT_POLICY"/>
     <protected-broadcast android:name="com.samsung.android.bixby.intent.action.CLIENT_VIEW_STATE_UPDATE"/>
     <permission-group android:name="com.samsung.android.authfw.pass.permission-group.SEM_PASS_AUTHENTICATE"/>
     <permission android:name="com.samsung.android.authfw.pass.permission.SEM_PASS_B2B_USE_PASS" android:permissionGroup="com.samsung.android.authfw.pass.permission-group.SEM_PASS_AUTHENTICATE" android:protectionLevel="system|signature"/>
