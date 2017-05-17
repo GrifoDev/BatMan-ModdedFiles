@@ -3,7 +3,7 @@
 .source "PowerNotificationWarnings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -20,12 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
+.field final synthetic val$disableAlertCheckBox:Landroid/widget/CheckBox;
+
+.field final synthetic val$slowByChargerConnectionInfoSharedPrefs:Landroid/content/SharedPreferences;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+.method constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/widget/CheckBox;Landroid/content/SharedPreferences;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    iput-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->val$disableAlertCheckBox:Landroid/widget/CheckBox;
+
+    iput-object p3, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->val$slowByChargerConnectionInfoSharedPrefs:Landroid/content/SharedPreferences;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,43 +42,31 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    iget-object v1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->val$disableAlertCheckBox:Landroid/widget/CheckBox;
 
-    const/4 v1, 0x0
+    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set19(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    move-result v1
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    if-eqz v1, :cond_0
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get11(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
+    iget-object v1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->val$slowByChargerConnectionInfoSharedPrefs:Landroid/content/SharedPreferences;
 
-    move-result v0
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    if-eqz v0, :cond_0
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    const-string/jumbo v1, "DoNotShowSlowByChargerConnectionInfo"
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get1(Lcom/android/systemui/power/PowerNotificationWarnings;)I
+    const/4 v2, 0x1
 
-    move-result v0
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    const/4 v1, 0x6
-
-    if-ne v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-wrap10(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$17;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set10(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
-
     return-void
 .end method

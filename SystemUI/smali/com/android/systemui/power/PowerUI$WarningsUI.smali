@@ -45,7 +45,7 @@
 .method public abstract dismissUnintentionalLcdOnNotice()V
 .end method
 
-.method public abstract dismissWaterProtectionAlertDialog()V
+.method public abstract dismissWaterProtectionAlertDialog(Z)V
 .end method
 
 .method public abstract dismissWillOverheatShutdownWarning()V
@@ -105,7 +105,7 @@
 .method public abstract showUnintentionalLcdOnNotice()V
 .end method
 
-.method public abstract showWaterProtectionAlertDialog()V
+.method public abstract showWaterProtectionAlertDialog(Z)V
 .end method
 
 .method public abstract showWillOverheatShutdownWarning()V

@@ -9,6 +9,7 @@
     <string name="snap_window_cant_use">"Can't use Snap window."</string>
     <string name="snap_window_already_used">Snap window is already in use.</string>
     <string name="snap_window_open_app_to_used">Open an app to use Snap window.</string>
+    <string name="dock_minimized_notification_text">%s minimized</string>
     <string name="dock_minimized_toast_text">%s minimized.</string>
     <string name="clock_roaming">Local</string>
     <string name="time_format_hour_minute">%1$d h %2$d m</string>

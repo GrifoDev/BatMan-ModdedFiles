@@ -175,7 +175,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v3}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get14(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/content/Intent;
+    invoke-static {v3}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get15(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/content/Intent;
 
     move-result-object v3
 

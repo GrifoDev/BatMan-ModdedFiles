@@ -98,7 +98,7 @@
 
     iget-object v4, v4, Lcom/android/systemui/media/NotificationPlayer$Command;->uri:Landroid/net/Uri;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
@@ -130,7 +130,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-nez v4, :cond_0
+
+    iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
+
+    iget-object v4, v4, Lcom/android/systemui/media/NotificationPlayer$Command;->uri:Landroid/net/Uri;
+
+    iget-object v5, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
+
+    invoke-static {v5}, Lcom/android/systemui/media/NotificationPlayer;->-get8(Lcom/android/systemui/media/NotificationPlayer;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
 
     :cond_0
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
@@ -147,8 +163,25 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-nez v4, :cond_1
 
+    iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
+
+    iget-object v4, v4, Lcom/android/systemui/media/NotificationPlayer$Command;->uri:Landroid/net/Uri;
+
+    iget-object v5, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
+
+    invoke-static {v5}, Lcom/android/systemui/media/NotificationPlayer;->-get8(Lcom/android/systemui/media/NotificationPlayer;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    :cond_1
     const/16 v4, 0x10
 
     const/4 v5, 0x0
@@ -160,7 +193,7 @@
     :goto_0
     invoke-virtual {v2, v3, v3}, Landroid/media/MediaPlayer;->setVolume(FF)V
 
-    :cond_1
+    :cond_2
     :goto_1
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
@@ -178,7 +211,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
@@ -188,7 +221,7 @@
 
     invoke-virtual {v4}, Landroid/media/MediaPlayer;->release()V
 
-    :cond_2
+    :cond_3
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
     invoke-static {v4, v2}, Lcom/android/systemui/media/NotificationPlayer;->-set2(Lcom/android/systemui/media/NotificationPlayer;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
@@ -208,7 +241,7 @@
 
     return-void
 
-    :cond_3
+    :cond_4
     const/16 v4, 0xb
 
     const/4 v5, 0x0
@@ -220,12 +253,12 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
     iget-object v4, v4, Lcom/android/systemui/media/NotificationPlayer$Command;->uri:Landroid/net/Uri;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
@@ -235,7 +268,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
@@ -249,13 +282,13 @@
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_2
 
     invoke-virtual {v0}, Landroid/media/AudioManager;->isMusicActiveRemotely()Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2
 
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
@@ -275,13 +308,13 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_6
 
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
     iget-boolean v4, v4, Lcom/android/systemui/media/NotificationPlayer$Command;->looping:Z
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
@@ -304,7 +337,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    :cond_5
+    :cond_6
     :try_start_5
     monitor-exit v5
     :try_end_5
@@ -358,7 +391,7 @@
 
     throw v4
 
-    :cond_6
+    :cond_7
     :try_start_7
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 

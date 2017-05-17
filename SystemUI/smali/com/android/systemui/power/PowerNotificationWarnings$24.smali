@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showWaterProtectionAlertDialog()V
+    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showUnintentionalLcdOnPopUp()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -41,26 +41,7 @@
 
     const/4 v1, 0x0
 
-    iput-object v1, v0, Lcom/android/systemui/power/PowerNotificationWarnings;->mWaterProtectionAlertDialog:Landroid/app/AlertDialog;
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$24;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get12(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$24;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-virtual {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->showWaterProtectionAlertDialog()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$24;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set11(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set21(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     return-void
 .end method

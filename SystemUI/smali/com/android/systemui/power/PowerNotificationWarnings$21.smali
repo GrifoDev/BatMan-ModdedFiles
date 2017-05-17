@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showPowerSupplyingInLowBatteryPopUp(I)V
+    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showIncompatibleChargerPopUpAndNotification()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,19 +35,17 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$21;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set16(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set13(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$21;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get9(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get5(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
 
     move-result v0
 
@@ -55,12 +53,14 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$21;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-virtual {v0, v2}, Lcom/android/systemui/power/PowerNotificationWarnings;->showPowerSupplyingInLowBatteryNotice(I)V
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-wrap6(Lcom/android/systemui/power/PowerNotificationWarnings;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$21;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0, v2}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set8(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set4(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
 
     return-void
 .end method

@@ -600,7 +600,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_18
+    if-eqz v6, :cond_1a
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
@@ -619,7 +619,7 @@
 
     move-result v6
 
-    if-ne v2, v6, :cond_19
+    if-ne v2, v6, :cond_1b
 
     :cond_15
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
@@ -650,12 +650,18 @@
 
     move-result v6
 
-    if-eqz v6, :cond_14
+    if-eqz v6, :cond_18
 
     iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
 
-    if-nez v6, :cond_14
+    if-eqz v6, :cond_19
 
+    :cond_18
+    if-eqz p2, :cond_14
+
+    return p2
+
+    :cond_19
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
     const v7, 0x7f0b0169
@@ -666,7 +672,7 @@
 
     return v6
 
-    :cond_18
+    :cond_1a
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
     invoke-virtual {v6}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarCurrentColor()I
@@ -675,7 +681,7 @@
 
     goto :goto_2
 
-    :cond_19
+    :cond_1b
     const/4 v6, 0x3
 
     new-array v3, v6, [F
@@ -684,7 +690,7 @@
 
     sget-boolean v6, Lcom/android/systemui/statusbar/phone/NavigationBarController;->DEBUG:Z
 
-    if-eqz v6, :cond_1a
+    if-eqz v6, :cond_1c
 
     const-string/jumbo v6, "NavigationBarController"
 
@@ -740,7 +746,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1a
+    :cond_1c
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
     const v7, 0x7f0b0169
@@ -759,7 +765,7 @@
 
     cmpg-double v6, v6, v8
 
-    if-gtz v6, :cond_1c
+    if-gtz v6, :cond_1e
 
     const/4 v6, 0x2
 
@@ -771,7 +777,7 @@
 
     cmpl-double v6, v6, v8
 
-    if-ltz v6, :cond_1c
+    if-ltz v6, :cond_1e
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
@@ -781,11 +787,11 @@
 
     move-result v0
 
-    :cond_1b
+    :cond_1d
     :goto_3
     return v0
 
-    :cond_1c
+    :cond_1e
     const/4 v6, 0x2
 
     aget v6, v3, v6
@@ -796,7 +802,7 @@
 
     cmpg-double v6, v6, v8
 
-    if-gtz v6, :cond_1d
+    if-gtz v6, :cond_1f
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
@@ -808,7 +814,7 @@
 
     goto :goto_3
 
-    :cond_1d
+    :cond_1f
     const/4 v6, 0x0
 
     aget v6, v3, v6
@@ -817,7 +823,7 @@
 
     cmpg-float v6, v6, v7
 
-    if-lez v6, :cond_1e
+    if-lez v6, :cond_20
 
     const/4 v6, 0x0
 
@@ -827,7 +833,7 @@
 
     cmpl-float v6, v6, v7
 
-    if-ltz v6, :cond_23
+    if-ltz v6, :cond_25
 
     const/4 v6, 0x0
 
@@ -837,9 +843,9 @@
 
     cmpg-float v6, v6, v7
 
-    if-gtz v6, :cond_23
+    if-gtz v6, :cond_25
 
-    :cond_1e
+    :cond_20
     const/4 v6, 0x1
 
     aget v6, v3, v6
@@ -850,7 +856,7 @@
 
     cmpl-double v6, v6, v8
 
-    if-ltz v6, :cond_20
+    if-ltz v6, :cond_22
 
     const/4 v6, 0x1
 
@@ -859,79 +865,6 @@
     float-to-double v6, v6
 
     const-wide v8, 0x3fdccccccccccccdL    # 0.45
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_20
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_20
-
-    :cond_1f
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0176
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto :goto_3
-
-    :cond_20
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fdccccccccccccdL    # 0.45
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_21
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_21
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_1f
-
-    :cond_21
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fa999999999999aL    # 0.05
 
     cmpg-double v6, v6, v8
 
@@ -943,11 +876,84 @@
 
     float-to-double v6, v6
 
-    const-wide v8, 0x3fe6666666666666L    # 0.7
+    const-wide v8, 0x3fee666666666666L    # 0.95
 
     cmpl-double v6, v6, v8
 
     if-ltz v6, :cond_22
+
+    :cond_21
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v7, 0x7f0b0176
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto :goto_3
+
+    :cond_22
+    const/4 v6, 0x1
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fdccccccccccccdL    # 0.45
+
+    cmpg-double v6, v6, v8
+
+    if-gtz v6, :cond_23
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3feb333333333333L    # 0.85
+
+    cmpl-double v6, v6, v8
+
+    if-ltz v6, :cond_23
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fee666666666666L    # 0.95
+
+    cmpg-double v6, v6, v8
+
+    if-lez v6, :cond_21
+
+    :cond_23
+    const/4 v6, 0x1
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fa999999999999aL    # 0.05
+
+    cmpg-double v6, v6, v8
+
+    if-gtz v6, :cond_24
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fe6666666666666L    # 0.7
+
+    cmpl-double v6, v6, v8
+
+    if-ltz v6, :cond_24
 
     const/4 v6, 0x2
 
@@ -959,9 +965,9 @@
 
     cmpg-double v6, v6, v8
 
-    if-lez v6, :cond_1f
+    if-lez v6, :cond_21
 
-    :cond_22
+    :cond_24
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
     const v7, 0x7f0b0177
@@ -972,7 +978,7 @@
 
     goto/16 :goto_3
 
-    :cond_23
+    :cond_25
     const/4 v6, 0x0
 
     aget v6, v3, v6
@@ -981,7 +987,7 @@
 
     cmpl-float v6, v6, v7
 
-    if-ltz v6, :cond_28
+    if-ltz v6, :cond_2a
 
     const/4 v6, 0x0
 
@@ -991,7 +997,7 @@
 
     cmpg-float v6, v6, v7
 
-    if-gtz v6, :cond_28
+    if-gtz v6, :cond_2a
 
     const/4 v6, 0x1
 
@@ -1000,79 +1006,6 @@
     float-to-double v6, v6
 
     const-wide v8, 0x3fc999999999999aL    # 0.2
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_25
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_25
-
-    :cond_24
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0176
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto/16 :goto_3
-
-    :cond_25
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_26
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_24
-
-    :cond_26
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fc999999999999aL    # 0.2
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_27
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fe6666666666666L    # 0.7
 
     cmpl-double v6, v6, v8
 
@@ -1084,16 +1017,16 @@
 
     float-to-double v6, v6
 
-    const-wide v8, 0x3feb333333333333L    # 0.85
+    const-wide v8, 0x3fee666666666666L    # 0.95
 
-    cmpg-double v6, v6, v8
+    cmpl-double v6, v6, v8
 
-    if-lez v6, :cond_24
+    if-ltz v6, :cond_27
 
-    :cond_27
+    :cond_26
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0177
+    const v7, 0x7f0b0176
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
 
@@ -1101,39 +1034,18 @@
 
     goto/16 :goto_3
 
-    :cond_28
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x41f00000    # 30.0f
-
-    cmpl-float v6, v6, v7
-
-    if-ltz v6, :cond_2a
-
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x42480000    # 50.0f
-
-    cmpg-float v6, v6, v7
-
-    if-gtz v6, :cond_2a
-
-    :goto_4
-    const/4 v6, 0x1
+    :cond_27
+    const/4 v6, 0x2
 
     aget v6, v3, v6
 
     float-to-double v6, v6
 
-    const-wide v8, 0x3fc999999999999aL    # 0.2
+    const-wide v8, 0x3feb333333333333L    # 0.85
 
     cmpl-double v6, v6, v8
 
-    if-ltz v6, :cond_2b
+    if-ltz v6, :cond_28
 
     const/4 v6, 0x2
 
@@ -1143,14 +1055,51 @@
 
     const-wide v8, 0x3fee666666666666L    # 0.95
 
+    cmpg-double v6, v6, v8
+
+    if-lez v6, :cond_26
+
+    :cond_28
+    const/4 v6, 0x1
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fc999999999999aL    # 0.2
+
+    cmpg-double v6, v6, v8
+
+    if-gtz v6, :cond_29
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fe6666666666666L    # 0.7
+
     cmpl-double v6, v6, v8
 
-    if-ltz v6, :cond_2b
+    if-ltz v6, :cond_29
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3feb333333333333L    # 0.85
+
+    cmpg-double v6, v6, v8
+
+    if-lez v6, :cond_26
 
     :cond_29
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0176
+    const v7, 0x7f0b0177
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
 
@@ -1163,81 +1112,30 @@
 
     aget v6, v3, v6
 
-    const/high16 v7, 0x43110000    # 145.0f
+    const/high16 v7, 0x41f00000    # 30.0f
 
     cmpl-float v6, v6, v7
 
-    if-ltz v6, :cond_1b
+    if-ltz v6, :cond_2c
 
     const/4 v6, 0x0
 
     aget v6, v3, v6
 
-    const/high16 v7, 0x433e0000    # 190.0f
+    const/high16 v7, 0x42480000    # 50.0f
 
     cmpg-float v6, v6, v7
 
-    if-gtz v6, :cond_1b
-
-    goto :goto_4
-
-    :cond_2b
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fdccccccccccccdL    # 0.45
-
-    cmpg-double v6, v6, v8
-
     if-gtz v6, :cond_2c
 
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_2c
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_29
-
-    :cond_2c
+    :goto_4
     const/4 v6, 0x1
 
     aget v6, v3, v6
 
     float-to-double v6, v6
 
-    const-wide v8, 0x3fc3333333333333L    # 0.15
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_2d
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fe6666666666666L    # 0.7
+    const-wide v8, 0x3fc999999999999aL    # 0.2
 
     cmpl-double v6, v6, v8
 
@@ -1249,13 +1147,121 @@
 
     float-to-double v6, v6
 
+    const-wide v8, 0x3fee666666666666L    # 0.95
+
+    cmpl-double v6, v6, v8
+
+    if-ltz v6, :cond_2d
+
+    :cond_2b
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v7, 0x7f0b0176
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto/16 :goto_3
+
+    :cond_2c
+    const/4 v6, 0x0
+
+    aget v6, v3, v6
+
+    const/high16 v7, 0x43110000    # 145.0f
+
+    cmpl-float v6, v6, v7
+
+    if-ltz v6, :cond_1d
+
+    const/4 v6, 0x0
+
+    aget v6, v3, v6
+
+    const/high16 v7, 0x433e0000    # 190.0f
+
+    cmpg-float v6, v6, v7
+
+    if-gtz v6, :cond_1d
+
+    goto :goto_4
+
+    :cond_2d
+    const/4 v6, 0x1
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fdccccccccccccdL    # 0.45
+
+    cmpg-double v6, v6, v8
+
+    if-gtz v6, :cond_2e
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3feb333333333333L    # 0.85
+
+    cmpl-double v6, v6, v8
+
+    if-ltz v6, :cond_2e
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fee666666666666L    # 0.95
+
+    cmpg-double v6, v6, v8
+
+    if-lez v6, :cond_2b
+
+    :cond_2e
+    const/4 v6, 0x1
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fc3333333333333L    # 0.15
+
+    cmpg-double v6, v6, v8
+
+    if-gtz v6, :cond_2f
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
+    const-wide v8, 0x3fe6666666666666L    # 0.7
+
+    cmpl-double v6, v6, v8
+
+    if-ltz v6, :cond_2f
+
+    const/4 v6, 0x2
+
+    aget v6, v3, v6
+
+    float-to-double v6, v6
+
     const-wide v8, 0x3feb333333333333L    # 0.85
 
     cmpg-double v6, v6, v8
 
-    if-lez v6, :cond_29
+    if-lez v6, :cond_2b
 
-    :cond_2d
+    :cond_2f
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
     const v7, 0x7f0b0177

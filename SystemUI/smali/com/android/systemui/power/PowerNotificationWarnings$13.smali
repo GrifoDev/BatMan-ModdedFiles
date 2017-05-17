@@ -3,7 +3,7 @@
 .source "PowerNotificationWarnings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -34,33 +34,57 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$13;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    :try_start_0
+    new-instance v1, Landroid/content/Intent;
 
-    const/4 v1, 0x0
+    const-string/jumbo v2, "android.intent.action.REBOOT"
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set17(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$13;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    const-string/jumbo v2, "android.intent.extra.KEY_CONFIRM"
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get10(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
+    const/4 v3, 0x0
 
-    move-result v0
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    if-eqz v0, :cond_0
+    const/high16 v2, 0x10000000
 
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$13;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-wrap9(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    iget-object v2, p0, Lcom/android/systemui/power/PowerNotificationWarnings$13;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$13;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    invoke-static {v2}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get2(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/content/Context;
 
-    const/4 v1, 0x0
+    move-result-object v2
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set9(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
+    sget-object v3, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
 
+    invoke-virtual {v2, v1, v3}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    const-string/jumbo v2, "PowerUI.Notification"
+
+    const-string/jumbo v3, "showSafeModePopUp() - Request Reboot"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "PowerUI.Notification"
+
+    const-string/jumbo v3, "Can\'t Request Reboot by unkown reason"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
 .end method

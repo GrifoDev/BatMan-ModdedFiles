@@ -3,12 +3,12 @@
 .source "PowerNotificationWarnings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showUnintentionalLcdOnPopUp()V
+    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showPowerSupplyingInLowBatteryPopUp(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,22 +34,33 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 3
+
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$22;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get2(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/content/Context;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set16(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
-    new-instance v1, Landroid/content/Intent;
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$22;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    const-string/jumbo v2, "com.samsung.intent.action.KSO_CLICK_OK"
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get9(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result v0
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$22;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/power/PowerNotificationWarnings;->showPowerSupplyingInLowBatteryNotice(I)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$22;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0, v2}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set8(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
 
     return-void
 .end method

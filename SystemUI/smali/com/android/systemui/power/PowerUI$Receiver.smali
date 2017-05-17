@@ -1205,7 +1205,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1d
+    if-eqz v5, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -1233,7 +1233,7 @@
 
     const/4 v8, 0x1
 
-    if-ne v5, v8, :cond_19
+    if-ne v5, v8, :cond_1a
 
     const/4 v5, 0x1
 
@@ -1292,7 +1292,7 @@
 
     move/from16 v0, v20
 
-    if-eq v0, v5, :cond_1a
+    if-eq v0, v5, :cond_19
 
     move-object/from16 v0, p0
 
@@ -1302,7 +1302,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1a
+    if-eqz v5, :cond_1b
 
     move-object/from16 v0, p0
 
@@ -1312,8 +1312,17 @@
 
     move-result-object v5
 
-    invoke-interface {v5}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showWaterProtectionAlertDialog()V
+    move-object/from16 v0, p0
 
+    iget-object v6, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v6}, Lcom/android/systemui/power/PowerUI;->-get6(Lcom/android/systemui/power/PowerUI;)Z
+
+    move-result v6
+
+    invoke-interface {v5, v6}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showWaterProtectionAlertDialog(Z)V
+
+    :cond_19
     :goto_9
     sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_USB_TYPE_C:Z
 
@@ -1345,7 +1354,7 @@
 
     and-int/2addr v5, v8
 
-    if-eqz v5, :cond_1b
+    if-eqz v5, :cond_1c
 
     const/4 v5, 0x1
 
@@ -1414,7 +1423,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1c
+    if-eqz v5, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -1436,7 +1445,7 @@
 
     aget v6, v6, v8
 
-    if-gt v5, v6, :cond_1c
+    if-gt v5, v6, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -1458,12 +1467,12 @@
 
     goto/16 :goto_7
 
-    :cond_19
+    :cond_1a
     const/4 v5, 0x0
 
     goto/16 :goto_8
 
-    :cond_1a
+    :cond_1b
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
@@ -1472,16 +1481,24 @@
 
     move-result-object v5
 
-    invoke-interface {v5}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissWaterProtectionAlertDialog()V
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    invoke-static {v6}, Lcom/android/systemui/power/PowerUI;->-get6(Lcom/android/systemui/power/PowerUI;)Z
+
+    move-result v6
+
+    invoke-interface {v5, v6}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissWaterProtectionAlertDialog(Z)V
 
     goto/16 :goto_9
 
-    :cond_1b
+    :cond_1c
     const/4 v5, 0x0
 
     goto/16 :goto_a
 
-    :cond_1c
+    :cond_1d
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
@@ -1494,14 +1511,14 @@
 
     goto/16 :goto_7
 
-    :cond_1d
+    :cond_1e
     const-string/jumbo v5, "com.samsung.CHECK_COOLDOWN_LEVEL"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1e
+    if-eqz v5, :cond_1f
 
     move-object/from16 v0, p0
 
@@ -1513,14 +1530,14 @@
 
     goto/16 :goto_7
 
-    :cond_1e
+    :cond_1f
     const-string/jumbo v5, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-nez v5, :cond_1f
+    if-nez v5, :cond_20
 
     const-string/jumbo v5, "com.sec.android.intent.action.SAFEMODE_ENABLE"
 
@@ -1528,9 +1545,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_22
+    if-eqz v5, :cond_23
 
-    :cond_1f
+    :cond_20
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
@@ -1545,7 +1562,7 @@
 
     move-result-object v27
 
-    if-eqz v27, :cond_20
+    if-eqz v27, :cond_21
 
     const-string/jumbo v5, "OverheatShutdownHappened"
 
@@ -1557,7 +1574,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_20
+    if-eqz v5, :cond_21
 
     invoke-interface/range {v27 .. v27}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
@@ -1595,7 +1612,7 @@
 
     invoke-interface {v5}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showOverheatShutdownHappenedNotice()V
 
-    :cond_20
+    :cond_21
     :try_start_0
     const-string/jumbo v5, "window"
 
@@ -1611,7 +1628,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_21
+    if-eqz v15, :cond_22
 
     move-object/from16 v0, p0
 
@@ -1625,7 +1642,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_21
+    :cond_22
     :goto_b
     const-string/jumbo v5, "android.intent.action.BOOT_COMPLETED"
 
@@ -1658,14 +1675,14 @@
 
     goto :goto_b
 
-    :cond_22
+    :cond_23
     const-string/jumbo v5, "com.samsung.intent.action.KSO_SHOW_POPUP"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_23
+    if-eqz v5, :cond_24
 
     move-object/from16 v0, p0
 
@@ -1679,7 +1696,7 @@
 
     goto/16 :goto_7
 
-    :cond_23
+    :cond_24
     const-string/jumbo v5, "PowerUI"
 
     new-instance v6, Ljava/lang/StringBuilder;

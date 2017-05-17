@@ -16,8 +16,8 @@
     <string name="mw_divider_button_freeform">Abrir na janela suspensa</string>
     <string name="mw_divider_button_close">Fechar aplicativo</string>
     <string name="multi_window_title_text">Multi janela</string>
-    <string name="dock_minimized_notification_text">%s foi minimizado</string>
-    <string name="dock_minimized_toast_text">%s foi minimizado.</string>
+    <string name="dock_minimized_notification_text">%s foi minimizado(a)</string>
+    <string name="dock_minimized_toast_text">%s foi minimizado(a)</string>
     <string name="dock_minimized_notification_dimiss_text">Fechar</string>
     <string name="dock_minimized_notification_content_text">Toque aqui para abrir.</string>
     <string name="cancel">Cancelar</string>

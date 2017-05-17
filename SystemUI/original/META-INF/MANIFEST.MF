@@ -6814,7 +6814,7 @@ Name: res/drawable/ic_add_circle_qs.xml
 SHA-256-Digest: S/2MPW1bHfTx0tkDFId+G+vzkUqb3T9A3j69VQYKm9k=
 
 Name: resources.arsc
-SHA-256-Digest: 46sJlHDegNdfECuMJ9tvmTv7tTWDe1yGZEET8sw/d2s=
+SHA-256-Digest: OtJ0qtDlmvRsVPD8rxpdqI6716Yno81jn2ODfybxGOw=
 
 Name: res/drawable/list_ic_tv.spr
 SHA-256-Digest: HOhGG2gNG+aGWHfxJQRTnaC6Bxr3WbXTQ782iw0OaEs=
@@ -7027,7 +7027,7 @@ Name: res/drawable/recents_lock_to_task_button_bg.xml
 SHA-256-Digest: K9ZZw82GkYMUUmAI0HTyAJe+h2kiP4e76svv01b/aUQ=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: mH96lbx6n2toXoQQFur7/t1YP9gfVEG7PPLwub1Ipt4=
+SHA-256-Digest: pGPFc+1dkECp/DSo6f/0PuYBFhhH9/3qpWFCrcLM78o=
 
 Name: res/drawable-xxhdpi-v4/stat_sys_signal_ctc_two_line_4_3.pio
 SHA-256-Digest: FzPw8jEP9fFWpRimxNRtg0KiAhSP4xNt/70ZpPx6itY=

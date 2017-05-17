@@ -66,6 +66,8 @@
 
 .field private mWakeLock:Landroid/os/PowerManager$WakeLock;
 
+.field private final mWaterProtectionUri:Landroid/net/Uri;
+
 
 # direct methods
 .method static synthetic -get0(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/AudioManager;
@@ -128,6 +130,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mTag:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get8(Lcom/android/systemui/media/NotificationPlayer;)Landroid/net/Uri;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mWaterProtectionUri:Landroid/net/Uri;
 
     return-object v0
 .end method
@@ -200,6 +210,14 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mLowBatteryUri:Landroid/net/Uri;
+
+    const-string/jumbo v0, "system/media/audio/ui/Water_Protection.ogg"
+
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mWaterProtectionUri:Landroid/net/Uri;
 
     new-instance v0, Ljava/util/LinkedList;
 
