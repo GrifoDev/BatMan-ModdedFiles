@@ -107,6 +107,8 @@
 
 .field public mIsAutoclickEnabled:Z
 
+.field public mIsBixbyRunning:Z
+
 .field public mIsDisplayMagnificationEnabled:Z
 
 .field public mIsEnhancedWebAccessibilityEnabled:Z
@@ -378,6 +380,13 @@
     or-int/lit8 v0, v0, 0x4
 
     :cond_2
+    iget-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsBixbyRunning:Z
+
+    if-eqz v1, :cond_3
+
+    or-int/lit16 v0, v0, 0x100
+
+    :cond_3
     return v0
 .end method
 

@@ -61,7 +61,7 @@
 
     move v6, v4
 
-    invoke-static/range {v0 .. v6}, Lcom/android/server/audio/AudioService;->-wrap57(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/audio/AudioService;->-wrap58(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     :cond_0
     return-void

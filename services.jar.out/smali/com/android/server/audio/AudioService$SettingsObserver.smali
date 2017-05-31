@@ -247,7 +247,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$SettingsObserver;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0, v8}, Lcom/android/server/audio/AudioService;->-wrap56(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v0, v8}, Lcom/android/server/audio/AudioService;->-wrap57(Lcom/android/server/audio/AudioService;I)V
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$SettingsObserver;->this$0:Lcom/android/server/audio/AudioService;
 
@@ -366,7 +366,7 @@
 
     const/4 v4, 0x0
 
-    invoke-static {v1, v3, v4}, Lcom/android/server/audio/AudioService;->-wrap71(Lcom/android/server/audio/AudioService;IZ)V
+    invoke-static {v1, v3, v4}, Lcom/android/server/audio/AudioService;->-wrap72(Lcom/android/server/audio/AudioService;IZ)V
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/audio/AudioService$SettingsObserver;->this$0:Lcom/android/server/audio/AudioService;
@@ -377,7 +377,7 @@
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap49(Lcom/android/server/audio/AudioService;Landroid/content/ContentResolver;)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap50(Lcom/android/server/audio/AudioService;Landroid/content/ContentResolver;)V
 
     iget-object v1, p0, Lcom/android/server/audio/AudioService$SettingsObserver;->this$0:Lcom/android/server/audio/AudioService;
 
@@ -387,7 +387,7 @@
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap75(Lcom/android/server/audio/AudioService;Landroid/content/ContentResolver;)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap76(Lcom/android/server/audio/AudioService;Landroid/content/ContentResolver;)V
 
     invoke-direct {p0}, Lcom/android/server/audio/AudioService$SettingsObserver;->updateEncodedSurroundOutput()V
 
@@ -429,7 +429,7 @@
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap73(Lcom/android/server/audio/AudioService;Z)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap74(Lcom/android/server/audio/AudioService;Z)V
 
     :cond_1
     iget-object v1, p0, Lcom/android/server/audio/AudioService$SettingsObserver;->this$0:Lcom/android/server/audio/AudioService;
@@ -484,7 +484,7 @@
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap62(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap63(Lcom/android/server/audio/AudioService;I)V
 
     :cond_2
     :goto_0
@@ -558,7 +558,7 @@
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap63(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap64(Lcom/android/server/audio/AudioService;I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -651,7 +651,7 @@
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap65(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap66(Lcom/android/server/audio/AudioService;I)V
 
     goto/16 :goto_0
 
@@ -708,7 +708,7 @@
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap64(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap65(Lcom/android/server/audio/AudioService;I)V
 
     goto/16 :goto_0
 
@@ -811,7 +811,7 @@
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap65(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap66(Lcom/android/server/audio/AudioService;I)V
 
     goto/16 :goto_0
 
@@ -824,7 +824,7 @@
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap65(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap66(Lcom/android/server/audio/AudioService;I)V
 
     goto/16 :goto_0
 
@@ -885,7 +885,7 @@
 
     move-result v3
 
-    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap65(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v1, v3}, Lcom/android/server/audio/AudioService;->-wrap66(Lcom/android/server/audio/AudioService;I)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

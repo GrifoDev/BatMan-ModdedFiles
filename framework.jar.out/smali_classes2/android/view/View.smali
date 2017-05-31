@@ -6141,6 +6141,32 @@
     goto :goto_a
 .end method
 
+.method private canUseAccessibilityDelegate()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isBixbyRunning()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
 .method private checkForLongClick(IFF)V
     .locals 4
 
@@ -12104,6 +12130,12 @@
 
     invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityEvent;->setAction(I)V
 
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
     iget-object v1, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
     if-eqz v1, :cond_1
@@ -12511,6 +12543,12 @@
 
 .method public createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 1
+
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
@@ -14654,6 +14692,12 @@
 
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
+
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
@@ -19219,9 +19263,21 @@
 .method public getAccessibilityDelegate()Landroid/view/View$AccessibilityDelegate;
     .locals 1
 
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
+    :goto_0
     return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getAccessibilityLiveRegion()I
@@ -19242,6 +19298,12 @@
     .locals 2
 
     const/4 v1, 0x0
+
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
@@ -29306,6 +29368,12 @@
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
 
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
     if-eqz v0, :cond_0
@@ -29453,6 +29521,12 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 1
+
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
@@ -30117,6 +30191,12 @@
 
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
+
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
@@ -31589,6 +31669,12 @@
 
 .method public performAccessibilityAction(ILandroid/os/Bundle;)Z
     .locals 1
+
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
@@ -35470,6 +35556,12 @@
 .method public sendAccessibilityEvent(I)V
     .locals 1
 
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
     if-eqz v0, :cond_0
@@ -35514,6 +35606,12 @@
 
 .method public sendAccessibilityEventUnchecked(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
+
+    invoke-direct {p0}, Landroid/view/View;->canUseAccessibilityDelegate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View;->mAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 

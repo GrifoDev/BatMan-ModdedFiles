@@ -107,7 +107,7 @@
 
     iget-object v4, p0, Lcom/android/server/audio/AudioService$SetModeDeathHandler;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v4, v3}, Lcom/android/server/audio/AudioService;->-wrap28(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v4, v3}, Lcom/android/server/audio/AudioService;->-wrap29(Lcom/android/server/audio/AudioService;I)V
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 

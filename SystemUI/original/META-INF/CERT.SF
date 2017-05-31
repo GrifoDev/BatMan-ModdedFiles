@@ -1,5 +1,5 @@
 Signature-Version: 1.0
-SHA-256-Digest-Manifest: aiLZyBHe1ssXSQg8dw1Wh1aujVN0Z5b5Au9RjY4M/m0=
+SHA-256-Digest-Manifest: JRjGf9NCTtu52iGFN77NgKJcC4DIyBKCDaMblOvxX9I=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/layout/lb_picker.xml
@@ -7028,7 +7028,7 @@ Name: res/drawable/recents_lock_to_task_button_bg.xml
 SHA-256-Digest: IDHnJAqtXu4fZfAkdru53u2lTtGF3UfVAXtuH1RZt7M=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: GyBfFSfdfjA56SdSlRpaxRF1W6t+sE7eRi0kGAE5nW0=
+SHA-256-Digest: 7zsH4MJoTjcOeMdv4NmqtyQH+oJXs01cyp/K5Qbqa+U=
 
 Name: res/drawable-xxhdpi-v4/stat_sys_signal_ctc_two_line_4_3.pio
 SHA-256-Digest: oWGjN8qQCqNWu7kXN8r+aKt/IxSCFEbo5QFSDOueRtQ=

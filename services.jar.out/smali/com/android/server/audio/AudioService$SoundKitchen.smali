@@ -129,7 +129,7 @@
 
     aget v6, v4, v3
 
-    invoke-static {v5, v6}, Lcom/android/server/audio/AudioService;->-wrap54(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v5, v6}, Lcom/android/server/audio/AudioService;->-wrap55(Lcom/android/server/audio/AudioService;I)V
 
     :cond_0
     add-int/lit8 v3, v3, 0x1
@@ -1622,7 +1622,7 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/android/server/audio/AudioService;->-wrap54(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v1, v2}, Lcom/android/server/audio/AudioService;->-wrap55(Lcom/android/server/audio/AudioService;I)V
 
     :cond_3
     const-wide/16 v2, 0xc8

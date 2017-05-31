@@ -151,7 +151,7 @@
 
     const/4 v5, 0x0
 
-    invoke-static/range {v1 .. v7}, Lcom/android/server/audio/AudioService;->-wrap47(Lcom/android/server/audio/AudioService;Landroid/os/Handler;IIILjava/lang/Object;I)V
+    invoke-static/range {v1 .. v7}, Lcom/android/server/audio/AudioService;->-wrap48(Lcom/android/server/audio/AudioService;Landroid/os/Handler;IIILjava/lang/Object;I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -247,7 +247,7 @@
 
     move-object v13, v6
 
-    invoke-static/range {v8 .. v14}, Lcom/android/server/audio/AudioService;->-wrap47(Lcom/android/server/audio/AudioService;Landroid/os/Handler;IIILjava/lang/Object;I)V
+    invoke-static/range {v8 .. v14}, Lcom/android/server/audio/AudioService;->-wrap48(Lcom/android/server/audio/AudioService;Landroid/os/Handler;IIILjava/lang/Object;I)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
@@ -410,7 +410,7 @@
 
     const/4 v14, 0x0
 
-    invoke-static/range {v8 .. v14}, Lcom/android/server/audio/AudioService;->-wrap57(Landroid/os/Handler;IIIILjava/lang/Object;I)V
+    invoke-static/range {v8 .. v14}, Lcom/android/server/audio/AudioService;->-wrap58(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_3
 

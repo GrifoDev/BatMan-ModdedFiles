@@ -28,6 +28,8 @@
 
 .field private static final LOG_TAG:Ljava/lang/String; = "AccessibilityManager"
 
+.field public static final SEM_STATE_FLAG_BIXBY:I = 0x100
+
 .field public static final SEM_STATE_FLAG_GOOGLE_TALKBACK:I = 0x10
 
 .field public static final SEM_STATE_FLAG_UNIVERSAL_SWITCH:I = 0x40
@@ -71,6 +73,8 @@
         }
     .end annotation
 .end field
+
+.field mIsBixbyRunning:Z
 
 .field mIsEnabled:Z
 
@@ -454,84 +458,98 @@
 .end method
 
 .method private setStateLocked(I)V
-    .locals 8
+    .locals 9
 
-    and-int/lit8 v6, p1, 0x1
+    and-int/lit8 v7, p1, 0x1
 
-    if-eqz v6, :cond_3
-
-    const/4 v0, 0x1
-
-    :goto_0
-    and-int/lit8 v6, p1, 0x2
-
-    if-eqz v6, :cond_4
-
-    const/4 v2, 0x1
-
-    :goto_1
-    and-int/lit8 v6, p1, 0x4
-
-    if-eqz v6, :cond_5
+    if-eqz v7, :cond_3
 
     const/4 v1, 0x1
 
+    :goto_0
+    and-int/lit8 v7, p1, 0x2
+
+    if-eqz v7, :cond_4
+
+    const/4 v3, 0x1
+
+    :goto_1
+    and-int/lit8 v7, p1, 0x4
+
+    if-eqz v7, :cond_5
+
+    const/4 v2, 0x1
+
     :goto_2
-    iget-boolean v3, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
+    and-int/lit16 v7, p1, 0x100
 
-    iget-boolean v5, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
+    if-eqz v7, :cond_6
 
-    iget-boolean v4, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
+    const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
+    :goto_3
+    iget-boolean v4, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
 
-    iput-boolean v2, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
+    iget-boolean v6, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
 
-    iput-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
+    iget-boolean v5, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
 
-    if-eq v3, v0, :cond_0
+    iput-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+    iput-boolean v3, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
 
-    const/4 v7, 0x1
+    iput-boolean v2, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
 
-    invoke-virtual {v6, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    iput-boolean v0, p0, Landroid/view/accessibility/AccessibilityManager;->mIsBixbyRunning:Z
+
+    if-eq v4, v1, :cond_0
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+
+    const/4 v8, 0x1
+
+    invoke-virtual {v7, v8}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_0
-    if-eq v5, v2, :cond_1
+    if-eq v6, v3, :cond_1
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
 
-    const/4 v7, 0x2
+    const/4 v8, 0x2
 
-    invoke-virtual {v6, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v7, v8}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_1
-    if-eq v4, v1, :cond_2
+    if-eq v5, v2, :cond_2
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
 
-    const/4 v7, 0x3
+    const/4 v8, 0x3
 
-    invoke-virtual {v6, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v7, v8}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_2
     return-void
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_4
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     goto :goto_1
 
     :cond_5
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto :goto_2
+
+    :cond_6
+    const/4 v0, 0x0
+
+    goto :goto_3
 .end method
 
 .method private tryConnectToServiceLocked(Landroid/view/accessibility/IAccessibilityManager;)V
@@ -1044,6 +1062,46 @@
     invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
+.end method
+
+.method public isBixbyRunning()Z
+    .locals 3
+
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->getServiceLocked()Landroid/view/accessibility/IAccessibilityManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x0
+
+    monitor-exit v2
+
+    return v1
+
+    :cond_0
+    :try_start_1
+    iget-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsBixbyRunning:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v2
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method public isEnabled()Z

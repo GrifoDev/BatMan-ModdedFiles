@@ -1778,6 +1778,62 @@
     return v3
 .end method
 
+.method private getCallerPackageList(I)[Ljava/lang/String;
+    .locals 7
+
+    const/4 v6, 0x0
+
+    iget-object v4, p0, Lcom/android/server/accessibility/AccessibilityManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v5, "activity"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager;
+
+    invoke-virtual {v0}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-lez v4, :cond_1
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/ActivityManager$RunningAppProcessInfo;
+
+    iget v4, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+
+    if-ne v4, p1, :cond_0
+
+    iget-object v4, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
+
+    return-object v4
+
+    :cond_1
+    return-object v6
+.end method
+
 .method private getCameraId()Ljava/lang/String;
     .locals 10
     .annotation system Ldalvik/annotation/Throws;
@@ -2079,6 +2135,39 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method private hasString([Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 5
+
+    const/4 v2, 0x0
+
+    array-length v3, p1
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v3, :cond_1
+
+    aget-object v0, p1, v1
+
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v2
 .end method
 
 .method private isTalkbackEnabled()Z
@@ -2402,6 +2491,8 @@
     invoke-direct {p0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->scheduleUpdateInputFilter(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
 
     invoke-direct {p0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->scheduleUpdateClientsIfNeededLocked(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
+
+    invoke-direct {p0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->updateBixbyStatusLocked(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
 
     return-void
 .end method
@@ -5300,6 +5391,59 @@
     return-void
 .end method
 
+.method private updateBixbyStatusLocked(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
+    .locals 6
+
+    iget-object v3, p1, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBoundServices:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+
+    iget-object v4, v2, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v4}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "com.samsung.android.bixby.agent.actorcore.ActorForceAccessibilityService"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const/4 v4, 0x1
+
+    iput-boolean v4, p1, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsBixbyRunning:Z
+
+    return-void
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v4, 0x0
+
+    iput-boolean v4, p1, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mIsBixbyRunning:Z
+
+    return-void
+.end method
+
 .method private updateDisplayColorAdjustmentSettingsLocked(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
     .locals 2
 
@@ -7772,7 +7916,7 @@
 .end method
 
 .method public getEnabledAccessibilityServiceList(II)Ljava/util/List;
-    .locals 11
+    .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -7783,115 +7927,194 @@
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v7, 0x0
 
-    iget-object v9, p0, Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    monitor-enter v9
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v14
 
     :try_start_0
-    iget-object v8, p0, Lcom/android/server/accessibility/AccessibilityManagerService;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8, p2}, Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;->resolveCallingUserIdEnforcingPermissionsLocked(I)I
+    iget-object v13, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;
 
-    move-result v2
+    move/from16 v0, p2
 
-    invoke-direct {p0, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->getUserStateLocked(I)Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
+    invoke-virtual {v13, v0}, Lcom/android/server/accessibility/AccessibilityManagerService$SecurityPolicy;->resolveCallingUserIdEnforcingPermissionsLocked(I)I
 
-    move-result-object v7
+    move-result v6
 
-    invoke-virtual {v7}, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->isUiAutomationSuppressingOtherServices()Z
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v8
+    move-result v13
 
-    if-eqz v8, :cond_0
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v13}, Lcom/android/server/accessibility/AccessibilityManagerService;->getCallerPackageList(I)[Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v13, 0x1
+
+    new-array v8, v13, [Ljava/lang/String;
+
+    const-string/jumbo v13, "com.samsung.android.bixby.agent"
+
+    const/4 v15, 0x0
+
+    aput-object v13, v8, v15
+
+    const-string/jumbo v13, "hide.bixby.accessibility"
+
+    const-string/jumbo v15, "com.kakao.talk"
+
+    invoke-static {v13, v15}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v13, "OFF"
+
+    invoke-virtual {v1, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-nez v13, :cond_0
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityManagerService;->hasString([Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    const/4 v5, 0x1
+
+    :cond_0
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6}, Lcom/android/server/accessibility/AccessibilityManagerService;->getUserStateLocked(I)Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->isUiAutomationSuppressingOtherServices()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_1
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v8
+    move-result-object v13
 
-    monitor-exit v9
+    monitor-exit v14
 
-    return-object v8
-
-    :cond_0
-    :try_start_1
-    iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService;->mEnabledServicesForFeedbackTempList:Ljava/util/List;
-
-    invoke-interface {v3}, Ljava/util/List;->clear()V
-
-    iget-object v6, v7, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBoundServices:Ljava/util/concurrent/CopyOnWriteArrayList;
+    return-object v13
 
     :cond_1
-    if-eqz p1, :cond_3
+    :try_start_1
+    move-object/from16 v0, p0
 
-    invoke-static {p1}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
+    iget-object v7, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mEnabledServicesForFeedbackTempList:Ljava/util/List;
 
-    move-result v8
+    invoke-interface {v7}, Ljava/util/List;->clear()V
 
-    const/4 v10, 0x1
-
-    shl-int v0, v10, v8
-
-    not-int v8, v0
-
-    and-int/2addr p1, v8
-
-    invoke-interface {v6}, Ljava/util/List;->size()I
-
-    move-result v5
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v5, :cond_1
-
-    invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/accessibility/AccessibilityManagerService$Service;
-
-    sget-object v8, Lcom/android/server/accessibility/AccessibilityManagerService;->sFakeAccessibilityServiceComponentName:Landroid/content/ComponentName;
-
-    iget-object v10, v4, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mComponentName:Landroid/content/ComponentName;
-
-    invoke-virtual {v8, v10}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_2
-
-    iget v8, v4, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mFeedbackType:I
-
-    and-int/2addr v8, v0
-
-    if-eqz v8, :cond_2
-
-    iget-object v8, v4, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mAccessibilityServiceInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
-
-    invoke-interface {v3, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    iget-object v11, v12, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mBoundServices:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     :cond_2
-    add-int/lit8 v1, v1, 0x1
+    if-eqz p1, :cond_5
+
+    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
+
+    move-result v13
+
+    const/4 v15, 0x1
+
+    shl-int v3, v15, v13
+
+    not-int v13, v3
+
+    and-int p1, p1, v13
+
+    invoke-interface {v11}, Ljava/util/List;->size()I
+
+    move-result v10
+
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v4, v10, :cond_2
+
+    invoke-interface {v11, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Lcom/android/server/accessibility/AccessibilityManagerService$Service;
+
+    if-eqz v5, :cond_4
+
+    iget-object v13, v9, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v13}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v8, v13}, Lcom/android/server/accessibility/AccessibilityManagerService;->hasString([Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_4
+
+    :cond_3
+    :goto_1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    :cond_3
-    monitor-exit v9
+    :cond_4
+    sget-object v13, Lcom/android/server/accessibility/AccessibilityManagerService;->sFakeAccessibilityServiceComponentName:Landroid/content/ComponentName;
 
-    return-object v3
+    iget-object v15, v9, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v13, v15}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v13
+
+    if-nez v13, :cond_3
+
+    iget v13, v9, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mFeedbackType:I
+
+    and-int/2addr v13, v3
+
+    if-eqz v13, :cond_3
+
+    iget-object v13, v9, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mAccessibilityServiceInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    invoke-interface {v7, v13}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_1
 
     :catchall_0
-    move-exception v8
+    move-exception v13
 
-    monitor-exit v9
+    monitor-exit v14
 
-    throw v8
+    throw v13
+
+    :cond_5
+    monitor-exit v14
+
+    return-object v7
 .end method
 
 .method public getInstalledAccessibilityServiceList(I)Ljava/util/List;
