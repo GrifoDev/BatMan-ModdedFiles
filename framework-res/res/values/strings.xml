@@ -2795,4 +2795,10 @@ USB functions may be restricted while Maximum power saving mode enabled."</strin
     <string name="wifi_extender_notification_title">Wi-Fi extender on</string>
     <string name="wifi_extender_notification_message">Tap here to set up.</string>
     <string name="config_tspstate_threshold" />
+    <string name="tw_ic_do_rebootrecovery">Reboot Recovery</string>
+    <string name="global_action_screenshot">Take Screenshot</string>
+    <string name="screenrec">Screen Recorder</string>
+    <string name="global_action_flashlight">Flashlight</string>
+    <string name="global_action_fast_reboot">Hot Reboot</string>
+    <string name="global_action_download">Download Mode</string>
 </resources>
