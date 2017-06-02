@@ -9738,6 +9738,8 @@
 
     move-result v1
 
+    goto :goto_0
+
     if-ne v1, v5, :cond_4
 
     iget-object v1, p0, Lcom/android/server/audio/AudioService;->mStreamVolumeAlias:[I
@@ -9802,6 +9804,7 @@
     return v4
 
     :cond_4
+    :goto_0
     monitor-exit v2
 
     return v3
