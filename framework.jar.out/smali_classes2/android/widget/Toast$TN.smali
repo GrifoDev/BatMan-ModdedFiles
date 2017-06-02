@@ -353,7 +353,7 @@
 
     iget-object v5, p0, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;
 
-    if-eq v4, v5, :cond_9
+    if-eq v4, v5, :cond_8
 
     invoke-virtual {p0}, Landroid/widget/Toast$TN;->handleHide()V
 
@@ -424,6 +424,21 @@
 
     move-result v2
 
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "animation_toast"
+
+    const/4 v6, 0x0
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    packed-switch v4, :pswitch_data_0
+
+    :goto_0
     iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v2, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
@@ -478,19 +493,6 @@
 
     iput-object v3, v4, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    iget-object v6, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
-
-    iget v4, p0, Landroid/widget/Toast$TN;->mDuration:I
-
-    const/4 v5, 0x1
-
-    if-ne v4, v5, :cond_a
-
-    const-wide/16 v4, 0x3e8
-
-    :goto_0
-    iput-wide v4, v6, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
-
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
     if-eqz v4, :cond_4
@@ -518,46 +520,17 @@
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
-
-    if-eqz v4, :cond_5
-
-    const-string/jumbo v4, "Toast"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Toast Duration: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget v6, p0, Landroid/widget/Toast$TN;->mDuration:I
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_5
     iget-object v4, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_6
 
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_5
 
     const-string/jumbo v4, "Toast"
 
@@ -593,17 +566,17 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_5
     iget-object v4, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
     iget-object v5, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-interface {v4, v5}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
 
-    :cond_7
+    :cond_6
     sget-boolean v4, Landroid/widget/Toast;->localLOGV:Z
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_7
 
     const-string/jumbo v4, "Toast"
 
@@ -639,7 +612,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_8
+    :cond_7
     iget-object v4, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
     iget-object v5, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
@@ -650,11 +623,15 @@
 
     invoke-direct {p0}, Landroid/widget/Toast$TN;->trySendAccessibilityEvent()V
 
-    :cond_9
+    :cond_8
     return-void
 
-    :cond_a
-    const-wide/16 v4, 0x1388
+    :pswitch_0
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const/4 v5, -0x1
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     goto/16 :goto_0
 .end method

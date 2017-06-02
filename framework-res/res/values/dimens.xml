@@ -218,6 +218,7 @@
     <dimen name="immersive_mode_animation_start_pos">46.0dip</dimen>
     <dimen name="knox_app_icon_width">52.0dip</dimen>
     <dimen name="knox_app_icon_height">52.0dip</dimen>
+    <item type="dimen" name="APKTOOL_DUMMY_dc">false</item>
     <dimen name="sem_resolver_max_collapsed_height">290.0dip</dimen>
     <dimen name="timepicker_text_inset_inner">58.0dip</dimen>
     <dimen name="timepicker_radial_picker_dimen">296.0dip</dimen>
@@ -950,5 +951,4 @@
     <dimen name="magnifier_handler_touch_area_height">28.0dip</dimen>
     <dimen name="magnifier_handler_touch_area_width">110.0dip</dimen>
     <dimen name="magnifier_new_frame_width_height">4.0dip</dimen>
-    <item type="dimen" name="APKTOOL_DUMMY_dc">false</item>
 </resources>

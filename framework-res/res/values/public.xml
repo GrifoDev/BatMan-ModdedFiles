@@ -615,6 +615,7 @@
     <public type="attr" name="imeOptions" id="0x01010264" />
     <public type="attr" name="imeActionLabel" id="0x01010265" />
     <public type="attr" name="imeActionId" id="0x01010266" />
+    <public type="attr" name="APKTOOL_DUMMY_267" id="0x01010267" />
     <public type="attr" name="imeExtractEnterAnimation" id="0x01010268" />
     <public type="attr" name="imeExtractExitAnimation" id="0x01010269" />
     <public type="attr" name="tension" id="0x0101026a" />
@@ -935,6 +936,7 @@
     <public type="attr" name="requiresFadingEdge" id="0x010103a5" />
     <public type="attr" name="publicKey" id="0x010103a6" />
     <public type="attr" name="parentActivityName" id="0x010103a7" />
+    <public type="attr" name="APKTOOL_DUMMY_3a8" id="0x010103a8" />
     <public type="attr" name="isolatedProcess" id="0x010103a9" />
     <public type="attr" name="importantForAccessibility" id="0x010103aa" />
     <public type="attr" name="keyboardLayout" id="0x010103ab" />
@@ -961,6 +963,7 @@
     <public type="attr" name="presentationTheme" id="0x010103c0" />
     <public type="attr" name="subtypeId" id="0x010103c1" />
     <public type="attr" name="initialKeyguardLayout" id="0x010103c2" />
+    <public type="attr" name="APKTOOL_DUMMY_3c3" id="0x010103c3" />
     <public type="attr" name="widgetCategory" id="0x010103c4" />
     <public type="attr" name="permissionGroupFlags" id="0x010103c5" />
     <public type="attr" name="labelFor" id="0x010103c6" />
@@ -1035,6 +1038,33 @@
     <public type="attr" name="strokeLineCap" id="0x0101040b" />
     <public type="attr" name="strokeLineJoin" id="0x0101040c" />
     <public type="attr" name="strokeMiterLimit" id="0x0101040d" />
+    <public type="attr" name="APKTOOL_DUMMY_40e" id="0x0101040e" />
+    <public type="attr" name="APKTOOL_DUMMY_40f" id="0x0101040f" />
+    <public type="attr" name="APKTOOL_DUMMY_410" id="0x01010410" />
+    <public type="attr" name="APKTOOL_DUMMY_411" id="0x01010411" />
+    <public type="attr" name="APKTOOL_DUMMY_412" id="0x01010412" />
+    <public type="attr" name="APKTOOL_DUMMY_413" id="0x01010413" />
+    <public type="attr" name="APKTOOL_DUMMY_414" id="0x01010414" />
+    <public type="attr" name="APKTOOL_DUMMY_415" id="0x01010415" />
+    <public type="attr" name="APKTOOL_DUMMY_416" id="0x01010416" />
+    <public type="attr" name="APKTOOL_DUMMY_417" id="0x01010417" />
+    <public type="attr" name="APKTOOL_DUMMY_418" id="0x01010418" />
+    <public type="attr" name="APKTOOL_DUMMY_419" id="0x01010419" />
+    <public type="attr" name="APKTOOL_DUMMY_41a" id="0x0101041a" />
+    <public type="attr" name="APKTOOL_DUMMY_41b" id="0x0101041b" />
+    <public type="attr" name="APKTOOL_DUMMY_41c" id="0x0101041c" />
+    <public type="attr" name="APKTOOL_DUMMY_41d" id="0x0101041d" />
+    <public type="attr" name="APKTOOL_DUMMY_41e" id="0x0101041e" />
+    <public type="attr" name="APKTOOL_DUMMY_41f" id="0x0101041f" />
+    <public type="attr" name="APKTOOL_DUMMY_420" id="0x01010420" />
+    <public type="attr" name="APKTOOL_DUMMY_421" id="0x01010421" />
+    <public type="attr" name="APKTOOL_DUMMY_422" id="0x01010422" />
+    <public type="attr" name="APKTOOL_DUMMY_423" id="0x01010423" />
+    <public type="attr" name="APKTOOL_DUMMY_424" id="0x01010424" />
+    <public type="attr" name="APKTOOL_DUMMY_425" id="0x01010425" />
+    <public type="attr" name="APKTOOL_DUMMY_426" id="0x01010426" />
+    <public type="attr" name="APKTOOL_DUMMY_427" id="0x01010427" />
+    <public type="attr" name="APKTOOL_DUMMY_428" id="0x01010428" />
     <public type="attr" name="colorControlNormal" id="0x01010429" />
     <public type="attr" name="colorControlActivated" id="0x0101042a" />
     <public type="attr" name="colorButtonNormal" id="0x0101042b" />
@@ -1290,36 +1320,6 @@
     <public type="attr" name="enableVrMode" id="0x01010525" />
     <public type="attr" name="hash" id="0x01010526" />
     <public type="attr" name="networkSecurityConfig" id="0x01010527" />
-    <public type="attr" name="APKTOOL_DUMMY_267" id="0x01010267" />
-    <public type="attr" name="APKTOOL_DUMMY_3a8" id="0x010103a8" />
-    <public type="attr" name="APKTOOL_DUMMY_3c3" id="0x010103c3" />
-    <public type="attr" name="APKTOOL_DUMMY_40e" id="0x0101040e" />
-    <public type="attr" name="APKTOOL_DUMMY_40f" id="0x0101040f" />
-    <public type="attr" name="APKTOOL_DUMMY_410" id="0x01010410" />
-    <public type="attr" name="APKTOOL_DUMMY_411" id="0x01010411" />
-    <public type="attr" name="APKTOOL_DUMMY_412" id="0x01010412" />
-    <public type="attr" name="APKTOOL_DUMMY_413" id="0x01010413" />
-    <public type="attr" name="APKTOOL_DUMMY_414" id="0x01010414" />
-    <public type="attr" name="APKTOOL_DUMMY_415" id="0x01010415" />
-    <public type="attr" name="APKTOOL_DUMMY_416" id="0x01010416" />
-    <public type="attr" name="APKTOOL_DUMMY_417" id="0x01010417" />
-    <public type="attr" name="APKTOOL_DUMMY_418" id="0x01010418" />
-    <public type="attr" name="APKTOOL_DUMMY_419" id="0x01010419" />
-    <public type="attr" name="APKTOOL_DUMMY_41a" id="0x0101041a" />
-    <public type="attr" name="APKTOOL_DUMMY_41b" id="0x0101041b" />
-    <public type="attr" name="APKTOOL_DUMMY_41c" id="0x0101041c" />
-    <public type="attr" name="APKTOOL_DUMMY_41d" id="0x0101041d" />
-    <public type="attr" name="APKTOOL_DUMMY_41e" id="0x0101041e" />
-    <public type="attr" name="APKTOOL_DUMMY_41f" id="0x0101041f" />
-    <public type="attr" name="APKTOOL_DUMMY_420" id="0x01010420" />
-    <public type="attr" name="APKTOOL_DUMMY_421" id="0x01010421" />
-    <public type="attr" name="APKTOOL_DUMMY_422" id="0x01010422" />
-    <public type="attr" name="APKTOOL_DUMMY_423" id="0x01010423" />
-    <public type="attr" name="APKTOOL_DUMMY_424" id="0x01010424" />
-    <public type="attr" name="APKTOOL_DUMMY_425" id="0x01010425" />
-    <public type="attr" name="APKTOOL_DUMMY_426" id="0x01010426" />
-    <public type="attr" name="APKTOOL_DUMMY_427" id="0x01010427" />
-    <public type="attr" name="APKTOOL_DUMMY_428" id="0x01010428" />
     <public type="id" name="background" id="0x01020000" />
     <public type="id" name="checkbox" id="0x01020001" />
     <public type="id" name="content" id="0x01020002" />
@@ -3990,6 +3990,20 @@
     <public type="style" name="Animation.HoverPopupLeftBottom" id="0x0103051e" />
     <public type="style" name="Animation.WritingBuddyPopupCue" id="0x0103051f" />
     <public type="style" name="Animation.WritingBuddyNonformCue" id="0x01030520" />
+    <public type="style" name="Animation.Toast.Fade" id="0x01030521" />
+    <public type="style" name="Animation.Toast.SlideRight" id="0x01030522" />
+    <public type="style" name="Animation.Toast.SlideLeft" id="0x01030523" />
+    <public type="style" name="Animation.Toast.SlideRightLeft" id="0x01030524" />
+    <public type="style" name="Animation.Toast.SlideLeftRight" id="0x01030525" />
+    <public type="style" name="Animation.Toast.Xylon" id="0x01030526" />
+    <public type="style" name="Animation.Toast.Toko" id="0x01030527" />
+    <public type="style" name="Animation.Toast.Tn" id="0x01030528" />
+    <public type="style" name="Animation.Toast.Honami" id="0x01030529" />
+    <public type="style" name="Animation.Toast.FastFade" id="0x0103052a" />
+    <public type="style" name="Animation.Toast.GrowFade" id="0x0103052b" />
+    <public type="style" name="Animation.Toast.GrowFadeCenter" id="0x0103052c" />
+    <public type="style" name="Animation.Toast.GrowFadeBottom" id="0x0103052d" />
+    <public type="style" name="Animation.Toast.Translucent" id="0x0103052e" />
     <public type="string" name="cancel" id="0x01040000" />
     <public type="string" name="copy" id="0x01040001" />
     <public type="string" name="copyUrl" id="0x01040002" />
@@ -6741,6 +6755,12 @@
     <public type="string" name="wifi_extender_notification_title" id="0x01040ac1" />
     <public type="string" name="wifi_extender_notification_message" id="0x01040ac2" />
     <public type="string" name="config_tspstate_threshold" id="0x01040ac3" />
+    <public type="string" name="tw_ic_do_rebootrecovery" id="0x01040ac4" />
+    <public type="string" name="global_action_screenshot" id="0x01040ac5" />
+    <public type="string" name="screenrec" id="0x01040ac6" />
+    <public type="string" name="global_action_flashlight" id="0x01040ac7" />
+    <public type="string" name="global_action_fast_reboot" id="0x01040ac8" />
+    <public type="string" name="global_action_download" id="0x01040ac9" />
     <public type="string" name="multisound_hun_title" id="0x0104091d" />
     <public type="string" name="multisound_hun_contents" id="0x0104091e" />
     <public type="string" name="multisound_hun_close" id="0x0104091f" />
@@ -6964,6 +6984,7 @@
     <public type="dimen" name="immersive_mode_animation_start_pos" id="0x010500d7" />
     <public type="dimen" name="knox_app_icon_width" id="0x010500d8" />
     <public type="dimen" name="knox_app_icon_height" id="0x010500d9" />
+    <public type="dimen" name="APKTOOL_DUMMY_dc" id="0x010500dc" />
     <public type="dimen" name="sem_resolver_max_collapsed_height" id="0x010500df" />
     <public type="dimen" name="timepicker_text_inset_inner" id="0x010500e0" />
     <public type="dimen" name="timepicker_radial_picker_dimen" id="0x010500e1" />
@@ -7696,7 +7717,6 @@
     <public type="dimen" name="magnifier_handler_touch_area_height" id="0x010503bf" />
     <public type="dimen" name="magnifier_handler_touch_area_width" id="0x010503c0" />
     <public type="dimen" name="magnifier_new_frame_width_height" id="0x010503c1" />
-    <public type="dimen" name="APKTOOL_DUMMY_dc" id="0x010500dc" />
     <public type="dimen" name="input_extract_action_button_width" id="0x010500da" />
     <public type="dimen" name="input_extract_action_button_height" id="0x010500db" />
     <public type="dimen" name="keyguard_pattern_unlock_clock_font_size" id="0x010500e6" />
@@ -11252,6 +11272,11 @@
     <public type="drawable" name="video_hdr_ic_video" id="0x01080b1b" />
     <public type="drawable" name="vpn_connected" id="0x01080b1e" />
     <public type="drawable" name="vpn_disconnected" id="0x01080b1f" />
+    <public type="drawable" name="tw_ic_do_rebootrecovery" id="0x01080b33" />
+    <public type="drawable" name="tw_ic_fast_reboot" id="0x01080b34" />
+    <public type="drawable" name="tw_ic_lock_flashlight" id="0x01080b35" />
+    <public type="drawable" name="tw_ic_lock_screenrec" id="0x01080b36" />
+    <public type="drawable" name="tw_ic_lock_screenshot" id="0x01080b37" />
     <public type="drawable" name="airbutton_default_audio" id="0x010800d6" />
     <public type="drawable" name="airbutton_default_contact" id="0x010800d7" />
     <public type="drawable" name="dec_security_policy_error_icon" id="0x0108028d" />
@@ -11939,6 +11964,38 @@
     <public type="anim" name="wb_cue_enter" id="0x010a00ec" />
     <public type="anim" name="wb_cue_exit" id="0x010a00ed" />
     <public type="anim" name="window_move_from_decor" id="0x010a00ee" />
+    <public type="anim" name="grow_fade_in_center_ribbon" id="0x010a00ef" />
+    <public type="anim" name="grow_fade_in_from_bottom_ribbon" id="0x010a00f0" />
+    <public type="anim" name="grow_fade_in_left_ribbon" id="0x010a00f1" />
+    <public type="anim" name="grow_fade_in_ribbon" id="0x010a00f2" />
+    <public type="anim" name="grow_fade_in_right_ribbon" id="0x010a00f3" />
+    <public type="anim" name="honami_toast_enter" id="0x010a00f4" />
+    <public type="anim" name="honami_toast_exit" id="0x010a00f5" />
+    <public type="anim" name="no_animation" id="0x010a00f6" />
+    <public type="anim" name="shrink_fade_out_from_bottom_ribbon" id="0x010a00f7" />
+    <public type="anim" name="shrink_fade_out_left_ribbon" id="0x010a00f8" />
+    <public type="anim" name="shrink_fade_out_ribbon" id="0x010a00f9" />
+    <public type="anim" name="shrink_fade_out_right_ribbon" id="0x010a00fa" />
+    <public type="anim" name="slide_in_down" id="0x010a00fb" />
+    <public type="anim" name="slide_in_left_no_fade" id="0x010a00fc" />
+    <public type="anim" name="slide_in_left_ribbon" id="0x010a00fd" />
+    <public type="anim" name="slide_in_right_no_fade" id="0x010a00fe" />
+    <public type="anim" name="slide_in_right_ribbon" id="0x010a00ff" />
+    <public type="anim" name="slide_out_down_ribbon" id="0x010a0100" />
+    <public type="anim" name="slide_out_left_no_fade" id="0x010a0101" />
+    <public type="anim" name="slide_out_left_ribbon" id="0x010a0102" />
+    <public type="anim" name="slide_out_right_no_fade" id="0x010a0103" />
+    <public type="anim" name="slide_out_right_ribbon" id="0x010a0104" />
+    <public type="anim" name="slide_out_up" id="0x010a0105" />
+    <public type="anim" name="slow_fade_out" id="0x010a0106" />
+    <public type="anim" name="tn_toast_enter" id="0x010a0107" />
+    <public type="anim" name="tn_toast_exit" id="0x010a0108" />
+    <public type="anim" name="toko_toast_enter" id="0x010a0109" />
+    <public type="anim" name="toko_toast_exit" id="0x010a010a" />
+    <public type="anim" name="translucent_enter_ribbon" id="0x010a010b" />
+    <public type="anim" name="translucent_exit_ribbon" id="0x010a010c" />
+    <public type="anim" name="xylon_toast_enter" id="0x010a010d" />
+    <public type="anim" name="xylon_toast_exit" id="0x010a010e" />
     <public type="animator" name="fade_in" id="0x010b0000" />
     <public type="animator" name="fade_out" id="0x010b0001" />
     <public type="animator" name="fragment_close_enter" id="0x010b0002" />
