@@ -46,17 +46,30 @@
 .end method
 
 .method static applyBigTextContentView(Landroid/app/Notification$Builder;Landroid/widget/RemoteViews;Ljava/lang/CharSequence;)V
-    .locals 3
+    .locals 4
 
     const v2, 0x1020448
 
+    invoke-interface {p2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
     invoke-virtual {p1, v2, p2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
+    sget v3, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+
+    if-eqz v3, :cond_0
+
+    sget v3, Landroid/app/Notification$Builder;->mNotifSummaryTextColor:I
+
+    invoke-virtual {p1, v2, v3}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const/16 v0, 0x8
 
@@ -85,7 +98,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0

@@ -182,7 +182,7 @@
 .end method
 
 .method public makeBigContentView()Landroid/widget/RemoteViews;
-    .locals 14
+    .locals 15
 
     const/4 v2, 0x0
 
@@ -302,9 +302,9 @@
 
     move-result v4
 
-    if-ge v7, v4, :cond_4
+    if-ge v7, v4, :cond_5
 
-    if-ge v7, v8, :cond_4
+    if-ge v7, v8, :cond_5
 
     iget-object v4, p0, Landroid/app/Notification$InboxStyle;->mTexts:Ljava/util/ArrayList;
 
@@ -318,7 +318,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3
 
     aget v4, v11, v7
 
@@ -334,6 +334,15 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
+    sget v14, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+
+    if-eqz v14, :cond_2
+
+    sget v14, Landroid/app/Notification$Builder;->mNotifSummaryTextColor:I
+
+    invoke-virtual {v0, v4, v14}, Landroid/widget/RemoteViews;->setTextColor(II)V
+
+    :cond_2
     aget v1, v11, v7
 
     move v4, v2
@@ -346,25 +355,25 @@
 
     invoke-direct {p0, v0, v4, v6}, Landroid/app/Notification$InboxStyle;->handleInboxImageMargin(Landroid/widget/RemoteViews;IZ)V
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     aget v1, v11, v7
 
     :goto_2
     const/4 v6, 0x0
 
-    :cond_2
+    :cond_3
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     const/4 v1, 0x0
 
     goto :goto_2
 
-    :cond_4
-    if-eqz v1, :cond_5
+    :cond_5
+    if-eqz v1, :cond_6
 
     iget-object v4, p0, Landroid/app/Notification$InboxStyle;->mBuilder:Landroid/app/Notification$Builder;
 
@@ -388,10 +397,8 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/widget/RemoteViews;->setViewPadding(IIIII)V
 
-    :cond_5
+    :cond_6
     return-object v0
-
-    nop
 
     :array_0
     .array-data 4
