@@ -355,6 +355,38 @@
     goto :goto_0
 .end method
 
+.method static synthetic access$1400(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobile:Landroid/widget/ImageView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1500(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileType:Landroid/widget/ImageView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1600(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileActivity:Landroid/widget/ImageView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1700(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mRoaming:Landroid/widget/ImageView;
+
+    return-object v0
+.end method
+
 .method private maybeStartAnimatableDrawable(Landroid/widget/ImageView;)V
     .locals 3
 

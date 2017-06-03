@@ -1339,6 +1339,119 @@
     return v5
 .end method
 
+.method public onWindowFocusChanged(Z)V
+    .locals 9
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
+
+    const/4 v6, 0x0
+
+    invoke-super {p0, p1}, Landroid/widget/TextView;->onWindowFocusChanged(Z)V
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/DataUsageView;->getVisibility()I
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/DataUsageView;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v4, "data_usage_text_color"
+
+    const-string v5, "#e61e4e78"
+
+    invoke-static {v5}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+
+    move-result v5
+
+    invoke-static {v1, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/DataUsageView;->setTextColor(I)V
+
+    const-string v4, "data_usage_text_gravity"
+
+    invoke-static {v1, v4, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    packed-switch v2, :pswitch_data_0
+
+    const v4, 0x800005
+
+    invoke-virtual {p0, v4}, Lcom/android/systemui/qs/DataUsageView;->setGravity(I)V
+
+    :goto_0
+    const-string v4, "data_usage_view_text_style"
+
+    invoke-static {v1, v4, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    packed-switch v3, :pswitch_data_1
+
+    invoke-virtual {p0, v6, v7}, Lcom/android/systemui/qs/DataUsageView;->setTypeface(Landroid/graphics/Typeface;I)V
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :pswitch_0
+    invoke-virtual {p0, v8}, Lcom/android/systemui/qs/DataUsageView;->setGravity(I)V
+
+    goto :goto_0
+
+    :pswitch_1
+    const v4, 0x800003
+
+    invoke-virtual {p0, v4}, Lcom/android/systemui/qs/DataUsageView;->setGravity(I)V
+
+    goto :goto_0
+
+    :pswitch_2
+    invoke-virtual {p0, v6, v8}, Lcom/android/systemui/qs/DataUsageView;->setTypeface(Landroid/graphics/Typeface;I)V
+
+    goto :goto_1
+
+    :pswitch_3
+    const/4 v4, 0x2
+
+    invoke-virtual {p0, v6, v4}, Lcom/android/systemui/qs/DataUsageView;->setTypeface(Landroid/graphics/Typeface;I)V
+
+    goto :goto_1
+
+    :pswitch_4
+    const/4 v4, 0x3
+
+    invoke-virtual {p0, v6, v4}, Lcom/android/systemui/qs/DataUsageView;->setTypeface(Landroid/graphics/Typeface;I)V
+
+    goto :goto_1
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+    .end packed-switch
+.end method
+
 .method public setDataUsageController(Lcom/android/settingslib/net/DataUsageController;)V
     .locals 0
 

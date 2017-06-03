@@ -648,4 +648,6 @@
         <enum name="home" value="0" />
         <enum name="menu" value="1" />
     </attr>
+    <attr name="viewLocation" format="integer" />
+    <attr name="viewLocation2" format="integer" />
 </resources>

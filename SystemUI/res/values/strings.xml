@@ -20,8 +20,8 @@
     <string name="dock_minimized_toast_text">%s minimized.</string>
     <string name="dock_minimized_notification_dimiss_text">Close</string>
     <string name="dock_minimized_notification_content_text">Tap here to open.</string>
-    <string name="date_format_for_display">EEEMMMMd</string>
-    <string name="date_format_for_tts">EEEEMMMMd</string>
+    <string name="date_format_for_display">ccccMMMMd</string>
+    <string name="date_format_for_tts">ccccMMMMd</string>
     <string name="more_notification_format">+%d</string>
     <string name="cancel">Cancel</string>
     <string name="clearcover_1_missed_call">You have 1 missed call</string>
@@ -529,7 +529,7 @@
     <string name="v7_preference_on">ON</string>
     <string name="v7_preference_off">OFF</string>
     <string name="config_statusBarComponent">com.android.systemui.statusbar.phone.PhoneStatusBar</string>
-    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,AirplaneMode,PowerSaving,MobileData,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode,PowerPlanning,EdgeLighting</string>
+    <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecorder,TouchSensitivity,UHQ,AirplaneMode,PowerSaving,MobileData,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode,PowerPlanning,EdgeLighting</string>
     <string name="quick_settings_tiles_upsm">Wifi,Bluetooth,AirplaneMode,custom(com.sec.android.emergencymode.service/.PowerSavingTile),MobileData,Location</string>
     <string name="quick_settings_custom_tile_component_names">Performance:com.samsung.android.lool/com.samsung.android.sm.ui.booster.PerformanceTile,PerformanceCHN:com.samsung.android.sm_cn/com.samsung.android.sm.ui.booster.PerformanceTile,PowerSaving:com.android.settings/com.samsung.android.settings.qstile.PowerSavingTile,Aod:com.samsung.android.app.aodservice/.settings.AODTileService,DeviceVisibility:com.samsung.android.oneconnect/.external.DeviceVisibilityTile,PowerSavingUPSM:com.sec.android.emergencymode.service/.PowerSavingTile,Sync:com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles,PersonalMode:com.android.settings/com.samsung.android.settings.qstile.PersonalModeTile,AllShareCast:com.samsung.android.smartmirroring/.tile.SmartMirroringTile,AllShareCastOld:com.sec.android.app.wfdbroker/.AllShareCastTile,Nfc:com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile,SecureFolder:com.samsung.knox.securefolder/.switcher.SecureFolderTile,EdgeLighting:com.samsung.android.app.cocktailbarservice/com.samsung.android.app.edgelighting.tile.EdgeLightingTile,UDS:com.samsung.android.lool/com.samsung.android.sm.ui.uds.UDSTile</string>
     <string name="quick_settings_tiles_dex">Wifi,WifiCalling,SoundMode,Bluetooth,Flashlight,AirplaneMode,MobileData,Hotspot,custom(com.samsung.knox.securefolder/.switcher.SecureFolderTile),Location,custom(com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile),custom(com.samsung.android.oneconnect/.external.DeviceVisibilityTile),Dnd,custom(com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles)</string>
@@ -1994,6 +1994,8 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we ?? as your personal data controller ?? will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination ?? for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">I ACCEPT</string>
+    <item type="string" name="APKTOOL_DUMMY_748">false</item>
+    <item type="string" name="APKTOOL_DUMMY_749">false</item>
     <string name="car_lockscreen_disclaimer_title">Drive safely</string>
     <string name="car_lockscreen_disclaimer_text">Stay fully aware of driving conditions and always obey applicable laws. Directions may be inaccurate, incomplete, dangerous, not suitable, prohibited, or involve crossing administrative areas. Business information may also be inaccurate or incomplete. Data is not real-time, and location accuracy cannot be guaranteed. Do not handle your mobile device or use apps not intended for Android Auto while driving.</string>
     <string name="pip_close">Close PIP</string>
@@ -2008,12 +2010,12 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="font_roboto_regular">sans-serif</string>
     <string name="font_roboto_light">sans-serif-light</string>
     <string name="config_default_color_code">black</string>
-    <string name="abbrev_wday_month_day_no_year">EEEEMMMMd</string>
-    <string name="abbrev_wday_month_day_no_year_alarm">EEEMMMd</string>
+    <string name="abbrev_wday_month_day_no_year">ccccMMMMd</string>
+    <string name="abbrev_wday_month_day_no_year_alarm">ccccMMMd</string>
     <string name="clock_12hr_format">hm</string>
     <string name="clock_24hr_format">Hm</string>
-    <string name="status_view_wday_day_month_no_year">E, d MMMM</string>
-    <string name="keyguard_clock_page_date_format">EEEMMMMd</string>
+    <string name="status_view_wday_day_month_no_year">cccc, d MMMM</string>
+    <string name="keyguard_clock_page_date_format">ccccMMMMd</string>
     <string name="keyguard_ampm_view_12hour_format">aa</string>
     <string name="keyguard_ampm_view_24hour_format" />
     <string name="theme_pin_enter_text">OK</string>
@@ -2692,6 +2694,13 @@ Try again in 1 second"</string>
     <string name="taskbar_context_menu_clear_notification">Clear</string>
     <string name="taskbar_context_menu_open_desk_notification_view">Show notifications</string>
     <string name="taskbar_context_menu_close_desk_notification_view">Hide notifications</string>
-    <item type="string" name="APKTOOL_DUMMY_748">false</item>
-    <item type="string" name="APKTOOL_DUMMY_749">false</item>
+    <string name="status_view_24_hours_format">kk:mm</string>
+    <string name="text_pressure_scale_1">mm</string>
+    <string name="text_pressure_scale_2">Hg. Art.</string>
+    <string name="text_pressure_scale_3">bar</string>
+    <string name="zakat">Sunset :</string>
+    <string name="voshod">Sunrise :</string>
+    <string name="service_background_processes">%1$s free</string>
+    <string name="service_foreground_processes">%1$s used</string>
+    <string name="status_view_12_hours_format">h:mm</string>
 </resources>

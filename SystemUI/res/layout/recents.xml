@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.recents.BlurBackgroundImageView android:id="@id/blur_background_image_view_recents" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+    <com.ther.recents.MatrixEffect android:id="@id/recents_matrix_anim" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ViewStub android:id="@id/recents_view_stub" android:inflatedId="@id/recents_view_inflate" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ViewStub android:layout_gravity="center|top" android:id="@id/incompatible_app_overlay_stub" android:layout="@layout/recents_incompatible_app_overlay" android:inflatedId="@id/incompatible_app_overlay" android:layout_width="fill_parent" android:layout_height="128.0dip" />
     <ImageView android:layout_gravity="bottom|center" android:id="@id/nav_bar_scrim" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/recents_lower_gradient" android:scaleType="fitXY" />
@@ -17,4 +19,12 @@
             <ImageButton android:gravity="center" android:layout_gravity="end|center" android:id="@id/recents_more_button" android:background="@drawable/recents_button_ripple_effect" android:paddingTop="3.0dip" android:paddingBottom="3.0dip" android:focusable="true" android:layout_width="24.0dip" android:layout_height="@dimen/recents_buttons_item_height" android:src="@drawable/tw_ic_ab_more_mtrl" android:contentDescription="@string/recents_menu_more" android:importantForAccessibility="yes" android:layout_marginStart="7.0dip" />
         </LinearLayout>
     </FrameLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center|top" android:orientation="horizontal" android:id="@id/recents_quick_launch" android:background="#00000000" android:layout_width="fill_parent" android:layout_height="75.0dip">
+        <HorizontalScrollView android:scrollbars="none" android:layout_width="wrap_content" android:layout_height="75.0dip">
+            <com.android.systemui.statusbar.policy.quicklaunch.QuickLaunchContainer android:gravity="center" android:layout_width="wrap_content" android:layout_height="75.0dip" android:layout_centerHorizontal="true" />
+        </HorizontalScrollView>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/ram_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_weight="1.0">
+        <com.android.lg.rambar.aokpram android:layout_width="fill_parent" android:layout_height="30.0dip" />
+    </LinearLayout>
 </FrameLayout>

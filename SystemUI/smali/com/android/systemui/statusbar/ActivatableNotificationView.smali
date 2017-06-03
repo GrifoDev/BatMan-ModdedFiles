@@ -36,6 +36,8 @@
 
 .field private mBackgroundAnimator:Landroid/animation/ObjectAnimator;
 
+.field private mBackgroundColor:I
+
 .field private mBackgroundColorAnimator:Landroid/animation/ValueAnimator;
 
 .field private mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
@@ -1838,8 +1840,101 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .locals 5
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-super {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onFinishInflate()V
+
+    const v0, 0x7f1304a6
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNotificationBackgroundColor()V
+
+    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    const v0, 0x7f1304ac
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/FakeShadowView;
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFakeShadow:Lcom/android/systemui/statusbar/notification/FakeShadowView;
+
+    const v0, 0x7f1304a7
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNotificationBackgroundColor()V
+
+    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const-string v3, "notification_material_bg_tweak"
+
+    const-string v4, "drawable"
+
+    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNotificationBackgroundColor()V
+
+    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const-string v3, "notification_material_bg_dim_tweak"
+
+    const-string v4, "drawable"
+
+    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNotificationBackgroundColor()V
+
+    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackground()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateOutlineAlpha()V
+
+    return-void
+
+    :cond_0
     invoke-super {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onFinishInflate()V
 
     const v0, 0x7f1304a6
@@ -2269,6 +2364,30 @@
     iput p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNormalBackgroundVisibilityAmount:F
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateOutlineAlpha()V
+
+    return-void
+.end method
+
+.method setNotificationBackgroundColor()V
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "notification_background_color"
+
+    const v2, -0x50506
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
 
     return-void
 .end method

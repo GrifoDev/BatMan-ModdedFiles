@@ -534,7 +534,7 @@
     <dimen name="close_handle_height">36.0dip</dimen>
     <dimen name="close_handle_underlap">32.0dip</dimen>
     <dimen name="status_bar_header_height">79.0dip</dimen>
-    <dimen name="status_bar_header_height_expanded">116.0dip</dimen>
+    <dimen name="status_bar_header_height_expanded">70.0dip</dimen>
     <dimen name="status_bar_header_height_keyguard">24.0dip</dimen>
     <dimen name="status_bar_header_height_keyguard_for_mum">54.0dip</dimen>
     <dimen name="system_icons_super_container_margin_start">16.0dip</dimen>
@@ -567,7 +567,7 @@
     <dimen name="qs_edit_tile_side_padding_6x2">7.0dip</dimen>
     <dimen name="qs_edit_tile_side_padding_8x2">7.0dip</dimen>
     <dimen name="qs_tile_vertical_margin">0.0dip</dimen>
-    <dimen name="qs_tile_margin_top">0.0dip</dimen>
+    <dimen name="qs_tile_margin_top">50.0dip</dimen>
     <dimen name="qs_quick_tile_size">38.0dip</dimen>
     <dimen name="qs_quick_tile_padding">0.0dip</dimen>
     <dimen name="qs_quick_tile_layout_side_padding">19.0dip</dimen>
@@ -1612,4 +1612,8 @@
     <dimen name="desk_panel_view_notification_bg_radius">6.0px</dimen>
     <dimen name="desk_panal_view_bottom_margin">12.0dip</dimen>
     <dimen name="desk_network_speed_width">70.0dip</dimen>
+    <dimen name="killer_meminfo_txt_size">16.0sp</dimen>
+    <dimen name="net_traffic_single_text_size">12.0dip</dimen>
+    <dimen name="net_traffic_multi_text_size">9.0dip</dimen>
+    <dimen name="pressure">-55.0dip</dimen>
 </resources>

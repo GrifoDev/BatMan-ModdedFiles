@@ -12785,6 +12785,16 @@
 .method public isUnlockingWithBiometricAllowed()Z
     .locals 6
 
+    const-string v0, "fingerprint.unlock"
+
+    const v1, 0x0
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
     const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mStrongAuthTracker:Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;
@@ -12829,6 +12839,52 @@
     const/4 v0, 0x1
 
     goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x1
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mStrongAuthTracker:Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;
+
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;->isUnlockingWithBiometricAllowed()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    sget v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->sCurrentUser:I
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->hasFingerprintUnlockTimedOut(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    :cond_3
+    :goto_1
+    return v0
+
+    :cond_4
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mDisabledBiometricBySecurityDialog:Z
+
+    if-nez v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    sget v2, Lcom/android/keyguard/KeyguardUpdateMonitor;->sCurrentUser:I
+
+    invoke-virtual {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->getLockoutBiometricAttemptDeadline(I)J
+
+    move-result-wide v2
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v1, v2, v4
+
+    if-gtz v1, :cond_3
+
+    const/4 v0, 0x1
+
+    goto :goto_1
 .end method
 
 .method public isUnlockingWithFingerprintAllowed()Z

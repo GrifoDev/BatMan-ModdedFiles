@@ -2045,6 +2045,46 @@
 
 
 # virtual methods
+.method CriticalBatteryWarningPercentageNumber()I
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "critical_battery_warning_percentage"
+
+    const/4 v3, 0x5
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method LowBatteryWarningPercentageNumber()I
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/power/PowerUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "low_battery_warning_percentage"
+
+    const/4 v3, 0x5
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 4
 
@@ -2539,9 +2579,7 @@
 
     move-result-object v4
 
-    const v5, 0x10e0050
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerUI;->CriticalBatteryWarningPercentageNumber()I
 
     move-result v0
 
@@ -2557,9 +2595,7 @@
 
     move-result-object v4
 
-    const v5, 0x10e0052
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerUI;->LowBatteryWarningPercentageNumber()I
 
     move-result v1
 

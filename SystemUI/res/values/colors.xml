@@ -482,4 +482,8 @@
     <color name="desk_panel_bg_color">#fffafafa</color>
     <color name="desk_panel_transparent_bg_color">#00000000</color>
     <color name="desk_panel_bg_color_for_block">#fff0f0f0</color>
+    <color name="killer_meminfo_background">#ff373737</color>
+    <color name="killer_meminfo_front">#ff25e100</color>
+    <color name="killer_meminfo_full_front">#ffff5400</color>
+    <color name="killer_meminfo_txt">#ffffffff</color>
 </resources>

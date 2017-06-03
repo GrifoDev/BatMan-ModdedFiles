@@ -37,6 +37,16 @@
 
 .field private mClock:Lcom/android/systemui/statusbar/policy/Clock;
 
+.field private mClock2:Lcom/android/systemui/statusbar/policy/Clock;
+
+.field private mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
+
+.field private mClockColor:I
+
+.field private mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
+
+.field private mClockTint:I
+
 .field protected mContext:Landroid/content/Context;
 
 .field private mDarkIntensity:F
@@ -84,13 +94,27 @@
 
 .field private mLightModeIconColorSingleTone:I
 
+.field private mNetspeedColor:I
+
+.field private mNetspeedTint:I
+
 .field protected mNetspeedView:Lcom/android/systemui/statusbar/policy/NetspeedView;
+
+.field private mNetworkTraffic:Lcom/android/wubydax/NetworkTraffic;
 
 .field protected mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
 
 .field protected mNotificationIconAreaInner:Landroid/view/View;
 
+.field private mNotificationIconColor:I
+
+.field private mNotificationIconTint:I
+
 .field private mPendingDarkIntensity:F
+
+.field private mPercentColor:I
+
+.field private mPercentTint:I
 
 .field protected mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
@@ -100,6 +124,10 @@
 
 .field private mStatusBarContents:Landroid/widget/LinearLayout;
 
+.field private mStatusIconColor:I
+
+.field private mStatusIconTint:I
+
 .field protected mStatusIcons:Landroid/widget/LinearLayout;
 
 .field protected mStatusIconsKeyguard:Landroid/widget/LinearLayout;
@@ -107,6 +135,8 @@
 .field private mSystemIcon:Landroid/widget/LinearLayout;
 
 .field private mSystemIconArea:Landroid/widget/LinearLayout;
+
+.field private mSystemIconArea2:Landroid/widget/LinearLayout;
 
 .field private mSystemIconKeyguard:Landroid/widget/LinearLayout;
 
@@ -165,7 +195,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;Landroid/view/View;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
-    .locals 9
+    .locals 11
 
     const v8, 0x7f1301b0
 
@@ -224,6 +254,16 @@
     check-cast v2, Landroid/widget/LinearLayout;
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mSystemIconArea:Landroid/widget/LinearLayout;
+
+    const v2, 0x7f130567
+
+    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/LinearLayout;
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mSystemIconArea2:Landroid/widget/LinearLayout;
 
     invoke-virtual {p2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -370,6 +410,22 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mBatteryMeterView:Lcom/android/systemui/BatteryMeterView;
 
+    const-string v9, "network_traffic"
+
+    const-string v10, "id"
+
+    invoke-static {v9, v10}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/wubydax/NetworkTraffic;
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetworkTraffic:Lcom/android/wubydax/NetworkTraffic;
+
     invoke-virtual {p3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
@@ -494,6 +550,16 @@
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusBarContents:Landroid/widget/LinearLayout;
 
     :cond_4
+    const v2, 0x7f13057c
+
+    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/policy/Clock;
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClock2:Lcom/android/systemui/statusbar/policy/Clock;
+
     const v2, 0x7f130262
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -503,6 +569,26 @@
     check-cast v2, Lcom/android/systemui/statusbar/policy/Clock;
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClock:Lcom/android/systemui/statusbar/policy/Clock;
+
+    const v2, 0x7f130565
+
+    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/policy/Clock;
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
+
+    const v2, 0x7f130566
+
+    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/policy/Clock;
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
 
     const v2, 0x7f130299
 
@@ -889,6 +975,36 @@
     return v0
 .end method
 
+.method private getTintInternal(FI)I
+    .locals 3
+
+    invoke-static {}, Landroid/animation/ArgbEvaluator;->getInstance()Landroid/animation/ArgbEvaluator;
+
+    move-result-object v0
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mDarkModeIconColorSingleTone:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, p1, v1, v2}, Landroid/animation/ArgbEvaluator;->evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private static isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
     .locals 9
 
@@ -1036,45 +1152,60 @@
 
     iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mDarkIntensity:F
 
-    invoke-static {}, Landroid/animation/ArgbEvaluator;->getInstance()Landroid/animation/ArgbEvaluator;
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mLightModeIconColorSingleTone:I
 
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mLightModeIconColorSingleTone:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mDarkModeIconColorSingleTone:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, p1, v1, v2}, Landroid/animation/ArgbEvaluator;->evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTintInternal(FI)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
 
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockColor:I
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTintInternal(FI)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconColor:I
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTintInternal(FI)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconTint:I
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetspeedColor:I
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTintInternal(FI)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetspeedTint:I
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconColor:I
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTintInternal(FI)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconTint:I
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mPercentColor:I
+
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTintInternal(FI)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mPercentTint:I
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
-
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconTint:I
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->setIconTint(I)V
 
-    :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->applyIconTint()V
 
     return-void
@@ -1507,7 +1638,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mTintArea:Landroid/graphics/Rect;
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconTint:I
 
     invoke-static {v2, v1, v4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
 
@@ -1551,13 +1682,61 @@
     :goto_1
     invoke-virtual {v4, v2}, Lcom/android/systemui/BatteryMeterView;->setDarkIntensity(F)V
 
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetworkTraffic:Lcom/android/wubydax/NetworkTraffic;
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mDarkIntensity:F
+
+    invoke-virtual {v2, v4}, Lcom/android/wubydax/NetworkTraffic;->setDarkIntensity(F)V
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClock2:Lcom/android/systemui/statusbar/policy/Clock;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mTintArea:Landroid/graphics/Rect;
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClock2:Lcom/android/systemui/statusbar/policy/Clock;
+
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
+
+    invoke-static {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+
+    move-result v4
+
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
+
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClock:Lcom/android/systemui/statusbar/policy/Clock;
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mTintArea:Landroid/graphics/Rect;
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClock:Lcom/android/systemui/statusbar/policy/Clock;
 
-    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
+
+    invoke-static {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+
+    move-result v4
+
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mTintArea:Landroid/graphics/Rect;
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
+
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
+
+    invoke-static {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+
+    move-result v4
+
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mTintArea:Landroid/graphics/Rect;
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
+
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
 
     invoke-static {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
 
@@ -1594,7 +1773,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mBatteryText:Landroid/widget/TextView;
 
-    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mPercentTint:I
 
     invoke-static {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
 
@@ -1608,7 +1787,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mKeyguardBatteryText:Landroid/widget/TextView;
 
-    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mPercentTint:I
 
     invoke-static {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
 
@@ -1656,7 +1835,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mTintArea:Landroid/graphics/Rect;
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconTint:I
 
     invoke-static {v2, v1, v4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
 
@@ -1675,7 +1854,7 @@
     :cond_3
     move v2, v3
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_4
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mKeyguardSignalCluster:Lcom/android/systemui/statusbar/SignalClusterView;
@@ -1780,13 +1959,13 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetspeedView:Lcom/android/systemui/statusbar/policy/NetspeedView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetspeedTint:I
 
     invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/policy/NetspeedView;->setTextColor(I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mKeyguardNetspeedView:Lcom/android/systemui/statusbar/policy/NetspeedView;
 
-    iget v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetspeedTint:I
 
     invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/policy/NetspeedView;->setTextColor(I)V
 
@@ -2130,6 +2309,16 @@
     return-void
 .end method
 
+.method public hideSystemIconArea2(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mSystemIconArea2:Landroid/widget/LinearLayout;
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->animateHide(Landroid/view/View;Z)V
+
+    return-void
+.end method
+
 .method protected loadDimens()V
     .locals 2
 
@@ -2451,7 +2640,7 @@
 .end method
 
 .method protected scaleBatteryMeterViews(Landroid/content/Context;)V
-    .locals 9
+    .locals 12
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -2471,6 +2660,31 @@
 
     move-result v2
 
+    const/4 v10, 0x1
+
+    const-string v11, "hide_battery_stock"
+
+    invoke-static {v11, v10}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v11
+
+    if-nez v11, :cond_0
+
+    const v7, 0x7f0d01fa
+
+    invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    const v7, 0x7f0d01fa
+
+    invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    goto :goto_0
+
+    :cond_0
     const v7, 0x7f0d01f6
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -2483,6 +2697,7 @@
 
     move-result v1
 
+    :goto_0
     const v7, 0x7f0d0320
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -2515,7 +2730,7 @@
 
     sget-boolean v7, Lcom/android/systemui/SystemUIRune;->SUPPORT_SEC_BATTERY_GUI:Z
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_1
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mBatteryMeterView:Lcom/android/systemui/BatteryMeterView;
 
@@ -2525,7 +2740,17 @@
 
     invoke-virtual {v7}, Lcom/android/systemui/BatteryMeterView;->scaleBatteryMeterDrawable()V
 
-    :cond_0
+    :cond_1
+    return-void
+.end method
+
+.method public setClockTint(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockColor:I
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
+
     return-void
 .end method
 
@@ -2909,6 +3134,26 @@
     return-void
 .end method
 
+.method public setNetspeedTint(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetspeedColor:I
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNetspeedTint:I
+
+    return-void
+.end method
+
+.method public setNotificationIconTint(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconColor:I
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconTint:I
+
+    return-void
+.end method
+
 .method public setOperatorLogoIndicator(Landroid/widget/ImageView;)V
     .locals 1
 
@@ -2921,6 +3166,16 @@
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->setOperatorLogoIndicator(Landroid/widget/ImageView;)V
 
     :cond_0
+    return-void
+.end method
+
+.method public setPercentTint(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mPercentColor:I
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mPercentTint:I
+
     return-void
 .end method
 
@@ -2944,6 +3199,16 @@
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->setStatusBarCarrierLabelView(Landroid/widget/TextView;)V
 
     :cond_0
+    return-void
+.end method
+
+.method public setStatusIconTint(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconColor:I
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconTint:I
+
     return-void
 .end method
 
@@ -3017,6 +3282,16 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mSystemIconArea:Landroid/widget/LinearLayout;
+
+    invoke-direct {p0, v0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->animateShow(Landroid/view/View;Z)V
+
+    return-void
+.end method
+
+.method public showSystemIconArea2(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mSystemIconArea2:Landroid/widget/LinearLayout;
 
     invoke-direct {p0, v0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->animateShow(Landroid/view/View;Z)V
 

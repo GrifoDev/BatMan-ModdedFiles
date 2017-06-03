@@ -2261,6 +2261,8 @@
 
     const/4 v9, 0x0
 
+    goto :goto_0
+
     invoke-virtual {p1}, Landroid/os/storage/VolumeInfo;->getFsUuid()Ljava/lang/String;
 
     move-result-object v7
@@ -2273,6 +2275,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    :goto_0
     return-object v9
 
     :cond_0

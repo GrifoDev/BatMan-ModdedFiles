@@ -6,6 +6,7 @@
 .implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
 .implements Lcom/android/systemui/statusbar/policy/SecurityController$SecurityControllerCallback;
 .implements Lcom/android/systemui/tuner/TunerService$Tunable;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -24,9 +25,13 @@
 # instance fields
 .field mAirplane:Landroid/widget/ImageView;
 
+.field private mAirplaneColor:I
+
 .field private mAirplaneContentDescription:Ljava/lang/String;
 
 .field private mAirplaneIconId:I
+
+.field private mAirplaneTint:I
 
 .field private mBlockAirplane:Z
 
@@ -64,6 +69,10 @@
 
 .field private mEthernetVisible:Z
 
+.field private mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+.field private mGlobalColor:I
+
 .field private mHoverPopupPreShowListener:Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
 
 .field private final mIconScaleFactor:F
@@ -71,6 +80,8 @@
 .field private mIconTint:I
 
 .field private mIsAirplaneMode:Z
+
+.field private mIsGlobalColor:Z
 
 .field private mLastAirplaneIconId:I
 
@@ -100,9 +111,17 @@
 
 .field private final mMobileDataIconStartPadding:I
 
+.field private mMobileSignalColor:I
+
 .field mMobileSignalGroup:Landroid/widget/LinearLayout;
 
 .field private final mMobileSignalGroupEndPadding:I
+
+.field private mMobileSignalTint:I
+
+.field private mMobileTypeColor:I
+
+.field private mMobileTypeTint:I
 
 .field mNC:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -145,6 +164,10 @@
 
 .field mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
+.field private mRoamingColor:I
+
+.field private mRoamingTint:I
+
 .field mSC:Lcom/android/systemui/statusbar/policy/SecurityController;
 
 .field private final mSecondaryTelephonyPadding:I
@@ -171,6 +194,8 @@
 
 .field mWifiAirplaneSpacer:Landroid/view/View;
 
+.field private mWifiColor:I
+
 .field mWifiDark:Landroid/widget/ImageView;
 
 .field private mWifiDescription:Ljava/lang/String;
@@ -180,6 +205,8 @@
 .field mWifiSignalSpacer:Landroid/view/View;
 
 .field private mWifiStrengthId:I
+
+.field private mWifiTint:I
 
 .field private mWifiVisible:Z
 
@@ -1206,19 +1233,7 @@
 
     invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplane:Landroid/widget/ImageView;
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mTintArea:Landroid/graphics/Rect;
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplane:Landroid/widget/ImageView;
-
-    iget v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
-
-    invoke-static {v2, v3, v4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
-
-    move-result v2
-
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setAirplaneModeTint()V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mTintArea:Landroid/graphics/Rect;
 
@@ -1250,33 +1265,7 @@
 
     invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivity:Landroid/widget/ImageView;
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mTintArea:Landroid/graphics/Rect;
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivity:Landroid/widget/ImageView;
-
-    iget v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
-
-    invoke-static {v2, v3, v4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
-
-    move-result v2
-
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mEthernet:Landroid/widget/ImageView;
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mTintArea:Landroid/graphics/Rect;
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifi:Landroid/widget/ImageView;
-
-    iget v4, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIconTint:I
-
-    invoke-static {v2, v3, v4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
-
-    move-result v2
-
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setWifiTint()V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mEthernetActivity:Landroid/widget/ImageView;
 
@@ -1369,7 +1358,45 @@
     goto :goto_0
 
     :cond_1
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setMobileSignalTint()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setMobileTypeTint()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setRoamingTint()V
+
     return-void
+.end method
+
+.method private getDarkenedTint(I)I
+    .locals 4
+
+    invoke-static {}, Landroid/animation/ArgbEvaluator;->getInstance()Landroid/animation/ArgbEvaluator;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mDarkIntensity:F
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v3, -0x43aaaaab
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/animation/ArgbEvaluator;->evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private getState(I)Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;
@@ -1595,6 +1622,140 @@
     return-void
 .end method
 
+.method private registerGearObserver()V
+    .locals 7
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    new-instance v3, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v3, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v3, "wifi_signal_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v3, "mobile_signal_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v3, "mobile_type_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v3, "mobile_roaming_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v3, "airplane_mode_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v3, "global_sb_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v3, "is_global_sb_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    invoke-virtual {v1, v4, v5, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method private setAirplaneModeColor()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIsGlobalColor:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGlobalColor:I
+
+    :goto_0
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplaneColor:I
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setAirplaneModeTint()V
+
+    return-void
+
+    :cond_0
+    const-string v0, "airplane_mode_color"
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method private setAirplaneModeTint()V
+    .locals 2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplaneColor:I
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/SignalClusterView;->getDarkenedTint(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplaneTint:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplane:Landroid/widget/ImageView;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mAirplaneTint:I
+
+    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
+
+    return-void
+.end method
+
 .method private setIconForView(Landroid/widget/ImageView;I)V
     .locals 3
 
@@ -1661,6 +1822,234 @@
     goto :goto_0
 .end method
 
+.method private setMobileSignalColor()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIsGlobalColor:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGlobalColor:I
+
+    :goto_0
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileSignalColor:I
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setMobileSignalTint()V
+
+    return-void
+
+    :cond_0
+    const-string v0, "mobile_signal_color"
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method private setMobileSignalTint()V
+    .locals 4
+
+    iget v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileSignalColor:I
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/SignalClusterView;->getDarkenedTint(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileSignalTint:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mPhoneStates:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;
+
+    # getter for: Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobile:Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->access$1400(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileSignalTint:I
+
+    invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method private setMobileTypeColor()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIsGlobalColor:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGlobalColor:I
+
+    :goto_0
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileTypeColor:I
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setMobileTypeTint()V
+
+    return-void
+
+    :cond_0
+    const-string v0, "mobile_type_color"
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method private setMobileTypeTint()V
+    .locals 4
+
+    iget v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileTypeColor:I
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/SignalClusterView;->getDarkenedTint(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileTypeTint:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mPhoneStates:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;
+
+    # getter for: Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileType:Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->access$1500(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileTypeTint:I
+
+    invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
+
+    # getter for: Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileActivity:Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->access$1600(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mMobileTypeTint:I
+
+    invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method private setRoamingColor()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIsGlobalColor:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGlobalColor:I
+
+    :goto_0
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mRoamingColor:I
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setRoamingTint()V
+
+    return-void
+
+    :cond_0
+    const-string v0, "mobile_roaming_color"
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method private setRoamingTint()V
+    .locals 4
+
+    iget v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mRoamingColor:I
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/SignalClusterView;->getDarkenedTint(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mRoamingTint:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mPhoneStates:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;
+
+    # getter for: Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mRoaming:Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->access$1700(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mRoamingTint:I
+
+    invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method private setTint(Landroid/widget/ImageView;I)V
     .locals 1
 
@@ -1669,6 +2058,104 @@
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    return-void
+.end method
+
+.method private setUpAllColors()V
+    .locals 3
+
+    const/4 v0, 0x1
+
+    const-string v1, "is_global_sb_color"
+
+    invoke-static {v1, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    :goto_0
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIsGlobalColor:Z
+
+    const-string v0, "global_sb_color"
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGlobalColor:I
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setWifiColor()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setAirplaneModeColor()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setRoamingColor()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setMobileTypeColor()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setMobileSignalColor()V
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private setWifiColor()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mIsGlobalColor:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGlobalColor:I
+
+    :goto_0
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiColor:I
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setWifiTint()V
+
+    return-void
+
+    :cond_0
+    const-string v0, "wifi_signal_color"
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method private setWifiTint()V
+    .locals 2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiColor:I
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/SignalClusterView;->getDarkenedTint(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiTint:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifi:Landroid/widget/ImageView;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiTint:I
+
+    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiActivity:Landroid/widget/ImageView;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifiTint:I
+
+    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
     return-void
 .end method
@@ -1973,12 +2460,108 @@
 
     invoke-virtual {v3, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->addSignalCallback(Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;)V
 
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->registerGearObserver()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setUpAllColors()V
+
     return-void
 
     :cond_2
     const/4 v0, 0x0
 
     goto/16 :goto_1
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string v0, "wifi_signal_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setWifiColor()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    const-string v0, "mobile_signal_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setMobileSignalColor()V
+
+    goto :goto_0
+
+    :cond_2
+    const-string v0, "mobile_type_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setMobileTypeColor()V
+
+    goto :goto_0
+
+    :cond_3
+    const-string v0, "mobile_roaming_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setRoamingColor()V
+
+    goto :goto_0
+
+    :cond_4
+    const-string v0, "airplane_mode_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setAirplaneModeColor()V
+
+    goto :goto_0
+
+    :cond_5
+    const-string v0, "is_global_sb_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    const-string v0, "global_sb_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    :cond_6
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setUpAllColors()V
+
+    goto :goto_0
 .end method
 
 .method protected onDetachedFromWindow()V
@@ -2024,6 +2607,18 @@
     iput-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mSimIcon:Landroid/widget/ImageView;
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
     return-void
 .end method

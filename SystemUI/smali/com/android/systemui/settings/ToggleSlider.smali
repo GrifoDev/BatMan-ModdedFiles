@@ -18,6 +18,10 @@
 # static fields
 .field private static final BRIGHTNESS_SETTINGS:Landroid/content/Intent;
 
+.field public static mAllowQsColorChange:Z
+
+.field public static mQsSliderColor:I
+
 
 # instance fields
 .field private defatultThumbColor:Landroid/content/res/ColorStateList;
@@ -459,6 +463,16 @@
 .method private showStrainWarningPopup()V
     .locals 4
 
+    const-string v0, "hide_brightness_warning"
+
+    const v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -551,11 +565,34 @@
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
+.method allowQsColorChange()Z
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "unlock_qs_colors"
+
+    const v1, 0x0
+
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    sput-boolean v2, Lcom/android/systemui/settings/ToggleSlider;->mAllowQsColorChange:Z
+
+    return v2
+.end method
+
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
 
@@ -599,7 +636,7 @@
 .end method
 
 .method public initSlider(Lcom/android/systemui/settings/ToggleSlider;)V
-    .locals 7
+    .locals 8
 
     const/4 v6, 0x0
 
@@ -665,6 +702,17 @@
 
     move-result v2
 
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->allowQsColorChange()Z
+
+    sget-boolean v7, Lcom/android/systemui/settings/ToggleSlider;->mAllowQsColorChange:Z
+
+    if-eqz v7, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->setSliderColor()V
+
+    sget v2, Lcom/android/systemui/settings/ToggleSlider;->mQsSliderColor:I
+
+    :cond_0
     invoke-direct {p0, v2}, Lcom/android/systemui/settings/ToggleSlider;->colorToColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -677,6 +725,17 @@
 
     move-result v2
 
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->allowQsColorChange()Z
+
+    sget-boolean v7, Lcom/android/systemui/settings/ToggleSlider;->mAllowQsColorChange:Z
+
+    if-eqz v7, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSlider;->setSliderColor()V
+
+    sget v2, Lcom/android/systemui/settings/ToggleSlider;->mQsSliderColor:I
+
+    :cond_1
     invoke-direct {p0, v2}, Lcom/android/systemui/settings/ToggleSlider;->colorToColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -1143,6 +1202,28 @@
     move v1, v2
 
     goto :goto_2
+.end method
+
+.method setSliderColor()V
+    .locals 5
+
+    iget-object v1, p0, Lcom/android/systemui/settings/ToggleSlider;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "qs_slider_color"
+
+    const v1, -0xa93f1b
+
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    sput v2, Lcom/android/systemui/settings/ToggleSlider;->mQsSliderColor:I
+
+    return-void
 .end method
 
 .method public setTouchEnabled(Z)V

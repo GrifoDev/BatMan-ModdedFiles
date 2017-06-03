@@ -147,7 +147,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 9
 
     const/4 v2, 0x1
 
@@ -568,12 +568,21 @@
 
     const-string/jumbo v3, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_SERVICEBOX"
 
-    invoke-virtual {v0, v3}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+    const-string v6, "s_eight_style"
 
-    move-result v0
+    const/4 v7, 0x1
 
-    sput-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
+    invoke-static {v6, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
+    move-result v6
+
+    if-eqz v6, :cond_lg
+
+    const/4 v6, 0x1
+
+    sput-boolean v6, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
+
+    :cond_lg
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
@@ -2053,6 +2062,16 @@
 .method public static isSupportWakeOnFingerPrint()Z
     .locals 5
 
+    const-string v0, "wake_on_finger"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
     const/4 v2, 0x1
 
     const-string/jumbo v1, "/sys/class/fingerprint/fingerprint/adm"
@@ -2115,6 +2134,72 @@
 
     :cond_1
     const/4 v1, 0x0
+
+    return v1
+
+    :cond_2
+    const/4 v2, 0x1
+
+    const-string/jumbo v1, "/sys/class/fingerprint/fingerprint/adm"
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardRune;->readFromFile(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "KeyguardRune"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "isWakeOnFingerPrint( resultId = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " )"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    :goto_1
+    if-nez v1, :cond_4
+
+    const-string/jumbo v1, "1"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    return v2
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v1, 0x1
 
     return v1
 .end method

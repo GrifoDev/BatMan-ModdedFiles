@@ -6,6 +6,42 @@
 # static fields
 .field public static final alarm_status:I = 0x7f130295
 
+.field public static final analog_clock_lockscreen:I = 0x7f13054c
+
+.field public static final analog_clock_lockscreen1:I = 0x7f13054f
+
+.field public static final analog_clock_lockscreen10:I = 0x7f130558
+
+.field public static final analog_clock_lockscreen11:I = 0x7f130559
+
+.field public static final analog_clock_lockscreen12:I = 0x7f13055f
+
+.field public static final analog_clock_lockscreen13:I = 0x7f130560
+
+.field public static final analog_clock_lockscreen14:I = 0x7f130561
+
+.field public static final analog_clock_lockscreen15:I = 0x7f130562
+
+.field public static final analog_clock_lockscreen16:I = 0x7f130563
+
+.field public static final analog_clock_lockscreen17:I = 0x7f130564
+
+.field public static final analog_clock_lockscreen2:I = 0x7f130550
+
+.field public static final analog_clock_lockscreen3:I = 0x7f130551
+
+.field public static final analog_clock_lockscreen4:I = 0x7f130552
+
+.field public static final analog_clock_lockscreen5:I = 0x7f130553
+
+.field public static final analog_clock_lockscreen6:I = 0x7f130554
+
+.field public static final analog_clock_lockscreen7:I = 0x7f130555
+
+.field public static final analog_clock_lockscreen8:I = 0x7f130556
+
+.field public static final analog_clock_lockscreen9:I = 0x7f130557
+
 .field public static final aod_captured_view:I = 0x7f13024b
 
 .field public static final aod_gradient_view:I = 0x7f130246
@@ -17,6 +53,8 @@
 .field public static final background_image_view_lock:I = 0x7f1302aa
 
 .field public static final background_view:I = 0x7f130245
+
+.field public static final barometr:I = 0x7f13054e
 
 .field public static final biometric_timeout_message:I = 0x7f130204
 
@@ -258,6 +296,10 @@
 
 .field public static final keyguard_single_time_min_view:I = 0x7f130284
 
+.field public static final keyguard_single_time_minute_view:I = 0x7f130549
+
+.field public static final keyguard_single_time_seconds_view:I = 0x7f13054a
+
 .field public static final keyguard_single_time_set:I = 0x7f130281
 
 .field public static final keyguard_single_vertical_date_view:I = 0x7f130291
@@ -286,6 +328,10 @@
 
 .field public static final lock_captured_view:I = 0x7f13024c
 
+.field public static final lockweather:I = 0x7f13055a
+
+.field public static final lockweather1:I = 0x7f13055b
+
 .field public static final login:I = 0x7f1301d7
 
 .field public static final ok:I = 0x7f1301d9
@@ -297,6 +343,8 @@
 .field public static final passwordEntry:I = 0x7f1301fc
 
 .field public static final password_entry_box:I = 0x7f1301fb
+
+.field public static final pedometr:I = 0x7f13054b
 
 .field public static final pinEntry:I = 0x7f130260
 

@@ -269,6 +269,15 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/QSTileView;->mDivider:Landroid/view/View;
 
+    sget-boolean v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
+
+    if-eqz v3, :cond_0
+
+    sget v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsDividerColor:I
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_0
     iget-object v1, p0, Lcom/android/systemui/qs/QSTileView;->dividerParam:Landroid/widget/LinearLayout$LayoutParams;
 
     iget-object v2, p0, Lcom/android/systemui/qs/QSTileView;->mContext:Landroid/content/Context;
@@ -295,7 +304,7 @@
 .end method
 
 .method protected createLabel()V
-    .locals 4
+    .locals 5
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSTileView;->mContext:Landroid/content/Context;
 
@@ -323,6 +332,15 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSTileView;->mLabel:Landroid/widget/TextView;
 
+    sget-boolean v4, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
+
+    if-eqz v4, :cond_0
+
+    sget v4, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsTextColor:I
+
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_0
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setFocusable(Z)V

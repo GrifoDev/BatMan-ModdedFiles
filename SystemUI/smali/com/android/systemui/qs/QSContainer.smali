@@ -852,7 +852,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 11
+    .locals 12
 
     const v4, 0x7f0d03f6
 

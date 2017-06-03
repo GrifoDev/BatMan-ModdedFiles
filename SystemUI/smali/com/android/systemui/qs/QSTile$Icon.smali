@@ -59,17 +59,19 @@
 .end method
 
 .method public setColor(Landroid/content/Context;Lcom/android/systemui/qs/QSTile$State;Landroid/graphics/drawable/Drawable;)Z
-    .locals 8
+    .locals 9
 
     const v7, 0x7f0b0100
 
     const v6, 0x7f0b00ff
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_8
 
     instance-of v3, p2, Lcom/android/systemui/qs/QSTile$BooleanState;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_8
+
+    sget-boolean v8, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
 
     move-object v1, p2
 
@@ -79,12 +81,17 @@
 
     iget-boolean v3, v1, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
+    if-eqz v8, :cond_0
+
+    sget v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
+
+    :cond_0
     ushr-int/lit8 v3, v3, 0x18
 
     int-to-float v3, v3
@@ -105,6 +112,11 @@
 
     move-result v2
 
+    if-eqz v8, :cond_1
+
+    sget v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
+
+    :cond_1
     :goto_0
     invoke-virtual {p3, v2}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
@@ -116,15 +128,20 @@
 
     return v3
 
-    :cond_0
+    :cond_2
     iget-boolean v3, v1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_5
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
+    if-eqz v8, :cond_3
+
+    sget v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
+
+    :cond_3
     ushr-int/lit8 v3, v3, 0x18
 
     int-to-float v3, v3
@@ -145,13 +162,23 @@
 
     move-result v2
 
+    if-eqz v8, :cond_4
+
+    sget v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOnColor:I
+
+    :cond_4
     goto :goto_0
 
-    :cond_1
+    :cond_5
     invoke-virtual {p1, v7}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
+    if-eqz v8, :cond_6
+
+    sget v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOffColor:I
+
+    :cond_6
     ushr-int/lit8 v3, v3, 0x18
 
     int-to-float v3, v3
@@ -172,13 +199,18 @@
 
     move-result v3
 
+    if-eqz v8, :cond_7
+
+    sget v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQsIconOffColor:I
+
+    :cond_7
     const/high16 v4, -0x1000000
 
     or-int v2, v3, v4
 
     goto :goto_0
 
-    :cond_2
+    :cond_8
     const/4 v3, 0x0
 
     return v3

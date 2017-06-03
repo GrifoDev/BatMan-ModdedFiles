@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:background="@drawable/qs_background_primary" android:paddingTop="@dimen/qs_panel_padding_top" android:layout_width="fill_parent" android:layout_height="@dimen/qs_panel_handler_height"
+<LinearLayout android:gravity="center" android:id="@id/qs_drag_handle_background" android:background="@drawable/qs_background_primary" android:paddingTop="@dimen/qs_panel_padding_top" android:layout_width="fill_parent" android:layout_height="@dimen/qs_panel_handler_height"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView android:id="@id/handler_image_view" android:layout_width="16.0dip" android:layout_height="3.0dip" android:src="@drawable/quickpanel_handler" android:scaleType="fitXY" android:tint="@color/qs_handler_color" />
     <FrameLayout android:id="@id/handler_cue_image_view_layout" android:visibility="gone" android:layout_width="16.0dip" android:layout_height="wrap_content">
