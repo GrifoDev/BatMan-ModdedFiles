@@ -1317,6 +1317,7 @@
     <public type="drawable" name="fp_enrollment_header_landscape" id="0x7f020694" />
     <public type="drawable" name="wifi_link_pressed_bg_color" id="0x7f020695" />
     <public type="drawable" name="wifi_link_default_bg_color" id="0x7f020696" />
+    <public type="drawable" name="logo" id="0x7f020697" />
     <public type="drawable" name="fingerprint_h_01" id="0x7f02013e" />
     <public type="drawable" name="fingerprint_v_01" id="0x7f020169" />
     <public type="drawable" name="setupwizard_header_bg01" id="0x7f020517" />
@@ -3139,6 +3140,9 @@
     <public type="layout" name="suw_glif_blank_template" id="0x7f0403c6" />
     <public type="layout" name="notification_app_section" id="0x7f0403c7" />
     <public type="layout" name="setup_choose_lock_pattern_template" id="0x7f0403c8" />
+    <public type="layout" name="logo" id="0x7f0403c9" />
+    <public type="layout" name="manage_autostarts" id="0x7f0403ca" />
+    <public type="layout" name="manage_autostarts_item" id="0x7f0403cb" />
     <public type="layout" name="preference_wifi_ap_allowed_list" id="0x7f040241" />
     <public type="layout" name="settings_top_level" id="0x7f0402b4" />
     <public type="layout" name="wifi_settings_for_setup_wizard_xl" id="0x7f0403a3" />
@@ -3585,6 +3589,8 @@
     <public type="xml" name="zen_mode_schedule_rule_settings" id="0x7f080169" />
     <public type="xml" name="zen_mode_settings" id="0x7f08016a" />
     <public type="xml" name="zen_mode_visual_interruptions_settings" id="0x7f08016b" />
+    <public type="xml" name="autostarts_settings_header" id="0x7f08016c" />
+    <public type="xml" name="led_indicator_settings" id="0x7f08016d" />
     <public type="raw" name="accessibility_screen_magnification" id="0x7f090000" />
     <public type="raw" name="dummy_data_for_oem_v2" id="0x7f090001" />
     <public type="raw" name="fingerprint_dream_h_01" id="0x7f090002" />
@@ -13103,6 +13109,33 @@
     <public type="string" name="msa_msg_connect_to_mobile_network" id="0x7f0b1cd3" />
     <public type="string" name="msa_btn_accept" id="0x7f0b1cd4" />
     <public type="string" name="msa_btn_decline" id="0x7f0b1cd5" />
+    <public type="string" name="device_info" id="0x7f0b1cd6" />
+    <public type="string" name="rom_info" id="0x7f0b1cd7" />
+    <public type="string" name="rom_name" id="0x7f0b1cd8" />
+    <public type="string" name="rom_name_details" id="0x7f0b1cd9" />
+    <public type="string" name="rom_ver" id="0x7f0b1cda" />
+    <public type="string" name="rom_ver_details" id="0x7f0b1cdb" />
+    <public type="string" name="rom_date" id="0x7f0b1cdc" />
+    <public type="string" name="rom_date_details" id="0x7f0b1cdd" />
+    <public type="string" name="rom_developer" id="0x7f0b1cde" />
+    <public type="string" name="rom_developer_name" id="0x7f0b1cdf" />
+    <public type="string" name="autostarts_title" id="0x7f0b1ce0" />
+    <public type="string" name="autostarts_progress_msg" id="0x7f0b1ce1" />
+    <public type="string" name="autostarts_empty_msg" id="0x7f0b1ce2" />
+    <public type="string" name="autostarts_optimize_empty_msg" id="0x7f0b1ce3" />
+    <public type="string" name="autostarts_optimize_btn_title" id="0x7f0b1ce4" />
+    <public type="string" name="autostarts_all_btn_title" id="0x7f0b1ce5" />
+    <public type="string" name="led_indicator_charging" id="0x7f0b1ce6" />
+    <public type="string" name="led_indicator_charging_summary" id="0x7f0b1ce7" />
+    <public type="string" name="led_indicator_notifications" id="0x7f0b1ce8" />
+    <public type="string" name="led_indicator_notifications_summary" id="0x7f0b1ce9" />
+    <public type="string" name="led_indicator_voice_recording" id="0x7f0b1cea" />
+    <public type="string" name="led_indicator_voice_recording_summary" id="0x7f0b1ceb" />
+    <public type="string" name="led_indicator_incoming_notification" id="0x7f0b1cec" />
+    <public type="string" name="led_indicator_incoming_notification_summary" id="0x7f0b1ced" />
+    <public type="string" name="led_indicator_low_battery" id="0x7f0b1cee" />
+    <public type="string" name="led_indicator_low_battery_summary" id="0x7f0b1cef" />
+    <public type="string" name="notification_reminder_led_toast" id="0x7f0b1cf0" />
     <public type="string" name="label_diagnostics_info_text_with_check_box" id="0x7f0b116e" />
     <public type="string" name="enable_iris_lock_desc_1" id="0x7f0b116f" />
     <public type="string" name="enable_iris_lock_desc_2" id="0x7f0b1170" />
@@ -18581,6 +18614,10 @@
     <public type="id" name="action_done" id="0x7f1109db" />
     <public type="id" name="vpn_create" id="0x7f1109dc" />
     <public type="id" name="wifi_wps" id="0x7f1109dd" />
+    <public type="id" name="dev_settings" id="0x7f1109de" />
+    <public type="id" name="autostarts_settings" id="0x7f1109df" />
+    <public type="id" name="appName" id="0x7f1109e0" />
+    <public type="id" name="led_indicator_settings" id="0x7f1109e1" />
     <public type="fraction" name="fingerprint_sensor_location_fraction_x" id="0x7f120000" />
     <public type="fraction" name="fingerprint_sensor_location_fraction_y" id="0x7f120001" />
     <public type="plurals" name="data_saver_unrestricted_summary_chn" id="0x7f130000" />
