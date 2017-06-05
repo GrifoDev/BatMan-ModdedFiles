@@ -205,7 +205,7 @@
 
     invoke-virtual {v0, v8}, Landroid/widget/TextView;->setSingleLine(Z)V
 
-    const v5, 0x7f110157
+    const v5, 0x7f11055d
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

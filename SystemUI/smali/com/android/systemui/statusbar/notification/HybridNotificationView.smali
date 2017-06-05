@@ -158,7 +158,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 6
+    .locals 7
 
     const/4 v4, 0x2
 
@@ -212,7 +212,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
 
-    sget-boolean v5, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
+    const-string v5, "unlock_notification_colors"
+
+    const/4 v6, 0x0
+
+    invoke-static {v5, v6}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v5
 
     if-eqz v5, :cond_0
 
@@ -228,8 +234,6 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTextView:Landroid/widget/TextView;
-
-    sget-boolean v5, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
 
     if-eqz v5, :cond_1
 

@@ -1842,7 +1842,13 @@
 .method protected onFinishInflate()V
     .locals 5
 
-    sget-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
+    const-string v0, "unlock_notification_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
@@ -1924,7 +1930,7 @@
 
     iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackground()V
 

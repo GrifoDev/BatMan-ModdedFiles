@@ -559,7 +559,7 @@
 
     move-result v0
 
-    const-string v1, "tweaks_doze_pulse_duration_visible"
+    const-string v1, "doze_pulse_duration_visible"
 
     invoke-static {v1, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 

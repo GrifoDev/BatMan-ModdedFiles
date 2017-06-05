@@ -189,7 +189,7 @@
 .end method
 
 .method public getNumQuickTiles(Landroid/content/Context;)I
-    .locals 4
+    .locals 5
 
     const v3, 0x7f0c0030
 
@@ -218,6 +218,14 @@
     move-result-object v2
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v2
+
+    const-string v4, "quick_qs_buttons"
+
+    const/4 v2, 0x6
+
+    invoke-static {v4, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
     move-result v2
 

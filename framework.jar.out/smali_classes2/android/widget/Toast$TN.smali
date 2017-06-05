@@ -634,6 +634,161 @@
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     goto/16 :goto_0
+
+    :pswitch_1
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030004
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_2
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030521
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_3
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030525
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_4
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030524
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_5
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030522
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_6
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030523
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_7
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030526
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_8
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030527
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_9
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030528
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_a
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x01030529
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_b
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x0103052a
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_c
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x0103052b
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_d
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x0103052c
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_e
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x0103052d
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_f
+    iget-object v4, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    const v5, 0x0103052e
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    goto/16 :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+    .end packed-switch
 .end method
 
 .method public hide()V

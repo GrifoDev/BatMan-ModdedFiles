@@ -74,12 +74,6 @@
 
 .field private static final VIBRATION_ATTRIBUTES:Landroid/media/AudioAttributes;
 
-.field public static mAllowHeaderColorChange:Z
-
-.field public static mAllowNotificationColorChange:Z
-
-.field public static mAllowQsColorChange:Z
-
 .field private static mIsNetworkAvailable:Z
 
 .field public static mQsDividerColor:I
@@ -11410,54 +11404,6 @@
     goto :goto_0
 .end method
 
-.method allowHeaderColorChange()Z
-    .locals 2
-
-    const-string v0, "unlock_header_colors"
-
-    const v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowHeaderColorChange:Z
-
-    return v0
-.end method
-
-.method allowNotificationColorChange()Z
-    .locals 2
-
-    const-string v0, "unlock_notification_colors"
-
-    const v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
-
-    return v0
-.end method
-
-.method allowQsColorChange()Z
-    .locals 2
-
-    const-string v0, "unlock_qs_colors"
-
-    const v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
-
-    return v0
-.end method
-
 .method public animateCollapsePanels()V
     .locals 1
 
@@ -20700,19 +20646,11 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKygrdHideLeftSignal()V
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowHeaderColorChange()Z
-
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderColors()V
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowQsColorChange()Z
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsColors()V
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowNotificationColorChange()Z
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterBackgroundColor()V
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterTextColor()V
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotificationColors()V
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKeyguardText()V
 
@@ -20726,30 +20664,14 @@
 
     move-result v8
 
-    if-nez v8, :cond_15
+    if-nez v8, :cond_td
 
-    goto :goto_3
+    goto :goto_td
 
-    :cond_15
+    :cond_td
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSignalPosition()V
 
-    :goto_3
-    const/4 v7, 0x0
-
-    const-string v8, "data_usage_visibility"
-
-    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v8
-
-    if-nez v8, :cond_16
-
-    goto :goto_4
-
-    :cond_16
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setDataUsageViewColor()V
-
-    :goto_4
+    :goto_td
     new-instance v6, Landroid/content/IntentFilter;
 
     invoke-direct {v6}, Landroid/content/IntentFilter;-><init>()V
@@ -22027,7 +21949,7 @@
 
     if-eqz v0, :cond_5
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowHeaderColorChange()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setHeaderColors()V
 
     :cond_5
     const-string v0, "unlock_notification_colors"
@@ -22038,7 +21960,7 @@
 
     if-eqz v0, :cond_6
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowNotificationColorChange()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotificationColors()V
 
     :cond_6
     const-string v0, "unlock_qs_colors"
@@ -22049,7 +21971,7 @@
 
     if-eqz v0, :cond_7
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->allowQsColorChange()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setQsColors()V
 
     :cond_7
     const-string v0, "header_text_color"
@@ -22247,7 +22169,7 @@
 
     if-eqz v0, :cond_1e
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterTextColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotificationColors()V
 
     :cond_1e
     const-string v0, "notif_footer_background_color"
@@ -22258,7 +22180,7 @@
 
     if-eqz v0, :cond_1f
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotifFooterBackgroundColor()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setNotificationColors()V
 
     :cond_1f
     const-string v0, "lockscreen_guide_text"
@@ -26249,55 +26171,6 @@
     return v0
 .end method
 
-.method setDataUsageViewColor()V
-    .locals 5
-
-    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "expanded_switch_bg"
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    const/4 v4, 0x1
-
-    if-ne v1, v4, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
-
-    const v1, 0x7f13014c
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string v3, "data_usage_view"
-
-    const v1, 0x50506
-
-    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
-
-    :cond_0
-    return-void
-.end method
-
 .method public setDeskPanelViewNotificationPositionX(Z)V
     .locals 3
 
@@ -26421,7 +26294,13 @@
 .method setHeaderColors()V
     .locals 5
 
-    sget-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowHeaderColorChange:Z
+    const-string v0, "unlock_header_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
 
     if-eqz v0, :cond_6
 
@@ -27219,94 +27098,115 @@
     return-void
 .end method
 
-.method setNotifFooterBackgroundColor()V
-    .locals 4
+.method setNotificationColors()V
+    .locals 5
 
-    sget-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
+    const-string v0, "unlock_notification_colors"
 
-    if-eqz v0, :cond_1
-
-    const-string v0, "notif_footer_background_color"
-
-    const v1, -0x50506
+    const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
     move-result v0
 
+    if-eqz v0, :cond_3
+
+    const-string v1, "notif_footer_text_color"
+
+    const v2, -0x26dadadb
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string v0, "block_button"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
-    const v2, 0x7f130174
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->setBackgroundColor(I)V
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
-
-    const v2, 0x7f1304a8
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_1
-
-    invoke-virtual {v3, v0}, Landroid/view/View;->setBackgroundColor(I)V
-
-    :cond_1
-    return-void
-.end method
-
-.method setNotifFooterTextColor()V
-    .locals 3
-
-    sget-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowNotificationColorChange:Z
+    move-result-object v0
 
     if-eqz v0, :cond_0
 
-    const-string v0, "notif_footer_text_color"
+    check-cast v0, Landroid/widget/TextView;
 
-    const v1, -0x26dadadb
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+    :cond_0
+    const-string v0, "clear_all"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
-    const v2, 0x7f130179
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+    move-result-object v0
 
-    move-result-object v1
+    if-eqz v0, :cond_1
 
-    if-eqz v1, :cond_0
+    check-cast v0, Landroid/widget/TextView;
 
-    check-cast v1, Landroid/widget/TextView;
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
+    :cond_1
+    const-string v1, "notif_footer_background_color"
+
+    const v2, -0x50506
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string v0, "notification_bottom_normal_mode"
+
+    const-string v1, "id"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
-    const v2, 0x7f130176
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+    move-result-object v0
 
-    move-result-object v1
+    if-eqz v0, :cond_2
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
 
-    check-cast v1, Landroid/widget/TextView;
+    :cond_2
+    const-string v0, "content"
 
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
+    const-string v1, "id"
 
-    :cond_0
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_3
     return-void
 .end method
 
@@ -27417,7 +27317,13 @@
 .method setQsColors()V
     .locals 5
 
-    sget-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
+    const-string v0, "unlock_qs_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
 
     if-eqz v0, :cond_5
 

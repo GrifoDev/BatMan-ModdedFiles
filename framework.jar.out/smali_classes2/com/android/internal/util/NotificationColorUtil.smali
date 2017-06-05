@@ -471,38 +471,9 @@
 .end method
 
 .method public static resolveColor(Landroid/content/Context;I)I
-    .locals 7
+    .locals 1
 
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "unlock_notification_colors"
-
-    const/4 v6, 0x0
-
-    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "notification_icon_color"
-
-    const v3, -0xa38b80
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_0
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
     const v0, 0x1060052
 
@@ -512,11 +483,8 @@
 
     return v0
 
-    :cond_1
+    :cond_0
     return p1
-
-    :goto_0
-    return v0
 .end method
 
 .method public static resolveContrastColor(Landroid/content/Context;I)I

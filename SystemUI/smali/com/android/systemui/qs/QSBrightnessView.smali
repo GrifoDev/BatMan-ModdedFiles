@@ -15,8 +15,6 @@
 
 
 # static fields
-.field public static mAllowQsColorChange:Z
-
 .field public static mQsBrightnessIconColor:I
 
 
@@ -70,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILcom/android/systemui/qs/QSPanel;)V
-    .locals 7
+    .locals 8
 
     const/4 v4, 0x1
 
@@ -87,8 +85,6 @@
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/QSBrightnessView$1;-><init>(Lcom/android/systemui/qs/QSBrightnessView;Landroid/os/Handler;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSBrightnessView;->allowQsColorChange()Z
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/QSBrightnessView;->setQsBrightnessIconColor()V
 
@@ -165,7 +161,13 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/QSBrightnessView;->mIcon:Landroid/widget/ImageView;
 
-    sget-boolean v6, Lcom/android/systemui/qs/QSBrightnessView;->mAllowQsColorChange:Z
+    const-string v6, "unlock_qs_colors"
+
+    const/4 v7, 0x0
+
+    invoke-static {v6, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v6
 
     if-eqz v6, :cond_1
 
@@ -175,8 +177,6 @@
 
     :cond_1
     iget-object v2, p0, Lcom/android/systemui/qs/QSBrightnessView;->mIcon2:Landroid/widget/ImageView;
-
-    sget-boolean v6, Lcom/android/systemui/qs/QSBrightnessView;->mAllowQsColorChange:Z
 
     if-eqz v6, :cond_2
 
@@ -260,22 +260,6 @@
 
 
 # virtual methods
-.method allowQsColorChange()Z
-    .locals 2
-
-    const-string v0, "unlock_qs_colors"
-
-    const v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/systemui/qs/QSBrightnessView;->mAllowQsColorChange:Z
-
-    return v0
-.end method
-
 .method public getAnimator()Lcom/android/systemui/qs/TouchAnimator;
     .locals 8
 

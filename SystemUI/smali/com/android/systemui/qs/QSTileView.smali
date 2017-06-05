@@ -245,7 +245,7 @@
 
 # virtual methods
 .method protected createDivider()V
-    .locals 4
+    .locals 5
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSTileView;->mContext:Landroid/content/Context;
 
@@ -269,7 +269,13 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/QSTileView;->mDivider:Landroid/view/View;
 
-    sget-boolean v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
+    const-string v3, "unlock_qs_colors"
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v3
 
     if-eqz v3, :cond_0
 
@@ -304,7 +310,7 @@
 .end method
 
 .method protected createLabel()V
-    .locals 5
+    .locals 6
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSTileView;->mContext:Landroid/content/Context;
 
@@ -332,7 +338,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSTileView;->mLabel:Landroid/widget/TextView;
 
-    sget-boolean v4, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
+    const-string v4, "unlock_qs_colors"
+
+    const/4 v5, 0x0
+
+    invoke-static {v4, v5}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v4
 
     if-eqz v4, :cond_0
 

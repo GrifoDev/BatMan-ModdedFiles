@@ -59,6 +59,8 @@
 
 .field private mPreviousMuteState:Z
 
+.field private mPreviousState:Lcom/android/incallui/InCallPresenter$InCallState;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -82,6 +84,176 @@
 
     iput-object v0, p0, Lcom/android/incallui/CallButtonPresenter;->mHandler:Landroid/os/Handler;
 
+    return-void
+.end method
+
+.method private autoRecord(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/Call;)V
+    .locals 10
+
+    if-eqz p2, :cond_2
+
+    invoke-virtual {p2}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v2
+
+    const/4 v3, 0x3
+
+    if-ne v2, v3, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/incallui/CallButtonPresenter;->getUi()Lcom/android/incallui/Ui;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/incallui/CallButtonUi;
+
+    if-eqz v2, :cond_2
+
+    iget-object v8, p0, Lcom/android/incallui/CallButtonPresenter;->mPreviousState:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    const-string v2, "KillProcess -> "
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "PREV PHONE STATUS: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v4, Lcom/android/incallui/InCallPresenter$InCallState;->OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    if-ne v8, v4, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/incallui/CallButtonPresenter;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "call_type"
+
+    const v7, 0x1
+
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    const-string v6, "auto_call_record_out"
+
+    const v7, 0x0
+
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/InCallPresenter;->getRecorderMgr()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->toggleRecord()V
+
+    const-string v2, "KillProcess -> "
+
+    const-string v3, "RECORD ACTION IS SENDED."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v8, p0, Lcom/android/incallui/CallButtonPresenter;->mPreviousState:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    const-string v2, "KillProcess -> "
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "PREV PHONE STATUS: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v4, Lcom/android/incallui/InCallPresenter$InCallState;->NO_CALLS:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    if-eq v8, v4, :cond_1
+
+    sget-object v4, Lcom/android/incallui/InCallPresenter$InCallState;->INCOMING:Lcom/android/incallui/InCallPresenter$InCallState;
+
+    if-ne v8, v4, :cond_2
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/incallui/CallButtonPresenter;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "call_type"
+
+    const v7, 0x0
+
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    const-string v6, "auto_call_record_in"
+
+    const v7, 0x0
+
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/InCallPresenter;->getRecorderMgr()Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->toggleRecord()V
+
+    const-string v2, "KillProcess -> "
+
+    const-string v3, "RECORD ACTION IS SENDED."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    :goto_0
     return-void
 .end method
 
@@ -2096,6 +2268,12 @@
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
     invoke-direct {p0, p2, v2}, Lcom/android/incallui/CallButtonPresenter;->updateUi(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/Call;)V
+
+    iget-object v3, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
+
+    invoke-direct {p0, p2, v3}, Lcom/android/incallui/CallButtonPresenter;->autoRecord(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/Call;)V
+
+    iput-object p2, p0, Lcom/android/incallui/CallButtonPresenter;->mPreviousState:Lcom/android/incallui/InCallPresenter$InCallState;
 
     :goto_3
     return-void

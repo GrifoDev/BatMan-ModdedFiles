@@ -170,7 +170,13 @@
 
     move-result v22
 
-    sget-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
+    const-string v0, "unlock_qs_colors"
+
+    const/4 v9, 0x0
+
+    invoke-static {v0, v9}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
 
     if-eqz v0, :cond_3
 

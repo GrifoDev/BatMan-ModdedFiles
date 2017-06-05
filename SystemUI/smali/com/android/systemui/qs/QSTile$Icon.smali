@@ -59,7 +59,7 @@
 .end method
 
 .method public setColor(Landroid/content/Context;Lcom/android/systemui/qs/QSTile$State;Landroid/graphics/drawable/Drawable;)Z
-    .locals 9
+    .locals 10
 
     const v7, 0x7f0b0100
 
@@ -71,7 +71,13 @@
 
     if-eqz v3, :cond_8
 
-    sget-boolean v8, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mAllowQsColorChange:Z
+    const-string v8, "unlock_qs_colors"
+
+    const/4 v9, 0x0
+
+    invoke-static {v8, v9}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v8
 
     move-object v1, p2
 

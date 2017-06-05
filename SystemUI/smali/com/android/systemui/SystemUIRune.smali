@@ -2599,7 +2599,7 @@
 
     const/4 v7, 0x1
 
-    const-string v8, "asc4_data_usage_visibility"
+    const-string v8, "data_usage_visibility"
 
     invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
