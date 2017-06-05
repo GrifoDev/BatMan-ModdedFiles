@@ -1316,8 +1316,6 @@
     <item type="id" name="analog_clock_lockscreen11">false</item>
     <item type="id" name="lockweather">false</item>
     <item type="id" name="lockweather1">false</item>
-    <item type="id" name="minitclock">false</item>
-    <item type="id" name="stock_clock_view">false</item>
     <item type="id" name="analog_clock_lockscreen12">false</item>
     <item type="id" name="analog_clock_lockscreen13">false</item>
     <item type="id" name="analog_clock_lockscreen14">false</item>

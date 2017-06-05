@@ -10702,8 +10702,6 @@
     <public type="id" name="analog_clock_lockscreen11" id="0x7f130559" />
     <public type="id" name="lockweather" id="0x7f13055a" />
     <public type="id" name="lockweather1" id="0x7f13055b" />
-    <public type="id" name="minitclock" id="0x7f13055c" />
-    <public type="id" name="stock_clock_view" id="0x7f13055d" />
     <public type="id" name="analog_clock_lockscreen12" id="0x7f13055f" />
     <public type="id" name="analog_clock_lockscreen13" id="0x7f130560" />
     <public type="id" name="analog_clock_lockscreen14" id="0x7f130561" />
