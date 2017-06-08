@@ -41,7 +41,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/nextalarm/GetNextAlarmTimeText;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0207a7
+    const v2, 0x7f02093d
 
     new-instance v0, Landroid/widget/ImageView;
 
