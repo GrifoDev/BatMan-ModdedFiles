@@ -260,6 +260,20 @@
 
 
 # virtual methods
+.method HideSlider()Z
+    .locals 2
+
+    const-string v0, "hide_brightness_slider"
+
+    const v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public getAnimator()Lcom/android/systemui/qs/TouchAnimator;
     .locals 8
 
@@ -977,18 +991,4 @@
     sput v0, Lcom/android/systemui/qs/QSBrightnessView;->mQsBrightnessIconColor:I
 
     return-void
-.end method
-
-.method HideSlider()Z
-    .locals 2
-
-    const-string v0, "hide_brightness_slider"
-
-    const v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
 .end method
