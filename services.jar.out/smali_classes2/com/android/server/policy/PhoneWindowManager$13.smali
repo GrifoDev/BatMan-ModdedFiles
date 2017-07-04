@@ -82,6 +82,22 @@
 
     if-nez v0, :cond_1
 
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveMode()Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    :goto_0
+    monitor-exit v1
+
+    return-void
+
+    :cond_2
+    :try_start_2
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$13;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
     invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->-get5(Lcom/android/server/policy/PhoneWindowManager;)Lcom/android/server/policy/BarController;
@@ -89,13 +105,10 @@
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/server/policy/BarController;->showTransient()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :cond_1
-    monitor-exit v1
-
-    return-void
+    goto :goto_0
 
     :catchall_0
     move-exception v0

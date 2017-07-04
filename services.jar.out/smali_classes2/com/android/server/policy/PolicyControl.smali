@@ -26,13 +26,21 @@
 
 .field private static mDisableImmersiveConfirmationPackages:[Ljava/lang/String;
 
+.field private static mRecentsVisible:Z
+
+.field private static sDesktopTaskBarEnabled:Z
+
 .field private static sForceFullScreen:Z
+
+.field private static sForceImmersiveMode:Z
 
 .field private static sImmersiveNavigationFilter:Lcom/android/server/policy/PolicyControl$Filter;
 
 .field private static sImmersivePreconfirmationsFilter:Lcom/android/server/policy/PolicyControl$Filter;
 
 .field private static sImmersiveStatusFilter:Lcom/android/server/policy/PolicyControl$Filter;
+
+.field private static sInputMethodVisible:Z
 
 .field private static sSettingValue:Ljava/lang/String;
 
@@ -226,10 +234,10 @@
 .method public static getSystemUiVisibility(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)I
     .locals 2
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
     :goto_0
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_5
 
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getSystemUiVisibility()I
 
@@ -265,16 +273,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
-
-    or-int/lit16 v0, v0, 0x1202
-
-    const v1, 0x7ffffeff
-
-    and-int/2addr v0, v1
+    if-nez v1, :cond_7
 
     :cond_1
-    if-eqz p0, :cond_2
+    sget-boolean v1, Lcom/android/server/policy/PolicyControl;->sForceImmersiveMode:Z
+
+    if-eqz v1, :cond_2
+
+    invoke-static {p0}, Lcom/android/server/policy/PolicyControl;->isNonImmersiveWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    :cond_2
+    :goto_2
+    if-eqz p0, :cond_3
 
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
 
@@ -284,20 +298,42 @@
 
     move-result v0
 
-    :cond_2
+    :cond_3
     return v0
 
-    :cond_3
+    :cond_4
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object p1
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     iget v0, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     goto :goto_1
+
+    :cond_6
+    sget-boolean v1, Lcom/android/server/policy/PolicyControl;->mRecentsVisible:Z
+
+    if-nez v1, :cond_2
+
+    :cond_7
+    or-int/lit16 v0, v0, 0x1202
+
+    const v1, 0x7ffffeff
+
+    and-int/2addr v0, v1
+
+    invoke-static {p0}, Lcom/android/server/policy/PolicyControl;->isNonLayoutHideNavigationWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    and-int/lit16 v0, v0, -0x201
+
+    goto :goto_2
 .end method
 
 .method public static getWindowFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)I
@@ -357,6 +393,135 @@
     move-result-object p1
 
     goto :goto_0
+.end method
+
+.method public static isForceImmersiveMode()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/server/policy/PolicyControl;->sForceImmersiveMode:Z
+
+    return v0
+.end method
+
+.method private static isNonImmersiveWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+    .locals 3
+
+    const/4 v2, 0x1
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_1
+    sget-boolean v0, Lcom/android/server/policy/PolicyControl;->sDesktopTaskBarEnabled:Z
+
+    if-nez v0, :cond_2
+
+    sget-boolean v0, Lcom/android/server/policy/PolicyControl;->sInputMethodVisible:Z
+
+    if-eqz v0, :cond_3
+
+    :cond_2
+    return v2
+
+    :cond_3
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/samsung/android/view/IWindowStateBridge;->isAspectRatioWindow()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    return v2
+
+    :cond_4
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v1, 0x97e
+
+    if-eq v0, v1, :cond_5
+
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v1, 0x97f
+
+    if-ne v0, v1, :cond_6
+
+    :cond_5
+    return v2
+
+    :cond_6
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/samsung/android/view/IWindowStateBridge;->isNonImmersiveWindow()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private static isNonLayoutHideNavigationWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+    .locals 3
+
+    const/4 v2, -0x1
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return v0
+
+    :cond_0
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    if-eq v1, v2, :cond_1
+
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/view/WindowManager$LayoutParams;->height:I
+
+    if-eq v1, v2, :cond_1
+
+    const/4 v0, 0x1
+
+    :cond_1
+    return v0
+.end method
+
+.method public static isRecentsVisible()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/server/policy/PolicyControl;->mRecentsVisible:Z
+
+    return v0
 .end method
 
 .method public static reloadFromSetting(Landroid/content/Context;)V
@@ -438,6 +603,14 @@
     invoke-static {v2, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
+.end method
+
+.method public static setDesktopTaskBar(Z)V
+    .locals 0
+
+    sput-boolean p0, Lcom/android/server/policy/PolicyControl;->sDesktopTaskBarEnabled:Z
+
+    return-void
 .end method
 
 .method private static setFilters(Ljava/lang/String;)V
@@ -690,6 +863,30 @@
     .locals 0
 
     sput-boolean p0, Lcom/android/server/policy/PolicyControl;->sForceFullScreen:Z
+
+    return-void
+.end method
+
+.method public static setForceImmersiveMode(Z)V
+    .locals 0
+
+    sput-boolean p0, Lcom/android/server/policy/PolicyControl;->sForceImmersiveMode:Z
+
+    return-void
+.end method
+
+.method public static setInputMethodVisible(Z)V
+    .locals 0
+
+    sput-boolean p0, Lcom/android/server/policy/PolicyControl;->sInputMethodVisible:Z
+
+    return-void
+.end method
+
+.method public static setRecentsVisible(Z)V
+    .locals 0
+
+    sput-boolean p0, Lcom/android/server/policy/PolicyControl;->mRecentsVisible:Z
 
     return-void
 .end method

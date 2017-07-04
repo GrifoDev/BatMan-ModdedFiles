@@ -8991,9 +8991,13 @@
 .end method
 
 .method prepareAppTransitionLocked(IZ)Z
-    .locals 6
+    .locals 8
 
-    const/16 v5, 0xd
+    const/16 v7, 0xd
+
+    const/16 v6, 0x8
+
+    const/4 v5, 0x6
 
     const/4 v4, 0x0
 
@@ -9112,7 +9116,7 @@
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
 
-    invoke-virtual {v1, v5}, Lcom/android/server/wm/WindowManagerService$H;->removeMessages(I)V
+    invoke-virtual {v1, v7}, Lcom/android/server/wm/WindowManagerService$H;->removeMessages(I)V
 
     iget-object v1, p0, Lcom/android/server/wm/AppTransition;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -9120,7 +9124,7 @@
 
     const-wide/16 v2, 0x1388
 
-    invoke-virtual {v1, v5, v2, v3}, Lcom/android/server/wm/WindowManagerService$H;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v1, v7, v2, v3}, Lcom/android/server/wm/WindowManagerService$H;->sendEmptyMessageDelayed(IJ)Z
 
     :cond_4
     return v0
@@ -9128,9 +9132,7 @@
     :cond_5
     if-nez p2, :cond_2
 
-    const/16 v1, 0x8
-
-    if-ne p1, v1, :cond_6
+    if-ne p1, v6, :cond_6
 
     const/16 v1, 0x9
 
@@ -9145,13 +9147,24 @@
     goto :goto_0
 
     :cond_6
-    const/4 v1, 0x6
-
-    if-ne p1, v1, :cond_2
+    if-ne p1, v5, :cond_7
 
     const/4 v1, 0x7
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/AppTransition;->isTransitionEqual(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/AppTransition;->setAppTransition(I)V
+
+    goto :goto_0
+
+    :cond_7
+    if-ne p1, v6, :cond_2
+
+    invoke-virtual {p0, v5}, Lcom/android/server/wm/AppTransition;->isTransitionEqual(I)Z
 
     move-result v1
 

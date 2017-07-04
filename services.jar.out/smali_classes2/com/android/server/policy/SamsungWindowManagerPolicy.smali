@@ -119,6 +119,9 @@
     .end annotation
 .end method
 
+.method public abstract getChangeRatioBarSize()I
+.end method
+
 .method public abstract getCoverManager()Lcom/samsung/android/cover/ICoverManager;
 .end method
 
@@ -312,6 +315,9 @@
 .end method
 
 .method public abstract layoutWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+.end method
+
+.method public abstract needLayoutForNavigationBar(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)Z
 .end method
 
 .method public abstract needSensorRunningLp()I

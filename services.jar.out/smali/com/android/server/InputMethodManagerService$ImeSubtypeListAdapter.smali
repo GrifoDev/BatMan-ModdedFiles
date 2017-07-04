@@ -158,7 +158,7 @@
     invoke-virtual {v4, v10}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_1
-    const v8, 0x102040d
+    const v8, 0x1020411
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -119,6 +119,9 @@
     .end annotation
 .end method
 
+.method public abstract hideConventionalModeChangeRatioButton()V
+.end method
+
 .method public abstract inVSMode()Z
 .end method
 
@@ -156,9 +159,6 @@
 .end method
 
 .method public abstract moveTaskToDisplayLocked(III)V
-.end method
-
-.method public abstract needLayoutForNavigationBar(Lcom/android/server/wm/WindowState;Lcom/android/server/wm/WindowState;)Z
 .end method
 
 .method public abstract notifyDisplayBoundsUpdated(ILandroid/graphics/Rect;)V
@@ -257,6 +257,9 @@
 .end method
 
 .method public abstract shouldForceHideIfNeeded(Lcom/android/server/wm/WindowState;ZZ)Z
+.end method
+
+.method public abstract showConventionalModeChangeRatioButton(IILjava/lang/String;I)V
 .end method
 
 .method public abstract showConventionalModeGuidePopup(Lcom/android/server/wm/AppWindowToken;)V

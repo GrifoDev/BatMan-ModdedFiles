@@ -3,12 +3,12 @@
 .source "ImmersiveModeConfirmation.java"
 
 # interfaces
-.implements Landroid/view/animation/Animation$AnimationListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->startArrowAnimation(ILandroid/widget/ImageView;)V
+    value = Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->onAttachedToWindow()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
 
-.field final synthetic val$animationSet:Landroid/view/animation/AnimationSet;
-
-.field final synthetic val$imageView:Landroid/widget/ImageView;
+.field final synthetic val$cling:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;Landroid/widget/ImageView;Landroid/view/animation/AnimationSet;)V
+.method constructor <init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
 
-    iput-object p2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->val$imageView:Landroid/widget/ImageView;
-
-    iput-object p3, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->val$animationSet:Landroid/view/animation/AnimationSet;
+    iput-object p2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->val$cling:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,45 +38,124 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
+.method public run()V
+    .locals 8
 
-    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->val$imageView:Landroid/widget/ImageView;
+    const-wide/16 v6, 0xfa
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->val$cling:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    iget-boolean v0, v0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mShowNextButton:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->val$imageView:Landroid/widget/ImageView;
-
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->val$animationSet:Landroid/view/animation/AnimationSet;
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->val$imageView:Landroid/widget/ImageView;
+    move-result-object v0
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v6, v7}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+
+    invoke-static {v1}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->-get4(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;)Landroid/view/animation/Interpolator;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->withLayer()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+
+    new-instance v1, Landroid/animation/ArgbEvaluator;
+
+    invoke-direct {v1}, Landroid/animation/ArgbEvaluator;-><init>()V
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    const v3, -0x40dadadb
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    aput-object v3, v2, v4
+
+    invoke-static {v1, v2}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->-set0(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+
+    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+
+    invoke-static {v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->-get3(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6$1;
+
+    invoke-direct {v1, p0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6$1;-><init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+
+    invoke-static {v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->-get3(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v6, v7}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+
+    invoke-static {v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->-get3(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+
+    invoke-static {v1}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->-get4(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;)Landroid/view/animation/Interpolator;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+
+    invoke-static {v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->-get3(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
     return-void
 .end method

@@ -3328,7 +3328,7 @@
     :try_start_0
     iget-object v6, p0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->mContext:Landroid/content/Context;
 
-    const v7, 0x1040642
+    const v7, 0x1040646
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3336,7 +3336,7 @@
 
     iget-object v6, p0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->mContext:Landroid/content/Context;
 
-    const v7, 0x1040643
+    const v7, 0x1040647
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

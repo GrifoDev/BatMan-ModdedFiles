@@ -829,7 +829,7 @@
 .method private showConstrainedStateNotification(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 8
 
-    const v7, 0x10409f1
+    const v7, 0x10409fd
 
     const/4 v6, 0x0
 
@@ -869,7 +869,7 @@
 
     iget-object v3, p0, Lcom/android/server/enterprise/utils/ConstrainedState;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040a3c
+    const v4, 0x1040a48
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

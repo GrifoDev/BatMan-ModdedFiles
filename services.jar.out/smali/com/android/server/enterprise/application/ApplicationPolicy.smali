@@ -922,7 +922,7 @@
 
     move-result-object v2
 
-    const v7, 0x105016b
+    const v7, 0x105016c
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -12017,7 +12017,7 @@
 
     iget-object v5, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v6, 0x104083f
+    const v6, 0x1040848
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12031,7 +12031,7 @@
 
     iget-object v8, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v9, 0x1040843
+    const v9, 0x104084c
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12050,7 +12050,7 @@
     goto :goto_1
 
     :cond_4
-    const v5, 0x10409ef
+    const v5, 0x10409fb
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12103,7 +12103,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x104083f
+    const v5, 0x1040848
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12117,7 +12117,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040843
+    const v8, 0x104084c
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12136,7 +12136,7 @@
     goto :goto_2
 
     :cond_8
-    const v4, 0x10409ef
+    const v4, 0x10409fb
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12172,7 +12172,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x104083f
+    const v5, 0x1040848
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12186,7 +12186,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040843
+    const v8, 0x104084c
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12205,7 +12205,7 @@
     goto :goto_2
 
     :cond_9
-    const v4, 0x10409ef
+    const v4, 0x10409fb
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12241,7 +12241,7 @@
 
     iget-object v5, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v6, 0x104083f
+    const v6, 0x1040848
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12255,7 +12255,7 @@
 
     iget-object v8, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v9, 0x1040843
+    const v9, 0x104084c
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12274,7 +12274,7 @@
     goto :goto_3
 
     :cond_c
-    const v5, 0x10409ef
+    const v5, 0x10409fb
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12740,7 +12740,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x104083f
+    const v5, 0x1040848
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12754,7 +12754,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040843
+    const v8, 0x104084c
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12773,7 +12773,7 @@
     goto :goto_8
 
     :cond_19
-    const v4, 0x10409ef
+    const v4, 0x10409fb
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
     :try_end_9
@@ -12917,7 +12917,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x104083f
+    const v5, 0x1040848
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12931,7 +12931,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040843
+    const v8, 0x104084c
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -12950,7 +12950,7 @@
     goto :goto_9
 
     :cond_1e
-    const v4, 0x10409ef
+    const v4, 0x10409fb
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
     :try_end_b
@@ -13216,7 +13216,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x104083f
+    const v5, 0x1040848
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13230,7 +13230,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040843
+    const v8, 0x104084c
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13249,7 +13249,7 @@
     goto :goto_b
 
     :cond_26
-    const v4, 0x10409ef
+    const v4, 0x10409fb
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -13276,7 +13276,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x104083f
+    const v5, 0x1040848
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13290,7 +13290,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040843
+    const v8, 0x104084c
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13309,7 +13309,7 @@
     goto/16 :goto_5
 
     :cond_28
-    const v4, 0x10409ef
+    const v4, 0x10409fb
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -13332,7 +13332,7 @@
 
     iget-object v4, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x104083f
+    const v5, 0x1040848
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13346,7 +13346,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040843
+    const v8, 0x104084c
 
     invoke-virtual {v6, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13365,7 +13365,7 @@
     goto/16 :goto_5
 
     :cond_2a
-    const v4, 0x10409ef
+    const v4, 0x10409fb
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -13388,7 +13388,7 @@
 
     iget-object v5, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v6, 0x104083f
+    const v6, 0x1040848
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13402,7 +13402,7 @@
 
     iget-object v8, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mContext:Landroid/content/Context;
 
-    const v9, 0x1040843
+    const v9, 0x104084c
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -13421,7 +13421,7 @@
     goto/16 :goto_6
 
     :cond_2c
-    const v5, 0x10409ef
+    const v5, 0x10409fb
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
     :try_end_e
@@ -38159,7 +38159,7 @@
 
     if-eqz p3, :cond_0
 
-    const v0, 0x10409df
+    const v0, 0x10409eb
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -38195,7 +38195,7 @@
 
     if-eqz p3, :cond_0
 
-    const v0, 0x10409de
+    const v0, 0x10409ea
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -38255,7 +38255,7 @@
 
     if-eqz p6, :cond_0
 
-    const v13, 0x10409dd
+    const v13, 0x10409e9
 
     invoke-static {v13}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -39424,7 +39424,7 @@
 
     if-nez v6, :cond_1
 
-    const v6, 0x1040a3b
+    const v6, 0x1040a47
 
     invoke-static {v6}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -39806,7 +39806,7 @@
 
     if-eqz p2, :cond_0
 
-    const v0, 0x10409f0
+    const v0, 0x10409fc
 
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

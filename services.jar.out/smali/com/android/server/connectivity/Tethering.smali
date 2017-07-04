@@ -30,7 +30,7 @@
 
 .field private static final HIPRI_TYPE:Ljava/lang/Integer;
 
-.field private static final MAXAP_NOTI_ID:I = 0x10406d9
+.field private static final MAXAP_NOTI_ID:I = 0x10406dd
 
 .field private static MAX_CLIENTS:I = 0x0
 
@@ -4824,7 +4824,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040673
+    const v3, 0x1040677
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4908,7 +4908,7 @@
     const-string/jumbo v11, "Battery is below 15%."
 
     :goto_0
-    const v0, 0x10406d8
+    const v0, 0x10406dc
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -4992,7 +4992,7 @@
     return-void
 
     :cond_2
-    const v0, 0x10406d7
+    const v0, 0x10406db
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5097,7 +5097,7 @@
 
     if-ne v0, v1, :cond_8
 
-    const v0, 0x10406d1
+    const v0, 0x10406d5
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5125,7 +5125,7 @@
     if-eqz v0, :cond_6
 
     :cond_5
-    const v0, 0x10406cd
+    const v0, 0x10406d1
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5307,7 +5307,7 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x10406d0
+    const v1, 0x10406d4
 
     invoke-virtual {v10, v1, v0}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -5326,7 +5326,7 @@
 
     if-eqz v0, :cond_a
 
-    const v0, 0x10406d2
+    const v0, 0x10406d6
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5345,7 +5345,7 @@
 
     if-eqz v0, :cond_b
 
-    const v0, 0x10406d3
+    const v0, 0x10406d7
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5354,7 +5354,7 @@
     goto/16 :goto_0
 
     :cond_b
-    const v0, 0x10406d4
+    const v0, 0x10406d8
 
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5480,7 +5480,7 @@
 
     if-eqz v0, :cond_8
 
-    const v0, 0x10406d6
+    const v0, 0x10406da
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5507,7 +5507,7 @@
 
     if-ne v0, v1, :cond_9
 
-    const v0, 0x10406d1
+    const v0, 0x10406d5
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5585,7 +5585,7 @@
 
     if-ne v0, v1, :cond_c
 
-    const v0, 0x10406d1
+    const v0, 0x10406d5
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5673,7 +5673,7 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x10406d0
+    const v1, 0x10406d4
 
     invoke-virtual {v9, v1, v0}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -5686,7 +5686,7 @@
 
     if-eqz v0, :cond_b
 
-    const v0, 0x10406d5
+    const v0, 0x10406d9
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5695,7 +5695,7 @@
     goto/16 :goto_1
 
     :cond_b
-    const v0, 0x10406ce
+    const v0, 0x10406d2
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5732,7 +5732,7 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x10406d0
+    const v1, 0x10406d4
 
     invoke-virtual {v9, v1, v0}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -5745,7 +5745,7 @@
 
     if-eqz v0, :cond_e
 
-    const v0, 0x10406d6
+    const v0, 0x10406da
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5777,7 +5777,7 @@
 
     if-ne v0, v1, :cond_10
 
-    const v0, 0x10406d1
+    const v0, 0x10406d5
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5814,7 +5814,7 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x10406d0
+    const v1, 0x10406d4
 
     invoke-virtual {v9, v1, v0}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -5823,7 +5823,7 @@
     goto/16 :goto_2
 
     :cond_11
-    const v0, 0x10406cf
+    const v0, 0x10406d3
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -6211,7 +6211,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x10406d9
+    const v1, 0x10406dd
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
@@ -6224,7 +6224,7 @@
 .method createMaxApNotification()V
     .locals 14
 
-    const v13, 0x10406d9
+    const v13, 0x10406dd
 
     const/4 v12, 0x0
 
@@ -6248,7 +6248,7 @@
 
     move-result-object v7
 
-    const v10, 0x10406da
+    const v10, 0x10406de
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

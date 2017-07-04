@@ -3129,7 +3129,7 @@
 .method private showNotification()V
     .locals 9
 
-    const v5, 0x1040706
+    const v5, 0x104070f
 
     const/4 v1, 0x0
 
@@ -3180,7 +3180,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040705
+    const v5, 0x104070e
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3306,7 +3306,7 @@
 
     if-eqz v4, :cond_4
 
-    const v4, 0x1040708
+    const v4, 0x1040711
 
     :goto_1
     invoke-virtual {v5, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -3316,7 +3316,7 @@
     goto/16 :goto_0
 
     :cond_4
-    const v4, 0x1040709
+    const v4, 0x1040712
 
     goto :goto_1
 
@@ -3336,7 +3336,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040707
+    const v5, 0x1040710
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

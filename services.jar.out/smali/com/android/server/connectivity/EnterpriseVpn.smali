@@ -1669,7 +1669,7 @@
 
     iget-object v3, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040640
+    const v4, 0x1040644
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1677,7 +1677,7 @@
 
     iget-object v3, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040641
+    const v4, 0x1040645
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3646,7 +3646,7 @@
 
     iget-object v10, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    const v11, 0x1040640
+    const v11, 0x1040644
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3654,7 +3654,7 @@
 
     iget-object v10, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    const v11, 0x1040641
+    const v11, 0x1040645
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

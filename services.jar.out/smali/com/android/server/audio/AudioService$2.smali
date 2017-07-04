@@ -76,7 +76,7 @@
 
     move-result v3
 
-    invoke-static {v2, v3}, Lcom/android/server/audio/AudioService;->-wrap17(Lcom/android/server/audio/AudioService;I)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/server/audio/AudioService;->-wrap18(Lcom/android/server/audio/AudioService;I)Ljava/lang/String;
 
     move-result-object v2
 

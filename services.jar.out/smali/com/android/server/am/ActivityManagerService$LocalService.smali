@@ -451,69 +451,123 @@
     return-void
 .end method
 
-.method public killPackageProcess(Ljava/lang/String;IILjava/lang/String;)V
-    .locals 13
+.method public killPackageProcess(Ljava/lang/String;IILjava/lang/String;)I
+    .locals 16
 
-    iget-object v12, p0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+    const/4 v14, -0x1
 
-    monitor-enter v12
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v15
 
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+    move-object/from16 v0, p0
 
-    if-eqz p4, :cond_0
+    iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    move-object/from16 v9, p4
+    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStackSupervisor;->getFocusedStack()Lcom/android/server/am/ActivityStack;
+
+    move-result-object v13
+
+    if-eqz v13, :cond_1
+
+    iget-object v1, v13, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
+
+    if-eqz v1, :cond_1
+
+    if-eqz p1, :cond_1
+
+    iget-object v1, v13, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
+
+    iget-object v1, v1, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, v13, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
+
+    iget-object v1, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, v13, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
+
+    iget-object v1, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    iget v14, v1, Lcom/android/server/am/TaskRecord;->taskId:I
+
+    :cond_0
+    const/4 v1, 0x0
+
+    iput-object v1, v13, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
+
+    :cond_1
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    if-eqz p4, :cond_2
+
+    move-object/from16 v10, p4
 
     :goto_0
-    const/4 v4, 0x0
-
     const/4 v5, 0x0
 
-    const/4 v6, 0x1
+    const/4 v6, 0x0
 
     const/4 v7, 0x1
 
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
-    const/4 v10, 0x1
+    const/4 v9, 0x0
 
     const/4 v11, 0x1
 
-    move-object v1, p1
+    const/4 v12, 0x1
 
-    move v2, p2
+    move-object/from16 v2, p1
 
-    move/from16 v3, p3
+    move/from16 v3, p2
 
-    invoke-static/range {v0 .. v11}, Lcom/android/server/am/ActivityManagerService;->-wrap1(Lcom/android/server/am/ActivityManagerService;Ljava/lang/String;IIIZZZZLjava/lang/String;ZZ)Z
+    move/from16 v4, p3
+
+    invoke-static/range {v1 .. v12}, Lcom/android/server/am/ActivityManagerService;->-wrap1(Lcom/android/server/am/ActivityManagerService;Ljava/lang/String;IIIZZZZLjava/lang/String;ZZ)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v12
+    monitor-exit v15
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    return-void
+    return v14
 
-    :cond_0
+    :cond_2
     :try_start_1
-    const-string/jumbo v9, "kill PackageProcess"
+    const-string/jumbo v10, "kill PackageProcess"
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v12
+    monitor-exit v15
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v0
+    throw v1
 .end method
 
 .method public notifyAppTransitionCancelled()V

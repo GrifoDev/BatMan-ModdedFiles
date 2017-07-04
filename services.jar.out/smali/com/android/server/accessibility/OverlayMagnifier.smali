@@ -220,7 +220,7 @@
 
     move-result-object v4
 
-    const v5, 0x10503b1
+    const v5, 0x10503b2
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -232,7 +232,7 @@
 
     move-result-object v4
 
-    const v5, 0x10503b4
+    const v5, 0x10503b5
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -466,37 +466,6 @@
 
     move-result-object v4
 
-    const v5, 0x10503b1
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mWidth:I
-
-    iget-object v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x10503b4
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mHeight:I
-
-    goto :goto_0
-
-    :pswitch_1
-    iget-object v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
     const v5, 0x10503b2
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -521,7 +490,7 @@
 
     goto :goto_0
 
-    :pswitch_2
+    :pswitch_1
     iget-object v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -543,6 +512,37 @@
     move-result-object v4
 
     const v5, 0x10503b6
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mHeight:I
+
+    goto :goto_0
+
+    :pswitch_2
+    iget-object v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x10503b4
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mWidth:I
+
+    iget-object v4, p0, Lcom/android/server/accessibility/OverlayMagnifier;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x10503b7
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

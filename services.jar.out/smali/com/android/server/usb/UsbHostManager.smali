@@ -3404,7 +3404,7 @@
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040ab4
+    const v1, 0x1040ac0
 
     move v4, v2
 
@@ -3427,7 +3427,7 @@
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040ab5
+    const v1, 0x1040ac1
 
     move v4, v2
 
@@ -3450,7 +3450,7 @@
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040ab6
+    const v1, 0x1040ac2
 
     move v4, v2
 
@@ -3491,7 +3491,7 @@
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040ab7
+    const v1, 0x1040ac3
 
     move v4, v2
 
@@ -3516,7 +3516,7 @@
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040ab8
+    const v1, 0x1040ac4
 
     move v4, v2
 
@@ -3541,7 +3541,7 @@
 
     const-string/jumbo v6, "UsbDevices"
 
-    const v1, 0x1040ab9
+    const v1, 0x1040ac5
 
     move v4, v2
 

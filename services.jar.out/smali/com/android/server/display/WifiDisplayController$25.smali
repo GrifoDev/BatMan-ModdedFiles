@@ -383,7 +383,7 @@
 
     invoke-direct {v0, v1, v2}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    const v1, 0x1040728
+    const v1, 0x1040731
 
     const/4 v2, 0x0
 

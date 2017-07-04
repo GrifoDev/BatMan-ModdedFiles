@@ -663,7 +663,7 @@
     return v0
 .end method
 
-.method public immersiveModeChangedLw(Ljava/lang/String;ZZZI)V
+.method public immersiveModeChangedLw(Ljava/lang/String;ZZZIZ)V
     .locals 5
 
     const/4 v4, 0x1
@@ -673,6 +673,8 @@
     invoke-virtual {v0, v4}, Lcom/android/server/policy/ImmersiveModeConfirmation$H;->removeMessages(I)V
 
     if-eqz p2, :cond_2
+
+    if-eqz p6, :cond_2
 
     iget-boolean v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation;->mConfirmed:Z
 

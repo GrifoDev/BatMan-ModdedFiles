@@ -496,7 +496,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x105022d
+    const v1, 0x105022e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -504,7 +504,7 @@
 
     iput v1, p0, Lcom/android/server/cover/CoverVerifier;->mDefaultSViewCoverWidth:I
 
-    const v1, 0x105022e
+    const v1, 0x105022f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -512,7 +512,7 @@
 
     iput v1, p0, Lcom/android/server/cover/CoverVerifier;->mDefaultSViewCoverHeight:I
 
-    const v1, 0x105022f
+    const v1, 0x1050230
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -520,7 +520,7 @@
 
     iput v1, p0, Lcom/android/server/cover/CoverVerifier;->mDefaultMiniSViewCoverWidth:I
 
-    const v1, 0x1050230
+    const v1, 0x1050231
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

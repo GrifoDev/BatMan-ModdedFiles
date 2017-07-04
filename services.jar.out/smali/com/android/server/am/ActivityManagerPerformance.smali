@@ -2698,6 +2698,10 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :try_start_1
+    const-string/jumbo v8, "AMS_APP_SWITCH"
+
+    invoke-static {v8, v6}, Lcom/samsung/android/os/SemPerfManager;->sendCommandToSsrm(Ljava/lang/String;Ljava/lang/String;)V
+
     invoke-virtual {v2}, Lcom/samsung/android/os/SemDvfsManager;->acquire()V
 
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostAppSwitch:Lcom/android/server/am/ActivityRecord;
@@ -2974,139 +2978,154 @@
 .end method
 
 .method private setBoosterHome(ZZLcom/android/server/am/ActivityRecord;)V
-    .locals 10
+    .locals 12
 
     const-string/jumbo v2, "setBoosterHome()"
 
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
-
-    if-eqz v6, :cond_0
-
     if-eqz p3, :cond_1
 
-    iget-object v3, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+    iget-object v3, p3, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
 
     :goto_0
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    if-eqz v7, :cond_0
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz p3, :cond_2
 
-    const-string/jumbo v8, "setBoosterHome() fastBoost: "
+    iget-object v6, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_1
+    const-string/jumbo v7, "ActivityManagerPerformance"
 
-    move-result-object v7
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v7
+    const-string/jumbo v9, "setBoosterHome() fastBoost: "
 
-    const-string/jumbo v8, ", startAct: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", curTopState: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    sget v8, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
-
-    invoke-static {v8}, Lcom/android/server/am/ActivityManagerPerformance;->topStateToString(I)Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string/jumbo v8, ", r: "
+    const-string/jumbo v9, ", startAct: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string/jumbo v8, " ("
+    const-string/jumbo v9, ", curTopState: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    sget v9, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
 
-    move-result-object v7
+    invoke-static {v9}, Lcom/android/server/am/ActivityManagerPerformance;->topStateToString(I)Ljava/lang/String;
 
-    const-string/jumbo v8, ")"
+    move-result-object v9
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v9, ", r: "
 
-    move-result-object v7
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v8
 
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG_TRACE:Z
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v6, :cond_0
+    move-result-object v8
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    const-string/jumbo v9, " ("
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v8
 
-    const-string/jumbo v8, "setBoosterHome() Trace\n"
+    invoke-virtual {v8, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v8
 
-    move-result-object v7
+    const-string/jumbo v9, ")"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, ", pkgName : "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG_TRACE:Z
+
+    if-eqz v7, :cond_0
+
+    const-string/jumbo v7, "ActivityManagerPerformance"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "setBoosterHome() Trace\n"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
 
     invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerPerformance;->getCurBoostInfoStr()Ljava/lang/String;
 
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v7
+    new-instance v7, Ljava/lang/Exception;
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v7}, Ljava/lang/Exception;-><init>()V
 
-    new-instance v6, Ljava/lang/Exception;
-
-    invoke-direct {v6}, Ljava/lang/Exception;-><init>()V
-
-    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     :cond_0
-    sget v6, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
+    sget v7, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
 
-    if-nez v6, :cond_2
+    if-nez v7, :cond_3
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    const-string/jumbo v7, "ActivityManagerPerformance"
 
-    const-string/jumbo v7, "setBoosterHome() skipped. Method is called by non-system_server"
+    const-string/jumbo v8, "setBoosterHome() skipped. Method is called by non-system_server"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -3116,384 +3135,393 @@
     goto/16 :goto_0
 
     :cond_2
-    iget-boolean v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->mIsScreenOn:Z
+    const/4 v6, 0x0
 
-    if-nez v6, :cond_4
-
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
-
-    if-eqz v6, :cond_3
-
-    const-string/jumbo v6, "ActivityManagerPerformance"
-
-    const-string/jumbo v7, "setBoosterHome() skipped. mIsScreenOn: false"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    goto/16 :goto_1
 
     :cond_3
-    return-void
+    iget-boolean v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->mIsScreenOn:Z
+
+    if-nez v7, :cond_5
+
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+
+    if-eqz v7, :cond_4
+
+    const-string/jumbo v7, "ActivityManagerPerformance"
+
+    const-string/jumbo v8, "setBoosterHome() skipped. mIsScreenOn: false"
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
+    return-void
+
+    :cond_5
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_c
 
-    if-nez p3, :cond_7
+    if-nez p3, :cond_8
 
     iput-wide v4, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomePressedTime:J
 
-    :cond_5
-    if-nez p3, :cond_1b
+    :cond_6
+    if-nez p3, :cond_1c
 
-    sget v6, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
+    sget v7, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
 
-    const/4 v7, 0x2
+    const/4 v8, 0x2
 
-    if-ne v6, v7, :cond_1b
+    if-ne v7, v8, :cond_1c
 
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
 
-    if-eqz v6, :cond_6
+    if-eqz v7, :cond_7
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    const-string/jumbo v7, "ActivityManagerPerformance"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "setBoosterHome() skipped. Home key was pressed, but curTopState is already "
+    const-string/jumbo v9, "setBoosterHome() skipped. Home key was pressed, but curTopState is already "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    sget v8, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
-
-    invoke-static {v8}, Lcom/android/server/am/ActivityManagerPerformance;->topStateToString(I)Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget v9, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
 
-    move-result-object v7
+    invoke-static {v9}, Lcom/android/server/am/ActivityManagerPerformance;->topStateToString(I)Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v7
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v8
 
-    :cond_6
-    return-void
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_7
-    iget-wide v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomePressedTime:J
-
-    sub-long v6, v4, v6
-
-    const-wide/16 v8, 0xc8
-
-    cmp-long v6, v6, v8
-
-    if-ltz v6, :cond_8
-
-    iget-wide v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomeBoostedTime:J
-
-    sub-long v6, v4, v6
-
-    const-wide/16 v8, 0xc8
-
-    cmp-long v6, v6, v8
-
-    if-gez v6, :cond_5
+    return-void
 
     :cond_8
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->rLastActHome:Lcom/android/server/am/ActivityRecord;
+    iget-wide v8, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomePressedTime:J
 
-    if-eq v6, p3, :cond_9
+    sub-long v8, v4, v8
 
-    if-eqz p3, :cond_9
+    const-wide/16 v10, 0xc8
 
-    iput-object p3, p0, Lcom/android/server/am/ActivityManagerPerformance;->rLastActHome:Lcom/android/server/am/ActivityRecord;
+    cmp-long v7, v8, v10
+
+    if-ltz v7, :cond_9
+
+    iget-wide v8, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomeBoostedTime:J
+
+    sub-long v8, v4, v8
+
+    const-wide/16 v10, 0xc8
+
+    cmp-long v7, v8, v10
+
+    if-gez v7, :cond_6
 
     :cond_9
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+    iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->rLastActHome:Lcom/android/server/am/ActivityRecord;
 
-    if-eqz v6, :cond_a
+    if-eq v7, p3, :cond_a
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
-
-    const-string/jumbo v7, "setBoosterHome() skipped. uninterrupted boosting"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_a
-    return-void
-
-    :cond_b
-    iget-wide v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomePressedTime:J
-
-    sub-long v6, v4, v6
-
-    const-wide/16 v8, 0xc8
-
-    cmp-long v6, v6, v8
-
-    if-ltz v6, :cond_c
-
-    iget-wide v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomeBoostedTime:J
-
-    sub-long v6, v4, v6
-
-    const-wide/16 v8, 0xc8
-
-    cmp-long v6, v6, v8
-
-    if-gez v6, :cond_f
-
-    :cond_c
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->rLastActHome:Lcom/android/server/am/ActivityRecord;
-
-    if-eq v6, p3, :cond_d
-
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_a
 
     iput-object p3, p0, Lcom/android/server/am/ActivityManagerPerformance;->rLastActHome:Lcom/android/server/am/ActivityRecord;
 
+    :cond_a
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+
+    if-eqz v7, :cond_b
+
+    const-string/jumbo v7, "ActivityManagerPerformance"
+
+    const-string/jumbo v8, "setBoosterHome() skipped. uninterrupted boosting"
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_b
+    return-void
+
+    :cond_c
+    iget-wide v8, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomePressedTime:J
+
+    sub-long v8, v4, v8
+
+    const-wide/16 v10, 0xc8
+
+    cmp-long v7, v8, v10
+
+    if-ltz v7, :cond_d
+
+    iget-wide v8, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomeBoostedTime:J
+
+    sub-long v8, v4, v8
+
+    const-wide/16 v10, 0xc8
+
+    cmp-long v7, v8, v10
+
+    if-gez v7, :cond_10
+
     :cond_d
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+    iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->rLastActHome:Lcom/android/server/am/ActivityRecord;
 
-    if-eqz v6, :cond_e
+    if-eq v7, p3, :cond_e
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    if-eqz p3, :cond_e
 
-    const-string/jumbo v7, "setBoosterHome() skipped. uninterrupted boosting"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iput-object p3, p0, Lcom/android/server/am/ActivityManagerPerformance;->rLastActHome:Lcom/android/server/am/ActivityRecord;
 
     :cond_e
-    return-void
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+
+    if-eqz v7, :cond_f
+
+    const-string/jumbo v7, "ActivityManagerPerformance"
+
+    const-string/jumbo v8, "setBoosterHome() skipped. uninterrupted boosting"
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_f
-    sget v6, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
-
-    const/4 v7, 0x2
-
-    if-ne v6, v7, :cond_1b
-
-    if-eqz p3, :cond_14
-
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostAppSwitch:Lcom/android/server/am/ActivityRecord;
-
-    if-eq v6, p3, :cond_10
-
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActStart:Lcom/android/server/am/ActivityRecord;
-
-    if-ne v6, p3, :cond_12
-
-    :cond_10
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
-
-    if-eqz v6, :cond_11
-
-    const-string/jumbo v6, "ActivityManagerPerformance"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "setBoosterHome() skipped. already boosted "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_11
     return-void
 
-    :cond_12
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostAppSwitch:Lcom/android/server/am/ActivityRecord;
+    :cond_10
+    sget v7, Lcom/android/server/am/ActivityManagerPerformance;->curTopState:I
 
-    if-eqz v6, :cond_13
+    const/4 v8, 0x2
 
-    iget-object v6, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+    if-ne v7, v8, :cond_1c
+
+    if-eqz p3, :cond_15
 
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostAppSwitch:Lcom/android/server/am/ActivityRecord;
 
-    iget-object v7, v7, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_10
-
-    :cond_13
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActStart:Lcom/android/server/am/ActivityRecord;
-
-    if-eqz v6, :cond_14
-
-    iget-object v6, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+    if-eq v7, p3, :cond_11
 
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActStart:Lcom/android/server/am/ActivityRecord;
 
-    iget-object v7, v7, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+    if-ne v7, p3, :cond_13
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_11
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
 
-    move-result v6
+    if-eqz v7, :cond_12
 
-    if-nez v6, :cond_10
+    const-string/jumbo v7, "ActivityManagerPerformance"
 
-    :cond_14
-    if-eqz p2, :cond_16
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v6, :cond_15
+    const-string/jumbo v9, "setBoosterHome() skipped. already boosted "
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "setBoosterHome() call setBoosterActStart()"
+    move-result-object v8
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v9, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
 
-    :cond_15
-    const/4 v6, 0x1
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0, v6, p3}, Lcom/android/server/am/ActivityManagerPerformance;->setBoosterActStart(ZLcom/android/server/am/ActivityRecord;)V
+    move-result-object v8
 
-    :goto_1
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_12
     return-void
 
+    :cond_13
+    iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostAppSwitch:Lcom/android/server/am/ActivityRecord;
+
+    if-eqz v7, :cond_14
+
+    iget-object v7, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostAppSwitch:Lcom/android/server/am/ActivityRecord;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_11
+
+    :cond_14
+    iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActStart:Lcom/android/server/am/ActivityRecord;
+
+    if-eqz v7, :cond_15
+
+    iget-object v7, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActStart:Lcom/android/server/am/ActivityRecord;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_11
+
+    :cond_15
+    if-eqz p2, :cond_17
+
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+
+    if-eqz v7, :cond_16
+
+    const-string/jumbo v7, "ActivityManagerPerformance"
+
+    const-string/jumbo v8, "setBoosterHome() call setBoosterActStart()"
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_16
-    if-eqz p3, :cond_19
+    const/4 v7, 0x1
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActResume:Lcom/android/server/am/ActivityRecord;
+    invoke-direct {p0, v7, p3}, Lcom/android/server/am/ActivityManagerPerformance;->setBoosterActStart(ZLcom/android/server/am/ActivityRecord;)V
 
-    if-eq v6, p3, :cond_17
+    :goto_2
+    return-void
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActResume:Lcom/android/server/am/ActivityRecord;
-
-    if-eqz v6, :cond_19
-
-    iget-object v6, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+    :cond_17
+    if-eqz p3, :cond_1a
 
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActResume:Lcom/android/server/am/ActivityRecord;
 
-    iget-object v7, v7, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+    if-eq v7, p3, :cond_18
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActResume:Lcom/android/server/am/ActivityRecord;
 
-    move-result v6
+    if-eqz v7, :cond_1a
 
-    if-eqz v6, :cond_19
+    iget-object v7, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
 
-    :cond_17
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerPerformance;->rCurBoostActResume:Lcom/android/server/am/ActivityRecord;
 
-    if-eqz v6, :cond_18
+    iget-object v8, v8, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    move-result v7
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "setBoosterHome() skipped. already boosted "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v7, :cond_1a
 
     :cond_18
-    return-void
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+
+    if-eqz v7, :cond_19
+
+    const-string/jumbo v7, "ActivityManagerPerformance"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "setBoosterHome() skipped. already boosted "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p3, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_19
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
-
-    if-eqz v6, :cond_1a
-
-    const-string/jumbo v6, "ActivityManagerPerformance"
-
-    const-string/jumbo v7, "setBoosterHome() call setBoosterActResume()"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    return-void
 
     :cond_1a
-    const/4 v6, 0x1
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
 
-    invoke-direct {p0, v6, p3}, Lcom/android/server/am/ActivityManagerPerformance;->setBoosterActResume(ZLcom/android/server/am/ActivityRecord;)V
+    if-eqz v7, :cond_1b
 
-    goto :goto_1
+    const-string/jumbo v7, "ActivityManagerPerformance"
+
+    const-string/jumbo v8, "setBoosterHome() call setBoosterActResume()"
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1b
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->mBoosterHome:Lcom/samsung/android/os/SemDvfsManager;
+    const/4 v7, 0x1
 
-    if-nez v6, :cond_1c
+    invoke-direct {p0, v7, p3}, Lcom/android/server/am/ActivityManagerPerformance;->setBoosterActResume(ZLcom/android/server/am/ActivityRecord;)V
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v7, "AMS_APP_HOME"
-
-    const/16 v8, 0x15
-
-    invoke-static {v6, v7, v8}, Lcom/samsung/android/os/SemDvfsManager;->createInstance(Landroid/content/Context;Ljava/lang/String;I)Lcom/samsung/android/os/SemDvfsManager;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/android/server/am/ActivityManagerPerformance;->mBoosterHome:Lcom/samsung/android/os/SemDvfsManager;
+    goto :goto_2
 
     :cond_1c
+    iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->mBoosterHome:Lcom/samsung/android/os/SemDvfsManager;
+
+    if-nez v7, :cond_1d
+
+    iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v8, "AMS_APP_HOME"
+
+    const/16 v9, 0x15
+
+    invoke-static {v7, v8, v9}, Lcom/samsung/android/os/SemDvfsManager;->createInstance(Landroid/content/Context;Ljava/lang/String;I)Lcom/samsung/android/os/SemDvfsManager;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->mBoosterHome:Lcom/samsung/android/os/SemDvfsManager;
+
+    :cond_1d
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerPerformance;->mBoosterHome:Lcom/samsung/android/os/SemDvfsManager;
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1e
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    const-string/jumbo v7, "ActivityManagerPerformance"
 
-    const-string/jumbo v7, "setBoosterHome() skipped. SemDvfsManager.createInstance() failed"
+    const-string/jumbo v8, "setBoosterHome() skipped. SemDvfsManager.createInstance() failed"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
-    :cond_1d
+    :cond_1e
     iput-wide v4, p0, Lcom/android/server/am/ActivityManagerPerformance;->lastHomeBoostedTime:J
 
     :try_start_0
-    iget-object v7, p0, Lcom/android/server/am/ActivityManagerPerformance;->mLockHome:Ljava/lang/Object;
+    iget-object v8, p0, Lcom/android/server/am/ActivityManagerPerformance;->mLockHome:Ljava/lang/Object;
 
-    monitor-enter v7
+    monitor-enter v8
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :try_start_1
+    const-string/jumbo v7, "AMS_APP_HOME"
+
+    invoke-static {v7, v3}, Lcom/samsung/android/os/SemPerfManager;->sendCommandToSsrm(Ljava/lang/String;Ljava/lang/String;)V
+
     invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->acquire()V
 
     iput-object p3, p0, Lcom/android/server/am/ActivityManagerPerformance;->rLastActHome:Lcom/android/server/am/ActivityRecord;
@@ -3501,79 +3529,79 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    monitor-exit v7
+    monitor-exit v8
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    const-string/jumbo v7, "ActivityManagerPerformance"
 
-    const-string/jumbo v7, "AMP_acquire() HOME"
+    const-string/jumbo v8, "AMP_acquire() HOME"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_2
+    :goto_3
     return-void
 
     :catchall_0
-    move-exception v6
+    move-exception v7
 
-    monitor-exit v7
+    monitor-exit v8
 
-    throw v6
+    throw v7
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    const-string/jumbo v7, "ActivityManagerPerformance"
 
-    const-string/jumbo v7, "AMP_acquire() HOME failed"
+    const-string/jumbo v8, "AMP_acquire() HOME failed"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-boolean v6, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
+    sget-boolean v7, Lcom/android/server/am/ActivityManagerPerformance;->DEBUG:Z
 
-    if-eqz v6, :cond_1e
+    if-eqz v7, :cond_1f
 
-    const-string/jumbo v6, "ActivityManagerPerformance"
+    const-string/jumbo v7, "ActivityManagerPerformance"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "AMP_acquire() HOME failed. e: "
+    const-string/jumbo v9, "AMP_acquire() HOME failed. e: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerPerformance;->getCurBoostInfoStr()Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v9, "\n"
 
-    move-result-object v7
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v8
 
-    :cond_1e
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerPerformance;->getCurBoostInfoStr()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1f
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 .method private setBoosterRelaunchResume(Lcom/android/server/am/ActivityRecord;)V

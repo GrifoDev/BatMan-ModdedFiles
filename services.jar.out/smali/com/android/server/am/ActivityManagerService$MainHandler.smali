@@ -1562,7 +1562,7 @@
 
     iget-object v13, v13, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v16, 0x10409d9
+    const v16, 0x10409e5
 
     move/from16 v0, v16
 

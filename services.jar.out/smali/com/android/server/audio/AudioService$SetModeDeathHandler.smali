@@ -107,7 +107,7 @@
 
     iget-object v4, p0, Lcom/android/server/audio/AudioService$SetModeDeathHandler;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v4, v3}, Lcom/android/server/audio/AudioService;->-wrap29(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v4, v3}, Lcom/android/server/audio/AudioService;->-wrap30(Lcom/android/server/audio/AudioService;I)V
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
@@ -126,7 +126,7 @@
 
     const/4 v9, 0x0
 
-    invoke-static {v4, v9, v6, v7, v8}, Lcom/android/server/audio/AudioService;->-wrap15(Lcom/android/server/audio/AudioService;ILandroid/os/IBinder;ILjava/lang/String;)I
+    invoke-static {v4, v9, v6, v7, v8}, Lcom/android/server/audio/AudioService;->-wrap16(Lcom/android/server/audio/AudioService;ILandroid/os/IBinder;ILjava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

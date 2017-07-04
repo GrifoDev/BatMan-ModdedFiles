@@ -4420,7 +4420,7 @@
 
     sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const v2, 0x10408aa
+    const v2, 0x10408b3
 
     invoke-virtual {v0, v3, v2, v1}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
@@ -6943,7 +6943,7 @@
 .method private showMissingKeyboardLayoutNotification(Landroid/view/InputDevice;)V
     .locals 10
 
-    const v9, 0x10408aa
+    const v9, 0x10408b3
 
     const/4 v1, 0x0
 
@@ -7004,7 +7004,7 @@
 
     move-result-object v0
 
-    const v1, 0x10408ab
+    const v1, 0x10408b4
 
     invoke-virtual {v8, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7077,7 +7077,7 @@
 
     if-ne p1, v2, :cond_1
 
-    const v2, 0x10408a8
+    const v2, 0x10408b1
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7112,7 +7112,7 @@
     return-void
 
     :cond_1
-    const v2, 0x10408a9
+    const v2, 0x10408b2
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

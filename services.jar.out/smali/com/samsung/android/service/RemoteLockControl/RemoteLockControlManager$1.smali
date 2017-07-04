@@ -91,7 +91,6 @@
     return v1
 
     :cond_1
-    # getter for: Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mRemoteLockControlListener:Lcom/samsung/android/service/RemoteLockControl/IRemoteLockControlListener;
     invoke-static {}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->access$000()Lcom/samsung/android/service/RemoteLockControl/IRemoteLockControlListener;
 
     move-result-object v0
@@ -113,7 +112,6 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;->printStackTrace()V
 
-    # getter for: Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mCompleteUnlockingDone:Z
     invoke-static {}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->access$100()Z
 
     move-result v0
@@ -130,7 +128,6 @@
 
     :cond_2
     :try_start_1
-    # getter for: Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->mRemoteLockControlListener:Lcom/samsung/android/service/RemoteLockControl/IRemoteLockControlListener;
     invoke-static {}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->access$000()Lcom/samsung/android/service/RemoteLockControl/IRemoteLockControlListener;
 
     move-result-object v0

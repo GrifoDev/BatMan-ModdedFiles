@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7$1;
+.class Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6$1;
 .super Ljava/lang/Object;
 .source "ImmersiveModeConfirmation.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7;->run()V
+    value = Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->run()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,14 +18,14 @@
 
 
 # instance fields
-.field final synthetic this$2:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7;
+.field final synthetic this$2:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7;)V
+.method constructor <init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7$1;->this$2:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7;
+    iput-object p1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6$1;->this$2:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,9 +47,9 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7$1;->this$2:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7;
+    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6$1;->this$2:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;
 
-    iget-object v1, v1, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
+    iget-object v1, v1, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;->this$1:Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;
 
     invoke-static {v1}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->-get2(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;)Landroid/graphics/drawable/ColorDrawable;
 

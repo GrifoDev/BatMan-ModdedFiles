@@ -430,7 +430,7 @@
 
     iget-object v13, v0, Lcom/android/server/enterprise/utils/PackageDownloader;->mContext:Landroid/content/Context;
 
-    const v14, 0x1040a3e
+    const v14, 0x1040a4a
 
     invoke-virtual {v13, v14}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -893,7 +893,7 @@
 
     iget-object v0, p0, Lcom/android/server/enterprise/utils/PackageDownloader;->mContext:Landroid/content/Context;
 
-    const v1, 0x1040a3d
+    const v1, 0x1040a49
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1070,7 +1070,7 @@
 
     iget-object v3, p0, Lcom/android/server/enterprise/utils/PackageDownloader;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040a40
+    const v4, 0x1040a4c
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

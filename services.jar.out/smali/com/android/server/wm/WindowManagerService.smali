@@ -2852,196 +2852,264 @@
 .end method
 
 .method private addFreeWindowToListLocked(Lcom/android/server/wm/WindowState;)V
-    .locals 8
+    .locals 12
+
+    const v11, 0x20008
+
+    const/4 v10, 0x1
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getWindowList()Lcom/android/server/wm/WindowList;
 
-    move-result-object v4
-
-    iget v1, p1, Lcom/android/server/wm/WindowState;->mBaseLayer:I
-
-    const/4 v3, 0x0
-
-    iget-object v5, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget v5, v5, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    const/16 v6, 0x832
-
-    if-ne v5, v6, :cond_0
-
-    const/4 v3, 0x1
-
-    :cond_0
-    invoke-virtual {v4}, Lcom/android/server/wm/WindowList;->size()I
-
-    move-result v5
-
-    add-int/lit8 v0, v5, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_5
-
-    invoke-virtual {v4, v0}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/wm/WindowState;
-
-    if-eqz v3, :cond_3
-
-    iget-boolean v5, v2, Lcom/android/server/wm/WindowState;->mIsFloatingLayer:Z
-
-    if-eqz v5, :cond_3
-
-    sget-boolean v5, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_WINDOW_MOVEMENT:Z
-
-    if-nez v5, :cond_1
-
-    sget-boolean v5, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_ADD_REMOVE:Z
-
-    if-eqz v5, :cond_2
-
-    :cond_1
-    sget-object v5, Lcom/android/server/wm/WindowManagerService;->TAG:Ljava/lang/String;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "skipFloatingLayerWindow : win="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v6
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iget v3, p1, Lcom/android/server/wm/WindowState;->mBaseLayer:I
 
-    move-result-object v6
+    const/4 v5, 0x0
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v7, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v6
+    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    const/16 v8, 0x832
 
-    :cond_2
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_3
-    sget-boolean v5, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_WINDOW_SUPPORT:Z
-
-    if-eqz v5, :cond_4
-
-    iget-object v5, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget v5, v5, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    const/16 v6, 0x900
-
-    if-ne v5, v6, :cond_4
-
-    iget-object v5, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget v5, v5, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    const/16 v6, 0x7f2
-
-    if-ne v5, v6, :cond_2
-
-    :cond_4
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getBaseType()I
-
-    move-result v5
-
-    const/16 v6, 0x7dd
-
-    if-eq v5, v6, :cond_2
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getBaseType()I
-
-    move-result v5
-
-    const/16 v6, 0x7db
-
-    if-eq v5, v6, :cond_2
-
-    iget v5, v2, Lcom/android/server/wm/WindowState;->mBaseLayer:I
-
-    if-gt v5, v1, :cond_2
-
-    :cond_5
-    add-int/lit8 v0, v0, 0x1
-
-    sget-boolean v5, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_FOCUS:Z
-
-    if-nez v5, :cond_6
-
-    sget-boolean v5, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_WINDOW_MOVEMENT:Z
-
-    if-nez v5, :cond_6
-
-    sget-boolean v5, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_ADD_REMOVE:Z
-
-    if-eqz v5, :cond_7
-
-    :cond_6
-    const-string/jumbo v5, "WindowManager"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "Free window: Adding window "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, " at "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, " of "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v4}, Lcom/android/server/wm/WindowList;->size()I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_7
-    invoke-virtual {v4, v0, p1}, Lcom/android/server/wm/WindowList;->add(ILjava/lang/Object;)V
+    if-ne v7, v8, :cond_0
 
     const/4 v5, 0x1
 
-    iput-boolean v5, p0, Lcom/android/server/wm/WindowManagerService;->mWindowsChanged:Z
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v7
+
+    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v8, 0x8e0
+
+    if-ne v7, v8, :cond_3
+
+    const/4 v0, 0x1
+
+    :goto_0
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowList;->size()I
+
+    move-result v7
+
+    add-int/lit8 v2, v7, -0x1
+
+    :goto_1
+    if-ltz v2, :cond_7
+
+    invoke-virtual {v6, v2}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/wm/WindowState;
+
+    if-eqz v5, :cond_4
+
+    iget-boolean v7, v4, Lcom/android/server/wm/WindowState;->mIsFloatingLayer:Z
+
+    if-eqz v7, :cond_4
+
+    sget-boolean v7, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_WINDOW_MOVEMENT:Z
+
+    if-nez v7, :cond_1
+
+    sget-boolean v7, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_ADD_REMOVE:Z
+
+    if-eqz v7, :cond_2
+
+    :cond_1
+    sget-object v7, Lcom/android/server/wm/WindowManagerService;->TAG:Ljava/lang/String;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "skipFloatingLayerWindow : win="
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_4
+    if-eqz v0, :cond_a
+
+    invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Lcom/samsung/android/view/IWindowStateBridge;->getAspectRatioFrame()Landroid/graphics/Rect;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, v4, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    if-eq v7, v10, :cond_5
+
+    iget-object v7, v4, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/4 v8, 0x3
+
+    if-ne v7, v8, :cond_2
+
+    :cond_5
+    iget-object v7, v4, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int v1, v7, v11
+
+    if-eqz v1, :cond_6
+
+    if-ne v1, v11, :cond_2
+
+    :cond_6
+    iget-object v7, v4, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    iput-object v7, p1, Lcom/android/server/wm/WindowState;->mTargetAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    :cond_7
+    :goto_2
+    add-int/lit8 v2, v2, 0x1
+
+    sget-boolean v7, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_FOCUS:Z
+
+    if-nez v7, :cond_8
+
+    sget-boolean v7, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_WINDOW_MOVEMENT:Z
+
+    if-nez v7, :cond_8
+
+    sget-boolean v7, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_ADD_REMOVE:Z
+
+    if-eqz v7, :cond_9
+
+    :cond_8
+    const-string/jumbo v7, "WindowManager"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "Free window: Adding window "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, " at "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, " of "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowList;->size()I
+
+    move-result v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_9
+    invoke-virtual {v6, v2, p1}, Lcom/android/server/wm/WindowList;->add(ILjava/lang/Object;)V
+
+    iput-boolean v10, p0, Lcom/android/server/wm/WindowManagerService;->mWindowsChanged:Z
 
     return-void
+
+    :cond_a
+    sget-boolean v7, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_WINDOW_SUPPORT:Z
+
+    if-eqz v7, :cond_b
+
+    iget-object v7, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v8, 0x900
+
+    if-ne v7, v8, :cond_b
+
+    iget-object v7, v4, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v8, 0x7f2
+
+    if-ne v7, v8, :cond_2
+
+    :cond_b
+    invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->getBaseType()I
+
+    move-result v7
+
+    const/16 v8, 0x7dd
+
+    if-eq v7, v8, :cond_2
+
+    invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->getBaseType()I
+
+    move-result v7
+
+    const/16 v8, 0x7db
+
+    if-eq v7, v8, :cond_2
+
+    iget v7, v4, Lcom/android/server/wm/WindowState;->mBaseLayer:I
+
+    if-gt v7, v3, :cond_2
+
+    goto :goto_2
 .end method
 
 .method private addWindowToListInOrderLocked(Lcom/android/server/wm/WindowState;Z)V
@@ -8405,85 +8473,87 @@
 .end method
 
 .method private rebuildAppWindowListLocked(Lcom/android/server/wm/DisplayContent;)V
-    .locals 29
+    .locals 30
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getWindowList()Lcom/android/server/wm/WindowList;
 
-    move-result-object v23
+    move-result-object v24
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/wm/WindowList;->size()I
+    invoke-virtual/range {v24 .. v24}, Lcom/android/server/wm/WindowList;->size()I
 
     move-result v4
 
-    const/4 v8, -0x1
+    const/4 v9, -0x1
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mRebuildTmp:[Lcom/android/server/wm/WindowState;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     array-length v0, v0
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     if-ge v0, v4, :cond_0
 
-    add-int/lit8 v26, v4, 0xa
+    add-int/lit8 v27, v4, 0xa
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     new-array v0, v0, [Lcom/android/server/wm/WindowState;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/wm/WindowManagerService;->mRebuildTmp:[Lcom/android/server/wm/WindowState;
 
     :cond_0
-    const/4 v6, 0x0
+    const/4 v5, 0x0
+
+    const/4 v7, 0x0
 
     :goto_0
-    if-ge v6, v4, :cond_4
+    if-ge v7, v4, :cond_5
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
-    invoke-virtual {v0, v6}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/wm/WindowState;
-
-    move-object/from16 v0, v21
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
-
-    move-object/from16 v26, v0
-
-    if-eqz v26, :cond_2
-
-    move-object/from16 v0, v23
-
-    invoke-virtual {v0, v6}, Lcom/android/server/wm/WindowList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v0, v7}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
 
     move-result-object v22
 
     check-cast v22, Lcom/android/server/wm/WindowState;
 
-    const/16 v26, 0x1
+    move-object/from16 v0, v22
 
-    move/from16 v0, v26
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
 
-    move-object/from16 v1, v22
+    move-object/from16 v27, v0
+
+    if-eqz v27, :cond_2
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v7}, Lcom/android/server/wm/WindowList;->remove(I)Ljava/lang/Object;
+
+    move-result-object v23
+
+    check-cast v23, Lcom/android/server/wm/WindowState;
+
+    const/16 v27, 0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v23
 
     iput-boolean v0, v1, Lcom/android/server/wm/WindowState;->mRebuilding:Z
 
@@ -8491,475 +8561,513 @@
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mRebuildTmp:[Lcom/android/server/wm/WindowState;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    aput-object v22, v26, v9
+    aput-object v23, v27, v10
 
-    const/16 v26, 0x1
+    const/16 v27, 0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/wm/WindowManagerService;->mWindowsChanged:Z
 
-    sget-boolean v26, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_WINDOW_MOVEMENT:Z
+    sget-boolean v27, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_WINDOW_MOVEMENT:Z
 
-    if-eqz v26, :cond_1
+    if-eqz v27, :cond_1
 
-    const-string/jumbo v26, "WindowManager"
+    const-string/jumbo v27, "WindowManager"
 
-    new-instance v27, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "Rebuild removing window: "
+    const-string/jumbo v29, "Rebuild removing window: "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v28
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v28
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v28
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     add-int/lit8 v4, v4, -0x1
 
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_0
 
     :cond_2
-    add-int/lit8 v26, v6, -0x1
+    add-int/lit8 v27, v7, -0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    if-ne v8, v0, :cond_3
+    if-ne v9, v0, :cond_3
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     iget-object v0, v0, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    const/16 v27, 0x7dd
+    const/16 v28, 0x7dd
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v28
 
     if-ne v0, v1, :cond_3
 
-    move v8, v6
+    move v9, v7
 
     :cond_3
-    add-int/lit8 v6, v6, 0x1
+    move-object/from16 v0, v22
 
-    goto :goto_0
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v27
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    move/from16 v27, v0
+
+    const/16 v28, 0x8e0
+
+    move/from16 v0, v27
+
+    move/from16 v1, v28
+
+    if-ne v0, v1, :cond_4
+
+    move-object/from16 v5, v22
 
     :cond_4
-    add-int/lit8 v8, v8, 0x1
+    add-int/lit8 v7, v7, 0x1
 
-    move v6, v8
+    goto/16 :goto_0
+
+    :cond_5
+    add-int/lit8 v9, v9, 0x1
+
+    move v7, v9
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getStacks()Ljava/util/ArrayList;
 
-    move-result-object v15
+    move-result-object v16
 
-    invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v16 .. v16}, Ljava/util/ArrayList;->size()I
 
-    move-result v10
+    move-result v11
 
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
     :goto_1
-    if-ge v14, v10, :cond_6
+    if-ge v15, v11, :cond_7
 
-    invoke-virtual {v15, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-object/from16 v0, v16
 
-    move-result-object v26
+    invoke-virtual {v0, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v26, Lcom/android/server/wm/TaskStack;
+    move-result-object v27
 
-    move-object/from16 v0, v26
+    check-cast v27, Lcom/android/server/wm/TaskStack;
 
-    iget-object v5, v0, Lcom/android/server/wm/TaskStack;->mExitingAppTokens:Lcom/android/server/wm/AppTokenList;
+    move-object/from16 v0, v27
 
-    invoke-virtual {v5}, Lcom/android/server/wm/AppTokenList;->size()I
+    iget-object v6, v0, Lcom/android/server/wm/TaskStack;->mExitingAppTokens:Lcom/android/server/wm/AppTokenList;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/AppTokenList;->size()I
 
     move-result v3
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     :goto_2
-    if-ge v7, v3, :cond_5
+    if-ge v8, v3, :cond_6
 
-    invoke-virtual {v5, v7}, Lcom/android/server/wm/AppTokenList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v6, v8}, Lcom/android/server/wm/AppTokenList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/wm/WindowToken;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v27
+
+    invoke-direct {v0, v1, v7, v2}, Lcom/android/server/wm/WindowManagerService;->reAddAppWindowsLocked(Lcom/android/server/wm/DisplayContent;ILcom/android/server/wm/WindowToken;)I
+
+    move-result v7
+
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_2
+
+    :cond_6
+    add-int/lit8 v15, v15, 0x1
+
+    goto :goto_1
+
+    :cond_7
+    const/4 v15, 0x0
+
+    :goto_3
+    if-ge v15, v11, :cond_c
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/wm/TaskStack;
+
+    invoke-virtual/range {v27 .. v27}, Lcom/android/server/wm/TaskStack;->getTasks()Ljava/util/ArrayList;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/util/ArrayList;->size()I
+
+    move-result v12
+
+    const/16 v18, 0x0
+
+    :goto_4
+    move/from16 v0, v18
+
+    if-ge v0, v12, :cond_b
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/wm/Task;
+
+    move-object/from16 v0, v27
+
+    iget-object v0, v0, Lcom/android/server/wm/Task;->mAppTokens:Lcom/android/server/wm/AppTokenList;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lcom/android/server/wm/AppTokenList;->size()I
+
+    move-result v13
+
+    const/16 v20, 0x0
+
+    :goto_5
+    move/from16 v0, v20
+
+    if-ge v0, v13, :cond_a
+
+    move-object/from16 v0, v21
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/AppTokenList;->get(I)Ljava/lang/Object;
 
     move-result-object v26
 
-    check-cast v26, Lcom/android/server/wm/WindowToken;
+    check-cast v26, Lcom/android/server/wm/AppWindowToken;
 
+    move-object/from16 v0, v26
+
+    iget-boolean v0, v0, Lcom/android/server/wm/AppWindowToken;->mIsExiting:Z
+
+    move/from16 v27, v0
+
+    if-eqz v27, :cond_8
+
+    invoke-virtual/range {v26 .. v26}, Lcom/android/server/wm/AppWindowToken;->waitingForReplacement()Z
+
+    move-result v27
+
+    if-eqz v27, :cond_9
+
+    :cond_8
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
     move-object/from16 v2, v26
 
-    invoke-direct {v0, v1, v6, v2}, Lcom/android/server/wm/WindowManagerService;->reAddAppWindowsLocked(Lcom/android/server/wm/DisplayContent;ILcom/android/server/wm/WindowToken;)I
+    invoke-direct {v0, v1, v7, v2}, Lcom/android/server/wm/WindowManagerService;->reAddAppWindowsLocked(Lcom/android/server/wm/DisplayContent;ILcom/android/server/wm/WindowToken;)I
 
-    move-result v6
+    move-result v7
 
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_2
-
-    :cond_5
-    add-int/lit8 v14, v14, 0x1
-
-    goto :goto_1
-
-    :cond_6
-    const/4 v14, 0x0
-
-    :goto_3
-    if-ge v14, v10, :cond_b
-
-    invoke-virtual {v15, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/wm/TaskStack;
-
-    invoke-virtual/range {v26 .. v26}, Lcom/android/server/wm/TaskStack;->getTasks()Ljava/util/ArrayList;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/util/ArrayList;->size()I
-
-    move-result v11
-
-    const/16 v17, 0x0
-
-    :goto_4
-    move/from16 v0, v17
-
-    if-ge v0, v11, :cond_a
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/wm/Task;
-
-    move-object/from16 v0, v26
-
-    iget-object v0, v0, Lcom/android/server/wm/Task;->mAppTokens:Lcom/android/server/wm/AppTokenList;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Lcom/android/server/wm/AppTokenList;->size()I
-
-    move-result v12
-
-    const/16 v19, 0x0
-
-    :goto_5
-    move/from16 v0, v19
-
-    if-ge v0, v12, :cond_9
-
-    move-object/from16 v0, v20
-
-    move/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/AppTokenList;->get(I)Ljava/lang/Object;
-
-    move-result-object v25
-
-    check-cast v25, Lcom/android/server/wm/AppWindowToken;
-
-    move-object/from16 v0, v25
-
-    iget-boolean v0, v0, Lcom/android/server/wm/AppWindowToken;->mIsExiting:Z
-
-    move/from16 v26, v0
-
-    if-eqz v26, :cond_7
-
-    invoke-virtual/range {v25 .. v25}, Lcom/android/server/wm/AppWindowToken;->waitingForReplacement()Z
-
-    move-result v26
-
-    if-eqz v26, :cond_8
-
-    :cond_7
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, v25
-
-    invoke-direct {v0, v1, v6, v2}, Lcom/android/server/wm/WindowManagerService;->reAddAppWindowsLocked(Lcom/android/server/wm/DisplayContent;ILcom/android/server/wm/WindowToken;)I
-
-    move-result v6
-
-    :cond_8
-    add-int/lit8 v19, v19, 0x1
+    :cond_9
+    add-int/lit8 v20, v20, 0x1
 
     goto :goto_5
 
-    :cond_9
-    add-int/lit8 v17, v17, 0x1
+    :cond_a
+    add-int/lit8 v18, v18, 0x1
 
     goto :goto_4
 
-    :cond_a
-    add-int/lit8 v14, v14, 0x1
+    :cond_b
+    add-int/lit8 v15, v15, 0x1
 
     goto :goto_3
 
-    :cond_b
-    sub-int/2addr v6, v8
+    :cond_c
+    if-eqz v5, :cond_d
 
-    if-eq v6, v9, :cond_e
+    move-object/from16 v0, v24
 
-    const/16 v26, 0x1
+    invoke-virtual {v0, v5}, Lcom/android/server/wm/WindowList;->remove(Ljava/lang/Object;)Z
 
-    move/from16 v0, v26
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v5}, Lcom/android/server/wm/WindowManagerService;->addFreeWindowToListLocked(Lcom/android/server/wm/WindowState;)V
+
+    :cond_d
+    sub-int/2addr v7, v9
+
+    if-eq v7, v10, :cond_10
+
+    const/16 v27, 0x1
+
+    move/from16 v0, v27
 
     move-object/from16 v1, p1
 
     iput-boolean v0, v1, Lcom/android/server/wm/DisplayContent;->layoutNeeded:Z
 
-    const-string/jumbo v26, "WindowManager"
+    const-string/jumbo v27, "WindowManager"
 
-    new-instance v27, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "On display="
+    const-string/jumbo v29, "On display="
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getDisplayId()I
-
-    move-result v28
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " Rebuild removed "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, v27
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " windows but added "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, v27
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " rebuildAppWindowListLocked() "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " callers="
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const/16 v28, 0xa
-
-    invoke-static/range {v28 .. v28}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v28
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getDisplayId()I
 
-    move-result-object v27
+    move-result v29
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v28
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v29, " Rebuild removed "
 
-    const/4 v6, 0x0
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    move-object/from16 v0, v28
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    const-string/jumbo v29, " windows but added "
+
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    move-object/from16 v0, v28
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    const-string/jumbo v29, " rebuildAppWindowListLocked() "
+
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    const-string/jumbo v29, " callers="
+
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    const/16 v29, 0xa
+
+    invoke-static/range {v29 .. v29}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-static/range {v27 .. v28}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v7, 0x0
 
     :goto_6
-    if-ge v6, v9, :cond_d
+    if-ge v7, v10, :cond_f
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mRebuildTmp:[Lcom/android/server/wm/WindowState;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    aget-object v24, v26, v6
+    aget-object v25, v27, v7
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     iget-boolean v0, v0, Lcom/android/server/wm/WindowState;->mRebuilding:Z
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    if-eqz v26, :cond_c
+    if-eqz v27, :cond_e
 
-    new-instance v16, Ljava/io/StringWriter;
+    new-instance v17, Ljava/io/StringWriter;
 
-    invoke-direct/range {v16 .. v16}, Ljava/io/StringWriter;-><init>()V
+    invoke-direct/range {v17 .. v17}, Ljava/io/StringWriter;-><init>()V
 
-    new-instance v13, Lcom/android/internal/util/FastPrintWriter;
+    new-instance v14, Lcom/android/internal/util/FastPrintWriter;
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    const/16 v27, 0x400
+    const/16 v28, 0x400
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
-    invoke-direct {v13, v0, v1, v2}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
+    invoke-direct {v14, v0, v1, v2}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
 
-    const-string/jumbo v26, ""
+    const-string/jumbo v27, ""
 
-    const/16 v27, 0x1
+    const/16 v28, 0x1
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v27
 
-    move/from16 v2, v27
+    move/from16 v2, v28
 
-    invoke-virtual {v0, v13, v1, v2}, Lcom/android/server/wm/WindowState;->dump(Ljava/io/PrintWriter;Ljava/lang/String;Z)V
+    invoke-virtual {v0, v14, v1, v2}, Lcom/android/server/wm/WindowState;->dump(Ljava/io/PrintWriter;Ljava/lang/String;Z)V
 
-    invoke-virtual {v13}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {v14}, Ljava/io/PrintWriter;->flush()V
 
-    const-string/jumbo v26, "WindowManager"
+    const-string/jumbo v27, "WindowManager"
 
-    new-instance v27, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "This window was lost: "
+    const-string/jumbo v29, "This window was lost: "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v28
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v28
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v28
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v26, "WindowManager"
+    const-string/jumbo v27, "WindowManager"
 
-    invoke-virtual/range {v16 .. v16}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
+    invoke-virtual/range {v17 .. v17}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v28
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, v24
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
-
-    move-object/from16 v26, v0
-
-    invoke-virtual/range {v26 .. v26}, Lcom/android/server/wm/WindowStateAnimator;->destroyDeferredSurfaceLocked()V
-
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     iget-object v0, v0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v26 .. v26}, Lcom/android/server/wm/WindowStateAnimator;->destroySurfaceLocked()V
+    invoke-virtual/range {v27 .. v27}, Lcom/android/server/wm/WindowStateAnimator;->destroyDeferredSurfaceLocked()V
 
-    :cond_c
-    add-int/lit8 v6, v6, 0x1
+    move-object/from16 v0, v25
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    move-object/from16 v27, v0
+
+    invoke-virtual/range {v27 .. v27}, Lcom/android/server/wm/WindowStateAnimator;->destroySurfaceLocked()V
+
+    :cond_e
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_6
 
-    :cond_d
-    const-string/jumbo v26, "WindowManager"
+    :cond_f
+    const-string/jumbo v27, "WindowManager"
 
-    const-string/jumbo v27, "Current app token list:"
+    const-string/jumbo v28, "Current app token list:"
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowManagerService;->dumpAppTokensLocked()V
 
-    const-string/jumbo v26, "WindowManager"
+    const-string/jumbo v27, "WindowManager"
 
-    const-string/jumbo v27, "Final window list:"
+    const-string/jumbo v28, "Final window list:"
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowManagerService;->dumpWindowsLocked()V
 
-    :cond_e
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mRebuildTmp:[Lcom/android/server/wm/WindowState;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
-    invoke-static/range {v26 .. v27}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {v27 .. v28}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -9495,7 +9603,7 @@
 .method private showAuditSafeModeNotification()V
     .locals 11
 
-    const v10, 0x1040610
+    const v10, 0x1040614
 
     const/4 v9, 0x0
 
@@ -9581,7 +9689,7 @@
 
     iget-object v5, p0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
-    const v6, 0x1040611
+    const v6, 0x1040615
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -21877,192 +21985,200 @@
 .end method
 
 .method findDesiredInputMethodWindowIndexLocked(Z)I
-    .locals 21
+    .locals 22
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowManagerService;->getDefaultWindowListLocked()Lcom/android/server/wm/WindowList;
 
-    move-result-object v16
+    move-result-object v17
+
+    const/4 v14, 0x0
 
     const/4 v13, 0x0
 
-    const/4 v12, 0x0
+    invoke-virtual/range {v17 .. v17}, Lcom/android/server/wm/WindowList;->size()I
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/wm/WindowList;->size()I
+    move-result v18
 
-    move-result v17
-
-    add-int/lit8 v8, v17, -0x1
+    add-int/lit8 v8, v18, -0x1
 
     :goto_0
     if-ltz v8, :cond_1
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     invoke-virtual {v0, v8}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v16
 
-    check-cast v15, Lcom/android/server/wm/WindowState;
+    check-cast v16, Lcom/android/server/wm/WindowState;
 
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
 
-    if-eqz v17, :cond_0
+    if-eqz v18, :cond_0
 
     if-eqz p1, :cond_0
 
-    const-string/jumbo v17, "WindowManager"
+    const-string/jumbo v18, "WindowManager"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Checking window @"
+    const-string/jumbo v20, "Checking window @"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " fl=0x"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    iget-object v0, v15, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    move-object/from16 v19, v0
-
-    move-object/from16 v0, v19
-
-    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    move/from16 v19, v0
-
-    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v19
 
-    move-result-object v18
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v19
 
-    move-result-object v18
+    const-string/jumbo v20, " "
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " fl=0x"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-static {v15}, Lcom/android/server/wm/WindowManagerService;->canBeImeTarget(Lcom/android/server/wm/WindowState;)Z
+    invoke-static/range {v16 .. v16}, Lcom/android/server/wm/WindowManagerService;->canBeImeTarget(Lcom/android/server/wm/WindowState;)Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_5
+    if-eqz v18, :cond_5
 
-    move-object v13, v15
+    move-object/from16 v14, v16
 
     if-nez p1, :cond_1
 
-    iget-object v0, v15, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+    move-object/from16 v0, v16
 
-    move-object/from16 v17, v0
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    move-object/from16 v0, v17
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
 
     iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
-    const/16 v18, 0x3
+    const/16 v19, 0x3
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_1
 
     if-lez v8, :cond_1
 
-    add-int/lit8 v17, v8, -0x1
+    add-int/lit8 v18, v8, -0x1
 
-    invoke-virtual/range {v16 .. v17}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
+    invoke-virtual/range {v17 .. v18}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v15
 
-    check-cast v14, Lcom/android/server/wm/WindowState;
-
-    iget-object v0, v14, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
-
-    move-object/from16 v17, v0
+    check-cast v15, Lcom/android/server/wm/WindowState;
 
     iget-object v0, v15, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
 
     move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v18
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
 
-    if-ne v0, v1, :cond_1
-
-    invoke-static {v14}, Lcom/android/server/wm/WindowManagerService;->canBeImeTarget(Lcom/android/server/wm/WindowState;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_1
-
-    add-int/lit8 v8, v8, -0x1
-
-    move-object v13, v14
-
-    :cond_1
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
-
-    if-eqz v17, :cond_2
-
-    if-eqz p1, :cond_2
-
-    const-string/jumbo v17, "WindowManager"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Proposed new IME target: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
+    move-object/from16 v19, v0
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v1, v19
 
-    move-result-object v18
+    if-ne v0, v1, :cond_1
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v15}, Lcom/android/server/wm/WindowManagerService;->canBeImeTarget(Lcom/android/server/wm/WindowState;)Z
 
-    move-result-object v18
+    move-result v18
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v18, :cond_1
+
+    add-int/lit8 v8, v8, -0x1
+
+    move-object v14, v15
+
+    :cond_1
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
+
+    if-eqz v18, :cond_2
+
+    if-eqz p1, :cond_2
+
+    const-string/jumbo v18, "WindowManager"
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "Proposed new IME target: "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     move-object/from16 v0, p0
@@ -22073,29 +22189,19 @@
 
     invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->isDisplayedLw()Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_7
+    if-eqz v18, :cond_7
 
     invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->isClosing()Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_7
+    if-eqz v18, :cond_7
 
-    if-eqz v13, :cond_3
+    if-eqz v14, :cond_3
 
     iget-object v0, v2, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
-
-    move/from16 v17, v0
-
-    iget-object v0, v13, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
     move-object/from16 v18, v0
 
@@ -22105,70 +22211,80 @@
 
     move/from16 v18, v0
 
-    move/from16 v0, v17
+    iget-object v0, v14, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
-    move/from16 v1, v18
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
 
     if-le v0, v1, :cond_7
 
     :cond_3
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
 
-    if-eqz v17, :cond_4
+    if-eqz v18, :cond_4
 
-    const-string/jumbo v17, "WindowManager"
+    const-string/jumbo v18, "WindowManager"
 
-    const-string/jumbo v18, "Current target higher, not changing"
+    const-string/jumbo v19, "Current target higher, not changing"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     invoke-virtual {v0, v2}, Lcom/android/server/wm/WindowList;->indexOf(Ljava/lang/Object;)I
 
-    move-result v17
+    move-result v18
 
-    add-int/lit8 v17, v17, 0x1
+    add-int/lit8 v18, v18, 0x1
 
-    return v17
+    return v18
 
     :cond_5
-    sget-boolean v17, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+    sget-boolean v18, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v17, :cond_6
+    if-eqz v18, :cond_6
 
-    sget-boolean v17, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_SUPPORT:Z
+    sget-boolean v18, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_SUPPORT:Z
 
-    if-eqz v17, :cond_6
+    if-eqz v18, :cond_6
 
-    if-nez v12, :cond_6
+    if-nez v13, :cond_6
 
-    invoke-virtual {v15}, Lcom/android/server/wm/WindowState;->inFreeformWorkspace()Z
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/wm/WindowState;->inFreeformWorkspace()Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_6
+    if-eqz v18, :cond_6
 
-    invoke-virtual {v15}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v17
+    move-result-object v18
 
-    if-eqz v17, :cond_6
+    if-eqz v18, :cond_6
 
-    invoke-virtual {v15}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v17
+    move-result-object v18
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget v0, v0, Lcom/android/server/wm/Task;->mHiddenState:I
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
-    if-nez v17, :cond_6
+    if-nez v18, :cond_6
 
-    move-object v12, v15
+    move-object/from16 v13, v16
 
     :cond_6
     add-int/lit8 v8, v8, -0x1
@@ -22176,87 +22292,87 @@
     goto/16 :goto_0
 
     :cond_7
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
 
-    if-eqz v17, :cond_8
+    if-eqz v18, :cond_8
 
-    const-string/jumbo v17, "WindowManager"
+    const-string/jumbo v18, "WindowManager"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Desired input method target="
+    const-string/jumbo v20, "Desired input method target="
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, " willMove="
+    const-string/jumbo v20, " willMove="
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_8
     if-eqz p1, :cond_11
 
-    if-eqz v13, :cond_11
+    if-eqz v14, :cond_11
 
     if-nez v2, :cond_c
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
     :goto_1
-    if-eqz v11, :cond_11
+    if-eqz v12, :cond_11
 
     const/4 v7, 0x0
 
     const/4 v6, 0x0
 
-    iget-object v0, v11, Lcom/android/server/wm/AppWindowToken;->mAppAnimator:Lcom/android/server/wm/AppWindowAnimator;
+    iget-object v0, v12, Lcom/android/server/wm/AppWindowToken;->mAppAnimator:Lcom/android/server/wm/AppWindowAnimator;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget-boolean v0, v0, Lcom/android/server/wm/AppWindowAnimator;->animating:Z
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
-    if-nez v17, :cond_9
+    if-nez v18, :cond_9
 
-    iget-object v0, v11, Lcom/android/server/wm/AppWindowToken;->mAppAnimator:Lcom/android/server/wm/AppWindowAnimator;
+    iget-object v0, v12, Lcom/android/server/wm/AppWindowToken;->mAppAnimator:Lcom/android/server/wm/AppWindowAnimator;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Lcom/android/server/wm/AppWindowAnimator;->animation:Landroid/view/animation/Animation;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    if-eqz v17, :cond_a
+    if-eqz v18, :cond_a
 
     :cond_9
     invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getWindowList()Lcom/android/server/wm/WindowList;
@@ -22267,115 +22383,338 @@
 
     invoke-virtual {v3, v2}, Lcom/android/server/wm/WindowList;->indexOf(Ljava/lang/Object;)I
 
-    move-result v9
+    move-result v10
 
     :goto_2
-    if-ltz v9, :cond_a
+    if-ltz v10, :cond_a
 
-    invoke-virtual {v3, v9}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v10}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v16
 
-    check-cast v15, Lcom/android/server/wm/WindowState;
+    check-cast v16, Lcom/android/server/wm/WindowState;
 
-    iget-object v0, v15, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+    move-object/from16 v0, v16
 
-    move-object/from16 v17, v0
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
 
-    move-object/from16 v0, v17
+    move-object/from16 v18, v0
 
-    if-eq v0, v11, :cond_d
+    move-object/from16 v0, v18
+
+    if-eq v0, v12, :cond_d
 
     :cond_a
     if-eqz v7, :cond_11
 
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
 
-    if-eqz v17, :cond_b
+    if-eqz v18, :cond_b
 
-    const-string/jumbo v17, "WindowManager"
+    const-string/jumbo v18, "WindowManager"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAppTransition:Lcom/android/server/wm/AppTransition;
 
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " animating="
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/server/wm/WindowStateAnimator;->isAnimationSet()Z
+
+    move-result v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " layer="
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
+
+    move/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " new layer="
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    iget-object v0, v14, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
+
+    move/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAppTransition:Lcom/android/server/wm/AppTransition;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/wm/AppTransition;->isTransitionSet()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_10
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/wm/WindowManagerService;->mInputMethodTargetWaitingAnim:Z
+
+    move-object/from16 v0, p0
+
+    iput-object v7, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
+
+    add-int/lit8 v18, v6, 0x1
+
+    return v18
+
+    :cond_c
+    iget-object v12, v2, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    goto/16 :goto_1
+
+    :cond_d
+    move-object/from16 v0, v16
+
+    iget-boolean v0, v0, Lcom/android/server/wm/WindowState;->mRemoved:Z
+
+    move/from16 v18, v0
+
+    if-nez v18, :cond_f
+
+    if-eqz v7, :cond_e
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
+
+    move/from16 v18, v0
+
+    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
     move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v19
 
-    move-result-object v18
+    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
 
-    const-string/jumbo v19, " "
+    move/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-le v0, v1, :cond_f
+
+    :cond_e
+    move-object/from16 v7, v16
+
+    move v6, v10
+
+    :cond_f
+    add-int/lit8 v10, v10, -0x1
+
+    goto/16 :goto_2
+
+    :cond_10
+    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/wm/WindowStateAnimator;->isAnimationSet()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_11
+
+    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
+
+    move/from16 v18, v0
+
+    iget-object v0, v14, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-le v0, v1, :cond_11
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/wm/WindowManagerService;->mInputMethodTargetWaitingAnim:Z
+
+    move-object/from16 v0, p0
+
+    iput-object v7, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
+
+    add-int/lit8 v18, v6, 0x1
+
+    return v18
+
+    :cond_11
+    if-eqz v14, :cond_1c
+
+    if-eqz p1, :cond_14
+
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
+
+    if-eqz v18, :cond_12
+
+    const-string/jumbo v19, "WindowManager"
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "Moving IM target from "
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
-    const-string/jumbo v19, " animating="
+    const-string/jumbo v20, " to "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v18
+    move-object/from16 v1, v20
 
-    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
-
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v19 .. v19}, Lcom/android/server/wm/WindowStateAnimator;->isAnimationSet()Z
-
-    move-result v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
-    const-string/jumbo v19, " layer="
+    move-object/from16 v0, v18
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v20
 
-    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->SHOW_STACK_CRAWLS:Z
 
-    move-object/from16 v19, v0
+    if-eqz v18, :cond_16
 
-    move-object/from16 v0, v19
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v19, v0
+    const-string/jumbo v21, " Callers="
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    move-result-object v18
+    move-object/from16 v1, v21
 
-    const-string/jumbo v19, " new layer="
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
-    iget-object v0, v13, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+    const/16 v21, 0x4
 
-    move-object/from16 v19, v0
+    invoke-static/range {v21 .. v21}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
 
-    move-object/from16 v0, v19
+    move-result-object v21
 
-    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
+    move-object/from16 v0, v18
 
-    move/from16 v19, v0
+    move-object/from16 v1, v21
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
@@ -22383,501 +22722,327 @@
 
     move-result-object v18
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAppTransition:Lcom/android/server/wm/AppTransition;
-
-    move-object/from16 v17, v0
-
-    invoke-virtual/range {v17 .. v17}, Lcom/android/server/wm/AppTransition;->isTransitionSet()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_10
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/wm/WindowManagerService;->mInputMethodTargetWaitingAnim:Z
-
-    move-object/from16 v0, p0
-
-    iput-object v7, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
-
-    add-int/lit8 v17, v6, 0x1
-
-    return v17
-
-    :cond_c
-    iget-object v11, v2, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
-
-    goto/16 :goto_1
-
-    :cond_d
-    iget-boolean v0, v15, Lcom/android/server/wm/WindowState;->mRemoved:Z
-
-    move/from16 v17, v0
-
-    if-nez v17, :cond_f
-
-    if-eqz v7, :cond_e
-
-    iget-object v0, v15, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
-
-    move/from16 v17, v0
-
-    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
-
-    move-object/from16 v18, v0
-
-    move-object/from16 v0, v18
-
-    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
-
-    move/from16 v18, v0
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-le v0, v1, :cond_f
-
-    :cond_e
-    move-object v7, v15
-
-    move v6, v9
-
-    :cond_f
-    add-int/lit8 v9, v9, -0x1
-
-    goto/16 :goto_2
-
-    :cond_10
-    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
-
-    move-object/from16 v17, v0
-
-    invoke-virtual/range {v17 .. v17}, Lcom/android/server/wm/WindowStateAnimator;->isAnimationSet()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_11
-
-    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
-
-    move/from16 v17, v0
-
-    iget-object v0, v13, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
-
-    move-object/from16 v18, v0
-
-    move-object/from16 v0, v18
-
-    iget v0, v0, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
-
-    move/from16 v18, v0
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-le v0, v1, :cond_11
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/wm/WindowManagerService;->mInputMethodTargetWaitingAnim:Z
-
-    move-object/from16 v0, p0
-
-    iput-object v7, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
-
-    add-int/lit8 v17, v6, 0x1
-
-    return v17
-
-    :cond_11
-    if-eqz v13, :cond_1b
-
-    if-eqz p1, :cond_13
-
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
-
-    if-eqz v17, :cond_12
-
-    const-string/jumbo v18, "WindowManager"
-
-    new-instance v17, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Moving IM target from "
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const-string/jumbo v19, " to "
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->SHOW_STACK_CRAWLS:Z
-
-    if-eqz v17, :cond_15
-
-    new-instance v17, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, " Callers="
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const/16 v20, 0x4
-
-    invoke-static/range {v20 .. v20}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
-
-    move-result-object v20
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
     :goto_3
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
     move-object/from16 v0, v19
 
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_12
+    iget-object v0, v14, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    move/from16 v18, v0
+
+    const/16 v19, 0x8e0
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_13
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v14}, Lcom/android/server/wm/WindowList;->indexOf(Ljava/lang/Object;)I
+
+    move-result v9
+
+    if-lez v9, :cond_13
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/server/wm/WindowList;->size()I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    if-ge v9, v0, :cond_13
+
+    add-int/lit8 v18, v9, -0x1
+
+    invoke-virtual/range {v17 .. v18}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Lcom/android/server/wm/WindowState;
+
+    :cond_13
     move-object/from16 v0, p0
 
-    iput-object v13, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
+    iput-object v14, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/server/wm/WindowManagerService;->mInputMethodTargetWaitingAnim:Z
 
-    iget-object v0, v13, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+    iget-object v0, v14, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    if-eqz v17, :cond_16
+    if-eqz v18, :cond_17
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mLayersController:Lcom/android/server/wm/WindowLayersController;
 
-    move-object/from16 v17, v0
-
-    iget-object v0, v13, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
-
     move-object/from16 v18, v0
 
-    move-object/from16 v0, v18
+    iget-object v0, v14, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/android/server/wm/AppWindowToken;->mAppAnimator:Lcom/android/server/wm/AppWindowAnimator;
 
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lcom/android/server/wm/AppWindowAnimator;->animLayerAdjustment:I
+
+    move/from16 v19, v0
+
+    invoke-virtual/range {v18 .. v19}, Lcom/android/server/wm/WindowLayersController;->setInputMethodAnimLayerAdjustment(I)V
+
+    :cond_14
+    :goto_4
+    iget-object v0, v14, Lcom/android/server/wm/WindowState;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
     move-object/from16 v18, v0
 
     move-object/from16 v0, v18
 
-    iget v0, v0, Lcom/android/server/wm/AppWindowAnimator;->animLayerAdjustment:I
-
-    move/from16 v18, v0
-
-    invoke-virtual/range {v17 .. v18}, Lcom/android/server/wm/WindowLayersController;->setInputMethodAnimLayerAdjustment(I)V
-
-    :cond_13
-    :goto_4
-    iget-object v0, v13, Lcom/android/server/wm/WindowState;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
     iget-object v0, v0, Lcom/android/server/wm/DisplayContent;->mDividerControllerLocked:Lcom/android/server/wm/DockedStackDividerController;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/server/wm/DockedStackDividerController;->getWindow()Lcom/android/server/wm/WindowState;
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/wm/DockedStackDividerController;->getWindow()Lcom/android/server/wm/WindowState;
 
     move-result-object v5
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_18
 
     invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->isVisibleLw()Z
 
-    move-result v17
+    move-result v18
 
-    if-nez v17, :cond_14
+    if-nez v18, :cond_15
 
     invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->isVisibleOrAdding()Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_17
+    if-eqz v18, :cond_18
 
-    :cond_14
-    move-object/from16 v0, v16
+    :cond_15
+    move-object/from16 v0, v17
 
     invoke-virtual {v0, v5}, Lcom/android/server/wm/WindowList;->indexOf(Ljava/lang/Object;)I
 
     move-result v4
 
-    if-lez v4, :cond_19
+    if-lez v4, :cond_1a
 
-    if-le v4, v8, :cond_19
+    if-le v4, v8, :cond_1a
 
-    add-int/lit8 v17, v4, 0x1
+    add-int/lit8 v18, v4, 0x1
 
-    return v17
-
-    :cond_15
-    const-string/jumbo v17, ""
-
-    goto :goto_3
+    return v18
 
     :cond_16
+    const-string/jumbo v18, ""
+
+    goto/16 :goto_3
+
+    :cond_17
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mLayersController:Lcom/android/server/wm/WindowLayersController;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    invoke-virtual/range {v17 .. v18}, Lcom/android/server/wm/WindowLayersController;->setInputMethodAnimLayerAdjustment(I)V
+    invoke-virtual/range {v18 .. v19}, Lcom/android/server/wm/WindowLayersController;->setInputMethodAnimLayerAdjustment(I)V
 
     goto :goto_4
 
-    :cond_17
-    sget-boolean v17, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+    :cond_18
+    sget-boolean v18, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v17, :cond_19
+    if-eqz v18, :cond_1a
 
-    sget-boolean v17, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_SUPPORT:Z
+    sget-boolean v18, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_SUPPORT:Z
 
-    if-eqz v17, :cond_19
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
-
-    move-object/from16 v17, v0
-
-    if-eqz v17, :cond_1a
+    if-eqz v18, :cond_1a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/server/wm/WindowState;->getStackId()I
+    if-eqz v18, :cond_1b
 
-    move-result v10
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mInputMethodTarget:Lcom/android/server/wm/WindowState;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/server/wm/WindowState;->getStackId()I
+
+    move-result v11
 
     :goto_5
-    if-eqz v12, :cond_19
+    if-eqz v13, :cond_1a
 
-    if-eqz v10, :cond_18
+    if-eqz v11, :cond_19
 
-    const/16 v17, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    if-ne v10, v0, :cond_19
+    if-ne v11, v0, :cond_1a
 
-    :cond_18
-    move-object/from16 v0, v16
+    :cond_19
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v12}, Lcom/android/server/wm/WindowList;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v0, v13}, Lcom/android/server/wm/WindowList;->indexOf(Ljava/lang/Object;)I
 
     move-result v8
 
-    :cond_19
-    add-int/lit8 v17, v8, 0x1
-
-    return v17
-
     :cond_1a
-    const/4 v10, -0x1
+    add-int/lit8 v18, v8, 0x1
+
+    return v18
+
+    :cond_1b
+    const/4 v11, -0x1
 
     goto :goto_5
 
-    :cond_1b
-    if-eqz p1, :cond_1d
+    :cond_1c
+    if-eqz p1, :cond_1e
 
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_INPUT_METHOD:Z
 
-    if-eqz v17, :cond_1c
+    if-eqz v18, :cond_1d
 
-    const-string/jumbo v18, "WindowManager"
+    const-string/jumbo v19, "WindowManager"
 
-    new-instance v17, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Moving IM target from "
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const-string/jumbo v19, " to null."
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    sget-boolean v17, Lcom/android/server/wm/WindowManagerDebugConfig;->SHOW_STACK_CRAWLS:Z
-
-    if-eqz v17, :cond_1e
-
-    new-instance v17, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, " Callers="
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    const/16 v20, 0x4
-
-    invoke-static/range {v20 .. v20}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
-
-    move-result-object v20
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
-    :goto_6
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
+    const-string/jumbo v20, "Moving IM target from "
 
     move-object/from16 v0, v18
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    const-string/jumbo v20, " to null."
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    sget-boolean v18, Lcom/android/server/wm/WindowManagerDebugConfig;->SHOW_STACK_CRAWLS:Z
+
+    if-eqz v18, :cond_1f
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v21, " Callers="
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    const/16 v21, 0x4
+
+    invoke-static/range {v21 .. v21}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
+
+    move-result-object v21
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    :goto_6
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v18
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1c
-    const/16 v17, 0x0
+    :cond_1d
+    const/16 v18, 0x0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
@@ -22887,19 +23052,19 @@
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mLayersController:Lcom/android/server/wm/WindowLayersController;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    invoke-virtual/range {v17 .. v18}, Lcom/android/server/wm/WindowLayersController;->setInputMethodAnimLayerAdjustment(I)V
-
-    :cond_1d
-    const/16 v17, -0x1
-
-    return v17
+    invoke-virtual/range {v18 .. v19}, Lcom/android/server/wm/WindowLayersController;->setInputMethodAnimLayerAdjustment(I)V
 
     :cond_1e
-    const-string/jumbo v17, ""
+    const/16 v18, -0x1
+
+    return v18
+
+    :cond_1f
+    const-string/jumbo v18, ""
 
     goto :goto_6
 .end method
@@ -33329,6 +33494,16 @@
     move-object/from16 v0, p18
 
     iput v4, v0, Landroid/graphics/PointF;->y:F
+
+    move-object/from16 v0, p18
+
+    iget v4, v0, Landroid/graphics/PointF;->y:F
+
+    const/4 v5, 0x0
+
+    cmpl-float v4, v4, v5
+
+    if-eqz v4, :cond_21
 
     const/high16 v4, 0x10000
 
@@ -47869,9 +48044,15 @@
     goto :goto_1
 
     :cond_a
-    iget-object v5, p0, Lcom/android/server/wm/WindowManagerService;->mBridge:Lcom/android/server/wm/IWindowManagerServiceBridge;
+    iget-object v5, p0, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
 
-    invoke-interface {v5, v4, v3}, Lcom/android/server/wm/IWindowManagerServiceBridge;->needLayoutForNavigationBar(Lcom/android/server/wm/WindowState;Lcom/android/server/wm/WindowState;)Z
+    check-cast v5, Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v5}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/SamsungWindowManagerPolicy;
+
+    move-result-object v5
+
+    invoke-interface {v5, v4, v3}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->needLayoutForNavigationBar(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)Z
 
     move-result v5
 

@@ -28,17 +28,19 @@
 
 
 # static fields
-.field private static final ALPHA_IN_ANIMATION_TIME:I = 0x258
+.field private static final ALPHA_OUT_ANIMATION_TIME:I = 0x12c
 
 .field private static final ANIMATION_DURATION:I = 0xfa
 
-.field private static final ANIMATION_SET_START_DELAY:I = 0xc8
+.field private static final ANIMATION_SET_START_OFFSET:I = 0xc8
 
 .field private static final BGCOLOR:I = -0x40dadadb
 
+.field private static final IMAGEVIEW_PAUSE_TIME:I = 0x3e8
+
 .field private static final OFFSET_DP:I = 0x60
 
-.field private static final TRANSLATE_ANIMATION_TIME:I = 0x384
+.field private static final TRANSLATE_ANIMATION_TIME:I = 0x258
 
 
 # instance fields
@@ -66,6 +68,10 @@
 
 .field private mLandButtonOK:Landroid/widget/Button;
 
+.field private mLandHelpTextStepOne:Landroid/widget/TextView;
+
+.field private mLandHelpTextStepTwo:Landroid/widget/TextView;
+
 .field private mLandLayoutStepOne:Landroid/widget/LinearLayout;
 
 .field private mLandLayoutStepTwo:Landroid/widget/LinearLayout;
@@ -75,6 +81,10 @@
 .field private mPortButtonNext:Landroid/widget/Button;
 
 .field private mPortButtonOK:Landroid/widget/Button;
+
+.field private mPortHelpTextStepOne:Landroid/widget/TextView;
+
+.field private mPortHelpTextStepTwo:Landroid/widget/TextView;
 
 .field private mPortImageArea:Landroid/widget/LinearLayout;
 
@@ -296,397 +306,445 @@
 .end method
 
 .method private getArrowAnimationSet(I)Landroid/view/animation/AnimationSet;
-    .locals 8
+    .locals 14
 
-    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mContext:Landroid/content/Context;
+    const/4 v9, 0x1
 
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const-wide/16 v12, 0x258
 
-    move-result-object v6
+    const-wide/16 v10, 0xc8
 
-    const v7, 0x10500d7
+    const/4 v8, 0x0
 
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mContext:Landroid/content/Context;
 
-    move-result v3
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    new-instance v2, Landroid/view/animation/AnimationSet;
+    move-result-object v5
 
-    const/4 v6, 0x1
+    const v6, 0x10500d8
 
-    invoke-direct {v2, v6}, Landroid/view/animation/AnimationSet;-><init>(Z)V
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v2
+
+    new-instance v1, Landroid/view/animation/AnimationSet;
+
+    invoke-direct {v1, v9}, Landroid/view/animation/AnimationSet;-><init>(Z)V
 
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
-    const/4 v6, 0x0
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    invoke-direct {v0, v5, v8}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    invoke-direct {v0, v6, v7}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+    const-wide/16 v6, 0x708
 
-    const-wide/16 v6, 0x320
+    invoke-virtual {v0, v6, v7}, Landroid/view/animation/AlphaAnimation;->setStartOffset(J)V
+
+    const-wide/16 v6, 0x12c
 
     invoke-virtual {v0, v6, v7}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut33:Landroid/view/animation/Interpolator;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut33:Landroid/view/animation/Interpolator;
 
-    invoke-virtual {v0, v6}, Landroid/view/animation/AlphaAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+    invoke-virtual {v0, v5}, Landroid/view/animation/AlphaAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    invoke-virtual {v2, v0}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
-
-    new-instance v1, Landroid/view/animation/AlphaAnimation;
-
-    const/high16 v6, 0x3f800000    # 1.0f
-
-    const/4 v7, 0x0
-
-    invoke-direct {v1, v6, v7}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
-
-    const-wide/16 v6, 0x320
-
-    invoke-virtual {v1, v6, v7}, Landroid/view/animation/AlphaAnimation;->setStartTime(J)V
-
-    const-wide/16 v6, 0x44c
-
-    invoke-virtual {v1, v6, v7}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
-
-    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut33:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v1, v6}, Landroid/view/animation/AlphaAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    invoke-virtual {v2, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {v1, v0}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
     if-nez p1, :cond_1
 
-    new-instance v5, Landroid/view/animation/TranslateYAnimation;
+    new-instance v4, Landroid/view/animation/TranslateYAnimation;
 
-    int-to-float v6, v3
+    int-to-float v5, v2
 
-    const/4 v7, 0x0
+    invoke-direct {v4, v5, v8}, Landroid/view/animation/TranslateYAnimation;-><init>(FF)V
 
-    invoke-direct {v5, v6, v7}, Landroid/view/animation/TranslateYAnimation;-><init>(FF)V
+    invoke-virtual {v4, v10, v11}, Landroid/view/animation/TranslateYAnimation;->setStartOffset(J)V
 
-    const-wide/16 v6, 0x44c
+    invoke-virtual {v4, v12, v13}, Landroid/view/animation/TranslateYAnimation;->setDuration(J)V
 
-    invoke-virtual {v5, v6, v7}, Landroid/view/animation/TranslateYAnimation;->setDuration(J)V
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut60:Landroid/view/animation/Interpolator;
 
-    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut60:Landroid/view/animation/Interpolator;
+    invoke-virtual {v4, v5}, Landroid/view/animation/TranslateYAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    invoke-virtual {v5, v6}, Landroid/view/animation/TranslateYAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    invoke-virtual {v2, v5}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {v1, v4}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
     :cond_0
     :goto_0
-    const-wide/16 v6, 0xc8
-
-    invoke-virtual {v2, v6, v7}, Landroid/view/animation/AnimationSet;->setStartTime(J)V
-
-    return-object v2
+    return-object v1
 
     :cond_1
-    const/4 v6, 0x1
+    if-ne p1, v9, :cond_2
 
-    if-ne p1, v6, :cond_2
+    new-instance v3, Landroid/view/animation/TranslateXAnimation;
 
-    new-instance v4, Landroid/view/animation/TranslateXAnimation;
+    int-to-float v5, v2
 
-    int-to-float v6, v3
+    invoke-direct {v3, v5, v8}, Landroid/view/animation/TranslateXAnimation;-><init>(FF)V
 
-    const/4 v7, 0x0
+    invoke-virtual {v3, v10, v11}, Landroid/view/animation/TranslateXAnimation;->setStartOffset(J)V
 
-    invoke-direct {v4, v6, v7}, Landroid/view/animation/TranslateXAnimation;-><init>(FF)V
+    invoke-virtual {v3, v12, v13}, Landroid/view/animation/TranslateXAnimation;->setDuration(J)V
 
-    const-wide/16 v6, 0x44c
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut60:Landroid/view/animation/Interpolator;
 
-    invoke-virtual {v4, v6, v7}, Landroid/view/animation/TranslateXAnimation;->setDuration(J)V
+    invoke-virtual {v3, v5}, Landroid/view/animation/TranslateXAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut60:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v4, v6}, Landroid/view/animation/TranslateXAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    invoke-virtual {v2, v4}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {v1, v3}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
     goto :goto_0
 
     :cond_2
-    const/4 v6, 0x3
+    const/4 v5, 0x3
 
-    if-ne p1, v6, :cond_0
+    if-ne p1, v5, :cond_0
 
-    new-instance v4, Landroid/view/animation/TranslateXAnimation;
+    new-instance v3, Landroid/view/animation/TranslateXAnimation;
 
-    mul-int/lit8 v6, v3, -0x1
+    mul-int/lit8 v5, v2, -0x1
 
-    int-to-float v6, v6
+    int-to-float v5, v5
 
-    const/4 v7, 0x0
+    invoke-direct {v3, v5, v8}, Landroid/view/animation/TranslateXAnimation;-><init>(FF)V
 
-    invoke-direct {v4, v6, v7}, Landroid/view/animation/TranslateXAnimation;-><init>(FF)V
+    invoke-virtual {v3, v10, v11}, Landroid/view/animation/TranslateXAnimation;->setStartOffset(J)V
 
-    const-wide/16 v6, 0x44c
+    invoke-virtual {v3, v12, v13}, Landroid/view/animation/TranslateXAnimation;->setDuration(J)V
 
-    invoke-virtual {v4, v6, v7}, Landroid/view/animation/TranslateXAnimation;->setDuration(J)V
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut60:Landroid/view/animation/Interpolator;
 
-    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut60:Landroid/view/animation/Interpolator;
+    invoke-virtual {v3, v5}, Landroid/view/animation/TranslateXAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    invoke-virtual {v4, v6}, Landroid/view/animation/TranslateXAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    invoke-virtual {v2, v4}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {v1, v3}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
     goto :goto_0
 .end method
 
 .method private handleHelpLayout(I)V
-    .locals 8
+    .locals 12
 
-    const/4 v7, 0x5
+    const/4 v11, 0x5
 
-    const/4 v2, 0x4
+    const/4 v10, 0x1
 
-    const/4 v6, 0x1
+    const/4 v9, 0x3
 
-    const/4 v5, 0x3
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->this$0:Lcom/android/server/policy/ImmersiveModeConfirmation;
 
-    const/4 v1, 0x0
+    invoke-static {v5}, Lcom/android/server/policy/ImmersiveModeConfirmation;->-get2(Lcom/android/server/policy/ImmersiveModeConfirmation;)I
 
-    iget-object v3, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->this$0:Lcom/android/server/policy/ImmersiveModeConfirmation;
+    move-result v5
 
-    invoke-static {v3}, Lcom/android/server/policy/ImmersiveModeConfirmation;->-get2(Lcom/android/server/policy/ImmersiveModeConfirmation;)I
-
-    move-result v3
-
-    if-nez v3, :cond_7
+    if-nez v5, :cond_4
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_4
+    const/4 v1, 0x0
 
-    iget-object v3, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortButtonNext:Landroid/widget/Button;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mContext:Landroid/content/Context;
 
-    iget-boolean v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mShowNextButton:Z
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    if-eqz v4, :cond_3
+    move-result-object v5
 
-    :goto_0
-    invoke-virtual {v3, v1}, Landroid/widget/Button;->setVisibility(I)V
+    const v6, 0x10405b8
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    const v2, 0x10203f7
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mContext:Landroid/content/Context;
 
-    move-result-object v1
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    check-cast v1, Landroid/widget/LinearLayout;
+    move-result-object v5
 
-    iput-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortImageArea:Landroid/widget/LinearLayout;
+    const v6, 0x10405b9
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-nez p1, :cond_1
+
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+
+    const v6, 0x10203f8
+
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/LinearLayout;
+
+    iput-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortImageArea:Landroid/widget/LinearLayout;
 
     iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortArrowUp:Landroid/widget/ImageView;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepOne:Landroid/widget/LinearLayout;
+    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortButtonNext:Landroid/widget/Button;
 
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepTwo:Landroid/widget/LinearLayout;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepOne:Landroid/widget/LinearLayout;
 
-    iget-object v3, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
+    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepTwo:Landroid/widget/LinearLayout;
 
-    iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
+    iget-object v7, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
 
-    invoke-direct {p0, v1, v2, v3, v4}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpLayoutVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+    iget-object v8, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
 
-    :cond_0
-    :goto_1
+    invoke-direct {p0, v5, v6, v7, v8}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpLayoutVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortHelpTextStepOne:Landroid/widget/TextView;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_0
     invoke-direct {p0, p1, v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->startArrowAnimation(ILandroid/widget/ImageView;)V
 
-    :cond_1
-    :goto_2
-    sget-boolean v1, Lcom/android/server/policy/ImmersiveModeConfirmation;->NO_NEED_DISPLAY_ICONS:Z
+    invoke-direct {p0, p1, v1}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->startButtonAnimation(ILandroid/widget/Button;)V
 
-    if-eqz v1, :cond_2
+    :goto_1
+    sget-boolean v5, Lcom/android/server/policy/ImmersiveModeConfirmation;->NO_NEED_DISPLAY_ICONS:Z
+
+    if-eqz v5, :cond_0
 
     invoke-direct {p0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->hideImmersiveHelpWindowIcons()V
 
-    :cond_2
+    :cond_0
     return-void
 
-    :cond_3
-    move v1, v2
+    :cond_1
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
 
-    goto :goto_0
+    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
 
-    :cond_4
-    iget-object v3, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandButtonNext:Landroid/widget/Button;
+    iget-object v7, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepOne:Landroid/widget/LinearLayout;
 
-    iget-boolean v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mShowNextButton:Z
+    iget-object v8, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepTwo:Landroid/widget/LinearLayout;
 
-    if-eqz v4, :cond_5
+    invoke-direct {p0, v5, v6, v7, v8}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpLayoutVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
 
-    :goto_3
-    invoke-virtual {v3, v1}, Landroid/widget/Button;->setVisibility(I)V
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
+    const v6, 0x1020404
 
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    iget-object v3, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepOne:Landroid/widget/LinearLayout;
+    move-result-object v5
 
-    iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepTwo:Landroid/widget/LinearLayout;
+    check-cast v5, Landroid/widget/LinearLayout;
 
-    invoke-direct {p0, v1, v2, v3, v4}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpLayoutVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+    iput-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v2, 0x1020401
+    const v6, 0x10203ff
 
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v5
 
-    check-cast v1, Landroid/widget/LinearLayout;
+    check-cast v5, Landroid/widget/LinearLayout;
 
-    iput-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+    iput-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
-
-    const v2, 0x10203fd
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/LinearLayout;
-
-    iput-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
-
-    if-ne p1, v6, :cond_6
+    if-ne p1, v10, :cond_3
 
     iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandArrowUpRot90:Landroid/widget/ImageView;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v1, v7}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {v5, v11}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
 
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
+    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
 
-    invoke-direct {p0, v1, v2}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpImageVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+    invoke-direct {p0, v5, v6}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpImageVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
 
-    goto :goto_1
+    :cond_2
+    :goto_2
+    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandButtonNext:Landroid/widget/Button;
 
-    :cond_5
-    move v1, v2
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandHelpTextStepOne:Landroid/widget/TextView;
 
-    goto :goto_3
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    :cond_6
-    if-ne p1, v5, :cond_0
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    :cond_3
+    if-ne p1, v9, :cond_2
 
     iget-object v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandArrowUpRot270:Landroid/widget/ImageView;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {v5, v9}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
 
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
 
-    invoke-direct {p0, v1, v2}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpImageVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
-
-    goto :goto_1
-
-    :cond_7
-    if-nez p1, :cond_8
-
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
-
-    const v2, 0x10203fb
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/LinearLayout;
-
-    iput-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortImageArea:Landroid/widget/LinearLayout;
-
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepTwo:Landroid/widget/LinearLayout;
-
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepOne:Landroid/widget/LinearLayout;
-
-    iget-object v3, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
-
-    iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
-
-    invoke-direct {p0, v1, v2, v3, v4}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpLayoutVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+    invoke-direct {p0, v5, v6}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpImageVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
 
     goto :goto_2
 
-    :cond_8
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
+    :cond_4
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget-object v3, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepOne:Landroid/widget/LinearLayout;
+    move-result-object v5
 
-    iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepTwo:Landroid/widget/LinearLayout;
+    const v6, 0x10405bb
 
-    invoke-direct {p0, v1, v2, v3, v4}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpLayoutVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+    move-result-object v3
 
-    const v2, 0x1020407
+    if-nez p1, :cond_5
 
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    move-result-object v1
+    const v6, 0x10203fd
 
-    check-cast v1, Landroid/widget/LinearLayout;
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    iput-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+    move-result-object v5
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+    check-cast v5, Landroid/widget/LinearLayout;
 
-    const v2, 0x1020404
+    iput-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortImageArea:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepTwo:Landroid/widget/LinearLayout;
 
-    move-result-object v1
+    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepOne:Landroid/widget/LinearLayout;
 
-    check-cast v1, Landroid/widget/LinearLayout;
+    iget-object v7, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
 
-    iput-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
+    iget-object v8, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
 
-    if-ne p1, v6, :cond_9
+    invoke-direct {p0, v5, v6, v7, v8}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpLayoutVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortHelpTextStepTwo:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v7}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {v5, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+    goto/16 :goto_1
 
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
+    :cond_5
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
 
-    invoke-direct {p0, v1, v2}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpImageVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepOne:Landroid/widget/LinearLayout;
 
-    goto/16 :goto_2
+    iget-object v7, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepOne:Landroid/widget/LinearLayout;
 
-    :cond_9
-    if-ne p1, v5, :cond_1
+    iget-object v8, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortLayoutStepTwo:Landroid/widget/LinearLayout;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
+    invoke-direct {p0, v5, v6, v7, v8}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpLayoutVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
 
-    invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->setGravity(I)V
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
+    const v6, 0x102040b
 
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    invoke-direct {p0, v1, v2}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpImageVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+    move-result-object v5
 
-    goto/16 :goto_2
+    check-cast v5, Landroid/widget/LinearLayout;
+
+    iput-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+
+    const v6, 0x1020407
+
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/LinearLayout;
+
+    iput-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
+
+    if-ne p1, v10, :cond_7
+
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v5, v11}, Landroid/widget/LinearLayout;->setGravity(I)V
+
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+
+    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
+
+    invoke-direct {p0, v5, v6}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpImageVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+
+    :cond_6
+    :goto_3
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandHelpTextStepTwo:Landroid/widget/TextView;
+
+    invoke-virtual {v5, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
+
+    :cond_7
+    if-ne p1, v9, :cond_6
+
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandLayoutStepTwo:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v5, v9}, Landroid/widget/LinearLayout;->setGravity(I)V
+
+    iget-object v5, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot270ImageArea:Landroid/widget/LinearLayout;
+
+    iget-object v6, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mRot90ImageArea:Landroid/widget/LinearLayout;
+
+    invoke-direct {p0, v5, v6}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->setHelpImageVisibility(Landroid/widget/LinearLayout;Landroid/widget/LinearLayout;)V
+
+    goto :goto_3
 .end method
 
 .method private hideImmersiveHelpWindowIcons()V
@@ -739,7 +797,7 @@
 
     move-result-object v1
 
-    const v2, 0x10500d6
+    const v2, 0x10500d7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -788,11 +846,11 @@
 .end method
 
 .method private startArrowAnimation(ILandroid/widget/ImageView;)V
-    .locals 4
+    .locals 2
 
-    iget-boolean v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mShowNextButton:Z
+    iget-boolean v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mShowNextButton:Z
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     if-nez p2, :cond_1
 
@@ -806,39 +864,65 @@
 
     move-result-object v0
 
-    new-instance v1, Landroid/view/animation/AlphaAnimation;
+    new-instance v1, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$5;
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    invoke-direct {v1, p0, p2, v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$5;-><init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;Landroid/widget/ImageView;Landroid/view/animation/AnimationSet;)V
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    invoke-direct {v1, v2, v3}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
-
-    const-wide/16 v2, 0xc8
-
-    invoke-virtual {v1, v2, v3}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
-
-    iget-object v2, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut33:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v1, v2}, Landroid/view/animation/AlphaAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    new-instance v2, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$5;
-
-    invoke-direct {v2, p0, p2, v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$5;-><init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;Landroid/widget/ImageView;Landroid/view/animation/AnimationSet;)V
-
-    invoke-virtual {v1, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    new-instance v2, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;
-
-    invoke-direct {v2, p0, p2, v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;-><init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;Landroid/widget/ImageView;Landroid/view/animation/AnimationSet;)V
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AnimationSet;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    invoke-virtual {p2, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {p2, v0}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
     invoke-virtual {p2}, Landroid/widget/ImageView;->invalidate()V
 
     return-void
+.end method
+
+.method private startButtonAnimation(ILandroid/widget/Button;)V
+    .locals 4
+
+    if-nez p2, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mShowNextButton:Z
+
+    if-eqz v1, :cond_2
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p2, v1}, Landroid/widget/Button;->setVisibility(I)V
+
+    iget-boolean v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mShowNextButton:Z
+
+    if-eqz v1, :cond_1
+
+    new-instance v0, Landroid/view/animation/AlphaAnimation;
+
+    const/4 v1, 0x0
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    invoke-direct {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+
+    const-wide/16 v2, 0xc8
+
+    invoke-virtual {v0, v2, v3}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
+
+    iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mSineInOut33:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+
+    invoke-virtual {p2, v0}, Landroid/widget/Button;->startAnimation(Landroid/view/animation/Animation;)V
+
+    :cond_1
+    return-void
+
+    :cond_2
+    const/4 v1, 0x4
+
+    goto :goto_0
 .end method
 
 
@@ -904,7 +988,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203f9
+    const v5, 0x10203fa
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -916,7 +1000,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203fc
+    const v5, 0x10203fe
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -928,7 +1012,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020403
+    const v5, 0x1020406
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -940,7 +1024,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203f6
+    const v5, 0x10203f7
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -952,7 +1036,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203fa
+    const v5, 0x10203fc
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -964,7 +1048,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020400
+    const v5, 0x1020403
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -976,7 +1060,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020406
+    const v5, 0x102040a
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -988,7 +1072,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203f8
+    const v5, 0x10203f9
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1000,7 +1084,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x1020402
+    const v5, 0x1020405
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1012,7 +1096,7 @@
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
 
-    const v5, 0x10203fe
+    const v5, 0x1020400
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1021,6 +1105,54 @@
     check-cast v4, Landroid/widget/ImageView;
 
     iput-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandArrowUpRot270:Landroid/widget/ImageView;
+
+    iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+
+    const v5, 0x10203f6
+
+    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    iput-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortHelpTextStepOne:Landroid/widget/TextView;
+
+    iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+
+    const v5, 0x10203fb
+
+    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    iput-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortHelpTextStepTwo:Landroid/widget/TextView;
+
+    iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+
+    const v5, 0x1020402
+
+    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    iput-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandHelpTextStepOne:Landroid/widget/TextView;
+
+    iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mClingLayout:Landroid/view/ViewGroup;
+
+    const v5, 0x1020409
+
+    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    iput-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mLandHelpTextStepTwo:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->mPortButtonNext:Landroid/widget/Button;
 
@@ -1097,9 +1229,9 @@
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setTranslationY(F)V
 
-    new-instance v4, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7;
+    new-instance v4, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;
 
-    invoke-direct {v4, p0, v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$7;-><init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;Landroid/view/View;)V
+    invoke-direct {v4, p0, v0}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView$6;-><init>(Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;Landroid/view/View;)V
 
     invoke-virtual {p0, v4}, Lcom/android/server/policy/ImmersiveModeConfirmation$ClingWindowView;->postOnAnimation(Ljava/lang/Runnable;)V
 
@@ -1173,10 +1305,10 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x10203f6 -> :sswitch_0
-        0x10203fa -> :sswitch_1
-        0x1020400 -> :sswitch_0
-        0x1020406 -> :sswitch_1
+        0x10203f7 -> :sswitch_0
+        0x10203fc -> :sswitch_1
+        0x1020403 -> :sswitch_0
+        0x102040a -> :sswitch_1
     .end sparse-switch
 .end method
 

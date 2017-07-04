@@ -9400,7 +9400,7 @@
 
     move-result-object v44
 
-    const v45, 0x10500d8
+    const v45, 0x10500d9
 
     invoke-virtual/range {v44 .. v45}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -9412,7 +9412,7 @@
 
     move-result-object v44
 
-    const v45, 0x10500d9
+    const v45, 0x10500da
 
     invoke-virtual/range {v44 .. v45}, Landroid/content/res/Resources;->getDimension(I)F
 

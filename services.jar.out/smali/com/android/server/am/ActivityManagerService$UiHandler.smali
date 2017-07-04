@@ -443,7 +443,7 @@
 
     iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v11, 0x10405e2
+    const v11, 0x10405e6
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -532,7 +532,7 @@
 
     iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v11, 0x10405e3
+    const v11, 0x10405e7
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

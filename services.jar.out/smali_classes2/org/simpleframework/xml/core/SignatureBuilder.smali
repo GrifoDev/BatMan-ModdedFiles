@@ -108,7 +108,6 @@
 
     iget-object v0, p0, Lorg/simpleframework/xml/core/SignatureBuilder;->table:Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;
 
-    # invokes: Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->width()I
     invoke-static {v0}, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->access$000(Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;)I
 
     move-result v0
@@ -228,12 +227,10 @@
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    # invokes: Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->height()I
     invoke-static {p1}, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->access$100(Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;)I
 
     move-result v4
 
-    # invokes: Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->width()I
     invoke-static {p1}, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->access$000(Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;)I
 
     move-result v5
@@ -434,7 +431,6 @@
 
     iget-object v1, p0, Lorg/simpleframework/xml/core/SignatureBuilder;->table:Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;
 
-    # invokes: Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->width()I
     invoke-static {v1}, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->access$000(Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;)I
 
     move-result v1

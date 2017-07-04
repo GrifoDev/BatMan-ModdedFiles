@@ -792,7 +792,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 38
+    .locals 36
 
     const/4 v4, 0x1
 
@@ -823,9 +823,9 @@
 
     invoke-virtual {v6}, Ljava/lang/Thread;->getId()J
 
-    move-result-wide v36
+    move-result-wide v34
 
-    move-wide/from16 v0, v36
+    move-wide/from16 v0, v34
 
     invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -851,7 +851,7 @@
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap8(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/io/InputStream;)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v27
 
     invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-get0()Z
 
@@ -871,7 +871,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -884,26 +884,50 @@
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    if-nez v28, :cond_1
+    if-nez v27, :cond_1
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
 
     invoke-virtual {v4}, Ljava/net/Socket;->close()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
 
     return-void
 
     :cond_1
+    :try_start_1
     const-string/jumbo v4, " "
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v29
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v29
 
     array-length v4, v0
 
@@ -916,27 +940,51 @@
     iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
 
     invoke-virtual {v4}, Ljava/net/Socket;->close()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
 
     return-void
 
     :cond_2
-    const/16 v33, 0x0
+    const/16 v32, 0x0
 
     const/4 v4, 0x0
 
-    aget-object v7, v30, v4
+    :try_start_2
+    aget-object v7, v29, v4
 
     const/4 v4, 0x1
 
-    aget-object v32, v30, v4
+    aget-object v31, v29, v4
 
     const/4 v4, 0x2
 
-    aget-object v9, v30, v4
+    aget-object v9, v29, v4
 
-    const-string/jumbo v17, ""
+    const-string/jumbo v16, ""
 
-    const/16 v22, 0x50
+    const/16 v21, 0x50
 
     const/4 v8, 0x0
 
@@ -950,17 +998,17 @@
 
     const-string/jumbo v4, ":"
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v17
 
     const/4 v4, 0x0
 
-    aget-object v17, v18, v4
+    aget-object v16, v17, v4
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     array-length v4, v0
 
@@ -968,7 +1016,7 @@
 
     if-ge v4, v5, :cond_7
 
-    const/16 v22, 0x1bb
+    const/16 v21, 0x1bb
 
     :goto_0
     new-instance v4, Ljava/lang/StringBuilder;
@@ -981,7 +1029,7 @@
 
     move-result-object v4
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -993,7 +1041,7 @@
 
     move-result-object v4
 
-    move/from16 v0, v22
+    move/from16 v0, v21
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1001,7 +1049,7 @@
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v32
+    move-result-object v31
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1013,7 +1061,7 @@
 
     move-result-object v4
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1021,7 +1069,7 @@
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v32
 
     :goto_1
     move-object/from16 v0, p0
@@ -1040,13 +1088,13 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v16
 
     invoke-virtual {v4, v5, v0, v1}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnPacProcessor;->makeProxyRequest(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v24
 
     invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-get0()Z
 
@@ -1066,7 +1114,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v24
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1099,35 +1147,36 @@
     :cond_3
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v24
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->parseResponse(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v20
+    move-result-object v19
 
-    invoke-interface/range {v20 .. v20}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v24
+    move-result-object v23
 
     :cond_4
-    invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     if-eqz v4, :cond_13
 
-    invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v23
+    move-result-object v22
 
-    check-cast v23, Ljava/net/Proxy;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
+    check-cast v22, Ljava/net/Proxy;
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :try_start_1
+    :try_start_3
     sget-object v4, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/net/Proxy;->equals(Ljava/lang/Object;)Z
 
@@ -1135,11 +1184,11 @@
 
     if-nez v4, :cond_16
 
-    invoke-virtual/range {v23 .. v23}, Ljava/net/Proxy;->address()Ljava/net/SocketAddress;
+    invoke-virtual/range {v22 .. v22}, Ljava/net/Proxy;->address()Ljava/net/SocketAddress;
 
-    move-result-object v19
+    move-result-object v18
 
-    check-cast v19, Ljava/net/InetSocketAddress;
+    check-cast v18, Ljava/net/InetSocketAddress;
 
     invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-get0()Z
 
@@ -1159,7 +1208,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1182,9 +1231,9 @@
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    invoke-virtual/range {v19 .. v19}, Ljava/net/InetSocketAddress;->getHostString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/net/InetSocketAddress;->getHostString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v25
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1196,9 +1245,9 @@
 
     invoke-virtual {v5}, Ljava/lang/Thread;->getId()J
 
-    move-result-wide v36
+    move-result-wide v34
 
-    invoke-static/range {v36 .. v37}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static/range {v34 .. v35}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v5
 
@@ -1216,35 +1265,35 @@
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v26
 
     const/4 v4, 0x2
 
     new-array v0, v4, [Ljava/lang/String;
 
-    move-object/from16 v29, v0
+    move-object/from16 v28, v0
 
     const/4 v4, 0x0
 
-    aput-object v33, v29, v4
+    aput-object v32, v28, v4
 
     const/4 v4, 0x1
 
-    aput-object v9, v29, v4
+    aput-object v9, v28, v4
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
 
-    invoke-virtual/range {v19 .. v19}, Ljava/net/InetSocketAddress;->getPort()I
+    invoke-virtual/range {v18 .. v18}, Ljava/net/InetSocketAddress;->getPort()I
 
     move-result v5
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v28
 
-    move-object/from16 v2, v27
+    move-object/from16 v2, v26
 
     invoke-static {v4, v0, v5, v1, v2}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap3(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$AuthenticationRequestReturnStatus;
 
@@ -1297,94 +1346,160 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
 
-    const-string/jumbo v35, "AUTHENTICATION_DETECTION_FAILED"
+    const-string/jumbo v34, "AUTHENTICATION_DETECTION_FAILED"
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v34
 
     invoke-static {v4, v5, v6, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap14(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;Ljava/net/Socket;Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
 
     return-void
 
     :cond_7
     const/4 v4, 0x1
 
-    :try_start_2
-    aget-object v4, v18, v4
+    :try_start_4
+    aget-object v4, v17, v4
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_2
-    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
+    :try_end_4
+    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_4} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    move-result v22
+    move-result v21
 
     goto/16 :goto_0
 
     :catch_0
-    move-exception v21
+    move-exception v20
 
-    :try_start_3
+    :try_start_5
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
 
     invoke-virtual {v4}, Ljava/net/Socket;->close()V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
 
     return-void
 
     :cond_8
-    :try_start_4
-    new-instance v31, Ljava/net/URI;
+    :try_start_6
+    new-instance v30, Ljava/net/URI;
 
-    invoke-direct/range {v31 .. v32}, Ljava/net/URI;-><init>(Ljava/lang/String;)V
-    :try_end_4
-    .catch Ljava/net/URISyntaxException; {:try_start_4 .. :try_end_4} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
+    invoke-direct/range {v30 .. v31}, Ljava/net/URI;-><init>(Ljava/lang/String;)V
+    :try_end_6
+    .catch Ljava/net/URISyntaxException; {:try_start_6 .. :try_end_6} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_3
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    :try_start_5
-    invoke-virtual/range {v31 .. v31}, Ljava/net/URI;->getHost()Ljava/lang/String;
+    :try_start_7
+    invoke-virtual/range {v30 .. v30}, Ljava/net/URI;->getHost()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v16
 
-    invoke-virtual/range {v31 .. v31}, Ljava/net/URI;->getPort()I
-    :try_end_5
-    .catch Ljava/net/URISyntaxException; {:try_start_5 .. :try_end_5} :catch_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
+    invoke-virtual/range {v30 .. v30}, Ljava/net/URI;->getPort()I
+    :try_end_7
+    .catch Ljava/net/URISyntaxException; {:try_start_7 .. :try_end_7} :catch_4
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_3
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    move-result v22
+    move-result v21
 
-    if-gez v22, :cond_9
+    if-gez v21, :cond_9
 
-    const/16 v22, 0x50
+    const/16 v21, 0x50
 
     :cond_9
-    move-object/from16 v33, v32
+    move-object/from16 v32, v31
 
-    move-object/from16 v8, v31
+    move-object/from16 v8, v30
 
     goto/16 :goto_1
 
     :catch_1
-    move-exception v16
+    move-exception v15
 
     :goto_2
-    :try_start_6
+    :try_start_8
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
 
     invoke-virtual {v4}, Ljava/net/Socket;->close()V
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_3
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_3
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
 
     return-void
 
     :cond_a
-    :try_start_7
+    :try_start_9
     iget v4, v10, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$AuthenticationRequestReturnStatus;->returnValue:I
 
     const/4 v5, 0x2
@@ -1413,15 +1528,39 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
 
-    const-string/jumbo v35, "locked keyguard"
+    const-string/jumbo v34, "locked keyguard"
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v34
 
     invoke-static {v4, v5, v6, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap14(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;Ljava/net/Socket;Ljava/lang/String;)V
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_2
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
 
     return-void
 
     :cond_b
+    :try_start_a
     new-instance v11, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
     move-object/from16 v0, p0
@@ -1436,21 +1575,21 @@
 
     invoke-virtual {v11, v4}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->sourceSocket(Ljava/net/Socket;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-virtual {v11, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->requestLine(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     invoke-virtual {v11, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->urlStringForAuth(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
     invoke-virtual {v11, v9}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->httpVersion(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
     invoke-virtual {v11, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->hostName(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
-    invoke-virtual/range {v19 .. v19}, Ljava/net/InetSocketAddress;->getPort()I
+    invoke-virtual/range {v18 .. v18}, Ljava/net/InetSocketAddress;->getPort()I
 
     move-result v4
 
@@ -1468,7 +1607,7 @@
 
     move-result-object v4
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
     invoke-virtual {v4, v0, v12}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1490,7 +1629,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1501,11 +1640,35 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_2
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
 
     :cond_c
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
     return-void
 
     :cond_d
+    :try_start_b
     iget v4, v10, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$AuthenticationRequestReturnStatus;->returnValue:I
 
     if-nez v4, :cond_10
@@ -1532,15 +1695,39 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
 
-    const-string/jumbo v35, "locked keyguard"
+    const-string/jumbo v34, "locked keyguard"
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v34
 
     invoke-static {v4, v5, v6, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap14(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;Ljava/net/Socket;Ljava/lang/String;)V
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_2
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
 
     return-void
 
     :cond_e
+    :try_start_c
     new-instance v11, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
     move-object/from16 v0, p0
@@ -1555,21 +1742,21 @@
 
     invoke-virtual {v11, v4}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->sourceSocket(Ljava/net/Socket;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-virtual {v11, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->requestLine(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     invoke-virtual {v11, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->urlStringForAuth(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
     invoke-virtual {v11, v9}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->httpVersion(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
     invoke-virtual {v11, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;->hostName(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$Builder;
 
-    invoke-virtual/range {v19 .. v19}, Ljava/net/InetSocketAddress;->getPort()I
+    invoke-virtual/range {v18 .. v18}, Ljava/net/InetSocketAddress;->getPort()I
 
     move-result v4
 
@@ -1587,7 +1774,7 @@
 
     move-result-object v4
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
     invoke-virtual {v4, v0, v12}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1619,7 +1806,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1630,11 +1817,35 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_2
+    .catchall {:try_start_c .. :try_end_c} :catchall_0
 
     :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
     return-void
 
     :cond_10
+    :try_start_d
     iget v4, v10, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$AuthenticationRequestReturnStatus;->returnValue:I
 
     const/4 v5, 0x1
@@ -1659,7 +1870,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1698,7 +1909,7 @@
 
     iget-object v6, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v28
 
     invoke-interface {v4, v5, v6, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/proxyauth/ProxyAuthenticator;->getCredentialsAppendedHeader(Ljava/lang/String;Ljava/net/Socket;[Ljava/lang/String;)[Ljava/lang/String;
 
@@ -1712,7 +1923,7 @@
 
     iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-static {v4, v5, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap17(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;Ljava/lang/String;)V
 
@@ -1731,15 +1942,16 @@
     aget-object v6, v13, v6
 
     invoke-static {v4, v5, v6}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap17(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;Ljava/lang/String;)V
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_2
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_2
+    .catchall {:try_start_d .. :try_end_d} :catchall_0
 
     :cond_12
     :goto_3
     const/4 v10, 0x0
 
     :goto_4
-    :try_start_8
+    :try_start_e
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
@@ -1780,34 +1992,45 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
 
-    move-object/from16 v35, v0
+    move-object/from16 v34, v0
 
-    invoke-static/range {v35 .. v35}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-get1(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;)Lcom/android/server/enterprise/vpn/knoxvpn/proxyauth/ProxyAuthenticator;
+    invoke-static/range {v34 .. v34}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-get1(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;)Lcom/android/server/enterprise/vpn/knoxvpn/proxyauth/ProxyAuthenticator;
 
-    move-result-object v35
+    move-result-object v34
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v34
 
     invoke-static {v5, v6, v4, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->connect(Ljava/net/Socket;Ljava/net/Socket;Ljava/lang/String;Lcom/android/server/enterprise/vpn/knoxvpn/proxyauth/ProxyAuthenticator;)V
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_3
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_e} :catch_3
+    .catchall {:try_start_e .. :try_end_e} :catchall_0
 
     :cond_14
-    :goto_6
-    :try_start_9
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
 
-    invoke-virtual {v4}, Ljava/net/Socket;->close()V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_4
+    move-object/from16 v0, p0
 
-    :goto_7
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    :goto_6
     return-void
 
     :cond_15
-    :try_start_a
+    :try_start_f
     const-string/jumbo v4, "KnoxVpnProxyServer"
 
     const-string/jumbo v5, "Authentication NOT Required."
@@ -1828,18 +2051,19 @@
 
     iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-static {v4, v5, v0}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap17(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;Ljava/lang/String;)V
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_2
+    :try_end_f
+    .catch Ljava/lang/Exception; {:try_start_f .. :try_end_f} :catch_2
+    .catchall {:try_start_f .. :try_end_f} :catchall_0
 
     goto :goto_3
 
     :catch_2
-    move-exception v15
+    move-exception v14
 
-    :try_start_b
+    :try_start_10
     const-string/jumbo v4, "KnoxVpnProxyServer"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1868,7 +2092,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-object/from16 v0, p0
 
@@ -1879,14 +2103,16 @@
     iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_3
+    :try_end_10
+    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_10} :catch_3
+    .catchall {:try_start_10 .. :try_end_10} :catchall_0
 
     goto/16 :goto_4
 
     :catch_3
-    move-exception v15
+    move-exception v14
 
+    :try_start_11
     const-string/jumbo v4, "KnoxVpnProxyServer"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1915,12 +2141,34 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_0
 
-    goto :goto_6
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    goto/16 :goto_6
 
     :cond_16
-    :try_start_c
+    :try_start_12
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
@@ -1939,17 +2187,17 @@
 
     invoke-virtual {v4, v5}, Lcom/android/server/enterprise/vpn/knoxvpn/profile/VpnProfileConfig;->getProfileEntry(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/profile/VpnProfileInfo;
 
-    move-result-object v34
+    move-result-object v33
 
-    if-eqz v34, :cond_4
+    if-eqz v33, :cond_4
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
-    move/from16 v1, v22
+    move/from16 v1, v21
 
     invoke-static {v4, v0, v1}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap10(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/lang/String;I)Ljava/net/Socket;
 
@@ -2007,10 +2255,39 @@
     const-string/jumbo v6, "HTTP/1.1 200 OK\n"
 
     invoke-static {v4, v5, v6}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap17(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;Ljava/lang/String;)V
+    :try_end_12
+    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_12} :catch_2
+    .catchall {:try_start_12 .. :try_end_12} :catchall_0
 
     goto/16 :goto_4
 
+    :catchall_0
+    move-exception v4
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
+
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->server:Ljava/net/Socket;
+
+    invoke-static {v5, v6}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-wrap16(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;Ljava/net/Socket;)V
+
+    throw v4
+
     :cond_18
+    :try_start_13
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->connection:Ljava/net/Socket;
@@ -2022,8 +2299,9 @@
     move-object/from16 v4, p0
 
     invoke-direct/range {v4 .. v9}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->sendAugmentedRequestToHost(Ljava/net/Socket;Ljava/net/Socket;Ljava/lang/String;Ljava/net/URI;Ljava/lang/String;)V
-    :try_end_c
-    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_2
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_13 .. :try_end_13} :catch_2
+    .catchall {:try_start_13 .. :try_end_13} :catchall_0
 
     goto/16 :goto_4
 
@@ -2033,44 +2311,9 @@
     goto/16 :goto_5
 
     :catch_4
-    move-exception v14
+    move-exception v15
 
-    const-string/jumbo v4, "KnoxVpnProxyServer"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Exception occured while trying to close the socket connection for the profile "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer$ProxyConnection;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;
-
-    invoke-static {v6}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;->-get2(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnProxyServer;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_7
-
-    :catch_5
-    move-exception v16
-
-    move-object/from16 v8, v31
+    move-object/from16 v8, v30
 
     goto/16 :goto_2
 .end method

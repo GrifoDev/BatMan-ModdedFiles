@@ -6384,7 +6384,7 @@
 
     move-object/from16 v46, v0
 
-    const v48, 0x102040b
+    const v48, 0x102040f
 
     move-object/from16 v0, v46
 
@@ -6415,7 +6415,7 @@
 
     move-object/from16 v46, v0
 
-    const v48, 0x102040c
+    const v48, 0x1020410
 
     move-object/from16 v0, v46
 
@@ -7231,7 +7231,7 @@
 
     iget-object v13, v0, Lcom/android/server/InputMethodManagerService;->mRes:Landroid/content/res/Resources;
 
-    const v14, 0x1040672
+    const v14, 0x1040676
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -11558,26 +11558,6 @@
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
     invoke-virtual {v0}, Landroid/view/WindowManagerInternal;->getInputMethodWindowVisibleHeight()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getKeyboardSwitcherTweak()Z
-    .locals 2
-
-    iget-object v1, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo p0, "hide_keyboard_switcher"
-
-    const/4 v0, 0x0
-
-    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
@@ -16513,7 +16493,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x104066e
+    const v1, 0x1040672
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -16545,7 +16525,7 @@
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService;->mKeyboardBuilder:Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x104066d
+    const v1, 0x1040671
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -16577,7 +16557,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService;->mKeyboardBuilder:Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x104066a
+    const v1, 0x104066e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -16913,7 +16893,7 @@
 
     if-eqz v3, :cond_0
 
-    const v2, 0x104066f
+    const v2, 0x1040673
 
     :goto_0
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
@@ -16927,7 +16907,7 @@
     return-void
 
     :cond_0
-    const v2, 0x1040670
+    const v2, 0x1040674
 
     goto :goto_0
 .end method
@@ -18168,7 +18148,7 @@
 .end method
 
 .method public systemRunning(Lcom/android/server/statusbar/StatusBarManagerService;)V
-    .locals 10
+    .locals 9
 
     const/4 v4, 0x0
 
@@ -18181,7 +18161,7 @@
     :try_start_0
     iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mSystemReady:Z
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_3
 
     const/4 v3, 0x1
 
@@ -18201,7 +18181,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     move v3, v4
 
@@ -18255,25 +18235,19 @@
 
     invoke-direct {p0, v3, v7, v8}, Lcom/android/server/InputMethodManagerService;->updateSystemUiLocked(Landroid/os/IBinder;II)V
 
-    invoke-virtual {p0}, Lcom/android/server/InputMethodManagerService;->getKeyboardSwitcherTweak()Z
+    iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mRes:Landroid/content/res/Resources;
 
-    move-result v2
+    const v7, 0x1120006
 
-    if-eqz v2, :cond_1
+    invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    const/4 p1, 0x0
+    move-result v3
 
-    iput-boolean p1, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
+    iput-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
 
-    goto :goto_1
+    iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
 
-    :cond_1
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
-
-    :goto_1
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
@@ -18281,19 +18255,19 @@
 
     invoke-virtual {v3, v7}, Landroid/view/WindowManagerInternal;->setOnHardKeyboardStatusChangeListener(Landroid/view/WindowManagerInternal$OnHardKeyboardStatusChangeListener;)V
 
-    :cond_2
+    :cond_1
     iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mImeSelectedOnBoot:Z
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     move v3, v4
 
-    :goto_2
+    :goto_1
     invoke-virtual {p0, v3}, Lcom/android/server/InputMethodManagerService;->buildInputMethodListLocked(Z)V
 
     iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mImeSelectedOnBoot:Z
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2
 
     const-string/jumbo v3, "InputMethodManagerService"
 
@@ -18325,7 +18299,7 @@
 
     invoke-static {v3, v4, v5, v7}, Lcom/android/internal/inputmethod/InputMethodUtils;->setNonSelectedSystemImesDisabledUntilUsed(Landroid/content/pm/IPackageManager;Ljava/util/List;ILjava/lang/String;)V
 
-    :cond_3
+    :cond_2
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mRes:Landroid/content/res/Resources;
 
     invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
@@ -18364,7 +18338,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     :try_start_1
     new-instance v3, Lcom/android/server/InputMethodManagerService$4;
@@ -18376,21 +18350,21 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_4
-    :goto_3
+    :cond_3
+    :goto_2
     monitor-exit v6
 
     return-void
 
-    :cond_5
+    :cond_4
     move v3, v5
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_5
     move v3, v5
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
     move-exception v1
@@ -18404,7 +18378,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_3
+    goto :goto_2
 
     :catchall_0
     move-exception v3
@@ -18862,7 +18836,7 @@
 
     iget-object v1, p0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialogTitleView:Landroid/view/View;
 
-    const v2, 0x102040c
+    const v2, 0x1020410
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

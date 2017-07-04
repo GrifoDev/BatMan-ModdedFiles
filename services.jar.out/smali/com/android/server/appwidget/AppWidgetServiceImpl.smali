@@ -1676,14 +1676,14 @@
 
     if-eqz p1, :cond_0
 
-    const v1, 0x1020537
+    const v1, 0x102053b
 
     invoke-virtual {v0, v1, p1}, Landroid/widget/RemoteViews;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 
     :cond_0
     if-nez p2, :cond_1
 
-    const v1, 0x1020538
+    const v1, 0x102053c
 
     const/4 v2, 0x4
 
@@ -1692,7 +1692,7 @@
     :cond_1
     if-eqz p3, :cond_2
 
-    const v1, 0x1020536
+    const v1, 0x102053a
 
     invoke-virtual {v0, v1, p3}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 

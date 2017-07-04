@@ -24774,7 +24774,7 @@
 .end method
 
 .method static compareSignatures([Landroid/content/pm/Signature;[Landroid/content/pm/Signature;)I
-    .locals 13
+    .locals 8
 
     const/4 v0, 0x0
 

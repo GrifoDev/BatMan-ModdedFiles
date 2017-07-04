@@ -134,7 +134,7 @@
 
     invoke-virtual {v1, v8}, Landroid/view/View;->setVisibility(I)V
 
-    const v5, 0x1020518
+    const v5, 0x102051c
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

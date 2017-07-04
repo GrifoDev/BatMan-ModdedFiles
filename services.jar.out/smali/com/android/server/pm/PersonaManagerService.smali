@@ -30367,6 +30367,8 @@
 
     if-eqz v0, :cond_0
 
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->finishRemoveUser(I)V
+
     return-void
 
     :cond_0
