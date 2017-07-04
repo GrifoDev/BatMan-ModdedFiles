@@ -104,7 +104,6 @@
 
     iget-object v2, p0, Lcom/android/server/policy/GlobalActions$QuickReboot;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    # getter for: Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/server/policy/GlobalActions;->access$500(Lcom/android/server/policy/GlobalActions;)Landroid/content/Context;
 
     move-result-object v2

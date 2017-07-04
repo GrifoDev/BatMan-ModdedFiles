@@ -36,7 +36,6 @@
 
     iget-object v4, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v4
@@ -96,7 +95,6 @@
 
     iget-object v4, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v4
@@ -217,7 +215,6 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v1
@@ -264,7 +261,6 @@
 
     iget-object v6, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v6
@@ -280,7 +276,6 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v1
@@ -327,7 +322,6 @@
 
     iget-object v6, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v6
@@ -343,7 +337,6 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v1
@@ -390,7 +383,6 @@
 
     iget-object v6, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v6
@@ -406,7 +398,6 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v1
@@ -453,7 +444,6 @@
 
     iget-object v6, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v6
@@ -469,7 +459,6 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v1
@@ -516,7 +505,6 @@
 
     iget-object v6, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v6
@@ -538,7 +526,6 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v1
@@ -553,7 +540,6 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v4
@@ -625,7 +611,6 @@
 
     iget-object v3, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v3
@@ -738,14 +723,12 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v0
 
     iget-object v11, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v11}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v11
@@ -877,7 +860,6 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v1
@@ -924,7 +906,6 @@
     :cond_0
     iget-object v11, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v11}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v11
@@ -985,7 +966,6 @@
 
     iget-object v11, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v11}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v11
@@ -1215,7 +1195,6 @@
 
     iget-object v5, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v5
@@ -1702,7 +1681,6 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v0
@@ -1865,7 +1843,6 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v1
@@ -1925,7 +1902,6 @@
 
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # invokes: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->getTorchStatus()Z
     invoke-static {v2}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$1000(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Z
 
     move-result v1
@@ -1937,7 +1913,6 @@
     :goto_0
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v3
@@ -1959,7 +1934,6 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v0
@@ -2008,7 +1982,6 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v0
@@ -2121,7 +2094,6 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy$1;->this$0:Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;
 
-    # getter for: Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;->access$0(Lcom/android/server/policy/PhoneWindowManagers$KeyPolicy;)Landroid/content/Context;
 
     move-result-object v0

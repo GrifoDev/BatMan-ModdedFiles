@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions$98;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    # invokes: Lcom/android/server/policy/GlobalActions;->toggleScreenRecord()V
     invoke-static {v0}, Lcom/android/server/policy/GlobalActions;->access$5001(Lcom/android/server/policy/GlobalActions;)V
 
     return-void
@@ -59,7 +58,6 @@
 
     iget-object v2, p0, Lcom/android/server/policy/GlobalActions$98;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    # getter for: Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/server/policy/GlobalActions;->access$500(Lcom/android/server/policy/GlobalActions;)Landroid/content/Context;
 
     move-result-object v2

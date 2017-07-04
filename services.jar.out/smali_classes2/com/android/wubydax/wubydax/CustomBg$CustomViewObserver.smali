@@ -46,12 +46,10 @@
 
     iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;->this$0:Lcom/android/wubydax/wubydax/CustomBg;
 
-    # invokes: Lcom/android/wubydax/wubydax/CustomBg;->initValues()V
     invoke-static {v0}, Lcom/android/wubydax/wubydax/CustomBg;->access$000(Lcom/android/wubydax/wubydax/CustomBg;)V
 
     iget-object v0, p0, Lcom/android/wubydax/wubydax/CustomBg$CustomViewObserver;->this$0:Lcom/android/wubydax/wubydax/CustomBg;
 
-    # invokes: Lcom/android/wubydax/wubydax/CustomBg;->initView()V
     invoke-static {v0}, Lcom/android/wubydax/wubydax/CustomBg;->access$100(Lcom/android/wubydax/wubydax/CustomBg;)V
 
     return-void
