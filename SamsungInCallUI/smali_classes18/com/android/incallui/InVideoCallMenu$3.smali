@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$3;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$500(Lcom/android/incallui/InVideoCallMenu;)Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$3;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$500(Lcom/android/incallui/InVideoCallMenu;)Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -59,7 +57,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/InVideoCallMenu;->mDialog:Landroid/app/AlertDialog;
     invoke-static {v0, v1}, Lcom/android/incallui/InVideoCallMenu;->access$502(Lcom/android/incallui/InVideoCallMenu;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     :cond_0

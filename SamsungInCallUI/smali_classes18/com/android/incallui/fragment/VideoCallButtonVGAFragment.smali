@@ -2898,26 +2898,43 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
-    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    sget-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_OUTGOING_KEYPAD_BUTTON:Z
 
     if-eqz v0, :cond_2
+
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/incallui/Call$State;->isDialing(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
     invoke-virtual {v0, v2}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mDialpadButton:Landroid/widget/Button;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mDialpadButton:Landroid/widget/Button;
 
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
 
-    :cond_3
+    :cond_4
     :goto_0
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallManager;->getInstance()Lcom/android/incallui/service/vt/VideoCallManager;
 
@@ -2933,19 +2950,19 @@
 
     return-void
 
-    :cond_4
+    :cond_5
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
     invoke-virtual {v0, v3}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
-    :cond_5
+    :cond_6
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mDialpadButton:Landroid/widget/Button;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->mDialpadButton:Landroid/widget/Button;
 

@@ -155,7 +155,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->this$0:Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;
 
-    # invokes: Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;->release()V
     invoke-static {v1}, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;->access$100(Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

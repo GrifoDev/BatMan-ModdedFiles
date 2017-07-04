@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$6;->this$0:Lcom/android/incallui/ConferenceParticipantListAdapter;
 
-    # invokes: Lcom/android/incallui/ConferenceParticipantListAdapter;->updateCallTime()V
     invoke-static {v0}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$700(Lcom/android/incallui/ConferenceParticipantListAdapter;)V
 
     return-void

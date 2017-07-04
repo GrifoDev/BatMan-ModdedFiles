@@ -124,7 +124,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$6;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mIsForegroundActivity:Z
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$400(Lcom/android/incallui/InCallActivity;)Z
 
     move-result v1
@@ -199,7 +198,6 @@
     :cond_4
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$6;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mWaitDialog_callId:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$500(Lcom/android/incallui/InCallActivity;)Ljava/lang/String;
 
     move-result-object v1
@@ -218,14 +216,12 @@
 
     iget-object v2, p0, Lcom/android/incallui/InCallActivity$6;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mWaitDialog_callId:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/incallui/InCallActivity;->access$500(Lcom/android/incallui/InCallActivity;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/incallui/InCallActivity$6;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mWaitDialog_chars:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/incallui/InCallActivity;->access$600(Lcom/android/incallui/InCallActivity;)Ljava/lang/String;
 
     move-result-object v3
@@ -239,12 +235,10 @@
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/incallui/InCallActivity;->mWaitDialog_chars:Ljava/lang/String;
     invoke-static {v2, v3}, Lcom/android/incallui/InCallActivity;->access$602(Lcom/android/incallui/InCallActivity;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    # setter for: Lcom/android/incallui/InCallActivity;->mWaitDialog_callId:Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/android/incallui/InCallActivity;->access$502(Lcom/android/incallui/InCallActivity;Ljava/lang/String;)Ljava/lang/String;
 
     goto/16 :goto_0

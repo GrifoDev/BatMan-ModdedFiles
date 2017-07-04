@@ -81,7 +81,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
-    # getter for: Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mSavedDtmfText:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->access$000(Lcom/android/incallui/fragment/manager/DialpadFragmentManager;)Ljava/lang/String;
 
     move-result-object v0
@@ -96,7 +95,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
-    # getter for: Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mSavedDtmfText:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->access$000(Lcom/android/incallui/fragment/manager/DialpadFragmentManager;)Ljava/lang/String;
 
     move-result-object v1
@@ -111,7 +109,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
-    # getter for: Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mPreviouslyProcessedTime:J
     invoke-static {v1}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->access$100(Lcom/android/incallui/fragment/manager/DialpadFragmentManager;)J
 
     move-result-wide v2
@@ -120,7 +117,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
-    # setter for: Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mSavedDtmfText:Ljava/lang/String;
     invoke-static {v0, v4}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->access$002(Lcom/android/incallui/fragment/manager/DialpadFragmentManager;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0

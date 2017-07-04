@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$1;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/contacts/common/model/AccountTypeManagerImpl;->access$000(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)Landroid/content/Context;
 
     move-result-object v0

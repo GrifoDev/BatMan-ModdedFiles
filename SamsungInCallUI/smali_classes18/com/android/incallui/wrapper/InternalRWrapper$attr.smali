@@ -26,7 +26,6 @@
 
     const-string v1, "buttonStyle"
 
-    # invokes: Lcom/android/incallui/wrapper/InternalRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/InternalRWrapper;->access$000(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0

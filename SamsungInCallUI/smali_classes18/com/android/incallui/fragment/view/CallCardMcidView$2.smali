@@ -38,7 +38,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mPhotoringBlendingBtn:Landroid/view/View;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$200(Lcom/android/incallui/fragment/view/CallCardMcidView;)Landroid/view/View;
 
     move-result-object v0
@@ -51,7 +50,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mPhotoringBlendingBtnImage:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$300(Lcom/android/incallui/fragment/view/CallCardMcidView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -64,7 +62,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mShowBlendingImage:Z
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$102(Lcom/android/incallui/fragment/view/CallCardMcidView;Z)Z
 
     :cond_0

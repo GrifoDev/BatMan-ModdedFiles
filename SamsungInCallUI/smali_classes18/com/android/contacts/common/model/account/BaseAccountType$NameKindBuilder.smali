@@ -121,7 +121,6 @@
 
     move-object/from16 v0, p3
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
     invoke-static {v0, v2, v3}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1700(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
 
     move-result v18
@@ -132,7 +131,6 @@
 
     move-object/from16 v0, p3
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
     invoke-static {v0, v2, v3}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1700(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
 
     move-result v23
@@ -143,7 +141,6 @@
 
     move-object/from16 v0, p3
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
     invoke-static {v0, v2, v3}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1700(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
 
     move-result v19
@@ -154,7 +151,6 @@
 
     move-object/from16 v0, p3
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
     invoke-static {v0, v2, v3}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1700(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
 
     move-result v24
@@ -165,7 +161,6 @@
 
     move-object/from16 v0, p3
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
     invoke-static {v0, v2, v3}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1700(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
 
     move-result v20
@@ -176,7 +171,6 @@
 
     move-object/from16 v0, p3
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
     invoke-static {v0, v2, v3}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1700(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
 
     move-result v22
@@ -187,7 +181,6 @@
 
     move-object/from16 v0, p3
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
     invoke-static {v0, v2, v3}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1700(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
 
     move-result v21

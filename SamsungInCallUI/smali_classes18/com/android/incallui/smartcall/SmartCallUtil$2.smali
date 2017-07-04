@@ -33,7 +33,6 @@
 
     const-string v2, "queryImageUri - onResult"
 
-    # invokes: Lcom/android/incallui/smartcall/SmartCallUtil;->log(Ljava/lang/String;)V
     invoke-static {v2}, Lcom/android/incallui/smartcall/SmartCallUtil;->access$000(Ljava/lang/String;)V
 
     if-eqz p1, :cond_2
@@ -58,7 +57,6 @@
 
     const-string v2, "queryImageUri - cursor != null"
 
-    # invokes: Lcom/android/incallui/smartcall/SmartCallUtil;->log(Ljava/lang/String;)V
     invoke-static {v2}, Lcom/android/incallui/smartcall/SmartCallUtil;->access$000(Ljava/lang/String;)V
 
     const-string v2, "localUri"

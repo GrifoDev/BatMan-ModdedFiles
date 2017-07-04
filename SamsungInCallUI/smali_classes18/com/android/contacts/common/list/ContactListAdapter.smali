@@ -471,7 +471,6 @@
 
     if-ne v0, v1, :cond_0
 
-    # getter for: Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->FILTER_PROJECTION_PRIMARY:[Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->access$000()[Ljava/lang/String;
 
     move-result-object v1
@@ -480,7 +479,6 @@
     return-object v1
 
     :cond_0
-    # getter for: Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->FILTER_PROJECTION_ALTERNATIVE:[Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->access$100()[Ljava/lang/String;
 
     move-result-object v1
@@ -490,7 +488,6 @@
     :cond_1
     if-ne v0, v1, :cond_2
 
-    # getter for: Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->CONTACT_PROJECTION_PRIMARY:[Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->access$200()[Ljava/lang/String;
 
     move-result-object v1
@@ -498,7 +495,6 @@
     goto :goto_0
 
     :cond_2
-    # getter for: Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->CONTACT_PROJECTION_ALTERNATIVE:[Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->access$300()[Ljava/lang/String;
 
     move-result-object v1

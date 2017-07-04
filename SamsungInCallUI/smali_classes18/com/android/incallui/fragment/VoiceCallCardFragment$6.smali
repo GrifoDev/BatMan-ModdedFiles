@@ -60,7 +60,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$6;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
-    # setter for: Lcom/android/incallui/fragment/VoiceCallCardFragment;->mIsMoveInfoAnimationRunning:Z
     invoke-static {v1, v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->access$002(Lcom/android/incallui/fragment/VoiceCallCardFragment;Z)Z
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$6;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
@@ -69,7 +68,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallCardFragment;->updatePanelForCallState(I)V
     invoke-static {v1, v2}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallCardFragment;I)V
 
     :cond_0

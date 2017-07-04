@@ -58,7 +58,6 @@
 
     const/4 v3, 0x1
 
-    # invokes: Lcom/android/incallui/service/SecVideoPopupService;->log(Ljava/lang/String;Z)V
     invoke-static {v1, v2, v3}, Lcom/android/incallui/service/SecVideoPopupService;->access$000(Lcom/android/incallui/service/SecVideoPopupService;Ljava/lang/String;Z)V
 
     iget v1, p1, Landroid/os/Message;->what:I
@@ -72,7 +71,6 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecVideoPopupService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v1}, Lcom/android/incallui/service/SecVideoPopupService;->access$100(Lcom/android/incallui/service/SecVideoPopupService;)Landroid/app/SemStatusBarManager;
 
     move-result-object v1
@@ -81,7 +79,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecVideoPopupService;->mState:Lcom/android/incallui/InCallPresenter$InCallState;
     invoke-static {v1}, Lcom/android/incallui/service/SecVideoPopupService;->access$200(Lcom/android/incallui/service/SecVideoPopupService;)Lcom/android/incallui/InCallPresenter$InCallState;
 
     move-result-object v1
@@ -119,7 +116,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecVideoPopupService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v1}, Lcom/android/incallui/service/SecVideoPopupService;->access$100(Lcom/android/incallui/service/SecVideoPopupService;)Landroid/app/SemStatusBarManager;
 
     move-result-object v1
@@ -145,7 +141,6 @@
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/service/SecVideoPopupService$1;->this$0:Lcom/android/incallui/service/SecVideoPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecVideoPopupService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v1}, Lcom/android/incallui/service/SecVideoPopupService;->access$100(Lcom/android/incallui/service/SecVideoPopupService;)Landroid/app/SemStatusBarManager;
 
     move-result-object v1

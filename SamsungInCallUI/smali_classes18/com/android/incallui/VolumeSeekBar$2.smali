@@ -52,7 +52,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$100(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/SeekBar;
 
     move-result-object v1
@@ -61,7 +60,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeIndex:Landroid/widget/TextView;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$200(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -85,7 +83,6 @@
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$100(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/SeekBar;
 
     move-result-object v1
@@ -102,7 +99,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$100(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/SeekBar;
 
     move-result-object v1
@@ -116,7 +112,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$000(Lcom/android/incallui/VolumeSeekBar;)Landroid/os/Handler;
 
     move-result-object v1
@@ -125,7 +120,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$000(Lcom/android/incallui/VolumeSeekBar;)Landroid/os/Handler;
 
     move-result-object v1
@@ -136,7 +130,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$300(Lcom/android/incallui/VolumeSeekBar;)Landroid/media/AudioManager;
 
     move-result-object v1
@@ -169,7 +162,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$300(Lcom/android/incallui/VolumeSeekBar;)Landroid/media/AudioManager;
 
     move-result-object v1
@@ -184,7 +176,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$300(Lcom/android/incallui/VolumeSeekBar;)Landroid/media/AudioManager;
 
     move-result-object v1
@@ -197,14 +188,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$100(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/SeekBar;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->OVERLAP_ACTIVATED_COLOR:Landroid/content/res/ColorStateList;
     invoke-static {v2}, Lcom/android/incallui/VolumeSeekBar;->access$400(Lcom/android/incallui/VolumeSeekBar;)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -213,14 +202,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$100(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/SeekBar;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->OVERLAP_ACTIVATED_COLOR:Landroid/content/res/ColorStateList;
     invoke-static {v2}, Lcom/android/incallui/VolumeSeekBar;->access$400(Lcom/android/incallui/VolumeSeekBar;)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -231,7 +218,6 @@
     :goto_1
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeIndex:Landroid/widget/TextView;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$200(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -242,7 +228,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeSeekBar:Landroid/widget/SeekBar;
     invoke-static {v4}, Lcom/android/incallui/VolumeSeekBar;->access$100(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/SeekBar;
 
     move-result-object v4
@@ -268,14 +253,12 @@
     :cond_5
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$100(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/SeekBar;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->DEFAULT_ACTIVATED_COLOR:Landroid/content/res/ColorStateList;
     invoke-static {v2}, Lcom/android/incallui/VolumeSeekBar;->access$500(Lcom/android/incallui/VolumeSeekBar;)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -284,14 +267,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mVolumeSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/incallui/VolumeSeekBar;->access$100(Lcom/android/incallui/VolumeSeekBar;)Landroid/widget/SeekBar;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/VolumeSeekBar$2;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->DEFAULT_ACTIVATED_COLOR:Landroid/content/res/ColorStateList;
     invoke-static {v2}, Lcom/android/incallui/VolumeSeekBar;->access$500(Lcom/android/incallui/VolumeSeekBar;)Landroid/content/res/ColorStateList;
 
     move-result-object v2

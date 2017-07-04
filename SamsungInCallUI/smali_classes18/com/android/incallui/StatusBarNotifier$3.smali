@@ -101,7 +101,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier$3;->this$0:Lcom/android/incallui/StatusBarNotifier;
 
-    # invokes: Lcom/android/incallui/StatusBarNotifier;->updateNotificationForVoWifi()V
     invoke-static {v0}, Lcom/android/incallui/StatusBarNotifier;->access$300(Lcom/android/incallui/StatusBarNotifier;)V
 
     return-void
@@ -179,7 +178,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier$3;->this$0:Lcom/android/incallui/StatusBarNotifier;
 
-    # invokes: Lcom/android/incallui/StatusBarNotifier;->updateNotificationForVoWifi()V
     invoke-static {v0}, Lcom/android/incallui/StatusBarNotifier;->access$300(Lcom/android/incallui/StatusBarNotifier;)V
 
     invoke-virtual {p1}, Lcom/sec/ims/ImsRegistration;->getImsProfile()Lcom/sec/ims/settings/ImsProfile;
@@ -194,12 +192,10 @@
 
     iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier$3;->this$0:Lcom/android/incallui/StatusBarNotifier;
 
-    # setter for: Lcom/android/incallui/StatusBarNotifier;->mIsE911OverVoLTE:Z
     invoke-static {v0, v3}, Lcom/android/incallui/StatusBarNotifier;->access$402(Lcom/android/incallui/StatusBarNotifier;Z)Z
 
     iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier$3;->this$0:Lcom/android/incallui/StatusBarNotifier;
 
-    # getter for: Lcom/android/incallui/StatusBarNotifier;->mIsShowingNotification:Z
     invoke-static {v0}, Lcom/android/incallui/StatusBarNotifier;->access$200(Lcom/android/incallui/StatusBarNotifier;)Z
 
     move-result v0

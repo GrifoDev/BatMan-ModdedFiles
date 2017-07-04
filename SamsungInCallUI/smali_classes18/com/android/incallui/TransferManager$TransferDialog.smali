@@ -59,7 +59,6 @@
     move-result-object v5
 
     :cond_0
-    # getter for: Lcom/android/incallui/TransferManager;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$000(Lcom/android/incallui/TransferManager;)Landroid/content/Context;
 
     move-result-object v7
@@ -84,17 +83,14 @@
 
     check-cast v7, Landroid/widget/AutoCompleteTextView;
 
-    # setter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {p1, v7}, Lcom/android/incallui/TransferManager;->access$102(Lcom/android/incallui/TransferManager;Landroid/widget/AutoCompleteTextView;)Landroid/widget/AutoCompleteTextView;
 
-    # getter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$100(Lcom/android/incallui/TransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v7
 
     if-eqz v7, :cond_1
 
-    # getter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$100(Lcom/android/incallui/TransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v7
@@ -114,7 +110,6 @@
 
     check-cast v7, Landroid/widget/TextView;
 
-    # setter for: Lcom/android/incallui/TransferManager;->mSecondaryNameTextView:Landroid/widget/TextView;
     invoke-static {p1, v7}, Lcom/android/incallui/TransferManager;->access$302(Lcom/android/incallui/TransferManager;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     const v7, 0x7f10005d
@@ -125,17 +120,14 @@
 
     check-cast v7, Landroid/widget/ImageButton;
 
-    # setter for: Lcom/android/incallui/TransferManager;->mSearchButton:Landroid/widget/ImageButton;
     invoke-static {p1, v7}, Lcom/android/incallui/TransferManager;->access$402(Lcom/android/incallui/TransferManager;Landroid/widget/ImageButton;)Landroid/widget/ImageButton;
 
-    # getter for: Lcom/android/incallui/TransferManager;->mSearchButton:Landroid/widget/ImageButton;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$400(Lcom/android/incallui/TransferManager;)Landroid/widget/ImageButton;
 
     move-result-object v7
 
     if-eqz v7, :cond_2
 
-    # getter for: Lcom/android/incallui/TransferManager;->mSearchButton:Landroid/widget/ImageButton;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$400(Lcom/android/incallui/TransferManager;)Landroid/widget/ImageButton;
 
     move-result-object v7
@@ -147,21 +139,18 @@
     invoke-virtual {v7, v8}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_2
-    # getter for: Lcom/android/incallui/TransferManager;->mSearchButton:Landroid/widget/ImageButton;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$400(Lcom/android/incallui/TransferManager;)Landroid/widget/ImageButton;
 
     move-result-object v7
 
     if-eqz v7, :cond_4
 
-    # getter for: Lcom/android/incallui/TransferManager;->mSecondaryNameTextView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$300(Lcom/android/incallui/TransferManager;)Landroid/widget/TextView;
 
     move-result-object v7
 
     if-eqz v7, :cond_4
 
-    # getter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$100(Lcom/android/incallui/TransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v7
@@ -177,21 +166,18 @@
     if-eqz v7, :cond_5
 
     :cond_3
-    # getter for: Lcom/android/incallui/TransferManager;->mSearchButton:Landroid/widget/ImageButton;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$400(Lcom/android/incallui/TransferManager;)Landroid/widget/ImageButton;
 
     move-result-object v7
 
     invoke-virtual {v7, v9}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    # getter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$100(Lcom/android/incallui/TransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v7
 
     invoke-virtual {v7, v9}, Landroid/widget/AutoCompleteTextView;->setVisibility(I)V
 
-    # getter for: Lcom/android/incallui/TransferManager;->mSecondaryNameTextView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$300(Lcom/android/incallui/TransferManager;)Landroid/widget/TextView;
 
     move-result-object v7
@@ -214,7 +200,6 @@
 
     const/4 v7, -0x1
 
-    # getter for: Lcom/android/incallui/TransferManager;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$000(Lcom/android/incallui/TransferManager;)Landroid/content/Context;
 
     move-result-object v8
@@ -237,7 +222,6 @@
 
     const/4 v7, -0x2
 
-    # getter for: Lcom/android/incallui/TransferManager;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$000(Lcom/android/incallui/TransferManager;)Landroid/content/Context;
 
     move-result-object v8
@@ -261,28 +245,24 @@
     return-void
 
     :cond_5
-    # getter for: Lcom/android/incallui/TransferManager;->mSearchButton:Landroid/widget/ImageButton;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$400(Lcom/android/incallui/TransferManager;)Landroid/widget/ImageButton;
 
     move-result-object v7
 
     invoke-virtual {v7, v10}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    # getter for: Lcom/android/incallui/TransferManager;->mSecondaryNameTextView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$300(Lcom/android/incallui/TransferManager;)Landroid/widget/TextView;
 
     move-result-object v7
 
     invoke-virtual {v7, v9}, Landroid/widget/TextView;->setVisibility(I)V
 
-    # getter for: Lcom/android/incallui/TransferManager;->mSecondaryNameTextView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$300(Lcom/android/incallui/TransferManager;)Landroid/widget/TextView;
 
     move-result-object v7
 
     invoke-virtual {v7, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    # getter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {p1}, Lcom/android/incallui/TransferManager;->access$100(Lcom/android/incallui/TransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v7

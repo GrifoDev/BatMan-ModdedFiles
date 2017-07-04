@@ -72,7 +72,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
-    # getter for: Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
     invoke-static {v1}, Lcom/android/incallui/bike/BikeModeController;->access$200(Lcom/android/incallui/bike/BikeModeController;)Lcom/android/incallui/bike/BikeModeAudioManager;
 
     move-result-object v1
@@ -94,7 +93,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
-    # getter for: Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
     invoke-static {v1}, Lcom/android/incallui/bike/BikeModeController;->access$200(Lcom/android/incallui/bike/BikeModeController;)Lcom/android/incallui/bike/BikeModeAudioManager;
 
     move-result-object v1
@@ -114,7 +112,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
-    # getter for: Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
     invoke-static {v1}, Lcom/android/incallui/bike/BikeModeController;->access$200(Lcom/android/incallui/bike/BikeModeController;)Lcom/android/incallui/bike/BikeModeAudioManager;
 
     move-result-object v1
@@ -134,7 +131,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
-    # invokes: Lcom/android/incallui/bike/BikeModeController;->onBikeModeDrawUiReceived(Landroid/content/Intent;)V
     invoke-static {v1, p2}, Lcom/android/incallui/bike/BikeModeController;->access$300(Lcom/android/incallui/bike/BikeModeController;Landroid/content/Intent;)V
 
     goto :goto_0

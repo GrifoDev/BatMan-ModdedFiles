@@ -168,7 +168,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->this$0:Lcom/android/incallui/CallerInfoAsyncQuery;
 
-    # invokes: Lcom/android/incallui/CallerInfoAsyncQuery;->release()V
     invoke-static {v6}, Lcom/android/incallui/CallerInfoAsyncQuery;->access$400(Lcom/android/incallui/CallerInfoAsyncQuery;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

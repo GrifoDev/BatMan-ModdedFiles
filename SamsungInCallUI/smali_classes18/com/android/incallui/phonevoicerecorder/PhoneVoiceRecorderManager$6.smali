@@ -47,7 +47,6 @@
 .method public onDisconnect(Lcom/android/incallui/Call;)V
     .locals 3
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mRecordedCall:Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$100()Lcom/android/incallui/Call;
 
     move-result-object v0
@@ -71,7 +70,6 @@
 
     move-result-object v0
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mRecordedCall:Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$100()Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -98,7 +96,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mRecordedCall:Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$100()Lcom/android/incallui/Call;
 
     move-result-object v2
@@ -128,12 +125,10 @@
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$6;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    # invokes: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->resetRecordedCallInfo()V
     invoke-static {v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$500(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;)V
 
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$6;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mStorageManager:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderStorageManager;
     invoke-static {v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$600(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;)Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderStorageManager;
 
     move-result-object v0

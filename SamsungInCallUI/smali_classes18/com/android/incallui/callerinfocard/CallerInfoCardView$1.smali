@@ -44,7 +44,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$1;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # invokes: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->applyItemToView()V
     invoke-static {v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$100(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)V
 
     goto :goto_0

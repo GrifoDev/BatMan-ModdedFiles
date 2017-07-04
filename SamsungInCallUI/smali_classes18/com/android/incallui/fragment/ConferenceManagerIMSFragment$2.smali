@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment$2;->this$0:Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;->mConferenceParticipantList:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;->access$000(Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;)Landroid/widget/ListView;
 
     move-result-object v0

@@ -52,14 +52,12 @@
 
     iget-object v0, v0, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
 
-    # getter for: Lcom/android/incallui/TransferManager;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/incallui/TransferManager;->access$000(Lcom/android/incallui/TransferManager;)Landroid/content/Context;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/Activity;
 
-    # getter for: Lcom/android/incallui/TransferManager;->CONTACT_IMPORT_INTENT:Landroid/content/Intent;
     invoke-static {}, Lcom/android/incallui/TransferManager;->access$500()Landroid/content/Intent;
 
     move-result-object v1

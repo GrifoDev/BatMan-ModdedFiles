@@ -102,7 +102,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/StatusBarNotifier;->mIsE911OverVoLTE:Z
     invoke-static {v0, v1}, Lcom/android/incallui/StatusBarNotifier;->access$402(Lcom/android/incallui/StatusBarNotifier;Z)Z
 
     return-void

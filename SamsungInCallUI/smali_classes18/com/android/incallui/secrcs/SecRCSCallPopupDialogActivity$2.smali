@@ -47,7 +47,6 @@
 
     const/4 v5, 0x1
 
-    # getter for: Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->access$000()Ljava/lang/String;
 
     move-result-object v3
@@ -58,7 +57,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity$2;->this$0:Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;
 
-    # getter for: Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->mInComingInvitation:Landroid/app/AlertDialog;
     invoke-static {v3}, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->access$100(Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;)Landroid/app/AlertDialog;
 
     move-result-object v3
@@ -69,7 +67,6 @@
 
     const/4 v4, 0x0
 
-    # setter for: Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->mInComingInvitation:Landroid/app/AlertDialog;
     invoke-static {v3, v4}, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->access$102(Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     const/4 v2, 0x0
@@ -146,7 +143,6 @@
     :catch_0
     move-exception v0
 
-    # getter for: Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->access$000()Ljava/lang/String;
 
     move-result-object v3

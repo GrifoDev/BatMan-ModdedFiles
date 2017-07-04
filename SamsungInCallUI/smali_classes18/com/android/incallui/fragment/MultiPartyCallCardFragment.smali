@@ -8866,13 +8866,42 @@
     invoke-virtual/range {v16 .. v17}, Landroid/os/Handler;->removeMessages(I)V
 
     :cond_0
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->needToShowMultiparty()Z
+
+    move-result v16
+
+    if-nez v16, :cond_2
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/incallui/CallList;->isOnlyExistDisconnectConferenceCall()Z
+
+    move-result v16
+
+    if-eqz v16, :cond_2
+
+    const-string v16, "MultiPartyCallCardFragment"
+
+    const-string v17, "setPrimary: current state is not multi-party"
+
+    const/16 v18, 0x1
+
+    invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mIsSwapProcessing:Z
 
     move/from16 v16, v0
 
-    if-eqz v16, :cond_d
+    if-eqz v16, :cond_e
 
     const-string v16, "MultiPartyCallCardFragment"
 
@@ -8882,7 +8911,7 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    :cond_1
+    :cond_3
     const/4 v11, 0x0
 
     const/4 v12, 0x0
@@ -8893,7 +8922,7 @@
 
     const-wide/16 v14, 0x0
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_4
 
     move-object/from16 v0, p6
 
@@ -8915,7 +8944,7 @@
 
     iget-wide v14, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->userType:J
 
-    :cond_2
+    :cond_4
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->getPresenter()Lcom/android/incallui/Presenter;
 
     move-result-object v16
@@ -8928,7 +8957,7 @@
 
     const/4 v10, 0x0
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_5
 
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
 
@@ -8938,12 +8967,12 @@
 
     move-result v10
 
-    :cond_3
-    if-nez p4, :cond_4
+    :cond_5
+    if-nez p4, :cond_6
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_10
 
-    :cond_4
+    :cond_6
     move-object/from16 v0, p0
 
     invoke-direct {v0, v5, v10}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->getConfCallDisplayName(Lcom/android/incallui/Call;Z)Ljava/lang/String;
@@ -8984,12 +9013,12 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_f
 
     const/4 v11, 0x0
 
-    :cond_5
-    :goto_0
+    :cond_7
+    :goto_1
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
@@ -9010,19 +9039,19 @@
 
     move-object/from16 v16, v0
 
-    if-eqz v16, :cond_6
+    if-eqz v16, :cond_8
 
     invoke-static/range {p1 .. p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v16
 
-    if-eqz v16, :cond_11
+    if-eqz v16, :cond_12
 
     invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v16
 
-    if-eqz v16, :cond_11
+    if-eqz v16, :cond_12
 
     move-object/from16 v0, p0
 
@@ -9034,8 +9063,8 @@
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_6
-    :goto_1
+    :cond_8
+    :goto_2
     invoke-virtual/range {p0 .. p1}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->setPrimaryPhoneNumber(Ljava/lang/String;)V
 
     move-object/from16 v0, p1
@@ -9052,13 +9081,13 @@
 
     iput-object v11, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mCurrentPrimaryCallNumberLabel:Ljava/lang/String;
 
-    if-eqz v8, :cond_12
+    if-eqz v8, :cond_13
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v8}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->setPrimaryGifImage(Lcom/android/incallui/gif/GifDrawable;)V
 
-    :goto_2
+    :goto_3
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v14, v15}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->setProfileIcon(J)V
@@ -9071,7 +9100,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_7
+    if-eqz v16, :cond_9
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->needToShowVolumeButton()Z
 
@@ -9083,7 +9112,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->showVolumeButton(Z)V
 
-    :cond_7
+    :cond_9
     const/4 v13, 0x1
 
     const-string v16, "ims_voice_conference_vzw"
@@ -9092,41 +9121,41 @@
 
     move-result v16
 
-    if-eqz v16, :cond_8
+    if-eqz v16, :cond_a
 
     invoke-static {v5}, Lcom/android/incallui/util/CallTypeUtils;->isEnhancedVoiceConferenceCall(Lcom/android/incallui/Call;)Z
 
     move-result v16
 
-    if-eqz v16, :cond_8
+    if-eqz v16, :cond_a
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->getConferenceCallManagerShowingState()Z
 
     move-result v16
 
-    if-eqz v16, :cond_8
+    if-eqz v16, :cond_a
 
     const/4 v13, 0x0
 
-    :cond_8
+    :cond_a
     const-string v16, "vzw_volte_ui"
 
     invoke-static/range {v16 .. v16}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v16
 
-    if-eqz v16, :cond_9
+    if-eqz v16, :cond_b
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->getConferenceCallManagerShowingState()Z
 
     move-result v16
 
-    if-eqz v16, :cond_9
+    if-eqz v16, :cond_b
 
     const/4 v13, 0x0
 
-    :cond_9
-    if-eqz v13, :cond_a
+    :cond_b
+    if-eqz v13, :cond_c
 
     const/16 v16, 0x0
 
@@ -9136,12 +9165,12 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->resetAllOfAnimation(Z)V
 
-    :cond_a
+    :cond_c
     invoke-static {v5}, Lcom/android/incallui/util/CallTypeUtils;->isEnhancedVoiceConferenceCall(Lcom/android/incallui/Call;)Z
 
     move-result v16
 
-    if-eqz v16, :cond_13
+    if-eqz v16, :cond_14
 
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getState()I
 
@@ -9153,7 +9182,7 @@
 
     move/from16 v1, v17
 
-    if-eq v0, v1, :cond_13
+    if-eq v0, v1, :cond_14
 
     invoke-virtual {v5}, Lcom/android/incallui/Call;->getState()I
 
@@ -9165,7 +9194,7 @@
 
     move/from16 v1, v17
 
-    if-eq v0, v1, :cond_13
+    if-eq v0, v1, :cond_14
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -9175,25 +9204,23 @@
 
     move-result v16
 
-    if-nez v16, :cond_b
+    if-nez v16, :cond_d
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->animateForManager()V
 
-    :cond_b
+    :cond_d
     invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->updateMultipartyCallButtons()V
 
-    :cond_c
-    :goto_3
-    return-void
+    goto/16 :goto_0
 
-    :cond_d
+    :cond_e
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mIsMergeProcessing:Z
 
     move/from16 v16, v0
 
-    if-eqz v16, :cond_1
+    if-eqz v16, :cond_3
 
     const-string v16, "MultiPartyCallCardFragment"
 
@@ -9203,17 +9230,17 @@
 
     invoke-static/range {v16 .. v18}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    goto :goto_3
-
-    :cond_e
-    move-object v11, v7
-
     goto/16 :goto_0
 
     :cond_f
-    if-eqz v5, :cond_5
+    move-object v11, v7
 
-    if-eqz p6, :cond_5
+    goto/16 :goto_1
+
+    :cond_10
+    if-eqz v5, :cond_7
+
+    if-eqz p6, :cond_7
 
     move-object/from16 v0, p6
 
@@ -9221,7 +9248,7 @@
 
     move/from16 v16, v0
 
-    if-nez v16, :cond_5
+    if-nez v16, :cond_7
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsContactManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsContactManager;
 
@@ -9235,7 +9262,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_7
 
     iget-object v0, v6, Lcom/android/incallui/coreapps/CoreAppsContact;->name:Ljava/lang/String;
 
@@ -9245,26 +9272,26 @@
 
     move-result v16
 
-    if-nez v16, :cond_10
+    if-nez v16, :cond_11
 
     iget-object v0, v6, Lcom/android/incallui/coreapps/CoreAppsContact;->name:Ljava/lang/String;
 
     move-object/from16 p2, v0
 
-    :cond_10
+    :cond_11
     iget-object v0, v6, Lcom/android/incallui/coreapps/CoreAppsContact;->drawable:Landroid/graphics/drawable/Drawable;
 
     move-object/from16 v16, v0
 
-    if-eqz v16, :cond_5
+    if-eqz v16, :cond_7
 
     iget-object v12, v6, Lcom/android/incallui/coreapps/CoreAppsContact;->drawable:Landroid/graphics/drawable/Drawable;
 
     const/4 v9, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    :cond_11
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mCallNumberAndLabel:Landroid/view/View;
@@ -9275,16 +9302,16 @@
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->setVisibility(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_12
+    :cond_13
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v12, v9}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->setPrimaryImage(Landroid/graphics/drawable/Drawable;Z)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
-    :cond_13
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mViewAdapters:Ljava/util/List;
@@ -9300,7 +9327,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_1
 
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 

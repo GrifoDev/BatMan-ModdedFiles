@@ -49,7 +49,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactTilePhoneFrequentView$1;->this$0:Lcom/android/contacts/common/list/ContactTilePhoneFrequentView;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTilePhoneFrequentView;->mPhoneNumberString:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/contacts/common/list/ContactTilePhoneFrequentView;->access$000(Lcom/android/contacts/common/list/ContactTilePhoneFrequentView;)Ljava/lang/String;
 
     move-result-object v0
@@ -87,7 +86,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ContactTilePhoneFrequentView$1;->this$0:Lcom/android/contacts/common/list/ContactTilePhoneFrequentView;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTilePhoneFrequentView;->mPhoneNumberString:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/contacts/common/list/ContactTilePhoneFrequentView;->access$000(Lcom/android/contacts/common/list/ContactTilePhoneFrequentView;)Ljava/lang/String;
 
     move-result-object v1

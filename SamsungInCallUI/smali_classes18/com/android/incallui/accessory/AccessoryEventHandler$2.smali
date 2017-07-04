@@ -55,7 +55,6 @@
 
     move-result v5
 
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverType:I
     invoke-static {v2, v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$402(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
@@ -68,7 +67,6 @@
 
     move-result v5
 
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverColor:I
     invoke-static {v2, v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$502(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
@@ -77,7 +75,6 @@
 
     move-result v5
 
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverHeight:I
     invoke-static {v2, v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$602(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
@@ -86,7 +83,6 @@
 
     move-result v5
 
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverWidth:I
     invoke-static {v2, v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$702(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
     iget-object v5, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
@@ -100,12 +96,10 @@
     move v2, v3
 
     :goto_1
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
     invoke-static {v5, v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$802(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)Z
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
     invoke-static {v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$800(Lcom/android/incallui/accessory/AccessoryEventHandler;)Z
 
     move-result v2
@@ -114,7 +108,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsAppLogging:Z
     invoke-static {v2, v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$902(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)Z
 
     :cond_2
@@ -123,7 +116,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverType:I
     invoke-static {v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$400(Lcom/android/incallui/accessory/AccessoryEventHandler;)I
 
     move-result v5
@@ -146,7 +138,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverType:I
     invoke-static {v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$400(Lcom/android/incallui/accessory/AccessoryEventHandler;)I
 
     move-result v5
@@ -163,7 +154,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
     invoke-static {v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$800(Lcom/android/incallui/accessory/AccessoryEventHandler;)Z
 
     move-result v2
@@ -172,7 +162,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverType:I
     invoke-static {v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$400(Lcom/android/incallui/accessory/AccessoryEventHandler;)I
 
     move-result v2
@@ -188,7 +177,6 @@
     :cond_3
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
     invoke-static {v2, v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$802(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)Z
 
     goto/16 :goto_0
@@ -201,7 +189,6 @@
     :cond_5
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsAppLogging:Z
     invoke-static {v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$900(Lcom/android/incallui/accessory/AccessoryEventHandler;)Z
 
     move-result v2
@@ -210,7 +197,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # invokes: Lcom/android/incallui/accessory/AccessoryEventHandler;->setCoverOpenAppLogging()V
     invoke-static {v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$1000(Lcom/android/incallui/accessory/AccessoryEventHandler;)V
 
     goto :goto_2
@@ -249,7 +235,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
     invoke-static {v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$800(Lcom/android/incallui/accessory/AccessoryEventHandler;)Z
 
     move-result v2
@@ -281,7 +266,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
     invoke-static {v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$800(Lcom/android/incallui/accessory/AccessoryEventHandler;)Z
 
     move-result v4
@@ -300,12 +284,10 @@
 
     iget-object v3, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
     invoke-static {v3}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$800(Lcom/android/incallui/accessory/AccessoryEventHandler;)Z
 
     move-result v3
 
-    # invokes: Lcom/android/incallui/accessory/AccessoryEventHandler;->notifyListenersOfCoverStateChanged(Z)V
     invoke-static {v2, v3}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$1100(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)V
 
     goto/16 :goto_0

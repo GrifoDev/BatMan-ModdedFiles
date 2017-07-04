@@ -49,7 +49,6 @@
     :sswitch_0
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$9;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mIsForegroundActivity:Z
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$400(Lcom/android/incallui/InCallActivity;)Z
 
     move-result v1
@@ -58,7 +57,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$9;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # invokes: Lcom/android/incallui/InCallActivity;->handleShowGreenBarMessage()V
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$800(Lcom/android/incallui/InCallActivity;)V
 
     goto :goto_0
@@ -155,7 +153,6 @@
     :sswitch_6
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$9;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mNeedToInitialize:Z
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$900(Lcom/android/incallui/InCallActivity;)Z
 
     move-result v1
@@ -168,7 +165,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$9;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # invokes: Lcom/android/incallui/InCallActivity;->initializeInCall()V
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$1000(Lcom/android/incallui/InCallActivity;)V
 
     goto :goto_0
@@ -176,7 +172,6 @@
     :sswitch_7
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$9;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # invokes: Lcom/android/incallui/InCallActivity;->startLockScreenDuringCallService()V
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$1100(Lcom/android/incallui/InCallActivity;)V
 
     goto :goto_0
@@ -244,7 +239,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$9;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$1200(Lcom/android/incallui/InCallActivity;)Landroid/app/SemStatusBarManager;
 
     move-result-object v1
@@ -253,7 +247,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallActivity$9;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v1}, Lcom/android/incallui/InCallActivity;->access$1200(Lcom/android/incallui/InCallActivity;)Landroid/app/SemStatusBarManager;
 
     move-result-object v1

@@ -76,7 +76,6 @@
 
     move-result-object v5
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->getNetworkClass(Landroid/content/Context;)I
     invoke-static {v4, v5}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3200(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Landroid/content/Context;)I
 
     move-result v2
@@ -111,14 +110,12 @@
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$ConnectivityReceiver;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # setter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->is2G:Z
     invoke-static {v4, v6}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3302(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Z)Z
 
     sput-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$ConnectivityReceiver;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mCallPlus:Landroid/widget/Button;
     invoke-static {v4}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3400(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/widget/Button;
 
     move-result-object v4
@@ -127,7 +124,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$ConnectivityReceiver;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mCallPlus:Landroid/widget/Button;
     invoke-static {v4}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3400(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/widget/Button;
 
     move-result-object v4
@@ -141,14 +137,12 @@
     :cond_1
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$ConnectivityReceiver;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # setter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->is2G:Z
     invoke-static {v4, v7}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3302(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Z)Z
 
     sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$ConnectivityReceiver;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mCallPlus:Landroid/widget/Button;
     invoke-static {v4}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3400(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/widget/Button;
 
     move-result-object v4
@@ -163,17 +157,16 @@
 
     if-eqz v4, :cond_0
 
-    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
+    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallSelf:Z
 
     if-eqz v4, :cond_0
 
-    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
+    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallRemote:Z
 
     if-eqz v4, :cond_0
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$ConnectivityReceiver;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mCallPlus:Landroid/widget/Button;
     invoke-static {v4}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3400(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/widget/Button;
 
     move-result-object v4

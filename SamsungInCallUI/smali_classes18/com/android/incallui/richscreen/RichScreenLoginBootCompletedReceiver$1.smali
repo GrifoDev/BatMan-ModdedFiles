@@ -47,10 +47,8 @@
 
     move-result-object v0
 
-    # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->changeNetworkResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$002(Lcom/cmdm/control/util/client/ResultEntity;)Lcom/cmdm/control/util/client/ResultEntity;
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->changeNetworkResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$000()Lcom/cmdm/control/util/client/ResultEntity;
 
     move-result-object v0
@@ -69,7 +67,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->changeNetworkResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$000()Lcom/cmdm/control/util/client/ResultEntity;
 
     move-result-object v2
@@ -88,7 +85,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->changeNetworkResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$000()Lcom/cmdm/control/util/client/ResultEntity;
 
     move-result-object v2
@@ -105,7 +101,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$100(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Ljava/lang/String;)V
 
     :cond_0

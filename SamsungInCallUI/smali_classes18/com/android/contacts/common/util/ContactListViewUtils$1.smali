@@ -61,7 +61,6 @@
 
     iget v3, p0, Lcom/android/contacts/common/util/ContactListViewUtils$1;->val$listViewWeight:I
 
-    # invokes: Lcom/android/contacts/common/util/ContactListViewUtils;->addPaddingToView(Landroid/widget/ListView;III)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/contacts/common/util/ContactListViewUtils;->access$000(Landroid/widget/ListView;III)V
 
     return-void

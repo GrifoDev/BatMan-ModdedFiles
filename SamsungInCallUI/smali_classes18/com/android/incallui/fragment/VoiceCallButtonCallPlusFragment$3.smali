@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # setter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mIsSprWFCRegistered:Z
     invoke-static {v0, p1}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$402(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Z)Z
 
     return-void

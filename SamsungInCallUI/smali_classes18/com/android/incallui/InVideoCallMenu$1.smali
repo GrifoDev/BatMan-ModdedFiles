@@ -45,7 +45,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mOutgoingImageList:[Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$000(Lcom/android/incallui/InVideoCallMenu;)[Ljava/lang/String;
 
     move-result-object v0
@@ -82,7 +81,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # invokes: Lcom/android/incallui/InVideoCallMenu;->updateVideoCallButtons()V
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$100(Lcom/android/incallui/InVideoCallMenu;)V
 
     sget-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->PICK_GALLERY_IMAGE:Z
@@ -91,7 +89,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # invokes: Lcom/android/incallui/InVideoCallMenu;->updateIncomingVideoCallButton()V
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$200(Lcom/android/incallui/InVideoCallMenu;)V
 
     :cond_0
@@ -103,7 +100,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # invokes: Lcom/android/incallui/InVideoCallMenu;->updateVideoCallCard()V
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$300(Lcom/android/incallui/InVideoCallMenu;)V
 
     :cond_1
@@ -113,7 +109,6 @@
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mOutgoingImageList:[Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$000(Lcom/android/incallui/InVideoCallMenu;)[Ljava/lang/String;
 
     move-result-object v0
@@ -136,7 +131,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mOutgoingImageList:[Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$000(Lcom/android/incallui/InVideoCallMenu;)[Ljava/lang/String;
 
     move-result-object v0
@@ -162,7 +156,6 @@
     :cond_3
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mOutgoingImageList:[Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$000(Lcom/android/incallui/InVideoCallMenu;)[Ljava/lang/String;
 
     move-result-object v0
@@ -188,7 +181,6 @@
     :cond_4
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # setter for: Lcom/android/incallui/InVideoCallMenu;->mIsSelectedImage:Z
     invoke-static {v0, v3}, Lcom/android/incallui/InVideoCallMenu;->access$402(Lcom/android/incallui/InVideoCallMenu;Z)Z
 
     invoke-static {v4}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
@@ -200,7 +192,6 @@
     :cond_5
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mOutgoingImageList:[Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$000(Lcom/android/incallui/InVideoCallMenu;)[Ljava/lang/String;
 
     move-result-object v0
@@ -234,7 +225,6 @@
     :cond_6
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # invokes: Lcom/android/incallui/InVideoCallMenu;->updateVideoCallButtons()V
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$100(Lcom/android/incallui/InVideoCallMenu;)V
 
     sget-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->PICK_GALLERY_IMAGE:Z
@@ -243,7 +233,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # invokes: Lcom/android/incallui/InVideoCallMenu;->updateIncomingVideoCallButton()V
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$200(Lcom/android/incallui/InVideoCallMenu;)V
 
     goto/16 :goto_0
@@ -251,7 +240,6 @@
     :cond_7
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$1;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mOutgoingImageList:[Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$000(Lcom/android/incallui/InVideoCallMenu;)[Ljava/lang/String;
 
     move-result-object v0
@@ -280,7 +268,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/InVideoCallMenu;->mIsSelectedImage:Z
     invoke-static {v0, v1}, Lcom/android/incallui/InVideoCallMenu;->access$402(Lcom/android/incallui/InVideoCallMenu;Z)Z
 
     invoke-static {v4}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V

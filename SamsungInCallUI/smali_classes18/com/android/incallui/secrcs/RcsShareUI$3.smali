@@ -47,7 +47,6 @@
 
     const/4 v3, 0x1
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -66,7 +65,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mTwoWayShare:Z
     invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1900(Lcom/android/incallui/secrcs/RcsShareUI;)Z
 
     move-result v0
@@ -91,7 +89,6 @@
 
     if-eq v0, v1, :cond_0
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0

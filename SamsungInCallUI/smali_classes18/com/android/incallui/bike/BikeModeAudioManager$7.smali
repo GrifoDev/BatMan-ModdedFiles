@@ -66,14 +66,12 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/bike/BikeModeAudioManager;->mMediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v0, v1}, Lcom/android/incallui/bike/BikeModeAudioManager;->access$002(Lcom/android/incallui/bike/BikeModeAudioManager;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
     iget-object v0, p0, Lcom/android/incallui/bike/BikeModeAudioManager$7;->val$am:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$7;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
 
-    # getter for: Lcom/android/incallui/bike/BikeModeAudioManager;->mPrevInCallVolume:I
     invoke-static {v1}, Lcom/android/incallui/bike/BikeModeAudioManager;->access$400(Lcom/android/incallui/bike/BikeModeAudioManager;)I
 
     move-result v1

@@ -90,7 +90,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$1;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
-    # invokes: Lcom/android/incallui/fragment/CallCardFragment;->hideVideoTogglingViews()V
     invoke-static {v0}, Lcom/android/incallui/fragment/CallCardFragment;->access$000(Lcom/android/incallui/fragment/CallCardFragment;)V
 
     goto :goto_0

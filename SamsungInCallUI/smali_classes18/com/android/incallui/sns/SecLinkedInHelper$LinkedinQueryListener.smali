@@ -115,7 +115,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinQueryListener;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mSnsService:Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
     invoke-static {v5}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$600(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
 
     move-result-object v5
@@ -125,14 +124,12 @@
     :try_start_0
     iget-object v5, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinQueryListener;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mSnsService:Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
     invoke-static {v5}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$600(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinQueryListener;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mAppId:I
     invoke-static {v6}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$700(Lcom/android/incallui/sns/SecLinkedInHelper;)I
 
     move-result v6

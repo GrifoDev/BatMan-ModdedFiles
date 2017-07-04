@@ -41,7 +41,6 @@
 .method public onClick(Landroid/view/View;)V
     .locals 3
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -58,7 +57,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI$5;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
     invoke-static {v2}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2000(Lcom/android/incallui/secrcs/RcsShareUI;)Landroid/app/Dialog;
 
     move-result-object v2

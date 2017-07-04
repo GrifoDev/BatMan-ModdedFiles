@@ -39,7 +39,6 @@
 
     add-long v0, v2, v4
 
-    # invokes: Lcom/whitepages/nameid/NameIDHelper;->tryReconnectUntil(J)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/NameIDHelper;->access$400(J)V
 
     return-void

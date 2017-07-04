@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$15;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$2000(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v0
@@ -56,7 +55,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$15;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$2000(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v0

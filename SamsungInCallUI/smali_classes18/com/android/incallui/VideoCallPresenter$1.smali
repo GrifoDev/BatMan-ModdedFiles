@@ -70,7 +70,6 @@
     :sswitch_1
     iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter$1;->this$0:Lcom/android/incallui/VideoCallPresenter;
 
-    # invokes: Lcom/android/incallui/VideoCallPresenter;->checkAndSendPickedImage()V
     invoke-static {v0}, Lcom/android/incallui/VideoCallPresenter;->access$000(Lcom/android/incallui/VideoCallPresenter;)V
 
     goto :goto_0
@@ -86,7 +85,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter$1;->this$0:Lcom/android/incallui/VideoCallPresenter;
 
-    # getter for: Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/VideoCallPresenter;->access$100(Lcom/android/incallui/VideoCallPresenter;)Lcom/android/incallui/Call;
 
     move-result-object v0
@@ -95,7 +93,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter$1;->this$0:Lcom/android/incallui/VideoCallPresenter;
 
-    # getter for: Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/VideoCallPresenter;->access$100(Lcom/android/incallui/VideoCallPresenter;)Lcom/android/incallui/Call;
 
     move-result-object v0

@@ -36,12 +36,10 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CallTimeBlinkEffect$2;->this$0:Lcom/android/incallui/accessory/CallTimeBlinkEffect;
 
-    # --operator for: Lcom/android/incallui/accessory/CallTimeBlinkEffect;->mEndCallRepeatCount:I
     invoke-static {v0}, Lcom/android/incallui/accessory/CallTimeBlinkEffect;->access$106(Lcom/android/incallui/accessory/CallTimeBlinkEffect;)I
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CallTimeBlinkEffect$2;->this$0:Lcom/android/incallui/accessory/CallTimeBlinkEffect;
 
-    # getter for: Lcom/android/incallui/accessory/CallTimeBlinkEffect;->mEndCallRepeatCount:I
     invoke-static {v0}, Lcom/android/incallui/accessory/CallTimeBlinkEffect;->access$100(Lcom/android/incallui/accessory/CallTimeBlinkEffect;)I
 
     move-result v0
@@ -50,7 +48,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CallTimeBlinkEffect$2;->this$0:Lcom/android/incallui/accessory/CallTimeBlinkEffect;
 
-    # invokes: Lcom/android/incallui/accessory/CallTimeBlinkEffect;->animateForBlinkCallTime()V
     invoke-static {v0}, Lcom/android/incallui/accessory/CallTimeBlinkEffect;->access$200(Lcom/android/incallui/accessory/CallTimeBlinkEffect;)V
 
     :goto_0

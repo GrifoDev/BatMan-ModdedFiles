@@ -109,7 +109,6 @@
 
     if-nez p2, :cond_0
 
-    # getter for: Lcom/android/contacts/common/list/AccountFilterActivity;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/list/AccountFilterActivity;->access$200()Ljava/lang/String;
 
     move-result-object v0
@@ -124,7 +123,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/contacts/common/list/AccountFilterActivity$MyLoaderCallbacks;->this$0:Lcom/android/contacts/common/list/AccountFilterActivity;
 
-    # getter for: Lcom/android/contacts/common/list/AccountFilterActivity;->mListView:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/contacts/common/list/AccountFilterActivity;->access$400(Lcom/android/contacts/common/list/AccountFilterActivity;)Landroid/widget/ListView;
 
     move-result-object v0
@@ -135,7 +133,6 @@
 
     iget-object v3, p0, Lcom/android/contacts/common/list/AccountFilterActivity$MyLoaderCallbacks;->this$0:Lcom/android/contacts/common/list/AccountFilterActivity;
 
-    # getter for: Lcom/android/contacts/common/list/AccountFilterActivity;->mCurrentFilter:Lcom/android/contacts/common/list/ContactListFilter;
     invoke-static {v3}, Lcom/android/contacts/common/list/AccountFilterActivity;->access$300(Lcom/android/contacts/common/list/AccountFilterActivity;)Lcom/android/contacts/common/list/ContactListFilter;
 
     move-result-object v3

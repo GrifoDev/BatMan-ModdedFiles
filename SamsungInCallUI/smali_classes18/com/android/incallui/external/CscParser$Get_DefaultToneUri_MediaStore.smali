@@ -53,14 +53,12 @@
 
     iget-object v6, p0, Lcom/android/incallui/external/CscParser$Get_DefaultToneUri_MediaStore;->this$0:Lcom/android/incallui/external/CscParser;
 
-    # getter for: Lcom/android/incallui/external/CscParser;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/incallui/external/CscParser;->access$100(Lcom/android/incallui/external/CscParser;)Landroid/content/Context;
 
     move-result-object v6
 
     invoke-direct {v2, v6}, Landroid/media/RingtoneManager;-><init>(Landroid/content/Context;)V
 
-    # getter for: Lcom/android/incallui/external/CscParser;->Media_Type:I
     invoke-static {}, Lcom/android/incallui/external/CscParser;->access$200()I
 
     move-result v6
@@ -184,7 +182,6 @@
     :cond_1
     iget-object v6, p0, Lcom/android/incallui/external/CscParser$Get_DefaultToneUri_MediaStore;->this$0:Lcom/android/incallui/external/CscParser;
 
-    # getter for: Lcom/android/incallui/external/CscParser;->mHandler:Landroid/os/Handler;
     invoke-static {v6}, Lcom/android/incallui/external/CscParser;->access$300(Lcom/android/incallui/external/CscParser;)Landroid/os/Handler;
 
     move-result-object v6
@@ -230,7 +227,6 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    # setter for: Lcom/android/incallui/external/CscParser;->value_uri:Landroid/net/Uri;
     invoke-static {v5}, Lcom/android/incallui/external/CscParser;->access$402(Landroid/net/Uri;)Landroid/net/Uri;
 
     goto :goto_1

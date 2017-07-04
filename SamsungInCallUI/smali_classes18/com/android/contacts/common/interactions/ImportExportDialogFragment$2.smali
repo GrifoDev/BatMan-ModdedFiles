@@ -76,7 +76,6 @@
 
     iget v3, v3, Lcom/android/contacts/common/interactions/ImportExportDialogFragment$AdapterEntry;->mSubscriptionId:I
 
-    # invokes: Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->handleImportRequest(II)Z
     invoke-static {v4, v2, v3}, Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->access$000(Lcom/android/contacts/common/interactions/ImportExportDialogFragment;II)Z
 
     move-result v0
@@ -131,7 +130,6 @@
 
     const/4 v0, 0x1
 
-    # getter for: Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->mExportMode:I
     invoke-static {}, Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->access$100()I
 
     move-result v3
@@ -140,7 +138,6 @@
 
     iget-object v3, p0, Lcom/android/contacts/common/interactions/ImportExportDialogFragment$2;->this$0:Lcom/android/contacts/common/interactions/ImportExportDialogFragment;
 
-    # invokes: Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->doShareFavoriteContacts()V
     invoke-static {v3}, Lcom/android/contacts/common/interactions/ImportExportDialogFragment;->access$200(Lcom/android/contacts/common/interactions/ImportExportDialogFragment;)V
 
     goto :goto_0

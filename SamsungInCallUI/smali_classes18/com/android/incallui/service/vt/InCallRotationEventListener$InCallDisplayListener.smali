@@ -47,12 +47,10 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/vt/InCallRotationEventListener$InCallDisplayListener;->this$0:Lcom/android/incallui/service/vt/InCallRotationEventListener;
 
-    # invokes: Lcom/android/incallui/service/vt/InCallRotationEventListener;->getDisplayRotation()I
     invoke-static {v1}, Lcom/android/incallui/service/vt/InCallRotationEventListener;->access$100(Lcom/android/incallui/service/vt/InCallRotationEventListener;)I
 
     move-result v1
 
-    # invokes: Lcom/android/incallui/service/vt/InCallRotationEventListener;->notifyRotationChanged(I)V
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/InCallRotationEventListener;->access$200(Lcom/android/incallui/service/vt/InCallRotationEventListener;I)V
 
     return-void

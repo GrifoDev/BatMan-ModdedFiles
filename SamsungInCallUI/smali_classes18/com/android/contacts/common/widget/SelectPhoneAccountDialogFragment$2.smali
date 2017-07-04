@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$2;->this$0:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
-    # setter for: Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->mIsDefaultChecked:Z
     invoke-static {v0, p2}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->access$202(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;Z)Z
 
     return-void

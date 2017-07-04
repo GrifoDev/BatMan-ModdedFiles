@@ -51,12 +51,10 @@
 
     iget-object v2, p0, Lcom/android/incallui/AccelerometerListener$2;->this$0:Lcom/android/incallui/AccelerometerListener;
 
-    # getter for: Lcom/android/incallui/AccelerometerListener;->mPendingOrientation:I
     invoke-static {v2}, Lcom/android/incallui/AccelerometerListener;->access$200(Lcom/android/incallui/AccelerometerListener;)I
 
     move-result v2
 
-    # setter for: Lcom/android/incallui/AccelerometerListener;->mOrientation:I
     invoke-static {v0, v2}, Lcom/android/incallui/AccelerometerListener;->access$102(Lcom/android/incallui/AccelerometerListener;I)I
 
     const-string v2, "AccelerometerListener"
@@ -73,7 +71,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener$2;->this$0:Lcom/android/incallui/AccelerometerListener;
 
-    # getter for: Lcom/android/incallui/AccelerometerListener;->mOrientation:I
     invoke-static {v0}, Lcom/android/incallui/AccelerometerListener;->access$100(Lcom/android/incallui/AccelerometerListener;)I
 
     move-result v0
@@ -97,7 +94,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener$2;->this$0:Lcom/android/incallui/AccelerometerListener;
 
-    # getter for: Lcom/android/incallui/AccelerometerListener;->mListener:Lcom/android/incallui/AccelerometerListener$OrientationListener;
     invoke-static {v0}, Lcom/android/incallui/AccelerometerListener;->access$300(Lcom/android/incallui/AccelerometerListener;)Lcom/android/incallui/AccelerometerListener$OrientationListener;
 
     move-result-object v0
@@ -106,14 +102,12 @@
 
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener$2;->this$0:Lcom/android/incallui/AccelerometerListener;
 
-    # getter for: Lcom/android/incallui/AccelerometerListener;->mListener:Lcom/android/incallui/AccelerometerListener$OrientationListener;
     invoke-static {v0}, Lcom/android/incallui/AccelerometerListener;->access$300(Lcom/android/incallui/AccelerometerListener;)Lcom/android/incallui/AccelerometerListener$OrientationListener;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/android/incallui/AccelerometerListener$2;->this$0:Lcom/android/incallui/AccelerometerListener;
 
-    # getter for: Lcom/android/incallui/AccelerometerListener;->mOrientation:I
     invoke-static {v2}, Lcom/android/incallui/AccelerometerListener;->access$100(Lcom/android/incallui/AccelerometerListener;)I
 
     move-result v2
@@ -138,7 +132,6 @@
     :try_start_1
     iget-object v0, p0, Lcom/android/incallui/AccelerometerListener$2;->this$0:Lcom/android/incallui/AccelerometerListener;
 
-    # getter for: Lcom/android/incallui/AccelerometerListener;->mOrientation:I
     invoke-static {v0}, Lcom/android/incallui/AccelerometerListener;->access$100(Lcom/android/incallui/AccelerometerListener;)I
 
     move-result v0

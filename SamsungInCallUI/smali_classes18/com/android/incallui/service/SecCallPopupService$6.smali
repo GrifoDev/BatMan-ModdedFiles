@@ -46,7 +46,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$6;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mIsFinishing:Z
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupService;->access$600(Lcom/android/incallui/service/SecCallPopupService;)Z
 
     move-result v0
@@ -57,7 +56,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/incallui/service/SecCallPopupService;->mIsFinishing:Z
     invoke-static {v0, v1}, Lcom/android/incallui/service/SecCallPopupService;->access$602(Lcom/android/incallui/service/SecCallPopupService;Z)Z
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$6;->this$0:Lcom/android/incallui/service/SecCallPopupService;

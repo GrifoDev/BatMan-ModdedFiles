@@ -45,7 +45,6 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/incallui/util/CallUpdateUtil$1;->this$0:Lcom/android/incallui/util/CallUpdateUtil;
 
-    # invokes: Lcom/android/incallui/util/CallUpdateUtil;->notifyUpdateCallback()V
     invoke-static {v0}, Lcom/android/incallui/util/CallUpdateUtil;->access$000(Lcom/android/incallui/util/CallUpdateUtil;)V
 
     goto :goto_0

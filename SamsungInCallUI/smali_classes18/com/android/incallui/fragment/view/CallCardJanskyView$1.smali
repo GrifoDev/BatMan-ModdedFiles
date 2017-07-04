@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardJanskyView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineName:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardJanskyView;->access$000(Lcom/android/incallui/fragment/view/CallCardJanskyView;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardJanskyView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineName:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardJanskyView;->access$000(Lcom/android/incallui/fragment/view/CallCardJanskyView;)Landroid/widget/TextView;
 
     move-result-object v1

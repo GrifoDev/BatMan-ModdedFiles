@@ -63,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$2;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
-    # invokes: Lcom/android/incallui/help/IncomingCallWhileUsingApp;->showToast()V
     invoke-static {v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->access$200(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)V
 
     :cond_0

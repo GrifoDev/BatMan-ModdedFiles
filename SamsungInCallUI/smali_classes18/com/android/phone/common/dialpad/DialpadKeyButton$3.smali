@@ -41,14 +41,12 @@
 
     const/4 v1, 0x1
 
-    # invokes: Lcom/android/phone/common/dialpad/DialpadKeyButton;->setLongHovered(Z)V
     invoke-static {v0, v1}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->access$200(Lcom/android/phone/common/dialpad/DialpadKeyButton;Z)V
 
     iget-object v0, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton$3;->this$0:Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
     iget-object v1, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton$3;->this$0:Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    # getter for: Lcom/android/phone/common/dialpad/DialpadKeyButton;->mLongHoverContentDesc:Ljava/lang/CharSequence;
     invoke-static {v1}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->access$300(Lcom/android/phone/common/dialpad/DialpadKeyButton;)Ljava/lang/CharSequence;
 
     move-result-object v1

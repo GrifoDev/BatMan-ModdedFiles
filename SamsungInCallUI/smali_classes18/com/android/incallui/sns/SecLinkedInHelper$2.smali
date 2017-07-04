@@ -43,13 +43,11 @@
 
     move-result-object v2
 
-    # setter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mSnsService:Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
     invoke-static {v1, v2}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$602(Lcom/android/incallui/sns/SecLinkedInHelper;Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;)Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
 
     :try_start_0
     iget-object v1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$2;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mSnsService:Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
     invoke-static {v1}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$600(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
 
     move-result-object v1
@@ -60,14 +58,12 @@
 
     iget-object v2, p0, Lcom/android/incallui/sns/SecLinkedInHelper$2;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mSnsService:Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
     invoke-static {v2}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$600(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/incallui/sns/SecLinkedInHelper$2;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mSnsCallback:Lcom/sec/android/app/snsimagecache/ISnsImageCacheCallback;
     invoke-static {v3}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$800(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/sec/android/app/snsimagecache/ISnsImageCacheCallback;
 
     move-result-object v3
@@ -76,7 +72,6 @@
 
     move-result v2
 
-    # setter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mAppId:I
     invoke-static {v1, v2}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$702(Lcom/android/incallui/sns/SecLinkedInHelper;I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0

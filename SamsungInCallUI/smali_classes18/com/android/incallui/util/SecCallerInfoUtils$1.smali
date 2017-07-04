@@ -51,7 +51,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/util/SecCallerInfoUtils$1;->val$listener:Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;
 
-    # invokes: Lcom/android/incallui/util/SecCallerInfoUtils;->makeQueryAfterRemovePreviousInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/SecCallerInfoUtils;->access$000(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
 
     return-void

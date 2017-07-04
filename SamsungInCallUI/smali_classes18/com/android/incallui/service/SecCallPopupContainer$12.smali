@@ -60,7 +60,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$12;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mIsRejectMsgContentShowing:Z
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$700(Lcom/android/incallui/service/SecCallPopupContainer;)Z
 
     move-result v1
@@ -70,12 +69,10 @@
     move v1, v2
 
     :goto_0
-    # invokes: Lcom/android/incallui/service/SecCallPopupContainer;->animateForToggleRejectMsg(Z)V
     invoke-static {v3, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2600(Lcom/android/incallui/service/SecCallPopupContainer;Z)V
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$12;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtn:Landroid/widget/Button;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2700(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/Button;
 
     move-result-object v1

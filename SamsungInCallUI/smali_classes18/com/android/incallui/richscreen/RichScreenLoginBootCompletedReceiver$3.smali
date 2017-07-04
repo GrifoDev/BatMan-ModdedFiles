@@ -45,17 +45,14 @@
 
     move-result-object v0
 
-    # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->initResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$902(Lcom/cmdm/control/util/client/ResultEntity;)Lcom/cmdm/control/util/client/ResultEntity;
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->initResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$900()Lcom/cmdm/control/util/client/ResultEntity;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->initResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$900()Lcom/cmdm/control/util/client/ResultEntity;
 
     move-result-object v0
@@ -64,7 +61,6 @@
 
     move-result v0
 
-    # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bInitSuccess:Z
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$1002(Z)Z
 
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$3;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
@@ -79,7 +75,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bInitSuccess:Z
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$1000()Z
 
     move-result v2
@@ -92,7 +87,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$100(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Ljava/lang/String;)V
 
     :cond_0

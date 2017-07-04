@@ -47,7 +47,6 @@
 
     iput v0, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$DialogDisplayer;->mResId:I
 
-    # setter for: Lcom/android/contacts/common/vcard/ImportVCardActivity;->mErrorMessage:Ljava/lang/String;
     invoke-static {p1, p2}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->access$002(Lcom/android/contacts/common/vcard/ImportVCardActivity;Ljava/lang/String;)Ljava/lang/String;
 
     return-void

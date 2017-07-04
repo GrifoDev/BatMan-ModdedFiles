@@ -49,7 +49,6 @@
 
     move-result v0
 
-    # setter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mSelectedRowId:I
     invoke-static {v1, v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$102(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;I)I
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -64,7 +63,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$3;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mSelectedRowId:I
     invoke-static {v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$100(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)I
 
     move-result v1
@@ -85,12 +83,10 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$3;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mSelectedRowId:I
     invoke-static {v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$100(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)I
 
     move-result v1
 
-    # invokes: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->animateForSplit(I)V
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$200(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;I)V
 
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$3;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;

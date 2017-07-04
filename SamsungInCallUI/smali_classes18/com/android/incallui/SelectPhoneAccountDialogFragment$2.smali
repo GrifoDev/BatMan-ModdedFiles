@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$2;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
-    # setter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mIsDefaultChecked:Z
     invoke-static {v0, p2}, Lcom/android/incallui/SelectPhoneAccountDialogFragment;->access$202(Lcom/android/incallui/SelectPhoneAccountDialogFragment;Z)Z
 
     return-void

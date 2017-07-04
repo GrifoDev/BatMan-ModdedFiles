@@ -80,7 +80,6 @@
 
     check-cast v0, Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/CallList;->finishDisconnectedCall(Lcom/android/incallui/Call;)V
     invoke-static {v1, v0}, Lcom/android/incallui/CallList;->access$000(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;)V
 
     goto :goto_0
@@ -94,7 +93,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/CallList$1;->this$0:Lcom/android/incallui/CallList;
 
-    # invokes: Lcom/android/incallui/CallList;->notifyGenericListeners()V
     invoke-static {v0}, Lcom/android/incallui/CallList;->access$100(Lcom/android/incallui/CallList;)V
 
     goto :goto_0

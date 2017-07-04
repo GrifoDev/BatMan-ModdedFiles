@@ -59,7 +59,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallPresenter$ContactInfoCallback;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v1}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v1
@@ -118,7 +117,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$ContactInfoCallback;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v0}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v0
@@ -146,7 +144,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$ContactInfoCallback;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    # getter for: Lcom/android/incallui/InCallPresenter;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v0}, Lcom/android/incallui/InCallPresenter;->access$400(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v0

@@ -60,12 +60,10 @@
 
     iget-object v3, p0, Lcom/android/incallui/CircularRevealFragment$2;->this$0:Lcom/android/incallui/CircularRevealFragment;
 
-    # getter for: Lcom/android/incallui/CircularRevealFragment;->mTouchPoint:Landroid/graphics/Point;
     invoke-static {v3}, Lcom/android/incallui/CircularRevealFragment;->access$000(Lcom/android/incallui/CircularRevealFragment;)Landroid/graphics/Point;
 
     move-result-object v3
 
-    # invokes: Lcom/android/incallui/CircularRevealFragment;->getRevealAnimator(Landroid/graphics/Point;)Landroid/animation/Animator;
     invoke-static {v2, v3}, Lcom/android/incallui/CircularRevealFragment;->access$100(Lcom/android/incallui/CircularRevealFragment;Landroid/graphics/Point;)Landroid/animation/Animator;
 
     move-result-object v0

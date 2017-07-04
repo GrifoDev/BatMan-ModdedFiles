@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$10;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mModifyErrorDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3000(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/app/AlertDialog;
 
     move-result-object v0

@@ -187,7 +187,6 @@
 
     const-string v2, "kind"
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;)Ljava/lang/String;
     invoke-static {p3, v2}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1400(Landroid/util/AttributeSet;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1

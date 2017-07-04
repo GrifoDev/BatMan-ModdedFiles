@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/CallCardPresenter$3;->this$0:Lcom/android/incallui/CallCardPresenter;
 
-    # invokes: Lcom/android/incallui/CallCardPresenter;->onEcidUpdate(Lcom/android/incallui/Call;)V
     invoke-static {v0, p1}, Lcom/android/incallui/CallCardPresenter;->access$500(Lcom/android/incallui/CallCardPresenter;Lcom/android/incallui/Call;)V
 
     return-void

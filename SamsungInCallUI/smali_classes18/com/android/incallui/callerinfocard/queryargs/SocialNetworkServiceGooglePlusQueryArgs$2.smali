@@ -58,7 +58,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    # getter for: Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->mHandler:Landroid/os/Handler;
     invoke-static {}, Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->access$000()Landroid/os/Handler;
 
     move-result-object v0
@@ -69,7 +68,6 @@
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->mHandler:Landroid/os/Handler;
     invoke-static {}, Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->access$000()Landroid/os/Handler;
 
     move-result-object v0
@@ -77,7 +75,6 @@
     invoke-virtual {v0, v4}, Landroid/os/Handler;->removeMessages(I)V
 
     :cond_0
-    # getter for: Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->mHandler:Landroid/os/Handler;
     invoke-static {}, Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;->access$000()Landroid/os/Handler;
 
     move-result-object v0

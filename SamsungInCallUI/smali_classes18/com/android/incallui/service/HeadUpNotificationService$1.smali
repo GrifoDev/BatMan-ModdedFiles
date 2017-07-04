@@ -61,7 +61,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mGestureDetector:Landroid/view/GestureDetector;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$000(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/view/GestureDetector;
 
     move-result-object v6
@@ -70,7 +69,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mGestureDetector:Landroid/view/GestureDetector;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$000(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/view/GestureDetector;
 
     move-result-object v6
@@ -143,7 +141,6 @@
 
     move-result v7
 
-    # setter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStartPointX:F
     invoke-static {v6, v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$102(Lcom/android/incallui/service/HeadUpNotificationService;F)F
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
@@ -152,21 +149,18 @@
 
     move-result v7
 
-    # setter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStartPointY:F
     invoke-static {v6, v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$202(Lcom/android/incallui/service/HeadUpNotificationService;F)F
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     iget-object v7, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
     invoke-static {v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$400(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v7
 
     iget v7, v7, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    # setter for: Lcom/android/incallui/service/HeadUpNotificationService;->mViewPointX:I
     invoke-static {v6, v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$302(Lcom/android/incallui/service/HeadUpNotificationService;I)I
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
@@ -190,7 +184,6 @@
 
     iget-object v7, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStartPointX:F
     invoke-static {v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$100(Lcom/android/incallui/service/HeadUpNotificationService;)F
 
     move-result v7
@@ -205,7 +198,6 @@
 
     iget-object v7, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStartPointY:F
     invoke-static {v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$200(Lcom/android/incallui/service/HeadUpNotificationService;)F
 
     move-result v7
@@ -216,14 +208,12 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$400(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v6
 
     iget-object v7, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mViewPointX:I
     invoke-static {v7}, Lcom/android/incallui/service/HeadUpNotificationService;->access$300(Lcom/android/incallui/service/HeadUpNotificationService;)I
 
     move-result v7
@@ -234,7 +224,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mWindowManager:Landroid/view/WindowManager;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$500(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/view/WindowManager;
 
     move-result-object v6
@@ -243,7 +232,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/service/HeadUpNotificationView;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$600(Lcom/android/incallui/service/HeadUpNotificationService;)Lcom/android/incallui/service/HeadUpNotificationView;
 
     move-result-object v6
@@ -260,7 +248,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$400(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v6
@@ -303,7 +290,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$400(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v6
@@ -315,7 +301,6 @@
     const/4 v6, 0x1
 
     :goto_2
-    # invokes: Lcom/android/incallui/service/HeadUpNotificationService;->animateForSlideOut(Z)V
     invoke-static {v7, v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$700(Lcom/android/incallui/service/HeadUpNotificationService;Z)V
 
     goto/16 :goto_1
@@ -334,7 +319,6 @@
     :goto_3
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/service/HeadUpNotificationView;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$600(Lcom/android/incallui/service/HeadUpNotificationService;)Lcom/android/incallui/service/HeadUpNotificationView;
 
     move-result-object v6
@@ -365,7 +349,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$800(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/app/SemStatusBarManager;
 
     move-result-object v6
@@ -374,7 +357,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/service/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v6}, Lcom/android/incallui/service/HeadUpNotificationService;->access$800(Lcom/android/incallui/service/HeadUpNotificationService;)Landroid/app/SemStatusBarManager;
 
     move-result-object v6

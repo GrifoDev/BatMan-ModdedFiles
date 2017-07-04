@@ -149,7 +149,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$400(Lcom/android/contacts/common/ContactPhotoManagerImpl;)Landroid/content/Context;
 
     move-result-object v0
@@ -174,7 +173,6 @@
 
     iget-object v3, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->mPhotoUris:Ljava/util/Set;
 
-    # invokes: Lcom/android/contacts/common/ContactPhotoManagerImpl;->obtainPhotoIdsAndUrisToLoad(Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$500(Lcom/android/contacts/common/ContactPhotoManagerImpl;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
 
     const/4 v0, 0x0
@@ -306,7 +304,6 @@
 
     sget-object v1, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->COLUMNS:[Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$600()[Ljava/lang/String;
 
     move-result-object v2
@@ -319,7 +316,6 @@
 
     iget-object v4, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->mPhotoIdsAsStrings:Ljava/util/Set;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$700()[Ljava/lang/String;
 
     move-result-object v5
@@ -365,7 +361,6 @@
 
     const/4 v1, -0x1
 
-    # invokes: Lcom/android/contacts/common/ContactPhotoManagerImpl;->cacheBitmap(Ljava/lang/Object;[BZI)V
     invoke-static {v0, v9, v6, p1, v1}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$800(Lcom/android/contacts/common/ContactPhotoManagerImpl;Ljava/lang/Object;[BZI)V
 
     iget-object v0, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->mPhotoIds:Ljava/util/Set;
@@ -437,7 +432,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->COLUMNS:[Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$600()[Ljava/lang/String;
 
     move-result-object v2
@@ -480,7 +474,6 @@
 
     const/4 v3, -0x1
 
-    # invokes: Lcom/android/contacts/common/ContactPhotoManagerImpl;->cacheBitmap(Ljava/lang/Object;[BZI)V
     invoke-static {v0, v1, v2, p1, v3}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$800(Lcom/android/contacts/common/ContactPhotoManagerImpl;Ljava/lang/Object;[BZI)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
@@ -500,7 +493,6 @@
 
     const/4 v2, -0x1
 
-    # invokes: Lcom/android/contacts/common/ContactPhotoManagerImpl;->cacheBitmap(Ljava/lang/Object;[BZI)V
     invoke-static {v0, v9, v1, p1, v2}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$800(Lcom/android/contacts/common/ContactPhotoManagerImpl;Ljava/lang/Object;[BZI)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -524,7 +516,6 @@
 
     const/4 v2, -0x1
 
-    # invokes: Lcom/android/contacts/common/ContactPhotoManagerImpl;->cacheBitmap(Ljava/lang/Object;[BZI)V
     invoke-static {v0, v9, v1, p1, v2}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$800(Lcom/android/contacts/common/ContactPhotoManagerImpl;Ljava/lang/Object;[BZI)V
 
     goto :goto_4
@@ -532,7 +523,6 @@
     :cond_c
     iget-object v0, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->mMainThreadHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$900(Lcom/android/contacts/common/ContactPhotoManagerImpl;)Landroid/os/Handler;
 
     move-result-object v0
@@ -629,7 +619,6 @@
 
     iget-object v10, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->mUserAgent:Ljava/lang/String;
     invoke-static {v10}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$1000(Lcom/android/contacts/common/ContactPhotoManagerImpl;)Ljava/lang/String;
 
     move-result-object v10
@@ -644,7 +633,6 @@
 
     iget-object v12, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->mUserAgent:Ljava/lang/String;
     invoke-static {v12}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$1000(Lcom/android/contacts/common/ContactPhotoManagerImpl;)Ljava/lang/String;
 
     move-result-object v12
@@ -747,7 +735,6 @@
 
     move-result v14
 
-    # invokes: Lcom/android/contacts/common/ContactPhotoManagerImpl;->cacheBitmap(Ljava/lang/Object;[BZI)V
     invoke-static {v10, v5, v12, v13, v14}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$800(Lcom/android/contacts/common/ContactPhotoManagerImpl;Ljava/lang/Object;[BZI)V
 
     goto/16 :goto_0
@@ -786,12 +773,10 @@
 
     move-result v14
 
-    # invokes: Lcom/android/contacts/common/ContactPhotoManagerImpl;->cacheBitmap(Ljava/lang/Object;[BZI)V
     invoke-static {v10, v5, v12, v13, v14}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$800(Lcom/android/contacts/common/ContactPhotoManagerImpl;Ljava/lang/Object;[BZI)V
 
     iget-object v10, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->mMainThreadHandler:Landroid/os/Handler;
     invoke-static {v10}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$900(Lcom/android/contacts/common/ContactPhotoManagerImpl;)Landroid/os/Handler;
 
     move-result-object v10
@@ -840,7 +825,6 @@
 
     move-result v14
 
-    # invokes: Lcom/android/contacts/common/ContactPhotoManagerImpl;->cacheBitmap(Ljava/lang/Object;[BZI)V
     invoke-static {v10, v5, v12, v13, v14}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$800(Lcom/android/contacts/common/ContactPhotoManagerImpl;Ljava/lang/Object;[BZI)V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
@@ -896,7 +880,6 @@
     :cond_2
     iget-object v3, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->mBitmapHolderCache:Landroid/util/LruCache;
     invoke-static {v3}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$200(Lcom/android/contacts/common/ContactPhotoManagerImpl;)Landroid/util/LruCache;
 
     move-result-object v3
@@ -907,7 +890,6 @@
 
     iget-object v4, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->mBitmapHolderCacheRedZoneBytes:I
     invoke-static {v4}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$300(Lcom/android/contacts/common/ContactPhotoManagerImpl;)I
 
     move-result v4
@@ -1010,7 +992,6 @@
 
     iget-object v5, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$LoaderThread;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl;->mBitmapHolderCache:Landroid/util/LruCache;
     invoke-static {v5}, Lcom/android/contacts/common/ContactPhotoManagerImpl;->access$200(Lcom/android/contacts/common/ContactPhotoManagerImpl;)Landroid/util/LruCache;
 
     move-result-object v5

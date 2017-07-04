@@ -117,7 +117,6 @@
 
     iget-object v3, p3, Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;->photoUri:Landroid/net/Uri;
 
-    # getter for: Lcom/android/incallui/remotecall/contact/RemoteContactInfoCache;->sCache:Lcom/android/incallui/remotecall/contact/RemoteContactInfoCache;
     invoke-static {}, Lcom/android/incallui/remotecall/contact/RemoteContactInfoCache;->access$000()Lcom/android/incallui/remotecall/contact/RemoteContactInfoCache;
 
     move-result-object v4

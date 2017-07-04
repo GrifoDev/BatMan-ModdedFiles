@@ -33,7 +33,6 @@
     if-nez p2, :cond_2
 
     :cond_0
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v24
@@ -42,7 +41,6 @@
 
     const-string v24, "checkAndMove: no move: at least one view is null"
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v24 .. v24}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     :cond_1
@@ -222,7 +220,6 @@
     if-nez v24, :cond_6
 
     :cond_4
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v24
@@ -231,11 +228,9 @@
 
     const-string v24, "checkAndMove: no move: view\'s width or height is zero"
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v24 .. v24}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     :cond_5
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v24
@@ -302,7 +297,6 @@
 
     move-result-object v24
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v24 .. v24}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     goto/16 :goto_0
@@ -312,7 +306,6 @@
 
     if-nez p3, :cond_8
 
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v24
@@ -321,7 +314,6 @@
 
     const-string v24, "checkAndMove: move immediately: duration is zero"
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v24 .. v24}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     :cond_7
@@ -360,7 +352,6 @@
 
     if-nez v24, :cond_a
 
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v24
@@ -369,7 +360,6 @@
 
     const-string v24, "checkAndMove: move immediately: it is same location"
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v24 .. v24}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     :cond_9
@@ -408,7 +398,6 @@
 
     if-nez v24, :cond_c
 
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v24
@@ -417,7 +406,6 @@
 
     const-string v24, "checkAndMove: move immediately: maybe start view == end view"
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v24 .. v24}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     :cond_b
@@ -728,7 +716,6 @@
     if-nez p2, :cond_2
 
     :cond_0
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v19
@@ -737,7 +724,6 @@
 
     const-string v19, "Move: no move: at least one view is null"
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     :cond_1
@@ -880,7 +866,6 @@
     if-nez v19, :cond_5
 
     :cond_3
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v19
@@ -889,11 +874,9 @@
 
     const-string v19, "Move: no move: view\'s width or height is zero "
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     :cond_4
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v19
@@ -958,7 +941,6 @@
 
     move-result-object v19
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     goto/16 :goto_0
@@ -1302,7 +1284,6 @@
     if-nez p1, :cond_2
 
     :cond_0
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v8
@@ -1311,7 +1292,6 @@
 
     const-string v8, "movePosition: no move: at least one view is null"
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static {v8}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     :cond_1
@@ -1387,7 +1367,6 @@
     if-nez v8, :cond_5
 
     :cond_4
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v8
@@ -1422,7 +1401,6 @@
 
     move-result-object v8
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static {v8}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     goto :goto_0
@@ -1548,7 +1526,6 @@
 
     if-eqz v4, :cond_4
 
-    # getter for: Lcom/android/incallui/util/SecAnimationUtils;->ENG_DBG:Z
     invoke-static {}, Lcom/android/incallui/util/SecAnimationUtils;->access$000()Z
 
     move-result v4
@@ -1557,7 +1534,6 @@
 
     const-string v4, "moveAnim is already running."
 
-    # invokes: Lcom/android/incallui/util/SecAnimationUtils;->log(Ljava/lang/String;)V
     invoke-static {v4}, Lcom/android/incallui/util/SecAnimationUtils;->access$100(Ljava/lang/String;)V
 
     goto :goto_0

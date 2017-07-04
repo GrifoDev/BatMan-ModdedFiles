@@ -67,7 +67,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$9;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mSelectedRowId:I
     invoke-static {v3}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$100(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)I
 
     move-result v3

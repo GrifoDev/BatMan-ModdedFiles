@@ -63,7 +63,6 @@
     :catch_0
     move-exception v0
 
-    # getter for: Lcom/android/incallui/CallerInfoUtils;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/CallerInfoUtils;->access$000()Ljava/lang/String;
 
     move-result-object v1

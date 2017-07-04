@@ -37,7 +37,6 @@
 .method public onGlobalLayout()V
     .locals 3
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentView:Landroid/view/View;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1300()Landroid/view/View;
 
     move-result-object v1
@@ -52,14 +51,12 @@
 
     if-eqz v1, :cond_0
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentViewSize:Landroid/graphics/Point;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1400()Landroid/graphics/Point;
 
     move-result-object v1
 
     iget v1, v1, Landroid/graphics/Point;->x:I
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentView:Landroid/view/View;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1300()Landroid/view/View;
 
     move-result-object v2
@@ -70,14 +67,12 @@
 
     if-ne v1, v2, :cond_1
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentViewSize:Landroid/graphics/Point;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1400()Landroid/graphics/Point;
 
     move-result-object v1
 
     iget v1, v1, Landroid/graphics/Point;->y:I
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentView:Landroid/view/View;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1300()Landroid/view/View;
 
     move-result-object v2
@@ -93,12 +88,10 @@
     return-void
 
     :cond_1
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentViewSize:Landroid/graphics/Point;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1400()Landroid/graphics/Point;
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentView:Landroid/view/View;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1300()Landroid/view/View;
 
     move-result-object v2
@@ -109,12 +102,10 @@
 
     iput v2, v1, Landroid/graphics/Point;->x:I
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentViewSize:Landroid/graphics/Point;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1400()Landroid/graphics/Point;
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentView:Landroid/view/View;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1300()Landroid/view/View;
 
     move-result-object v2
@@ -135,7 +126,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentViewSize:Landroid/graphics/Point;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1400()Landroid/graphics/Point;
 
     move-result-object v2
@@ -154,7 +144,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mContentViewSize:Landroid/graphics/Point;
     invoke-static {}, Lcom/android/incallui/InCallActivity;->access$1400()Landroid/graphics/Point;
 
     move-result-object v2

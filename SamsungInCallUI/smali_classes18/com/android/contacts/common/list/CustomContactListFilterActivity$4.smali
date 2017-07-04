@@ -53,7 +53,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$4;->val$child:Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;
 
-    # getter for: Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;->mUngrouped:Z
     invoke-static {v0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;->access$400(Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;)Z
 
     move-result v0
@@ -73,7 +72,6 @@
     :goto_0
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$4;->this$0:Lcom/android/contacts/common/list/CustomContactListFilterActivity;
 
-    # getter for: Lcom/android/contacts/common/list/CustomContactListFilterActivity;->mAdapter:Lcom/android/contacts/common/list/CustomContactListFilterActivity$DisplayAdapter;
     invoke-static {v0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->access$300(Lcom/android/contacts/common/list/CustomContactListFilterActivity;)Lcom/android/contacts/common/list/CustomContactListFilterActivity$DisplayAdapter;
 
     move-result-object v0

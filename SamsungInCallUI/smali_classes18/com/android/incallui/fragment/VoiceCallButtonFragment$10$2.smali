@@ -56,7 +56,6 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$10;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mEndCallButtonAnim:Landroid/view/ViewStub;
     invoke-static {v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$700(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)Landroid/view/ViewStub;
 
     move-result-object v0

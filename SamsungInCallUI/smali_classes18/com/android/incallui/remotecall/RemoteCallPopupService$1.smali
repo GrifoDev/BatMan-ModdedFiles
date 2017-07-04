@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPopupService;
 
-    # getter for: Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
     invoke-static {v1}, Lcom/android/incallui/remotecall/RemoteCallPopupService;->access$000(Lcom/android/incallui/remotecall/RemoteCallPopupService;)Landroid/widget/RelativeLayout;
 
     move-result-object v1
@@ -65,12 +64,10 @@
 
     const/4 v3, 0x1
 
-    # invokes: Lcom/android/incallui/remotecall/RemoteCallPopupService;->updateGradientView(Landroid/graphics/drawable/Drawable;Z)V
     invoke-static {v1, v2, v3}, Lcom/android/incallui/remotecall/RemoteCallPopupService;->access$100(Lcom/android/incallui/remotecall/RemoteCallPopupService;Landroid/graphics/drawable/Drawable;Z)V
 
     iget-object v1, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService$1;->this$0:Lcom/android/incallui/remotecall/RemoteCallPopupService;
 
-    # invokes: Lcom/android/incallui/remotecall/RemoteCallPopupService;->animateForShow()V
     invoke-static {v1}, Lcom/android/incallui/remotecall/RemoteCallPopupService;->access$200(Lcom/android/incallui/remotecall/RemoteCallPopupService;)V
 
     return-void

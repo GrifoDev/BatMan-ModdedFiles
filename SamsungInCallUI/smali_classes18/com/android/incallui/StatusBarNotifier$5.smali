@@ -100,7 +100,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/StatusBarNotifier$5;->this$0:Lcom/android/incallui/StatusBarNotifier;
 
-    # invokes: Lcom/android/incallui/StatusBarNotifier;->handleShowGreenBarMessage()V
     invoke-static {v1}, Lcom/android/incallui/StatusBarNotifier;->access$500(Lcom/android/incallui/StatusBarNotifier;)V
 
     goto :goto_0

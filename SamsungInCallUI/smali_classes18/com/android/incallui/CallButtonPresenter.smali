@@ -2150,36 +2150,26 @@
     invoke-direct {p0, v2}, Lcom/android/incallui/CallButtonPresenter;->updateRcsElelements(Lcom/android/incallui/Call;)V
 
     :cond_2
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
+    sget-object v2, Lcom/android/incallui/InCallPresenter$InCallState;->PENDING_OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-eqz v2, :cond_7
+    if-ne p2, v2, :cond_3
 
-    iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
-
-    invoke-virtual {v2}, Lcom/android/incallui/Call;->isVideoCall()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    sget-boolean v2, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_OUTGOING_KEYPAD_BUTTON:Z
-
-    if-eqz v2, :cond_7
-
-    :goto_0
-    invoke-interface {v1, v7}, Lcom/android/incallui/CallButtonUi;->setVisible(Z)V
+    invoke-interface {v1, v6, v6}, Lcom/android/incallui/CallButtonUi;->displayDialpad(ZZ)V
 
     :cond_3
-    :goto_1
+    invoke-interface {v1, v7}, Lcom/android/incallui/CallButtonUi;->setVisible(Z)V
+
+    :cond_4
+    :goto_0
     const-string v2, "automatic_answering_machine"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     const-string v2, "CallButtonPresenter"
 
@@ -2211,16 +2201,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     invoke-interface {v1, v6, v7}, Lcom/android/incallui/CallButtonUi;->displayDialpad(ZZ)V
 
-    :cond_4
+    :cond_5
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
@@ -2228,7 +2218,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
@@ -2238,7 +2228,7 @@
 
     const/4 v3, 0x4
 
-    if-eq v2, v3, :cond_5
+    if-eq v2, v3, :cond_6
 
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
@@ -2250,7 +2240,7 @@
 
     if-ne v2, v3, :cond_16
 
-    :cond_5
+    :cond_6
     invoke-virtual {p0}, Lcom/android/incallui/CallButtonPresenter;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -2261,8 +2251,8 @@
 
     invoke-static {v2, v3, v4}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_6
-    :goto_2
+    :cond_7
+    :goto_1
     iput-object p2, p0, Lcom/android/incallui/CallButtonPresenter;->mOldState:Lcom/android/incallui/InCallPresenter$InCallState;
 
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
@@ -2275,13 +2265,8 @@
 
     iput-object p2, p0, Lcom/android/incallui/CallButtonPresenter;->mPreviousState:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    :goto_3
+    :goto_2
     return-void
-
-    :cond_7
-    invoke-interface {v1, v6, v6}, Lcom/android/incallui/CallButtonUi;->displayDialpad(ZZ)V
-
-    goto :goto_0
 
     :cond_8
     sget-object v2, Lcom/android/incallui/InCallPresenter$InCallState;->INCALL:Lcom/android/incallui/InCallPresenter$InCallState;
@@ -2327,7 +2312,7 @@
 
     invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_a
     invoke-virtual {p3}, Lcom/android/incallui/CallList;->isIncomingRejectedCall()Z
@@ -2349,7 +2334,7 @@
 
     invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_c
     const-string v2, "ims_rcs"
@@ -2395,7 +2380,7 @@
 
     move-result v0
 
-    :goto_4
+    :goto_3
     if-eqz v0, :cond_e
 
     sget-object v2, Lcom/android/incallui/InCallPresenter$InCallState;->OUTGOING:Lcom/android/incallui/InCallPresenter$InCallState;
@@ -2419,15 +2404,15 @@
     if-ne v2, v9, :cond_11
 
     :cond_e
-    :goto_5
+    :goto_4
     invoke-interface {v1, v7}, Lcom/android/incallui/CallButtonUi;->setVisible(Z)V
 
     :cond_f
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
@@ -2437,11 +2422,11 @@
 
     const/16 v3, 0x8
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_4
 
     invoke-interface {v1, v6, v6}, Lcom/android/incallui/CallButtonUi;->displayDialpad(ZZ)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     :cond_10
     invoke-interface {v1}, Lcom/android/incallui/CallButtonUi;->getContext()Landroid/content/Context;
@@ -2454,7 +2439,7 @@
 
     move-result v0
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_11
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mHandler:Landroid/os/Handler;
@@ -2475,7 +2460,7 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_12
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mOldState:Lcom/android/incallui/InCallPresenter$InCallState;
@@ -2492,7 +2477,7 @@
 
     invoke-static {v2, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     :cond_13
     sget-object v2, Lcom/android/incallui/InCallPresenter$InCallState;->INCOMING:Lcom/android/incallui/InCallPresenter$InCallState;
@@ -2508,12 +2493,12 @@
     :cond_14
     iput-object v3, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     :cond_15
     iput-object v3, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     :cond_16
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
@@ -2547,7 +2532,7 @@
 
     invoke-static {v2, v3, v4}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :cond_18
     iget-object v2, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
@@ -2564,7 +2549,7 @@
 
     move-result v2
 
-    if-ne v2, v8, :cond_6
+    if-ne v2, v8, :cond_7
 
     :cond_19
     invoke-virtual {p0}, Lcom/android/incallui/CallButtonPresenter;->getContext()Landroid/content/Context;
@@ -2577,7 +2562,7 @@
 
     invoke-static {v2, v3, v4}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 .end method
 
 .method public onSupportedAudioMode(I)V

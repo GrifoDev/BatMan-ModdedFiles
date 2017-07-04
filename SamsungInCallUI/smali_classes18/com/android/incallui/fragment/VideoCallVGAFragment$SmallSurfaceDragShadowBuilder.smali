@@ -93,7 +93,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment$SmallSurfaceDragShadowBuilder;->this$0:Lcom/android/incallui/fragment/VideoCallVGAFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VideoCallVGAFragment;->mDragTrigger:Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
     invoke-static {v2}, Lcom/android/incallui/fragment/VideoCallVGAFragment;->access$000(Lcom/android/incallui/fragment/VideoCallVGAFragment;)Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
 
     move-result-object v2
@@ -106,7 +105,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment$SmallSurfaceDragShadowBuilder;->this$0:Lcom/android/incallui/fragment/VideoCallVGAFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VideoCallVGAFragment;->mDragTrigger:Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
     invoke-static {v2}, Lcom/android/incallui/fragment/VideoCallVGAFragment;->access$000(Lcom/android/incallui/fragment/VideoCallVGAFragment;)Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
 
     move-result-object v2
@@ -117,7 +115,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/fragment/VideoCallVGAFragment$SmallSurfaceDragShadowBuilder;->this$0:Lcom/android/incallui/fragment/VideoCallVGAFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VideoCallVGAFragment;->mDragTrigger:Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
     invoke-static {v3}, Lcom/android/incallui/fragment/VideoCallVGAFragment;->access$000(Lcom/android/incallui/fragment/VideoCallVGAFragment;)Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
 
     move-result-object v3

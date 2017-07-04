@@ -69,7 +69,6 @@
 
     if-eqz v1, :cond_0
 
-    # setter for: Lcom/android/incallui/secrcs/RcsShareUI;->mReConnect:Z
     invoke-static {v4}, Lcom/android/incallui/secrcs/RcsShareUI;->access$002(Z)Z
 
     :cond_0
@@ -79,17 +78,14 @@
 
     iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mCall:Lcom/android/incallui/Call;
     invoke-static {v3}, Lcom/android/incallui/secrcs/RcsShareUI;->access$100(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/android/incallui/Call;
 
     move-result-object v3
 
-    # invokes: Lcom/android/incallui/secrcs/RcsShareUI;->queryInCallServiceProvider(Landroid/content/Context;Lcom/android/incallui/Call;)Landroid/database/Cursor;
     invoke-static {v1, v2, v3}, Lcom/android/incallui/secrcs/RcsShareUI;->access$200(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Lcom/android/incallui/Call;)Landroid/database/Cursor;
 
     move-result-object v0
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v1
@@ -114,7 +110,6 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v1
@@ -171,47 +166,39 @@
 
     sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedButtonStub:Landroid/view/ViewStub;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$400()Landroid/view/ViewStub;
 
     move-result-object v2
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedButton:Landroid/widget/Button;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$500()Landroid/widget/Button;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mIsWebExEnabled:Z
     invoke-static {v4}, Lcom/android/incallui/secrcs/RcsShareUI;->access$600(Lcom/android/incallui/secrcs/RcsShareUI;)Z
 
     move-result v5
 
     move-object v4, p1
 
-    # invokes: Lcom/android/incallui/secrcs/RcsShareUI;->setupPromotedServiceButton(Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;Z)V
     invoke-static/range {v0 .. v5}, Lcom/android/incallui/secrcs/RcsShareUI;->access$700(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;Z)V
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mShareButtonStub:Landroid/view/ViewStub;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$800()Landroid/view/ViewStub;
 
     move-result-object v2
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mShareButton:Landroid/widget/Button;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$900()Landroid/widget/Button;
 
     move-result-object v3
 
-    # invokes: Lcom/android/incallui/secrcs/RcsShareUI;->setupRcsServicesButton(Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;)V
     invoke-static {v0, v1, v2, v3, p1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1000(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;)V
 
     :cond_0
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -220,7 +207,6 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -237,7 +223,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
     invoke-static {v2}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1100(Lcom/android/incallui/secrcs/RcsShareUI;)Z
 
     move-result v2
@@ -254,7 +239,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
     invoke-static {v2}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1200(Lcom/android/incallui/secrcs/RcsShareUI;)Z
 
     move-result v2

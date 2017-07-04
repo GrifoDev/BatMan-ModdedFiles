@@ -85,7 +85,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinBroadcastReceiver;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mHandler:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;
     invoke-static {v1}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$900(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;
 
     move-result-object v1
@@ -98,7 +97,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinBroadcastReceiver;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mHandler:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;
     invoke-static {v1}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$900(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;
 
     move-result-object v1
@@ -108,14 +106,12 @@
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinBroadcastReceiver;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mHandler:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;
     invoke-static {v1}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$900(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinBroadcastReceiver;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mHandler:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;
     invoke-static {v2}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$900(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;
 
     move-result-object v2

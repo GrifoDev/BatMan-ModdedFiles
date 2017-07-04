@@ -63,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$3;->this$0:Lcom/android/contacts/common/list/CustomContactListFilterActivity;
 
-    # getter for: Lcom/android/contacts/common/list/CustomContactListFilterActivity;->mAdapter:Lcom/android/contacts/common/list/CustomContactListFilterActivity$DisplayAdapter;
     invoke-static {v0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->access$300(Lcom/android/contacts/common/list/CustomContactListFilterActivity;)Lcom/android/contacts/common/list/CustomContactListFilterActivity$DisplayAdapter;
 
     move-result-object v0

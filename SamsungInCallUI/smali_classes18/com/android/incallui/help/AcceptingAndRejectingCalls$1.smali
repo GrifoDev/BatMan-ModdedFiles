@@ -51,12 +51,10 @@
     :sswitch_1
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$1;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
-    # operator++ for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->callTimerCount:I
     invoke-static {v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->access$008(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)I
 
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$1;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
-    # invokes: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->dispCallDuration()V
     invoke-static {v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->access$100(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)V
 
     const/16 v0, 0x64

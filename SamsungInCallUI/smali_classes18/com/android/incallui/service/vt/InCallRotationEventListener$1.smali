@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/vt/InCallRotationEventListener$1;->this$0:Lcom/android/incallui/service/vt/InCallRotationEventListener;
 
-    # invokes: Lcom/android/incallui/service/vt/InCallRotationEventListener;->onChanged(I)V
     invoke-static {v0, p1}, Lcom/android/incallui/service/vt/InCallRotationEventListener;->access$000(Lcom/android/incallui/service/vt/InCallRotationEventListener;I)V
 
     return-void

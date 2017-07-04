@@ -68,7 +68,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/edge/CallEdgeManager$1;->this$0:Lcom/android/incallui/edge/CallEdgeManager;
 
-    # invokes: Lcom/android/incallui/edge/CallEdgeManager;->rejectCallWithGlanceReplyMessage()V
     invoke-static {v0}, Lcom/android/incallui/edge/CallEdgeManager;->access$000(Lcom/android/incallui/edge/CallEdgeManager;)V
 
     goto :goto_0

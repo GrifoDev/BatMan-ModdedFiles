@@ -48,7 +48,6 @@
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/AnswerPresenter;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -61,7 +60,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/AnswerPresenter$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/AnswerPresenter;
 
-    # getter for: Lcom/android/incallui/AnswerPresenter;->mAnswerVideoStateAfterThisDisconnect:I
     invoke-static {v1}, Lcom/android/incallui/AnswerPresenter;->access$200(Lcom/android/incallui/AnswerPresenter;)I
 
     move-result v1
@@ -83,7 +81,6 @@
 .method public onTick(J)V
     .locals 3
 
-    # getter for: Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/AnswerPresenter;->access$100()Ljava/lang/String;
 
     move-result-object v0

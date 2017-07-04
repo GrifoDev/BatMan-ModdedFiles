@@ -44,12 +44,10 @@
     :sswitch_0
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$1;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
-    # operator++ for: Lcom/android/incallui/help/IncomingCallWhileUsingApp;->callTimerCount:I
     invoke-static {v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->access$008(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)I
 
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$1;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
-    # invokes: Lcom/android/incallui/help/IncomingCallWhileUsingApp;->dispCallDuration()V
     invoke-static {v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->access$100(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)V
 
     const/16 v0, 0x64

@@ -93,7 +93,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$2;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mMinFlingVelocity:I
     invoke-static {v4}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$900(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)I
 
     move-result v4
@@ -127,7 +126,6 @@
     const/4 v2, 0x1
 
     :goto_1
-    # invokes: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->animateForSlideOut(Z)V
     invoke-static {v4, v2}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$700(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;Z)V
 
     goto :goto_0

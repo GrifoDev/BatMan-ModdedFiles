@@ -90,11 +90,9 @@
 
     move-result-object v0
 
-    # setter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1302(Landroid/database/Cursor;)Landroid/database/Cursor;
 
     :cond_0
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -109,7 +107,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v2
@@ -124,14 +121,12 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -152,7 +147,6 @@
     return-object v0
 
     :cond_1
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v0
@@ -163,7 +157,6 @@
 
     if-gtz v0, :cond_2
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -174,7 +167,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v0
@@ -190,19 +182,16 @@
     goto :goto_0
 
     :cond_2
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v0
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v0
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v1
@@ -224,14 +213,12 @@
     move-object v8, v9
 
     :goto_1
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v0
 
     if-eqz v0, :cond_3
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->c:Landroid/database/Cursor;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1300()Landroid/database/Cursor;
 
     move-result-object v0
@@ -266,7 +253,6 @@
     :catch_0
     move-exception v6
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -293,7 +279,6 @@
 .method protected onPostExecute(Ljava/lang/Boolean;)V
     .locals 3
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0

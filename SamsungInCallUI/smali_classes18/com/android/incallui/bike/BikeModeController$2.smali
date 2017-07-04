@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/bike/BikeModeController$2;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
-    # invokes: Lcom/android/incallui/bike/BikeModeController;->onBikeCallChange(Z)V
     invoke-static {v0, p1}, Lcom/android/incallui/bike/BikeModeController;->access$100(Lcom/android/incallui/bike/BikeModeController;Z)V
 
     return-void

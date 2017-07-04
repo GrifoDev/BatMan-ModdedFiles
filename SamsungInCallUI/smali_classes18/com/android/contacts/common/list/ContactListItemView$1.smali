@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactListItemView$1;->this$0:Lcom/android/contacts/common/list/ContactListItemView;
 
-    # getter for: Lcom/android/contacts/common/list/ContactListItemView;->mPhoneNumberListAdapterListener:Lcom/android/contacts/common/list/PhoneNumberListAdapter$Listener;
     invoke-static {v0}, Lcom/android/contacts/common/list/ContactListItemView;->access$000(Lcom/android/contacts/common/list/ContactListItemView;)Lcom/android/contacts/common/list/PhoneNumberListAdapter$Listener;
 
     move-result-object v0
@@ -48,14 +47,12 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactListItemView$1;->this$0:Lcom/android/contacts/common/list/ContactListItemView;
 
-    # getter for: Lcom/android/contacts/common/list/ContactListItemView;->mPhoneNumberListAdapterListener:Lcom/android/contacts/common/list/PhoneNumberListAdapter$Listener;
     invoke-static {v0}, Lcom/android/contacts/common/list/ContactListItemView;->access$000(Lcom/android/contacts/common/list/ContactListItemView;)Lcom/android/contacts/common/list/PhoneNumberListAdapter$Listener;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ContactListItemView$1;->this$0:Lcom/android/contacts/common/list/ContactListItemView;
 
-    # getter for: Lcom/android/contacts/common/list/ContactListItemView;->mPosition:I
     invoke-static {v1}, Lcom/android/contacts/common/list/ContactListItemView;->access$100(Lcom/android/contacts/common/list/ContactListItemView;)I
 
     move-result v1

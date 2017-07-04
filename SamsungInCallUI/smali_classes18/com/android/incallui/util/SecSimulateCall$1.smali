@@ -46,7 +46,6 @@
 
     const/4 v1, 0x3
 
-    # invokes: Lcom/android/incallui/util/SecSimulateCall;->updateSimulateCallState(I)V
     invoke-static {v0, v1}, Lcom/android/incallui/util/SecSimulateCall;->access$000(Lcom/android/incallui/util/SecSimulateCall;I)V
 
     goto :goto_0

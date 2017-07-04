@@ -69,7 +69,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/vcard/VCardService$CustomMediaScannerConnectionClient;->this$0:Lcom/android/contacts/common/vcard/VCardService;
 
-    # invokes: Lcom/android/contacts/common/vcard/VCardService;->removeConnectionClient(Lcom/android/contacts/common/vcard/VCardService$CustomMediaScannerConnectionClient;)V
     invoke-static {v0, p0}, Lcom/android/contacts/common/vcard/VCardService;->access$000(Lcom/android/contacts/common/vcard/VCardService;Lcom/android/contacts/common/vcard/VCardService$CustomMediaScannerConnectionClient;)V
 
     return-void

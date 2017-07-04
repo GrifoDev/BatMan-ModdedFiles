@@ -37,7 +37,6 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 6
 
-    # getter for: Lcom/android/incallui/util/SecSubNumberDialogActivity;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$000()Ljava/lang/String;
 
     move-result-object v2
@@ -72,7 +71,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity$2;->this$0:Lcom/android/incallui/util/SecSubNumberDialogActivity;
 
-    # getter for: Lcom/android/incallui/util/SecSubNumberDialogActivity;->mSubIdList:Ljava/util/ArrayList;
     invoke-static {v2}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$100(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -95,7 +93,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity$2;->this$0:Lcom/android/incallui/util/SecSubNumberDialogActivity;
 
-    # getter for: Lcom/android/incallui/util/SecSubNumberDialogActivity;->mNumber:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$200(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Ljava/lang/String;
 
     move-result-object v4
@@ -137,7 +134,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity$2;->this$0:Lcom/android/incallui/util/SecSubNumberDialogActivity;
 
-    # getter for: Lcom/android/incallui/util/SecSubNumberDialogActivity;->mSimId:I
     invoke-static {v3}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$300(Lcom/android/incallui/util/SecSubNumberDialogActivity;)I
 
     move-result v3

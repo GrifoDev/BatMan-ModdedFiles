@@ -133,7 +133,6 @@
 
     iget-object v8, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$SelectAccountListAdapter;->this$0:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    # getter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mTelecomManager:Landroid/telecom/TelecomManager;
     invoke-static {v8}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->access$300(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;)Landroid/telecom/TelecomManager;
 
     move-result-object v8
@@ -170,14 +169,12 @@
 
     const-string v6, ""
 
-    # getter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsDisplayCallbackDialog:Z
     invoke-static {}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->access$400()Z
 
     move-result v8
 
     if-eqz v8, :cond_4
 
-    # getter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mRecentlyUsedSim:I
     invoke-static {}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->access$500()I
 
     move-result v8
@@ -234,14 +231,12 @@
     goto :goto_0
 
     :cond_4
-    # getter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsDisplayCallbackDialog:Z
     invoke-static {}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->access$400()Z
 
     move-result v8
 
     if-eqz v8, :cond_5
 
-    # getter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mPreferredSim:I
     invoke-static {}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->access$600()I
 
     move-result v8

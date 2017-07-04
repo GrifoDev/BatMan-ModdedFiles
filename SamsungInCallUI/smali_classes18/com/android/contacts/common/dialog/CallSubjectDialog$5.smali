@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$5;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectList:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$200(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/widget/ListView;
 
     move-result-object v0
@@ -54,7 +53,6 @@
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/android/contacts/common/dialog/CallSubjectDialog;->showCallHistory(Z)V
     invoke-static {v0, v1}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$300(Lcom/android/contacts/common/dialog/CallSubjectDialog;Z)V
 
     :cond_0

@@ -104,7 +104,6 @@
 
     move-result-object v8
 
-    # setter for: Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->msisdn:Ljava/lang/String;
     invoke-static {v7, v8}, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->access$002(Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;Ljava/lang/String;)Ljava/lang/String;
 
     invoke-virtual {v1}, Lcom/sec/ims/Dialog;->getSipCallId()Ljava/lang/String;
@@ -165,7 +164,6 @@
 
     iget-object v9, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6$1;->this$0:Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
 
-    # getter for: Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->msisdn:Ljava/lang/String;
     invoke-static {v9}, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->access$000(Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;)Ljava/lang/String;
 
     move-result-object v9

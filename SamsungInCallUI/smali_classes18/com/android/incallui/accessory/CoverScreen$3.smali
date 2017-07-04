@@ -45,14 +45,12 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$3;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # invokes: Lcom/android/incallui/accessory/CoverScreen;->animateHideForMaskPanel()V
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$400(Lcom/android/incallui/accessory/CoverScreen;)V
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$3;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/android/incallui/accessory/CoverScreen;->updateRejectHandleDrawer(Z)V
     invoke-static {v0, v1}, Lcom/android/incallui/accessory/CoverScreen;->access$300(Lcom/android/incallui/accessory/CoverScreen;Z)V
 
     return-void

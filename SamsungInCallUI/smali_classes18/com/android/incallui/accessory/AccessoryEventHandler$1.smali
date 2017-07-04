@@ -118,7 +118,6 @@
 
     move-result v4
 
-    # invokes: Lcom/android/incallui/accessory/AccessoryEventHandler;->notifyListenersOfCallForwardStateChanged(Z)V
     invoke-static {v3, v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$000(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)V
 
     :cond_0
@@ -142,7 +141,6 @@
 
     move-result v4
 
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mWIFIDisplayState:I
     invoke-static {v3, v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$102(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -157,7 +155,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mWIFIDisplayState:I
     invoke-static {v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$100(Lcom/android/incallui/accessory/AccessoryEventHandler;)I
 
     move-result v4
@@ -214,19 +211,16 @@
     if-ne v2, v3, :cond_3
 
     :goto_1
-    # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsHmtDocked:Z
     invoke-static {v5, v3}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$202(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)Z
 
     iget-object v3, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     iget-object v4, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$1;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsHmtDocked:Z
     invoke-static {v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$200(Lcom/android/incallui/accessory/AccessoryEventHandler;)Z
 
     move-result v4
 
-    # invokes: Lcom/android/incallui/accessory/AccessoryEventHandler;->notifyListenersOfHmtStateChanged(Z)V
     invoke-static {v3, v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$300(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)V
 
     goto :goto_0

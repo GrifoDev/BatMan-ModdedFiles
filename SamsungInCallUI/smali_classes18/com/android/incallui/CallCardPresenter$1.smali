@@ -55,7 +55,6 @@
 
     iget-object v7, v2, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;->entry:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    # invokes: Lcom/android/incallui/CallCardPresenter;->onImageLoadComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     invoke-static {v5, v6, v7}, Lcom/android/incallui/CallCardPresenter;->access$100(Lcom/android/incallui/CallCardPresenter;Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
     goto :goto_0
@@ -103,7 +102,6 @@
 
     const/4 v6, 0x1
 
-    # invokes: Lcom/android/incallui/CallCardPresenter;->updateSmartCall(Z)V
     invoke-static {v5, v6}, Lcom/android/incallui/CallCardPresenter;->access$400(Lcom/android/incallui/CallCardPresenter;Z)V
 
     goto :goto_0

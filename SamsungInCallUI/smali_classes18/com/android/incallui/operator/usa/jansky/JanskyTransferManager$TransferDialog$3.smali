@@ -52,7 +52,6 @@
 
     iget-object v0, v0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mNumberRadio:Landroid/widget/RadioButton;
     invoke-static {v0}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$700(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Landroid/widget/RadioButton;
 
     move-result-object v0
@@ -65,14 +64,12 @@
 
     iget-object v0, v0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$100(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Landroid/content/Context;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/Activity;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->CONTACT_IMPORT_INTENT:Landroid/content/Intent;
     invoke-static {}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1000()Landroid/content/Intent;
 
     move-result-object v1

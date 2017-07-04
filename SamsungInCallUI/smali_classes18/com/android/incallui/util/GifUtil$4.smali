@@ -37,7 +37,6 @@
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/util/GifUtil$4;->this$0:Lcom/android/incallui/util/GifUtil;
 
-    # getter for: Lcom/android/incallui/util/GifUtil;->bAnimate:Z
     invoke-static {v1}, Lcom/android/incallui/util/GifUtil;->access$000(Lcom/android/incallui/util/GifUtil;)Z
 
     move-result v1
@@ -46,7 +45,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/util/GifUtil$4;->this$0:Lcom/android/incallui/util/GifUtil;
 
-    # getter for: Lcom/android/incallui/util/GifUtil;->handler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/incallui/util/GifUtil;->access$100(Lcom/android/incallui/util/GifUtil;)Landroid/os/Handler;
 
     move-result-object v1

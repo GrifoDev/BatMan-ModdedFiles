@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$8;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mHdWifiIcon:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1400(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$8;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mHdWifiIcon:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1400(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/ImageView;
 
     move-result-object v1
@@ -68,7 +66,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$8;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mAttemptingTextSPR:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1500(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -77,7 +74,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$8;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mAttemptingTextSPR:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1500(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/TextView;
 
     move-result-object v1

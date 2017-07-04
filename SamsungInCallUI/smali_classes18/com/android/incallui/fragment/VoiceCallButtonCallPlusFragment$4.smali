@@ -101,7 +101,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mHandler:Landroid/os/Handler;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1600(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/os/Handler;
 
     move-result-object v19
@@ -120,7 +119,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mHandler:Landroid/os/Handler;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1600(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/os/Handler;
 
     move-result-object v19
@@ -136,7 +134,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mHandler:Landroid/os/Handler;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1600(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/os/Handler;
 
     move-result-object v19
@@ -155,7 +152,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mHandler:Landroid/os/Handler;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1600(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Landroid/os/Handler;
 
     move-result-object v19
@@ -246,7 +242,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->isoutgoing:Z
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1700(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Z
 
     move-result v19
@@ -266,7 +261,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->orientation:I
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1800(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)I
 
     move-result v19
@@ -285,7 +279,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->orientation:I
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1800(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)I
 
     move-result v19
@@ -304,7 +297,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->orientation:I
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1800(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)I
 
     move-result v19
@@ -560,7 +552,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mPager:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
 
     move-result-object v19
@@ -573,7 +564,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mPager:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
 
     move-result-object v19
@@ -589,7 +579,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mPager_out:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$300(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
 
     move-result-object v19
@@ -602,7 +591,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mPager_out:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$300(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
 
     move-result-object v19
@@ -620,7 +608,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mBackground:Ljava/lang/String;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1900(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/String;
 
     move-result-object v19
@@ -652,7 +639,6 @@
 
     move-object/from16 v20, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->latitude:Ljava/lang/Double;
     invoke-static/range {v20 .. v20}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2000(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/Double;
 
     move-result-object v20
@@ -673,7 +659,6 @@
 
     move-object/from16 v20, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->longitude:Ljava/lang/Double;
     invoke-static/range {v20 .. v20}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/Double;
 
     move-result-object v20
@@ -712,7 +697,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->latitude:Ljava/lang/Double;
     invoke-static/range {v23 .. v23}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2000(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/Double;
 
     move-result-object v23
@@ -727,7 +711,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->longitude:Ljava/lang/Double;
     invoke-static/range {v23 .. v23}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/Double;
 
     move-result-object v23
@@ -742,7 +725,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->latitude:Ljava/lang/Double;
     invoke-static/range {v23 .. v23}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2000(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/Double;
 
     move-result-object v23
@@ -757,7 +739,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->longitude:Ljava/lang/Double;
     invoke-static/range {v23 .. v23}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/Double;
 
     move-result-object v23
@@ -831,7 +812,6 @@
 
     move-object/from16 v0, v19
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->checkThenModify(I)V
     invoke-static {v0, v7}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2200(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;I)V
 
     goto/16 :goto_0
@@ -894,7 +874,6 @@
 
     move-object/from16 v19, v0
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->recordClicked()V
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2300(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)V
 
     goto/16 :goto_0
@@ -908,7 +887,6 @@
 
     move-object/from16 v0, v19
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->checkThenModify(I)V
     invoke-static {v0, v7}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2200(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;I)V
 
     goto/16 :goto_0
@@ -1156,7 +1134,6 @@
 
     move-object/from16 v19, v0
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->emailClicked()V
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2400(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)V
 
     goto/16 :goto_0
@@ -1442,7 +1419,6 @@
 
     move-object/from16 v20, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mAction:Ljava/lang/String;
     invoke-static/range {v20 .. v20}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2500(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/String;
 
     move-result-object v20
@@ -1453,7 +1429,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mUri:Ljava/lang/String;
     invoke-static/range {v21 .. v21}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2600(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/String;
 
     move-result-object v21
@@ -1469,7 +1444,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mPager:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
 
     move-result-object v19
@@ -1482,7 +1456,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mPager:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
 
     move-result-object v19
@@ -1500,7 +1473,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mPager:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
 
     move-result-object v19
@@ -1513,7 +1485,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mPager:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
     invoke-static/range {v19 .. v19}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;
 
     move-result-object v19

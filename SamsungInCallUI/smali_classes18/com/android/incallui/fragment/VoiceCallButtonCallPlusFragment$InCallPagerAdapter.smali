@@ -64,7 +64,6 @@
 
     move-result-object v0
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->PAGE_COUNT:I
     invoke-static {}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$700()I
 
     move-result v1
@@ -81,7 +80,6 @@
 
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->PAGE_COUNT:I
     invoke-static {}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$700()I
 
     move-result v0
@@ -126,10 +124,8 @@
 
     check-cast v4, Landroid/support/v4/view/ViewPager;
 
-    # setter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mCurrentPageScrollState:I
     invoke-static {v9}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$602(I)I
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->PAGE_CALLPLUS:I
     invoke-static {}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$800()I
 
     move-result v5
@@ -203,7 +199,6 @@
     :goto_0
     iget-object v5, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallPagerAdapter;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->inflateCallPlus(Landroid/view/View;)V
     invoke-static {v5, v3}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$900(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Landroid/view/View;)V
 
     :cond_0
@@ -235,7 +230,6 @@
     :cond_1
     iget-object v5, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallPagerAdapter;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->updateVoiceCallButtons()V
     invoke-static {v5}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1300(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)V
 
     return-object v3
@@ -252,7 +246,6 @@
     goto :goto_0
 
     :cond_3
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->PAGE_INCALL:I
     invoke-static {}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$200()I
 
     move-result v5
@@ -326,7 +319,6 @@
     :goto_2
     iget-object v5, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallPagerAdapter;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->inflateInCallButtons(Landroid/view/View;)V
     invoke-static {v5, v3}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1000(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Landroid/view/View;)V
 
     goto :goto_1
@@ -343,7 +335,6 @@
     goto :goto_2
 
     :cond_5
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->PAGE_EXTRA:I
     invoke-static {}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1100()I
 
     move-result v5
@@ -364,7 +355,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallPagerAdapter;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->inflateExtraButtons(Landroid/view/View;)V
     invoke-static {v5, v3}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$1200(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Landroid/view/View;)V
 
     goto/16 :goto_1

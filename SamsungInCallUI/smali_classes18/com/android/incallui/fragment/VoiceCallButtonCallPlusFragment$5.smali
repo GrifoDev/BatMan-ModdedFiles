@@ -37,7 +37,6 @@
 .method public onPageScrollStateChanged(I)V
     .locals 0
 
-    # setter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mCurrentPageScrollState:I
     invoke-static {p1}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$602(I)I
 
     return-void
@@ -86,7 +85,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->updatePagerState(Lcom/android/incallui/Call;)V
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2700(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Lcom/android/incallui/Call;)V
 
     return-void

@@ -104,7 +104,6 @@
     :cond_2
     iget-object v4, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$PerformClickEvent;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
-    # getter for: Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->childView:Landroid/view/View;
     invoke-static {v4}, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->access$600(Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;)Landroid/view/View;
 
     move-result-object v4

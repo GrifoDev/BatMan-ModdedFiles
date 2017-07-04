@@ -52,7 +52,6 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mMediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$402(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
     return-void

@@ -43,7 +43,6 @@
 
     invoke-direct {v0, v1}, Lcom/sec/ims/options/CapabilityManager;-><init>(Landroid/content/Context;)V
 
-    # setter for: Lcom/android/incallui/util/ImsCommonUtils;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
     invoke-static {v0}, Lcom/android/incallui/util/ImsCommonUtils;->access$002(Lcom/sec/ims/options/CapabilityManager;)Lcom/sec/ims/options/CapabilityManager;
 
     return-void

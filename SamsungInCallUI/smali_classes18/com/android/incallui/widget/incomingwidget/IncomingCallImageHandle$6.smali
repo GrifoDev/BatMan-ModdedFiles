@@ -50,7 +50,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$6;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mHandleType:I
     invoke-static {v2}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$800(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)I
 
     move-result v2
@@ -73,7 +72,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$6;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mRedialArrowContainer:Landroid/view/View;
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$1500(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)Landroid/view/View;
 
     move-result-object v0
@@ -82,7 +80,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$6;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mRedialArrowContainer:Landroid/view/View;
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$1500(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)Landroid/view/View;
 
     move-result-object v0
@@ -91,7 +88,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$6;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mRedialArrowList:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$1600(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)Landroid/widget/ImageView;
 
     move-result-object v0

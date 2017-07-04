@@ -77,12 +77,10 @@
     :cond_0
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/incallui/SelectSimActivity;->mIsSelected:Z
     invoke-static {v1}, Lcom/android/incallui/SelectSimActivity;->access$102(Z)Z
 
     iget-object v1, p0, Lcom/android/incallui/SelectSimActivity$2;->this$0:Lcom/android/incallui/SelectSimActivity;
 
-    # getter for: Lcom/android/incallui/SelectSimActivity;->mAccountHandles:Ljava/util/List;
     invoke-static {v1}, Lcom/android/incallui/SelectSimActivity;->access$200(Lcom/android/incallui/SelectSimActivity;)Ljava/util/List;
 
     move-result-object v1

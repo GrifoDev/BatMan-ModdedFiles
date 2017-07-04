@@ -149,7 +149,6 @@
 
     iget-object v13, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mImageUri:Ljava/lang/String;
     invoke-static {v13}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$800(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/String;
 
     move-result-object v13
@@ -172,7 +171,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mImageUri:Ljava/lang/String;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$800(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/String;
 
     move-result-object v12
@@ -183,7 +181,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mImageUri:Ljava/lang/String;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$800(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/String;
 
     move-result-object v12
@@ -199,7 +196,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
 
     move-result-object v12
@@ -220,7 +216,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
 
     move-result-object v12
@@ -241,7 +236,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
 
     move-result-object v12
@@ -264,7 +258,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
 
     move-result-object v12
@@ -287,7 +280,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
 
     move-result-object v12
@@ -310,7 +302,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->popupWindowImage:Landroid/widget/PopupWindow;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$700(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/PopupWindow;
 
     move-result-object v12
@@ -325,7 +316,6 @@
 
     invoke-direct {v13, v7, v9, v1}, Landroid/widget/PopupWindow;-><init>(Landroid/view/View;II)V
 
-    # setter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->popupWindowImage:Landroid/widget/PopupWindow;
     invoke-static {v12, v13}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$702(Lcom/android/incallui/callerinfocard/CallerInfoCardView;Landroid/widget/PopupWindow;)Landroid/widget/PopupWindow;
 
     :cond_2
@@ -333,7 +323,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->popupWindowImage:Landroid/widget/PopupWindow;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$700(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/PopupWindow;
 
     move-result-object v12
@@ -348,7 +337,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->isImageOnly:Z
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1000(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Z
 
     move-result v12
@@ -359,7 +347,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->popupWindowImage:Landroid/widget/PopupWindow;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$700(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/PopupWindow;
 
     move-result-object v12
@@ -368,7 +355,6 @@
 
     iget-object v13, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImageMap:Landroid/widget/ImageView;
     invoke-static {v13}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1100(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/ImageView;
 
     move-result-object v13
@@ -382,7 +368,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->popupWindowImage:Landroid/widget/PopupWindow;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$700(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/PopupWindow;
 
     move-result-object v12
@@ -391,7 +376,6 @@
 
     iget-object v13, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImageMap:Landroid/widget/ImageView;
     invoke-static {v13}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1100(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/ImageView;
 
     move-result-object v13
@@ -415,7 +399,6 @@
 
     iget-object v13, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->latitude:Ljava/lang/Double;
     invoke-static {v13}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1200(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/Double;
 
     move-result-object v13
@@ -434,7 +417,6 @@
 
     iget-object v13, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->longitude:Ljava/lang/Double;
     invoke-static {v13}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1300(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/Double;
 
     move-result-object v13
@@ -467,7 +449,6 @@
 
     move-object/from16 v16, v0
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->latitude:Ljava/lang/Double;
     invoke-static/range {v16 .. v16}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1200(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/Double;
 
     move-result-object v16
@@ -482,7 +463,6 @@
 
     move-object/from16 v16, v0
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->longitude:Ljava/lang/Double;
     invoke-static/range {v16 .. v16}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1300(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/Double;
 
     move-result-object v16
@@ -497,7 +477,6 @@
 
     move-object/from16 v16, v0
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->latitude:Ljava/lang/Double;
     invoke-static/range {v16 .. v16}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1200(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/Double;
 
     move-result-object v16
@@ -512,7 +491,6 @@
 
     move-object/from16 v16, v0
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->longitude:Ljava/lang/Double;
     invoke-static/range {v16 .. v16}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$1300(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Ljava/lang/Double;
 
     move-result-object v16
@@ -541,7 +519,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
 
     move-result-object v12
@@ -560,7 +537,6 @@
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
     invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
 
     move-result-object v12

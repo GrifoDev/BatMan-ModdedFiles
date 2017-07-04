@@ -77,7 +77,6 @@
 
     iget-boolean v3, p0, Lcom/android/incallui/StatusBarNotifier$8;->val$allowFullScreenIntent:Z
 
-    # invokes: Lcom/android/incallui/StatusBarNotifier;->buildAndSendNotification(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Z)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/incallui/StatusBarNotifier;->access$900(Lcom/android/incallui/StatusBarNotifier;Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Z)V
 
     const/4 v0, 0x0

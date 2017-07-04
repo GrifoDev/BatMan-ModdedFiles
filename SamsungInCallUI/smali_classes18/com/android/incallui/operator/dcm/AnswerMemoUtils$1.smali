@@ -48,10 +48,8 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->mediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v0}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->access$002(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
-    # invokes: Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->guidanceBeepSoundPlay()V
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->access$100()V
 
     return-void

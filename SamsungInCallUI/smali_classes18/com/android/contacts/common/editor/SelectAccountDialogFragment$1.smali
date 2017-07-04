@@ -51,7 +51,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/contacts/common/editor/SelectAccountDialogFragment;->onAccountSelected(Lcom/android/contacts/common/model/account/AccountWithDataSet;)V
     invoke-static {v0, v1}, Lcom/android/contacts/common/editor/SelectAccountDialogFragment;->access$000(Lcom/android/contacts/common/editor/SelectAccountDialogFragment;Lcom/android/contacts/common/model/account/AccountWithDataSet;)V
 
     return-void

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$10;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallPhoto:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$500(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$10;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallPhoto:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$500(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -59,7 +57,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$10;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallPhoto:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$500(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/ImageView;
 
     move-result-object v1

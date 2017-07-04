@@ -41,7 +41,6 @@
 
     const-string v2, "type"
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;)Ljava/lang/String;
     invoke-static {p2, v2}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1400(Landroid/util/AttributeSet;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -99,7 +98,6 @@
 
     const/4 v3, -0x1
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;I)I
     invoke-static {p2, v2, v3}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1500(Landroid/util/AttributeSet;Ljava/lang/String;I)I
 
     move-result v2
@@ -326,7 +324,6 @@
 
     const/4 v2, -0x1
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;I)I
     invoke-static {p3, v1, v2}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1500(Landroid/util/AttributeSet;Ljava/lang/String;I)I
 
     move-result v1

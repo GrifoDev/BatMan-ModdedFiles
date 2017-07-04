@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$2;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopContent:Landroid/widget/TextView;
     invoke-static {v1}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$200(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -68,26 +67,22 @@
 
     iget-object v2, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$2;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopContent:Landroid/widget/TextView;
     invoke-static {v2}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$200(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/TextView;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$2;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopSubContent:Landroid/widget/TextView;
     invoke-static {v3}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$300(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/TextView;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$2;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopDate:Landroid/widget/TextView;
     invoke-static {v4}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$400(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/widget/TextView;
 
     move-result-object v4
 
-    # invokes: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->arrangeContent(Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)Z
     invoke-static {v1, v2, v3, v4}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$500(Lcom/android/incallui/callerinfocard/CallerInfoCardView;Landroid/widget/TextView;Landroid/widget/TextView;Landroid/widget/TextView;)Z
 
     goto :goto_0

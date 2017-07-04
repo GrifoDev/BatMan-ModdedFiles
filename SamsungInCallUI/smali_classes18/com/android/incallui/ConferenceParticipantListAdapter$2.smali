@@ -79,7 +79,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$2;->this$0:Lcom/android/incallui/ConferenceParticipantListAdapter;
 
-    # getter for: Lcom/android/incallui/ConferenceParticipantListAdapter;->mParticipantsByCallId:Ljava/util/HashMap;
     invoke-static {v5}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$100(Lcom/android/incallui/ConferenceParticipantListAdapter;)Ljava/util/HashMap;
 
     move-result-object v5
@@ -100,7 +99,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$2;->this$0:Lcom/android/incallui/ConferenceParticipantListAdapter;
 
-    # invokes: Lcom/android/incallui/ConferenceParticipantListAdapter;->deleteParticipantInfo(Ljava/util/ArrayList;)V
     invoke-static {v5, v4}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$200(Lcom/android/incallui/ConferenceParticipantListAdapter;Ljava/util/ArrayList;)V
 
     :cond_0

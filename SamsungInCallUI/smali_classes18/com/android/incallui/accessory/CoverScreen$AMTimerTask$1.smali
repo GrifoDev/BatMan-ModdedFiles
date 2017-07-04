@@ -81,7 +81,6 @@
 
     iget-object v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mAmStatusText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$2300(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -92,7 +91,6 @@
 
     iget-object v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mAmStatusText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$2300(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -101,7 +99,6 @@
 
     iget-object v1, v1, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mAmCurrentStatusText:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/incallui/accessory/CoverScreen;->access$2400(Lcom/android/incallui/accessory/CoverScreen;)Ljava/lang/String;
 
     move-result-object v1
@@ -117,7 +114,6 @@
 
     iget-object v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mAmStatusText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$2300(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -128,7 +124,6 @@
 
     iget-object v0, v0, Lcom/android/incallui/accessory/CoverScreen$AMTimerTask;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mAmStatusText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$2300(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v0

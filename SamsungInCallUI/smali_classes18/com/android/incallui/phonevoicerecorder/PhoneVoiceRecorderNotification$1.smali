@@ -53,7 +53,6 @@
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$1;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->mPhoneVoiceRecorderNotificationService:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
     invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->access$000(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;)Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
 
     move-result-object v1
@@ -62,7 +61,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$1;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->mPhoneVoiceRecorderNotificationService:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
     invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->access$000(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;)Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
 
     move-result-object v1

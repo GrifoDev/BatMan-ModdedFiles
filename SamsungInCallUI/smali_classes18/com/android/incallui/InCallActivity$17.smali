@@ -44,7 +44,6 @@
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/android/incallui/InCallActivity;->updateScreenType(Z)V
     invoke-static {v0, v1}, Lcom/android/incallui/InCallActivity;->access$1600(Lcom/android/incallui/InCallActivity;Z)V
 
     invoke-static {}, Lcom/android/incallui/InCallNotifier;->getInstance()Lcom/android/incallui/InCallNotifier;

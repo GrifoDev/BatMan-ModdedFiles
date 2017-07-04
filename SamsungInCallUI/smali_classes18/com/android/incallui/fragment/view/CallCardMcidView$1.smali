@@ -46,7 +46,6 @@
     :sswitch_0
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    # invokes: Lcom/android/incallui/fragment/view/CallCardMcidView;->animateBlendingImage(Z)V
     invoke-static {v0, v2}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$000(Lcom/android/incallui/fragment/view/CallCardMcidView;Z)V
 
     const/16 v0, 0xc8
@@ -62,24 +61,20 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mShowBlendingImage:Z
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$102(Lcom/android/incallui/fragment/view/CallCardMcidView;Z)Z
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
     iget-object v1, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mShowBlendingImage:Z
     invoke-static {v1}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$100(Lcom/android/incallui/fragment/view/CallCardMcidView;)Z
 
     move-result v1
 
-    # invokes: Lcom/android/incallui/fragment/view/CallCardMcidView;->animateBlendingImage(Z)V
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$000(Lcom/android/incallui/fragment/view/CallCardMcidView;Z)V
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mPhotoringBlendingBtn:Landroid/view/View;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$200(Lcom/android/incallui/fragment/view/CallCardMcidView;)Landroid/view/View;
 
     move-result-object v0

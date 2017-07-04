@@ -63,7 +63,6 @@
 
     const/4 v2, 0x0
 
-    # invokes: Lcom/android/incallui/fragment/AnswerImageFragment;->setDescriptionToHandle(Landroid/view/View;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/incallui/fragment/AnswerImageFragment;->access$000(Lcom/android/incallui/fragment/AnswerImageFragment;Landroid/view/View;Z)V
 
     :cond_0

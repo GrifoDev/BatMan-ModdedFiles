@@ -48,7 +48,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$2;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
-    # getter for: Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mIsShowing:Z
     invoke-static {v2}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->access$200(Lcom/android/incallui/fragment/manager/DialpadFragmentManager;)Z
 
     move-result v2
@@ -95,7 +94,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$2;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
-    # invokes: Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->deleteSendDtmfPopDelayed()V
     invoke-static {v2}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->access$300(Lcom/android/incallui/fragment/manager/DialpadFragmentManager;)V
 
     :cond_0

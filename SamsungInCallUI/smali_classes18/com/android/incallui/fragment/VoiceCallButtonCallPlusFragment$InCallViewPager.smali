@@ -49,7 +49,6 @@
     invoke-virtual {p0, p1}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     :cond_0
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mCurrentPageScrollState:I
     invoke-static {}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$600()I
 
     move-result v0

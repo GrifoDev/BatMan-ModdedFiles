@@ -40,12 +40,10 @@
 
     const/4 v2, 0x0
 
-    # setter for: Lcom/android/incallui/service/SecCallPopupContainer;->mIsAnswerProcessing:Z
     invoke-static {v1, v2}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1702(Lcom/android/incallui/service/SecCallPopupContainer;Z)Z
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$9;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v1
@@ -62,7 +60,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$9;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mRingingCallPopupButtons:Landroid/view/View;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1800(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/view/View;
 
     move-result-object v1
@@ -71,7 +68,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$9;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mCallPopupInfo:Landroid/widget/RelativeLayout;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1900(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/RelativeLayout;
 
     move-result-object v1
@@ -80,7 +76,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$9;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mDuringCallPopupButtons:Landroid/view/View;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2000(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/view/View;
 
     move-result-object v1
@@ -89,7 +84,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$9;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mRootView:Landroid/widget/RelativeLayout;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2100(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/RelativeLayout;
 
     move-result-object v1
@@ -100,7 +94,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$9;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v1

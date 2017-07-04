@@ -80,7 +80,6 @@
 
     check-cast v0, Lcom/android/incallui/remotecall/remotecall/RemoteCall;
 
-    # invokes: Lcom/android/incallui/remotecall/remotecall/RemoteCallList;->finishDisconnectedCall(Lcom/android/incallui/remotecall/remotecall/RemoteCall;)V
     invoke-static {v1, v0}, Lcom/android/incallui/remotecall/remotecall/RemoteCallList;->access$000(Lcom/android/incallui/remotecall/remotecall/RemoteCallList;Lcom/android/incallui/remotecall/remotecall/RemoteCall;)V
 
     goto :goto_0

@@ -51,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$1;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # invokes: Lcom/android/contacts/common/dialog/CallSubjectDialog;->updateCharacterLimit()V
     invoke-static {v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$000(Lcom/android/contacts/common/dialog/CallSubjectDialog;)V
 
     return-void

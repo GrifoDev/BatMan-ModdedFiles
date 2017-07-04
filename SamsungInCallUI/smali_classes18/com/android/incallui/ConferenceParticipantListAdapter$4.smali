@@ -63,7 +63,6 @@
 
     const/4 v2, 0x0
 
-    # setter for: Lcom/android/incallui/ConferenceParticipantListAdapter;->mIsDeleteActionPending:Z
     invoke-static {v1, v2}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$502(Lcom/android/incallui/ConferenceParticipantListAdapter;Z)Z
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
@@ -113,7 +112,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$4;->this$0:Lcom/android/incallui/ConferenceParticipantListAdapter;
 
-    # getter for: Lcom/android/incallui/ConferenceParticipantListAdapter;->mRemovedCallIds:Ljava/util/List;
     invoke-static {v1}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$300(Lcom/android/incallui/ConferenceParticipantListAdapter;)Ljava/util/List;
 
     move-result-object v1
@@ -137,7 +135,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$4;->this$0:Lcom/android/incallui/ConferenceParticipantListAdapter;
 
-    # invokes: Lcom/android/incallui/ConferenceParticipantListAdapter;->removeParticipantList(Ljava/lang/String;)V
     invoke-static {v2, v0}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$400(Lcom/android/incallui/ConferenceParticipantListAdapter;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -155,7 +152,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$4;->this$0:Lcom/android/incallui/ConferenceParticipantListAdapter;
 
-    # getter for: Lcom/android/incallui/ConferenceParticipantListAdapter;->mRemovedCallIds:Ljava/util/List;
     invoke-static {v1}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$300(Lcom/android/incallui/ConferenceParticipantListAdapter;)Ljava/util/List;
 
     move-result-object v1

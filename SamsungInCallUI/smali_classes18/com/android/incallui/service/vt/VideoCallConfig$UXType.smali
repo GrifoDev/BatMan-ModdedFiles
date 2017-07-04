@@ -38,7 +38,6 @@
 .method public static getString()Ljava/lang/String;
     .locals 2
 
-    # getter for: Lcom/android/incallui/service/vt/VideoCallConfig;->mUXType:I
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->access$000()I
 
     move-result v0
@@ -53,7 +52,6 @@
     return-object v0
 
     :cond_0
-    # getter for: Lcom/android/incallui/service/vt/VideoCallConfig;->mUXType:I
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->access$000()I
 
     move-result v0
@@ -67,7 +65,6 @@
     goto :goto_0
 
     :cond_1
-    # getter for: Lcom/android/incallui/service/vt/VideoCallConfig;->mUXType:I
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->access$000()I
 
     move-result v0
@@ -81,7 +78,6 @@
     goto :goto_0
 
     :cond_2
-    # getter for: Lcom/android/incallui/service/vt/VideoCallConfig;->mUXType:I
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->access$000()I
 
     move-result v0

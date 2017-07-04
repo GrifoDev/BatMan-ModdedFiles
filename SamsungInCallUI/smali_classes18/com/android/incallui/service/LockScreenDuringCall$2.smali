@@ -41,7 +41,6 @@
 
     const-string v1, "onDoubleTap event - stopSelf"
 
-    # invokes: Lcom/android/incallui/service/LockScreenDuringCall;->sendNextLockEventAndStopNow(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/service/LockScreenDuringCall;->access$000(Lcom/android/incallui/service/LockScreenDuringCall;Ljava/lang/String;)V
 
     const/4 v0, 0x0

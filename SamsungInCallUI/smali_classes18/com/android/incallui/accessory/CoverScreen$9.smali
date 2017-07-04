@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$9;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mSmartCallPhoto:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1400(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/ImageView;
 
     move-result-object v0

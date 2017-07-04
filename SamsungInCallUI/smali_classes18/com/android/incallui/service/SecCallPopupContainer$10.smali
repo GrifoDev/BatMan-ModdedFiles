@@ -51,12 +51,10 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupContainer$10;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mRecordTime:Landroid/widget/Chronometer;
     invoke-static {v4}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2200(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/Chronometer;
 
     move-result-object v4
 
-    # invokes: Lcom/android/incallui/service/SecCallPopupContainer;->setTTS(JLandroid/widget/Chronometer;)V
     invoke-static {v3, v0, v1, v4}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2300(Lcom/android/incallui/service/SecCallPopupContainer;JLandroid/widget/Chronometer;)V
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;

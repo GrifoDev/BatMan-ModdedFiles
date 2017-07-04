@@ -131,7 +131,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$SelectAccountListAdapter;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
-    # getter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mTelecomManager:Landroid/telecom/TelecomManager;
     invoke-static {v5}, Lcom/android/incallui/SelectPhoneAccountDialogFragment;->access$500(Lcom/android/incallui/SelectPhoneAccountDialogFragment;)Landroid/telecom/TelecomManager;
 
     move-result-object v5

@@ -56,7 +56,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$1;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v1
@@ -65,12 +64,10 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$1;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # invokes: Lcom/android/incallui/service/SecCallPopupContainer;->updateGradientView()V
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$100(Lcom/android/incallui/service/SecCallPopupContainer;)V
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$1;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v1

@@ -105,7 +105,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/EcidClient$EcidLookupQueryHandler;->this$0:Lcom/android/incallui/service/EcidClient;
 
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_ownerCtx:Ljava/lang/ref/WeakReference;
     invoke-static {v1}, Lcom/android/incallui/service/EcidClient;->access$000(Lcom/android/incallui/service/EcidClient;)Ljava/lang/ref/WeakReference;
 
     move-result-object v1
@@ -114,7 +113,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/EcidClient$EcidLookupQueryHandler;->this$0:Lcom/android/incallui/service/EcidClient;
 
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_ownerCtx:Ljava/lang/ref/WeakReference;
     invoke-static {v1}, Lcom/android/incallui/service/EcidClient;->access$000(Lcom/android/incallui/service/EcidClient;)Ljava/lang/ref/WeakReference;
 
     move-result-object v1
@@ -424,7 +422,6 @@
     :goto_3
     iget-object v1, p0, Lcom/android/incallui/service/EcidClient$EcidLookupQueryHandler;->this$0:Lcom/android/incallui/service/EcidClient;
 
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_listener:Lcom/android/incallui/service/EcidClient$Listener;
     invoke-static {v1}, Lcom/android/incallui/service/EcidClient;->access$100(Lcom/android/incallui/service/EcidClient;)Lcom/android/incallui/service/EcidClient$Listener;
 
     move-result-object v1
@@ -433,14 +430,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/EcidClient$EcidLookupQueryHandler;->this$0:Lcom/android/incallui/service/EcidClient;
 
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_listener:Lcom/android/incallui/service/EcidClient$Listener;
     invoke-static {v1}, Lcom/android/incallui/service/EcidClient;->access$100(Lcom/android/incallui/service/EcidClient;)Lcom/android/incallui/service/EcidClient$Listener;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/service/EcidClient$EcidLookupQueryHandler;->this$0:Lcom/android/incallui/service/EcidClient;
 
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_call:Lcom/android/incallui/Call;
     invoke-static {v2}, Lcom/android/incallui/service/EcidClient;->access$200(Lcom/android/incallui/service/EcidClient;)Lcom/android/incallui/Call;
 
     move-result-object v2

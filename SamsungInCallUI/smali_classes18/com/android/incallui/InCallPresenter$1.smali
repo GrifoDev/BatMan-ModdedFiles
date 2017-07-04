@@ -42,7 +42,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$1;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    # getter for: Lcom/android/incallui/InCallPresenter;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/incallui/InCallPresenter;->access$000(Lcom/android/incallui/InCallPresenter;)Landroid/os/Handler;
 
     move-result-object v0
@@ -51,7 +50,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$1;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    # getter for: Lcom/android/incallui/InCallPresenter;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/incallui/InCallPresenter;->access$000(Lcom/android/incallui/InCallPresenter;)Landroid/os/Handler;
 
     move-result-object v0
@@ -64,7 +62,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallPresenter$1;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    # getter for: Lcom/android/incallui/InCallPresenter;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/incallui/InCallPresenter;->access$000(Lcom/android/incallui/InCallPresenter;)Landroid/os/Handler;
 
     move-result-object v0

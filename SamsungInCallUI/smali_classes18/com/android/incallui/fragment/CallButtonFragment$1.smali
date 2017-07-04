@@ -58,7 +58,6 @@
     :cond_0
     iget-object v2, p0, Lcom/android/incallui/fragment/CallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/CallButtonFragment;
 
-    # invokes: Lcom/android/incallui/fragment/CallButtonFragment;->resetBluetoothDeviceList()V
     invoke-static {v2}, Lcom/android/incallui/fragment/CallButtonFragment;->access$100(Lcom/android/incallui/fragment/CallButtonFragment;)V
 
     iget-object v2, p0, Lcom/android/incallui/fragment/CallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/CallButtonFragment;

@@ -477,7 +477,6 @@
 .method private getDrawableForBitmap(Landroid/content/res/Resources;Landroid/graphics/Bitmap;Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;)Landroid/graphics/drawable/Drawable;
     .locals 3
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->mIsCircular:Z
     invoke-static {p3}, Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->access$000(Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;)Z
 
     move-result v1
@@ -682,7 +681,6 @@
 
     if-nez v2, :cond_0
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->mIsCircular:Z
     invoke-static {p2}, Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->access$000(Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;)Z
 
     move-result v6
@@ -699,7 +697,6 @@
 
     if-nez v6, :cond_1
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->mIsCircular:Z
     invoke-static {p2}, Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->access$000(Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;)Z
 
     move-result v6
@@ -756,7 +753,6 @@
     goto :goto_1
 
     :cond_3
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->mIsCircular:Z
     invoke-static {p2}, Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->access$000(Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;)Z
 
     move-result v6
@@ -1039,7 +1035,6 @@
 
     invoke-interface {p1, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    # getter for: Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->mId:J
     invoke-static {v3}, Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;->access$100(Lcom/android/contacts/common/ContactPhotoManagerImpl$Request;)J
 
     move-result-wide v4

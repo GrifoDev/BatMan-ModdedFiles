@@ -4823,12 +4823,10 @@
 
     iget-object v3, p0, Lcom/android/contacts/common/list/ContactListItemView;->mTextHighlighter:Lcom/android/contacts/common/format/TextHighlighter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;->start:I
     invoke-static {v0}, Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;->access$200(Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;)I
 
     move-result v4
 
-    # getter for: Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;->end:I
     invoke-static {v0}, Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;->access$300(Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;)I
 
     move-result v5
@@ -5049,12 +5047,10 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/list/ContactListItemView;->mTextHighlighter:Lcom/android/contacts/common/format/TextHighlighter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;->start:I
     invoke-static {v0}, Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;->access$200(Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;)I
 
     move-result v3
 
-    # getter for: Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;->end:I
     invoke-static {v0}, Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;->access$300(Lcom/android/contacts/common/list/ContactListItemView$HighlightSequence;)I
 
     move-result v4

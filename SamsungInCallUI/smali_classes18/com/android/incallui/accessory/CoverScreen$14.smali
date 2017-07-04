@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mMaskPanelForSlidingDrawer:Landroid/view/View;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1700(Lcom/android/incallui/accessory/CoverScreen;)Landroid/view/View;
 
     move-result-object v0
@@ -45,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mMaskPanelForSlidingDrawer:Landroid/view/View;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1700(Lcom/android/incallui/accessory/CoverScreen;)Landroid/view/View;
 
     move-result-object v0
@@ -57,7 +55,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mIncomingCallImageWidget:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1800(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;
 
     move-result-object v0
@@ -66,14 +63,12 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mIncomingCallImageWidget:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1800(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/incallui/accessory/CoverScreen$14;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mRejectCallWithMsgHandle:Landroid/view/View;
     invoke-static {v1}, Lcom/android/incallui/accessory/CoverScreen;->access$1900(Lcom/android/incallui/accessory/CoverScreen;)Landroid/view/View;
 
     move-result-object v1

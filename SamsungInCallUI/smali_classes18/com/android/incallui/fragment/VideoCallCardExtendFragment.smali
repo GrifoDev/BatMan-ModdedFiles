@@ -1889,6 +1889,21 @@
 
     const/4 v5, 0x0
 
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->getConferenceCallManagerShowingState()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const-string v4, "do not update visiblity fullscreen in case of showing conference manager"
+
+    invoke-static {v4}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->getPresenter()Lcom/android/incallui/Presenter;
 
     move-result-object v4
@@ -1901,21 +1916,21 @@
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->mMoreButtonContainer:Landroid/view/View;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2
 
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->mMoreButtonContainer:Landroid/view/View;
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_6
 
     move v4, v5
 
-    :goto_0
+    :goto_1
     invoke-virtual {v7, v4}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_0
+    :cond_2
     iget-object v4, p0, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->mProfileIconUpper:Landroid/widget/ImageView;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3
 
     iget-wide v8, p0, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->mUserType:J
 
@@ -1923,27 +1938,27 @@
 
     cmp-long v4, v8, v10
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3
 
     iget-object v7, p0, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->mProfileIconUpper:Landroid/widget/ImageView;
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_7
 
     move v4, v5
 
-    :goto_1
+    :goto_2
     invoke-virtual {v7, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    :cond_1
+    :cond_3
     iget-object v4, p0, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->mManageStub:Landroid/view/ViewStub;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_0
 
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4
 
     const/16 v4, 0x80
 
@@ -1955,23 +1970,23 @@
 
     move-result v1
 
-    :cond_2
-    if-nez p1, :cond_7
+    :cond_4
+    if-nez p1, :cond_8
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8
 
     move v3, v5
 
-    :goto_2
+    :goto_3
     iget-object v4, p0, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->mManageStub:Landroid/view/ViewStub;
 
     invoke-virtual {v4}, Landroid/view/ViewStub;->getVisibility()I
 
     move-result v4
 
-    if-eq v4, v3, :cond_3
+    if-eq v4, v3, :cond_5
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1993,16 +2008,10 @@
 
     invoke-static {v4}, Lcom/android/incallui/service/vt/VideoCallLog;->callcard(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_5
     iget-object v4, p0, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->mManageStub:Landroid/view/ViewStub;
 
     invoke-virtual {v4, v3}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    :cond_4
-    return-void
-
-    :cond_5
-    move v4, v6
 
     goto :goto_0
 
@@ -2012,9 +2021,14 @@
     goto :goto_1
 
     :cond_7
-    move v3, v6
+    move v4, v6
 
     goto :goto_2
+
+    :cond_8
+    move v3, v6
+
+    goto :goto_3
 .end method
 
 
@@ -2967,6 +2981,8 @@
     invoke-virtual {v0, v4}, Landroid/widget/Button;->setAlpha(F)V
 
     :cond_6
+    invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->setPrimaryBanner()V
+
     invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallCardExtendFragment;->setSecondaryBanner()V
 
     goto :goto_0

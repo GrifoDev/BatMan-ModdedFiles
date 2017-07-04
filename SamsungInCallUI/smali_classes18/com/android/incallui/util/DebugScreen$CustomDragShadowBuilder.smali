@@ -93,7 +93,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/util/DebugScreen$CustomDragShadowBuilder;->this$0:Lcom/android/incallui/util/DebugScreen;
 
-    # getter for: Lcom/android/incallui/util/DebugScreen;->mDragStart:Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
     invoke-static {v2}, Lcom/android/incallui/util/DebugScreen;->access$000(Lcom/android/incallui/util/DebugScreen;)Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
 
     move-result-object v2
@@ -106,7 +105,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/util/DebugScreen$CustomDragShadowBuilder;->this$0:Lcom/android/incallui/util/DebugScreen;
 
-    # getter for: Lcom/android/incallui/util/DebugScreen;->mDragStart:Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
     invoke-static {v2}, Lcom/android/incallui/util/DebugScreen;->access$000(Lcom/android/incallui/util/DebugScreen;)Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
 
     move-result-object v2
@@ -117,7 +115,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/util/DebugScreen$CustomDragShadowBuilder;->this$0:Lcom/android/incallui/util/DebugScreen;
 
-    # getter for: Lcom/android/incallui/util/DebugScreen;->mDragStart:Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
     invoke-static {v3}, Lcom/android/incallui/util/DebugScreen;->access$000(Lcom/android/incallui/util/DebugScreen;)Lcom/android/incallui/service/vt/VideoCallMetrics$Position;
 
     move-result-object v3

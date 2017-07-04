@@ -46,7 +46,6 @@
 
     iget-object v0, v0, Lcom/android/incallui/CircularRevealFragment$2;->this$0:Lcom/android/incallui/CircularRevealFragment;
 
-    # getter for: Lcom/android/incallui/CircularRevealFragment;->mListener:Lcom/android/incallui/CircularRevealFragment$OnCircularRevealCompleteListener;
     invoke-static {v0}, Lcom/android/incallui/CircularRevealFragment;->access$200(Lcom/android/incallui/CircularRevealFragment;)Lcom/android/incallui/CircularRevealFragment$OnCircularRevealCompleteListener;
 
     move-result-object v0
@@ -57,7 +56,6 @@
 
     iget-object v0, v0, Lcom/android/incallui/CircularRevealFragment$2;->this$0:Lcom/android/incallui/CircularRevealFragment;
 
-    # getter for: Lcom/android/incallui/CircularRevealFragment;->mListener:Lcom/android/incallui/CircularRevealFragment$OnCircularRevealCompleteListener;
     invoke-static {v0}, Lcom/android/incallui/CircularRevealFragment;->access$200(Lcom/android/incallui/CircularRevealFragment;)Lcom/android/incallui/CircularRevealFragment$OnCircularRevealCompleteListener;
 
     move-result-object v0

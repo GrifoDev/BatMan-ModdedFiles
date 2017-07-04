@@ -70,7 +70,6 @@
 
     check-cast v1, Landroid/support/v4/view/ViewPager;
 
-    # setter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mCurrentPageScrollState:I
     invoke-static {v5}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$502(I)I
 
     if-nez p2, :cond_0
@@ -114,7 +113,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallPagerAdapter;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    # invokes: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->updateVoiceCallButtons()V
     invoke-static {v2}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$600(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;)V
 
     return-object v0

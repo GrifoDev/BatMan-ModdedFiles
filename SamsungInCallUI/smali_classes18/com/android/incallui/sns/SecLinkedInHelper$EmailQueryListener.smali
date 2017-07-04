@@ -60,7 +60,6 @@
     :cond_1
     iget-object v6, p0, Lcom/android/incallui/sns/SecLinkedInHelper$EmailQueryListener;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$400(Lcom/android/incallui/sns/SecLinkedInHelper;)Landroid/content/Context;
 
     move-result-object v6
@@ -172,7 +171,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/sns/SecLinkedInHelper$EmailQueryListener;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$400(Lcom/android/incallui/sns/SecLinkedInHelper;)Landroid/content/Context;
 
     move-result-object v6

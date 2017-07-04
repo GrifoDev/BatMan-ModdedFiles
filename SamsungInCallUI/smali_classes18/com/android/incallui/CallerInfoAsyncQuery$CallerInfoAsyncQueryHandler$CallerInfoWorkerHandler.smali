@@ -126,7 +126,6 @@
 
     iget-object v4, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
 
-    # invokes: Lcom/android/incallui/CallerInfoAsyncQuery;->sanitizeUriToString(Landroid/net/Uri;)Ljava/lang/String;
     invoke-static {v4}, Lcom/android/incallui/CallerInfoAsyncQuery;->access$000(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v4

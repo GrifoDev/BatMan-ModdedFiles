@@ -59,10 +59,8 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->mediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v0}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->access$002(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
-    # setter for: Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->mIsGuidancePlaying:Z
     invoke-static {v1}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->access$202(Z)Z
 
     const/4 v0, 0x1

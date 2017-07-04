@@ -82,7 +82,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$5;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    # invokes: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->resetRecordedCallInfo()V
     invoke-static {v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$500(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;)V
 
     return-void

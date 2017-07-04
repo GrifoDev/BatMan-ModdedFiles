@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$21;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mTtyNotificationDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1700(Lcom/android/incallui/InCallActivity;)Landroid/app/AlertDialog;
 
     move-result-object v0

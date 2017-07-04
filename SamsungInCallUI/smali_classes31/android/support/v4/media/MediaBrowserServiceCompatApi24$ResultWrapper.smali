@@ -116,7 +116,6 @@
     .end annotation
 
     :try_start_0
-    # getter for: Landroid/support/v4/media/MediaBrowserServiceCompatApi24;->sResultFlags:Ljava/lang/reflect/Field;
     invoke-static {}, Landroid/support/v4/media/MediaBrowserServiceCompatApi24;->access$000()Ljava/lang/reflect/Field;
 
     move-result-object v1

@@ -93,17 +93,14 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$2;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mRecordedCall:Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$100()Lcom/android/incallui/Call;
 
     move-result-object v3
 
-    # invokes: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->startRecord(Lcom/android/incallui/Call;)V
     invoke-static {v1, v3}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$200(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;Lcom/android/incallui/Call;)V
 
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$2;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mWaitForMicRelease:Z
     invoke-static {v1, v2}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$302(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;Z)Z
 
     goto :goto_1

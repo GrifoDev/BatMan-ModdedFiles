@@ -361,27 +361,27 @@
 .end method
 
 .method public onStateReceived(Lcom/samsung/android/sdk/bixby/data/State;)V
-    .locals 10
+    .locals 11
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/16 v7, 0x8
+    const/16 v8, 0x8
 
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getStateId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v3
+    move-result-object v4
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {v3, v8, v4}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static {v4, v9, v5}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v0
 
@@ -391,317 +391,185 @@
     return-void
 
     :cond_0
-    const-string v3, "IAStateListener"
+    const-string v4, "IAStateListener"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "Bixby_InCall - onStateReceived, stateId : "
+    const-string v10, "Bixby_InCall - onStateReceived, stateId : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v3, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
 
-    move-result v8
+    move-result v9
 
-    sparse-switch v8, :sswitch_data_0
+    sparse-switch v9, :sswitch_data_0
 
     :cond_1
     :goto_1
-    packed-switch v3, :pswitch_data_0
+    packed-switch v4, :pswitch_data_0
 
     goto :goto_0
 
     :pswitch_0
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto :goto_0
 
     :sswitch_0
-    const-string v8, "IncomingCall"
+    const-string v9, "IncomingCall"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    move v3, v4
+    move v4, v5
 
     goto :goto_1
 
     :sswitch_1
-    const-string v8, "CallAccept"
+    const-string v9, "CallAccept"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    move v3, v5
+    move v4, v6
 
     goto :goto_1
 
     :sswitch_2
-    const-string v8, "VoiceCallAccept"
+    const-string v9, "VoiceCallAccept"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
     goto :goto_1
 
     :sswitch_3
-    const-string v8, "CallReject"
+    const-string v9, "CallReject"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    move v3, v6
+    move v4, v7
 
     goto :goto_1
 
     :sswitch_4
-    const-string v8, "RejectCallWithMessage"
+    const-string v9, "RejectCallWithMessage"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    const/4 v3, 0x4
+    const/4 v4, 0x4
 
     goto :goto_1
 
     :sswitch_5
-    const-string v8, "CrossMessagesConversationViewShare"
+    const-string v9, "CrossMessagesConversationViewShare"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    const/4 v3, 0x5
+    const/4 v4, 0x5
 
     goto :goto_1
 
     :sswitch_6
-    const-string v8, "OutgoingCall"
+    const-string v9, "OutgoingCall"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    const/4 v3, 0x6
+    const/4 v4, 0x6
 
     goto :goto_1
 
     :sswitch_7
-    const-string v8, "SpeakerControl"
+    const-string v9, "SpeakerControl"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    const/4 v3, 0x7
+    const/4 v4, 0x7
 
     goto :goto_1
 
     :sswitch_8
-    const-string v8, "ReminderOn"
+    const-string v9, "ReminderOn"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    move v3, v7
+    move v4, v8
 
     goto :goto_1
 
     :sswitch_9
-    const-string v8, "ReminderOff"
+    const-string v9, "ReminderOff"
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    const/16 v3, 0x9
+    const/16 v4, 0x9
 
     goto :goto_1
 
     :pswitch_1
-    const-string v3, "IAStateListener"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "accept call - "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->isVideoCall()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    const-string v3, "IAStateListener"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Bixby_InCall - accept VT call - "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_CDMA()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v6}, Lcom/android/incallui/AnswerPresenter;->onAnswer(I)V
-
-    :goto_2
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_0
-
-    :cond_2
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v6}, Lcom/android/incallui/AnswerPresenter;->onAnswerWithWaitingCheck(I)V
-
-    goto :goto_2
-
-    :cond_3
-    const-string v3, "IAStateListener"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Bixby_InCall - accept VO call - "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Lcom/android/incallui/TelecomAdapter;->answerCall(Lcom/android/incallui/Call;)V
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/incallui/AnswerPresenter;->onAnswerWithWaitingCheck()V
-
-    goto :goto_2
-
-    :pswitch_2
-    const-string v3, "IAStateListener"
+    const-string v4, "IAStateListener"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -721,256 +589,425 @@
 
     move-result-object v5
 
-    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->isVideoCall()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_5
+    if-eqz v4, :cond_3
+
+    const-string v4, "IAStateListener"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Bixby_InCall - accept VT call - "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_CDMA()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_2
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v4}, Lcom/android/incallui/AnswerPresenter;->onAnswer(I)V
+    invoke-virtual {v4, v7}, Lcom/android/incallui/AnswerPresenter;->onAnswer(I)V
+
+    :goto_2
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_2
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v7}, Lcom/android/incallui/AnswerPresenter;->onAnswerWithWaitingCheck(I)V
+
+    goto :goto_2
+
+    :cond_3
+    const-string v4, "IAStateListener"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Bixby_InCall - accept VO call - "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Lcom/android/incallui/TelecomAdapter;->answerCall(Lcom/android/incallui/Call;)V
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/AnswerPresenter;->onAnswerWithWaitingCheck()V
+
+    goto :goto_2
+
+    :pswitch_2
+    const-string v4, "IAStateListener"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "accept call - "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->isVideoCall()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_CDMA()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v5}, Lcom/android/incallui/AnswerPresenter;->onAnswer(I)V
 
     :goto_3
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :cond_4
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v4}, Lcom/android/incallui/AnswerPresenter;->onAnswerWithWaitingCheck(I)V
+    invoke-virtual {v4, v5}, Lcom/android/incallui/AnswerPresenter;->onAnswerWithWaitingCheck(I)V
 
     goto :goto_3
 
     :cond_5
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v0}, Lcom/android/incallui/TelecomAdapter;->answerCall(Lcom/android/incallui/Call;)V
+    invoke-virtual {v4, v0}, Lcom/android/incallui/TelecomAdapter;->answerCall(Lcom/android/incallui/Call;)V
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
+    invoke-virtual {v4}, Lcom/android/incallui/InCallPresenter;->getAnswerPresenter()Lcom/android/incallui/AnswerPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/AnswerPresenter;->onAnswerWithWaitingCheck()V
+    invoke-virtual {v4}, Lcom/android/incallui/AnswerPresenter;->onAnswerWithWaitingCheck()V
 
     goto :goto_3
 
     :pswitch_3
-    const-string v3, "IAStateListener"
+    const-string v4, "IAStateListener"
 
-    const-string v4, "reject call"
+    const-string v5, "reject call"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result-object v3
+    move-result-object v4
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Lcom/android/incallui/InCallPresenter;->declineIncomingCall(Landroid/content/Context;)V
+
+    const-string v4, "IAStateListener"
+
+    const-string v5, "Bixby_InCall - requestNlg CallReject"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
+
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Lcom/android/incallui/InCallPresenter;->declineIncomingCall(Landroid/content/Context;)V
+    new-instance v5, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    const-string v3, "IAStateListener"
+    const-string v6, "CallReject"
 
-    const-string v4, "Bixby_InCall - requestNlg CallReject"
+    invoke-direct {v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    move-result-object v3
-
-    new-instance v4, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    const-string v5, "CallReject"
-
-    invoke-direct {v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;)V
 
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :pswitch_4
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :pswitch_5
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    const-string v4, "IAStateListener"
+
+    const-string v5, "Bixby_InCall - requestNlg - IncomingCall, IncomingCallNumber, Exist, no"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const-string v6, "IncomingCall"
+
+    invoke-direct {v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v6, "IncomingCallNumber"
+
+    const-string v7, "Exist"
+
+    const-string v8, "no"
+
+    invoke-virtual {v5, v6, v7, v8}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;)V
+
+    :cond_6
     invoke-direct {p0}, Lcom/android/incallui/ia/IAStateListener;->rejectCallWithMsg()V
 
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :pswitch_6
-    const-string v3, "IAStateListener"
+    const-string v4, "IAStateListener"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Bixby_InCall - OutgoingCall, call : "
+    const-string v6, "Bixby_InCall - OutgoingCall, call : "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :pswitch_7
     invoke-static {}, Lcom/android/incallui/AudioModeProvider;->getInstance()Lcom/android/incallui/AudioModeProvider;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/android/incallui/AudioModeProvider;->getAudioMode()I
+    invoke-virtual {v4}, Lcom/android/incallui/AudioModeProvider;->getAudioMode()I
 
     move-result v1
 
-    const-string v3, "IAStateListener"
+    const-string v4, "IAStateListener"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Bixby_InCall - current Audio stat : "
+    const-string v6, "Bixby_InCall - current Audio stat : "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    const-string v5, ", call : "
+    const-string v6, ", call : "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-ne v1, v7, :cond_6
+    if-ne v1, v8, :cond_7
 
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v7}, Lcom/android/incallui/TelecomAdapter;->setAudioRoute(I)V
+    invoke-virtual {v4, v8}, Lcom/android/incallui/TelecomAdapter;->setAudioRoute(I)V
 
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+    sget-object v5, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
 
     goto/16 :goto_0
 
     :pswitch_8
-    invoke-direct {p0, v5}, Lcom/android/incallui/ia/IAStateListener;->setReminder(Z)V
+    invoke-direct {p0, v6}, Lcom/android/incallui/ia/IAStateListener;->setReminder(Z)V
 
     goto/16 :goto_0
 
     :pswitch_9
-    invoke-direct {p0, v4}, Lcom/android/incallui/ia/IAStateListener;->setReminder(Z)V
+    invoke-direct {p0, v5}, Lcom/android/incallui/ia/IAStateListener;->setReminder(Z)V
 
     goto/16 :goto_0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

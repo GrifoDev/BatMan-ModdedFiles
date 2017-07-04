@@ -41,12 +41,10 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
-    # setter for: Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->mIsSelected:Z
     invoke-static {v2, v4}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->access$002(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;Z)Z
 
     iget-object v2, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
-    # getter for: Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->mAccountHandles:Ljava/util/List;
     invoke-static {v2}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->access$100(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;)Ljava/util/List;
 
     move-result-object v2
@@ -69,7 +67,6 @@
 
     iget-object v3, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
-    # getter for: Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->mIsDefaultChecked:Z
     invoke-static {v3}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->access$200(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;)Z
 
     move-result v3
@@ -78,7 +75,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
-    # getter for: Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->mListener:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;
     invoke-static {v2}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->access$300(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;)Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;
 
     move-result-object v2
@@ -87,7 +83,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;
 
-    # getter for: Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->mListener:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;
     invoke-static {v2}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->access$300(Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;)Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;
 
     move-result-object v2

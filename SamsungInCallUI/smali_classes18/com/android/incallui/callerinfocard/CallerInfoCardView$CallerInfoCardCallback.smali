@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$CallerInfoCardCallback;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    # invokes: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->onQueryCompleted(Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;)V
     invoke-static {v0, p3}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$000(Lcom/android/incallui/callerinfocard/CallerInfoCardView;Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;)V
 
     return-void

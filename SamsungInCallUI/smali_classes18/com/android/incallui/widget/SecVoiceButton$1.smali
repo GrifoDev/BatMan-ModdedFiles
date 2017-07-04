@@ -44,7 +44,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/widget/SecVoiceButton;->mIsAnimatorRunning:Z
     invoke-static {v0, v1}, Lcom/android/incallui/widget/SecVoiceButton;->access$002(Lcom/android/incallui/widget/SecVoiceButton;Z)Z
 
     invoke-virtual {p1}, Landroid/animation/Animator;->removeAllListeners()V

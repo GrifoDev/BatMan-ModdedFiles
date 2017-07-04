@@ -56,7 +56,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler$1;->this$1:Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
 
-    # invokes: Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->onQueryCompleteAsync(ILjava/lang/Object;Landroid/database/Cursor;)Lcom/android/incallui/CallerInfoAsyncQuery$CookieWrapper;
     invoke-static {v3, v2, v0, v1}, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->access$100(Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;ILjava/lang/Object;Landroid/database/Cursor;)Lcom/android/incallui/CallerInfoAsyncQuery$CookieWrapper;
 
     move-result-object v3
@@ -110,7 +109,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler$1;->this$1:Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
 
-    # getter for: Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mCallerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v0}, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->access$300(Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v0
@@ -157,7 +155,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler$1;->this$1:Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
 
-    # getter for: Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mCallerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v3}, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->access$300(Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v3
@@ -178,7 +175,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler$1;->this$1:Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;
 
-    # getter for: Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->mCallerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v4}, Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;->access$300(Lcom/android/incallui/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v4

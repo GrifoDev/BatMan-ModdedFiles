@@ -51,7 +51,6 @@
 
     iget-object v1, v1, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mEndcallRowId:I
     invoke-static {v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$400(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)I
 
     move-result v1
@@ -62,7 +61,6 @@
 
     iget-object v1, v1, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mAnimationFadeOut:Landroid/view/animation/AlphaAnimation;
     invoke-static {v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$600(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)Landroid/view/animation/AlphaAnimation;
 
     move-result-object v1

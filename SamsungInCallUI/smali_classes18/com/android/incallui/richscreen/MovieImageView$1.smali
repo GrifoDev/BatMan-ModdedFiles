@@ -45,7 +45,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/richscreen/MovieImageView$1;->this$0:Lcom/android/incallui/richscreen/MovieImageView;
 
-    # getter for: Lcom/android/incallui/richscreen/MovieImageView;->mIsMoviePause:Z
     invoke-static {v0}, Lcom/android/incallui/richscreen/MovieImageView;->access$000(Lcom/android/incallui/richscreen/MovieImageView;)Z
 
     move-result v0
@@ -54,7 +53,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/richscreen/MovieImageView$1;->this$0:Lcom/android/incallui/richscreen/MovieImageView;
 
-    # getter for: Lcom/android/incallui/richscreen/MovieImageView;->mIsShowFirstFrameOnly:Z
     invoke-static {v0}, Lcom/android/incallui/richscreen/MovieImageView;->access$100(Lcom/android/incallui/richscreen/MovieImageView;)Z
 
     move-result v0

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$8;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mPhoneNumber:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1200(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$8;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mPhoneNumber:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1200(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -68,7 +66,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$8;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mNumberLabel:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1300(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -77,7 +74,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$8;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mNumberLabel:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1300(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v1

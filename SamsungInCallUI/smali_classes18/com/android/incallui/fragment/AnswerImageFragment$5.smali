@@ -61,7 +61,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/AnswerImageFragment$5;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
-    # getter for: Lcom/android/incallui/fragment/AnswerImageFragment;->mRejectCallWithMsgHandle:Landroid/view/View;
     invoke-static {v1}, Lcom/android/incallui/fragment/AnswerImageFragment;->access$300(Lcom/android/incallui/fragment/AnswerImageFragment;)Landroid/view/View;
 
     move-result-object v1

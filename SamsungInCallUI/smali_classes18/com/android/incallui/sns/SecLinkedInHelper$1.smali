@@ -134,7 +134,6 @@
     :cond_1
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$400(Lcom/android/incallui/sns/SecLinkedInHelper;)Landroid/content/Context;
 
     move-result-object v4
@@ -169,7 +168,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
     invoke-static {v4}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$500(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
 
     move-result-object v4
@@ -178,7 +176,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
     invoke-static {v4}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$500(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
 
     move-result-object v4
@@ -202,7 +199,6 @@
     :try_start_0
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$400(Lcom/android/incallui/sns/SecLinkedInHelper;)Landroid/content/Context;
 
     move-result-object v4
@@ -239,7 +235,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
     invoke-static {v4}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$500(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
 
     move-result-object v4
@@ -250,7 +245,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
     invoke-static {v4}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$500(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
 
     move-result-object v4
@@ -261,7 +255,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
     invoke-static {v4}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$500(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
 
     move-result-object v4
@@ -286,7 +279,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/sns/SecLinkedInHelper$1;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # getter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mCookie:Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
     invoke-static {v4}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$500(Lcom/android/incallui/sns/SecLinkedInHelper;)Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinCookieWrapper;
 
     move-result-object v4

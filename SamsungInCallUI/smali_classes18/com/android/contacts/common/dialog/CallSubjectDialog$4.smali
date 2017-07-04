@@ -39,7 +39,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mCallSubjectView:Landroid/widget/EditText;
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$100(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/widget/EditText;
 
     move-result-object v2
@@ -54,14 +53,12 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mNumber:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$400(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mPhoneAccountHandle:Landroid/telecom/PhoneAccountHandle;
     invoke-static {v3}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$500(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/telecom/PhoneAccountHandle;
 
     move-result-object v3
@@ -86,7 +83,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectHistory:Ljava/util/List;
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$600(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Ljava/util/List;
 
     move-result-object v2
@@ -97,12 +93,10 @@
 
     iget-object v3, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectHistory:Ljava/util/List;
     invoke-static {v3}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$600(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Ljava/util/List;
 
     move-result-object v3
 
-    # invokes: Lcom/android/contacts/common/dialog/CallSubjectDialog;->saveSubjectHistory(Ljava/util/List;)V
     invoke-static {v2, v3}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$700(Lcom/android/contacts/common/dialog/CallSubjectDialog;Ljava/util/List;)V
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;

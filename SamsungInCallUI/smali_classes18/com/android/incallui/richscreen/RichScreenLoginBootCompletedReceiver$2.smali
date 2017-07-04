@@ -53,17 +53,14 @@
 
     const-string v1, " loginRichScreenServer init again"
 
-    # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$100(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$200()Landroid/content/Context;
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->initCache(Landroid/content/Context;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$300(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Landroid/content/Context;)V
 
     :cond_0
@@ -81,23 +78,19 @@
 
     move-result-object v0
 
-    # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->loginResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$402(Lcom/cmdm/control/util/client/ResultEntity;)Lcom/cmdm/control/util/client/ResultEntity;
 
     :cond_1
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bDuringLoginServer:Z
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$502(Z)Z
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->loginResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$400()Lcom/cmdm/control/util/client/ResultEntity;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->loginResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$400()Lcom/cmdm/control/util/client/ResultEntity;
 
     move-result-object v0
@@ -106,10 +99,8 @@
 
     move-result v0
 
-    # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bLoginSuccess:Z
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$602(Z)Z
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->loginResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$400()Lcom/cmdm/control/util/client/ResultEntity;
 
     move-result-object v0
@@ -118,7 +109,6 @@
 
     move-result-object v0
 
-    # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->LoginString:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$702(Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
@@ -133,7 +123,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bLoginSuccess:Z
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$600()Z
 
     move-result v2
@@ -148,7 +137,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->LoginString:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$700()Ljava/lang/String;
 
     move-result-object v2
@@ -161,10 +149,8 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$100(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Ljava/lang/String;)V
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bLoginSuccess:Z
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$600()Z
 
     move-result v0
@@ -173,7 +159,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mGetTokenService:Lcom/android/incallui/richscreen/GetTokenService;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$800(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;)Lcom/android/incallui/richscreen/GetTokenService;
 
     sput v3, Lcom/android/incallui/richscreen/GetTokenService;->tryLoginRichScreenServerCount:I
@@ -185,7 +170,6 @@
     :cond_3
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
-    # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mGetTokenService:Lcom/android/incallui/richscreen/GetTokenService;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$800(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;)Lcom/android/incallui/richscreen/GetTokenService;
 
     move-result-object v0

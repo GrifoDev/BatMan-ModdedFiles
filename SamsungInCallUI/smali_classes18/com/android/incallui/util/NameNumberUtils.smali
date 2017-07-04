@@ -14,6 +14,8 @@
 
 .field private static final LOG_TAG:Ljava/lang/String; = "NameNumberUtils"
 
+.field public static final NEW_FIND_LOST_PHONE:Ljava/lang/String; = "1583"
+
 .field public static final NUM_LGU_ROAMING_CUSTOMER_CENTER:Ljava/lang/String; = "+82234167010"
 
 .field public static final NUM_MOFAT_CALL_CENTER:Ljava/lang/String; = "+82232100404"
@@ -216,7 +218,7 @@
 
     move-result-object v0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1
 
     invoke-static {p0}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
 
@@ -228,32 +230,41 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-nez v3, :cond_0
 
+    const-string v3, "1583"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    :cond_0
     const v3, 0x7f090112
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    :cond_0
+    :cond_1
     :goto_0
     return-object v1
 
-    :cond_1
+    :cond_2
     const-string v3, "0000"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isFindService()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     const v3, 0x7f0900dd
 
@@ -1439,6 +1450,14 @@
     if-nez v1, :cond_0
 
     const-string v1, "1521044"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "1583"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

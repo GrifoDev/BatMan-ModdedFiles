@@ -140,7 +140,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$Builder;->mActions:Ljava/util/ArrayList;
 
-    # invokes: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->setLatestInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;Ljava/util/ArrayList;)Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
     invoke-static/range {v0 .. v5}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->access$300(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;Ljava/util/ArrayList;)Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
     move-result-object v0
@@ -185,7 +184,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$Builder;->mNotification:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->mLargeIcon:I
     invoke-static {v0, p1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->access$102(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;I)I
 
     return-object p0
@@ -196,7 +194,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$Builder;->mNotification:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->mIsShowAppIcon:Z
     invoke-static {v0, p1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;->access$202(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification;Z)Z
 
     return-object p0

@@ -51,7 +51,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$5;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupWaitingCall;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupWaitingCall;->access$000(Lcom/android/incallui/service/SecCallPopupWaitingCall;)Landroid/content/Context;
 
     move-result-object v0

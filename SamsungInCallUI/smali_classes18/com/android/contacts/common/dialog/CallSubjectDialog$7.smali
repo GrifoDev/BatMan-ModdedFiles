@@ -68,7 +68,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mDialogView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$800(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/view/View;
 
     move-result-object v2
@@ -83,7 +82,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mDialogView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$800(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/view/View;
 
     move-result-object v1
@@ -94,7 +92,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mDialogView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$800(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/view/View;
 
     move-result-object v1
@@ -115,7 +112,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mAnimationDuration:I
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$900(Lcom/android/contacts/common/dialog/CallSubjectDialog;)I
 
     move-result v2
@@ -135,14 +131,12 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectList:Landroid/widget/ListView;
     invoke-static {v1}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$200(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/widget/ListView;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectList:Landroid/widget/ListView;
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$200(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/widget/ListView;
 
     move-result-object v2
@@ -157,7 +151,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectList:Landroid/widget/ListView;
     invoke-static {v1}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$200(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/widget/ListView;
 
     move-result-object v1
@@ -178,7 +171,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mAnimationDuration:I
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$900(Lcom/android/contacts/common/dialog/CallSubjectDialog;)I
 
     move-result v2
@@ -207,7 +199,6 @@
     :cond_2
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectList:Landroid/widget/ListView;
     invoke-static {v1}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$200(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/widget/ListView;
 
     move-result-object v1
@@ -216,7 +207,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectList:Landroid/widget/ListView;
     invoke-static {v1}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$200(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/widget/ListView;
 
     move-result-object v1
@@ -227,7 +217,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectList:Landroid/widget/ListView;
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$200(Lcom/android/contacts/common/dialog/CallSubjectDialog;)Landroid/widget/ListView;
 
     move-result-object v2
@@ -250,7 +239,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mAnimationDuration:I
     invoke-static {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$900(Lcom/android/contacts/common/dialog/CallSubjectDialog;)I
 
     move-result v2

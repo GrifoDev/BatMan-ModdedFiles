@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$13;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mMaskPanelForSlidingDrawer:Landroid/view/View;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1700(Lcom/android/incallui/accessory/CoverScreen;)Landroid/view/View;
 
     move-result-object v0
@@ -45,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$13;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mMaskPanelForSlidingDrawer:Landroid/view/View;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1700(Lcom/android/incallui/accessory/CoverScreen;)Landroid/view/View;
 
     move-result-object v0

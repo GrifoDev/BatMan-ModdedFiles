@@ -50,7 +50,6 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/incallui/operator/kor/SmartAnswerUtils;->mediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v0}, Lcom/android/incallui/operator/kor/SmartAnswerUtils;->access$002(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
     return-void

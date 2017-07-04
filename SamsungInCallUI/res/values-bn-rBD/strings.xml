@@ -568,7 +568,7 @@ IVR কল স্ক্রিন মেন্যু Dianhuabang নামের 
     <string name="rcs_share_toast_lowmemory">পর্যাপ্ত মেমোরি নেই</string>
     <string name="rcs_share_toast_terminated">সমাপ্ত হয়েছে</string>
     <string name="rcs_share_toast_toolarge">ফাইলটি অত্যন্ত বৃহৎ</string>
-    <string name="receiver">গ্রহণকারী</string>
+    <string name="receiver">রিসিভার</string>
     <string name="recently_use_sim_for_callback">সম্প্রতি ব্যবহৃত সিম</string>
     <string name="record_notification_button_text_close">বন্ধ</string>
     <string name="record_notification_button_text_record_list">রেকর্ডিংসমূহ</string>

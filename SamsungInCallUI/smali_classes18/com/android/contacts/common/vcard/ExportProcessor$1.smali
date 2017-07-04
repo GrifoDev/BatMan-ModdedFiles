@@ -42,7 +42,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/vcard/ExportProcessor$1;->this$0:Lcom/android/contacts/common/vcard/ExportProcessor;
 
-    # getter for: Lcom/android/contacts/common/vcard/ExportProcessor;->mService:Lcom/android/contacts/common/vcard/VCardService;
     invoke-static {v0}, Lcom/android/contacts/common/vcard/ExportProcessor;->access$000(Lcom/android/contacts/common/vcard/ExportProcessor;)Lcom/android/contacts/common/vcard/VCardService;
 
     move-result-object v0

@@ -70,7 +70,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$6;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
-    # invokes: Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->updateContainerLayout()V
     invoke-static {v1}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->access$100(Lcom/android/incallui/fragment/MultiPartyCallCardFragment;)V
 
     goto :goto_0

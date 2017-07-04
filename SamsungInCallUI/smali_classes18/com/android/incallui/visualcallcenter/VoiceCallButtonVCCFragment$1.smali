@@ -81,7 +81,6 @@
     :sswitch_0
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$1;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    # getter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mViewPager:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallViewPager;
     invoke-static {v2}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$000(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;)Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallViewPager;
 
     move-result-object v2
@@ -98,7 +97,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$1;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    # getter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mViewPager:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallViewPager;
     invoke-static {v2}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$000(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;)Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallViewPager;
 
     move-result-object v2

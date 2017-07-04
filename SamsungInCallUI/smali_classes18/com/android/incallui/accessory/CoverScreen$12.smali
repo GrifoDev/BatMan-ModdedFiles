@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$12;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mSmartCallNumber:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$1600(Lcom/android/incallui/accessory/CoverScreen;)Landroid/widget/TextView;
 
     move-result-object v1

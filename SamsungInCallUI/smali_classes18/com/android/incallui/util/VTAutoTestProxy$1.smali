@@ -62,7 +62,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/util/VTAutoTestProxy$1;->this$0:Lcom/android/incallui/util/VTAutoTestProxy;
 
-    # getter for: Lcom/android/incallui/util/VTAutoTestProxy;->isRunning:Z
     invoke-static {v2}, Lcom/android/incallui/util/VTAutoTestProxy;->access$000(Lcom/android/incallui/util/VTAutoTestProxy;)Z
 
     move-result v2
@@ -94,7 +93,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/util/VTAutoTestProxy$1;->this$0:Lcom/android/incallui/util/VTAutoTestProxy;
 
-    # getter for: Lcom/android/incallui/util/VTAutoTestProxy;->isRunning:Z
     invoke-static {v1}, Lcom/android/incallui/util/VTAutoTestProxy;->access$000(Lcom/android/incallui/util/VTAutoTestProxy;)Z
 
     move-result v1
@@ -103,7 +101,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/util/VTAutoTestProxy$1;->this$0:Lcom/android/incallui/util/VTAutoTestProxy;
 
-    # invokes: Lcom/android/incallui/util/VTAutoTestProxy;->hangUpCall()V
     invoke-static {v1}, Lcom/android/incallui/util/VTAutoTestProxy;->access$100(Lcom/android/incallui/util/VTAutoTestProxy;)V
 
     goto :goto_0
@@ -119,7 +116,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/util/VTAutoTestProxy$1;->this$0:Lcom/android/incallui/util/VTAutoTestProxy;
 
-    # invokes: Lcom/android/incallui/util/VTAutoTestProxy;->answerCall()V
     invoke-static {v1}, Lcom/android/incallui/util/VTAutoTestProxy;->access$200(Lcom/android/incallui/util/VTAutoTestProxy;)V
 
     goto :goto_0
@@ -135,7 +131,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/util/VTAutoTestProxy$1;->this$0:Lcom/android/incallui/util/VTAutoTestProxy;
 
-    # getter for: Lcom/android/incallui/util/VTAutoTestProxy;->isRunning:Z
     invoke-static {v1}, Lcom/android/incallui/util/VTAutoTestProxy;->access$000(Lcom/android/incallui/util/VTAutoTestProxy;)Z
 
     move-result v1
@@ -150,7 +145,6 @@
 
     move-result v2
 
-    # setter for: Lcom/android/incallui/util/VTAutoTestProxy;->isRunning:Z
     invoke-static {v1, v2}, Lcom/android/incallui/util/VTAutoTestProxy;->access$002(Lcom/android/incallui/util/VTAutoTestProxy;Z)Z
 
     iget-object v1, p0, Lcom/android/incallui/util/VTAutoTestProxy$1;->this$0:Lcom/android/incallui/util/VTAutoTestProxy;
@@ -168,7 +162,6 @@
 
     move-result v2
 
-    # setter for: Lcom/android/incallui/util/VTAutoTestProxy;->isRunning:Z
     invoke-static {v1, v2}, Lcom/android/incallui/util/VTAutoTestProxy;->access$002(Lcom/android/incallui/util/VTAutoTestProxy;Z)Z
 
     goto :goto_0
@@ -184,7 +177,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/util/VTAutoTestProxy$1;->this$0:Lcom/android/incallui/util/VTAutoTestProxy;
 
-    # invokes: Lcom/android/incallui/util/VTAutoTestProxy;->muteCall()V
     invoke-static {v1}, Lcom/android/incallui/util/VTAutoTestProxy;->access$300(Lcom/android/incallui/util/VTAutoTestProxy;)V
 
     goto :goto_0

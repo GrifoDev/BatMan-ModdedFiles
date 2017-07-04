@@ -107,7 +107,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$2;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
-    # getter for: Lcom/android/incallui/service/vt/VideoCallManager;->mInCallRotationEventListener:Lcom/android/incallui/service/vt/InCallRotationEventListener;
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallManager;->access$100(Lcom/android/incallui/service/vt/VideoCallManager;)Lcom/android/incallui/service/vt/InCallRotationEventListener;
 
     move-result-object v1

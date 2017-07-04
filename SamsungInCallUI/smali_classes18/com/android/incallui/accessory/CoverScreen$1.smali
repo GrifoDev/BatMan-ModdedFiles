@@ -86,7 +86,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$1;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # invokes: Lcom/android/incallui/accessory/CoverScreen;->dismissPopupWindow()V
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$000(Lcom/android/incallui/accessory/CoverScreen;)V
 
     goto :goto_0
@@ -98,7 +97,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$1;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$100(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/Call;
 
     move-result-object v0
@@ -115,7 +113,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$1;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$100(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/Call;
 
     move-result-object v0
@@ -130,7 +127,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$1;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$100(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/Call;
 
     move-result-object v0
@@ -145,7 +141,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$1;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$100(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/Call;
 
     move-result-object v0
@@ -163,7 +158,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/accessory/CoverScreen$1;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/accessory/CoverScreen;->access$100(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -174,12 +168,10 @@
 
     iget-object v1, p0, Lcom/android/incallui/accessory/CoverScreen$1;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # getter for: Lcom/android/incallui/accessory/CoverScreen;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/accessory/CoverScreen;->access$100(Lcom/android/incallui/accessory/CoverScreen;)Lcom/android/incallui/Call;
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/accessory/CoverScreen;->updateRejectMsgContent(Lcom/android/incallui/Call;)V
     invoke-static {v0, v1}, Lcom/android/incallui/accessory/CoverScreen;->access$200(Lcom/android/incallui/accessory/CoverScreen;Lcom/android/incallui/Call;)V
 
     goto :goto_0

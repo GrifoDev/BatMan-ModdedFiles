@@ -190,7 +190,6 @@
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
     invoke-static {p3, v0, v1}, Lcom/android/contacts/common/model/account/BaseAccountType;->access$1700(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
 
     move-result v0

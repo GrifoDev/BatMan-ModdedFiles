@@ -35,12 +35,10 @@
 
     move-result-object v0
 
-    # setter for: Lcom/whitepages/nameid/NameIDHelper;->sService:Lcom/whitepages/nameid/ILookupService;
     invoke-static {v0}, Lcom/whitepages/nameid/NameIDHelper;->access$002(Lcom/whitepages/nameid/ILookupService;)Lcom/whitepages/nameid/ILookupService;
 
     const/4 v0, 0x1
 
-    # setter for: Lcom/whitepages/nameid/NameIDHelper;->sIsBound:Z
     invoke-static {v0}, Lcom/whitepages/nameid/NameIDHelper;->access$102(Z)Z
 
     return-void
@@ -51,7 +49,6 @@
 
     const-wide/32 v0, 0xea60
 
-    # invokes: Lcom/whitepages/nameid/NameIDHelper;->tryReconnect(J)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/NameIDHelper;->access$200(J)V
 
     return-void

@@ -44,7 +44,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/service/vt/FullScreenModeManager$1;->this$0:Lcom/android/incallui/service/vt/FullScreenModeManager;
 
-    # invokes: Lcom/android/incallui/service/vt/FullScreenModeManager;->expiredFullScreenModeTimer()V
     invoke-static {v0}, Lcom/android/incallui/service/vt/FullScreenModeManager;->access$000(Lcom/android/incallui/service/vt/FullScreenModeManager;)V
 
     goto :goto_0

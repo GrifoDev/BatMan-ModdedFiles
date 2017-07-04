@@ -56,12 +56,10 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/util/VoWifiStateTracker;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/util/VoWifiStateTracker;->access$000(Lcom/android/incallui/util/VoWifiStateTracker;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/incallui/util/VoWifiStateTracker$1;->this$0:Lcom/android/incallui/util/VoWifiStateTracker;
 
-    # getter for: Lcom/android/incallui/util/VoWifiStateTracker;->mWfcListener:Lcom/android/incallui/util/VoWifiStateTracker$VoWifiStateListener;
     invoke-static {v0}, Lcom/android/incallui/util/VoWifiStateTracker;->access$100(Lcom/android/incallui/util/VoWifiStateTracker;)Lcom/android/incallui/util/VoWifiStateTracker$VoWifiStateListener;
 
     move-result-object v0

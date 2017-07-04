@@ -60,14 +60,12 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mMoveAnimator:Landroid/animation/ObjectAnimator;
     invoke-static {v0, v1}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$1002(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
 
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$5;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$5;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mStartId:I
     invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$1100(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)I
 
     move-result v1

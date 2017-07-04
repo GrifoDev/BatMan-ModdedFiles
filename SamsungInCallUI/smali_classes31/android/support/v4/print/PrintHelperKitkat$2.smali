@@ -87,7 +87,6 @@
 
     iget-object v0, p0, Landroid/support/v4/print/PrintHelperKitkat$2;->this$0:Landroid/support/v4/print/PrintHelperKitkat;
 
-    # getter for: Landroid/support/v4/print/PrintHelperKitkat;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/support/v4/print/PrintHelperKitkat;->access$500(Landroid/support/v4/print/PrintHelperKitkat;)Ljava/lang/Object;
 
     move-result-object v1
@@ -290,7 +289,6 @@
 
     move-object v5, p4
 
-    # invokes: Landroid/support/v4/print/PrintHelperKitkat;->writeBitmap(Landroid/print/PrintAttributes;ILandroid/graphics/Bitmap;Landroid/os/ParcelFileDescriptor;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
     invoke-static/range {v0 .. v5}, Landroid/support/v4/print/PrintHelperKitkat;->access$000(Landroid/support/v4/print/PrintHelperKitkat;Landroid/print/PrintAttributes;ILandroid/graphics/Bitmap;Landroid/os/ParcelFileDescriptor;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
 
     return-void

@@ -1978,6 +1978,44 @@
     goto :goto_0
 .end method
 
+.method private static getDialIntent(Ljava/lang/String;)Landroid/content/Intent;
+    .locals 4
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "tel:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v2, "android.intent.action.DIAL"
+
+    invoke-direct {v0, v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    const v2, 0x10008000
+
+    invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    return-object v0
+.end method
+
 .method public static getIconName(Ljava/lang/String;I)I
     .locals 6
 
@@ -2439,44 +2477,6 @@
     move v0, v3
 
     goto :goto_5
-.end method
-
-.method private static getIntent(Ljava/lang/String;)Landroid/content/Intent;
-    .locals 4
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "tel:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v2, "android.intent.action.DIAL"
-
-    invoke-direct {v0, v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
-
-    const v2, 0x10008000
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    return-object v0
 .end method
 
 .method public static getKnoxId(Landroid/content/Context;)I
@@ -9345,183 +9345,207 @@
 .end method
 
 .method public static sendBroadcastReminder(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 14
+    .locals 18
 
-    const-string v0, "com.samsung.android.app.reminder.action.REGISTER"
+    const-string v2, "com.samsung.android.app.reminder.action.REGISTER"
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v10
+    move-result-object v14
 
-    const/4 v11, 0x0
+    const/4 v15, 0x0
 
-    const/4 v12, 0x0
+    const/16 v16, 0x0
 
-    invoke-static {v10, v11, v12}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
-    move-result-object v1
+    move-result-object v3
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
-    move-result-object v10
+    move-result-object v14
 
-    invoke-virtual {v10}, Lcom/android/incallui/InCallApp;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v14}, Lcom/android/incallui/InCallApp;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v7
 
-    const/4 v6, 0x0
+    const/4 v9, 0x0
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
+
+    const/4 v12, 0x0
+
+    const/4 v11, 0x0
+
+    if-eqz v3, :cond_1
+
+    if-eqz v7, :cond_1
+
+    invoke-static {v7}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
+
+    move-result-object v14
+
+    invoke-virtual {v3}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_1
 
     const/4 v8, 0x0
 
-    if-eqz v1, :cond_1
+    iget-object v14, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->smartCallInfo:Lcom/android/incallui/smartcall/SmartCallInfo;
 
-    if-eqz v4, :cond_1
+    if-eqz v14, :cond_0
 
-    invoke-static {v4}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
+    iget-object v13, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->smartCallInfo:Lcom/android/incallui/smartcall/SmartCallInfo;
 
-    move-result-object v10
+    if-eqz v13, :cond_0
 
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    const/4 v5, 0x0
-
-    iget-object v10, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->smartCallInfo:Lcom/android/incallui/smartcall/SmartCallInfo;
-
-    if-eqz v10, :cond_0
-
-    iget-object v9, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->smartCallInfo:Lcom/android/incallui/smartcall/SmartCallInfo;
-
-    if-eqz v9, :cond_0
-
-    iget-object v5, v9, Lcom/android/incallui/smartcall/SmartCallInfo;->name:Ljava/lang/String;
+    iget-object v8, v13, Lcom/android/incallui/smartcall/SmartCallInfo;->name:Ljava/lang/String;
 
     :cond_0
-    if-nez v5, :cond_2
+    if-nez v8, :cond_2
 
-    iget-object v6, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->namePrimary:Ljava/lang/String;
+    iget-object v9, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->namePrimary:Ljava/lang/String;
 
     :goto_0
-    iget-object v7, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->number:Ljava/lang/String;
+    iget-object v10, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->number:Ljava/lang/String;
 
-    iget-object v8, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->displayPhotoUri:Landroid/net/Uri;
+    iget-object v12, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->displayPhotoUri:Landroid/net/Uri;
+
+    iget-boolean v14, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isVoiceMail:Z
+
+    if-eqz v14, :cond_1
+
+    iget-object v11, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->originalNumber:Ljava/lang/String;
 
     :cond_1
-    new-instance v3, Landroid/content/Intent;
+    if-nez v11, :cond_3
 
-    invoke-direct {v3, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-static {v10}, Lcom/android/incallui/util/InCallUtils;->getDialIntent(Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string v10, "type"
+    move-result-object v4
 
-    const-string v11, "call"
+    :goto_1
+    new-instance v6, Landroid/content/Intent;
 
-    invoke-virtual {v3, v10, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-direct {v6, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string v10, "type_detail"
+    const-string v14, "type"
 
-    invoke-virtual {v3, v10, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const-string v15, "call"
 
-    const-string v10, "primary_text"
+    invoke-virtual {v6, v14, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v3, v10, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const-string v14, "type_detail"
 
-    const-string v10, "secondary_text"
+    move-object/from16 v0, p1
 
-    invoke-virtual {v3, v10, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v6, v14, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string v10, "action"
+    const-string v14, "primary_text"
 
-    invoke-static {v7}, Lcom/android/incallui/util/InCallUtils;->getIntent(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v6, v14, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v11
+    const-string v14, "secondary_text"
 
-    invoke-virtual {v3, v10, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual {v6, v14, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string v10, "thumbnail_uri"
+    const-string v14, "action"
 
-    invoke-virtual {v3, v10, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual {v6, v14, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    const-string v10, "primary_time"
+    const-string v14, "thumbnail_uri"
+
+    invoke-virtual {v6, v14, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    const-string v14, "primary_time"
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v12
+    move-result-wide v16
 
-    invoke-virtual {v3, v10, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    move-wide/from16 v0, v16
 
-    const-string v10, "package"
+    invoke-virtual {v6, v14, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    const-string v14, "package"
 
-    move-result-object v11
+    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    invoke-virtual {v3, v10, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    move-result-object v15
 
-    invoke-virtual {p0, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v6, v14, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string v10, "InCallUtils"
+    move-object/from16 v0, p0
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v14, "InCallUtils"
 
-    const-string v12, "send broadcast intent action : "
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v11
+    const-string v16, "send broadcast intent action : "
 
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v15
 
-    const-string v12, ", extra [primary_text : "
+    invoke-virtual {v15, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    move-result-object v11
+    const-string v16, ", extra [primary_text : "
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v15
 
-    const-string v12, ", secondary_text : "
+    invoke-virtual {v15, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    move-result-object v11
+    const-string v16, ", secondary_text : "
 
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v15
 
-    const-string v12, "]"
+    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    move-result-object v11
+    const-string v16, "]"
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v15
 
-    invoke-static {v10, v11}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
     :cond_2
-    move-object v6, v5
+    move-object v9, v8
 
-    goto :goto_0
+    goto/16 :goto_0
+
+    :cond_3
+    invoke-static {v11}, Lcom/android/incallui/util/InCallUtils;->getDialIntent(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v4
+
+    goto :goto_1
 .end method
 
 .method public static sendBroadcastRequestReleaseMicUsage()V

@@ -45,7 +45,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/ringtone/InCallTonePlayer$1;->val$info:Lcom/android/incallui/ringtone/InCallTonePlayer$ToneGeneratorInfo;
 
-    # invokes: Lcom/android/incallui/ringtone/InCallTonePlayer;->playOnBackgroundThread(Lcom/android/incallui/ringtone/InCallTonePlayer$ToneGeneratorInfo;)V
     invoke-static {v0, v1}, Lcom/android/incallui/ringtone/InCallTonePlayer;->access$000(Lcom/android/incallui/ringtone/InCallTonePlayer;Lcom/android/incallui/ringtone/InCallTonePlayer$ToneGeneratorInfo;)V
 
     return-void

@@ -92,7 +92,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderStorageManager$1;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderStorageManager;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderStorageManager;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderStorageManager;->access$000(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderStorageManager;)Landroid/os/Handler;
 
     move-result-object v1

@@ -51,7 +51,6 @@
 
     iget-object v2, p0, Lcom/android/contacts/common/list/PhoneNumberPickerFragment$FilterHeaderClickListener;->this$0:Lcom/android/contacts/common/list/PhoneNumberPickerFragment;
 
-    # getter for: Lcom/android/contacts/common/list/PhoneNumberPickerFragment;->mFilter:Lcom/android/contacts/common/list/ContactListFilter;
     invoke-static {v2}, Lcom/android/contacts/common/list/PhoneNumberPickerFragment;->access$000(Lcom/android/contacts/common/list/PhoneNumberPickerFragment;)Lcom/android/contacts/common/list/ContactListFilter;
 
     move-result-object v2

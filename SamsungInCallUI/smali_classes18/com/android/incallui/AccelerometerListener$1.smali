@@ -69,7 +69,6 @@
 
     float-to-double v6, v0
 
-    # invokes: Lcom/android/incallui/AccelerometerListener;->onSensorEvent(DDD)V
     invoke-static/range {v1 .. v7}, Lcom/android/incallui/AccelerometerListener;->access$000(Lcom/android/incallui/AccelerometerListener;DDD)V
 
     return-void

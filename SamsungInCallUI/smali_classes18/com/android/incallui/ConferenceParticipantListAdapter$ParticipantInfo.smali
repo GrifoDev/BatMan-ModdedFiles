@@ -40,7 +40,6 @@
 
     iput-boolean v0, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$ParticipantInfo;->mCacheLookupComplete:Z
 
-    # operator++ for: Lcom/android/incallui/ConferenceParticipantListAdapter;->sParticipantInfoIdCounter:I
     invoke-static {}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$008()I
 
     move-result v0

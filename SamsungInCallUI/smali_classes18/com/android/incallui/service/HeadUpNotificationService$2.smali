@@ -93,7 +93,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/HeadUpNotificationService$2;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mMinFlingVelocity:I
     invoke-static {v4}, Lcom/android/incallui/service/HeadUpNotificationService;->access$900(Lcom/android/incallui/service/HeadUpNotificationService;)I
 
     move-result v4
@@ -127,7 +126,6 @@
     const/4 v2, 0x1
 
     :goto_1
-    # invokes: Lcom/android/incallui/service/HeadUpNotificationService;->animateForSlideOut(Z)V
     invoke-static {v4, v2}, Lcom/android/incallui/service/HeadUpNotificationService;->access$700(Lcom/android/incallui/service/HeadUpNotificationService;Z)V
 
     goto :goto_0

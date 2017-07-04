@@ -214,7 +214,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;->mSyncedGroups:Ljava/util/ArrayList;
 
-    # getter for: Lcom/android/contacts/common/list/CustomContactListFilterActivity;->sIdComparator:Ljava/util/Comparator;
     invoke-static {}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->access$200()Ljava/util/Comparator;
 
     move-result-object v1

@@ -140,7 +140,6 @@
     :pswitch_0
     iget-object v4, p0, Lcom/android/incallui/ContactsAsyncHelper$WorkerHandler;->this$0:Lcom/android/incallui/ContactsAsyncHelper;
 
-    # getter for: Lcom/android/incallui/ContactsAsyncHelper;->mResultHandler:Landroid/os/Handler;
     invoke-static {v4}, Lcom/android/incallui/ContactsAsyncHelper;->access$000(Lcom/android/incallui/ContactsAsyncHelper;)Landroid/os/Handler;
 
     move-result-object v4

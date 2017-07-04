@@ -138,7 +138,6 @@
     goto :goto_0
 
     :pswitch_0
-    # invokes: Lcom/android/incallui/motion/CallSContextMotion;->doActionPutUpDown(Z)V
     invoke-static {v9}, Lcom/android/incallui/motion/CallSContextMotion;->access$000(Z)V
 
     goto :goto_0
@@ -146,7 +145,6 @@
     :pswitch_1
     const/4 v6, 0x0
 
-    # invokes: Lcom/android/incallui/motion/CallSContextMotion;->doActionPutUpDown(Z)V
     invoke-static {v6}, Lcom/android/incallui/motion/CallSContextMotion;->access$000(Z)V
 
     goto :goto_0
@@ -182,7 +180,6 @@
 
     invoke-static {v6, v7, v9}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    # getter for: Lcom/android/incallui/motion/CallSContextMotion;->sFlatListener:Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
     invoke-static {}, Lcom/android/incallui/motion/CallSContextMotion;->access$100()Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
     move-result-object v6
@@ -209,7 +206,6 @@
     goto/16 :goto_0
 
     :pswitch_2
-    # getter for: Lcom/android/incallui/motion/CallSContextMotion;->sFlatListener:Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
     invoke-static {}, Lcom/android/incallui/motion/CallSContextMotion;->access$100()Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
     move-result-object v6
@@ -219,7 +215,6 @@
     goto/16 :goto_0
 
     :pswitch_3
-    # getter for: Lcom/android/incallui/motion/CallSContextMotion;->sFlatListener:Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
     invoke-static {}, Lcom/android/incallui/motion/CallSContextMotion;->access$100()Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
     move-result-object v6
@@ -229,7 +224,6 @@
     goto/16 :goto_0
 
     :pswitch_4
-    # getter for: Lcom/android/incallui/motion/CallSContextMotion;->sFlatListener:Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
     invoke-static {}, Lcom/android/incallui/motion/CallSContextMotion;->access$100()Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
     move-result-object v6
@@ -239,7 +233,6 @@
     goto/16 :goto_0
 
     :pswitch_5
-    # getter for: Lcom/android/incallui/motion/CallSContextMotion;->sFlatListener:Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
     invoke-static {}, Lcom/android/incallui/motion/CallSContextMotion;->access$100()Lcom/android/incallui/motion/CallSContextMotion$FlatListener;
 
     move-result-object v6

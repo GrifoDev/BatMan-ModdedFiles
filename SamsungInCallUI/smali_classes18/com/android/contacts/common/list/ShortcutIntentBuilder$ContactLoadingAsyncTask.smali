@@ -38,7 +38,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->this$0:Lcom/android/contacts/common/list/ShortcutIntentBuilder;
 
-    # getter for: Lcom/android/contacts/common/list/ShortcutIntentBuilder;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->access$000(Lcom/android/contacts/common/list/ShortcutIntentBuilder;)Landroid/content/Context;
 
     move-result-object v1
@@ -49,7 +48,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->mUri:Landroid/net/Uri;
 
-    # getter for: Lcom/android/contacts/common/list/ShortcutIntentBuilder;->CONTACT_COLUMNS:[Ljava/lang/String;
     invoke-static {}, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->access$200()[Ljava/lang/String;
 
     move-result-object v2
@@ -136,7 +134,6 @@
 
     iget-object v5, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$ContactLoadingAsyncTask;->mBitmapData:[B
 
-    # invokes: Lcom/android/contacts/common/list/ShortcutIntentBuilder;->createContactShortcutIntent(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V
     invoke-static/range {v0 .. v5}, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->access$300(Lcom/android/contacts/common/list/ShortcutIntentBuilder;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V
 
     return-void

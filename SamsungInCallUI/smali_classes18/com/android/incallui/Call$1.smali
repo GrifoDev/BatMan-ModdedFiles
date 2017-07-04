@@ -58,7 +58,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->unregisterNsriSecureContentObserver()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$500(Lcom/android/incallui/Call;)V
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
@@ -75,7 +74,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # getter for: Lcom/android/incallui/Call;->mId:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/incallui/Call;->access$100(Lcom/android/incallui/Call;)Ljava/lang/String;
 
     move-result-object v1
@@ -104,7 +102,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # getter for: Lcom/android/incallui/Call;->mVideoCallCallback:Lcom/android/incallui/InCallVideoCallCallback;
     invoke-static {v1}, Lcom/android/incallui/Call;->access$300(Lcom/android/incallui/Call;)Lcom/android/incallui/InCallVideoCallCallback;
 
     move-result-object v1
@@ -160,7 +157,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
     return-void
@@ -211,7 +207,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
     return-void
@@ -252,7 +247,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
     return-void
@@ -299,7 +293,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
     :cond_0
@@ -341,7 +334,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
     return-void
@@ -382,7 +374,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
     return-void
@@ -423,7 +414,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
     return-void
@@ -440,7 +430,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # getter for: Lcom/android/incallui/Call;->mId:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/incallui/Call;->access$100(Lcom/android/incallui/Call;)Ljava/lang/String;
 
     move-result-object v1
@@ -455,7 +444,6 @@
 
     move-result-object v0
 
-    # invokes: Lcom/android/incallui/Call;->translateState(Landroid/telecom/Call;)I
     invoke-static {p1}, Lcom/android/incallui/Call;->access$200(Landroid/telecom/Call;)I
 
     move-result v1
@@ -520,7 +508,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # getter for: Lcom/android/incallui/Call;->mVideoCallCallback:Lcom/android/incallui/InCallVideoCallCallback;
     invoke-static {v0}, Lcom/android/incallui/Call;->access$300(Lcom/android/incallui/Call;)Lcom/android/incallui/InCallVideoCallCallback;
 
     move-result-object v0
@@ -529,7 +516,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # getter for: Lcom/android/incallui/Call;->mVideoCallCallback:Lcom/android/incallui/InCallVideoCallCallback;
     invoke-static {v0}, Lcom/android/incallui/Call;->access$300(Lcom/android/incallui/Call;)Lcom/android/incallui/InCallVideoCallCallback;
 
     move-result-object v0
@@ -542,7 +528,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # getter for: Lcom/android/incallui/Call;->mId:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/incallui/Call;->access$100(Lcom/android/incallui/Call;)Ljava/lang/String;
 
     move-result-object v1
@@ -559,7 +544,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # getter for: Lcom/android/incallui/Call;->mSecCall:Lcom/android/incallui/SecCall;
     invoke-static {v1}, Lcom/android/incallui/Call;->access$400(Lcom/android/incallui/Call;)Lcom/android/incallui/SecCall;
 
     move-result-object v1
@@ -586,7 +570,6 @@
     :goto_0
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
-    # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
     return-void

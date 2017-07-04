@@ -66,7 +66,6 @@
     :goto_0
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$6;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mImportance:I
     invoke-static {v2}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2800(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)I
 
     move-result v2
@@ -75,7 +74,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$6;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # setter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mImportance:I
     invoke-static {v2, v1}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2802(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;I)I
 
     new-instance v0, Landroid/content/Intent;
@@ -90,7 +88,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$6;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    # getter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->msisdn:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2900(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)Ljava/lang/String;
 
     move-result-object v3

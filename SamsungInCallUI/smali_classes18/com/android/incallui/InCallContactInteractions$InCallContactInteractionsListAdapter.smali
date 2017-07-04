@@ -49,7 +49,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/InCallContactInteractions$InCallContactInteractionsListAdapter;->this$0:Lcom/android/incallui/InCallContactInteractions;
 
-    # getter for: Lcom/android/incallui/InCallContactInteractions;->mInflater:Landroid/view/LayoutInflater;
     invoke-static {v2}, Lcom/android/incallui/InCallContactInteractions;->access$000(Lcom/android/incallui/InCallContactInteractions;)Landroid/view/LayoutInflater;
 
     move-result-object v2

@@ -45,14 +45,12 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$4;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    # setter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mVideoMute:Z
     invoke-static {v0, v2}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$402(Lcom/android/incallui/fragment/view/CallCardMcidView;Z)Z
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$4;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mSilentRing:Z
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$502(Lcom/android/incallui/fragment/view/CallCardMcidView;Z)Z
 
     invoke-virtual {p1, v2}, Landroid/media/MediaPlayer;->setLooping(Z)V
@@ -65,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$4;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mPhotoringVideo:Landroid/widget/VideoView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$600(Lcom/android/incallui/fragment/view/CallCardMcidView;)Landroid/widget/VideoView;
 
     move-result-object v0
@@ -74,7 +71,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$4;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    # setter for: Lcom/android/incallui/fragment/view/CallCardMcidView;->mMediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v0, p1}, Lcom/android/incallui/fragment/view/CallCardMcidView;->access$702(Lcom/android/incallui/fragment/view/CallCardMcidView;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
     return-void

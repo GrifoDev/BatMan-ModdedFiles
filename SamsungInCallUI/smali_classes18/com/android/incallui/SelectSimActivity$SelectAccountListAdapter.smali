@@ -133,7 +133,6 @@
 
     iget-object v7, p0, Lcom/android/incallui/SelectSimActivity$SelectAccountListAdapter;->this$0:Lcom/android/incallui/SelectSimActivity;
 
-    # getter for: Lcom/android/incallui/SelectSimActivity;->mTelecomManager:Landroid/telecom/TelecomManager;
     invoke-static {v7}, Lcom/android/incallui/SelectSimActivity;->access$400(Lcom/android/incallui/SelectSimActivity;)Landroid/telecom/TelecomManager;
 
     move-result-object v7

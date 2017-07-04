@@ -49,7 +49,6 @@
 
     move-result v0
 
-    # setter for: Lcom/android/incallui/widget/GradientAnimationView;->mStreamFactor:F
     invoke-static {v1, v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$002(Lcom/android/incallui/widget/GradientAnimationView;F)F
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView$1;->this$0:Lcom/android/incallui/widget/GradientAnimationView;

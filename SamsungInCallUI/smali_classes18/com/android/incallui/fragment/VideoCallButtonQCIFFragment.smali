@@ -2148,7 +2148,7 @@
     :cond_2
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->updateOutgoingHideShowButton()V
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_a
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getVideoAdapter()Lcom/android/incallui/service/vt/VideoCallAdapter;
 
@@ -2158,7 +2158,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
     move v1, v3
 
@@ -2167,55 +2167,72 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_d
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    sget-boolean v2, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_OUTGOING_KEYPAD_BUTTON:Z
 
     if-eqz v2, :cond_3
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    if-eqz p1, :cond_3
 
-    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/android/incallui/Call$State;->isDialing(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_d
 
     :cond_3
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
     if-eqz v2, :cond_4
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
     invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
     :cond_4
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
     if-eqz v2, :cond_5
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v2, v4}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
     :cond_5
-    if-eqz v1, :cond_a
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
 
     if-eqz v2, :cond_6
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
 
     invoke-virtual {v2, v4}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_6
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
+    if-eqz v1, :cond_b
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
 
     if-eqz v2, :cond_7
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
+
+    invoke-virtual {v2, v4}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_7
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
+
+    if-eqz v2, :cond_8
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
 
     invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
 
-    :cond_7
+    :cond_8
     :goto_1
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallManager;->getInstance()Lcom/android/incallui/service/vt/VideoCallManager;
 
@@ -2231,17 +2248,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1b
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setEnabled(Z)V
 
-    :cond_8
+    :cond_9
     invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->showButtonContainer(Z)V
 
     invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->updateCallButtonsBgColor(Z)V
@@ -2251,24 +2268,24 @@
 
     return-void
 
-    :cond_9
+    :cond_a
     move v1, v4
 
     goto :goto_0
 
-    :cond_a
+    :cond_b
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_c
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
 
     invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
 
-    :cond_b
+    :cond_c
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
 
@@ -2276,74 +2293,74 @@
 
     goto :goto_1
 
-    :cond_c
-    if-eqz v1, :cond_13
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
-
-    if-eqz v2, :cond_d
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
-
-    invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
-
     :cond_d
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
+    if-eqz v1, :cond_14
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
 
     if-eqz v2, :cond_e
 
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
+
+    invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_e
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
+
+    if-eqz v2, :cond_f
+
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
 
     invoke-virtual {v2, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    :cond_e
+    :cond_f
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_10
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
 
     invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
 
-    :cond_f
+    :cond_10
     invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->isShowBluetoothButton()Z
 
     move-result v2
-
-    if-eqz v2, :cond_11
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    if-eqz v2, :cond_10
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    invoke-virtual {v2, v4}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_10
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
-
-    if-eqz v2, :cond_7
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
-
-    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    goto :goto_1
-
-    :cond_11
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
     if-eqz v2, :cond_12
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    if-eqz v2, :cond_11
 
-    :cond_12
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+
+    invoke-virtual {v2, v4}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    :cond_11
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+
+    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_12
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+
+    if-eqz v2, :cond_13
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+
+    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    :cond_13
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+
+    if-eqz v2, :cond_8
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
@@ -2351,72 +2368,72 @@
 
     goto/16 :goto_1
 
-    :cond_13
+    :cond_14
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_15
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSwitchCameraButton:Landroid/widget/Button;
 
     invoke-virtual {v2, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    :cond_14
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
-
-    if-eqz v2, :cond_15
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
-
-    invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
-
     :cond_15
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
 
     if-eqz v2, :cond_16
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mStopRecordingButton:Landroid/widget/Button;
 
     invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_16
-    invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->isShowBluetoothButton()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_18
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
 
     if-eqz v2, :cond_17
 
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mDialpadButton:Landroid/widget/Button;
 
-    invoke-virtual {v2, v4}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_17
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+    invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->isShowBluetoothButton()Z
 
-    if-eqz v2, :cond_7
-
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
-
-    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    goto/16 :goto_1
-
-    :cond_18
-    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+    move-result v2
 
     if-eqz v2, :cond_19
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    if-eqz v2, :cond_18
 
-    :cond_19
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+
+    invoke-virtual {v2, v4}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    :cond_18
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+
+    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    goto/16 :goto_1
+
+    :cond_19
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+
+    if-eqz v2, :cond_1a
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mBluetoothButton:Landroid/widget/ToggleButton;
+
+    invoke-virtual {v2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
+
+    :cond_1a
+    iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
+
+    if-eqz v2, :cond_8
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->mSpeakerButton:Landroid/widget/ToggleButton;
 
@@ -2424,7 +2441,7 @@
 
     goto/16 :goto_1
 
-    :cond_1a
+    :cond_1b
     invoke-virtual {p0, v4}, Lcom/android/incallui/fragment/VideoCallButtonQCIFFragment;->updateCallButtonsBgColor(Z)V
 
     goto/16 :goto_2

@@ -100,7 +100,6 @@
 .method protected onPostExecute(Ljava/lang/Object;)V
     .locals 3
 
-    # getter for: Lcom/android/incallui/ContactsAsyncHelper;->sThreadHandler:Landroid/os/Handler;
     invoke-static {}, Lcom/android/incallui/ContactsAsyncHelper;->access$100()Landroid/os/Handler;
 
     move-result-object v1
@@ -119,7 +118,6 @@
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    # getter for: Lcom/android/incallui/ContactsAsyncHelper;->sThreadHandler:Landroid/os/Handler;
     invoke-static {}, Lcom/android/incallui/ContactsAsyncHelper;->access$100()Landroid/os/Handler;
 
     move-result-object v1

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$4;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
-    # getter for: Lcom/android/incallui/InVideoCallMenu;->mIsSelectedImage:Z
     invoke-static {v0}, Lcom/android/incallui/InVideoCallMenu;->access$400(Lcom/android/incallui/InVideoCallMenu;)Z
 
     move-result v0

@@ -51,7 +51,6 @@
 
     invoke-direct {v2}, Lcom/android/incallui/phonevoicerecorder/RecorderServiceCallback;-><init>()V
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderCallback:Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
     invoke-static {v1, v2}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$502(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;)Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
 
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$RecorderServiceConnection;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
@@ -60,13 +59,11 @@
 
     move-result-object v2
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
     invoke-static {v1, v2}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$602(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;Lcom/android/phone/IPhoneVoiceRecorderService;)Lcom/android/phone/IPhoneVoiceRecorderService;
 
     :try_start_0
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$RecorderServiceConnection;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
     invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$600(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderService;
 
     move-result-object v1
@@ -75,14 +72,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$RecorderServiceConnection;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
     invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$600(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderService;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$RecorderServiceConnection;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderCallback:Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
     invoke-static {v2}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$500(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
 
     move-result-object v2
@@ -133,7 +128,6 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$RecorderServiceConnection;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
     invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$600(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderService;
 
     move-result-object v1
@@ -142,14 +136,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$RecorderServiceConnection;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
     invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$600(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderService;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$RecorderServiceConnection;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderCallback:Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
     invoke-static {v2}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$500(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;)Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
 
     move-result-object v2
@@ -160,14 +152,12 @@
 
     const/4 v2, 0x0
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderCallback:Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
     invoke-static {v1, v2}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$502(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;)Lcom/android/phone/IPhoneVoiceRecorderServiceCallback;
 
     iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder$RecorderServiceConnection;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;
 
     const/4 v2, 0x0
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->mRecorderSrv:Lcom/android/phone/IPhoneVoiceRecorderService;
     invoke-static {v1, v2}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;->access$602(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorder;Lcom/android/phone/IPhoneVoiceRecorderService;)Lcom/android/phone/IPhoneVoiceRecorderService;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0

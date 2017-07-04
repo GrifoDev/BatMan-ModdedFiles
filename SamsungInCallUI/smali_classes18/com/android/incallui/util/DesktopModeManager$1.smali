@@ -93,7 +93,6 @@
     if-eqz v2, :cond_0
 
     :try_start_0
-    # getter for: Lcom/android/incallui/util/DesktopModeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->access$000()Landroid/content/Context;
 
     move-result-object v3

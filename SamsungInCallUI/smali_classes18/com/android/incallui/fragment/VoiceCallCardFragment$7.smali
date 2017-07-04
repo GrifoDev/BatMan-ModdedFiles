@@ -72,7 +72,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallCardFragment;->setViewStateBeforeOutgoingAnimation()V
     invoke-static {v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->access$200(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
@@ -87,14 +86,12 @@
 
     iget-object v5, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->val$startPoint:Landroid/graphics/Point;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallCardFragment;->getRevealAnimator(Landroid/graphics/Point;)Landroid/animation/Animator;
     invoke-static {v4, v5}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->access$300(Lcom/android/incallui/fragment/VoiceCallCardFragment;Landroid/graphics/Point;)Landroid/animation/Animator;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallCardFragment;->getRevealViewsAnimator()Landroid/animation/Animator;
     invoke-static {v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->access$400(Lcom/android/incallui/fragment/VoiceCallCardFragment;)Landroid/animation/Animator;
 
     move-result-object v2

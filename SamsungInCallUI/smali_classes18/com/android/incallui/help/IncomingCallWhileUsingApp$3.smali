@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$3;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
-    # getter for: Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialPopupCallAnswerTap:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->access$300(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$3;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
-    # getter for: Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialPopupCallEndcallTap:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->access$400(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -66,7 +64,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$3;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
-    # invokes: Lcom/android/incallui/help/IncomingCallWhileUsingApp;->showToast()V
     invoke-static {v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->access$200(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)V
 
     :cond_1

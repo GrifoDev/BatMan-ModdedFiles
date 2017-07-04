@@ -10991,6 +10991,18 @@
     return-void
 
     :cond_1
+    iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtn:Landroid/widget/Button;
+
+    if-eqz v5, :cond_0
+
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
     move-result v5
@@ -11005,13 +11017,9 @@
 
     const/4 v6, 0x5
 
-    if-ne v5, v6, :cond_a
+    if-ne v5, v6, :cond_8
 
     :cond_2
-    iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
-
-    if-eqz v5, :cond_5
-
     const/4 v2, 0x0
 
     const-string v5, "support_smart_call"
@@ -11035,7 +11043,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_6
 
     invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->getContext()Landroid/content/Context;
 
@@ -11045,7 +11053,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_6
 
     :cond_4
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->getBlockReportMessage()Ljava/util/List;
@@ -11057,11 +11065,6 @@
 
     invoke-virtual {v5, v2}, Lcom/android/incallui/RejectMsgContentPopup;->configureRejectMsgList(Ljava/util/List;)V
 
-    :cond_5
-    iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
-
-    if-eqz v5, :cond_7
-
     const/16 v5, 0x20
 
     invoke-virtual {p1, v5}, Lcom/android/incallui/Call;->can(I)Z
@@ -11070,21 +11073,20 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     move v3, v4
 
-    :cond_6
+    :cond_5
     invoke-virtual {v5, v3}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_7
     const-string v3, "support_spam_call"
 
     invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_7
 
     invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->getContext()Landroid/content/Context;
 
@@ -11094,11 +11096,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9
-
-    iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtn:Landroid/widget/Button;
-
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_7
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -11176,7 +11174,7 @@
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_6
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v5
@@ -11191,11 +11189,7 @@
 
     goto/16 :goto_1
 
-    :cond_9
-    iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtn:Landroid/widget/Button;
-
-    if-eqz v3, :cond_0
-
+    :cond_7
     iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtn:Landroid/widget/Button;
 
     invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->getResources()Landroid/content/res/Resources;
@@ -11220,19 +11214,10 @@
 
     goto/16 :goto_0
 
-    :cond_a
-    iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
-
-    if-eqz v4, :cond_b
-
+    :cond_8
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
 
     invoke-virtual {v4, v3}, Lcom/android/incallui/RejectMsgContentPopup;->setVisibility(I)V
-
-    :cond_b
-    iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
-
-    if-eqz v4, :cond_0
 
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
 

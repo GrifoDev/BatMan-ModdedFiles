@@ -280,6 +280,14 @@
 
     move-result v1
 
+    if-nez v1, :cond_0
+
+    const-string v1, "23806"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
     if-eqz v1, :cond_1
 
     :cond_0

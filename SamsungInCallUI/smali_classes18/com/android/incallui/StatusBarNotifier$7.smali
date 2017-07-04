@@ -47,25 +47,21 @@
 
     move-result-object v1
 
-    # setter for: Lcom/android/incallui/StatusBarNotifier;->mVolteService:Lcom/sec/ims/volte2/IVolteService;
     invoke-static {v1}, Lcom/android/incallui/StatusBarNotifier;->access$602(Lcom/sec/ims/volte2/IVolteService;)Lcom/sec/ims/volte2/IVolteService;
 
     :try_start_0
-    # getter for: Lcom/android/incallui/StatusBarNotifier;->mVolteService:Lcom/sec/ims/volte2/IVolteService;
     invoke-static {}, Lcom/android/incallui/StatusBarNotifier;->access$600()Lcom/sec/ims/volte2/IVolteService;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    # getter for: Lcom/android/incallui/StatusBarNotifier;->mVolteService:Lcom/sec/ims/volte2/IVolteService;
     invoke-static {}, Lcom/android/incallui/StatusBarNotifier;->access$600()Lcom/sec/ims/volte2/IVolteService;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/StatusBarNotifier$7;->this$0:Lcom/android/incallui/StatusBarNotifier;
 
-    # getter for: Lcom/android/incallui/StatusBarNotifier;->mInCallImsEventListener:Lcom/sec/ims/volte2/ImsCallEventListener;
     invoke-static {v2}, Lcom/android/incallui/StatusBarNotifier;->access$700(Lcom/android/incallui/StatusBarNotifier;)Lcom/sec/ims/volte2/ImsCallEventListener;
 
     move-result-object v2
@@ -97,7 +93,6 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/incallui/StatusBarNotifier;->mVolteService:Lcom/sec/ims/volte2/IVolteService;
     invoke-static {v0}, Lcom/android/incallui/StatusBarNotifier;->access$602(Lcom/sec/ims/volte2/IVolteService;)Lcom/sec/ims/volte2/IVolteService;
 
     return-void

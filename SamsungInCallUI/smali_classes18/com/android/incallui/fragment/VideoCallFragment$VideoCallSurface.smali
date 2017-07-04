@@ -71,12 +71,10 @@
 
     iget v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    # setter for: Lcom/android/incallui/fragment/VideoCallFragment;->mWidth:I
     invoke-static {p1, v1}, Lcom/android/incallui/fragment/VideoCallFragment;->access$002(Lcom/android/incallui/fragment/VideoCallFragment;I)I
 
     iget v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    # setter for: Lcom/android/incallui/fragment/VideoCallFragment;->mHeight:I
     invoke-static {p1, v1}, Lcom/android/incallui/fragment/VideoCallFragment;->access$102(Lcom/android/incallui/fragment/VideoCallFragment;I)I
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallFragment$VideoCallSurface;->mTextureView:Landroid/view/TextureView;

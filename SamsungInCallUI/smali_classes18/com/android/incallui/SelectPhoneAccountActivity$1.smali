@@ -44,7 +44,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/SelectPhoneAccountActivity$1;->this$0:Lcom/android/incallui/SelectPhoneAccountActivity;
 
-    # invokes: Lcom/android/incallui/SelectPhoneAccountActivity;->attemptFinish()V
     invoke-static {v0}, Lcom/android/incallui/SelectPhoneAccountActivity;->access$000(Lcom/android/incallui/SelectPhoneAccountActivity;)V
 
     goto :goto_0

@@ -895,7 +895,6 @@
 
     move-object/from16 v0, v25
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallCardFragment;->arrangeBelowButtonLayout(I)V
     invoke-static {v0, v6}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->access$500(Lcom/android/incallui/fragment/VoiceCallCardFragment;I)V
 
     goto/16 :goto_0

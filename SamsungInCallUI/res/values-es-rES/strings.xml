@@ -675,7 +675,7 @@ cional"</string>
     <string name="smart_call_report_msg">Denunciar número</string>
     <string name="smart_call_reported_as">Notificado como %s</string>
     <string name="smart_call_searching_message">Identificando llamada…</string>
-    <string name="smart_call_spam_level_1">No es actividad no deseada</string>
+    <string name="smart_call_spam_level_1">No es SPAM</string>
     <string name="smart_call_spam_level_2">Podrían ser no deseados</string>
     <string name="smart_call_spam_level_3">Estafa o fraude</string>
     <string name="smart_call_unblock_button">Desbloquear</string>

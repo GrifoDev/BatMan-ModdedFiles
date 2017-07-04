@@ -53,7 +53,6 @@
 
     const-string v1, "queryCallerInfo - cursor != null"
 
-    # invokes: Lcom/android/incallui/smartcall/SmartCallUtil;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/android/incallui/smartcall/SmartCallUtil;->access$000(Ljava/lang/String;)V
 
     invoke-static/range {p1 .. p1}, Lcom/android/incallui/smartcall/SmartCallInfo;->getSmartCallInfo(Landroid/database/Cursor;)Lcom/android/incallui/smartcall/SmartCallInfo;
@@ -125,7 +124,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/smartcall/SmartCallUtil;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/android/incallui/smartcall/SmartCallUtil;->access$000(Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;

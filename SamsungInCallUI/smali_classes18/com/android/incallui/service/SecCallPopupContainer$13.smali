@@ -56,7 +56,6 @@
     :cond_0
     iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer$13;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mCallPopupInfo:Landroid/widget/RelativeLayout;
     invoke-static {v3}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1900(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/RelativeLayout;
 
     move-result-object v3
@@ -65,7 +64,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer$13;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v3}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2800(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v3
@@ -74,7 +72,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer$13;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mCallPopupInfo:Landroid/widget/RelativeLayout;
     invoke-static {v3}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1900(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/RelativeLayout;
 
     move-result-object v3
@@ -131,7 +128,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer$13;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v3}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2800(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v3
@@ -144,7 +140,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer$13;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v3}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2800(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v3
@@ -163,7 +158,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer$13;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v3}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2800(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v3
@@ -172,7 +166,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/service/SecCallPopupContainer$13;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v3}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2800(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v3

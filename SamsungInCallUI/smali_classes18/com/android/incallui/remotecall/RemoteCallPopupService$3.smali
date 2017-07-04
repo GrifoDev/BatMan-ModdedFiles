@@ -45,7 +45,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService$3;->this$0:Lcom/android/incallui/remotecall/RemoteCallPopupService;
 
-    # invokes: Lcom/android/incallui/remotecall/RemoteCallPopupService;->updateUI()V
     invoke-static {v0}, Lcom/android/incallui/remotecall/RemoteCallPopupService;->access$300(Lcom/android/incallui/remotecall/RemoteCallPopupService;)V
 
     goto :goto_0

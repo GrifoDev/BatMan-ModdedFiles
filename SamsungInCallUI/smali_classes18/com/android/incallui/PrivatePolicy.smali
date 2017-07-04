@@ -1057,6 +1057,10 @@
     :cond_5
     invoke-virtual {p0}, Lcom/android/incallui/PrivatePolicy;->pauseCamera()V
 
+    iget-boolean v3, p0, Lcom/android/incallui/PrivatePolicy;->mNeedToSkipeOnDisconnect:Z
+
+    if-nez v3, :cond_0
+
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v3

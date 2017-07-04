@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$DrawerToggler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mLocked:Z
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$800(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)Z
 
     move-result v0
@@ -60,7 +59,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$DrawerToggler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mAnimateOnClick:Z
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$900(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)Z
 
     move-result v0

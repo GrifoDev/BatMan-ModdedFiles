@@ -49,7 +49,6 @@
 
     iget-object v1, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton$2;->this$0:Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    # getter for: Lcom/android/phone/common/dialpad/DialpadKeyButton;->mLetterTextView:Landroid/widget/TextView;
     invoke-static {v1}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->access$100(Lcom/android/phone/common/dialpad/DialpadKeyButton;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -58,7 +57,6 @@
 
     iget-object v1, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton$2;->this$0:Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    # getter for: Lcom/android/phone/common/dialpad/DialpadKeyButton;->mLetterTextView:Landroid/widget/TextView;
     invoke-static {v1}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->access$100(Lcom/android/phone/common/dialpad/DialpadKeyButton;)Landroid/widget/TextView;
 
     move-result-object v1

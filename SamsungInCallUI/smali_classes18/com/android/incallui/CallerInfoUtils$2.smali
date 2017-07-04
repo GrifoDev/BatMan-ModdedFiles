@@ -28,7 +28,6 @@
 .method protected doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 7
 
-    # getter for: Lcom/android/incallui/CallerInfoUtils;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/CallerInfoUtils;->access$000()Ljava/lang/String;
 
     move-result-object v4
@@ -65,7 +64,6 @@
 
     invoke-virtual {v4, v0, v2}, Lcom/android/incallui/ContactInfoCache;->updateGeoDescription(Ljava/lang/String;Ljava/lang/String;)V
 
-    # getter for: Lcom/android/incallui/CallerInfoUtils;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/CallerInfoUtils;->access$000()Ljava/lang/String;
 
     move-result-object v4
@@ -90,7 +88,6 @@
 
     invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    # getter for: Lcom/android/incallui/CallerInfoUtils;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/CallerInfoUtils;->access$000()Ljava/lang/String;
 
     move-result-object v4

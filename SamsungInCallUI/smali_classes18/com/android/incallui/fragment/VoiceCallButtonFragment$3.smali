@@ -109,7 +109,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->checkThenModify(I)V
     invoke-static {v2, v1}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallButtonFragment;I)V
 
     goto :goto_0
@@ -160,7 +159,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->checkThenModify(I)V
     invoke-static {v2, v1}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$100(Lcom/android/incallui/fragment/VoiceCallButtonFragment;I)V
 
     goto :goto_0
@@ -179,7 +177,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->switchToVideoCallClicked(Lcom/android/incallui/Call;)V
     invoke-static {v2, v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$200(Lcom/android/incallui/fragment/VoiceCallButtonFragment;Lcom/android/incallui/Call;)V
 
     goto :goto_0
@@ -214,7 +211,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->updateHoldButton()V
     invoke-static {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$300(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
 
     goto :goto_0
@@ -415,7 +411,6 @@
     :cond_5
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->animateForEndCall()V
     invoke-static {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$400(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
 
     goto/16 :goto_0
@@ -437,7 +432,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$3;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->emailClicked()V
     invoke-static {v2}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$500(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
 
     goto/16 :goto_0

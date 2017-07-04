@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
-    # invokes: Lcom/android/incallui/fragment/AnswerImageFragment;->animateHideForMaskPanel()V
     invoke-static {v0}, Lcom/android/incallui/fragment/AnswerImageFragment;->access$100(Lcom/android/incallui/fragment/AnswerImageFragment;)V
 
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
@@ -66,7 +65,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/fragment/AnswerImageFragment;->setDescriptionToHandle(Landroid/view/View;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/incallui/fragment/AnswerImageFragment;->access$000(Lcom/android/incallui/fragment/AnswerImageFragment;Landroid/view/View;Z)V
 
     :cond_0

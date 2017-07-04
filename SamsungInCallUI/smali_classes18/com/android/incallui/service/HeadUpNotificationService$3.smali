@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$3;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/service/HeadUpNotificationView;
     invoke-static {v0}, Lcom/android/incallui/service/HeadUpNotificationService;->access$600(Lcom/android/incallui/service/HeadUpNotificationService;)Lcom/android/incallui/service/HeadUpNotificationView;
 
     move-result-object v0
@@ -45,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$3;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/service/HeadUpNotificationView;
     invoke-static {v0}, Lcom/android/incallui/service/HeadUpNotificationService;->access$600(Lcom/android/incallui/service/HeadUpNotificationService;)Lcom/android/incallui/service/HeadUpNotificationView;
 
     move-result-object v0

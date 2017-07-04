@@ -44,7 +44,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/VideoPauseController$1;->this$0:Lcom/android/incallui/VideoPauseController;
 
-    # invokes: Lcom/android/incallui/VideoPauseController;->checkAndRequest()V
     invoke-static {v0}, Lcom/android/incallui/VideoPauseController;->access$000(Lcom/android/incallui/VideoPauseController;)V
 
     goto :goto_0

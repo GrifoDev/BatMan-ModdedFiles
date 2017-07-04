@@ -52,12 +52,10 @@
 
     const-string v1, "KnoxCustomAutoAnswerTimer onAnswer"
 
-    # invokes: Lcom/android/incallui/service/SecCallPopupContainer;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1600(Lcom/android/incallui/service/SecCallPopupContainer;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v0
@@ -99,7 +97,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/service/SecCallPopupContainer;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$1600(Lcom/android/incallui/service/SecCallPopupContainer;Ljava/lang/String;)V
 
     return-void

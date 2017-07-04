@@ -84,12 +84,10 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/contacts/common/model/AccountTypeManagerImpl;->access$000(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)Landroid/content/Context;
 
     move-result-object v1
 
-    # invokes: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->findUsableInvitableAccountTypes(Landroid/content/Context;)Ljava/util/Map;
     invoke-static {v0, v1}, Lcom/android/contacts/common/model/AccountTypeManagerImpl;->access$400(Lcom/android/contacts/common/model/AccountTypeManagerImpl;Landroid/content/Context;)Ljava/util/Map;
 
     move-result-object v0
@@ -122,7 +120,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mInvitableAccountTypeCache:Lcom/android/contacts/common/model/AccountTypeManagerImpl$InvitableAccountTypeCache;
     invoke-static {v0}, Lcom/android/contacts/common/model/AccountTypeManagerImpl;->access$500(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)Lcom/android/contacts/common/model/AccountTypeManagerImpl$InvitableAccountTypeCache;
 
     move-result-object v0
@@ -131,7 +128,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$FindInvitablesTask;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mInvitablesTaskIsRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
     invoke-static {v0}, Lcom/android/contacts/common/model/AccountTypeManagerImpl;->access$600(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0

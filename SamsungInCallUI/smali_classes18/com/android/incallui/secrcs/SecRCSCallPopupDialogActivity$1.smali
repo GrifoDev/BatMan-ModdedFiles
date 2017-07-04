@@ -41,7 +41,6 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
 
-    # getter for: Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -54,7 +53,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity$1;->this$0:Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;
 
-    # getter for: Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->mInComingInvitation:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->access$100(Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;)Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -65,7 +63,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->mInComingInvitation:Landroid/app/AlertDialog;
     invoke-static {v0, v1}, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;->access$102(Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity$1;->this$0:Lcom/android/incallui/secrcs/SecRCSCallPopupDialogActivity;

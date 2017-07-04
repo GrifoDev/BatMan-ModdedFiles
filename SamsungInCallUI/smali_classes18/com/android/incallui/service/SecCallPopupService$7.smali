@@ -62,7 +62,6 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/incallui/service/SecCallPopupService;->log(Ljava/lang/String;Z)V
     invoke-static {v1, v2, v5}, Lcom/android/incallui/service/SecCallPopupService;->access$300(Lcom/android/incallui/service/SecCallPopupService;Ljava/lang/String;Z)V
 
     iget v1, p1, Landroid/os/Message;->what:I
@@ -97,7 +96,6 @@
     :sswitch_3
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
@@ -106,7 +104,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
@@ -118,7 +115,6 @@
     :sswitch_4
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
@@ -127,7 +123,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
@@ -140,7 +135,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
@@ -150,7 +144,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -167,7 +160,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -182,7 +174,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -195,7 +186,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -209,7 +199,6 @@
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
@@ -218,14 +207,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v2
@@ -234,14 +221,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v2
@@ -253,7 +238,6 @@
     :sswitch_5
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -276,7 +260,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -289,7 +272,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v1
@@ -303,7 +285,6 @@
     :cond_3
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
@@ -312,14 +293,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mPrimaryCall:Lcom/android/incallui/Call;
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupService;->access$100(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/Call;
 
     move-result-object v2
@@ -371,7 +350,6 @@
     :sswitch_8
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$7;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1

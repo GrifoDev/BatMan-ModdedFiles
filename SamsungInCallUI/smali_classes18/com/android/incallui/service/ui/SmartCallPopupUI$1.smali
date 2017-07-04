@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/ui/SmartCallPopupUI$1;->this$0:Lcom/android/incallui/service/ui/SmartCallPopupUI;
 
-    # getter for: Lcom/android/incallui/service/ui/SmartCallPopupUI;->mSmartCallPhoto:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/service/ui/SmartCallPopupUI;->access$000(Lcom/android/incallui/service/ui/SmartCallPopupUI;)Landroid/widget/ImageView;
 
     move-result-object v0

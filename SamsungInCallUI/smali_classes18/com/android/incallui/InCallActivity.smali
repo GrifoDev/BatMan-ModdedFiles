@@ -2451,7 +2451,15 @@
 .end method
 
 .method private queryForCrane()V
-    .locals 6
+    .locals 9
+
+    const/16 v8, 0x68
+
+    const/16 v7, 0x67
+
+    const/16 v6, 0x65
+
+    const/16 v5, 0x64
 
     const/4 v3, 0x1
 
@@ -2463,7 +2471,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     move v1, v3
 
@@ -2478,7 +2486,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -2515,11 +2523,32 @@
 
     sput-object v4, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
 
+    if-nez v1, :cond_2
+
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v4
 
-    invoke-virtual {v4, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->checkRemoteCapability(Ljava/lang/String;)V
+    invoke-virtual {v4, v7, v5, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v8, v5, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
+
+    :cond_2
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v7, v6, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v8, v6, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -2565,13 +2594,13 @@
 
     invoke-static {p0, v4, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallSelf:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     iget-object v4, p0, Lcom/android/incallui/InCallActivity;->mCallButtonFragmentManager:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3
 
     new-instance v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;
 
@@ -2579,25 +2608,25 @@
 
     iput-object v4, p0, Lcom/android/incallui/InCallActivity;->mCallButtonFragmentManager:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;
 
-    :cond_2
+    :cond_3
     iget-object v4, p0, Lcom/android/incallui/InCallActivity;->mCallButtonFragmentManager:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     iget-object v4, p0, Lcom/android/incallui/InCallActivity;->mCallButtonFragmentManager:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;
 
     invoke-virtual {v4, v3}, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->setCallPlusValue(Z)V
 
-    :cond_3
+    :cond_4
     return-void
 
-    :cond_4
+    :cond_5
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_6
+    if-eqz v1, :cond_7
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -2607,9 +2636,9 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    :cond_6
+    :cond_7
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v4

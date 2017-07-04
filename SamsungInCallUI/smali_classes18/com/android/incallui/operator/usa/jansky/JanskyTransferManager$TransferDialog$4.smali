@@ -53,7 +53,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mNumberRadio:Landroid/widget/RadioButton;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$700(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Landroid/widget/RadioButton;
 
     move-result-object v4
@@ -64,7 +63,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mNumberRadio:Landroid/widget/RadioButton;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$700(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Landroid/widget/RadioButton;
 
     move-result-object v4
@@ -92,7 +90,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mNumber:Landroid/widget/AutoCompleteTextView;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$500(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v4
@@ -119,7 +116,6 @@
 
     iget-object v5, v5, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mNumber:Landroid/widget/AutoCompleteTextView;
     invoke-static {v5}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$500(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v5
@@ -160,7 +156,6 @@
 
     move-result-object v5
 
-    # invokes: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->displayToast(Ljava/lang/String;)V
     invoke-static {v4, v5}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1100(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;Ljava/lang/String;)V
 
     goto :goto_0
@@ -202,7 +197,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedMsisdn:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1200(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/lang/String;
 
     move-result-object v4
@@ -213,7 +207,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedDeviceId:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1300(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/lang/String;
 
     move-result-object v4
@@ -253,7 +246,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedDeviceId:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1300(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/lang/String;
 
     move-result-object v4
@@ -264,7 +256,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mDeviceEntry:Ljava/util/ArrayList;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$000(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -275,7 +266,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedIndex:I
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1400(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)I
 
     move-result v4
@@ -284,7 +274,6 @@
 
     iget-object v5, v5, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mDeviceEntry:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$000(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -301,7 +290,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mDeviceEntry:Ljava/util/ArrayList;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$000(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -310,7 +298,6 @@
 
     iget-object v5, v5, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedIndex:I
     invoke-static {v5}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1400(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)I
 
     move-result v5
@@ -351,7 +338,6 @@
 
     iget-object v7, v7, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedDeviceId:Ljava/lang/String;
     invoke-static {v7}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1300(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/lang/String;
 
     move-result-object v7
@@ -382,7 +368,6 @@
 
     iget-object v5, v5, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedMsisdn:Ljava/lang/String;
     invoke-static {v5}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1200(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/lang/String;
 
     move-result-object v5
@@ -391,7 +376,6 @@
 
     iget-object v6, v6, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedDeviceId:Ljava/lang/String;
     invoke-static {v6}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1300(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/lang/String;
 
     move-result-object v6

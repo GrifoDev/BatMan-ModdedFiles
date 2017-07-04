@@ -66,12 +66,10 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/service/HeadUpNotificationService;->mMoveAnimator:Landroid/animation/ObjectAnimator;
     invoke-static {v0, v1}, Lcom/android/incallui/service/HeadUpNotificationService;->access$1002(Lcom/android/incallui/service/HeadUpNotificationService;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
 
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$5;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
-    # invokes: Lcom/android/incallui/service/HeadUpNotificationService;->stopSelfWithStartId()V
     invoke-static {v0}, Lcom/android/incallui/service/HeadUpNotificationService;->access$1100(Lcom/android/incallui/service/HeadUpNotificationService;)V
 
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$5;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;

@@ -82,7 +82,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # invokes: Lcom/android/incallui/service/MiniModeCallService;->stopLongClickCheck()V
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$000(Lcom/android/incallui/service/MiniModeCallService;)V
 
     goto :goto_0
@@ -94,7 +93,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->mIsOverMoveThreshold:Z
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$100(Lcom/android/incallui/service/MiniModeCallService;)Z
 
     move-result v4
@@ -103,7 +101,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->mLastDownEventTime:J
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$200(Lcom/android/incallui/service/MiniModeCallService;)J
 
     move-result-wide v4
@@ -127,7 +124,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # invokes: Lcom/android/incallui/service/MiniModeCallService;->stopLongClickCheck()V
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$000(Lcom/android/incallui/service/MiniModeCallService;)V
 
     goto :goto_0
@@ -139,12 +135,10 @@
 
     move-result-wide v6
 
-    # setter for: Lcom/android/incallui/service/MiniModeCallService;->mLastDownEventTime:J
     invoke-static {v4, v6, v7}, Lcom/android/incallui/service/MiniModeCallService;->access$202(Lcom/android/incallui/service/MiniModeCallService;J)J
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # setter for: Lcom/android/incallui/service/MiniModeCallService;->mIsOverMoveThreshold:Z
     invoke-static {v4, v8}, Lcom/android/incallui/service/MiniModeCallService;->access$102(Lcom/android/incallui/service/MiniModeCallService;Z)Z
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
@@ -157,7 +151,6 @@
 
     move-result v5
 
-    # setter for: Lcom/android/incallui/service/MiniModeCallService;->START_X:F
     invoke-static {v4, v5}, Lcom/android/incallui/service/MiniModeCallService;->access$302(Lcom/android/incallui/service/MiniModeCallService;F)F
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
@@ -166,7 +159,6 @@
 
     move-result v5
 
-    # setter for: Lcom/android/incallui/service/MiniModeCallService;->START_Y:F
     invoke-static {v4, v5}, Lcom/android/incallui/service/MiniModeCallService;->access$402(Lcom/android/incallui/service/MiniModeCallService;F)F
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
@@ -177,7 +169,6 @@
 
     iget v5, v5, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    # setter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_X:I
     invoke-static {v4, v5}, Lcom/android/incallui/service/MiniModeCallService;->access$502(Lcom/android/incallui/service/MiniModeCallService;I)I
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
@@ -188,7 +179,6 @@
 
     iget v5, v5, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    # setter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_Y:I
     invoke-static {v4, v5}, Lcom/android/incallui/service/MiniModeCallService;->access$602(Lcom/android/incallui/service/MiniModeCallService;I)I
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
@@ -197,7 +187,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # invokes: Lcom/android/incallui/service/MiniModeCallService;->startLongClickCheck()V
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$700(Lcom/android/incallui/service/MiniModeCallService;)V
 
     goto :goto_0
@@ -209,7 +198,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->START_X:F
     invoke-static {v5}, Lcom/android/incallui/service/MiniModeCallService;->access$300(Lcom/android/incallui/service/MiniModeCallService;)F
 
     move-result v5
@@ -224,7 +212,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->START_Y:F
     invoke-static {v5}, Lcom/android/incallui/service/MiniModeCallService;->access$400(Lcom/android/incallui/service/MiniModeCallService;)F
 
     move-result v5
@@ -248,7 +235,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_X:I
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$500(Lcom/android/incallui/service/MiniModeCallService;)I
 
     move-result v4
@@ -267,7 +253,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_X:I
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$500(Lcom/android/incallui/service/MiniModeCallService;)I
 
     move-result v4
@@ -290,7 +275,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_X:I
     invoke-static {v5}, Lcom/android/incallui/service/MiniModeCallService;->access$500(Lcom/android/incallui/service/MiniModeCallService;)I
 
     move-result v5
@@ -302,7 +286,6 @@
     :cond_1
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_Y:I
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$600(Lcom/android/incallui/service/MiniModeCallService;)I
 
     move-result v4
@@ -321,7 +304,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_Y:I
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$600(Lcom/android/incallui/service/MiniModeCallService;)I
 
     move-result v4
@@ -336,7 +318,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_Y:I
     invoke-static {v5}, Lcom/android/incallui/service/MiniModeCallService;->access$600(Lcom/android/incallui/service/MiniModeCallService;)I
 
     move-result v5
@@ -349,7 +330,6 @@
     :goto_2
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # invokes: Lcom/android/incallui/service/MiniModeCallService;->updateViewLayout()V
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$800(Lcom/android/incallui/service/MiniModeCallService;)V
 
     goto/16 :goto_0
@@ -357,12 +337,10 @@
     :cond_3
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # setter for: Lcom/android/incallui/service/MiniModeCallService;->mIsOverMoveThreshold:Z
     invoke-static {v4, v9}, Lcom/android/incallui/service/MiniModeCallService;->access$102(Lcom/android/incallui/service/MiniModeCallService;Z)Z
 
     iget-object v4, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # invokes: Lcom/android/incallui/service/MiniModeCallService;->stopLongClickCheck()V
     invoke-static {v4}, Lcom/android/incallui/service/MiniModeCallService;->access$000(Lcom/android/incallui/service/MiniModeCallService;)V
 
     goto :goto_1
@@ -374,7 +352,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_X:I
     invoke-static {v5}, Lcom/android/incallui/service/MiniModeCallService;->access$500(Lcom/android/incallui/service/MiniModeCallService;)I
 
     move-result v5
@@ -389,7 +366,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/MiniModeCallService$1;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
-    # getter for: Lcom/android/incallui/service/MiniModeCallService;->PREV_Y:I
     invoke-static {v5}, Lcom/android/incallui/service/MiniModeCallService;->access$600(Lcom/android/incallui/service/MiniModeCallService;)I
 
     move-result v5

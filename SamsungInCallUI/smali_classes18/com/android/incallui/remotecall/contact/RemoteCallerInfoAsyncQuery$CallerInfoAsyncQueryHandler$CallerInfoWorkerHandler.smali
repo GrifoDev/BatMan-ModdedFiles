@@ -130,7 +130,6 @@
 
     iget-object v5, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
 
-    # invokes: Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;->sanitizeUriToString(Landroid/net/Uri;)Ljava/lang/String;
     invoke-static {v5}, Lcom/android/incallui/remotecall/contact/RemoteCallerInfoAsyncQuery;->access$000(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v5

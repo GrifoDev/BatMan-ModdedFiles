@@ -69,12 +69,10 @@
 
     iget-object v1, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v1}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$000(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v1
 
-    # invokes: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->handleQueryComplete(Lcom/android/incallui/CallerInfo;)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$400(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;Lcom/android/incallui/CallerInfo;)V
 
     :goto_1
@@ -85,17 +83,14 @@
 
     iget-object v1, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v1}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$000(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v1
 
-    # invokes: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->clearContactInfo(Lcom/android/incallui/CallerInfo;)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$100(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;Lcom/android/incallui/CallerInfo;)V
 
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v0}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$000(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v0
@@ -114,14 +109,12 @@
 
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v0}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$000(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v1}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$000(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v1
@@ -132,7 +125,6 @@
 
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v0}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$000(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v0
@@ -147,14 +139,12 @@
 
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v0}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$000(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
     invoke-static {v1}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$000(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfo;
 
     move-result-object v1
@@ -165,7 +155,6 @@
 
     iget-object v3, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_ctx:Landroid/content/Context;
     invoke-static {v3}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$200(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Landroid/content/Context;
 
     move-result-object v3
@@ -185,7 +174,6 @@
     :pswitch_2
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_ctx:Landroid/content/Context;
     invoke-static {v0}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$200(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Landroid/content/Context;
 
     move-result-object v0
@@ -194,7 +182,6 @@
 
     iget-object v2, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_listener:Lcom/android/incallui/CallerInfoAsyncQuery$OnQueryCompleteListener;
     invoke-static {v2}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$300(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Lcom/android/incallui/CallerInfoAsyncQuery$OnQueryCompleteListener;
 
     move-result-object v2

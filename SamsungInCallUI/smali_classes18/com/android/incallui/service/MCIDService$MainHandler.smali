@@ -44,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/MCIDService$MainHandler;->this$0:Lcom/android/incallui/service/MCIDService;
 
-    # invokes: Lcom/android/incallui/service/MCIDService;->executeMessage(Landroid/os/Message;)V
     invoke-static {v0, p1}, Lcom/android/incallui/service/MCIDService;->access$100(Lcom/android/incallui/service/MCIDService;Landroid/os/Message;)V
 
     return-void

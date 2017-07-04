@@ -70,7 +70,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/operator/usa/InCallUIExtensionManager$1;->this$0:Lcom/android/incallui/operator/usa/InCallUIExtensionManager;
 
-    # getter for: Lcom/android/incallui/operator/usa/InCallUIExtensionManager;->mServiceState:I
     invoke-static {v3}, Lcom/android/incallui/operator/usa/InCallUIExtensionManager;->access$000(Lcom/android/incallui/operator/usa/InCallUIExtensionManager;)I
 
     move-result v3
@@ -111,7 +110,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/operator/usa/InCallUIExtensionManager$1;->this$0:Lcom/android/incallui/operator/usa/InCallUIExtensionManager;
 
-    # setter for: Lcom/android/incallui/operator/usa/InCallUIExtensionManager;->mServiceState:I
     invoke-static {v3, v0}, Lcom/android/incallui/operator/usa/InCallUIExtensionManager;->access$002(Lcom/android/incallui/operator/usa/InCallUIExtensionManager;I)I
 
     return-void

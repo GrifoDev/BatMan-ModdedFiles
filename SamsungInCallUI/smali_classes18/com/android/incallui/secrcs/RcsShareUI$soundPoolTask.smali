@@ -78,7 +78,6 @@
 
     move-result v2
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v3
@@ -107,7 +106,6 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v3
@@ -154,7 +152,6 @@
     :catch_0
     move-exception v1
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v3
@@ -167,7 +164,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask;->soundPool:Landroid/media/SoundPool;
 
-    # invokes: Lcom/android/incallui/secrcs/RcsShareUI;->releaseSoundPool(Landroid/media/SoundPool;)V
     invoke-static {v3, v4}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1400(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/media/SoundPool;)V
 
     goto :goto_0
@@ -190,7 +186,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-    # invokes: Lcom/android/incallui/secrcs/RcsShareUI;->releaseSoundPool(Landroid/media/SoundPool;)V
     invoke-static {v0, p1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1400(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/media/SoundPool;)V
 
     return-void
@@ -219,7 +214,6 @@
 
     iput-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$soundPoolTask;->soundPool:Landroid/media/SoundPool;
 
-    # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Ljava/lang/String;
 
     move-result-object v0

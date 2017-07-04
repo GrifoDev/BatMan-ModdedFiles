@@ -39,7 +39,6 @@
 
     const/4 v2, 0x1
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupWaitingCall;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/service/SecCallPopupWaitingCall;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -82,7 +81,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$7;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupWaitingCall;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupWaitingCall;->access$200(Lcom/android/incallui/service/SecCallPopupWaitingCall;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v0
@@ -93,7 +91,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$7;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupWaitingCall;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupWaitingCall;->access$200(Lcom/android/incallui/service/SecCallPopupWaitingCall;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v0
@@ -102,7 +99,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$7;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupWaitingCall;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v0}, Lcom/android/incallui/service/SecCallPopupWaitingCall;->access$200(Lcom/android/incallui/service/SecCallPopupWaitingCall;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v0

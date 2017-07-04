@@ -58,7 +58,6 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
-    # getter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mRecorderSrv:Lcom/android/phone/IAnswerMemoRecorderService;
     invoke-static {v2}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$300(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)Lcom/android/phone/IAnswerMemoRecorderService;
 
     move-result-object v2
@@ -75,7 +74,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
-    # getter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mRecorderSrv:Lcom/android/phone/IAnswerMemoRecorderService;
     invoke-static {v3}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$300(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)Lcom/android/phone/IAnswerMemoRecorderService;
 
     move-result-object v3
@@ -84,14 +82,12 @@
 
     move-result v3
 
-    # setter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mIsRecording:Z
     invoke-static {v2, v3}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$402(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;Z)Z
 
     iget-object v2, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
     iget-object v3, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
-    # getter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mRecorderSrv:Lcom/android/phone/IAnswerMemoRecorderService;
     invoke-static {v3}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$300(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)Lcom/android/phone/IAnswerMemoRecorderService;
 
     move-result-object v3
@@ -100,13 +96,11 @@
 
     move-result v3
 
-    # setter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mIsPaused:Z
     invoke-static {v2, v3}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$502(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;Z)Z
 
     :goto_1
     iget-object v2, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
-    # getter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v2}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$600(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v2
@@ -139,13 +133,11 @@
 
     move-result-object v3
 
-    # setter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v2, v3}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$602(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;Lcom/android/incallui/InCallActivity;)Lcom/android/incallui/InCallActivity;
 
     :cond_0
     iget-object v2, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
-    # getter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v2}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$600(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v2
@@ -154,7 +146,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
-    # getter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v2}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$600(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v2
@@ -180,7 +171,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
-    # getter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mIsRecording:Z
     invoke-static {v4}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$400(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)Z
 
     move-result v4
@@ -197,7 +187,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
-    # getter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mIsPaused:Z
     invoke-static {v4}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$500(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;)Z
 
     move-result v4
@@ -249,14 +238,12 @@
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mIsRecording:Z
     invoke-static {v2, v3}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$402(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;Z)Z
 
     iget-object v2, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceCallback;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->mIsPaused:Z
     invoke-static {v2, v3}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->access$502(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;Z)Z
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0

@@ -36,12 +36,10 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
-    # --operator for: Lcom/android/incallui/fragment/CallCardFragment;->mEndCallRepeatCount:I
     invoke-static {v0}, Lcom/android/incallui/fragment/CallCardFragment;->access$106(Lcom/android/incallui/fragment/CallCardFragment;)I
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
-    # getter for: Lcom/android/incallui/fragment/CallCardFragment;->mEndCallRepeatCount:I
     invoke-static {v0}, Lcom/android/incallui/fragment/CallCardFragment;->access$100(Lcom/android/incallui/fragment/CallCardFragment;)I
 
     move-result v0
@@ -50,7 +48,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
-    # invokes: Lcom/android/incallui/fragment/CallCardFragment;->animateForBlinkCallTime()V
     invoke-static {v0}, Lcom/android/incallui/fragment/CallCardFragment;->access$200(Lcom/android/incallui/fragment/CallCardFragment;)V
 
     :goto_0
@@ -59,7 +56,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
-    # getter for: Lcom/android/incallui/fragment/CallCardFragment;->mEndCallRepeatCount:I
     invoke-static {v0}, Lcom/android/incallui/fragment/CallCardFragment;->access$100(Lcom/android/incallui/fragment/CallCardFragment;)I
 
     move-result v0
@@ -68,7 +64,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallCardFragment$5;->this$0:Lcom/android/incallui/fragment/CallCardFragment;
 
-    # invokes: Lcom/android/incallui/fragment/CallCardFragment;->stopCallEndTimeBlink()V
     invoke-static {v0}, Lcom/android/incallui/fragment/CallCardFragment;->access$300(Lcom/android/incallui/fragment/CallCardFragment;)V
 
     goto :goto_0
@@ -78,7 +73,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/fragment/CallCardFragment;->mIsBlinkForEndCall:Z
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/CallCardFragment;->access$402(Lcom/android/incallui/fragment/CallCardFragment;Z)Z
 
     goto :goto_0

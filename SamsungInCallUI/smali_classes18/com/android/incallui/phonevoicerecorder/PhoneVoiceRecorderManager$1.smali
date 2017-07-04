@@ -57,7 +57,6 @@
     :sswitch_1
     iget-object v2, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$1;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    # invokes: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->getContext()Landroid/content/Context;
     invoke-static {v2}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$000(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;)Landroid/content/Context;
 
     move-result-object v0

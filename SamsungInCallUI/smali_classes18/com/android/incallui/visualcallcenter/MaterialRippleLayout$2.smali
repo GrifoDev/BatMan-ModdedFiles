@@ -44,7 +44,6 @@
 .method public get(Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;)Ljava/lang/Float;
     .locals 1
 
-    # invokes: Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->getRadius()F
     invoke-static {p1}, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->access$500(Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;)F
 
     move-result v0

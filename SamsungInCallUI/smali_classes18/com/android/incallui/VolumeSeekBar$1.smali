@@ -68,7 +68,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/VolumeSeekBar$1;->this$0:Lcom/android/incallui/VolumeSeekBar;
 
-    # getter for: Lcom/android/incallui/VolumeSeekBar;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/incallui/VolumeSeekBar;->access$000(Lcom/android/incallui/VolumeSeekBar;)Landroid/os/Handler;
 
     move-result-object v0

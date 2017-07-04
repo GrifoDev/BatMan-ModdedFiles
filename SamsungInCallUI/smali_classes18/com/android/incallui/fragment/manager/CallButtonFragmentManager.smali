@@ -458,9 +458,11 @@
 .end method
 
 .method protected checkAndSet(Z)Lcom/android/incallui/fragment/CallButtonFragment;
-    .locals 12
+    .locals 13
 
-    const/16 v11, 0xa
+    const/16 v12, 0xa
+
+    const/4 v11, 0x3
 
     const/4 v7, 0x0
 
@@ -642,9 +644,7 @@
 
     move-result v9
 
-    const/4 v10, 0x3
-
-    if-ne v9, v10, :cond_8
+    if-ne v9, v11, :cond_8
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallControl;->isSupportOnlyPortraitUI(Lcom/android/incallui/Call;)Z
 
@@ -842,7 +842,7 @@
 
     move-result v9
 
-    if-ne v9, v11, :cond_11
+    if-ne v9, v12, :cond_11
 
     :cond_10
     sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->EMPTY:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
@@ -965,7 +965,7 @@
 
     move-result v9
 
-    if-ne v9, v11, :cond_1a
+    if-ne v9, v12, :cond_1a
 
     if-nez v1, :cond_19
 
@@ -1167,7 +1167,7 @@
 
     sget-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->isMT:Z
 
-    if-eqz v7, :cond_20
+    if-eqz v7, :cond_21
 
     const-string v7, "ims_crane"
 
@@ -1175,7 +1175,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_20
+    if-eqz v7, :cond_21
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
 
@@ -1197,11 +1197,52 @@
 
     sput-object v7, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
 
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v7
+
+    if-eq v7, v11, :cond_20
+
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v7
 
-    invoke-virtual {v7, v3}, Lcom/android/incallui/secrcs/RcsShareUI;->checkRemoteCapability(Ljava/lang/String;)V
+    const/16 v9, 0x67
+
+    const/16 v10, 0x64
+
+    invoke-virtual {v7, v9, v10, v3}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    move-result-object v7
+
+    const/16 v9, 0x68
+
+    const/16 v10, 0x64
+
+    invoke-virtual {v7, v9, v10, v3}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
+
+    :cond_20
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    move-result-object v7
+
+    const/16 v9, 0x67
+
+    const/16 v10, 0x65
+
+    invoke-virtual {v7, v9, v10, v3}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    move-result-object v7
+
+    const/16 v9, 0x68
+
+    const/16 v10, 0x65
+
+    invoke-virtual {v7, v9, v10, v3}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -1255,24 +1296,24 @@
 
     sget-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
 
-    if-eqz v7, :cond_20
+    if-eqz v7, :cond_21
 
     iput-boolean v8, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mIsCallPlus:Z
 
-    :cond_20
+    :cond_21
     iget-boolean v7, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mIsCallPlus:Z
 
-    if-eqz v7, :cond_21
+    if-eqz v7, :cond_22
 
     sget-object v7, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->ENDCALL:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
-    if-eq v4, v7, :cond_21
+    if-eq v4, v7, :cond_22
 
     invoke-static {v0}, Lcom/android/incallui/util/CallTypeUtils;->isVoiceCall(Lcom/android/incallui/Call;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_21
+    if-eqz v7, :cond_22
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
@@ -1282,7 +1323,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_21
+    if-nez v7, :cond_22
 
     sget-object v4, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;->CALLPLUS_VOICE:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$FragmentMode;
 
@@ -1308,14 +1349,14 @@
 
     invoke-static {v7, v8}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_21
-    if-nez p1, :cond_22
+    :cond_22
+    if-nez p1, :cond_23
 
     iget-object v7, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mFragmentType:Ljava/lang/Enum;
 
-    if-eq v7, v4, :cond_23
+    if-eq v7, v4, :cond_24
 
-    :cond_22
+    :cond_23
     const-string v7, "CallButtonFragmentManager"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1356,7 +1397,7 @@
 
     iput-object v4, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mFragmentType:Ljava/lang/Enum;
 
-    :cond_23
+    :cond_24
     iget-object v7, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;->mCurrentFragment:Lcom/android/incallui/fragment/CallButtonFragment;
 
     goto/16 :goto_0

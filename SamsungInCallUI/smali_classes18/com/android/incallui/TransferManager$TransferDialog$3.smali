@@ -61,7 +61,6 @@
 
     iget-object v1, v1, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
 
-    # getter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {v1}, Lcom/android/incallui/TransferManager;->access$100(Lcom/android/incallui/TransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v1
@@ -72,7 +71,6 @@
 
     iget-object v1, v1, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
 
-    # getter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {v1}, Lcom/android/incallui/TransferManager;->access$100(Lcom/android/incallui/TransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v1
@@ -95,7 +93,6 @@
 
     iget-object v1, v1, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
 
-    # getter for: Lcom/android/incallui/TransferManager;->mInputField:Landroid/widget/AutoCompleteTextView;
     invoke-static {v1}, Lcom/android/incallui/TransferManager;->access$100(Lcom/android/incallui/TransferManager;)Landroid/widget/AutoCompleteTextView;
 
     move-result-object v1
@@ -149,7 +146,6 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/incallui/TransferManager;->displayToast(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/incallui/TransferManager;->access$600(Lcom/android/incallui/TransferManager;Ljava/lang/String;)V
 
     goto :goto_0

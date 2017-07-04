@@ -36,14 +36,12 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/MCIDService$1;->this$0:Lcom/android/incallui/service/MCIDService;
 
-    # getter for: Lcom/android/incallui/service/MCIDService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/incallui/service/MCIDService;->access$000(Lcom/android/incallui/service/MCIDService;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/incallui/service/MCIDService$1;->this$0:Lcom/android/incallui/service/MCIDService;
 
-    # getter for: Lcom/android/incallui/service/MCIDService;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/incallui/service/MCIDService;->access$000(Lcom/android/incallui/service/MCIDService;)Landroid/os/Handler;
 
     move-result-object v1

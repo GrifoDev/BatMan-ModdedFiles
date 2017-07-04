@@ -52,7 +52,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$SlidingHandler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
-    # invokes: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->doAnimation()V
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$1000(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)V
 
     goto :goto_0

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/StatusBarNotifier$1$1;->this$1:Lcom/android/incallui/StatusBarNotifier$1;
 
-    # invokes: Lcom/android/incallui/StatusBarNotifier$1;->fire()V
     invoke-static {v0}, Lcom/android/incallui/StatusBarNotifier$1;->access$000(Lcom/android/incallui/StatusBarNotifier$1;)V
 
     const/4 v0, 0x1

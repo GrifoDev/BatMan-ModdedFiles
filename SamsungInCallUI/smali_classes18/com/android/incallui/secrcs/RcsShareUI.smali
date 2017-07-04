@@ -54,7 +54,11 @@
 
 .field private static final BEEP_SOUND:Ljava/lang/String; = "android.resource://com.sec.android.app.clockpackage/raw/alert_on_call"
 
-.field public static final CAPABILITY_CRANE:Ljava/lang/String; = "gsma.callcomposer"
+.field public static final CAPABILITY_CRANE:Ljava/lang/String; = "gsma.sharedmap"
+
+.field public static final CAP_REMOTE:I = 0x68
+
+.field public static final CAP_SELF:I = 0x67
 
 .field public static final CATEGORY_NUMBER_TOKEN:Ljava/lang/String; = "com.samsung.rcs.number.category.ACTION"
 
@@ -74,6 +78,8 @@
 
 .field private static final IM:Ljava/lang/String; = "+g.3gpp.iari-ref=\"urn%3Aurn-7%3A3gpp-application.ims.iari.rcse.im\""
 
+.field public static final INCALL_CAP:I = 0x65
+
 .field private static final INT_MSG:Ljava/lang/String; = "+g.3gpp.iari-ref=\"urn%3Aurn-7%3A3gpp-application.ims.iari.joyn.intmsg\""
 
 .field public static final IS_MUTE_ON:Ljava/lang/String; = "is_mute_on"
@@ -87,6 +93,10 @@
 .field private static final OVERLAY_SERVICE_CLASS:Ljava/lang/String; = "com.samsung.crane.contentshare.ShareOverlayService"
 
 .field private static final PAUSE:C = ','
+
+.field public static final POSTCALL_CAP:I = 0x66
+
+.field public static final PRECALL_CAP:I = 0x64
 
 .field public static final RCS_CAPA_OBSERVER:I = 0x2
 
@@ -116,19 +126,23 @@
 
 .field public static isCrane:Z
 
-.field public static isCraneOnlineRemote:Z
-
-.field public static isCraneOnlineSelf:Z
-
 .field public static isCraneRemote:Z
 
-.field public static isCraneSelf:Z
+.field public static isInCallRemote:Z
+
+.field public static isInCallSelf:Z
 
 .field public static isMT:Z
 
-.field public static isRcsSwtich:Z
+.field public static isPostCallRemote:Z
 
-.field public static isSketchRemote:Z
+.field public static isPostCallSelf:Z
+
+.field public static isPreCallRemote:Z
+
+.field public static isPreCallSelf:Z
+
+.field public static isRcsSwtich:Z
 
 .field private static mAddCallButton:Landroid/widget/Button;
 
@@ -255,8 +269,6 @@
 
     sput-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->AUTO_CONFIGURATION_URI:Landroid/net/Uri;
 
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
-
     const-string v0, "content://com.sec.ims.android.rcs/preferences/1"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -283,16 +295,6 @@
 
     sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->mReConnect:Z
 
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isSketchRemote:Z
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneSelf:Z
-
     sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->is2G:Z
 
     sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isMT:Z
@@ -302,6 +304,22 @@
     sput-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->sMe:Lcom/android/incallui/secrcs/RcsShareUI;
 
     sput-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->wakeLock:Landroid/os/PowerManager$WakeLock;
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallSelf:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallRemote:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallSelf:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallRemote:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
 
     new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$7;
 
@@ -827,217 +845,6 @@
     invoke-virtual {v0, v3}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
     goto :goto_0
-.end method
-
-.method private checkOwnCapability()V
-    .locals 6
-
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    if-nez v2, :cond_0
-
-    const-string v2, "Context is null return : "
-
-    invoke-static {p0, v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/incallui/secrcs/RcsShareUI;->getComposerAuth(Landroid/content/Context;)I
-
-    iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
-
-    if-nez v2, :cond_1
-
-    new-instance v2, Lcom/sec/ims/options/CapabilityManager;
-
-    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    invoke-direct {v2, v3}, Lcom/sec/ims/options/CapabilityManager;-><init>(Landroid/content/Context;)V
-
-    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v3, " mCapabilityManager create own! "
-
-    invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
-
-    if-nez v2, :cond_2
-
-    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneSelf:Z
-
-    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-
-    goto :goto_0
-
-    :cond_2
-    :try_start_0
-    iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
-
-    invoke-virtual {v2}, Lcom/sec/ims/options/CapabilityManager;->getOwnCapabilities()Lcom/sec/ims/options/Capabilities;
-
-    move-result-object v0
-
-    if-nez v0, :cond_3
-
-    const/4 v2, 0x0
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneSelf:Z
-
-    const/4 v2, 0x0
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    const-string v2, "checkOwnCapability - error"
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
-
-    :goto_1
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "isCraneSelf -"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneSelf:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "isCraneOnlineSelf -"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_3
-    :try_start_1
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Own cap - "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-wide v4, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_CALL_COMPOSER:J
-
-    invoke-virtual {v0, v4, v5}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_CALL_COMPOSER:J
-
-    invoke-virtual {v0, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    const/4 v2, 0x1
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneSelf:Z
-
-    const-string v2, "checkOwnCapability - true"
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Lcom/sec/ims/options/Capabilities;->isAvailable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    const/4 v2, 0x1
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-
-    goto :goto_1
-
-    :cond_4
-    const/4 v2, 0x0
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-
-    goto :goto_1
-
-    :cond_5
-    const-string v2, "checkOwnCapability - false"
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v2, 0x0
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneSelf:Z
-
-    const/4 v2, 0x0
-
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_1
 .end method
 
 .method public static getCallerName(Landroid/content/Context;Lcom/android/incallui/Call;)Ljava/lang/String;
@@ -3956,227 +3763,6 @@
     goto :goto_1
 .end method
 
-.method public checkRemoteCapability(Ljava/lang/String;)V
-    .locals 8
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    if-nez v2, :cond_0
-
-    const-string v2, "Context is null return : "
-
-    invoke-static {p0, v2, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/incallui/secrcs/RcsShareUI;->checkOwnCapability()V
-
-    invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "remote_number - "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
-
-    if-nez v2, :cond_1
-
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
-
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
-
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isSketchRemote:Z
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
-
-    const/4 v3, 0x4
-
-    invoke-static {v2, v1, v3}, Lcom/android/incallui/secrcs/RcsShareUI;->getCapabilityByNumber(Lcom/sec/ims/options/CapabilityManager;Ljava/lang/String;I)Lcom/sec/ims/options/Capabilities;
-
-    move-result-object v0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Remote cap - "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    if-eqz v0, :cond_6
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Remote cap 1 - "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-wide v4, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_CALL_COMPOSER:J
-
-    invoke-virtual {v0, v4, v5}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_CALL_COMPOSER:J
-
-    invoke-virtual {v0, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    sput-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
-
-    invoke-virtual {v0}, Lcom/sec/ims/options/Capabilities;->isAvailable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    sput-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
-
-    :goto_1
-    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_SHARED_MAP:J
-
-    invoke-virtual {v0, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    const-string v2, "Map/Image Sketch is present remote side"
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sput-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->isSketchRemote:Z
-
-    :goto_2
-    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isSketchRemote:Z
-
-    if-eqz v2, :cond_7
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string v3, "isSketch"
-
-    invoke-static {v2, v3, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto/16 :goto_0
-
-    :cond_2
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
-
-    goto :goto_1
-
-    :cond_3
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
-
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
-
-    invoke-virtual {v0}, Lcom/sec/ims/options/Capabilities;->isAvailable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    sput-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
-
-    goto :goto_1
-
-    :cond_4
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
-
-    goto :goto_1
-
-    :cond_5
-    const-string v2, "Map/Image Sketch is not  present remote side"
-
-    invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isSketchRemote:Z
-
-    goto :goto_2
-
-    :cond_6
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
-
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
-
-    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isSketchRemote:Z
-
-    goto :goto_2
-
-    :cond_7
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string v3, "isSketch"
-
-    invoke-static {v2, v3, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto/16 :goto_0
-.end method
-
 .method public createExplicitFromImplicitIntent(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/Intent;
     .locals 10
 
@@ -4770,6 +4356,741 @@
     iget v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->labelType:I
 
     goto :goto_0
+.end method
+
+.method public getCraneCap(IILjava/lang/String;)V
+    .locals 9
+
+    const/16 v8, 0x68
+
+    const/16 v7, 0x67
+
+    const/4 v6, 0x1
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    if-nez v3, :cond_1
+
+    const-string v3, "Context is null return : "
+
+    invoke-static {p0, v3, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
+
+    if-nez v3, :cond_2
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    const-string v4, " mCapabilityManager for own cap "
+
+    invoke-static {v3, v4, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    new-instance v3, Lcom/sec/ims/options/CapabilityManager;
+
+    sget-object v4, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-direct {v3, v4}, Lcom/sec/ims/options/CapabilityManager;-><init>(Landroid/content/Context;)V
+
+    iput-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
+
+    iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
+
+    if-nez v3, :cond_2
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    const-string v4, " mCapabilityManager null"
+
+    invoke-static {v3, v4, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    if-ne p1, v7, :cond_4
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
+
+    invoke-virtual {v3}, Lcom/sec/ims/options/CapabilityManager;->getOwnCapabilities()Lcom/sec/ims/options/Capabilities;
+
+    move-result-object v0
+
+    :cond_3
+    :goto_1
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " capabilities :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    packed-switch p2, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    if-eqz v0, :cond_8
+
+    sget-wide v4, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_CALL_COMPOSER:J
+
+    invoke-virtual {v0, v4, v5}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    invoke-virtual {v0}, Lcom/sec/ims/options/Capabilities;->isAvailable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " PRECALL_CAP is Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_5
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallSelf:Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    const-string v3, "checkOwnCapability - error"
+
+    invoke-static {p0, v3, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
+
+    :cond_4
+    if-ne p1, v8, :cond_3
+
+    :try_start_1
+    invoke-static {p3}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "remote_number - "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    invoke-static {p0, v3, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    iget-object v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v2, v4}, Lcom/android/incallui/secrcs/RcsShareUI;->getCapabilityByNumber(Lcom/sec/ims/options/CapabilityManager;Ljava/lang/String;I)Lcom/sec/ims/options/Capabilities;
+
+    move-result-object v0
+
+    goto :goto_1
+
+    :cond_5
+    if-ne p1, v8, :cond_0
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallRemote:Z
+
+    goto/16 :goto_0
+
+    :cond_6
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " PRECALL_CAP is not Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_7
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallSelf:Z
+
+    goto/16 :goto_0
+
+    :cond_7
+    if-ne p1, v8, :cond_0
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallRemote:Z
+
+    goto/16 :goto_0
+
+    :cond_8
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " FEATURE_ENRICHED_CALL_COMPOSER is not Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_9
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallSelf:Z
+
+    goto/16 :goto_0
+
+    :cond_9
+    if-ne p1, v8, :cond_0
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallRemote:Z
+
+    goto/16 :goto_0
+
+    :pswitch_1
+    if-eqz v0, :cond_a
+
+    sget-wide v4, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_SHARED_MAP:J
+
+    invoke-virtual {v0, v4, v5}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v3
+
+    if-nez v3, :cond_b
+
+    :cond_a
+    if-eqz v0, :cond_12
+
+    sget-wide v4, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_SHARED_SKETCH:J
+
+    invoke-virtual {v0, v4, v5}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_12
+
+    :cond_b
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " INCALL_CAP is Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_e
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    :cond_c
+    :goto_2
+    invoke-virtual {v0}, Lcom/sec/ims/options/Capabilities;->isAvailable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_10
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " INCALL_CAP is Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_f
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallSelf:Z
+
+    :cond_d
+    :goto_3
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "isCraneRemote :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    sget-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "isCrane :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    sget-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
+
+    if-eqz v3, :cond_14
+
+    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-eqz v3, :cond_14
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "isSketch"
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_0
+
+    :cond_e
+    if-ne p1, v8, :cond_c
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
+
+    goto :goto_2
+
+    :cond_f
+    if-ne p1, v8, :cond_d
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallRemote:Z
+
+    goto :goto_3
+
+    :cond_10
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " INCALL_CAP is not Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_11
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallSelf:Z
+
+    goto :goto_3
+
+    :cond_11
+    if-ne p1, v8, :cond_d
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallRemote:Z
+
+    goto :goto_3
+
+    :cond_12
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " FEATURE_ENRICHED_SHARED_MAP is not Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_13
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallSelf:Z
+
+    goto/16 :goto_3
+
+    :cond_13
+    if-ne p1, v8, :cond_d
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallRemote:Z
+
+    goto/16 :goto_3
+
+    :cond_14
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "isSketch"
+
+    const/4 v5, 0x0
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_0
+
+    :pswitch_2
+    if-eqz v0, :cond_18
+
+    sget-wide v4, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_POST_CALL:J
+
+    invoke-virtual {v0, v4, v5}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_18
+
+    invoke-virtual {v0}, Lcom/sec/ims/options/Capabilities;->isAvailable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_16
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " POSTCALL_CAP is Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_15
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    goto/16 :goto_0
+
+    :cond_15
+    if-ne p1, v8, :cond_0
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
+
+    goto/16 :goto_0
+
+    :cond_16
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " INCALL_CAP is not Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_17
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    goto/16 :goto_0
+
+    :cond_17
+    if-ne p1, v8, :cond_0
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
+
+    goto/16 :goto_0
+
+    :cond_18
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " FEATURE_ENRICHED_POST_CALL is not Available cap_type :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-ne p1, v7, :cond_19
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    goto/16 :goto_0
+
+    :cond_19
+    if-ne p1, v8, :cond_0
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto/16 :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x64
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method
 
 .method public getInvitationText(Landroid/content/res/Resources;Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;)Ljava/lang/CharSequence;

@@ -253,7 +253,6 @@
     :cond_5
     iget-object v1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;
 
-    # invokes: Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;->release()V
     invoke-static {v1}, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;->access$100(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;)V
 
     goto/16 :goto_0

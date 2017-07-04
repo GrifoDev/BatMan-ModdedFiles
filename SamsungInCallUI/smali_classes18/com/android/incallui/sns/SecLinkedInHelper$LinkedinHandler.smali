@@ -52,7 +52,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/sns/SecLinkedInHelper$LinkedinHandler;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    # invokes: Lcom/android/incallui/sns/SecLinkedInHelper;->onSnsQueryCameBack()V
     invoke-static {v0}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$1000(Lcom/android/incallui/sns/SecLinkedInHelper;)V
 
     goto :goto_0

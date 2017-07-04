@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$15;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # invokes: Lcom/android/incallui/InCallActivity;->onDialogDismissed()V
     invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1500(Lcom/android/incallui/InCallActivity;)V
 
     return-void

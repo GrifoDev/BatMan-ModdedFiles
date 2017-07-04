@@ -66,7 +66,6 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/AccountFilterActivity$FilterLoader;->mContext:Landroid/content/Context;
 
-    # invokes: Lcom/android/contacts/common/list/AccountFilterActivity;->loadAccountFilters(Landroid/content/Context;)Ljava/util/List;
     invoke-static {v0}, Lcom/android/contacts/common/list/AccountFilterActivity;->access$100(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object v0

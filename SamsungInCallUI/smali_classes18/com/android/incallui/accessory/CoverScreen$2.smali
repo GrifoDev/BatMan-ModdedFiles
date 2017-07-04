@@ -45,7 +45,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$2;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # invokes: Lcom/android/incallui/accessory/CoverScreen;->updateRejectHandleDrawer(Z)V
     invoke-static {v0, v1}, Lcom/android/incallui/accessory/CoverScreen;->access$300(Lcom/android/incallui/accessory/CoverScreen;Z)V
 
     return-void

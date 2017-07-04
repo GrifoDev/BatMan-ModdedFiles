@@ -51,7 +51,6 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/incallui/smartcall/SmartCallManager$2;->this$0:Lcom/android/incallui/smartcall/SmartCallManager;
 
-    # getter for: Lcom/android/incallui/smartcall/SmartCallManager;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {v0}, Lcom/android/incallui/smartcall/SmartCallManager;->access$100(Lcom/android/incallui/smartcall/SmartCallManager;)Landroid/content/ContentResolver;
 
     move-result-object v0

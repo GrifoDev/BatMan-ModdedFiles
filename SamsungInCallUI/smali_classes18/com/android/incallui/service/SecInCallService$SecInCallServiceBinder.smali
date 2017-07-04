@@ -207,7 +207,6 @@
 
     iget-object v8, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
-    # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
     invoke-static {v8}, Lcom/android/incallui/service/SecInCallService;->access$000(Lcom/android/incallui/service/SecInCallService;)Landroid/os/Handler;
 
     move-result-object v8
@@ -255,7 +254,6 @@
     :try_start_1
     iget-object v8, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
-    # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
     invoke-static {v8}, Lcom/android/incallui/service/SecInCallService;->access$000(Lcom/android/incallui/service/SecInCallService;)Landroid/os/Handler;
 
     move-result-object v8
@@ -293,7 +291,6 @@
 
     iget-object v8, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
-    # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
     invoke-static {v8}, Lcom/android/incallui/service/SecInCallService;->access$000(Lcom/android/incallui/service/SecInCallService;)Landroid/os/Handler;
 
     move-result-object v8
@@ -335,7 +332,6 @@
 
     iget-object v8, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
-    # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
     invoke-static {v8}, Lcom/android/incallui/service/SecInCallService;->access$000(Lcom/android/incallui/service/SecInCallService;)Landroid/os/Handler;
 
     move-result-object v8
@@ -377,7 +373,6 @@
 
     iget-object v8, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
-    # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
     invoke-static {v8}, Lcom/android/incallui/service/SecInCallService;->access$000(Lcom/android/incallui/service/SecInCallService;)Landroid/os/Handler;
 
     move-result-object v8
@@ -430,7 +425,6 @@
 
     iget-object v8, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
-    # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
     invoke-static {v8}, Lcom/android/incallui/service/SecInCallService;->access$000(Lcom/android/incallui/service/SecInCallService;)Landroid/os/Handler;
 
     move-result-object v8

@@ -85,7 +85,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupService$1;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # invokes: Lcom/android/incallui/service/SecCallPopupService;->handleEventScreenOff(Landroid/content/Intent;)V
     invoke-static {v4, p2}, Lcom/android/incallui/service/SecCallPopupService;->access$000(Lcom/android/incallui/service/SecCallPopupService;Landroid/content/Intent;)V
 
     goto :goto_0

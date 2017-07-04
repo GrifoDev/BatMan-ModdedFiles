@@ -79,12 +79,10 @@
 
     const/4 v2, 0x1
 
-    # setter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsSelected:Z
     invoke-static {v1, v2}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->access$002(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;Z)Z
 
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    # getter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mAccountHandles:Ljava/util/List;
     invoke-static {v1}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->access$100(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;)Ljava/util/List;
 
     move-result-object v1

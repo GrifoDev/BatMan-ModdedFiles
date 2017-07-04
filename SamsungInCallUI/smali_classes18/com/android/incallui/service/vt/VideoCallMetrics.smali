@@ -676,7 +676,6 @@
 .method public hasMultiWindowType(I)Z
     .locals 1
 
-    # invokes: Lcom/android/incallui/service/vt/VideoCallMetrics$VideoUXMode;->hasMultiWindowType(I)Z
     invoke-static {p1}, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoUXMode;->access$000(I)Z
 
     move-result v0

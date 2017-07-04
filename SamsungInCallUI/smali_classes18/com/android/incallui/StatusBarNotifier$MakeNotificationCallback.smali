@@ -67,7 +67,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/StatusBarNotifier$MakeNotificationCallback;->this$0:Lcom/android/incallui/StatusBarNotifier;
 
-    # getter for: Lcom/android/incallui/StatusBarNotifier;->mBlockToUpdate:Z
     invoke-static {v1}, Lcom/android/incallui/StatusBarNotifier;->access$800(Lcom/android/incallui/StatusBarNotifier;)Z
 
     move-result v1

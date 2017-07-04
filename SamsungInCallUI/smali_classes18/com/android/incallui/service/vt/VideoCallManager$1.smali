@@ -110,7 +110,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$1;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
-    # getter for: Lcom/android/incallui/service/vt/VideoCallManager;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallManager;->access$000(Lcom/android/incallui/service/vt/VideoCallManager;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v1
@@ -119,7 +118,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$1;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
-    # getter for: Lcom/android/incallui/service/vt/VideoCallManager;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallManager;->access$000(Lcom/android/incallui/service/vt/VideoCallManager;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v1
@@ -132,7 +130,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$1;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
-    # getter for: Lcom/android/incallui/service/vt/VideoCallManager;->mInCallActivity:Lcom/android/incallui/InCallActivity;
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallManager;->access$000(Lcom/android/incallui/service/vt/VideoCallManager;)Lcom/android/incallui/InCallActivity;
 
     move-result-object v1

@@ -46,7 +46,6 @@
     :goto_0
     iget-object v4, p0, Lcom/android/incallui/remotecall/contact/RemoteContactsAsyncHelper$WorkerHandler;->this$0:Lcom/android/incallui/remotecall/contact/RemoteContactsAsyncHelper;
 
-    # getter for: Lcom/android/incallui/remotecall/contact/RemoteContactsAsyncHelper;->mResultHandler:Landroid/os/Handler;
     invoke-static {v4}, Lcom/android/incallui/remotecall/contact/RemoteContactsAsyncHelper;->access$000(Lcom/android/incallui/remotecall/contact/RemoteContactsAsyncHelper;)Landroid/os/Handler;
 
     move-result-object v4

@@ -54,7 +54,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/PrivatePolicy;->mediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v0, v1}, Lcom/android/incallui/PrivatePolicy;->access$002(Lcom/android/incallui/PrivatePolicy;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
     return-void

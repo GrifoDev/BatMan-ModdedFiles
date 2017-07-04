@@ -449,7 +449,6 @@
     :cond_4
     sget-object v6, Landroid/provider/ContactsContract$Groups;->CONTENT_URI:Landroid/net/Uri;
 
-    # invokes: Lcom/android/contacts/common/list/CustomContactListFilterActivity;->addCallerIsSyncAdapterParameter(Landroid/net/Uri;)Landroid/net/Uri;
     invoke-static {v6}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->access$100(Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object v6

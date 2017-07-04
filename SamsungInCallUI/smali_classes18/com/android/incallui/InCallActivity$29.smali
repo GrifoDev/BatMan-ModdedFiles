@@ -51,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$29;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1800(Lcom/android/incallui/InCallActivity;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v0
@@ -60,7 +59,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity$29;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # getter for: Lcom/android/incallui/InCallActivity;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
     invoke-static {v0}, Lcom/android/incallui/InCallActivity;->access$1800(Lcom/android/incallui/InCallActivity;)Lcom/android/incallui/widget/GradientAnimationView;
 
     move-result-object v0

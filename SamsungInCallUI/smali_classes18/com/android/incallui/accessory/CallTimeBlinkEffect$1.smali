@@ -66,7 +66,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/accessory/CallTimeBlinkEffect$1;->this$0:Lcom/android/incallui/accessory/CallTimeBlinkEffect;
 
-    # invokes: Lcom/android/incallui/accessory/CallTimeBlinkEffect;->stopCallEndTimeBlink()V
     invoke-static {v0}, Lcom/android/incallui/accessory/CallTimeBlinkEffect;->access$000(Lcom/android/incallui/accessory/CallTimeBlinkEffect;)V
 
     goto :goto_0

@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/CallTimer$CallTimerCallback;->this$0:Lcom/android/incallui/CallTimer;
 
-    # invokes: Lcom/android/incallui/CallTimer;->periodicUpdateTimer()V
     invoke-static {v0}, Lcom/android/incallui/CallTimer;->access$100(Lcom/android/incallui/CallTimer;)V
 
     return-void

@@ -61,7 +61,6 @@
 
     if-eqz v2, :cond_3
 
-    # getter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mVCCCurrentPageScrollState:I
     invoke-static {}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$400()I
 
     move-result v2
@@ -78,7 +77,6 @@
     goto :goto_0
 
     :cond_3
-    # getter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mCurrentPageScrollState:I
     invoke-static {}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$500()I
 
     move-result v2

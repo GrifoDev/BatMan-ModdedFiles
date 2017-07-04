@@ -101,7 +101,6 @@
 
     iget-object v0, p0, Lcom/android/phone/common/CallLogAsync$GetLastOutgoingCallTask;->this$0:Lcom/android/phone/common/CallLogAsync;
 
-    # invokes: Lcom/android/phone/common/CallLogAsync;->assertUiThread()V
     invoke-static {v0}, Lcom/android/phone/common/CallLogAsync;->access$000(Lcom/android/phone/common/CallLogAsync;)V
 
     iget-object v0, p0, Lcom/android/phone/common/CallLogAsync$GetLastOutgoingCallTask;->mCallback:Lcom/android/phone/common/CallLogAsync$OnLastOutgoingCallComplete;

@@ -45,7 +45,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$4;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # invokes: Lcom/android/incallui/accessory/CoverScreen;->animateHideForMaskPanel()V
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$400(Lcom/android/incallui/accessory/CoverScreen;)V
 
     return-void
@@ -62,7 +61,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$4;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
-    # invokes: Lcom/android/incallui/accessory/CoverScreen;->animateShowForMaskPanel()V
     invoke-static {v0}, Lcom/android/incallui/accessory/CoverScreen;->access$500(Lcom/android/incallui/accessory/CoverScreen;)V
 
     return-void

@@ -61,7 +61,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mGestureDetector:Landroid/view/GestureDetector;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$000(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/view/GestureDetector;
 
     move-result-object v6
@@ -70,7 +69,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mGestureDetector:Landroid/view/GestureDetector;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$000(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/view/GestureDetector;
 
     move-result-object v6
@@ -142,7 +140,6 @@
 
     move-result v7
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mStartPointX:F
     invoke-static {v6, v7}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$102(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;F)F
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
@@ -151,21 +148,18 @@
 
     move-result v7
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mStartPointY:F
     invoke-static {v6, v7}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$202(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;F)F
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
     iget-object v7, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
     invoke-static {v7}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$400(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v7
 
     iget v7, v7, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    # setter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mViewPointX:I
     invoke-static {v6, v7}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$302(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;I)I
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
@@ -183,7 +177,6 @@
 
     iget-object v7, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mStartPointX:F
     invoke-static {v7}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$100(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)F
 
     move-result v7
@@ -198,7 +191,6 @@
 
     iget-object v7, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mStartPointY:F
     invoke-static {v7}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$200(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)F
 
     move-result v7
@@ -209,14 +201,12 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$400(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v6
 
     iget-object v7, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mViewPointX:I
     invoke-static {v7}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$300(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)I
 
     move-result v7
@@ -227,7 +217,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mWindowManager:Landroid/view/WindowManager;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$500(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/view/WindowManager;
 
     move-result-object v6
@@ -236,7 +225,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationView;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$600(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationView;
 
     move-result-object v6
@@ -253,7 +241,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$400(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v6
@@ -302,7 +289,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$400(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v6
@@ -314,7 +300,6 @@
     const/4 v6, 0x1
 
     :goto_2
-    # invokes: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->animateForSlideOut(Z)V
     invoke-static {v7, v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$700(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;Z)V
 
     goto/16 :goto_1
@@ -333,7 +318,6 @@
     :goto_3
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationView;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$600(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationView;
 
     move-result-object v6
@@ -364,7 +348,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$800(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/app/SemStatusBarManager;
 
     move-result-object v6
@@ -373,7 +356,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService$1;->this$0:Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;
 
-    # getter for: Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->mStatusBarManager:Landroid/app/SemStatusBarManager;
     invoke-static {v6}, Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;->access$800(Lcom/android/incallui/phonevoicerecorder/HeadUpNotificationService;)Landroid/app/SemStatusBarManager;
 
     move-result-object v6

@@ -35,14 +35,12 @@
     return-void
 
     :cond_1
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_ownerCtx:Ljava/lang/ref/WeakReference;
     invoke-static {p1}, Lcom/android/incallui/service/EcidClient;->access$000(Lcom/android/incallui/service/EcidClient;)Ljava/lang/ref/WeakReference;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_ownerCtx:Ljava/lang/ref/WeakReference;
     invoke-static {p1}, Lcom/android/incallui/service/EcidClient;->access$000(Lcom/android/incallui/service/EcidClient;)Ljava/lang/ref/WeakReference;
 
     move-result-object v0
@@ -58,7 +56,6 @@
     :goto_1
     if-eqz v5, :cond_0
 
-    # ++operator for: Lcom/android/incallui/service/EcidClient;->m_lookupId:I
     invoke-static {}, Lcom/android/incallui/service/EcidClient;->access$504()I
 
     move-result v1
@@ -71,7 +68,6 @@
 
     move-object v0, p1
 
-    # invokes: Lcom/android/incallui/service/EcidClient;->executeLookupQuery(ILjava/lang/String;Ljava/lang/String;ILandroid/content/Context;)V
     invoke-static/range {v0 .. v5}, Lcom/android/incallui/service/EcidClient;->access$600(Lcom/android/incallui/service/EcidClient;ILjava/lang/String;Ljava/lang/String;ILandroid/content/Context;)V
 
     goto :goto_0
@@ -119,7 +115,6 @@
 
     move-result-object v3
 
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_mapLookupsInProcess:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/incallui/service/EcidClient;->access$300()Ljava/util/HashMap;
 
     move-result-object v6
@@ -137,7 +132,6 @@
 
     if-eqz v5, :cond_1
 
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_mapLookupsInProcess:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/incallui/service/EcidClient;->access$300()Ljava/util/HashMap;
 
     move-result-object v5
@@ -180,7 +174,6 @@
     const/4 v1, 0x0
 
     :try_start_1
-    # getter for: Lcom/android/incallui/service/EcidClient;->m_mapLookupsInProcess:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/incallui/service/EcidClient;->access$300()Ljava/util/HashMap;
 
     move-result-object v5
@@ -208,12 +201,10 @@
 
     iget-object v7, v0, Lcom/android/incallui/service/EcidClient;->m_phoneNumber:Ljava/lang/String;
 
-    # invokes: Lcom/android/incallui/service/EcidClient;->normalizeNumber(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v7}, Lcom/android/incallui/service/EcidClient;->access$400(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    # invokes: Lcom/android/incallui/service/EcidClient;->normalizeNumber(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v2}, Lcom/android/incallui/service/EcidClient;->access$400(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7

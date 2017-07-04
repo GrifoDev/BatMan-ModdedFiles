@@ -58,7 +58,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->this$0:Lcom/android/incallui/ContactInfoCache;
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->mInfoMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/android/incallui/ContactInfoCache;->access$300(Lcom/android/incallui/ContactInfoCache;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -81,7 +80,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->mCallId:Ljava/lang/String;
 
-    # invokes: Lcom/android/incallui/ContactInfoCache;->clearCallbacks(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/incallui/ContactInfoCache;->access$400(Lcom/android/incallui/ContactInfoCache;Ljava/lang/String;)V
 
     :cond_0
@@ -107,7 +105,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->mCallId:Ljava/lang/String;
 
-    # invokes: Lcom/android/incallui/ContactInfoCache;->sendContactInteractionsNotifications(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     invoke-static {v1, v2, v0}, Lcom/android/incallui/ContactInfoCache;->access$700(Lcom/android/incallui/ContactInfoCache;Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
     iget-boolean v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isLoadingPhoto:Z
@@ -118,7 +115,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->mCallId:Ljava/lang/String;
 
-    # invokes: Lcom/android/incallui/ContactInfoCache;->clearCallbacks(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/incallui/ContactInfoCache;->access$400(Lcom/android/incallui/ContactInfoCache;Ljava/lang/String;)V
 
     goto :goto_0
@@ -149,7 +145,6 @@
 
     if-nez p1, :cond_1
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
     move-result-object v5
@@ -162,7 +157,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->mCallId:Ljava/lang/String;
 
-    # invokes: Lcom/android/incallui/ContactInfoCache;->clearCallbacks(Ljava/lang/String;)V
     invoke-static {v5, v6}, Lcom/android/incallui/ContactInfoCache;->access$400(Lcom/android/incallui/ContactInfoCache;Ljava/lang/String;)V
 
     :cond_0
@@ -209,7 +203,6 @@
     :goto_1
     iget-object v5, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->this$0:Lcom/android/incallui/ContactInfoCache;
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->mInfoMap:Ljava/util/HashMap;
     invoke-static {v5}, Lcom/android/incallui/ContactInfoCache;->access$300(Lcom/android/incallui/ContactInfoCache;)Ljava/util/HashMap;
 
     move-result-object v5
@@ -254,7 +247,6 @@
 
     if-eqz v5, :cond_3
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
     move-result-object v5
@@ -265,7 +257,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->this$0:Lcom/android/incallui/ContactInfoCache;
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/incallui/ContactInfoCache;->access$200(Lcom/android/incallui/ContactInfoCache;)Landroid/content/Context;
 
     move-result-object v5
@@ -285,7 +276,6 @@
     :cond_3
     iget-object v5, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->this$0:Lcom/android/incallui/ContactInfoCache;
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->mInfoMap:Ljava/util/HashMap;
     invoke-static {v5}, Lcom/android/incallui/ContactInfoCache;->access$300(Lcom/android/incallui/ContactInfoCache;)Ljava/util/HashMap;
 
     move-result-object v5
@@ -298,12 +288,10 @@
 
     iget-object v6, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->mCallId:Ljava/lang/String;
 
-    # invokes: Lcom/android/incallui/ContactInfoCache;->sendInfoNotifications(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     invoke-static {v5, v6, v0}, Lcom/android/incallui/ContactInfoCache;->access$500(Lcom/android/incallui/ContactInfoCache;Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
     iget-object v5, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->this$0:Lcom/android/incallui/ContactInfoCache;
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->mContactUtils:Lcom/android/incallui/ContactUtils;
     invoke-static {v5}, Lcom/android/incallui/ContactInfoCache;->access$600(Lcom/android/incallui/ContactInfoCache;)Lcom/android/incallui/ContactUtils;
 
     move-result-object v5
@@ -312,7 +300,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->this$0:Lcom/android/incallui/ContactInfoCache;
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->mContactUtils:Lcom/android/incallui/ContactUtils;
     invoke-static {v5}, Lcom/android/incallui/ContactInfoCache;->access$600(Lcom/android/incallui/ContactInfoCache;)Lcom/android/incallui/ContactUtils;
 
     move-result-object v5
@@ -351,7 +338,6 @@
 
     iget-object v6, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->mCallId:Ljava/lang/String;
 
-    # invokes: Lcom/android/incallui/ContactInfoCache;->clearCallbacks(Ljava/lang/String;)V
     invoke-static {v5, v6}, Lcom/android/incallui/ContactInfoCache;->access$400(Lcom/android/incallui/ContactInfoCache;Ljava/lang/String;)V
 
     goto/16 :goto_0
@@ -359,7 +345,6 @@
     :cond_5
     iget-object v5, p0, Lcom/android/incallui/ContactInfoCache$PhoneNumberServiceListener;->this$0:Lcom/android/incallui/ContactInfoCache;
 
-    # getter for: Lcom/android/incallui/ContactInfoCache;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/incallui/ContactInfoCache;->access$200(Lcom/android/incallui/ContactInfoCache;)Landroid/content/Context;
 
     move-result-object v5

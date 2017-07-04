@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$5;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupService;->access$200(Lcom/android/incallui/service/SecCallPopupService;)Lcom/android/incallui/service/SecCallPopupContainer;
 
     move-result-object v1
@@ -63,7 +62,6 @@
 
     const/4 v2, 0x1
 
-    # setter for: Lcom/android/incallui/service/SecCallPopupService;->mIsViewInflated:Z
     invoke-static {v1, v2}, Lcom/android/incallui/service/SecCallPopupService;->access$502(Lcom/android/incallui/service/SecCallPopupService;Z)Z
 
     return-void

@@ -34,7 +34,6 @@
 
     iget v0, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->mItemViewType:I
 
-    # invokes: Lcom/android/contacts/common/list/ContactTileAdapter;->getLayoutResourceId(I)I
     invoke-static {p1, v0}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$000(Lcom/android/contacts/common/list/ContactTileAdapter;I)I
 
     move-result v0
@@ -61,7 +60,6 @@
 
     iget-object v4, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$100(Lcom/android/contacts/common/list/ContactTileAdapter;)Landroid/content/Context;
 
     move-result-object v4
@@ -78,7 +76,6 @@
 
     iget-object v4, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$100(Lcom/android/contacts/common/list/ContactTileAdapter;)Landroid/content/Context;
 
     move-result-object v4
@@ -97,14 +94,12 @@
 
     iget-object v4, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mWhitespaceStartEnd:I
     invoke-static {v4}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$200(Lcom/android/contacts/common/list/ContactTileAdapter;)I
 
     move-result v4
 
     iget-object v5, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mWhitespaceStartEnd:I
     invoke-static {v5}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$200(Lcom/android/contacts/common/list/ContactTileAdapter;)I
 
     move-result v5
@@ -115,7 +110,6 @@
 
     iget-object v4, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mPhotoManager:Lcom/android/contacts/common/ContactPhotoManager;
     invoke-static {v4}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$300(Lcom/android/contacts/common/list/ContactTileAdapter;)Lcom/android/contacts/common/ContactPhotoManager;
 
     move-result-object v4
@@ -124,7 +118,6 @@
 
     iget-object v4, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mListener:Lcom/android/contacts/common/list/ContactTileView$Listener;
     invoke-static {v4}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$400(Lcom/android/contacts/common/list/ContactTileAdapter;)Lcom/android/contacts/common/list/ContactTileView$Listener;
 
     move-result-object v4
@@ -156,7 +149,6 @@
     :pswitch_1
     iget-object v4, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mPaddingInPixels:I
     invoke-static {v4}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$500(Lcom/android/contacts/common/list/ContactTileAdapter;)I
 
     move-result v4
@@ -167,7 +159,6 @@
 
     iget-object v5, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mPaddingInPixels:I
     invoke-static {v5}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$500(Lcom/android/contacts/common/list/ContactTileAdapter;)I
 
     move-result v5
@@ -205,14 +196,12 @@
 
     iget-object v6, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mWhitespaceStartEnd:I
     invoke-static {v6}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$200(Lcom/android/contacts/common/list/ContactTileAdapter;)I
 
     move-result v6
 
     iget-object v7, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mPaddingInPixels:I
     invoke-static {v7}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$500(Lcom/android/contacts/common/list/ContactTileAdapter;)I
 
     move-result v7
@@ -301,7 +290,6 @@
 
     iget-object v10, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mPaddingInPixels:I
     invoke-static {v10}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$500(Lcom/android/contacts/common/list/ContactTileAdapter;)I
 
     move-result v10
@@ -310,7 +298,6 @@
 
     iget-object v10, p0, Lcom/android/contacts/common/list/ContactTileAdapter$ContactTileRow;->this$0:Lcom/android/contacts/common/list/ContactTileAdapter;
 
-    # getter for: Lcom/android/contacts/common/list/ContactTileAdapter;->mWhitespaceStartEnd:I
     invoke-static {v10}, Lcom/android/contacts/common/list/ContactTileAdapter;->access$200(Lcom/android/contacts/common/list/ContactTileAdapter;)I
 
     move-result v10

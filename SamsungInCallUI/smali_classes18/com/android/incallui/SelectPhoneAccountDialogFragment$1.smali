@@ -41,12 +41,10 @@
 
     const/4 v2, 0x1
 
-    # setter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mIsSelected:Z
     invoke-static {v1, v2}, Lcom/android/incallui/SelectPhoneAccountDialogFragment;->access$002(Lcom/android/incallui/SelectPhoneAccountDialogFragment;Z)Z
 
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
-    # getter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mAccountHandles:Ljava/util/List;
     invoke-static {v1}, Lcom/android/incallui/SelectPhoneAccountDialogFragment;->access$100(Lcom/android/incallui/SelectPhoneAccountDialogFragment;)Ljava/util/List;
 
     move-result-object v1
@@ -59,14 +57,12 @@
 
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
-    # getter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mListener:Lcom/android/incallui/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;
     invoke-static {v1}, Lcom/android/incallui/SelectPhoneAccountDialogFragment;->access$300(Lcom/android/incallui/SelectPhoneAccountDialogFragment;)Lcom/android/incallui/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
-    # getter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mIsDefaultChecked:Z
     invoke-static {v2}, Lcom/android/incallui/SelectPhoneAccountDialogFragment;->access$200(Lcom/android/incallui/SelectPhoneAccountDialogFragment;)Z
 
     move-result v2

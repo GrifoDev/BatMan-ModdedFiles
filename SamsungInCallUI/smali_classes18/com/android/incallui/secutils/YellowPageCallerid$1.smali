@@ -35,7 +35,6 @@
 
     move-result-object v0
 
-    # setter for: Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
     invoke-static {v0}, Lcom/android/incallui/secutils/YellowPageCallerid;->access$002(Lcom/sec/android/app/yellowpage/IYellowpageInterface;)Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     const-string v0, "YellowPageCallerid_Call"
@@ -52,7 +51,6 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
     invoke-static {v0}, Lcom/android/incallui/secutils/YellowPageCallerid;->access$002(Lcom/sec/android/app/yellowpage/IYellowpageInterface;)Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     const-string v0, "YellowPageCallerid_Call"

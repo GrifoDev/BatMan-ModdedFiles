@@ -40,7 +40,6 @@
 
     const-string v1, "SlidingDrawer"
 
-    # invokes: Lcom/android/incallui/wrapper/AndroidRWrapper;->getValues(Ljava/lang/String;Ljava/lang/String;)[I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/AndroidRWrapper;->access$000(Ljava/lang/String;Ljava/lang/String;)[I
 
     move-result-object v0
@@ -51,7 +50,6 @@
 
     const-string v1, "SlidingDrawer_content"
 
-    # invokes: Lcom/android/incallui/wrapper/AndroidRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/AndroidRWrapper;->access$100(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -62,7 +60,6 @@
 
     const-string v1, "SlidingDrawer_handle"
 
-    # invokes: Lcom/android/incallui/wrapper/AndroidRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/AndroidRWrapper;->access$100(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -73,7 +70,6 @@
 
     const-string v1, "SlidingDrawer_topOffset"
 
-    # invokes: Lcom/android/incallui/wrapper/AndroidRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/AndroidRWrapper;->access$100(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -84,7 +80,6 @@
 
     const-string v1, "SlidingDrawer_bottomOffset"
 
-    # invokes: Lcom/android/incallui/wrapper/AndroidRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/AndroidRWrapper;->access$100(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -95,7 +90,6 @@
 
     const-string v1, "SlidingDrawer_orientation"
 
-    # invokes: Lcom/android/incallui/wrapper/AndroidRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/AndroidRWrapper;->access$100(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -106,7 +100,6 @@
 
     const-string v1, "SlidingDrawer_allowSingleTap"
 
-    # invokes: Lcom/android/incallui/wrapper/AndroidRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/AndroidRWrapper;->access$100(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -117,7 +110,6 @@
 
     const-string v1, "SlidingDrawer_animateOnClick"
 
-    # invokes: Lcom/android/incallui/wrapper/AndroidRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/AndroidRWrapper;->access$100(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0

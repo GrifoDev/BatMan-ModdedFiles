@@ -34,7 +34,6 @@
 .method public onChange(Z)V
     .locals 2
 
-    # getter for: Lcom/android/incallui/secrcs/RcsCapaObserver;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsCapaObserver;->access$000()Ljava/lang/String;
 
     move-result-object v0

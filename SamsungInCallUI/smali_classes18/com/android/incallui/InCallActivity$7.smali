@@ -76,7 +76,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/InCallActivity$7;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # invokes: Lcom/android/incallui/InCallActivity;->sendDtmf(CI)V
     invoke-static {v3, v2, v1}, Lcom/android/incallui/InCallActivity;->access$700(Lcom/android/incallui/InCallActivity;CI)V
 
     return-void

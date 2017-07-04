@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mHdWifiIcon:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$100(Lcom/android/incallui/fragment/view/CallCardVolteView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mHdWifiIcon:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$100(Lcom/android/incallui/fragment/view/CallCardVolteView;)Landroid/widget/ImageView;
 
     move-result-object v1
@@ -68,7 +66,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mAttemptingTextSPR:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$200(Lcom/android/incallui/fragment/view/CallCardVolteView;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -77,7 +74,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mAttemptingTextSPR:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$200(Lcom/android/incallui/fragment/view/CallCardVolteView;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -97,7 +93,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mUHDIconImageSecondary:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$300(Lcom/android/incallui/fragment/view/CallCardVolteView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -106,7 +101,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mUHDIconImageSecondary:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$300(Lcom/android/incallui/fragment/view/CallCardVolteView;)Landroid/widget/ImageView;
 
     move-result-object v1

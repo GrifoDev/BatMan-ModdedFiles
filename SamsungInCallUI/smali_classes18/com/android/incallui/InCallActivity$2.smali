@@ -40,7 +40,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/InCallActivity$2;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # setter for: Lcom/android/incallui/InCallActivity;->mIsSlideOutRunning:Z
     invoke-static {v5, v4}, Lcom/android/incallui/InCallActivity;->access$202(Lcom/android/incallui/InCallActivity;Z)Z
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -55,7 +54,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/InCallActivity$2;->this$0:Lcom/android/incallui/InCallActivity;
 
-    # invokes: Lcom/android/incallui/InCallActivity;->showDialpad(Z)V
     invoke-static {v5, v4}, Lcom/android/incallui/InCallActivity;->access$300(Lcom/android/incallui/InCallActivity;Z)V
 
     iget-object v5, p0, Lcom/android/incallui/InCallActivity$2;->this$0:Lcom/android/incallui/InCallActivity;
@@ -76,7 +74,6 @@
 
     neg-int v6, v1
 
-    # invokes: Lcom/android/incallui/InCallActivity;->setTopMarginOfDialpad(I)V
     invoke-static {v5, v6}, Lcom/android/incallui/InCallActivity;->access$100(Lcom/android/incallui/InCallActivity;I)V
 
     iget-object v5, p0, Lcom/android/incallui/InCallActivity$2;->this$0:Lcom/android/incallui/InCallActivity;
@@ -180,7 +177,6 @@
 
     const/4 v2, 0x1
 
-    # setter for: Lcom/android/incallui/InCallActivity;->mIsSlideOutRunning:Z
     invoke-static {v1, v2}, Lcom/android/incallui/InCallActivity;->access$202(Lcom/android/incallui/InCallActivity;Z)Z
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;

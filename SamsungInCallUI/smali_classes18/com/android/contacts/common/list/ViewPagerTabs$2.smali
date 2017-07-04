@@ -49,7 +49,6 @@
 
     iget v2, p0, Lcom/android/contacts/common/list/ViewPagerTabs$2;->val$position:I
 
-    # invokes: Lcom/android/contacts/common/list/ViewPagerTabs;->getRtlPosition(I)I
     invoke-static {v1, v2}, Lcom/android/contacts/common/list/ViewPagerTabs;->access$000(Lcom/android/contacts/common/list/ViewPagerTabs;I)I
 
     move-result v1

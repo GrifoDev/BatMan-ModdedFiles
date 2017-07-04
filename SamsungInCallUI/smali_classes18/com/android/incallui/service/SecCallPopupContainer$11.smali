@@ -87,7 +87,6 @@
 
     move-result-object v6
 
-    # invokes: Lcom/android/incallui/service/SecCallPopupContainer;->log(Ljava/lang/String;Z)V
     invoke-static {v5, v6, v11}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2400(Lcom/android/incallui/service/SecCallPopupContainer;Ljava/lang/String;Z)V
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -174,7 +173,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -233,7 +231,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -264,7 +261,6 @@
     :cond_4
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -299,7 +295,6 @@
     :sswitch_5
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -427,14 +422,12 @@
     :cond_b
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSpeakerBtn:Landroid/widget/ToggleButton;
     invoke-static {v6}, Lcom/android/incallui/service/SecCallPopupContainer;->access$200(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/ToggleButton;
 
     move-result-object v6
@@ -484,7 +477,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSpeakerBtn:Landroid/widget/ToggleButton;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$200(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/ToggleButton;
 
     move-result-object v5
@@ -509,7 +501,6 @@
     :cond_e
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSpeakerBtn:Landroid/widget/ToggleButton;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$200(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/ToggleButton;
 
     move-result-object v5
@@ -548,14 +539,12 @@
     :sswitch_7
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mMuteBtn:Landroid/widget/ToggleButton;
     invoke-static {v6}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2500(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/ToggleButton;
 
     move-result-object v6
@@ -603,7 +592,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mMuteBtn:Landroid/widget/ToggleButton;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$2500(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/ToggleButton;
 
     move-result-object v5
@@ -621,7 +609,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSpeakerBtn:Landroid/widget/ToggleButton;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$200(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/widget/ToggleButton;
 
     move-result-object v5
@@ -642,7 +629,6 @@
     :sswitch_8
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -654,7 +640,6 @@
     :sswitch_9
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -663,7 +648,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -677,7 +661,6 @@
     :sswitch_a
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -695,7 +678,6 @@
     :sswitch_b
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5
@@ -704,7 +686,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer$11;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
     invoke-static {v5}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v5

@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$8;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallNumber:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$100(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$8;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallNumber:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$100(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -72,7 +70,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$8;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallLabelView:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$200(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -81,7 +78,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$8;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallLabelView:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$200(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -93,7 +89,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$8;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallStatusText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$300(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -102,7 +97,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$8;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallStatusText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$300(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -122,7 +116,6 @@
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$8;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallSearchingMessage:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$400(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -131,7 +124,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$8;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallSearchingMessage:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->access$400(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)Landroid/widget/TextView;
 
     move-result-object v1

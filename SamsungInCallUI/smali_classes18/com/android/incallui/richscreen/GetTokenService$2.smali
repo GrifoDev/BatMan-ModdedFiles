@@ -59,7 +59,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/richscreen/GetTokenService;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/GetTokenService;->access$000(Lcom/android/incallui/richscreen/GetTokenService;Ljava/lang/String;)V
 
     sget v0, Lcom/android/incallui/richscreen/GetTokenService;->tryLoginRichScreenServerCount:I
@@ -76,7 +75,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/richscreen/GetTokenService$2;->this$0:Lcom/android/incallui/richscreen/GetTokenService;
 
-    # getter for: Lcom/android/incallui/richscreen/GetTokenService;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/incallui/richscreen/GetTokenService;->access$200()Landroid/content/Context;
 
     move-result-object v1

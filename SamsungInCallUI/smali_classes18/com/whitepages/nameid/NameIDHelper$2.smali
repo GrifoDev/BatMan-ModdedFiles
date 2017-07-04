@@ -60,7 +60,6 @@
     const/4 v1, 0x0
 
     :try_start_0
-    # getter for: Lcom/whitepages/nameid/NameIDHelper;->sService:Lcom/whitepages/nameid/ILookupService;
     invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$000()Lcom/whitepages/nameid/ILookupService;
 
     move-result-object v3
@@ -108,7 +107,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/whitepages/nameid/NameIDHelper;->DBG:Z
     invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$300()Z
 
     move-result v2
@@ -217,7 +215,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/whitepages/nameid/NameIDHelper;->DBG:Z
     invoke-static {}, Lcom/whitepages/nameid/NameIDHelper;->access$300()Z
 
     move-result v1

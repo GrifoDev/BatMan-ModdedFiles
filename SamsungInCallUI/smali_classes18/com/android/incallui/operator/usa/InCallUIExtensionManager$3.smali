@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/operator/usa/InCallUIExtensionManager$3;->this$0:Lcom/android/incallui/operator/usa/InCallUIExtensionManager;
 
-    # invokes: Lcom/android/incallui/operator/usa/InCallUIExtensionManager;->dismissCallRoamingGuardDialog()V
     invoke-static {v0}, Lcom/android/incallui/operator/usa/InCallUIExtensionManager;->access$100(Lcom/android/incallui/operator/usa/InCallUIExtensionManager;)V
 
     return-void

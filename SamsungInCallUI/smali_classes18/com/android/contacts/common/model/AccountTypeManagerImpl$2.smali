@@ -36,7 +36,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$2;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mListenerHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/contacts/common/model/AccountTypeManagerImpl;->access$100(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)Landroid/os/Handler;
 
     move-result-object v1
@@ -49,7 +48,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$2;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
-    # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mListenerHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/contacts/common/model/AccountTypeManagerImpl;->access$100(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)Landroid/os/Handler;
 
     move-result-object v1

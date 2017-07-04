@@ -5293,1085 +5293,450 @@
 .end method
 
 .method protected updateEndCallButtons()V
-    .locals 15
+    .locals 17
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->isAdded()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->isAdded()Z
 
-    move-result v12
+    move-result v14
 
-    if-nez v12, :cond_1
+    if-nez v14, :cond_1
 
-    const-string v12, "EndCallButtonFragment"
+    const-string v14, "EndCallButtonFragment"
 
-    const-string v13, "fragment is detached from activity, return"
+    const-string v15, "fragment is detached from activity, return"
 
-    invoke-static {v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v14, v15}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string v12, "EndCallButtonFragment"
+    const-string v14, "EndCallButtonFragment"
 
-    const-string v13, "updateEndCallButtons()..."
+    const-string v15, "updateEndCallButtons()..."
 
-    invoke-static {v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v14, v15}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v12
+    move-result-object v14
 
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    const/4 v14, 0x0
+    const/16 v16, 0x0
 
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-static {v12}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
+    invoke-static {v14}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v15
 
-    invoke-virtual {v12, v13}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+    invoke-virtual {v14, v15}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    move-result-object v3
+    move-result-object v5
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v6, 0x1
+    const/4 v8, 0x1
 
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isUltraPowerSavingMode()Z
 
-    move-result v8
+    move-result v10
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isSetupWizardComplete()Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v3, :cond_3
+    if-eqz v5, :cond_3
 
-    iget-boolean v4, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isEmergency:Z
+    iget-boolean v6, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isEmergency:Z
 
-    iget-boolean v1, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
+    iget-boolean v2, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
 
-    iget v12, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->presentation:I
+    iget v14, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->presentation:I
 
-    const/4 v13, 0x2
+    const/4 v15, 0x2
 
-    if-eq v12, v13, :cond_2
+    if-eq v14, v15, :cond_2
 
-    iget v12, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->presentation:I
+    iget v14, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->presentation:I
 
-    const/4 v13, 0x3
+    const/4 v15, 0x3
 
-    if-eq v12, v13, :cond_2
+    if-eq v14, v15, :cond_2
 
-    iget-object v12, v3, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->number:Ljava/lang/String;
+    iget-object v14, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->number:Ljava/lang/String;
 
-    invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v12
+    move-result v14
 
-    if-eqz v12, :cond_3
+    if-eqz v14, :cond_3
 
     :cond_2
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
     :cond_3
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v15
 
-    invoke-virtual {v12, v13}, Lcom/android/incallui/CallList;->isNotUpdatingCall(Ljava/lang/String;)Z
+    invoke-virtual {v14, v15}, Lcom/android/incallui/CallList;->isNotUpdatingCall(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v14
 
-    if-eqz v12, :cond_4
+    if-eqz v14, :cond_4
 
-    const-string v12, "EndCallButtonFragment"
+    const-string v14, "EndCallButtonFragment"
 
-    const-string v13, "updateEndCallButtons - hide buttons becauase conference call is under disconnecting"
+    const-string v15, "updateEndCallButtons - hide buttons becauase conference call is under disconnecting"
 
-    invoke-static {v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v14, v15}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
     :cond_4
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsLayout:Landroid/widget/LinearLayout;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_5
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsLayout:Landroid/widget/LinearLayout;
 
-    iget-object v13, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsLayout:Landroid/widget/LinearLayout;
+    if-eqz v14, :cond_5
 
-    if-eqz v6, :cond_24
+    move-object/from16 v0, p0
 
-    if-eqz v7, :cond_24
+    iget-object v15, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsLayout:Landroid/widget/LinearLayout;
 
-    const/4 v12, 0x0
+    if-eqz v8, :cond_24
+
+    if-eqz v9, :cond_24
+
+    const/4 v14, 0x0
 
     :goto_1
-    invoke-virtual {v13, v12}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v15, v14}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     :cond_5
-    const/16 v12, 0x80
+    const/16 v14, 0x80
 
-    invoke-static {v12}, Lcom/android/incallui/util/InCallUtils;->needToDisableForKnox(I)Z
+    invoke-static {v14}, Lcom/android/incallui/util/InCallUtils;->needToDisableForKnox(I)Z
 
-    move-result v12
+    move-result v14
 
-    if-nez v12, :cond_8
+    if-nez v14, :cond_8
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_25
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
+    if-eqz v14, :cond_25
 
-    if-eqz v12, :cond_25
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
 
-    const/4 v13, 0x0
+    if-eqz v14, :cond_25
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
 
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_6
     :goto_2
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_7
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+    if-eqz v14, :cond_7
 
-    const/4 v13, 0x0
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_7
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mMessageButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_8
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mMessageButton:Landroid/widget/Button;
 
-    iget-object v13, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mMessageButton:Landroid/widget/Button;
+    if-eqz v14, :cond_8
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    move-result-object v12
+    iget-object v15, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mMessageButton:Landroid/widget/Button;
 
-    invoke-static {v12}, Lcom/android/incallui/util/SystemServiceUtils;->isSmsCapable(Landroid/content/Context;)Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
-    move-result v12
+    move-result-object v14
 
-    if-eqz v12, :cond_26
+    invoke-static {v14}, Lcom/android/incallui/util/SystemServiceUtils;->isSmsCapable(Landroid/content/Context;)Z
 
-    const/4 v12, 0x0
+    move-result v14
+
+    if-eqz v14, :cond_26
+
+    const/4 v14, 0x0
 
     :goto_3
-    invoke-virtual {v13, v12}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v15, v14}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_8
-    const-string v12, "ims_crane"
+    const-string v14, "ims_crane"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v14
 
-    if-eqz v12, :cond_d
+    if-eqz v14, :cond_d
 
-    const-string v12, "EndCallButtonFragment"
+    invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v14}, Lcom/android/incallui/InCallApp;->getApplicationContext()Landroid/content/Context;
 
-    const-string v14, "is crane available : "
+    move-result-object v3
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    move-result-object v13
+    invoke-virtual {v0, v3, v1}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getPhoneNumber(Landroid/content/Context;Lcom/android/incallui/Call;)Ljava/lang/String;
+
+    move-result-object v11
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
-    sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+    move-result-object v14
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v15, 0x67
 
-    move-result-object v13
+    const/16 v16, 0x66
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move/from16 v0, v16
 
-    move-result-object v13
+    invoke-virtual {v14, v15, v0, v11}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
 
-    const/4 v14, 0x1
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-result-object v14
 
-    const-string v12, "EndCallButtonFragment"
+    const/16 v15, 0x68
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    const/16 v16, 0x66
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    move/from16 v0, v16
 
-    const-string v14, "mIsSelfCapable : "
+    invoke-virtual {v14, v15, v0, v11}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v14, "EndCallButtonFragment"
 
-    move-result-object v13
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "is crane available : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v16, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "mIsSelfCapable : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v16, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "isPostCallSelf : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v16, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "isPostCallRemote : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
+
+    sget-boolean v16, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "call.getDisconnectCause().getCode() : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Landroid/telecom/DisconnectCause;->getCode()I
+
+    move-result v16
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    if-eqz v14, :cond_27
+
+    sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallRemote:Z
+
+    if-eqz v14, :cond_27
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "isCraneOnlineRemote : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    if-eqz v14, :cond_27
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
-    sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
+    sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "isCraneOnlineSelf : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "isCraneSelf : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneSelf:Z
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "isCraneRemote : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    sget-boolean v14, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneSelf:Z
-
-    if-eqz v12, :cond_27
-
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
-
-    if-eqz v12, :cond_27
-
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineSelf:Z
-
-    if-eqz v12, :cond_27
-
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneOnlineRemote:Z
-
-    if-eqz v12, :cond_27
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-eqz v12, :cond_27
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    sget-boolean v12, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
-
-    if-eqz v12, :cond_27
+    if-eqz v14, :cond_27
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v12}, Lcom/android/incallui/CallList;->getOutgoingCallPlusFlag()Z
+    invoke-virtual {v14}, Lcom/android/incallui/CallList;->getOutgoingCallPlusFlag()Z
 
-    move-result v12
+    move-result v14
 
-    if-eqz v12, :cond_9
+    if-eqz v14, :cond_9
 
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/telecom/DisconnectCause;->getCode()I
-
-    move-result v12
-
-    const/4 v13, 0x2
-
-    if-eq v12, v13, :cond_a
-
-    :cond_9
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/telecom/DisconnectCause;->getCode()I
-
-    move-result v12
-
-    if-eqz v12, :cond_a
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/telecom/DisconnectCause;->getCode()I
-
-    move-result v12
-
-    const/4 v13, 0x5
-
-    if-eq v12, v13, :cond_a
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/telecom/DisconnectCause;->getCode()I
-
-    move-result v12
-
-    const/4 v13, 0x7
-
-    if-ne v12, v13, :cond_27
-
-    :cond_a
-    const-string v12, "EndCallButtonFragment"
-
-    const-string v13, "show entry point crane: "
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_b
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
-
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_b
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
-
-    if-eqz v12, :cond_c
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
-
-    sget-boolean v13, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setEnabled(Z)V
-
-    :cond_c
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
-
-    if-eqz v12, :cond_d
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setVisibility(I)V
-
-    :cond_d
-    :goto_4
-    const-string v12, "ims_crane"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-nez v12, :cond_10
-
-    const-string v12, "ims_callplus"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_10
-
-    iget-boolean v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isUiEntery:Z
-
-    if-eqz v12, :cond_2a
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/incallui/CallList;->isUnansweredCall()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_2a
-
-    const-string v12, "EndCallButtonFragment"
-
-    const-string v13, "show callplus entry pointin callplus :"
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    const-string v12, "EndCallButtonFragment"
-
-    const-string v13, "show callplus entry point :"
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_e
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
-
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_e
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
-
-    if-eqz v12, :cond_f
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_f
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
-
-    if-eqz v12, :cond_10
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setVisibility(I)V
-
-    :cond_10
-    :goto_5
-    const-string v12, "multi_number_cmcc"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_11
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkMultivalue()Z
-
-    move-result v5
-
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "isMultiNmberShow : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_11
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "isEmergency : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "isNumberExists : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "isUltraPowerSavingMode : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v12, "support_smart_call"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-nez v12, :cond_12
-
-    const-string v12, "support_spam_call_report"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_14
-
-    :cond_12
-    invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->isSpamEnable()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_14
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v12}, Lcom/android/incallui/util/NameNumberUtils;->isUnknownNumber(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-nez v12, :cond_2d
-
-    if-nez v1, :cond_2d
-
-    const/4 v10, 0x1
-
-    :goto_6
-    const-string v12, "support_smart_call"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_13
-
-    invoke-static {v0}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState(Lcom/android/incallui/Call;)I
-
-    move-result v12
-
-    const/4 v13, 0x1
-
-    if-ne v12, v13, :cond_13
-
-    const/4 v10, 0x0
-
-    :cond_13
-    invoke-virtual {p0, v10}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showSmartCallButton(Z)V
-
-    invoke-direct {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateSmartCallBlockButton()V
-
-    :cond_14
-    if-nez v4, :cond_2e
-
-    if-eqz v6, :cond_2e
-
-    const/4 v2, 0x1
-
-    :goto_7
-    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeMode()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_15
-
-    const-string v12, "updateEndCallButtons - disable buttons when bike call is present"
-
-    invoke-static {p0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v2, 0x0
-
-    :cond_15
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
-
-    move-result v12
-
-    const/16 v13, 0x9
-
-    if-ne v12, v13, :cond_16
-
-    const-string v12, "updateEndCallButtons - disable buttons on disconnecting"
-
-    invoke-static {p0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v2, 0x0
-
-    :cond_16
-    invoke-virtual {p0, v2}, Lcom/android/incallui/fragment/EndCallButtonFragment;->setEnabled(Z)V
-
-    invoke-virtual {p0, v2, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->needToShowVideoCallButton(ZLcom/android/incallui/Call;)Z
-
-    move-result v11
-
-    invoke-virtual {p0, v11}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showVideoCall(Z)V
-
-    invoke-virtual {p0, v11}, Lcom/android/incallui/fragment/EndCallButtonFragment;->changeVideoCallIcon(Z)V
-
-    const-string v12, "ims_capability_check_on_call_end"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_17
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->changeMessageIcon()V
-
-    :cond_17
-    const-string v12, "support_twophone"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_18
-
-    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTwoPhoneRegistered()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_18
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->isEnabledTwoPhoneEndButtons()Z
-
-    move-result v12
-
-    invoke-static {v12}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v12
-
-    invoke-virtual {p0, v12}, Lcom/android/incallui/fragment/EndCallButtonFragment;->enableEndCallUpperButtons(Ljava/lang/Boolean;)V
-
-    :cond_18
-    const/16 v12, 0x80
-
-    invoke-static {v12}, Lcom/android/incallui/util/InCallUtils;->needToDisableForKnox(I)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_1d
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_19
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
-
-    const/4 v13, 0x4
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_19
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_1a
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
-
-    const/4 v13, 0x4
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_1a
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mMessageButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_1b
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mMessageButton:Landroid/widget/Button;
-
-    const/4 v13, 0x4
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_1b
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
-
-    if-eqz v12, :cond_1c
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
-
-    const/4 v13, 0x4
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_1c
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
-
-    if-eqz v12, :cond_1d
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
-
-    const/4 v13, 0x4
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_1d
-    const-string v12, "feature_lgt"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_2f
-
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isRoamingArea()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_1f
-
-    const-string v12, "support_volte_roaming"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_1e
-
-    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
-
-    move-result v12
-
-    if-nez v12, :cond_1f
-
-    :cond_1e
-    const-string v12, "EndCallButtonFragment"
-
-    const-string v13, "The LGU+ does not support VT on the roaming area."
-
-    const/4 v14, 0x1
-
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_1f
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setEnabled(Z)V
-
-    :cond_1f
-    :goto_8
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVolteEndCallButtonIcon()V
-
-    const-string v12, "emergency_find_lost_phone"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_22
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getNumber()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v9}, Lcom/android/incallui/util/NameNumberUtils;->isFindServiceNumber(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v12
-
-    if-nez v12, :cond_20
-
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isFindService()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_22
-
-    :cond_20
-    const/4 v12, 0x0
-
-    invoke-virtual {p0, v12}, Lcom/android/incallui/fragment/EndCallButtonFragment;->setEnabled(Z)V
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSmartCallBlockButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_21
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSmartCallBlockButton:Landroid/widget/Button;
-
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_21
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSmartCallReportButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_22
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSmartCallReportButton:Landroid/widget/Button;
-
-    const/16 v13, 0x8
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_22
-    invoke-static {}, Lcom/android/incallui/util/VoWifiStateTracker;->getInstance()Lcom/android/incallui/util/VoWifiStateTracker;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/incallui/util/VoWifiStateTracker;->isKinetoVowifiExist()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_30
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
-
-    invoke-static {}, Lcom/android/incallui/util/VoWifiStateTracker;->getInstance()Lcom/android/incallui/util/VoWifiStateTracker;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/incallui/util/VoWifiStateTracker;->isVoWiFiRegistered()Z
-
-    move-result v13
-
-    invoke-virtual {p0, v12, v13}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVoiceCallButton(Landroid/widget/Button;Z)V
-
-    :cond_23
-    :goto_9
-    const-string v12, "multi_number_cmcc"
-
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_0
-
-    invoke-virtual {p0, v5}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showMultiCall(Z)V
-
-    goto/16 :goto_0
-
-    :cond_24
-    const/4 v12, 0x4
-
-    goto/16 :goto_1
-
-    :cond_25
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
-
-    if-eqz v12, :cond_6
-
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
-
-    goto/16 :goto_2
-
-    :cond_26
-    const/16 v12, 0x8
-
-    goto/16 :goto_3
-
-    :cond_27
-    const-string v12, "EndCallButtonFragment"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "hide crane entry point : Disconnect Cause "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
 
     move-result-object v14
 
@@ -6379,157 +5744,950 @@
 
     move-result v14
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/4 v15, 0x2
 
-    move-result-object v13
+    if-eq v14, v15, :cond_a
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_9
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
 
-    move-result-object v13
+    move-result-object v14
 
-    const/4 v14, 0x1
+    invoke-virtual {v14}, Landroid/telecom/DisconnectCause;->getCode()I
 
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-result v14
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+    const/4 v15, 0x1
 
-    if-eqz v12, :cond_28
+    if-eq v14, v15, :cond_a
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
 
-    const/4 v13, 0x0
+    move-result-object v14
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v14}, Landroid/telecom/DisconnectCause;->getCode()I
+
+    move-result v14
+
+    if-eqz v14, :cond_a
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Landroid/telecom/DisconnectCause;->getCode()I
+
+    move-result v14
+
+    const/4 v15, 0x5
+
+    if-eq v14, v15, :cond_a
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Landroid/telecom/DisconnectCause;->getCode()I
+
+    move-result v14
+
+    const/4 v15, 0x7
+
+    if-ne v14, v15, :cond_27
+
+    :cond_a
+    const-string v14, "EndCallButtonFragment"
+
+    const-string v15, "show entry point crane: "
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    const/16 v15, 0x8
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+
+    if-eqz v14, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+
+    sget-boolean v15, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setEnabled(Z)V
+
+    :cond_c
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+
+    if-eqz v14, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    :cond_d
+    :goto_4
+    const-string v14, "ims_crane"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_10
+
+    const-string v14, "ims_callplus"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isUiEntery:Z
+
+    if-eqz v14, :cond_2a
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/android/incallui/CallList;->isUnansweredCall()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_2a
+
+    const-string v14, "EndCallButtonFragment"
+
+    const-string v15, "show callplus entry pointin callplus :"
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string v14, "EndCallButtonFragment"
+
+    const-string v15, "show callplus entry point :"
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_e
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    const/16 v15, 0x8
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+
+    if-eqz v14, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+
+    if-eqz v14, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    :cond_10
+    :goto_5
+    const-string v14, "multi_number_cmcc"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_11
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkMultivalue()Z
+
+    move-result v7
+
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "isMultiNmberShow : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_11
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "isEmergency : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "isNumberExists : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "isUltraPowerSavingMode : "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v14, "support_smart_call"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_12
+
+    const-string v14, "support_spam_call_report"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_14
+
+    :cond_12
+    invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->isSpamEnable()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_14
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v14}, Lcom/android/incallui/util/NameNumberUtils;->isUnknownNumber(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2d
+
+    if-nez v2, :cond_2d
+
+    const/4 v12, 0x1
+
+    :goto_6
+    const-string v14, "support_smart_call"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_13
+
+    invoke-static {v1}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState(Lcom/android/incallui/Call;)I
+
+    move-result v14
+
+    const/4 v15, 0x1
+
+    if-ne v14, v15, :cond_13
+
+    const/4 v12, 0x0
+
+    :cond_13
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showSmartCallButton(Z)V
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateSmartCallBlockButton()V
+
+    :cond_14
+    if-nez v6, :cond_2e
+
+    if-eqz v8, :cond_2e
+
+    const/4 v4, 0x1
+
+    :goto_7
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeMode()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_15
+
+    const-string v14, "updateEndCallButtons - disable buttons when bike call is present"
+
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v4, 0x0
+
+    :cond_15
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v14
+
+    const/16 v15, 0x9
+
+    if-ne v14, v15, :cond_16
+
+    const-string v14, "updateEndCallButtons - disable buttons on disconnecting"
+
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v4, 0x0
+
+    :cond_16
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/android/incallui/fragment/EndCallButtonFragment;->setEnabled(Z)V
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4, v1}, Lcom/android/incallui/fragment/EndCallButtonFragment;->needToShowVideoCallButton(ZLcom/android/incallui/Call;)Z
+
+    move-result v13
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showVideoCall(Z)V
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Lcom/android/incallui/fragment/EndCallButtonFragment;->changeVideoCallIcon(Z)V
+
+    const-string v14, "ims_capability_check_on_call_end"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_17
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->changeMessageIcon()V
+
+    :cond_17
+    const-string v14, "support_twophone"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_18
+
+    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTwoPhoneRegistered()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_18
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->isEnabledTwoPhoneEndButtons()Z
+
+    move-result v14
+
+    invoke-static {v14}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v14}, Lcom/android/incallui/fragment/EndCallButtonFragment;->enableEndCallUpperButtons(Ljava/lang/Boolean;)V
+
+    :cond_18
+    const/16 v14, 0x80
+
+    invoke-static {v14}, Lcom/android/incallui/util/InCallUtils;->needToDisableForKnox(I)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_1d
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_19
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
+
+    const/4 v15, 0x4
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_19
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_1a
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    const/4 v15, 0x4
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_1a
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mMessageButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_1b
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mMessageButton:Landroid/widget/Button;
+
+    const/4 v15, 0x4
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_1b
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
+
+    if-eqz v14, :cond_1c
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
+
+    const/4 v15, 0x4
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_1c
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
+
+    if-eqz v14, :cond_1d
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
+
+    const/4 v15, 0x4
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_1d
+    const-string v14, "feature_lgt"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_2f
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isRoamingArea()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_1f
+
+    const-string v14, "support_volte_roaming"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_1e
+
+    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
+
+    move-result v14
+
+    if-nez v14, :cond_1f
+
+    :cond_1e
+    const-string v14, "EndCallButtonFragment"
+
+    const-string v15, "The LGU+ does not support VT on the roaming area."
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_1f
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setEnabled(Z)V
+
+    :cond_1f
+    :goto_8
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVolteEndCallButtonIcon()V
+
+    const-string v14, "emergency_find_lost_phone"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_22
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getNumber()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v11}, Lcom/android/incallui/util/NameNumberUtils;->isFindServiceNumber(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v14
+
+    if-nez v14, :cond_20
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isFindService()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_22
+
+    :cond_20
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v14}, Lcom/android/incallui/fragment/EndCallButtonFragment;->setEnabled(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSmartCallBlockButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_21
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSmartCallBlockButton:Landroid/widget/Button;
+
+    const/16 v15, 0x8
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_21
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSmartCallReportButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_22
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSmartCallReportButton:Landroid/widget/Button;
+
+    const/16 v15, 0x8
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_22
+    invoke-static {}, Lcom/android/incallui/util/VoWifiStateTracker;->getInstance()Lcom/android/incallui/util/VoWifiStateTracker;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/android/incallui/util/VoWifiStateTracker;->isKinetoVowifiExist()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_30
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
+
+    invoke-static {}, Lcom/android/incallui/util/VoWifiStateTracker;->getInstance()Lcom/android/incallui/util/VoWifiStateTracker;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Lcom/android/incallui/util/VoWifiStateTracker;->isVoWiFiRegistered()Z
+
+    move-result v15
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v14, v15}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVoiceCallButton(Landroid/widget/Button;Z)V
+
+    :cond_23
+    :goto_9
+    const-string v14, "multi_number_cmcc"
+
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v7}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showMultiCall(Z)V
+
+    goto/16 :goto_0
+
+    :cond_24
+    const/4 v14, 0x4
+
+    goto/16 :goto_1
+
+    :cond_25
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
+
+    goto/16 :goto_2
+
+    :cond_26
+    const/16 v14, 0x8
+
+    goto/16 :goto_3
+
+    :cond_27
+    const-string v14, "EndCallButtonFragment"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "hide crane entry point : Disconnect Cause "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Landroid/telecom/DisconnectCause;->getCode()I
+
+    move-result v16
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    if-eqz v14, :cond_28
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_28
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_29
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+    if-eqz v14, :cond_29
 
-    const/16 v13, 0x8
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+
+    const/16 v15, 0x8
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_29
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_d
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+    if-eqz v14, :cond_d
 
-    const/16 v13, 0x8
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setVisibility(I)V
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+
+    const/16 v15, 0x8
+
+    invoke-virtual {v14, v15}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     goto/16 :goto_4
 
     :cond_2a
-    const-string v12, "EndCallButtonFragment"
+    const-string v14, "EndCallButtonFragment"
 
-    const-string v13, "hide callplus entry point :"
+    const-string v15, "hide callplus entry point :"
 
-    const/4 v14, 0x1
+    const/16 v16, 0x1
 
-    invoke-static {v12, v13, v14}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static/range {v14 .. v16}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_2b
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+    if-eqz v14, :cond_2b
 
-    const/4 v13, 0x0
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_2b
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_2c
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+    if-eqz v14, :cond_2c
 
-    const/16 v13, 0x8
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setVisibility(I)V
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mCallPlus:Landroid/widget/Button;
+
+    const/16 v15, 0x8
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setVisibility(I)V
 
     :cond_2c
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_10
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+    if-eqz v14, :cond_10
 
-    const/16 v13, 0x8
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setVisibility(I)V
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
+
+    const/16 v15, 0x8
+
+    invoke-virtual {v14, v15}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     goto/16 :goto_5
 
     :cond_2d
-    const/4 v10, 0x0
+    const/4 v12, 0x0
 
     goto/16 :goto_6
 
     :cond_2e
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     goto/16 :goto_7
 
     :cond_2f
-    const-string v12, "att_volte_ui"
+    const-string v14, "att_volte_ui"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v14
 
-    if-eqz v12, :cond_1f
+    if-eqz v14, :cond_1f
 
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isATTVideoCallEnabled()Z
 
-    move-result v12
+    move-result v14
 
-    if-nez v12, :cond_1f
+    if-nez v14, :cond_1f
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x0
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVideoCallButton:Landroid/widget/Button;
 
-    invoke-virtual {v12, v13}, Landroid/widget/Button;->setEnabled(Z)V
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/widget/Button;->setEnabled(Z)V
 
     goto/16 :goto_8
 
     :cond_30
-    const-string v12, "spr_vowifi_ui"
+    const-string v14, "spr_vowifi_ui"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v14
 
-    if-nez v12, :cond_31
+    if-nez v14, :cond_31
 
-    const-string v12, "show_vowifi_voicecall_button"
+    const-string v14, "show_vowifi_voicecall_button"
 
-    invoke-static {v12}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v14}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v14
 
-    if-eqz v12, :cond_23
+    if-eqz v14, :cond_23
 
     :cond_31
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_23
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
 
-    iget-object v12, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
+    if-eqz v14, :cond_23
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
 
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailableVoWFi()Z
 
-    move-result v13
+    move-result v15
 
-    invoke-virtual {p0, v12, v13}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVoiceCallButton(Landroid/widget/Button;Z)V
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v14, v15}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVoiceCallButton(Landroid/widget/Button;Z)V
 
     goto/16 :goto_9
 .end method

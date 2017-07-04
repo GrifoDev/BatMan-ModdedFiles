@@ -41,7 +41,6 @@
 
     const-string v1, "onGetTokenComplete"
 
-    # invokes: Lcom/android/incallui/richscreen/GetTokenService;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/GetTokenService;->access$000(Lcom/android/incallui/richscreen/GetTokenService;Ljava/lang/String;)V
 
     const/4 v0, 0x0
@@ -50,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/richscreen/GetTokenService$1;->this$0:Lcom/android/incallui/richscreen/GetTokenService;
 
-    # invokes: Lcom/android/incallui/richscreen/GetTokenService;->parseResponseFromSSO(Lorg/json/JSONObject;)V
     invoke-static {v0, p1}, Lcom/android/incallui/richscreen/GetTokenService;->access$100(Lcom/android/incallui/richscreen/GetTokenService;Lorg/json/JSONObject;)V
 
     return-void

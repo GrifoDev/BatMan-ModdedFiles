@@ -67,7 +67,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/ProximitySensor$1;->this$0:Lcom/android/incallui/ProximitySensor;
 
-    # getter for: Lcom/android/incallui/ProximitySensor;->mProximitySensor:Landroid/hardware/Sensor;
     invoke-static {v3}, Lcom/android/incallui/ProximitySensor;->access$000(Lcom/android/incallui/ProximitySensor;)Landroid/hardware/Sensor;
 
     move-result-object v3
@@ -109,7 +108,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/ProximitySensor$1;->this$0:Lcom/android/incallui/ProximitySensor;
 
-    # getter for: Lcom/android/incallui/ProximitySensor;->mWasScreenOff:Z
     invoke-static {v1}, Lcom/android/incallui/ProximitySensor;->access$100(Lcom/android/incallui/ProximitySensor;)Z
 
     move-result v1
@@ -122,7 +120,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/ProximitySensor$1;->this$0:Lcom/android/incallui/ProximitySensor;
 
-    # setter for: Lcom/android/incallui/ProximitySensor;->mWasScreenOff:Z
     invoke-static {v1, v2}, Lcom/android/incallui/ProximitySensor;->access$102(Lcom/android/incallui/ProximitySensor;Z)Z
 
     new-instance v1, Landroid/os/Handler;

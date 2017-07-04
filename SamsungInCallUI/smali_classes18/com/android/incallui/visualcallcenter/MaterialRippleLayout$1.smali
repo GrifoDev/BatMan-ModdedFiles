@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
-    # getter for: Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->ripplePersistent:Z
     invoke-static {v0}, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->access$200(Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;)Z
 
     move-result v0
@@ -57,7 +56,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
-    # getter for: Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->rippleAlpha:I
     invoke-static {v1}, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->access$300(Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;)I
 
     move-result v1
@@ -75,7 +73,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout$1;->this$0:Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;
 
-    # getter for: Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->rippleDelayClick:Z
     invoke-static {v0}, Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;->access$400(Lcom/android/incallui/visualcallcenter/MaterialRippleLayout;)Z
 
     move-result v0

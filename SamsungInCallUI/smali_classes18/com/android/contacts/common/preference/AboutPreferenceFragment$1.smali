@@ -54,7 +54,6 @@
 
     const-string v2, "http://www.google.com/policies/privacy"
 
-    # invokes: Lcom/android/contacts/common/preference/AboutPreferenceFragment;->startActivityForUrl(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/contacts/common/preference/AboutPreferenceFragment;->access$000(Lcom/android/contacts/common/preference/AboutPreferenceFragment;Ljava/lang/String;)V
 
     :cond_0
@@ -72,7 +71,6 @@
 
     const-string v2, "http://www.google.com/policies/terms"
 
-    # invokes: Lcom/android/contacts/common/preference/AboutPreferenceFragment;->startActivityForUrl(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/contacts/common/preference/AboutPreferenceFragment;->access$000(Lcom/android/contacts/common/preference/AboutPreferenceFragment;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0

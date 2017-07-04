@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardChnFeatureView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardChnFeatureView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardChnFeatureView;->mFragment:Lcom/android/incallui/fragment/CallCardFragment;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardChnFeatureView;->access$000(Lcom/android/incallui/fragment/view/CallCardChnFeatureView;)Lcom/android/incallui/fragment/CallCardFragment;
 
     move-result-object v0
@@ -50,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardChnFeatureView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardChnFeatureView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardChnFeatureView;->mFragment:Lcom/android/incallui/fragment/CallCardFragment;
     invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardChnFeatureView;->access$000(Lcom/android/incallui/fragment/view/CallCardChnFeatureView;)Lcom/android/incallui/fragment/CallCardFragment;
 
     move-result-object v0

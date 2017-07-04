@@ -94,10 +94,8 @@
     const/16 v3, 0x32
 
     :goto_1
-    # setter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->MIN_FLING_THRESHOLD:I
     invoke-static {v3}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$102(I)I
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->MIN_FLING_THRESHOLD:I
     invoke-static {}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$100()I
 
     move-result v3
@@ -106,7 +104,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mThresholdY:I
     invoke-static {v3}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$200(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)I
 
     move-result v3
@@ -121,7 +118,6 @@
 
     iget-object v5, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mMinFlingVelocity:I
     invoke-static {v5}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$300(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)I
 
     move-result v5
@@ -136,7 +132,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
-    # setter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mIsFlingProcessing:Z
     invoke-static {v3, v2}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$402(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;Z)Z
 
     const/4 v3, 0x0
@@ -177,13 +172,11 @@
 
     iget-object v3, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
-    # invokes: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->animateOpenByFling()V
     invoke-static {v3}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$500(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)V
 
     goto :goto_0
 
     :cond_2
-    # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->MIN_FLING_THRESHOLD:I
     invoke-static {}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$100()I
 
     move-result v3
@@ -203,7 +196,6 @@
     :cond_5
     iget-object v3, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
-    # invokes: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->animateCloseByFling()V
     invoke-static {v3}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->access$600(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)V
 
     goto/16 :goto_0

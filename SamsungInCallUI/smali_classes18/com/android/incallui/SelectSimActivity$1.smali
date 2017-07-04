@@ -46,7 +46,6 @@
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/incallui/SelectSimActivity;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/SelectSimActivity;->access$000()Ljava/lang/String;
 
     move-result-object v0

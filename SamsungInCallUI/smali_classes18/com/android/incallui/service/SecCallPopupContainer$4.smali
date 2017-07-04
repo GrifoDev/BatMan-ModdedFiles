@@ -56,7 +56,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupContainer$4;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mIsRejectMsgContentShowing:Z
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupContainer;->access$700(Lcom/android/incallui/service/SecCallPopupContainer;)Z
 
     move-result v2
@@ -87,7 +86,6 @@
     :cond_0
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupContainer$4;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupContainer;->access$800(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/view/View;
 
     move-result-object v2
@@ -96,7 +94,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupContainer$4;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupContainer;->access$900(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/content/Context;
 
     move-result-object v2
@@ -165,7 +162,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupContainer$4;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupContainer;->access$800(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/view/View;
 
     move-result-object v6
@@ -180,7 +176,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupContainer$4;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mIsRejectMsgContentShowing:Z
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupContainer;->access$700(Lcom/android/incallui/service/SecCallPopupContainer;)Z
 
     move-result v2
@@ -227,7 +222,6 @@
     :cond_4
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupContainer$4;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupContainer;->access$800(Lcom/android/incallui/service/SecCallPopupContainer;)Landroid/view/View;
 
     move-result-object v6
@@ -240,7 +234,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/service/SecCallPopupContainer$4;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mIsRejectMsgContentShowing:Z
     invoke-static {v2}, Lcom/android/incallui/service/SecCallPopupContainer;->access$700(Lcom/android/incallui/service/SecCallPopupContainer;)Z
 
     move-result v2

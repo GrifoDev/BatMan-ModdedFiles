@@ -77,7 +77,6 @@
 
     move-result-object v4
 
-    # invokes: Lcom/android/incallui/AnswerPresenter;->configureAnswerTargetsForSms(Lcom/android/incallui/Call;Ljava/util/List;)V
     invoke-static {v2, v3, v4}, Lcom/android/incallui/AnswerPresenter;->access$000(Lcom/android/incallui/AnswerPresenter;Lcom/android/incallui/Call;Ljava/util/List;)V
 
     goto :goto_0
@@ -113,7 +112,6 @@
 
     move-result-object v3
 
-    # invokes: Lcom/android/incallui/AnswerPresenter;->configureAnswerTargetsForSms(Lcom/android/incallui/Call;Ljava/util/List;)V
     invoke-static {v2, v0, v3}, Lcom/android/incallui/AnswerPresenter;->access$000(Lcom/android/incallui/AnswerPresenter;Lcom/android/incallui/Call;Ljava/util/List;)V
 
     goto :goto_0

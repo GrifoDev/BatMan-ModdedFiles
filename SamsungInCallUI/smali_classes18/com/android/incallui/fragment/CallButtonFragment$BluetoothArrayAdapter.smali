@@ -126,7 +126,6 @@
     :cond_1
     iget-object v5, p0, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;->this$0:Lcom/android/incallui/fragment/CallButtonFragment;
 
-    # invokes: Lcom/android/incallui/fragment/CallButtonFragment;->resetBluetoothDeviceList()V
     invoke-static {v5}, Lcom/android/incallui/fragment/CallButtonFragment;->access$100(Lcom/android/incallui/fragment/CallButtonFragment;)V
 
     iget-object v5, p0, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;->mHandler:Landroid/os/Handler;

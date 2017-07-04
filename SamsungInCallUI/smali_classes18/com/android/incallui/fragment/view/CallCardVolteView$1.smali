@@ -94,7 +94,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$1;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mFragment:Lcom/android/incallui/fragment/CallCardFragment;
     invoke-static {v2}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$000(Lcom/android/incallui/fragment/view/CallCardVolteView;)Lcom/android/incallui/fragment/CallCardFragment;
 
     move-result-object v2

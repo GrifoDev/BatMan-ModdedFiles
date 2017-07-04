@@ -57,7 +57,6 @@
 
     move-result v0
 
-    # invokes: Lcom/android/incallui/fragment/VoiceCallButtonFragment;->updateAudioButtons(I)V
     invoke-static {v1, v0}, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->access$600(Lcom/android/incallui/fragment/VoiceCallButtonFragment;I)V
 
     :cond_0

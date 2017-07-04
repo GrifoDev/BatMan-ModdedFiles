@@ -65,7 +65,6 @@
 
     invoke-direct {v1, v2, v3, v4}, Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;-><init>(Lcom/android/contacts/common/vcard/ImportVCardActivity;[Landroid/net/Uri;[Ljava/lang/String;)V
 
-    # setter for: Lcom/android/contacts/common/vcard/ImportVCardActivity;->mVCardCacheThread:Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;
     invoke-static {v0, v1}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->access$202(Lcom/android/contacts/common/vcard/ImportVCardActivity;Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;)Lcom/android/contacts/common/vcard/ImportVCardActivity$VCardCacheThread;
 
     iget-object v0, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$1;->this$0:Lcom/android/contacts/common/vcard/ImportVCardActivity;

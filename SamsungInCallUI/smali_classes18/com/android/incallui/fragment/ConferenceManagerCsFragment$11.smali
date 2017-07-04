@@ -49,7 +49,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mEndcallRowId:I
     invoke-static {v2}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$400(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)I
 
     move-result v2
@@ -64,12 +63,10 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    # setter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->conferenceRowCallStateLabel:Landroid/widget/TextView;
     invoke-static {v1, v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$502(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->conferenceRowCallStateLabel:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$500(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -92,7 +89,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mEndcallRowId:I
     invoke-static {v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$400(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)I
 
     move-result v1

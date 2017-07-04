@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallContentViewListener$1;->this$0:Lcom/android/incallui/InCallContentViewListener;
 
-    # getter for: Lcom/android/incallui/InCallContentViewListener;->mContentsView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/incallui/InCallContentViewListener;->access$000(Lcom/android/incallui/InCallContentViewListener;)Landroid/view/View;
 
     move-result-object v1
@@ -53,7 +52,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/InCallContentViewListener$1;->this$0:Lcom/android/incallui/InCallContentViewListener;
 
-    # getter for: Lcom/android/incallui/InCallContentViewListener;->mContentsView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/incallui/InCallContentViewListener;->access$000(Lcom/android/incallui/InCallContentViewListener;)Landroid/view/View;
 
     move-result-object v1
@@ -72,7 +70,6 @@
 
     iget-object v2, p0, Lcom/android/incallui/InCallContentViewListener$1;->this$0:Lcom/android/incallui/InCallContentViewListener;
 
-    # getter for: Lcom/android/incallui/InCallContentViewListener;->mContentsView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/incallui/InCallContentViewListener;->access$000(Lcom/android/incallui/InCallContentViewListener;)Landroid/view/View;
 
     move-result-object v2
@@ -83,7 +80,6 @@
 
     iget-object v3, p0, Lcom/android/incallui/InCallContentViewListener$1;->this$0:Lcom/android/incallui/InCallContentViewListener;
 
-    # getter for: Lcom/android/incallui/InCallContentViewListener;->mContentsView:Landroid/view/View;
     invoke-static {v3}, Lcom/android/incallui/InCallContentViewListener;->access$000(Lcom/android/incallui/InCallContentViewListener;)Landroid/view/View;
 
     move-result-object v3
@@ -92,17 +88,14 @@
 
     move-result v3
 
-    # invokes: Lcom/android/incallui/InCallContentViewListener;->notifyContentViewChange(II)V
     invoke-static {v1, v2, v3}, Lcom/android/incallui/InCallContentViewListener;->access$100(Lcom/android/incallui/InCallContentViewListener;II)V
 
     iget-object v1, p0, Lcom/android/incallui/InCallContentViewListener$1;->this$0:Lcom/android/incallui/InCallContentViewListener;
 
-    # operator++ for: Lcom/android/incallui/InCallContentViewListener;->mWaitingCount:I
     invoke-static {v1}, Lcom/android/incallui/InCallContentViewListener;->access$208(Lcom/android/incallui/InCallContentViewListener;)I
 
     iget-object v1, p0, Lcom/android/incallui/InCallContentViewListener$1;->this$0:Lcom/android/incallui/InCallContentViewListener;
 
-    # getter for: Lcom/android/incallui/InCallContentViewListener;->mWaitingCount:I
     invoke-static {v1}, Lcom/android/incallui/InCallContentViewListener;->access$200(Lcom/android/incallui/InCallContentViewListener;)I
 
     move-result v1

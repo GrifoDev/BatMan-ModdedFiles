@@ -159,7 +159,6 @@
 
     iget-object v10, p0, Lcom/android/incallui/service/vt/EpdgManager$EpdgReceiver;->this$0:Lcom/android/incallui/service/vt/EpdgManager;
 
-    # getter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v10}, Lcom/android/incallui/service/vt/EpdgManager;->access$100(Lcom/android/incallui/service/vt/EpdgManager;)Z
 
     move-result v10
@@ -282,7 +281,6 @@
 
     iget-object v10, p0, Lcom/android/incallui/service/vt/EpdgManager$EpdgReceiver;->this$0:Lcom/android/incallui/service/vt/EpdgManager;
 
-    # getter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v10}, Lcom/android/incallui/service/vt/EpdgManager;->access$100(Lcom/android/incallui/service/vt/EpdgManager;)Z
 
     move-result v10
@@ -305,7 +303,6 @@
 
     const/4 v9, 0x0
 
-    # setter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v8, v9}, Lcom/android/incallui/service/vt/EpdgManager;->access$102(Lcom/android/incallui/service/vt/EpdgManager;Z)Z
 
     goto/16 :goto_0
@@ -419,7 +416,6 @@
 
     iget-object v8, p0, Lcom/android/incallui/service/vt/EpdgManager$EpdgReceiver;->this$0:Lcom/android/incallui/service/vt/EpdgManager;
 
-    # getter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v8}, Lcom/android/incallui/service/vt/EpdgManager;->access$100(Lcom/android/incallui/service/vt/EpdgManager;)Z
 
     move-result v8
@@ -438,7 +434,6 @@
 
     const/4 v9, 0x1
 
-    # setter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v8, v9}, Lcom/android/incallui/service/vt/EpdgManager;->access$102(Lcom/android/incallui/service/vt/EpdgManager;Z)Z
 
     const v8, 0x7f0902f6
@@ -472,7 +467,6 @@
 
     iget-object v8, p0, Lcom/android/incallui/service/vt/EpdgManager$EpdgReceiver;->this$0:Lcom/android/incallui/service/vt/EpdgManager;
 
-    # getter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v8}, Lcom/android/incallui/service/vt/EpdgManager;->access$100(Lcom/android/incallui/service/vt/EpdgManager;)Z
 
     move-result v8
@@ -495,7 +489,6 @@
 
     const/4 v9, 0x1
 
-    # setter for: Lcom/android/incallui/service/vt/EpdgManager;->mIsDisplayedEpdgError:Z
     invoke-static {v8, v9}, Lcom/android/incallui/service/vt/EpdgManager;->access$102(Lcom/android/incallui/service/vt/EpdgManager;Z)Z
 
     const v8, 0x7f0902f6

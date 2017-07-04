@@ -47,7 +47,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/incallui/secrcs/RcsShareUI;->mTwoWayShare:Z
     invoke-static {v0, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1902(Lcom/android/incallui/secrcs/RcsShareUI;Z)Z
 
     goto :goto_0
@@ -57,7 +56,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/incallui/secrcs/RcsShareUI;->mTwoWayShare:Z
     invoke-static {v0, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$1902(Lcom/android/incallui/secrcs/RcsShareUI;Z)Z
 
     goto :goto_0

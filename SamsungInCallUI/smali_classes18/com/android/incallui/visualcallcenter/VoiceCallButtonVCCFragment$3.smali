@@ -37,10 +37,8 @@
 .method public onPageScrollStateChanged(I)V
     .locals 0
 
-    # setter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mCurrentPageScrollState:I
     invoke-static {p1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$502(I)I
 
-    # setter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mVCCCurrentPageScrollState:I
     invoke-static {p1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$402(I)I
 
     return-void
@@ -111,7 +109,6 @@
 
     const/4 v1, 0x1
 
-    # invokes: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->showPowerByBreeze(Z)V
     invoke-static {v0, v1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$700(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;Z)V
 
     :cond_0
@@ -128,7 +125,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->updatePagerState(Lcom/android/incallui/Call;)V
     invoke-static {v0, v1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$800(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;Lcom/android/incallui/Call;)V
 
     return-void
@@ -156,7 +152,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$3;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    # invokes: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->showPowerByBreeze(Z)V
     invoke-static {v0, v3}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$700(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;Z)V
 
     goto :goto_0

@@ -63,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/edge/CallEdgeManager$2;->this$0:Lcom/android/incallui/edge/CallEdgeManager;
 
-    # getter for: Lcom/android/incallui/edge/CallEdgeManager;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/incallui/edge/CallEdgeManager;->access$100(Lcom/android/incallui/edge/CallEdgeManager;)Landroid/content/Context;
 
     move-result-object v0

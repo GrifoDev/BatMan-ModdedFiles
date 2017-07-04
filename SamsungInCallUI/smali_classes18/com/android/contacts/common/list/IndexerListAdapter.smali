@@ -230,7 +230,6 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/IndexerListAdapter;->mPlacementCache:Lcom/android/contacts/common/list/IndexerListAdapter$Placement;
 
-    # getter for: Lcom/android/contacts/common/list/IndexerListAdapter$Placement;->position:I
     invoke-static {v1}, Lcom/android/contacts/common/list/IndexerListAdapter$Placement;->access$000(Lcom/android/contacts/common/list/IndexerListAdapter$Placement;)I
 
     move-result v1
@@ -245,7 +244,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/contacts/common/list/IndexerListAdapter;->mPlacementCache:Lcom/android/contacts/common/list/IndexerListAdapter$Placement;
 
-    # setter for: Lcom/android/contacts/common/list/IndexerListAdapter$Placement;->position:I
     invoke-static {v1, p1}, Lcom/android/contacts/common/list/IndexerListAdapter$Placement;->access$002(Lcom/android/contacts/common/list/IndexerListAdapter$Placement;I)I
 
     invoke-virtual {p0}, Lcom/android/contacts/common/list/IndexerListAdapter;->isSectionHeaderDisplayEnabled()Z

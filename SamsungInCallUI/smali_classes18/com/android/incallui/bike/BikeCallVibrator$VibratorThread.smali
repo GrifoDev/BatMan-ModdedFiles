@@ -60,7 +60,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/bike/BikeCallVibrator$VibratorThread;->this$0:Lcom/android/incallui/bike/BikeCallVibrator;
 
-    # getter for: Lcom/android/incallui/bike/BikeCallVibrator;->mBikeCallVibratorUri:Landroid/net/Uri;
     invoke-static {v1}, Lcom/android/incallui/bike/BikeCallVibrator;->access$300(Lcom/android/incallui/bike/BikeCallVibrator;)Landroid/net/Uri;
 
     move-result-object v1
@@ -73,12 +72,10 @@
 
     move-result-object v0
 
-    # invokes: Lcom/android/incallui/bike/BikeCallVibrator;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/incallui/bike/BikeCallVibrator;->access$100(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/incallui/bike/BikeCallVibrator$VibratorThread;->this$0:Lcom/android/incallui/bike/BikeCallVibrator;
 
-    # getter for: Lcom/android/incallui/bike/BikeCallVibrator;->mVibrator:Landroid/os/Vibrator;
     invoke-static {v0}, Lcom/android/incallui/bike/BikeCallVibrator;->access$200(Lcom/android/incallui/bike/BikeCallVibrator;)Landroid/os/Vibrator;
 
     move-result-object v0
@@ -105,7 +102,6 @@
 
     move-result-object v0
 
-    # invokes: Lcom/android/incallui/bike/BikeCallVibrator;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/incallui/bike/BikeCallVibrator;->access$100(Ljava/lang/String;)V
 
     iget-boolean v0, p0, Lcom/android/incallui/bike/BikeCallVibrator$VibratorThread;->mContinueVibrating:Z
@@ -114,7 +110,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/bike/BikeCallVibrator$VibratorThread;->this$0:Lcom/android/incallui/bike/BikeCallVibrator;
 
-    # getter for: Lcom/android/incallui/bike/BikeCallVibrator;->mVibrator:Landroid/os/Vibrator;
     invoke-static {v0}, Lcom/android/incallui/bike/BikeCallVibrator;->access$200(Lcom/android/incallui/bike/BikeCallVibrator;)Landroid/os/Vibrator;
 
     move-result-object v0
@@ -136,7 +131,6 @@
     :cond_1
     const-string v0, "mVibrator == null : "
 
-    # invokes: Lcom/android/incallui/bike/BikeCallVibrator;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/incallui/bike/BikeCallVibrator;->access$100(Ljava/lang/String;)V
 
     goto :goto_0
@@ -165,7 +159,6 @@
 
     move-result-object v0
 
-    # invokes: Lcom/android/incallui/bike/BikeCallVibrator;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/incallui/bike/BikeCallVibrator;->access$100(Ljava/lang/String;)V
 
     const/4 v0, 0x0
@@ -174,7 +167,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/bike/BikeCallVibrator$VibratorThread;->this$0:Lcom/android/incallui/bike/BikeCallVibrator;
 
-    # getter for: Lcom/android/incallui/bike/BikeCallVibrator;->mVibrator:Landroid/os/Vibrator;
     invoke-static {v0}, Lcom/android/incallui/bike/BikeCallVibrator;->access$200(Lcom/android/incallui/bike/BikeCallVibrator;)Landroid/os/Vibrator;
 
     move-result-object v0

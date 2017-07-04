@@ -773,6 +773,15 @@
 
     move-result v1
 
+    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_ATT()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v1, 0x0
+
+    :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -803,79 +812,98 @@
 .end method
 
 .method private manageCaptureImageMenu(Landroid/view/Menu;)V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2}, Lcom/android/incallui/CallList;->getActiveCall()Lcom/android/incallui/Call;
+    invoke-virtual {v5}, Lcom/android/incallui/CallList;->getActiveCall()Lcom/android/incallui/Call;
 
     move-result-object v0
 
-    const v2, 0x7f10047d
+    const v5, 0x7f10047d
 
-    invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v5}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isKioskMode()Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_0
+    if-nez v5, :cond_0
 
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isIMSConferenceCall()Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_0
+    if-nez v5, :cond_0
 
-    sget v2, Lcom/android/incallui/service/vt/VideoCallCapability;->PRIVACY_CAPTURE:I
+    sget v5, Lcom/android/incallui/service/vt/VideoCallCapability;->PRIVACY_CAPTURE:I
 
-    invoke-static {v2}, Lcom/android/incallui/service/vt/VideoCallCapability;->can(I)Z
+    invoke-static {v5}, Lcom/android/incallui/service/vt/VideoCallCapability;->can(I)Z
 
-    move-result v2
+    move-result v5
 
-    if-eqz v2, :cond_1
+    if-eqz v5, :cond_2
 
     :cond_0
-    invoke-interface {v1, v3}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+    invoke-interface {v1, v4}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     :goto_0
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2}, Lcom/android/incallui/UiAdapter;->isDisplayReady()Z
+    invoke-virtual {v5}, Lcom/android/incallui/UiAdapter;->isDisplayReady()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    invoke-interface {v1, v4}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+    sget-boolean v5, Lcom/android/incallui/service/vt/VideoCallConfig;->PROHIBIT_CANDID_SHOT:Z
+
+    if-eqz v5, :cond_1
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoDetails()Lcom/android/incallui/service/vt/VideoDetails;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/incallui/service/vt/VideoDetails;->needToShowNoVideo()Z
+
+    move-result v5
+
+    if-nez v5, :cond_4
 
     :goto_1
-    return-void
+    and-int/2addr v2, v3
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     :cond_1
-    if-eqz v0, :cond_2
-
-    invoke-interface {v1, v4}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
-
-    goto :goto_0
+    return-void
 
     :cond_2
+    if-eqz v0, :cond_3
+
     invoke-interface {v1, v3}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     goto :goto_0
 
     :cond_3
-    invoke-interface {v1, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+    invoke-interface {v1, v4}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+
+    goto :goto_0
+
+    :cond_4
+    move v3, v4
 
     goto :goto_1
 .end method
