@@ -1311,6 +1311,10 @@
     <string name="sec_next_button_label">Дараах</string>
     <string name="sec_immersive_cling_step_one">Утасны доод талаас шудраад Үндсэн, Буцах, Сүүлийн товчийг харуул.</string>
     <string name="sec_immersive_cling_step_two">Та нуугдсан байсан ч Үндсэн товчийг ашиглах боломжтой. Утасныхаа доод талын дунд хэсэгт чанга дараад Эх дэлгэц рүү орно уу.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Та дэлгэц дүүрэн горим ашиглаж байна. Үндсэн, Буцах, Сүүлийн товчнуудыг нүдэнд торж, санамсаргүйгээр хэрэглүүрээс гарахаас сэргийлж нуусан.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Та дэлгэцийн товч байрладаг хэсгийн захаас дотогш шудраад товчнуудыг дахин харуулж болно.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Хэсэг хугацааны дараа товчнууд дахин алга болно.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Та Үндсэн товчийг нуугдсан үед ч ашиглаж болно. Эх дэлгэц рүү орохдоо дэлгэц дээрх Үндсэн товчны байрлал дээр чанга дарна уу.</string>
     <string name="done_label">Болсон</string>
     <string name="hour_picker_description">Аналог цаг сонгогч</string>
     <string name="minute_picker_description">Аналог минут сонгогч</string>
@@ -1580,6 +1584,11 @@
     <string name="batt_cooldown_mode_attention">Хэрэглүүр хаагдлаа</string>
     <string name="batt_cooldown_mode_attentions">Хэрэглүүрүүд хаагдлаа</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Утас хэт халж байна</string>
+    <string name="overheat_limit_warning">Таны утас хэт халж байна. Энэ хэрэглүүрийг нэн даруй хаана уу. 1 минутын дараа %s автоматаар хаагдах ба хадгалагдаагүй өгөгдлүүд алга болно.</string>
+    <string name="overheat_limit_closed_title">Хэрэглүүр хаагдлаа</string>
+    <string name="overheat_limit_closed">%1$s хаагдсан. Таны утас хэт халж байна. Утсаа хөрсний дараа %2$s-г дахин ашиглаад үзнэ үү.</string>
+    <string name="overheat_limit_ok">ОК</string>
     <string name="restart_confirm">Төхөөрөмж дахин эхэлнэ.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2030,6 +2039,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX Station-д холбогдсон үед Bixby-г ашиглах боломжгүй.</string>
     <string name="conventional_mode_recent_noti">Та энэ хэрэглүүрийг Сүүлийн хэрэглүүрүүд дэлгэц дээрээс Дэлгэх дүрс дээр товшоод бүтэн дэлгэцтэйгээр харах боломжтой.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Өмнөх талуудын харьцаа руу буцаахын тулд Тохиргоо > Дэлгэц > Дэлгэц дүүрэн хэрэглүүрүүд рүү очно уу.</string>
+    <string name="conventional_mode_tap_here_to_fill">Дэлгэцийн бүхлээр нь дүүргэхийн тулд энд товш</string>
     <string name="permlab_knoxCustomSetting">Төхөөрөмжийн тохиргоог удирдах</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Байршил, Wi-Fi, Хөдөлгөөнт дата, Android тохиргоо зэрэг төхөөрөмжийн тохиргоог өөрчил.</string>
     <string name="permlab_knoxCustomSystem">Системийн тохиргоог удирдах</string>
@@ -2374,4 +2384,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Холбогдсон төхөөрөмжийг USB-ээр цэнэглэж байна…</string>
     <string name="lacking_filenode_internal_storage_view_title">Файлын системийн хязгаар</string>
     <string name="lacking_filenode_internal_storage_view_text">Таны утсан дээр хэт олон файл үүсгэсэн байна. Таны утсан дээрх хэрэглүүрүүд ажиллахаа больж магадгүй бөгөөд утас асахгүй байж магадгүй. Чухал өгөгдлүүдээ нөөцлөөд, утасны үйлдвэрийн тохиргоог сэргээ.</string>
+    <string name="lock_to_app_toast_for_navibar">Хэрэглүүрийг салгахдаа Сүүлийн товчийг Буцах товчтой зэрэг удаан дарна уу.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -209,16 +209,17 @@
     <dimen name="tw_fota_upgade_msg_title_margin_bottom">8.0dip</dimen>
     <dimen name="tw_fota_upgade_msg_progress_margin_bottom">16.0dip</dimen>
     <dimen name="immersive_mode_help_message_area_width">260.0dip</dimen>
+    <dimen name="immersive_mode_land_help_message_area_width">320.0dip</dimen>
     <dimen name="immersive_mode_button_height">38.0dip</dimen>
     <dimen name="immersive_mode_navigation_bar_margin_space">48.0dip</dimen>
     <dimen name="immersive_mode_cling_center_bg_circ_width">67.0dip</dimen>
     <dimen name="immersive_mode_cling_center_bg_circ_margin">-33.5dip</dimen>
     <dimen name="immersive_mode_icon_cling_center_bg_circ_width">47.0dip</dimen>
-    <dimen name="immersive_mode_button_margin_bottom_vzw">92.0dip</dimen>
-    <dimen name="immersive_mode_animation_start_pos">46.0dip</dimen>
+    <dimen name="immersive_mode_button_margin_bottom_vzw">125.0dip</dimen>
+    <dimen name="immersive_mode_animation_start_pos">68.0dip</dimen>
     <dimen name="knox_app_icon_width">52.0dip</dimen>
     <dimen name="knox_app_icon_height">52.0dip</dimen>
-    <item type="dimen" name="APKTOOL_DUMMY_dc">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_dd">false</item>
     <dimen name="sem_resolver_max_collapsed_height">290.0dip</dimen>
     <dimen name="timepicker_text_inset_inner">58.0dip</dimen>
     <dimen name="timepicker_radial_picker_dimen">296.0dip</dimen>

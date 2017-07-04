@@ -1315,6 +1315,10 @@ Prøv igen om %2$d sekunder."</string>
     <string name="sec_next_button_label">Næste</string>
     <string name="sec_immersive_cling_step_one">Stryg op fra bunden af telefonen for at vise startknappen, tilbageknappen og knappen seneste.</string>
     <string name="sec_immersive_cling_step_two">Du kan bruge startknappen, selvom den er skjult. Tryk hårdt nederst midt på telefonen for at gå til startskærmen.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Du er i fuldskærmstilstand. Knapperne Start, Tilbage og Seneste er skjult for at mindske visuelle forstyrrelser og forhindre, at du utilsigtet forlader appen.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Du kan få vist knapperne igen ved at stryge indad fra kanten af skærmen, hvor knapperne normalt vises.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Efter et stykke tid forsvinder knapperne igen.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Du kan bruge startknappen, selvom den er skjult. Tryk hårdt på det område af skærmen, hvor startknappen normalt vises, for at gå til startskærmen.</string>
     <string name="done_label">Udført</string>
     <string name="hour_picker_description">Analog timevælger</string>
     <string name="minute_picker_description">Analog minutvælger</string>
@@ -1586,6 +1590,11 @@ command"</string>
     <string name="batt_cooldown_mode_attention">App lukket</string>
     <string name="batt_cooldown_mode_attentions">Apps lukket</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefonen overophedes</string>
+    <string name="overheat_limit_warning">Din telefon er ved at blive overophedet. Luk denne app med det samme. %s vil blive lukket automatisk om 1 minut, og data, der ikke er gemt, vil gå tabt.</string>
+    <string name="overheat_limit_closed_title">App lukket</string>
+    <string name="overheat_limit_closed">%1$s blev lukket. Din telefon er ved at blive overophedet. Prøv at bruge %2$s igen, når din telefon er kølet af.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Enheden vil genstarte.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Det er ikke muligt at bruge Bixby, når der er oprettet forbindelse til DeX Station.</string>
     <string name="conventional_mode_recent_noti">Du kan se denne app på fuld skærm ved at trykke på ikonet Udvid på skærmbilledet Seneste apps.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Gå til Indstillinger > Skærm > Fuldskærmsapps for at vende tilbage til det tidligere højde-bredde-forhold.</string>
+    <string name="conventional_mode_tap_here_to_fill">Tryk her for at fylde hele skærmen</string>
     <string name="permlab_knoxCustomSetting">Administrer enhedsindstillinger</string>
     <string name="permdesc_knoxCustomSetting">Konfigurer enhedsindstillinger som Bluetooth, Placering, Wi-Fi, Mobile data og Android-indstillinger.</string>
     <string name="permlab_knoxCustomSystem">Administrer systemindstillinger</string>
@@ -2413,4 +2423,6 @@ USB-funktioner kan være begrænsede, når Maksimalt niveau for strømbesparende
     <string name="charging_connected_via_usb">Oplader den tilsluttede enhed via USB …</string>
     <string name="lacking_filenode_internal_storage_view_title">Filsystemgrænse</string>
     <string name="lacking_filenode_internal_storage_view_text">Der er oprettet for mange filer på din telefon. Apps kan holde op med at fungere korrekt, og din telefon starter muligvis ikke længere. Sikkerhedskopier vigtige data, og nulstil telefonen til fabriksindstillingerne.</string>
+    <string name="lock_to_app_toast_for_navibar">Du kan frigøre appen ved at trykke og holde på knappen seneste og tilbageknappen på samme tid.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

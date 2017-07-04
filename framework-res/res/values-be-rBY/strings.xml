@@ -1312,6 +1312,10 @@
     <string name="sec_next_button_label">Далей</string>
     <string name="sec_immersive_cling_step_one">Правядзіце ўверх з ніжняй часткі тэлефона, каб паказаць клавішу галоўнага экрана, клавішу вяртання і клавішу «Апошнія».</string>
     <string name="sec_immersive_cling_step_two">Вы можаце выкарыстоўваць кнопку галоўнага экрана, нават калі яна схавана. Можна націсніце ў ніжняй цэнтральнай частцы тэлефона, каб перайсці на галоўны экран.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Вы ў поўнаэкранным рэжыме. Кнопкі галоўнага экрана, вяртання і кнопка «Апошнія» схаваны, каб звесці да мінімуму візуальнае адцягванне ўвагі і прадухіліць выпадковы выхад з праграмы.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Вы можаце зноў раскрыць кнопкі, правёўшы ад краю экрана ў накірунку ўнутр туды, дзе звычайна знаходзяцца кнопкі.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Праз некаторы час кнопкі зноў знікнуць.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Вы можаце выкарыстоўваць кнопку галоўнага экрана, нават калі яна схавана. Каб перайсці на галоўны экран, моцна націсніце вобласць экрана, на якой звычайна з’яўляецца кнопка галоўнага экрана.</string>
     <string name="done_label">Гатова</string>
     <string name="hour_picker_description">Выбар аналагавых гадзін</string>
     <string name="minute_picker_description">Выбар аналагавых хвілін</string>
@@ -1420,6 +1424,11 @@
     <string name="batt_cooldown_mode_attention">Праграма закрыта</string>
     <string name="batt_cooldown_mode_attentions">Праграмы закрыты</string>
     <string name="batt_cooldown_mode_ok">ОК</string>
+    <string name="overheat_limit_warning_title">Перагрэў тэлефона</string>
+    <string name="overheat_limit_warning">Ваш тэлефон перагрэўся. Неадкладна закрыйце гэту праграму. Праграма %s будзе аўтаматычна закрыта праз 1 хвіліну, а ўсе незахаваныя даныя будуць страчаны.</string>
+    <string name="overheat_limit_closed_title">Праграма закрыта</string>
+    <string name="overheat_limit_closed">%1$s закрыта. Ваш тэлефон перагрэўся. Паспрабуйце выкарыстаць %2$s яшчэ раз, калі тэлефон астыне.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="perm_blocked_sim_notification_dcm_text">SIM card locked via PUK</string>
     <string name="invalid_sim_notification_title_vzw">Non-Verizon SIM card inserted</string>
     <string name="network_locked_sim_notification_text_vzw">Tap here to use your phone on a different network.</string>
@@ -1481,6 +1490,7 @@
     <string name="bixby_edgecase_dexstation">Немагчыма выкарыстоўваць Bixby падчас падлучэння да Станцыі DeX.</string>
     <string name="conventional_mode_recent_noti">Каб праглядзець гэту праграму ў поўнаэкранным рэжыме, націсніце значок «Разгарнуць» на экране апошніх праграм.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Каб вярнуцца да папярэдніх фарматных суадносін, перайдзіце ў меню «Налады > Дысплей > Праграмы ў поўнаэкранным рэжыме».</string>
+    <string name="conventional_mode_tap_here_to_fill">Націсніце тут, каб запоўніць увесь экран</string>
     <string name="permlab_knoxCustomSetting">Кіраванне наладамі прылады</string>
     <string name="permdesc_knoxCustomSetting">Канфігураванне налад прылады, такіх як Bluetooth, Вызначэнне месцазнаходжання, Wi-Fi, мабільныя даныя і налады Android.</string>
     <string name="permlab_knoxCustomSystem">Кіраванне наладамі сістэмы</string>

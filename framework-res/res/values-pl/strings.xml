@@ -1315,6 +1315,10 @@ Spróbuj ponownie za %2$d s."</string>
     <string name="sec_next_button_label">Dalej</string>
     <string name="sec_immersive_cling_step_one">Przeciągnij palcem z dołu telefonu, aby pokazać przyciski Ekran startowy, Wstecz i Ostatnie.</string>
     <string name="sec_immersive_cling_step_two">Przycisku ekranu startowego możesz używać nawet, gdy jest ukryty. Naciśnij mocno w środku dolnej części ekranu telefonu, aby przejść do ekranu startowego.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Używasz trybu pełnego ekranu. Przyciski ekranu startowego, powrotu i Ostatnie są ukryte, aby zminimalizować rozpraszające elementy wizualne i zapobiegać przypadkowemu zamknięciu aplikacji.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Możesz wyświetlić przyciski ponownie, przeciągając palcem do wewnątrz od krawędzi ekranu w miejscu, gdzie przyciski są zwykle widoczne.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Po chwili przyciski ponownie znikną.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Przycisku ekranu startowego możesz używać nawet, gdy jest ukryty. Aby przejść do ekranu startowego, naciśnij mocno obszar ekranu, w którym normalnie widoczny jest przycisk ekranu startowego.</string>
     <string name="done_label">Gotowe</string>
     <string name="hour_picker_description">Analogowy widok wyboru godziny</string>
     <string name="minute_picker_description">Analogowy widok wyboru minut</string>
@@ -1586,6 +1590,11 @@ wskaz."</string>
     <string name="batt_cooldown_mode_attention">Aplikacja zamknięta</string>
     <string name="batt_cooldown_mode_attentions">Aplikacje zamknięte</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Przegrzanie telefonu</string>
+    <string name="overheat_limit_warning">Telefon przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %s zostanie zamknięta automatycznie za 1 minutę, a dowolne niezapisane dane zostaną utracone.</string>
+    <string name="overheat_limit_closed_title">Aplikacja zamknięta</string>
+    <string name="overheat_limit_closed">Aplikacja %1$s została zamknięta. Telefon się przegrzewa. Spróbuj ponownie użyć aplikacji %2$s po ostygnięciu telefonu.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Urządzenie zostanie uruchomione ponownie.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Nie można używać Bixby podczas połączenia ze Stacją DeX.</string>
     <string name="conventional_mode_recent_noti">Aby wyświetlić tę aplikację na pełnym ekranie, możesz dotknąć ikony Rozwiń na ekranie Ostatnie aplikacje.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Aby wrócić do poprzednich proporcji, przejdź do menu Ustawienia > Wyświetlacz > Aplikacje na pełnym ekranie.</string>
+    <string name="conventional_mode_tap_here_to_fill">Dotknij tutaj, aby wypełnić cały ekran</string>
     <string name="permlab_knoxCustomSetting">Zarządzaj ustawieniami urządzenia</string>
     <string name="permdesc_knoxCustomSetting">Skonfiguruj ustawienia, takie jak Bluetooth, Lokalizacja, Wi-Fi, Dane komórkowe i Android.</string>
     <string name="permlab_knoxCustomSystem">Zarządzaj ustawieniami systemu</string>
@@ -2413,4 +2423,6 @@ Funkcje USB mogą być ograniczone przy włączonym Trybie maksymalnego oszczęd
     <string name="charging_connected_via_usb">Ładowanie połączonego urządzenia przez USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limit systemu plików</string>
     <string name="lacking_filenode_internal_storage_view_text">W telefonie utworzono zbyt dużo plików. Aplikacje mogą przestać działać prawidłowo i nie można będzie już uruchomić telefonu. Utwórz backup wszystkich ważnych danych i zresetuj telefon do ustawień fabrycznych.</string>
+    <string name="lock_to_app_toast_for_navibar">Aby odpiąć aplikację, dotknij jednocześnie przycisków Ostatnie i Wstecz, a następnie przytrzymaj je.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

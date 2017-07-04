@@ -1309,6 +1309,10 @@
     <string name="sec_next_button_label">Следно</string>
     <string name="sec_immersive_cling_step_one">Поминете од долниот дел на телефонот за да ги прикажете копчињата Дома, Назад и Последни.</string>
     <string name="sec_immersive_cling_step_two">Можете да ги користите копчето Дома дури и кога е скриено. Цврсто притиснете го долниот централен дел на телефонот за да одите во Почетниот екран.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Користите режим на цел екран. Копчињата Дома, Назад и Последни се скриени за да се минимизираат работите што визуелно го одвлекуваат вниманието и за да се спречи да ја напуштите апликацијата случајно.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Можете да ги прикажете копчињата повторно поминувајќи навнатре од работ на екранот таму каде што копчињата вообичаено се појавуваат.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">По некое време, копчињата повторно ќе исчезнат.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Можете да ги користите копчето Дома дури и кога е скриено. За да одите во екранот Дома, цврсто притиснете на областа на екранот каде што копчето Дома обично се појавува.</string>
     <string name="done_label">Готово</string>
     <string name="hour_picker_description">Аналоген одбирач на часови</string>
     <string name="minute_picker_description">Аналоген одбирач на минути</string>
@@ -1579,6 +1583,11 @@
     <string name="batt_cooldown_mode_attention">Апликацијата се затвори</string>
     <string name="batt_cooldown_mode_attentions">Апликациите се затворија</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Телефонот се прегрева</string>
+    <string name="overheat_limit_warning">Телефонот се прегрева. Затворете ја оваа апликација веднаш. %s ќе се затвори автоматски за 1 минута и сите незачувани податоци ќе се изгубат.</string>
+    <string name="overheat_limit_closed_title">Апликацијата се затвори</string>
+    <string name="overheat_limit_closed">%1$s се затвори. Вашиот телефон се прегрева. Обидете се да го користите %2$s повторно откако телефонот ќе се излади.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Уредот ќе се рестартира.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2031,6 +2040,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Не може да се користи Bixby додека е поврзан со Станица DeX.</string>
     <string name="conventional_mode_recent_noti">Можете да ја видите оваа апликација на цел екран допирајќи на иконата за Проширување на екранот Последни апликации.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">За да се вратите на претходниот размер, одете во Поставувања > Екран > Апликации на цел екран.</string>
+    <string name="conventional_mode_tap_here_to_fill">Допрете тука за да го пополните целиот екран</string>
     <string name="permlab_knoxCustomSetting">Управувај со поставувањата на уредот</string>
     <string name="permdesc_knoxCustomSetting">Конфигурирај поставувања за уредот како што се Bluetooth, Локација, Wi-Fi, Мобилни податоци и Android поставувања.</string>
     <string name="permlab_knoxCustomSystem">Управувај со системските поставувања</string>
@@ -2375,4 +2385,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Се полни поврзан уред преку USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ограничување на датотеч. систем</string>
     <string name="lacking_filenode_internal_storage_view_text">Премногу датотеки се направени на Вашиот телефон. Апликациите може да престанат да работат правилно и Вашиот телефон може повеќе да не се активира. Архивирајте ги важните податоци и направете фабричко ресетирање на телефонот.</string>
+    <string name="lock_to_app_toast_for_navibar">За да откачите апликација, допрете и држете ги копчињата Последни и Назад истовремено.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

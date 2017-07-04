@@ -1311,6 +1311,10 @@
     <string name="sec_next_button_label">ຖັດໄປ</string>
     <string name="sec_immersive_cling_step_one">ຮູດຈາກເບື້ອງລຸ່ມສຸດຂອງໂທລະສັບເພື່ອສະແດງປຸ່ມໂຮມ, ປຸ່ມກັບຄືນ, ແລະປຸ່ມຫຼ້າສຸດ.</string>
     <string name="sec_immersive_cling_step_two">ທ່ານສາມາດໃຊ້ປຸ່ມໂຮມໄດ້ ເຖິງແມ່ນວ່າໃນຂະນະທີ່ມັນຖືກເຊື່ອງຢູ່. ກົດຈຸດກາງເບື້ອງລຸ່ມຂອງໂທລະສັບຂອງທ່ານແຮງໆເພື່ອໄປທີ່ໜ້າຈໍຫຼັກ.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">ທ່ານກຳລັງໃຊ້ໂໝດໜ້າຈໍເຕັມ. ປຸ່ມໂຮມ, ປຸ່ມກັບຄືນ, ແລະປຸ່ມຫຼ້າສຸດຖືກເຊື່ອງເພື່ອຫຼຸດການລົບກວນພາບລົງ ແລະປ້ອງກັນບໍ່ໃຫ້ທ່ານອອກຈາກແອັບໂດຍບັງເອີນ.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">ທ່ານສາມາດສະແດງປຸ່ມຕ່າງໆອີກຄັ້ງໂດຍການຮູດເຂົ້າໃນຈາກຂອບໜ້າຈໍ ບ່ອນທີ່ປຸ່ມຕ່າງໆປະກົດຂຶ້ນຕາມປົກກະຕິ.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">ຫຼັງຈາກຄາວໜຶ່ງ, ປຸ່ມຈະຫາຍໄປອີກຄັ້ງ.</string>
+    <string name="sec_immersive_cling_help_text_step_two">ທ່ານສາມາດໃຊ້ປຸ່ມໂຮມ ເຖິງແມ່ນວ່າໃນຂະນະທີ່ມັນຖືກເຊື່ອງ. ເພື່ອໄປທີ່ໜ້າຈໍຫຼັກ, ກົດພື້ນທີ່ຂອງໜ້າຈໍບ່ອນທີ່ປຸ່ມໂຮມປະກົດຂຶ້ນປົກກະຕິແຮງໆ.</string>
     <string name="done_label">ສໍາເລັດແລ້ວ</string>
     <string name="hour_picker_description">ຕົວເລືອກຊົ່ວໂມງອານາລັອກ</string>
     <string name="minute_picker_description">ຕົວເລືອກນາທີອານາລັອກ</string>
@@ -1580,6 +1584,11 @@
     <string name="batt_cooldown_mode_attention">ປິດແອັບແລ້ວ</string>
     <string name="batt_cooldown_mode_attentions">ປິດແອັບແລ້ວ</string>
     <string name="batt_cooldown_mode_ok">ຕົກລົງ</string>
+    <string name="overheat_limit_warning_title">ໂທລະສັບກຳລັງຮ້ອນເກີນໄປ</string>
+    <string name="overheat_limit_warning">ໂທລະສັບຂອງທ່ານ​ກຳ​ລັງຮ້ອນເກີນ​ໄປ. ປິດແອັບນີ້ໂດຍທັນທີ. %s ຈະຖືກປິດໂດຍອັດຕະໂນມັດໃນ 1 ນາທີ, ແລະຂໍ້ມູນທີ່ບໍ່ໄດ້ບັນທຶກໃດໜຶ່ງຈະສູນເສຍໄປ.</string>
+    <string name="overheat_limit_closed_title">ປິດແອັບແລ້ວ</string>
+    <string name="overheat_limit_closed">ປິດ %1$s ແລ້ວ. ໂທລະສັບຂອງທ່ານ​ກຳ​ລັງຮ້ອນເກີນ​ໄປ. ລອງໃຊ້ %2$s ອີກຄັ້ງຫຼັງຈາກໂທລະສັບຂອງທ່ານເຢັນລົງ.</string>
+    <string name="overheat_limit_ok">ຕົກລົງ</string>
     <string name="restart_confirm">ເຄື່ອງຈະປິດເປີດໃໝ່.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2031,6 +2040,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">ບໍ່ສາມາດໃຊ້ Bixby ໃນຂະນະທີ່ຖືກເຊື່ອມຕໍ່ກັບ DeX Station.</string>
     <string name="conventional_mode_recent_noti">ທ່ານສາມາດເບິ່ງແອັບນີ້ໃນໜ້າຈໍເຕັມໂດຍການແຕະໄອຄອນຂະຫຍາຍໃນໜ້າຈໍແອັບຫຼ້າສຸດ.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">ເພື່ອກັບໄປຫາອັດຕາສ່ວນພາບກ່ອນໜ້າ, ໄປທີ່ການຕັ້ງຄ່າ > ສະແດງ > ແອັບໜ້າຈໍເຕັມ.</string>
+    <string name="conventional_mode_tap_here_to_fill">ແຕະ​ທີ່​ນີ້​ເພື່ອ​ຕື່ມ​ສີ​ໜ້າ​ຈໍ​ທັງ​ໝົດ</string>
     <string name="permlab_knoxCustomSetting">ຈັດການການຕັ້ງຄ່າອຸປະກອນ</string>
     <string name="permdesc_knoxCustomSetting">ກຳນົດຄ່າການຕັ້ງຄ່າອຸປະກອນ, ເຊັ່ນ ບລູທູດ, ຈຸດທີ່ຕັ້ງ, Wi-Fi, ຂໍ້ມູນມືຖື, ແລະການຕັ້ງຄ່າແອນດຣອຍ.</string>
     <string name="permlab_knoxCustomSystem">ຈັດການການຕັ້ງຄ່າລະບົບ</string>
@@ -2375,4 +2385,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">ກຳລັງສາກອຸປະກອນທີ່ເຊື່ອມຕໍ່ຜ່ານ USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">ຂີດຈໍາກັດລະບົບໄຟລ໌</string>
     <string name="lacking_filenode_internal_storage_view_text">ໄດ້ສ້າງຫຼາຍໄຟລ໌ເກີນໄປແລ້ວໃນໂທລະສັບຂອງທ່ານ. ແອັບອາດຢຸດໃຊ້ງານຢ່າງຖືກຕ້ອງ ແລະໂທລະສັບຂອງທ່ານຂອງທ່ານອາດຈະເປີດບໍ່ຂຶ້ນອີກຕໍ່ໄປ. ແບັກອັບຂໍ້ມູນທີ່ສຳຄັນໃດໜຶ່ງ ແລະຕັ້ງຄ່າໂຮງງານໂທລະສັບຂອງທ່ານຄືນໃໝ່.</string>
+    <string name="lock_to_app_toast_for_navibar">ເພື່ອ​ຖອນ​ປັກ​ໝຸດ​ແອັບ, ສຳພັດປຸ່ມຫຼ້າສຸດແລະປຸ່ມກັບຄືນຄ້າງໄວ້ໃນເວລາດຽວກັນ.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

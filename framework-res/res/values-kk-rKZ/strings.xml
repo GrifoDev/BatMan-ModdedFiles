@@ -1310,6 +1310,10 @@
     <string name="sec_next_button_label">Келесі</string>
     <string name="sec_immersive_cling_step_one">“Бастапқы”, “Артқа” және “Соңғылар” түймелерін көрсету үшін телефонның төменгі жағынан сипаңыз.</string>
     <string name="sec_immersive_cling_step_two">“Бастапқы” түймесін, тіпті ол жасырылған кезде де пайдалана аласыз. Бастапқы экранға өту үшін телефоныңыздың төменгі ортаңғы жағын қатты басыңыз.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Толық экран режимін пайдаланып жатырсыз. “Бастапқы”, “Артқа” және “Соңғылар” түймелері визуалды алаңдатпаларды кішірейту және қолданбадан байқаусызда шығып кетуге жол бермеу үшін жасырылған.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Экран шетінен түймелер қалыпты түрде көрсетілетін жерде ішкі жаққа жүргізіп өту арқылы түймелерді қайта көрсетуге болады.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Біраз уақыттан кейін түймелер қайтадан жоқ болады.</string>
+    <string name="sec_immersive_cling_help_text_step_two">“Бастапқы” түймесін, тіпті ол жасырылған кезде де пайдалана аласыз. Бастапқы экранға өту үшін “Бастапқы” түймесі әдетте пайда болатын экранның аумағын қатты басыңыз.</string>
     <string name="done_label">Дайын</string>
     <string name="hour_picker_description">Аналогты сағат таңдағыш</string>
     <string name="minute_picker_description">Аналогты минут таңдағыш</string>
@@ -1581,6 +1585,11 @@
     <string name="batt_cooldown_mode_attention">Қолданба жабылды</string>
     <string name="batt_cooldown_mode_attentions">Қолданбалар жабылды</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Телефон қызып кетті</string>
+    <string name="overheat_limit_warning">Телефоныңыз қызып кетті. Бұл қолданбаны дереу жабыңыз. %s қолданбасы 1 минуттан кейін автоматты түрде жабылып, кез келген сақталмаған деректер жоғалады.</string>
+    <string name="overheat_limit_closed_title">Қолданба жабылды</string>
+    <string name="overheat_limit_closed">%1$s қолданбасы жабылды. Телефоныңыз қызып кетті. %2$s қолданбасын телефоныңыз салқындағаннан кейін қайтадан пайдаланып көріңіз.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Құрылғы қайта іске қосылады.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2033,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX Станциясына қосулы кезде Bixby функциясын пайдалану мүмкін емес.</string>
     <string name="conventional_mode_recent_noti">Соңғы қолданбалар экранында “Кеңейту” белгішесін түрту арқылы осы қолданбаны толық экранда көруге болады.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Алдыңғы өлшемдер арақатынасына оралу үшін Параметрлер > Дисплей > Толық экран қолданбалары бөліміне өтіңіз.</string>
+    <string name="conventional_mode_tap_here_to_fill">Бүкіл экранға толтыру үшін осы жерді түртіңіз</string>
     <string name="permlab_knoxCustomSetting">Құрылғы параметрлерін басқару</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Геодеректер, Wi-Fi, ұялы деректер мен Android параметрлері сияқты құрылғы параметрлерін конфигурациялаңыз.</string>
     <string name="permlab_knoxCustomSystem">Жүйе параметрлерін басқару</string>
@@ -2378,4 +2388,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Қосылған құрылғы USB арқылы зарядталуда…</string>
     <string name="lacking_filenode_internal_storage_view_title">Файлдың жүйе шектеуі</string>
     <string name="lacking_filenode_internal_storage_view_text">Телефоныңызда өте көп файлдар жасалған. Қолданбалар дұрыс жұмыс істеуін тоқтатып, телефоныңыз бұдан былай іске қосылмауы мүмкін. Кез келген маңызды деректерді сақтық көшірмелеп, телефоныңызды зауыттық параметрлеріне қалпына келтіріңіз.</string>
+    <string name="lock_to_app_toast_for_navibar">Қолданбаны бекітуден алып тастау үшін бір уақытта “Соңғылар” және “Артқа” пернелерін түртіп ұстап тұрыңыз.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

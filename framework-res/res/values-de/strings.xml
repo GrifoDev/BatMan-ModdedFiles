@@ -1315,6 +1315,10 @@ Versuchen Sie es in %2$d Sekunden erneut."</string>
     <string name="sec_next_button_label">Weiter</string>
     <string name="sec_immersive_cling_step_one">Streichen Sie von unten über das Telefon, um die Tasten „Home“, „Zurück“ und „Aktuelle Anwendungen“ anzuzeigen.</string>
     <string name="sec_immersive_cling_step_two">Sie können die Home-Schaltfläche auch verwenden, wenn Sie ausgeblendet ist. Drücken Sie stark auf die untere Mitte Ihres Telefons, um zum Startbildschirm zu gelangen.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Sie verwenden den Vollbildmodus. Die Schaltflächen „Home“, „Zurück“ und „Aktuelle Anwendungen“ werden ausgeblendet, um visuelle Ablenkungen zu verringern und zu vermeiden, dass Sie die App versehentlich verlassen.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Sie können die Schaltflächen erneut anzeigen, indem Sie von der Bildschirmkante, wo die Schaltflächen normalerweise angezeigt werden, nach innen streichen.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Die Schaltflächen werden nach einer Weile wieder ausgeblendet.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Sie können die Home-Schaltfläche auch verwenden, wenn sie ausgeblendet ist. Um den Startbildschirm aufzurufen, drücken Sie hart auf den Bildschirmbereich, an dem die Home-Schaltfläche normalerweise angezeigt wird.</string>
     <string name="done_label">Fertig</string>
     <string name="hour_picker_description">Analoge Stundenauswahl</string>
     <string name="minute_picker_description">Analoge Minutenauswahl</string>
@@ -1585,6 +1589,11 @@ Befehl"</string>
     <string name="batt_cooldown_mode_attention">App geschlossen</string>
     <string name="batt_cooldown_mode_attentions">Apps geschlossen</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon überhitzt</string>
+    <string name="overheat_limit_warning">Ihr Telefon überhitzt. Schließen Sie diese App sofort. %s wird in 1 Minute automatisch geschlossen und alle nicht gespeicherten Daten gehen verloren.</string>
+    <string name="overheat_limit_closed_title">App geschlossen</string>
+    <string name="overheat_limit_closed">%1$s geschlossen. Ihr Telefon überhitzt. Versuchen Sie %2$s zu verwenden, nachdem Ihr Telefon abgekühlt ist.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Das Gerät wird neu gestartet.</string>
     <string name="tw_reboot_safemode_title_vzw">Neust. im sicheren Modus</string>
     <string name="tw_reboot_safemode_confirm_vzw">Möchten Sie das Telefon im sicheren Modus neu starten? Im sicheren Modus werden Apps, die nicht zum Lieferumfang Ihres Telefons gehören, vorübergehend deaktiviert, um die Fehlersuche zu erleichtern. Wenn Sie das Telefon neu starten, ist der sichere Modus abgeschaltet und alle Apps sind wieder verfügbar.</string>
@@ -2035,6 +2044,7 @@ Offline-Modus einschalten?"</string>
     <string name="bixby_edgecase_dexstation">Bixby kann bei Verbindung mit DeX-Station nicht verwendet werden.</string>
     <string name="conventional_mode_recent_noti">Sie können diese App in Vollbild anzeigen, indem Sie auf das Erweitern-Symbol auf dem Bildschirm „Aktuelle Anwendungen“ tippen.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Sie können unter „Einstellungen > Anzeige > Vollbild-Apps“ zum vorherigen Bildschirmformat zurückkehren.</string>
+    <string name="conventional_mode_tap_here_to_fill">Für Vollbild hier tippen.</string>
     <string name="permlab_knoxCustomSetting">Geräteeinstellungen verwalten</string>
     <string name="permdesc_knoxCustomSetting">Geräteeinstellungen, wie z. B. die Einstellungen für Bluetooth, Standort, WLAN, mobile Daten und Android, konfigurieren.</string>
     <string name="permlab_knoxCustomSystem">Systemeinstellungen verwalten</string>
@@ -2410,4 +2420,6 @@ USB-Funktionen sind möglicherweise eingeschränkt, wenn der maximale Energiespa
     <string name="charging_connected_via_usb">Verbundenes Gerät wird über USB aufgeladen…</string>
     <string name="lacking_filenode_internal_storage_view_title">Dateisystembeschränkung</string>
     <string name="lacking_filenode_internal_storage_view_text">Auf Ihrem Telefon wurden zu viele Dateien erstellt. Apps funktionieren möglicherweise nicht richtig und Ihr Telefon startet gegebenenfalls nicht mehr. Alle wichtigen Daten sichern und Ihr Telefon auf die Werkseinstellungen zurücksetzen.</string>
+    <string name="lock_to_app_toast_for_navibar">Um eine App zu lösen, berühren und halten Sie gleichzeitig die Schaltflächen „Aktuelle Anwendungen“ und „Zurück“ gedrückt.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

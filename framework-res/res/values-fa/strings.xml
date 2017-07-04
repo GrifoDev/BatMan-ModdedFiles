@@ -1315,6 +1315,10 @@
     <string name="sec_next_button_label">بعدی</string>
     <string name="sec_immersive_cling_step_one">برای نمایش دکمه‌های صفحه اصلی، برگشت و موارد اخیر، انگشت را از پایین تلفن بکشید.</string>
     <string name="sec_immersive_cling_step_two">می‌توانید از دکمه صفحه اصلی حتی وقتی پنهان است استفاده کنید. در مرکز دکمه تلفنتان محکم فشار دهید تا به صفحه اصلی بروید.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">درحال استفاده از حالت تمام صفحه هستید. دکمه‌های صفحه اصلی، بازگشت و موارد اخیر مخفی شده‌اند تا مزاحمت‌های دیداری به حداقل برسد و مانع از خروج ناگهانی شما از برنامه شود.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">برای نشان داده شدن دوباره دکمه‌ها می‌توانید انگشت را از لبه صفحه به داخل جایی که دکمه‌ها معمولاً نشان داده می‌شوند بکشید.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">پس از مدتی، دکمه دوباره ناپدید می‌شود.</string>
+    <string name="sec_immersive_cling_help_text_step_two">می‌توانید از دکمه صفحه اصلی حتی وقتی پنهان است استفاده کنید. برای رفتن به صفحه اصلی، روی قسمت‌هایی از صفحه که دکمه صفحه اصلی معمولاً نشان داده می‌شود محکم فشار دهید.</string>
     <string name="done_label">انجام شد</string>
     <string name="hour_picker_description">انتخابگر ساعت آنالوگ</string>
     <string name="minute_picker_description">انتخابگر دقیقه آنالوگ</string>
@@ -1586,6 +1590,11 @@
     <string name="batt_cooldown_mode_attention">برنامه بسته شد</string>
     <string name="batt_cooldown_mode_attentions">برنامه‌ها بسته شدند</string>
     <string name="batt_cooldown_mode_ok">تأیید</string>
+    <string name="overheat_limit_warning_title">تلفن بیش از حد داغ است</string>
+    <string name="overheat_limit_warning">تلفن بیش از حد داغ شده است. این برنامه را فوری ببندید. %s به طور خودکار در عرض ۱ دقیقه بسته خواهد شد و همه اطلاعات ذخیره نشده از بین خواهد رفت.</string>
+    <string name="overheat_limit_closed_title">برنامه بسته شد</string>
+    <string name="overheat_limit_closed">%1$s بسته شد. تلفن بیش از حد داغ شده است. پس از اینکه تلفن خنک شد، سعی کنید دوباره از %2$s استفاده کنید.</string>
+    <string name="overheat_limit_ok">تأیید</string>
     <string name="restart_confirm">دستگاه مجدداً راه‌اندازی خواهد شد.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">استفاده از Bixby هنگام اتصال به DeX Station ممکن نیست.</string>
     <string name="conventional_mode_recent_noti">می‌توانید با ضربه زدن روی نماد &lt;باز کردن> در صفحه برنامه‌های اخیر، این برنامه را به صورت تمام‌صفحه مشاهده کنید.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">برای بازگشت به نسبت صفحه قبل، به تنظیمات > صفحه نمایش > برنامه‌های تمام‌صفحه بروید.</string>
+    <string name="conventional_mode_tap_here_to_fill">برای پرکردن کل صفحه اینجا ضربه بزنید</string>
     <string name="permlab_knoxCustomSetting">مدیریت تنظیمات دستگاه</string>
     <string name="permdesc_knoxCustomSetting">تنظیمات دستگاه از جمله تنظیمات بلوتوث، مکان، Wi-Fi، داده تلفن همراه و Android را پیکربندی کنید.</string>
     <string name="permlab_knoxCustomSystem">مدیریت تنظیمات سیستم</string>
@@ -2413,4 +2423,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">در حال شارژ کردن دستگاه متصل با USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">محدودیت سیستم فایل</string>
     <string name="lacking_filenode_internal_storage_view_text">تعداد بسیار زیادی فایل در تلفن شما ایجاد شده است. برنامه‌ها ممکن است درست کار نکنند و تلفن ممکن است دیگر شروع به کار نکند. از همه اطلاعات مهم پشتیبان‌گیری کنید و تلفنتان را به تنظیمات کارخانه بازنشانی کنید.</string>
+    <string name="lock_to_app_toast_for_navibar">برای برداشتن اتصال برنامه، دکمه‌های موارد اخیر و برگشت را همزمان لمس کرده و نگهدارید.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

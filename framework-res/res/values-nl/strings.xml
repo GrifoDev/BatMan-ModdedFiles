@@ -1315,6 +1315,10 @@ Probeer het opnieuw over %2$d seconden."</string>
     <string name="sec_next_button_label">Volgende</string>
     <string name="sec_immersive_cling_step_one">Veeg vanaf de onderkant van de telefoon om de knoppen Start, Terug en Recent weer te geven.</string>
     <string name="sec_immersive_cling_step_two">U kunt de knop Start gebruiken, zelfs als deze wordt verborgen. Druk hard middenonder op uw telefoon om naar het Startscherm te gaan.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">U gebruikt volledig scherm. De knoppen Start, Terug en Recent zijn verborgen om visuele afleiding te minimaliseren en om te voorkomen dat u per ongeluk de app verlaat.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Geef de knoppen opnieuw weer door naar binnen te vegen vanaf de rand van het scherm waar de knoppen normaal worden weergegeven.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Na een tijdje verdwijnen de knoppen weer.</string>
+    <string name="sec_immersive_cling_help_text_step_two">U kunt de knop Start gebruiken, zelfs als deze wordt verborgen. Druk hard middenonder op uw telefoon waar de knop Start zich gewoonlijk bevindt, om naar het Startscherm te gaan.</string>
     <string name="done_label">Gereed</string>
     <string name="hour_picker_description">Analoge urenkiezer</string>
     <string name="minute_picker_description">Analoge minutenkiezer</string>
@@ -1586,6 +1590,11 @@ command"</string>
     <string name="batt_cooldown_mode_attention">App gesloten</string>
     <string name="batt_cooldown_mode_attentions">Apps gesloten</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefoon oververhit</string>
+    <string name="overheat_limit_warning">Uw telefoon is oververhit. Sluit deze app onmiddellijk. %s wordt automatisch gesloten over 1 minuut en niet-opgeslagen gegevens gaan verloren.</string>
+    <string name="overheat_limit_closed_title">App gesloten</string>
+    <string name="overheat_limit_closed">%1$s gesloten. Uw telefoon is oververhit. Probeer %2$s opnieuw te gebruiken nadat uw telefoon is afgekoeld.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Het apparaat wordt opnieuw gestart.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2040,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Kan Bixby niet gebruiken tijdens verbinding met DeX Station.</string>
     <string name="conventional_mode_recent_noti">U kunt deze app weergeven op volledig scherm door te tikken op het pictogram Uitvouwen in het scherm Recente apps.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Als u terug wilt gaan naar de vorige verhouding, gaat u naar Instellingen > Weergave > Apps op volledig scherm.</string>
+    <string name="conventional_mode_tap_here_to_fill">Hier tikken om het hele scherm te vullen</string>
     <string name="permlab_knoxCustomSetting">Apparaatinstellingen beheren</string>
     <string name="permdesc_knoxCustomSetting">Configureer apparaatinstellingen, zoals Bluetooth, Locatie, Wi-Fi, Mobiele gegevens en Android-instellingen.</string>
     <string name="permlab_knoxCustomSystem">Systeeminstellingen beheren</string>
@@ -2415,4 +2425,6 @@ USB-functies kunnen beperkt zijn als Maximale spaarstand is ingeschakeld."</stri
     <string name="charging_connected_via_usb">Aangesloten apparaat opladen via USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limiet bestandssysteem</string>
     <string name="lacking_filenode_internal_storage_view_text">Er zijn te veel bestanden gemaakt op uw telefoon. Apps werken mogelijk niet juist meer en uw telefoon start mogelijk niet meer op. Maak een back-up van belangrijke gegevens en reset uw telefoon naar de fabriekinstellingen.</string>
+    <string name="lock_to_app_toast_for_navibar">Tik tegelijk op de knoppen Recent en Terug en houd vast om app los te maken.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

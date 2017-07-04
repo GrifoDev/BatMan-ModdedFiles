@@ -1310,6 +1310,10 @@
     <string name="sec_next_button_label">পরবর্তী</string>
     <string name="sec_immersive_cling_step_one">হোম, পেছনে, ও সাম্প্রতিক বাটন দেখাতে ফোনের নিচ থেকে সোয়াইপ করুন৷</string>
     <string name="sec_immersive_cling_step_two">এমনকি লুকানো থাকা অবস্থাতেও আপনি হোম বাটন ব্যবহার করতে পারেন৷ হোম স্ক্রিনে যেতে আপনার ফোনের নিচের দিকে মাঝখানে জোরে চাপ দিন৷</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">আপনি ফুলস্ক্রিন মোড ব্যবহার করছেন৷ দেখায় বিঘ্ন ঘটা কমিয়ে আনতে এবং ভুলক্রমে আপনার অ্যাপটি ছেড়ে যাওয়া প্রতিরোধ করতে হোম, পেছনে, ও সাম্প্রতিক বাটনগুলো লুকিয়ে রাখা হয়েছে৷</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">স্ক্রিনের প্রান্তে যেখানে বাটনগুলো সাধারণত দেখা যায় সেখান থেকে ভেতরের দিকে সোয়াইপ করে আপনি বাটনগুলো আবার দেখাতে পারেন৷</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">কিছুক্ষণ পর, বাটনগুলো আবার অদৃশ্য হয়ে যাবে৷</string>
+    <string name="sec_immersive_cling_help_text_step_two">এমনকি লুকানো থাকা অবস্থাতেও আপনি হোম বাটন ব্যবহার করতে পারেন৷ হোম স্ক্রিনে যেতে, স্ক্রিনের যে জায়গায় সাধারণত হোম বাটনটি থাকে সেখানে জোরে চাপ দিন৷</string>
     <string name="done_label">সম্পন্ন</string>
     <string name="hour_picker_description">অ্যানালগ ঘণ্টা বাছাইকারী</string>
     <string name="minute_picker_description">অ্যানালগ মিনিট বাছাইকারী</string>
@@ -1581,6 +1585,11 @@
     <string name="batt_cooldown_mode_attention">অ্যাপ বন্ধ হয়েছে</string>
     <string name="batt_cooldown_mode_attentions">অ্যাপগুলো বন্ধ হয়েছে</string>
     <string name="batt_cooldown_mode_ok">ওকে</string>
+    <string name="overheat_limit_warning_title">ফোন বেশি গরম হচ্ছে</string>
+    <string name="overheat_limit_warning">আপনার ফোন বেশি গরম হচ্ছে। এই অ্যাপটি অবিলম্বে বন্ধ করুন৷ 1 মিনিট পর %s স্বয়ংক্রিয়ভাবে বন্ধ হবে, এবং অসংরক্ষিত যেকোনো তথ্য হারিয়ে যাবে৷</string>
+    <string name="overheat_limit_closed_title">অ্যাপ বন্ধ হয়েছে</string>
+    <string name="overheat_limit_closed">%1$s বন্ধ হয়েছে৷ আপনার ফোন বেশি গরম হচ্ছে। আপনার ফোন ঠান্ডা হওয়ার পর আবার %2$s ব্যবহারের চেষ্টা করুন৷</string>
+    <string name="overheat_limit_ok">ঠিক আছে</string>
     <string name="restart_confirm">ডিভাইসটি পুনরায় চালু হবে।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2033,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX Station-এর সাথে সংযুক্ত থাকাকালীন Bixby ব্যবহার করা যাবে না৷</string>
     <string name="conventional_mode_recent_noti">আপনি ‘সাম্প্রতিক’ অ্যাপের স্ক্রিনে ‘সম্প্রসারণ’ আইকনে ট্যাপ করে এই অ্যাপটি ফুল স্ক্রিনে দেখতে পারেন৷</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">আগের অ্যাসপেক্ট অনুপাতে ফিরে যেতে, ‘সেটিংস > ডিসপ্লে > ফুল স্ক্রিন অ্যাপ’-এ যান৷</string>
+    <string name="conventional_mode_tap_here_to_fill">পুরো স্ক্রিন ভর্তি করতে এখানে ট্যাপ করুন</string>
     <string name="permlab_knoxCustomSetting">ডিভাইস সেটিংস পরিচালনা করুন</string>
     <string name="permdesc_knoxCustomSetting">ডিভাইসের সেটিংস, যেমন Bluetooth , অবস্থান, Wi-Fi, মোবাইল তথ্য, ও Android সেটিংস কনফিগার করুন৷</string>
     <string name="permlab_knoxCustomSystem">সিস্টেমের সেটিংস পরিচালনা</string>
@@ -2371,4 +2381,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB দিয়ে সংযুক্ত ডিভাইস চার্জ হচ্ছে…</string>
     <string name="lacking_filenode_internal_storage_view_title">ফাইল সিস্টেমের সীমা</string>
     <string name="lacking_filenode_internal_storage_view_text">আপনার ফোনে অনেক বেশি ফাইল তৈরি করা হয়েছে৷ অ্যাপগুলো সঠিকভাবে কাজ করা বন্ধ করে দিতে পারে এবং আপনার ফোন আর চালু নাও হতে পারে৷ যেকোনো গুরুত্বপূর্ণ ডাটা ব্যাকআপ করুন এবং আপনার ফোনকে ফ্যাক্টরি রিসেট করুন৷</string>
+    <string name="lock_to_app_toast_for_navibar">অ্যাপ আনপিন করতে, একই সময়ে ‘সাম্প্রতিক’ ও ‘পেছনে’ বাটন স্পর্শ করে ধরে থাকুন।</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

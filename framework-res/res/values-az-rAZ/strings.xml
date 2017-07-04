@@ -1311,6 +1311,10 @@ icazə sorğusu"</string>
     <string name="sec_next_button_label">Növbəti</string>
     <string name="sec_immersive_cling_step_one">Əsas ekran, Geri və Sonuncular düyməsini göstərmək üçün telefonun aşağısından sürüşdürün.</string>
     <string name="sec_immersive_cling_step_two">Gizli olduqda belə Əsas ekran düyməsindən istifadə edə bilərsiniz. Əsas ekrana keçmək üçün telefonun aşağı mərkəzində vurub saxlayın.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Tam ekran rejimindən istifadə edirsiniz. Əsas ekran, Geri və Sonuncular düymələri vizual pozuntuların azaldılması və təsadüfən proqramdan çıxmanızın qarşısını almaq üçün gizlədilmişdir.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Adətən düymələrin olduğu yerdə ekranın kənarından içəri sürüşdürməklə düymələri yenidən göstərə bilərsiniz.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Bir müddət sonra düymələr yenidən itəcək.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Əsas ekran düyməsindən gizli olduqda belə istifadə edə bilərsiniz. Əsas ekrana keçin, Əsas ekran düyməsi adətən peyda olan yerdə vurub saxlayın.</string>
     <string name="done_label">Tamam</string>
     <string name="hour_picker_description">Analoq saat seçici</string>
     <string name="minute_picker_description">Analoq dəqiqə seçici</string>
@@ -1582,6 +1586,11 @@ yazısı"</string>
     <string name="batt_cooldown_mode_attention">Proqram bağlandı</string>
     <string name="batt_cooldown_mode_attentions">Proqramlar bağlandı</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon həddən artıq qızır</string>
+    <string name="overheat_limit_warning">Telefonunuz həddən artıq qızır. Bu proqramı dərhal bağlayın. %s 1 dəqiqəyə avtomatik bağlanavaq və saxlanmamış məlumatlar itəcək.</string>
+    <string name="overheat_limit_closed_title">Proqram bağlandı</string>
+    <string name="overheat_limit_closed">%1$s bağlandı. Telefonunuz həddən artıq qızır. Telefon soyuduqdan sonra yenidən %2$s istifadə etməyə çalışın.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Cihaz sönüb-yanacaq.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2034,6 +2043,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX Stansiyasına qoşulan zaman Bixby-dən istifadə etmək olmur.</string>
     <string name="conventional_mode_recent_noti">Sonuncu proqramlar ekranında Genişləndir nişanına vurmaqla bu proqrama tam ekranda baxa bilərsiniz.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Əvvəlki aspekt nisbətinə qayıtmaq üçün Parametrlər > Ekran > Tam ekran parametrlərinə keçin.</string>
+    <string name="conventional_mode_tap_here_to_fill">Bütün ekranı doldurmaq üçün bura vurun</string>
     <string name="permlab_knoxCustomSetting">Cihaz parametrlərini idarə et</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Məkan, Wi-Fi, Mobil data və Android parametrləri kimi cihaz parametrlərini konfiqurasiya et.</string>
     <string name="permlab_knoxCustomSystem">Sistem parametrlərini idarə et</string>
@@ -2378,4 +2388,6 @@ Maksimum enerjiyə qənaət rejimi yanılı olduqda USB funksiyaları məhdud ol
     <string name="charging_connected_via_usb">Qoşulan cihaz USB ilə yüklənir…</string>
     <string name="lacking_filenode_internal_storage_view_title">Fayl sistem limiti</string>
     <string name="lacking_filenode_internal_storage_view_text">Telefondan həddindən çox fayl yaradılıb. Proqramlar düzgün işləməyə və telefon yanmaya bilər. Mühüm məlumatları nüsxələyin və telefonu zavod parametrlərinə sıfırlayın.</string>
+    <string name="lock_to_app_toast_for_navibar">Proqramı bərkidildiyi yerdən çıxarmaq üçün Sonuncular və Geri düymələrinə eyni anda vurub saxlayın.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

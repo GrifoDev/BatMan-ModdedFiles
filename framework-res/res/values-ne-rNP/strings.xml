@@ -1309,6 +1309,10 @@
     <string name="sec_next_button_label">अर्को</string>
     <string name="sec_immersive_cling_step_one">गृह, पछाडि र हालैका बटनहरू देखाउन फोनको तल्लो भागबाट माथितिर स्वाइप गर्नुहोस्।</string>
     <string name="sec_immersive_cling_step_two">तपाई लुकाइएको बेला पनि गृह बटन प्रयोग गर्न सक्नुहुन्छ। होम स्क्रीनमा जान आफ्नो फोनको तल्लो भागको केन्द्रमा अलि बेसरी थिच्नुहोस्।</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">तपाई पूर्ण स्क्रीन मोड प्रयोग गर्दै हुनुहुन्छ। दृश्य सम्बन्धी बाधाहरू कम गर्न र तपाईलाई अन्जानमा उक्त एपबाट बाहिर जानबाट रोक्न गृह, पछाडि र हालैको बटन लुकाइनेछ।</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">तपाई स्क्रीनका बटनहरू सामान्य रूपमा देखा पर्ने छेउबाट भित्रतिर स्वाइप गरेर बटनहरू फेरि देखाउन सक्नुहुन्छ।</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">केही बेर पछि बटनहरू फेरि बिलाउने छन्।</string>
+    <string name="sec_immersive_cling_help_text_step_two">तपाई लुकाइएको बेला पनि होम बटन प्रयोग गर्न सक्नुहुन्छ। होम स्क्रीनमा जान स्क्रीनको होम बटन सामान्यतया देखा पर्ने क्षेत्रमा अलि बेसरी थिच्नुहोस्।</string>
     <string name="done_label">भयो</string>
     <string name="hour_picker_description">एनालग आवर पिकर</string>
     <string name="minute_picker_description">एनालग मिनट पिकर</string>
@@ -1318,7 +1322,7 @@
     <string name="select_year">वर्ष चयन गर्नुहोस्।</string>
     <string name="deleted_key">%1$s हटाइयो</string>
     <string name="managed_profile_label_badge">कार्य %1$s</string>
-    <string name="lock_to_app_toast">एपलाई अनपिन गर्न एकै समयमा हालैको र पछाडि कुञ्जी थिची होल्ड गर्नुहोस्।</string>
+    <string name="lock_to_app_toast">यस स्क्रिनलाई अनपिन गर्न पछाडि बटनलाई छोइराख्नुहोस्।</string>
     <string name="lock_to_app_toast_locked">लक-टु-एप मोड सक्षम गरिएको छ।</string>
     <string name="lock_to_app_start">स्क्रिन पिन गरियो</string>
     <string name="lock_to_app_exit">स्क्रिन अनपिन गरियो</string>
@@ -1417,6 +1421,11 @@
     <string name="batt_cooldown_mode_attention">एपलाई बन्द गरियो</string>
     <string name="batt_cooldown_mode_attentions">एपहरूलाई बन्द गरियो</string>
     <string name="batt_cooldown_mode_ok">ठीक छ</string>
+    <string name="overheat_limit_warning_title">फोन धेरै तातो हुँदैछ</string>
+    <string name="overheat_limit_warning">तपाईको फोन धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %s लाई 1 मिनटमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_closed_title">एपलाई बन्द गरियो</string>
+    <string name="overheat_limit_closed">%1$s लाई बन्द गरियो। तपाईको फोन धेरै तातो भइरहेको छ। तपाईको फोन चिसो भएपछि %2$s फेरि प्रयोग गरी हेर्नुहोस्।</string>
+    <string name="overheat_limit_ok">ठीक छ</string>
     <string name="perm_blocked_sim_notification_dcm_text">SIM card locked via PUK</string>
     <string name="invalid_sim_notification_title_vzw">Non-Verizon SIM card inserted</string>
     <string name="network_locked_sim_notification_text_vzw">Tap here to use your phone on a different network.</string>
@@ -1480,6 +1489,7 @@
     <string name="bixby_edgecase_dexstation">DeX स्टेशनमा जडान गरिएको बेला Bixby प्रयोग गर्न सकिँदैन।</string>
     <string name="conventional_mode_recent_noti">तपाई हालैका एप्सको स्क्रीनमा रहेको विस्तृत गर्ने प्रतिमामा ट्याप गरी यो एप पूर्ण स्क्रीनमा हेर्न सक्नुहुन्छ।</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">अघिल्लो पक्ष अनुपातमा फर्किन सेटिङहरू > प्रदर्शन > पूर्ण स्क्रीनका एप्समा जानुहोस्।</string>
+    <string name="conventional_mode_tap_here_to_fill">सम्पूर्ण स्क्रीन भर्न यहाँ ट्याप गर्नुहोस्</string>
     <string name="permlab_knoxCustomSetting">यन्त्र सेटिङहरू व्यवस्थित गर्नुहोस्</string>
     <string name="permdesc_knoxCustomSetting">यन्त्र सेटिङहरू कन्फिगर गर्नुहोस्, जस्तै ब्लुटूथ, स्थान, Wi-Fi, मोबाइल डाटा, र एन्ड्रोइड सेटिङहरू।</string>
     <string name="permlab_knoxCustomSystem">प्रणाली सेटिङहरू व्यवस्थित गर्नुहोस्</string>
@@ -1803,4 +1813,6 @@
     <string name="storage_sd_card_title">SD कार्ड</string>
     <string name="lacking_filenode_internal_storage_view_title">फाइल प्रणालीको सीमा</string>
     <string name="lacking_filenode_internal_storage_view_text">तपाईको फोनमा अत्यन्त धेरै फाइलहरू सिर्जना गरिएका छन्। एप्सले सही तरिकाले काम गर्न छाड्न सक्छन् र तपाईको फोन उप्रान्त सुरु नहुन सक्छ। कुनै पनि महत्वपूर्ण डाटा ब्याकअप गरी आफ्नो फोनलाई फ्याक्ट्री रिसेट गर्नुहोस्।</string>
+    <string name="lock_to_app_toast_for_navibar">एपलाई अनपिन गर्न एकै समयमा हालैको र पछाडि कुञ्जी टच गरी होल्ड गर्नुहोस्।</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

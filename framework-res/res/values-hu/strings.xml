@@ -1315,6 +1315,10 @@ Próbálja újra %2$d másodperc múlva."</string>
     <string name="sec_next_button_label">Tovább</string>
     <string name="sec_immersive_cling_step_one">A Kezdőlap, a Vissza és a Legutóbbi gomb megjelenítéséhez húzza felfelé az ujját a telefon aljáról.</string>
     <string name="sec_immersive_cling_step_two">Akkor is használhatja a Kezdőlap gombot, ha az el van rejtve. A kezdőképernyő megnyitásához nyomja meg erősen a telefon alsó részének közepét.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Teljes képernyős módot használ. A Kezdőlap, Vissza és Legutóbbi gomb el van rejtve, hogy a jelenlétük ne legyen zavaró, és ne vezessen az alkalmazás véletlen elhagyásához.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">A gombok újbóli megjelenítéséhez húzza az ujját a képernyőre arról a széléről, ahol a gombok meg szoktak jelenni.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Egy idő után a gombok ismét eltűnnek.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Akkor is használhatja a Kezdőlap gombot, ha az el van rejtve. A kezdőképernyő megnyitásához nyomja meg erősen a Kezdőlap gomb helyét a képernyőn.</string>
     <string name="done_label">Kész</string>
     <string name="hour_picker_description">Analóg óraválasztó</string>
     <string name="minute_picker_description">Analóg percválasztó</string>
@@ -1584,6 +1588,11 @@ funkc."</string>
     <string name="batt_cooldown_mode_attention">Bezárult az alkalmazás</string>
     <string name="batt_cooldown_mode_attentions">Bezárultak az alkalmazások</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">A telefon túlmelegedett</string>
+    <string name="overheat_limit_warning">A telefon túlmelegedett. Haladéktalanul zárja be ezt az alkalmazást. A(z) %s 1 perc múlva automatikusan bezáródik, és az összes nem mentett adata elveszik.</string>
+    <string name="overheat_limit_closed_title">Bezárult az alkalmazás</string>
+    <string name="overheat_limit_closed">A(z) %1$s bezárult. A telefon túlmelegedett. A telefon lehűlése után próbálja meg újra használni a(z) %2$s alkalmazást.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Az eszköz újraindul.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2034,6 +2043,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Amíg a DeX Állomáshoz kapcsolódik, a Bixby nem használható.</string>
     <string name="conventional_mode_recent_noti">Az alkalmazást úgy tekintheti meg teljes képernyős nézetben, hogy a Legutóbbi alkalmazások képernyőn megérinti a Kibontás ikont.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">A korábban használt képarányra a Beállítások > Kijelző > Teljes képernyős alkalmazások menüpontban válthat vissza.</string>
+    <string name="conventional_mode_tap_here_to_fill">Érintse meg itt a teljes képernyő kitöltéséhez</string>
     <string name="permlab_knoxCustomSetting">Eszközbeállítások kezelése</string>
     <string name="permdesc_knoxCustomSetting">Az eszközbeállítások – például a Bluetooth, a helymeghatározás, a Wi-Fi, a mobilinternet és az Android rendszer beállításainak – konfigurálása.</string>
     <string name="permlab_knoxCustomSystem">Rendszerbeállítások kezelése</string>
@@ -2409,4 +2419,6 @@ Maximálisan energiatakarékos módban az USB-funkciók korlátozottak lehetnek.
     <string name="charging_connected_via_usb">A csatlakoztatott eszköz töltése USB-n keresztül…</string>
     <string name="lacking_filenode_internal_storage_view_title">Fájlrendszerkorlát</string>
     <string name="lacking_filenode_internal_storage_view_text">Túl sok fájl jött létre a telefonon. Az alkalmazások helytelenül működhetnek, és az is előfordulhat, hogy a telefon nem fog elindulni. Készítsen biztonsági mentést a fontos adatokról, és állítsa vissza a telefon gyári beállításait.</string>
+    <string name="lock_to_app_toast_for_navibar">Az alkalmazás rögzítésének feloldásához tartsa ujjait egyszerre a Legutóbbi és a Vissza gombot.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

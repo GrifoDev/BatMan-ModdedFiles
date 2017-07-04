@@ -1315,6 +1315,10 @@ Po %2$d sek. bandykite dar kartą."</string>
     <string name="sec_next_button_label">Kitas</string>
     <string name="sec_immersive_cling_step_one">Braukite telefonu į viršų, kad būtų parodyti mygtukai Pradžia, Atgal ir Vėliausi.</string>
     <string name="sec_immersive_cling_step_two">Pradžios mygtuką galite naudoti, net kai jis paslėptas. Paspauskite apatinę centrinę telefono dalį ir pereikite į pradžios ekraną.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Naudojatės viso ekrano režimu. Pradžios, grįžties ir vėliausiųjų elementų mygtukai paslepiami, kad būtų sumažinta vaizdinių trukdžių ir kad netyčia neišeitumėte iš programos.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Mygtukai gali būti parodyti vėl braukiant į vidų nuo ekrano krašto, kuriame mygtukai paprastai rodomi.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Po kurio laiko mygtukai vėl išnyks.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Pradžios mygtuką galite naudoti, net kai jis paslėptas. Eikite į pradžios ekraną ir paspauskite ekrano sritį, kurioje paprastai rodomas pradžios mygtukas.</string>
     <string name="done_label">Atlikta</string>
     <string name="hour_picker_description">Analoginis valandų parinkiklis</string>
     <string name="minute_picker_description">Analoginis minučių parinkiklis</string>
@@ -1586,6 +1590,11 @@ kom."</string>
     <string name="batt_cooldown_mode_attention">Programa uždaryta</string>
     <string name="batt_cooldown_mode_attentions">Programos uždarytos</string>
     <string name="batt_cooldown_mode_ok">Gerai</string>
+    <string name="overheat_limit_warning_title">Telefonas kaista</string>
+    <string name="overheat_limit_warning">Jūsų telefonas kaista. Nedelsdami uždarykite šią programą. %s bus uždaryta automatiškai po 1 min., o visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="overheat_limit_closed_title">Programa uždaryta</string>
+    <string name="overheat_limit_closed">%1$s uždaryta. Jūsų telefonas kaista. Pabandykite pasinaudoti %2$s dar kartą, kai telefonas atvės.</string>
+    <string name="overheat_limit_ok">Gerai</string>
     <string name="restart_confirm">Įrenginys bus paleistas iš naujo.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Prisijungus prie „DeX“ stoties negalima naudotis „Bixby“.</string>
     <string name="conventional_mode_recent_noti">Vėliausiai naudotų programų ekrane bakstelėkite išplėtimo piktogramą ir peržiūrėkite šią programą visame ekrane.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Jei norite grąžinti ankstesnį vaizdo formatą, eikite į Nustatymai > Ekranas > Viso ekrano programos.</string>
+    <string name="conventional_mode_tap_here_to_fill">Bakstelėkite čia ir užpildykite visą ekraną</string>
     <string name="permlab_knoxCustomSetting">Tvarkyti įrenginio nustatymus</string>
     <string name="permdesc_knoxCustomSetting">Sukonfigūruokite įrenginio nustatymus, pvz., „Bluetooth“, vietos, „Wi-Fi“, mobiliųjų duomenų ir „Android“ nustatymus.</string>
     <string name="permlab_knoxCustomSystem">Tvarkyti sistemos nustatymus</string>
@@ -2413,4 +2423,6 @@ USB funkcijos gali būti apribotos, kol įjungtas itin taupus energijos vartojim
     <string name="charging_connected_via_usb">Prijungtas įrenginys įkraunamas per USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Failų sistemos apribojimas</string>
     <string name="lacking_filenode_internal_storage_view_text">Jūsų telefone sukurta per daug failų. Programos gali tinkamai nebeveikti, o jūsų telefonas gali nebepasileisti. Padaryti svarbių duomenų atsargines kopijas ir nustatykite telefono gamyklinius nustatymus.</string>
+    <string name="lock_to_app_toast_for_navibar">Jei programą norite atsegti, vienu metu palieskite ir palaikykite mygtukus „Vėliausi“ ir atgal.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

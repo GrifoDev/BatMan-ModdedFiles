@@ -1311,6 +1311,10 @@
     <string name="sec_next_button_label">下一頁</string>
     <string name="sec_immersive_cling_step_one">從手機底部滑動以顯示首頁鍵、返回鍵與最近使用鍵。</string>
     <string name="sec_immersive_cling_step_two">即使首頁鍵已隱藏，您也可以使用首頁鍵。按下手機的中央下方以前往主螢幕。</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">您正在使用全螢幕模式。已隱藏首頁鍵、返回鍵與最近使用鍵以最小化視覺干擾，並防止您意外離開應用程式。</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">您可以透過在按鍵正常顯示的位置從螢幕邊緣向內滑動來再次顯示按鍵。</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">一段時間後，按鍵將再次消失。</string>
+    <string name="sec_immersive_cling_help_text_step_two">即使首頁鍵已隱藏，您也可以使用。若要前往主螢幕，請按下首頁鍵通常顯示的螢幕區域。</string>
     <string name="done_label">完成</string>
     <string name="hour_picker_description">模擬小時選擇器</string>
     <string name="minute_picker_description">模擬分鐘選擇器</string>
@@ -1581,6 +1585,11 @@ Memo"</string>
     <string name="batt_cooldown_mode_attention">已關閉應用程式</string>
     <string name="batt_cooldown_mode_attentions">已關閉應用程式</string>
     <string name="batt_cooldown_mode_ok">確定</string>
+    <string name="overheat_limit_warning_title">手機過熱</string>
+    <string name="overheat_limit_warning">您的手機過熱。請立即關閉此應用程式。%s 將於 1 分鐘後自動關閉，且任何未儲存的數據將遺失。</string>
+    <string name="overheat_limit_closed_title">已關閉應用程式</string>
+    <string name="overheat_limit_closed">已關閉 %1$s。您的手機過熱。請在您的手機降溫後再次嘗試使用 %2$s。</string>
+    <string name="overheat_limit_ok">確定</string>
     <string name="restart_confirm">裝置將重新啟動。</string>
     <string name="tw_reboot_safemode_title_vzw">以安全模式重新啟動</string>
     <string name="tw_reboot_safemode_confirm_vzw">是否要以安全模式重新啟動您的手機？在安全模式中，將暫時停用不是您手機附帶的應用程式以協助您排除手機故障。當您下一次重新啟動手機時，安全模式將關閉且您的應用程式將再次可用。</string>
@@ -2033,6 +2042,7 @@ Memo"</string>
     <string name="bixby_edgecase_dexstation">連接至 DeX Station 時無法使用 Bixby。</string>
     <string name="conventional_mode_recent_noti">您可透過在最近使用的應用程式螢幕上輕觸展開圖示於全螢幕中檢視此應用程式。</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">若要返回至之前的寬高比，請前往 [設定] > [顯示] > [全螢幕應用程式]。</string>
+    <string name="conventional_mode_tap_here_to_fill">輕觸此處以符合整個螢幕的大小</string>
     <string name="permlab_knoxCustomSetting">管理裝置設定</string>
     <string name="permdesc_knoxCustomSetting">配置裝置設定，例如藍牙、位置、Wi-Fi、流動數據與 Android 設定。</string>
     <string name="permlab_knoxCustomSystem">管理系統設定</string>
@@ -2408,4 +2418,6 @@ Memo"</string>
     <string name="charging_connected_via_usb">正在透過 USB 為已連接的裝置充電…</string>
     <string name="lacking_filenode_internal_storage_view_title">檔案系統限制</string>
     <string name="lacking_filenode_internal_storage_view_text">已在您的手機上建立太多檔案。應用程式可能會停止正常運作且您的手機可能無法再啟動。請備份所有重要數據並對您的手機進行原廠重設。</string>
+    <string name="lock_to_app_toast_for_navibar">若要取消釘選應用程式，請同時輕觸並按住最近使用鍵與返回鍵。</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">若要取消釘選應用程式，請輕觸並按住最近使用鍵。</string>
 </resources>

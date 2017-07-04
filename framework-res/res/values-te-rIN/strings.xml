@@ -1310,6 +1310,10 @@
     <string name="sec_next_button_label">తదుపరి</string>
     <string name="sec_immersive_cling_step_one">హోమ్, వెనుకకు మరియు ఇటీవలి బటన్‌లను చూపడానికి ఫోన్ దిగువ నుండి స్వైప్ చేయండి.</string>
     <string name="sec_immersive_cling_step_two">మీ హోమ్ బటన్ దాచబడి ఉన్నప్పుడు కూడా మీరు దాన్ని ఉపయోగించవచ్చు. హోమ్ స్క్రీన్‌కు వెళ్లడానికి మీ ఫోన్‌లో దిగువ మధ్యన గట్టిగా నొక్కండి.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">మీరు పూర్తి స్క్రీన్ మోడ్‌ని ఉపయోగిస్తున్నారు. విజువల్ అంతరాయాలను తగ్గించడానికి మరియు ప్రమాదవశాత్తు అప్లికేషన్ నుండి నిష్క్రమించకుండా హోమ్, వెనుకకు మరియు ఇటీవల బటన్‌లు దాచబడ్డాయి.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">మీరు బటన్‌లు సాధారణంగా కనిపించే దగ్గర స్క్రీన్ అంచు నుండి మధ్యకి స్వైప్ చేయడం ద్వారా మళ్లీ బటన్‌లను చూపవచ్చు.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">కొద్ది సేపటి తర్వాత, బటన్‌లు మళ్లీ కనిపించవు.</string>
+    <string name="sec_immersive_cling_help_text_step_two">హోమ్ బటన్‌ దాచబడి ఉన్నప్పుడు కూడా మీరు దాన్ని ఉపయోగించవచ్చు. హోమ్ స్క్రీన్‌కు వెళ్లడానికి, స్క్రీన్‌లో హోమ్ బటన్ సాధారణంగా కనిపించే దగ్గర గట్టిగా నొక్కండి.</string>
     <string name="done_label">పూర్తి</string>
     <string name="hour_picker_description">అనలాగ్ గంట ఎంపిక</string>
     <string name="minute_picker_description">అనలాగ్ నిమిషం ఎంపిక</string>
@@ -1580,6 +1584,11 @@
     <string name="batt_cooldown_mode_attention">అప్లికేషన్ మూసివేయబడింది</string>
     <string name="batt_cooldown_mode_attentions">అప్లికేషన్‌లు మూసివేయబడ్డాయి</string>
     <string name="batt_cooldown_mode_ok">సరే</string>
+    <string name="overheat_limit_warning_title">ఫోన్ వేడెక్కుతోంది</string>
+    <string name="overheat_limit_warning">మీ ఫోన్ చాలా వేడెక్కుతోంది. ఈ అప్లికేషన్‌ను వెంటనే మూసివేయండి. 1 నిమిషంలో %s స్వయంచాలకంగా మూసివేయబడుతుంది మరియు ఏదైనా సేవ్ చేయని డేటాను కోల్పోతారు.</string>
+    <string name="overheat_limit_closed_title">అప్లికేషన్ మూసివేయబడింది</string>
+    <string name="overheat_limit_closed">%1$s మూసివేయబడింది. మీ ఫోన్ చాలా వేడెక్కుతోంది. మీ ఫోన్ చల్లబడిన తర్వాత %2$sని మళ్లీ ఉపయోగించడానికి ప్రయత్నించండి.</string>
+    <string name="overheat_limit_ok">సరే</string>
     <string name="restart_confirm">పరికరం పునఃప్రారంభించబడుతుంది.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2030,6 +2039,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX స్టేషన్‌కు కనెక్ట్ చేయబడి ఉనప్పుడు Bixbyని ఉపయోగించలేరు.</string>
     <string name="conventional_mode_recent_noti">మీరు ఇటీవల అప్లికేషన్‌ల స్క్రీన్‌లో విస్తరించు చిహ్నాన్ని నొక్కడం ద్వారా పూర్తి స్క్రీన్‌లో ఈ అప్లికేషన్‌ను వీక్షించవచ్చు.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">మునుపటి కారక నిష్పత్తికి తిరిగి వెళ్లడానికి, సెట్టింగ్‌లు > ప్రదర్శన > పూర్తి స్క్రీన్ అప్లికేషన్‌లకు వెళ్లండి.</string>
+    <string name="conventional_mode_tap_here_to_fill">పూర్తి స్క్రీన్‌ని నింపడానికి ఇక్కడ నొక్కండి</string>
     <string name="permlab_knoxCustomSetting">పరికర సెట్టింగ్‌లను నిర్వహించండి</string>
     <string name="permdesc_knoxCustomSetting">బ్లూటూత్, స్థానం, Wi-Fi, మొబైల్ డేటా మరియు ఆండ్రాయిడ్ సెట్టింగుల వంటి పరికర సెట్టింగ్‌లను కాన్ఫిగర్ చేయండి.</string>
     <string name="permlab_knoxCustomSystem">సిస్టమ్ సెట్టింగ్‌లను నిర్వహించండి</string>
@@ -2374,4 +2384,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB ద్వారా కనెక్ట్ చేయబడ్డ పరికరం ఛార్జ్ చేయబడుతోంది…</string>
     <string name="lacking_filenode_internal_storage_view_title">ఫైల్ సిస్టమ్ పరిమితి</string>
     <string name="lacking_filenode_internal_storage_view_text">మీ ఫోన్‌లో చాలా ఫైల్‌లు సృష్టించబడ్డాయి. అప్లికేషన్‌లు సరిగ్గా పని చేయకపోవచ్చు మరియు మీ ఫోన్‌ని ప్రారంభించలేకపోవచ్చు. ముఖ్యమైన డేటాను బ్యాకప్ చేయండి మరియు మీ ఫోన్‌ని ఫ్యాక్టరీ రీసెట్ చేయండి.</string>
+    <string name="lock_to_app_toast_for_navibar">అప్లికేషన్‌ను అన్‌పిన్ చేయడానికి, ఇటీవలి మరియు వెనుకకు బటన్‌లను ఒకేసారి తాకి, పట్టుకోండి.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

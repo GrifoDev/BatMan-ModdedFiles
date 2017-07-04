@@ -1311,6 +1311,10 @@
     <string name="sec_next_button_label">បន្ទាប់</string>
     <string name="sec_immersive_cling_step_one">អូស​ពី​ផ្នែក​ខាងក្រោម​នៃ​ទូរសព្ទ ដើម្បី​បង្ហាញ​គេហប៊ូតុង, ថយ និង ប៊ូតុង​ថ្មី។</string>
     <string name="sec_immersive_cling_step_two">អ្នក​អាច​ប្រើ​គេហប៊ូតុង សូម្បី​ខណៈពេល​វា​ត្រូវ​បាន​លាក់។ ចុច​ខ្លាំង​លើ​ចំណុច​កណ្ដាល​ខាងក្រោម​នៃ​ទូរសព្ទ​របស់​អ្នក ដើម្បី​ចូលទៅ​គេហអេក្រង់។</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">អ្នក​កំពុង​ប្រើ​ទម្រង់​ពេញអេក្រង់។ គេហប៊ូតុង, ថយ និង ថ្មីៗ ត្រូវ​បាន​លាក់ ដើម្បី​បន្ថយ​ការរំខាន​ភ្នែក និង ដើម្បី​បង្ការ​អ្នក​មិន​ឲ្យ​ចាកចេញ​ពី​កម្មវិធី​ដោយ​ចៃដន្យ។</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">អ្នក​អាច​បង្ហាញ​ប៊ូតុង​ម្ដងទៀត ដោយ​អូស​ចូល​ក្នុង​ពី​គែម​នៃ​អេក្រង់​ដែល​ប៊ូតុង​លេចឡើង​ធម្មតា។</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">បន្ទាប់​ពី​មួយ​រយៈ ប៊ូតុង​នេះ​នឹង​បាត់​រូប​ម្ដងទៀត។</string>
+    <string name="sec_immersive_cling_help_text_step_two">អ្នក​អាច​ប្រើ​គេហប៊ូតុង សូម្បី​ខណៈពេល​វា​ត្រូវ​បាន​លាក់។ ដើម្បី​ចូលទៅ​គេហអេក្រង់ សូម​ចុច​ខ្លាំង​លើ​ផ្ទៃ​នៃ​អេក្រង់​ដែល​គេហប៊ូតុង​លេចឡើង​ធម្មតា។</string>
     <string name="done_label">រួចរាល់</string>
     <string name="hour_picker_description">ប្រដាប់រើស​ម៉ោង​ទ្រនិច</string>
     <string name="minute_picker_description">ប្រដាប់រើស​នាទី​ទ្រនិច</string>
@@ -1582,6 +1586,11 @@
     <string name="batt_cooldown_mode_attention">បាន​បិទ​កម្មវិធី</string>
     <string name="batt_cooldown_mode_attentions">បាន​បិទ​កម្មវិធី</string>
     <string name="batt_cooldown_mode_ok">ព្រម</string>
+    <string name="overheat_limit_warning_title">ទូរសព្ទ​កំពុង​ឡើង​កម្ដៅ​ជ្រុល</string>
+    <string name="overheat_limit_warning">ទូរសព្ទ​របស់​អ្នក​កំពុង​ឡើង​កម្ដៅ​ជ្រុល។ បិទ​កម្មវិធី​នេះ​ភ្លាមៗ។ %s នឹង​ត្រូវ​បាន​បិទ​ដោយ​ស្វ័យប្រវត្តិ​ក្នុង​ពេល 1 នាទី ហើយ​ទិន្នន័យ​ដែល​មិន​បាន​រក្សាទុក​នានា​នឹង​បាត់បង់។</string>
+    <string name="overheat_limit_closed_title">បាន​បិទ​កម្មវិធី</string>
+    <string name="overheat_limit_closed">បាន​បិទ %1$s។ ទូរសព្ទ​របស់​អ្នក​កំពុង​ឡើង​កម្ដៅ​ជ្រុល។ សាកល្បង​ប្រើ %2$s ម្ដងទៀត បន្ទាប់​ពី​ទូរសព្ទ​របស់​អ្នក​ចុះត្រជាក់។</string>
+    <string name="overheat_limit_ok">ព្រម</string>
     <string name="restart_confirm">ឧបករណ៍​នឹង​ចាប់ផ្ដើម​ឡើងវិញ។</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2034,6 +2043,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">មិន​អាច​ប្រើ Bixby ខណៈពេល​បាន​ភ្ជាប់​ទៅ DeX Station។</string>
     <string name="conventional_mode_recent_noti">អ្នក​អាច​បង្ហាញ​កម្មវិធី​នេះ​ពេញ​អេក្រង់ ដោយ​ប៉ះ​អាយខុន​ពន្លា​លើ​អេក្រង់​កម្មវិធី​ថ្មីៗ។</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">ដើម្បី​ត្រឡប់​ទៅ​អនុបាត​ទិដ្ឋភាព​ពីមុន សូម​ចូលទៅ ការកំណត់ > អេក្រង់ > កម្មវិធី​ពេញ​អេក្រង់។</string>
+    <string name="conventional_mode_tap_here_to_fill">ប៉ះ​ទីនេះ ដើម្បី​បំពេញ​អេក្រង់​ទាំងមូល</string>
     <string name="permlab_knoxCustomSetting">គ្រប់គ្រង​ការកំណត់​ឧបករណ៍</string>
     <string name="permdesc_knoxCustomSetting">ធ្វើ​ការកំណត់​រចនាសម្ពន្ធ​ឧបករណ៍ ដូចជា Bluetooth, ទីកន្លែង, Wi-Fi, ទិន្នន័យ​ចល័ត និង ការកំណត់ Android។</string>
     <string name="permlab_knoxCustomSystem">គ្រប់គ្រង​ការកំណត់​ប្រព័ន្ធ</string>
@@ -2378,4 +2388,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">កំពុង​សាក​ឧបករណ៍​ដែល​បាន​ភ្ជាប់​តាម USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">ដែនកំណត់​ប្រព័ន្ធ​ឯកសារ</string>
     <string name="lacking_filenode_internal_storage_view_text">ឯកសារ​ច្រើន​ពេក​ត្រូវ​បាន​បង្កើត​លើ​ទូរសព្ទ​របស់​អ្នក។ កម្មវិធី​អាច​ឈប់​ដំណើរការ​ត្រឹមត្រូវ ហើយ​ទូរសព្ទ​របស់​អ្នក​អាច​លែង​ចាប់ផ្ដើម​ទៀត​ហើយ។ ចម្លងទុក​ទិន្នន័យ​សំខាន់ៗ និង ធ្វើ​ការកំណត់​ទូរសព្ទ​របស់​អ្នក​ឡើងវិញ​ពី​រោងចក្រ។</string>
+    <string name="lock_to_app_toast_for_navibar">ដើម្បី​ឈប់ខ្ទាស់​កម្មវិធី សូម​ប៉ះ​ឲ្យជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ​និង​គ្រាប់ចុច​ថយ​ក្នុង​ពេល​តែមួយ។</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

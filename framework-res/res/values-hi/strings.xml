@@ -1315,6 +1315,10 @@
     <string name="sec_next_button_label">अगला</string>
     <string name="sec_immersive_cling_step_one">होम, वापस और हाल ही के बटंस दिखाने के लिए फोन के निचले भाग से स्वाइप करें।</string>
     <string name="sec_immersive_cling_step_two">होम बटन छिपे होने पर भी आप इसका उपयोग कर सकते हैं। होम स्क्रीन पर जाने के लिए अपने फोन के निचले मध्य भाग को जोर से दबाएँ।</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">आप पूर्ण स्क्रीन मोड का उपयोग कर रहे हैं। विजुअल बाधाएँ कम करने और आपके द्वारा अचानक से एप को छोड़ने से बचने के लिए होम, वापस और हाल ही के बटंस छिपा दिए गए हैं।</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">आप स्क्रीन के किनारे से अंदर की ओर स्वाइप करके जहाँ आमतौर पर बटंस प्रकट होते हैं, वहाँ फिर से बटंस दिखा सकते हैं।</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">कुछ समय बाद, बटंस फिर से गायब हो जाएँगे।</string>
+    <string name="sec_immersive_cling_help_text_step_two">होम बटन छिपा हुआ होने पर भी आप उसका उपयोग कर सकते हैं। होम स्क्रीन पर जाने के लिए, स्क्रीन के उस क्षेत्र को जोर से दबाएँ जहाँ होम बटन सामान्यतः प्रकट होता है।</string>
     <string name="done_label">पूर्ण</string>
     <string name="hour_picker_description">एनालॉग घंटा पिकर</string>
     <string name="minute_picker_description">एनालॉग मिनट पिकर</string>
@@ -1585,6 +1589,11 @@
     <string name="batt_cooldown_mode_attention">एप बंद किया गया</string>
     <string name="batt_cooldown_mode_attentions">एप्स बंद किए गए</string>
     <string name="batt_cooldown_mode_ok">ओके</string>
+    <string name="overheat_limit_warning_title">फोन जरूरत से ज्यादा गरम हो रहा है</string>
+    <string name="overheat_limit_warning">आपका फोन जरूरत से ज्यादा गरम हो रहा है। तुरंत यह एप बंद करें। 1 मिनट में %s स्वचालित रूप से बंद हो जाएगा और कोई भी सुरक्षित नहीं किया गया डाटा खो जाएगा।</string>
+    <string name="overheat_limit_closed_title">एप बंद किया गया</string>
+    <string name="overheat_limit_closed">%1$s बंद हुआ। आपका फोन जरूरत से ज्यादा गरम हो रहा है। आपका फोन ठंडा होने के बाद फिर से %2$s का उपयोग करने का प्रयास करें।</string>
+    <string name="overheat_limit_ok">ओके</string>
     <string name="restart_confirm">डिवाइस पुन: चालू होगा।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2036,6 +2045,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX स्टेशन से कनेक्ट होने के दौरान Bixby का उपयोग नहीं किया जा सकता है।</string>
     <string name="conventional_mode_recent_noti">आप हाल ही के एप्स स्क्रीन पर विस्तृत करें चिह्न पर टैप करके इस एप को पूर्ण स्क्रीन में देख सकते हैं।</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">पिछले पक्ष अनुपात पर वापस जाने के लिए, सेटिंग्स > प्रदर्शन > पूर्ण स्क्रीन एप्स पर जाएँ।</string>
+    <string name="conventional_mode_tap_here_to_fill">संपूर्ण स्क्रीन भरने के लिए यहां टैप करें</string>
     <string name="permlab_knoxCustomSetting">डिवाइस सेटिंग्स प्रबंधित करें</string>
     <string name="permdesc_knoxCustomSetting">ब्लूटूथ, स्थान, Wi-Fi, मोबाइल डाटा और एंड्रॉइड सेटिंग्स जैसी डिवाइस सेटिंग्स कॉन्फिगर करें।</string>
     <string name="permlab_knoxCustomSystem">सिस्टम सेटिंग्स प्रबंधित करें</string>
@@ -2411,4 +2421,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB के माध्यम से कनेक्ट किया गया डिवाइस चार्ज हो रहा है…</string>
     <string name="lacking_filenode_internal_storage_view_title">फाइल सिस्टम सीमा</string>
     <string name="lacking_filenode_internal_storage_view_text">आपके फोन पर बहुत अधिक फाइलें बनाई जा चुकी हैं। हो सकता है कि एप्स सही ढंग से कार्य करना रोक दें और आपका फोन अब प्रारंभ न हो। किसी भी महत्वपूर्ण डाटा का बैकअप लें और अपने फोन को फैक्टरी रीसेट करें।</string>
+    <string name="lock_to_app_toast_for_navibar">कोई एप अनपिन करने के लिए, हाल ही के और वापस जाएँ बटंस को एक साथ टच और होल्ड करें।</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -1315,6 +1315,10 @@ Mēģiniet vēlreiz pēc %3$d sekundēm."</string>
     <string name="sec_next_button_label">Tālāk</string>
     <string name="sec_immersive_cling_step_one">Pavelciet no tālruņa apakšdaļas, lai parādītu pogas Sākums, Atpakaļ un Pēdējās lietotās programmas.</string>
     <string name="sec_immersive_cling_step_two">Sākuma pogu var izmantot arī tad, ja tā ir paslēpta. Turiet nospiestu tālruņa apakšējo vidējo pogu, lai atvērtu sākuma ekrānu.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Jūs izmantojat pilnekrāna režīmu. Pogas Sākums, Atpakaļ un Pēdējās lietotās programmas ir paslēptas, lai minimizētu vizuālos traucējumus un neļautu jums nejauši iziet no programmas.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Lai atkal parādītu pogas, pavelciet uz centru no ekrāna malas, kur parasti ir redzamas pogas.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Pēc brīža pogas atkal pazudīs.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Sākuma pogu var izmantot arī tad, ja tā ir paslēpta. Lai atvērtu sākuma ekrānu, nospiediet un turiet apgabalu ekrānā, kur parasti tiek parādīta sākuma poga.</string>
     <string name="done_label">Gatavs</string>
     <string name="hour_picker_description">Analogo stundu izvēle</string>
     <string name="minute_picker_description">Analogo minūšu izvēle</string>
@@ -1586,6 +1590,11 @@ komanda"</string>
     <string name="batt_cooldown_mode_attention">Programma ir aizvērta</string>
     <string name="batt_cooldown_mode_attentions">Programmas ir aizvērtas</string>
     <string name="batt_cooldown_mode_ok">Labi</string>
+    <string name="overheat_limit_warning_title">Tālrunis ir pārkarsis</string>
+    <string name="overheat_limit_warning">Tālrunis ir pārkarsis. Nekavējoties aizveriet šo programmu. %s pēc 1 minūtes tiks automātiski aizvērta, un visi nesaglabātie dati tiks zaudēti.</string>
+    <string name="overheat_limit_closed_title">Programma ir aizvērta</string>
+    <string name="overheat_limit_closed">Programma %1$s ir aizvērta. Tālrunis ir pārkarsis. Mēģiniet atkal lietot %2$s, kad tālrunis būs atdzisis.</string>
+    <string name="overheat_limit_ok">Labi</string>
     <string name="restart_confirm">Ierīce tiks restartēta.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2040,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Programmu Bixby nevar izmantot, kad ir izveidots savienojums ar DeX staciju.</string>
     <string name="conventional_mode_recent_noti">Lai šo programmu skatītu pilnekrāna režīmā, nesen lietoto programmu ekrānā pieskarieties ikonai Izvērst.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Lai pārslēgtos uz iepriekšējo ekrāna formātu, izvēlieties Iestatījumi > Displejs > Pilnekrāna programmas.</string>
+    <string name="conventional_mode_tap_here_to_fill">Pieskarieties šeit, lai aizpildītu visu ekrānu</string>
     <string name="permlab_knoxCustomSetting">Ierīces iestatījumu pārvaldība</string>
     <string name="permdesc_knoxCustomSetting">Konfigurējiet ierīces iestatījumus, piemēram, Bluetooth, atrašanās vietas, Wi-Fi, mobilo datu un Android iestatījumus.</string>
     <string name="permlab_knoxCustomSystem">Sistēmas iestatījumu pārvaldība</string>
@@ -2415,4 +2425,6 @@ USB funkcijas var nebūt pieejamas, kamēr ir ieslēgts maksimālais enerģijas 
     <string name="charging_connected_via_usb">Uzlādē pievienoto ierīci, izmantojot USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Failu sistēmas ierobežojums</string>
     <string name="lacking_filenode_internal_storage_view_text">Tālrunī ir izveidots pārāk daudz failu. Programmas var sākt nedarboties pareizi, un tālruni var nebūt iespējams startēt. Dublējiet svarīgos datus un atjaunojiet tālrunī rūpnīcas iestatījumus.</string>
+    <string name="lock_to_app_toast_for_navibar">Lai atspraustu programmu, vienlaikus nospiediet pēdējo lietoto programmu taustiņu un turiet un taustiņu Atpakaļ.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

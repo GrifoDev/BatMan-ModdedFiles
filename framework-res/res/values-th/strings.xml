@@ -1317,6 +1317,10 @@
     <string name="sec_next_button_label">ถัดไป</string>
     <string name="sec_immersive_cling_step_one">ปัดจากด้านล่างของโทรศัพท์เพื่อแสดงปุ่มหน้าหลัก ปุ่มกลับ และปุ่มล่าสุด</string>
     <string name="sec_immersive_cling_step_two">คุณสามารถใช้ปุ่มหน้าหลักได้แม้ขณะซ่อนอยู่ กดหนักที่ตรงกลางด้านล่างของโทรศัพท์เพื่อไปยังหน้าจอหลัก</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">คุณกำลังใช้โหมดเต็มหน้าจอ ปุ่มหน้าหลัก ปุ่มกลับ และปุ่มล่าสุดถูกซ่อนอยู่เพื่อลดการขัดขวางการมองเห็น และเพื่อปกป้องคุณจากการออกจากแอพโดยไม่ตั้งใจ</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">คุณสามารถแสดงปุ่มอีกครั้งโดยการปัดจากขอบหน้าจอเข้าไปยังด้านในบริเวณที่ปุ่มปรากฏ</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">ปุ่มจะหายไปอีกครั้งหลังจากผ่านไปสักครู่</string>
+    <string name="sec_immersive_cling_help_text_step_two">คุณสามารถใช้ปุ่มหน้าหลักได้แม้ขณะซ่อนอยู่ หากต้องการไปที่หน้าจอหลัก ให้กดหนักที่พื้นที่ของหน้าจอที่ปุ่มหน้าหลักมักจะปรากฏ</string>
     <string name="done_label">เรียบร้อย</string>
     <string name="hour_picker_description">ตัวเลื่อนชั่วโมงแบบอนาล็อก</string>
     <string name="minute_picker_description">ตัวเลื่อนนาทีแบบอนาล็อก</string>
@@ -1587,6 +1591,11 @@ memo"</string>
     <string name="batt_cooldown_mode_attention">แอพถูกปิดแล้ว</string>
     <string name="batt_cooldown_mode_attentions">แอพถูกปิดแล้ว</string>
     <string name="batt_cooldown_mode_ok">ตกลง</string>
+    <string name="overheat_limit_warning_title">โทรศัพท์ร้อนเกินไป</string>
+    <string name="overheat_limit_warning">โทรศัพท์ของคุณร้อนเกินไป โปรดปิดแอพนี้ทันที ระบบจะปิด %s โดยอัตโนมัติใน 1 นาที และข้อมูลใดๆ ที่ไม่ได้บันทึกจะสูญหาย</string>
+    <string name="overheat_limit_closed_title">แอพถูกปิดแล้ว</string>
+    <string name="overheat_limit_closed">ปิด %1$s แล้ว โทรศัพท์ของคุณร้อนเกินไป ลองใช้งาน %2$s ใหม่หลังจากโทรศัพท์เย็นลงแล้ว</string>
+    <string name="overheat_limit_ok">ตกลง</string>
     <string name="restart_confirm">อุปกรณ์จะเริ่มใหม่</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2039,6 +2048,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">ไม่สามารถใช้ Bixby ขณะเชื่อมต่ออยู่กับสถานี DeX</string>
     <string name="conventional_mode_recent_noti">คุณสามารถดูแอพนี้ในแบบเต็มหน้าจอโดยการแตะไอคอนขยายบนหน้าจอแอพล่าสุด</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">หากต้องการกลับไปที่อสัดส่วนภาพก่อนหน้า ให้ไปที่ การตั้งค่า > การแสดงผล > แอพเต็มหน้าจอ</string>
+    <string name="conventional_mode_tap_here_to_fill">แตะที่นี่เพื่อเติมให้เต็มทั้งหน้าจอ</string>
     <string name="permlab_knoxCustomSetting">จัดการการตั้งค่าอุปกรณ์</string>
     <string name="permdesc_knoxCustomSetting">กำหนดการตั้งค่าอุปกรณ์ เช่น Bluetooth, ตำแหน่ง, Wi-Fi, ข้อมูลมือถือและการตั้งค่า Android</string>
     <string name="permlab_knoxCustomSystem">จัดการการตั้งค่าระบบ</string>
@@ -2415,4 +2425,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">กำลังชาร์จอุปกรณ์ที่เชื่อมต่อผ่าน USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">ขีดจำกัดระบบไฟล์</string>
     <string name="lacking_filenode_internal_storage_view_text">ไฟล์ที่ถูกสร้างบนโทรศัพท์ของคุณมีมากเกินไป แอพอาจทำงานไม่ถูกต้อง และโทรศัพท์ของคุณอาจใช้เวลาเปิดเครื่องนานขึ้น แบ็คอัพข้อมูลสำคัญ และรีเซ็ทโทรศัพท์ของคุณเป็นค่าเริ่มต้นจากโรงงาน</string>
+    <string name="lock_to_app_toast_for_navibar">หากต้องการยกเลิกการปักหมุดแอพ ให้แตะค้างที่ปุ่มล่าสุดและปุ่มกลับพร้อมกัน</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

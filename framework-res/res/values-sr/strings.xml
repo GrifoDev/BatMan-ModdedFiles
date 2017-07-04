@@ -1315,6 +1315,10 @@ Pokušaj ponovo za %2$d sekundi."</string>
     <string name="sec_next_button_label">Naredno</string>
     <string name="sec_immersive_cling_step_one">Prevucite prstom od donje ivice telefona da biste prikazali dugmad Početak, Nazad i Nedavno.</string>
     <string name="sec_immersive_cling_step_two">Možete da koristite dugme Početak čak i dok je skriveno. Jako pritisnite središnji deo telefona pri dnu da biste prešli na Početni ekran.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Koristite režim prikaza preko celog ekrana. Dugmad Početak, Nazad i Nedavno su skrivena da bi se vizuelna ometanja svela na minimum i da bi se sprečilo slučajno napuštanje aplikacije.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Možete ponovo da prikažete dugmad tako što ćete prevući prstom ka unutra sa ivice ekrana gde se dugmad obično pojavljuju.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Posle nekog vremena dugmad će ponovo nestati.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Možete da koristite dugme Početak čak i dok je skriveno. Da biste otišli na Početni ekran, jako pritisnite oblast ekrana gde se dugme Početak obično pojavljuje.</string>
     <string name="done_label">Gotovo</string>
     <string name="hour_picker_description">Analogni birač sati</string>
     <string name="minute_picker_description">Analogni birač minuta</string>
@@ -1585,6 +1589,11 @@ vazduhu"</string>
     <string name="batt_cooldown_mode_attention">Aplikacija je zatvorena</string>
     <string name="batt_cooldown_mode_attentions">Aplikacije su zatvorene</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon se pregreva</string>
+    <string name="overheat_limit_warning">Telefon se pregreva. Zatvorite ovu aplikaciju odmah. Aplikacija %s će se automatski zatvoriti za jedan minut i svi nesačuvani podaci će se izgubiti.</string>
+    <string name="overheat_limit_closed_title">Aplikacija je zatvorena</string>
+    <string name="overheat_limit_closed">Aplikacija %1$s je zatvorena. Telefon se pregreva. Pokušajte ponovo da koristite aplikaciju %2$s nakon što se telefon ohladi.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Uređaj će se restartovati.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2037,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Ne možete da koriste aplikaciju Bixby dok ste povezani na DeX stanicu.</string>
     <string name="conventional_mode_recent_noti">Možete da prikažete ovu aplikaciju preko celog ekrana tako što ćete kucnuti na ikonu Proširi na ekranu Nedavne aplikacije.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Da biste se vratili na prethodnu razmeru, idite na Podešavanja > Prikaz > Aplikacije na celom ekranu.</string>
+    <string name="conventional_mode_tap_here_to_fill">Kucnite ovde da biste ispunili ceo ekran</string>
     <string name="permlab_knoxCustomSetting">Podesi podešavanja uređaja</string>
     <string name="permdesc_knoxCustomSetting">Konfigurišite podešavanja uređaja kao što su Bluetooth, Lokacija, Wi-Fi, Mobilni podaci i podešavanja za Android.</string>
     <string name="permlab_knoxCustomSystem">Podesi podešavanja sistema</string>
@@ -2412,4 +2422,6 @@ USB funkcije će možda biti ograničene dok je uključen režim Maksimalna ušt
     <string name="charging_connected_via_usb">Puni se povezani uređaj putem USB-a…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ograničenje sistema fajlova</string>
     <string name="lacking_filenode_internal_storage_view_text">Previše fajlova je kreirano na telefonu. Aplikacije mogu da prestanu ispravno da rade i telefon se možda više neće pokretati. Bekapujte sve važne podatke i resetujte telefon na fabrička podešavanja.</string>
+    <string name="lock_to_app_toast_for_navibar">Da biste otkačili aplikaciju, istovremeno dodirnite i zadržite dugmad Nedavno i Nazad.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

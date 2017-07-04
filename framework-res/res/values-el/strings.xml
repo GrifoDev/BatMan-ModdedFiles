@@ -1315,6 +1315,10 @@
     <string name="sec_next_button_label">Επόμενο</string>
     <string name="sec_immersive_cling_step_one">Κάντε σάρωση από το κάτω μέρος του τηλεφώνου για να εμφανίσετε τα κουμπιά «Αρχική οθόνη», «Πίσω» και «Πρόσφατα».</string>
     <string name="sec_immersive_cling_step_two">Μπορείτε να χρησιμοποιήσετε το κεντρικό κουμπί ακόμα και όταν δεν εμφανίζεται. Πιέστε δυνατά το κάτω μέρος της οθόνης στη μέση για να μεταβείτε στην Αρχική οθόνη.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Χρησιμοποιείτε τη λειτουργία πλήρους οθόνης. Το κεντρικό κουμπί και τα κουμπιά επιστροφής και πρόσφατων δεν εμφανίζονται για να μειωθούν οι οπτικοί περισπασμοί και για να μην εξέλθετε από την εφαρμογή κατά λάθος.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Μπορείτε να εμφανίσετε ξανά τα κουμπιά, κάνοντας σάρωση προς τα μέσα από την άκρη της οθόνης όπου εμφανίζονται κανονικά τα κουμπιά.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Μετά από λίγο, τα κουμπιά θα εξαφανιστούν ξανά.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Μπορείτε να χρησιμοποιήσετε το κεντρικό κουμπί ακόμα και όταν δεν εμφανίζεται. Για να μεταβείτε στην Αρχική οθόνη, πιέστε δυνατά την περιοχή της οθόνης στην οποία εμφανίζεται συνήθως το Κεντρικό πλήκτρο.</string>
     <string name="done_label">Τέλος</string>
     <string name="hour_picker_description">Αναλογικός επιλογέας ώρας</string>
     <string name="minute_picker_description">Αναλογικός επιλογέας λεπτών</string>
@@ -1586,6 +1590,11 @@
     <string name="batt_cooldown_mode_attention">Η εφαρμογή έκλεισε</string>
     <string name="batt_cooldown_mode_attentions">Οι εφαρμογές έκλεισαν</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Υπερθέρμανση τηλεφώνου</string>
+    <string name="overheat_limit_warning">Το τηλέφωνό σας υπερθερμάνθηκε. Κλείστε αμέσως αυτήν την εφαρμογή. Η εφαρμογή %s θα κλείσει αυτόματα σε 1 λεπτό και τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="overheat_limit_closed_title">Η εφαρμογή έκλεισε</string>
+    <string name="overheat_limit_closed">Η εφαρμογή %1$s έκλεισε. Το τηλέφωνο υπερθερμάνθηκε. Δοκιμάστε να χρησιμοποιήσετε ξανά την εφαρμογή %2$s μόλις μειωθεί η θερμοκρασία του τηλεφώνου σας.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Θα γίνει επανεκκίνηση της συσκευής.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Δεν είναι δυνατή η χρήση του Bixby όσο είστε συνδεδεμένοι στο DeX Station.</string>
     <string name="conventional_mode_recent_noti">Μπορείτε να δείτε αυτήν την εφαρμογή σε πλήρη οθόνη, αν πατήσετε το εικονίδιο επέκτασης στην οθόνη πρόσφατων εφαρμογών.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Για να επιστρέψετε στην προηγούμενη αναλογία οθόνης, μεταβείτε στο μενού Ρυθμίσεις > Οθόνη > Εφαρμογές πλήρους οθόνης.</string>
+    <string name="conventional_mode_tap_here_to_fill">Πατήστε εδώ για προβολή σε όλη την οθόνη</string>
     <string name="permlab_knoxCustomSetting">Διαχείριση ρυθμίσεων συσκευής</string>
     <string name="permdesc_knoxCustomSetting">Διαμορφώστε ρυθμίσεις συσκευής, όπως είναι το Bluetooth, η Τοποθεσία, το Wi-Fi, τα δεδομένα κινητής τηλεφωνίας και οι ρυθμίσεις Android.</string>
     <string name="permlab_knoxCustomSystem">Διαχείριση ρυθμίσεων συστήματος</string>
@@ -2413,4 +2423,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Φόρτιση συνδεδεμένης συσκευής μέσω USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Όριο συστήματος αρχείων</string>
     <string name="lacking_filenode_internal_storage_view_text">Δημιουργήθηκαν υπερβολικά αρχεία στο τηλέφωνό σας. Οι εφαρμογές μπορεί να σταματήσουν να λειτουργούν σωστά και το τηλέφωνό σας ενδέχεται να μην μπορεί πλέον να εκκινηθεί. Δημιουργήστε αντίγραφα ασφαλείας για τα σημαντικά δεδομένα σας και κάντε επαναφορά εργοστασιακών ρυθμίσεων στο τηλέφωνό σας.</string>
+    <string name="lock_to_app_toast_for_navibar">Για να ξεκαρφιτσώσετε μια εφαρμογή, πατήστε παρατεταμένα τα κουμπιά «Πρόσφατα» και «Πίσω» ταυτόχρονα.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

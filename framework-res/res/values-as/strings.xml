@@ -680,6 +680,10 @@
     <string name="sec_next_button_label">পৰৱৰ্তী</string>
     <string name="sec_immersive_cling_step_one">গৃহ, পিছলৈ আৰু শেহতীয়া বুটাম দেখুৱাবলৈ ফোনৰ তলৰ পৰা ঘহাঁওক।</string>
     <string name="sec_immersive_cling_step_two">গৃহ বুটামটো লুকাই থাকিলেও আপুনি তাক ব্যৱহাৰ কৰিব পাৰে। গৃহ স্ক্ৰীণলৈ যাবলৈ আপোনাৰ ফোনৰ তলৰ কেন্দ্ৰত জোৰকৈ দবাওক।</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">"আপুনি সম্পূৰ্ণ স্ক্ৰীণ ম'ড ব্যৱহাৰ কৰি আছে। ভিজুৱেল চিত্তবিক্ষেপ মিনিমাইজ কৰিবলৈ আৰু আপোনাক এপটো অকস্মাৎ এৰি দিয়াত প্ৰতিৰোধ কৰিবলৈ গৃহ, পিছলৈ আৰু শেহতীয়া বুটাম লুকুওৱা হৈছে।"</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">আপুনি বুটাম সাধাৰণভাৱে প্ৰকট হোৱা স্ক্ৰীণৰ কাষৰ পৰা ভিতৰলৈ ঘহাঁই বুটাম পুনঃ দেখুৱাব পাৰে।</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">"অলপ সময়ৰ পিছত, বুটাম পুনঃ অদৃশ্য হ'ব।"</string>
+    <string name="sec_immersive_cling_help_text_step_two">আপুনি গৃহ বুটামটো লুকাই থাকিলেও তাক ব্যৱহাৰ কৰিব পাৰে। গৃহ স্ক্ৰীণলৈ যাবলৈ, গৃহ বুটাম সাধাৰণভাৱে প্ৰকট হোৱা স্ক্ৰীণৰ ক্ষেত্ৰত জোৰকৈ দবাওক।</string>
     <string name="done_label">সম্পন্ন</string>
     <string name="hour_picker_description">এনালগ ঘণ্টা পিকাৰ</string>
     <string name="minute_picker_description">এনালগ মিনিট পিকাৰ</string>
@@ -884,6 +888,11 @@
     <string name="batt_cooldown_mode_attention">এপ বন্ধ হৈছে</string>
     <string name="batt_cooldown_mode_attentions">এপ্প্‌চ বন্ধ হৈছে</string>
     <string name="batt_cooldown_mode_ok">ঠিক</string>
+    <string name="overheat_limit_warning_title">ফোনটো অধিক গৰম হৈছে</string>
+    <string name="overheat_limit_warning">"আপোনাৰ ফোনটো অধিক গৰম হৈছে। এই এপ তাৎক্ষণিকভাৱে বন্ধ কৰক। %s 1 মিনিটৰ ভিতৰত স্বয়ংক্ৰিয়ভাৱে বন্ধ হ'ব আৰু যিকোনো অসংৰক্ষিত ডাটা হেৰুৱাব।"</string>
+    <string name="overheat_limit_closed_title">এপ বন্ধ হৈছে</string>
+    <string name="overheat_limit_closed">%1$s বন্ধ হৈছে। আপোনাৰ ফোনটো অধিক গৰম হৈছে। আপোনাৰ ফোনটো ঠাণ্ডা হোৱাৰ পিছত %2$s পুনঃ ব্যৱহাৰ কৰিবলৈ চেষ্টা কৰক।</string>
+    <string name="overheat_limit_ok">ঠিক</string>
     <string name="restart_confirm">"ডিভাইচটো পুনৰাৰম্ভ হ'ব৷"</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1334,6 +1343,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX ষ্টেচনত সংযোগ হৈ থাকোতে Bixby ব্যৱহাৰ কৰিব নোৱাৰে।</string>
     <string name="conventional_mode_recent_noti">আপুনি শেহতীয়া এপ্প্‌চ স্ক্ৰীণত বিস্তাৰ আইকনটো টিপি এই এপটো সম্পূৰ্ণ স্ক্ৰীণত দৰ্শন কৰিব পাৰে।</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">পূৰ্বৱৰ্তী প্ৰত্যাশিত অনুপাতলৈ ঘূৰি যাবলৈ, ছেটিংছ > প্ৰদৰ্শন > সম্পূৰ্ণ স্ক্ৰীণ এপ্প্‌চলৈ যাওক।</string>
+    <string name="conventional_mode_tap_here_to_fill">সমগ্ৰ স্ক্ৰীণ পূৰ্ণ কৰিবলৈ ইয়াত টিপক</string>
     <string name="permlab_knoxCustomSetting">ডিভাইচ ছেটিংছ পৰিচালনা কৰক</string>
     <string name="permdesc_knoxCustomSetting">"ব্লুটুথ, অৱস্থান, Wi-Fi, ম'বাইল ডাটা আৰু এণ্ড্ৰইড ছেটিংছৰ দৰে ডিভাইচ ছেটিংছ কনফিগাৰ কৰক।"</string>
     <string name="permlab_knoxCustomSystem">ছিষ্টেম ছেটিংছ পৰিচালনা কৰক</string>
@@ -1703,4 +1713,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB হৈ সংযোজিত ডিভাইচ চাৰ্জ কৰি আছে…</string>
     <string name="lacking_filenode_internal_storage_view_title">ফাইল ছিষ্টেমৰ সীমা</string>
     <string name="lacking_filenode_internal_storage_view_text">"আপোনাৰ ফোনত বহুত বেছি ফাইল সৃষ্টি হৈছে। এপ্প্‌চৰ সঠিকভাৱে কাম কৰাটো বন্ধ হ'ব পাৰে আৰু আপোনাৰ ফোন আগলৈ আৰু আৰম্ভ নহ'বও পাৰে। আপোনাৰ ফোনৰ যিকোনো গুৰুত্বপূৰ্ণ ডাটা আৰু ফেক্টৰী পুনঃছেট বেক আপ লওক।"</string>
+    <string name="lock_to_app_toast_for_navibar">এপ আনপিন কৰিবলৈ, একে সময়তে শেহতীয়া আৰু পিছলৈ বুটাম টাচ্চ্‌ কৰক আৰু ধৰি থাকক।</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

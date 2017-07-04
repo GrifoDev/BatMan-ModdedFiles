@@ -1315,6 +1315,10 @@
     <string name="sec_next_button_label">Напред</string>
     <string name="sec_immersive_cling_step_one">Плъзнете от долната част на телефона, за да покажете бутоните за начало, назад и скорошни.</string>
     <string name="sec_immersive_cling_step_two">Може да използвате бутона за начало дори когато е скрит. Натиснете силно долната централна част на телефона, за да отидете на началния екран.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Използвате режим на цял екран. Бутоните за начало, назад и скорошни са скрити, за да се намали визуалното разсейване и да се предотврати случайно напускане на приложението.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Може да покажете бутоните отново, като плъзнете навътре от края на екрана, където обикновено се показват бутоните.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">След малко бутоните ще изчезнат отново.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Може да използвате бутона за начало дори когато е скрит. За да отидете на началния екран, натиснете силно областта на екрана, където обикновено се показва бутонът за начало.</string>
     <string name="done_label">Готово</string>
     <string name="hour_picker_description">Избирач на аналогов час</string>
     <string name="minute_picker_description">Избирач на аналогова минута</string>
@@ -1586,6 +1590,11 @@
     <string name="batt_cooldown_mode_attention">Приложението е затворено</string>
     <string name="batt_cooldown_mode_attentions">Приложенията са затворени</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Телефонът прегрява</string>
+    <string name="overheat_limit_warning">Телефонът прегрява. Затворете това приложение незабавно. %s ще се затвори автоматично след 1 минута и всички незаписани данни ще бъдат загубени.</string>
+    <string name="overheat_limit_closed_title">Приложението е затворено</string>
+    <string name="overheat_limit_closed">%1$s се затвори. Телефонът прегрява. Опитайте да използвате %2$s отново, след като телефонът се охлади.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Устройството ще се рестартира.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Не може да се използва Bixby, докато има връзка с DeX станция.</string>
     <string name="conventional_mode_recent_noti">Може да прегледате това приложение на цял екран, като докоснете иконата за разгъване на екрана за скорошни приложения.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">За да се върнете на предишното съотношение, отидете в Настройки > Дисплей > Приложения на цял екран.</string>
+    <string name="conventional_mode_tap_here_to_fill">Докоснете тук, за да запълните целия екран</string>
     <string name="permlab_knoxCustomSetting">Управление на настройките на устр.</string>
     <string name="permdesc_knoxCustomSetting">Конфигурирайте настройки на устройството, като Bluetooth, местоположение, Wi-Fi, мобилни данни и настройки на Android.</string>
     <string name="permlab_knoxCustomSystem">Управление на системните настройки</string>
@@ -2413,4 +2423,6 @@ USB функциите може да са ограничени, докато Р�
     <string name="charging_connected_via_usb">Заредете свързаното устройство чрез USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ограничение на файлова система</string>
     <string name="lacking_filenode_internal_storage_view_text">Създадени са твърде много файлове на телефона. Приложенията може да спрат да работят правилно и телефонът може да не се стартира повече. Архивирайте всички важни данни и извършете нулиране на телефона до фабричните настройки.</string>
+    <string name="lock_to_app_toast_for_navibar">За да откачите приложение, докоснете и задръжте бутоните за скорошни и назад едновременно.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

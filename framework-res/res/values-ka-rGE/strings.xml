@@ -1311,6 +1311,10 @@
     <string name="sec_next_button_label">შემდეგი</string>
     <string name="sec_immersive_cling_step_one">აუსვით თითი ტელეფონის ქვემო მხრიდან, რომ გამოჩნდეს საწყის ეკრანზე გადასვლის, უკან დაბრუნებისა და ბოლოდროინდელებზე გადასვლის ღილაკები.</string>
     <string name="sec_immersive_cling_step_two">„საწყის გვერდზე გადასვლის ღილაკის“ გამოყენება მაშინაც შეგიძლიათ, როცა ის დამალულია. „საწყის ეკრანზე“ გადასასვლელად, დააჭირეთ კლავიშს ტელეფონის ქვედა მხარეს ცენტრში.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">თქვენ იყენებთ მთელი ეკრანზე გაშლის რეჟიმს. „საწყისი ეკრანის“, „უკუსვლისა“ და „ბოლოდროინდელთა“ ღილაკები დამალულია, რომ მინიმუმამდე შემცირდეს ვიზუალური ყურადღების გაფანტვა და უნებლიედ არ გახვიდეთ აპლიკაციიდან.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">ღილაკები ისევ შეგიძლიათ გამოაჩინოთ, რისთვისაც უნდა გადაუსვათ თითი ეკრანის კიდიდან შიგნითკენ, სანაც ღილაკები ჩვეულებრივ ჩანს.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">გარკვეული ხნის შემდეგ ღილაკები ისევ გაქრება.</string>
+    <string name="sec_immersive_cling_help_text_step_two">„საწყის გვერდზე გადასვლის ღილაკის“ გამოყენება მაშინაც შეგიძლიათ, როცა ის დამალულია. „საწყის ეკრანზე“ გადასასვლელად, დააჭირეთ ეკრანის რომელიმე ადგილს, სადაც ჩვეულებრივ ჩანს „საწყის გვერდზე გადასვლის ღილაკი“.</string>
     <string name="done_label">შესრულდა</string>
     <string name="hour_picker_description">ანალოგური საათის დამყენებელი</string>
     <string name="minute_picker_description">ანალოგური წუთის დამყენებელი</string>
@@ -1581,6 +1585,11 @@
     <string name="batt_cooldown_mode_attention">აპლიკაცია დაიხურა</string>
     <string name="batt_cooldown_mode_attentions">აპლიკაციები დაიხურა</string>
     <string name="batt_cooldown_mode_ok">კი</string>
+    <string name="overheat_limit_warning_title">ტელეფონი გადახურების პირასაა</string>
+    <string name="overheat_limit_warning">ტელეფონი გადახურების პირასაა. დაუყოვნებლივ დახურეთ ეს აპლიკაცია. %s ავტომატურად დაიხურება 1 წუთში და შეუნახავი მონაცემები წაიშლება.</string>
+    <string name="overheat_limit_closed_title">აპლიკაცია დაიხურა</string>
+    <string name="overheat_limit_closed">%1$s დაიხურა. ტელეფონი გადახურების პირასაა. ისევ სცადეთ გამოიყენოთ %2$s, როდესაც ტელეფონი გაგრილდება.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">აპარატი გადაიტვირთება.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2033,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Bixby-ს გამოყენება შეუძლებელია, როდესაც კავშირი დამყარებულია DeX სადგურთან.</string>
     <string name="conventional_mode_recent_noti">ამ აპლიკაციის სრულ ეკრანზე სანახავად, შეეხეთ „გაშლის“ ნიშანს „ბოლოდროინდელი აპლიკაციების“ ეკრანზე.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">გვერდების ფარდობის წინა მნიშვნელობის დასაბრუნებლად, გახსენით „პარამეტრები“ > „ჩვენება“ > „აპლიკაციები სრულ ეკრანზე“.</string>
+    <string name="conventional_mode_tap_here_to_fill">მთელ ეკრანზე გასაშლელად, შეეხეთ აქ</string>
     <string name="permlab_knoxCustomSetting">მოწყობილობის პარამეტრების მართვა</string>
     <string name="permdesc_knoxCustomSetting">შეარჩიეთ მოწყობილობის პარამეტრები, როგორიცაა Bluetooth, „ლოკაცია“, Wi-Fi, „მობილური მონაცემები“ და Android-ის პარამეტრები.</string>
     <string name="permlab_knoxCustomSystem">სისტემის პარამეტრების მართვა</string>
@@ -2377,4 +2387,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">დაკავშირებული მოწყობილობა იმუხტება USB-თი…</string>
     <string name="lacking_filenode_internal_storage_view_title">ფაილთა სისტემის ლიმიტი</string>
     <string name="lacking_filenode_internal_storage_view_text">ტელეფონში შექმნილია ძალიან ბევრი ფაილი. შეიძლება აპლიკაციების მუშაობა შეფერხდეს და ტელეფონი ვეღარ ჩაირთოს. დაამარქაფეთ მნიშვნელოვანი მონაცემები და ტელეფონში დააბრუნეთ ქარხნული პარამეტრები.</string>
+    <string name="lock_to_app_toast_for_navibar">ჩამაგრებული აპლიკაციის მოსახსნელად, ერთდროულად ხანგრძლივად შეეხეთ ღილაკებს „ბოლოდროინდელები“ და „უკან“.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

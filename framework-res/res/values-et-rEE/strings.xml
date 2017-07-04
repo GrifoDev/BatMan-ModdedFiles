@@ -1311,6 +1311,10 @@ Proovige uuesti %2$d sekundi pärast."</string>
     <string name="sec_next_button_label">Järgmine</string>
     <string name="sec_immersive_cling_step_one">Libistage telefoni alaosast üles, et kuvada nupud Avaekraan, Tagasi ja Hiljutised.</string>
     <string name="sec_immersive_cling_step_two">Saate kasutada avaekraani nuppu isegi siis, kui see on peidetud. Vajutage tugevalt oma telefoni alaosa keskpaika, et avada avaekraan.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Kasutate täisekraani režiimi. Avaekraani, tagasiliikumise ja hiljutise nupud on peidetud, et viia visuaalsed segajad miinimumini ja et te ei saaks rakendusest kogemata lahkuda.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Saate nuppe taas kuvada, kui libistate ekraani servalt nuppude tavalisest asukohast sissepoole.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Mõne aja möödudes nupud kaovad taas.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Saate kasutada avaekraani klahvi isegi siis, kui see on peidetud. Avaekraani avamiseks vajutage tugevalt seda ekraani ala, kus tavaliselt asub avaekraani nupp.</string>
     <string name="done_label">Valmis</string>
     <string name="hour_picker_description">Analoogtunni valija</string>
     <string name="minute_picker_description">Analoogminuti valija</string>
@@ -1582,6 +1586,11 @@ käsklus"</string>
     <string name="batt_cooldown_mode_attention">Rakendus suleti</string>
     <string name="batt_cooldown_mode_attentions">Rakendused suleti</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon kuumeneb üle</string>
+    <string name="overheat_limit_warning">Teie telefon on ülekuumenemas. Sulgege see rakendus otsekohe. %s suletakse automaatselt 1 minuti pärast ja kõik salvestamata andmed lähevad kaotsi.</string>
+    <string name="overheat_limit_closed_title">Rakendus suleti</string>
+    <string name="overheat_limit_closed">%1$s sulgus. Teie telefon on ülekuumenemas. Proovige rakendust %2$s uuesti kasutada, kui telefon on maha jahtunud.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Seade taaskäivitub.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2034,6 +2043,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Rakendust Bixby ei saa kasutada, kui olete ühendatud DeX-i jaamaga.</string>
     <string name="conventional_mode_recent_noti">Seda rakendust saate kuvada täisekraanil, kui toksate hiljutiste rakenduste ekraanil laiendamise ikooni.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Eelmise kuvasuhte taastamiseks avage menüü Seaded > Ekraan > Täisekraani rakendused.</string>
+    <string name="conventional_mode_tap_here_to_fill">Toksake siia, et täita kogu ekraan</string>
     <string name="permlab_knoxCustomSetting">Seadme seadete haldamine</string>
     <string name="permdesc_knoxCustomSetting">Saate konfigureerida seadme seadeid, nagu Bluetooth, asukoht, Wi-Fi, mobiilne andmeside ja Androidi seaded.</string>
     <string name="permlab_knoxCustomSystem">Süsteemi seadete haldamine</string>
@@ -2378,4 +2388,6 @@ USB-funktsioonid võivad olla piiratud, kui maksimaalne energiasäästurežiim o
     <string name="charging_connected_via_usb">Ühendatud seadet laaditakse USB-kaudu…</string>
     <string name="lacking_filenode_internal_storage_view_title">Failisüsteemi piir</string>
     <string name="lacking_filenode_internal_storage_view_text">Teie telefonis on loodud liiga palju faile. Rakendused ei pruugi enam korralikult töötada ja teie telefon ei pruugi enam käivituda. Varundage kõik olulised andmed ja lähtestage telefon tehase vaikeseadetele.</string>
+    <string name="lock_to_app_toast_for_navibar">Rakenduse eemaldamiseks puudutage korraga pikalt hiljutiste ja tagasiliikumise nuppu.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

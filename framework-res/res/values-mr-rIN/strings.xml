@@ -1310,6 +1310,10 @@
     <string name="sec_next_button_label">नंतर</string>
     <string name="sec_immersive_cling_step_one">होम, मागे आणि अलीकडील बटणे दर्शवण्या साठी फोनच्या तळा कडून स्वाइप करा.</string>
     <string name="sec_immersive_cling_step_two">ते लपवलेले असताना आपण होम बटण वापरू शकता. मुख्य स्क्रीन वर जाण्या साठी आपल्या फोनच्या तळाच्या केंद्राशी जोरात दाबा.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">आपण पूर्ण स्क्रीन मोड वापरत आहात. व्हिज्युअल डिस्ट्रॅक्शन्स कमी करण्या साठी आणि आपल्याला अपघाताने अनुप्रयोग सोडण्या साठी प्रतिबंधित करण्या साठी होम, मागे आणि अलीकडील बटणे लपवलेली आहेत.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">जेथे सामान्य पणे बटणे दिसतात तेथील स्क्रीनच्या edge पासून आत मध्ये स्वाइप करून आपण पुन्हा बटणे दर्शवू शकता.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">काही वेळा नंतर, पुन्हा बटण्स दिसणार नाहीत.</string>
+    <string name="sec_immersive_cling_help_text_step_two">ते लपवलेले असताना आपण होम बटण वापरू शकता. होम स्क्रीन वर जाण्या साठी, जेथे होम बटण सामान्य पणे दिसते ते स्क्रीन वरील क्षेत्र जोरात दाबा.</string>
     <string name="done_label">झाले</string>
     <string name="hour_picker_description">अॅनालॉग तास पिकर</string>
     <string name="minute_picker_description">अनालॉग मिनिट पिकर</string>
@@ -1580,6 +1584,11 @@
     <string name="batt_cooldown_mode_attention">अनुप्रयोग बंद केले</string>
     <string name="batt_cooldown_mode_attentions">अनुप्रयोग बंद केले</string>
     <string name="batt_cooldown_mode_ok">ठीक</string>
+    <string name="overheat_limit_warning_title">फोन अति तापणे</string>
+    <string name="overheat_limit_warning">आपला फोन अति तापत आहे. हा अनुप्रयोग त्वरित बंद करा. %s 1 मिनिटा मध्ये स्वयंचलितपणे बंद होईल आणि कोणताही जतन न केलेला डेटा हरवला जाईल.</string>
+    <string name="overheat_limit_closed_title">अनुप्रयोग बंद केले</string>
+    <string name="overheat_limit_closed">%1$s बंद केले. आपला फोन अति तापत आहे. आपला फोन थंड झाल्या नंतर पुन्हा %2$s वापरण्याचा प्रयत्न करा.</string>
+    <string name="overheat_limit_ok">ठीक</string>
     <string name="restart_confirm">उपकरण चालू होईल.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2030,6 +2039,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX स्टेशनशी कनेक्ट केले असताना Bixby वापरू शकत नाही.</string>
     <string name="conventional_mode_recent_noti">आपण अलीकडील अनुप्रयोग स्क्रीन वर विस्तार करा आयकॉन टॅप करून हा अनुप्रयोग संपूर्ण स्क्रीन मध्ये पाहू शकता.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">मागील स्थिती अनुपातवर जाण्या साठी, सेटिंग्स > प्रदर्शन > संपूर्ण स्‍क्रीन अनुप्रयोग वर जा.</string>
+    <string name="conventional_mode_tap_here_to_fill">संपूर्ण स्क्रीन भरण्या साठी येथे टॅप करा</string>
     <string name="permlab_knoxCustomSetting">उपकरण सेटिंग्स व्यवस्थापित करा</string>
     <string name="permdesc_knoxCustomSetting">उपकरण सेटिंग्स कॉन्फिगर करा, जसे की ब्लुटूथ, स्थान, Wi-Fi, मोबाईल डेटा आणि एनड्रॉइड सेटिंग्स.</string>
     <string name="permlab_knoxCustomSystem">सिस्टम सेटिंग्स व्यवस्थापित करा</string>
@@ -2374,4 +2384,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB द्वारे कनेक्ट केलेले उपकरण चार्ज करत आहे…</string>
     <string name="lacking_filenode_internal_storage_view_title">फाइल सिस्टम मर्यादा</string>
     <string name="lacking_filenode_internal_storage_view_text">आपल्या फोन वर खूप अधिक फाइल्स तयार केल्या गेल्या आहेत. अनुप्रयोग योग्य प्रकारे काम करणे कदाचित थांबवतील आणि आपला फोन यापुढे कदाचित सुरू होणार नाही. कोणत्याही महत्त्वाच्या डेटाचा बॅक अप घ्या आणि आपल्या फोनची फॅक्टरी पुन्हा मांडणी करा.</string>
+    <string name="lock_to_app_toast_for_navibar">अनुप्रयोग अनपिन करण्‍या साठी, अलीकडील आणि बॅक कीस एकाच वेळी स्‍पर्श आणि होल्‍ड करा.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

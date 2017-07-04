@@ -679,6 +679,10 @@
     <string name="sec_next_button_label">Indiki</string>
     <string name="sec_immersive_cling_step_one">Öý, Yza we Soňkular düwmelerini görkezmek üçin, telefonyň aşagyndan syryň.</string>
     <string name="sec_immersive_cling_step_two">Gizlenilgi bolsa-da, Öý ekrany ulanyp bilersiňiz. Öý ekrana barmak üçin, telefonyň aşaky ortasyna gaty basyň.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Doly ekran tertibini ulanýarsyňyz. Wizual üns bölüjileri minimizlemek we goýmadan birden çykmazlygyňyz üçin, Öý, Yza we Soňkular düwmeleri gizlenilýär.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Köplenç düwmeleriň görünýän ýerinde, ekranyň gyrasyndan içerik syryp, düwmeleri gaýtadan görkezip bilersiňiz.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Biraz wagtdan düwmeler ýene ýiter.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Gizlenilgi bolsa-da, Öý ekrany ulanyp bilersiňiz. Öý ekrana baryp, onda Öý düwmäniň adaty görünýän ýerine gaty basyň.</string>
     <string name="done_label">Tamam</string>
     <string name="hour_picker_description">Analog sagat saýlaýjy</string>
     <string name="minute_picker_description">Analog minut saýlaýjy</string>
@@ -883,6 +887,11 @@ buýruk"</string>
     <string name="batt_cooldown_mode_attention">Goýma ýapyldy</string>
     <string name="batt_cooldown_mode_attentions">Goýmalar ýapyldy</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon gyzýar</string>
+    <string name="overheat_limit_warning">Telefonyňyz gyzýar. Bu goýmany derrew ýapyň. %s 1 minutdan awtomatik ýapylar we ýazdyrylmadyk maglumat ýiter.</string>
+    <string name="overheat_limit_closed_title">Goýma ýapyldy</string>
+    <string name="overheat_limit_closed">%1$s ýapyldy. Telefonyňyz gyzýar. Telefonyňyz sowansoň, %2$s ýene ulanyp görüň.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Enjam öçürilip täzeden işlediler.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1333,6 +1342,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX Stansiýasyna birigilende, Bixby ulanyp bolmaýar.</string>
     <string name="conventional_mode_recent_noti">Soňky goýmalar ekranynda Giňelt şekiljigine basyp, bu goýmany doly ekranda görüp bilersiňiz.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Öňki ölçeg gatnaşygyna dolanmak üçin, Sazlamalar > Displeý > Doly ekran goýmalary-na baryň.</string>
+    <string name="conventional_mode_tap_here_to_fill">Tutuş ekrany doldurmak üçin, şu ýere bas</string>
     <string name="permlab_knoxCustomSetting">Enjam sazlamalaryny dolandyr</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Ýerleşiş, Wi-Fi, Mobil maglumat ýaly enjam sazlamalaryny we Android sazlamalaryny düzüň.</string>
     <string name="permlab_knoxCustomSystem">Ulgam sazlamalaryny dolandyr</string>
@@ -1701,4 +1711,6 @@ Maksimum güýç tygşytlaýjy tertip açyk wagty, USB funksiýalaryň çäklend
     <string name="charging_connected_via_usb">Birigen enjama USB arkaly zarýad berilýär…</string>
     <string name="lacking_filenode_internal_storage_view_title">Faýl ulgam çägi</string>
     <string name="lacking_filenode_internal_storage_view_text">Telefonyňyzda gaty köp faýl döredildi. Goýmalar dogry işlemegi duruzyp bilner we telefonyňyz soň açylman biler. Islendik möhüm maglumaty ätiýaçlaň we telefony aslyny nol ediň.</string>
+    <string name="lock_to_app_toast_for_navibar">Goýma berkitmeden aýyrmak üçin, Soňkular we Yza düwmelerini bilelikde degip saklaň.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

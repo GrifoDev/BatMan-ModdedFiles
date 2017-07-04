@@ -680,6 +680,10 @@
     <string name="sec_next_button_label">ඊළඟ</string>
     <string name="sec_immersive_cling_step_one">මුල්, ආපසු, සහ මෑත බොත්තම් පෙන්වීමට දුරකථනයේ පහළ සිට ස්වයිප් කරන්න.</string>
     <string name="sec_immersive_cling_step_two">ඔබට මුල් බොත්තම සඟවා ඇති අතරේ පවා එය භාවිතා කළ හැක. මුල් තිරය වෙත යාමට ඔබේ දුරකථනයේ පහළ මැද දැඩිව ඔබන්න.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">ඔබ පූර්ණ තිර ප්‍රකාරය භාවිතා කරයි. මුල්, ආපසු, සහ මෑත බොත්තම් දෘශ්‍ය අවධානය වෙනතකට යොමු වීම් අවම කිරීමට සහ හදිසියේ යෙදුමෙන් පිට වීමෙන් ඔබව වැළැක්වීම සඳහා සඟවා ඇත.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">ඔබට බොත්තම් සාමාන්‍යයෙන් දිස් වන තිරයේ කෙළවරේ සිට ඇතුල් දෙසට ස්වයිප් කිරීමෙන් නැවත බොත්තම් පෙන්විය හැක.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">ටික වේලාවකට පසුව, බොත්තම් නැවත අතුරුදහන් වනු ඇත.</string>
+    <string name="sec_immersive_cling_help_text_step_two">ඔබට සඟවා ඇති අතරේ පවා මුල් බොත්තම භාවිතා කළ හැක. මුල් තිරයට යාමට, මුල් බොත්තම සාමාන්‍යයෙන් දිස් වන තිරයේ ප්‍රදේශය දැඩිව ඔබන්න.</string>
     <string name="done_label">නිමයි</string>
     <string name="hour_picker_description">ඇනලොග් පැය තෝරකය</string>
     <string name="minute_picker_description">ඇනලොග් විනාඩි තෝරකය</string>
@@ -884,6 +888,11 @@
     <string name="batt_cooldown_mode_attention">යෙදුම වැසිණි</string>
     <string name="batt_cooldown_mode_attentions">යෙදුම් වැසිණි</string>
     <string name="batt_cooldown_mode_ok">හරි</string>
+    <string name="overheat_limit_warning_title">දුරකථනය අධිකව රත් වේ</string>
+    <string name="overheat_limit_warning">ඔබේ දුරකථනය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %s විනාඩි 1කින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_closed_title">යෙදුම වැසිණි</string>
+    <string name="overheat_limit_closed">%1$s වැසිණි. ඔබේ දුරකථනය අධිකව රත් වේ. ඔබේ දුරකථනය සිසිලනය වූ පසුව %2$s නැවත භාවිතයට උත්සාහ කරන්න.</string>
+    <string name="overheat_limit_ok">හරි</string>
     <string name="restart_confirm">උපාංගය යළි ඇරඹෙනු ඇත.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1334,6 +1343,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX ස්ථානයට සම්බන්ධිත අතරේ Bixby භාවිතා කළ නොහැක.</string>
     <string name="conventional_mode_recent_noti">ඔබට මෑත යෙදුම් තිරය මත දිග හැරීමේ අයිකනය තට්ටු කිරීමෙන් පූර්ණ තිරයේ මෙම යෙදුම බැලිය හැක.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">පෙර දර්ශන අනුපාතයට නැවත පැමිණීමට, සැකසුම් > සංදර්ශකය > පූර්ණ තිර යෙදුම් වෙත යන්න.</string>
+    <string name="conventional_mode_tap_here_to_fill">මුළු තිරයම පිරවීමට මෙතැන තට්ටු කරන්න</string>
     <string name="permlab_knoxCustomSetting">උපාංග සැකසුම් කළමණාකරණය</string>
     <string name="permdesc_knoxCustomSetting">බ්ලූටූත්, පිහිටීම, Wi-Fi, ජංගම දත්ත, සහ ඇන්ඩ්‍රොයිඩ් සැකසුම් වැනි උපාංග සැකසුම් වින්‍යාස කරන්න.</string>
     <string name="permlab_knoxCustomSystem">පද්ධති සැකසුම් කළමනාකරණය</string>
@@ -1708,4 +1718,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB ඔස්සේ සම්බන්ධිත උපාංගය චාර්ජ් කරමින්…</string>
     <string name="lacking_filenode_internal_storage_view_title">ගොනු පද්ධතියේ සීමාව</string>
     <string name="lacking_filenode_internal_storage_view_text">ඔබේ දුරකථනයේ බොහෝ ගොනු නිර්මාණය කර තිබේ. යෙදුම් නිවැරදිව වැඩ කිරීම නතර විය හැකි අතර ඔබේ දුරකථනය තවදුරටත් ආරම්භ නොවිය හැක. ඕනෑම වැදගත් දත්තයක් උපස්ථ කර ඔබේ දුරකථනය කම්හල් යළි පිහිටුවන්න.</string>
+    <string name="lock_to_app_toast_for_navibar">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු බොත්තම් එකවර ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

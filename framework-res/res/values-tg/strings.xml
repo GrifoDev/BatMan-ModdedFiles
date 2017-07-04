@@ -679,6 +679,10 @@
     <string name="sec_next_button_label">Навбатӣ</string>
     <string name="sec_immersive_cling_step_one">Барои тугмаҳои Асосӣ, Қафо ва Охиринҳоро нишон додан, аз поён ба болои телефон бимолед.</string>
     <string name="sec_immersive_cling_step_two">Шумо метавонед тугмаи Асосиро ҳатто ҳангоми пинҳон буданаш истифода баред. Телефонро дар маркази поёнаш сахт пахш карда, ба экрани Асосӣ гузаред.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Шумо реҷаи экрани пурраро истифода мебаред. Тугмаҳои Асосӣ, Қафо ва Охиринҳо барои коҳиш додани халалҳои визуалӣ ва пешгирӣ кардани тарки тасодуфии барнома пинҳон карда шудаанд.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Шумо метавонед аз канори экран, яъне ҷои одатии нишон дода шудани тугмаҳо, ба дохил молида, тугмаҳоро такроран нишон диҳед.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Андак пас, тугмаҳо боз нест мешаванд.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Шумо метавонед тугмаи Асосиро ҳатто ҳангоми пинҳон буданаш истифода баред. Барои ба экрани Асосӣ гузаштан, ҷои одатии нишон дода шудани тугмаи Асосиро дар рӯи экран сахт пахш кунед.</string>
     <string name="done_label">Иҷро шуд</string>
     <string name="hour_picker_description">Мунтахаби соати аналогӣ</string>
     <string name="minute_picker_description">Мунтахаби дақиқаи аналогӣ</string>
@@ -884,6 +888,11 @@
     <string name="batt_cooldown_mode_attention">Барнома пӯшида шуд</string>
     <string name="batt_cooldown_mode_attentions">Барномаҳо пӯшида шуданд</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Телефон бениҳоят гарм мешавад</string>
+    <string name="overheat_limit_warning">Телефони шумо бениҳоят гарм мешавад. Фавран ин барномаро бипӯшед. %s баъди 1 дақиқа ба таври худкор пӯшида мешавад ва ҳама иттилооти захиранашуда аз даст дода мешавад.</string>
+    <string name="overheat_limit_closed_title">Барнома пӯшида шуд</string>
+    <string name="overheat_limit_closed">%1$s пӯшида шуд. Телефони шумо бениҳоят гарм мешавад. %2$s-ро баъди хунуктар шудани телефон истифода баред.</string>
+    <string name="overheat_limit_ok">ОК</string>
     <string name="restart_confirm">Дастгоҳ аз нав ба кор медарояд.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1336,6 +1345,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Истифодаи Bixby ҳангоми ба Шабакаи DeX пайваст будан ғайриимкон аст.</string>
     <string name="conventional_mode_recent_noti">Шумо метавонед дар экрани Барномаҳои охирин нишонаи Паҳн карданро зарба зада, ин барномаро дар экрани пурра намоиш диҳед.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Барои ба таносуби қаблии тарафҳо баргаштан, ба Танзимот > Дисплей > Барномаҳои экрани пурра гузаред.</string>
+    <string name="conventional_mode_tap_here_to_fill">Барои тамоми экранро пур кардан, инҷо зарба занед</string>
     <string name="permlab_knoxCustomSetting">Идоракунии танзимоти дастгоҳ</string>
     <string name="permdesc_knoxCustomSetting">Тағйир додани танзимот, ба мисли Bluetooth, Макон, Wi-Fi, Иттилооти мобилӣ ва танзимоти Android.</string>
     <string name="permlab_knoxCustomSystem">Идоракунии танзимоти система</string>
@@ -1704,4 +1714,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Дастгоҳи пайвастшуда тавассути USB барқ дода мешавад…</string>
     <string name="lacking_filenode_internal_storage_view_title">Маҳдудияти система файлӣ</string>
     <string name="lacking_filenode_internal_storage_view_text">Дар телефони шумо шумораи бениҳоят зиёди файлҳо эҷод карда шудааст. Барномаҳо метавонанд аз кор монанд ва телефон метавонад дигар ба кор надарояд. Ҳамаи иттилооти муҳимро нусхаи эҳтиётӣ гирифта, телефонро ба танзимоти пешфарзи коргоҳ барқарор кунед.</string>
+    <string name="lock_to_app_toast_for_navibar">Барои барномаро кандан, тугмаҳои Охиринҳо ва Қафоро якҷоя зарба зада нигоҳ доред.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

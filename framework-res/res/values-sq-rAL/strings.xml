@@ -1310,6 +1310,10 @@ Provo sërish pas %2$d sekondash."</string>
     <string name="sec_next_button_label">Tjetri</string>
     <string name="sec_immersive_cling_step_one">Rrëshqit lart nga pjesa e poshtme e telefonit për të treguar butonat Bazë, Prapa dhe Së fundi.</string>
     <string name="sec_immersive_cling_step_two">Mund ta përdorësh butonin Bazë edhe kur është i fshehur. Shtyp në qendër në pjesën e poshtme të telefonit, për të shkuar tek Ekrani bazë.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Je duke përdorur ekranin e plotë. Butonat Bazë, Prapa dhe Së fundi janë fshehur, për të minimizuar distraksionet në pamje dhe për të mos lejuar që të dalësh nga app-i pa dashur.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Mund t’i shfaqësh butonat sërish duke rrëshqitur për brenda që nga buza e ekranit, ku dalin zakonisht butonat.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Pas një farë kohe, butonat do të zhduken sërish.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Mund ta përdorësh Butonin Bazë edhe kur është i fshehur. Për të shkuar tek Ekrani bazë, shtyp mbi atë zonë të ekranit ku del zakonisht Butoni Bazë.</string>
     <string name="done_label">Kryer</string>
     <string name="hour_picker_description">Zgjedhësi i orës analoge</string>
     <string name="minute_picker_description">Zgjedhësi i minutës analoge</string>
@@ -1580,6 +1584,11 @@ ajrore"</string>
     <string name="batt_cooldown_mode_attention">App-i u mbyll</string>
     <string name="batt_cooldown_mode_attentions">App-et u mbyllën</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefoni po mbinxehet</string>
+    <string name="overheat_limit_warning">Telefoni yt po mbinxehet. Mbylle këtë app menjëherë. %s do të mbyllet automatikisht pas 1 minute, dhe të gjitha të dhënat e paruajtura do të humbasin.</string>
+    <string name="overheat_limit_closed_title">App-i u mbyll</string>
+    <string name="overheat_limit_closed">%1$s u mbyll. Telefoni yt po mbinxehet. Provo ta përdorësh %2$s sërish, pasi të ftohet telefoni.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Pajisja do të riniset.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2032,6 +2041,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">S’mund të përdorësh Bixby kur je lidhur me Stacionin DeX.</string>
     <string name="conventional_mode_recent_noti">Mund ta shohësh këtë app në gjithë ekranin duke trokitur mbi ikonën Zgjero në ekranin App-et së fundi.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Për t’u kthyer te përpjesëtimi i mëparshëm, shko te Cilësimet > Afishimi > App-et në gjithë ekranin.</string>
+    <string name="conventional_mode_tap_here_to_fill">Trokit këtu për të shfaqur në gjithë ekranin</string>
     <string name="permlab_knoxCustomSetting">Menaxho cilësimet e pajisjes</string>
     <string name="permdesc_knoxCustomSetting">Konfiguro cilësimet e pajisjes, të tilla si Bluetooth, Vendndodhja, Wi-Fi, Të dhënat celulare dhe cilësimet Android.</string>
     <string name="permlab_knoxCustomSystem">Menaxho cilësimet e sistemit</string>
@@ -2400,4 +2410,6 @@ Funksionet USB nuk do të përdoren dot, kur është ndezur Regjimi kursim energ
     <string name="charging_connected_via_usb">Duke karikuar pajisjen e lidhur me USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Caku për skedarë i sistemit</string>
     <string name="lacking_filenode_internal_storage_view_text">Janë krijuar shumë skedarë në telefon. App-et mund të mos punojnë më si duhet dhe telefoni yt mund të mos niset më. Rezervo të dhënat e rëndësishme dhe resetoje telefonin në parazgjedhjet e fabrikës.</string>
+    <string name="lock_to_app_toast_for_navibar">Për ta çngulitur app-in, prek dhe mbaj butonat Së fundi dhe Prapa njëkohësisht.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -1315,6 +1315,10 @@
     <string name="sec_next_button_label">הבא</string>
     <string name="sec_immersive_cling_step_one">"החלק מהחלק התחתון של הטלפון כדי להציג את הלחצנים 'בית', 'חזרה' ו'אחרונים'."</string>
     <string name="sec_immersive_cling_step_two">ניתן להשתמש בלחצן הבית גם כשהוא מוסתר. לחץ לחיצה ארוכה על החלק המרכזי התחתון של הטלפון כדי לעבור אל מסך הבית.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">"אתה במצב מסך מלא. לחצן הבית, לחצן 'חזרה' ולחצן 'אחרונים' מוסתרים כדי למזער הסחות דעת חזותיות וכדי למנוע יציאה לא מכוונת מתוך היישום."</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">תוכל להציג את הלחצנים מחדש על ידי החלקה משולי המסך כלפי פנים במקום שבו הלחצנים מופיעים בדרך כלל.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">לאחר זמן מה, הלחצנים ייעלמו שוב.</string>
+    <string name="sec_immersive_cling_help_text_step_two">תוכל להשתמש בלחצן הבית גם כאשר הוא מוסתר. כדי לעבור אל מסך הבית, לחץ לחיצה ארוכה על האזור במסך שבו לחצן הבית מופיע בדרך כלל.</string>
     <string name="done_label">סיום</string>
     <string name="hour_picker_description">בורר שעות אנלוגי</string>
     <string name="minute_picker_description">בורר דקות אנלוגי</string>
@@ -1586,6 +1590,11 @@
     <string name="batt_cooldown_mode_attention">היישום נסגר</string>
     <string name="batt_cooldown_mode_attentions">היישומים נסגרו</string>
     <string name="batt_cooldown_mode_ok">אישור</string>
+    <string name="overheat_limit_warning_title">התחממות יתר בטלפון</string>
+    <string name="overheat_limit_warning">התחממות יתר בטלפון. סגור את היישום מיד. %s ייסגר באופן אוטומטי בעוד דקה אחת וכל הנתונים שלא יישמרו יאבדו.</string>
+    <string name="overheat_limit_closed_title">היישום נסגר</string>
+    <string name="overheat_limit_closed">%1$s נסגר. התחממות יתר בטלפון. נסה שוב להשתמש ב-%2$s לאחר שהטלפון יתקרר.</string>
+    <string name="overheat_limit_ok">אישור</string>
     <string name="restart_confirm">המכשיר יופעל מחדש.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">לא ניתן להשתמש ב-Bixby כאשר יש חיבור פעיל ל-DeX Station.</string>
     <string name="conventional_mode_recent_noti">"תוכל להציג יישום זה במסך מלא על ידי הקשה על סמל 'הרחב' במסך 'יישומים אחרונים'."</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">"כדי לחזור ליחס התצוגה הקודם, עבור אל 'הגדרות' > 'תצוגה' > 'יישומי מסך מלא'."</string>
+    <string name="conventional_mode_tap_here_to_fill">הקש כאן כדי למלא את המסך כולו</string>
     <string name="permlab_knoxCustomSetting">נהל הגדרות מכשיר</string>
     <string name="permdesc_knoxCustomSetting">"קבע הגדרות במכשיר, כמו למשל הגדרות Bluetooth, 'מיקום', Wi-Fi, 'נתונים ניידים' ו-Android."</string>
     <string name="permlab_knoxCustomSystem">נהל הגדרות מערכת</string>
@@ -2413,4 +2423,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">טוען את המכשיר המחובר באמצעות USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">מגבלת מספר קבצים</string>
     <string name="lacking_filenode_internal_storage_view_text">יותר מדי קבצים נוצרו בטלפון שלך. ייתכנו שיבושים בפעולה של יישומים וייתכן שהטלפון לא יופעל. גבה נתונים חשובים ובצע בטלפון שלך איפוס להגדרות היצרן.</string>
+    <string name="lock_to_app_toast_for_navibar">"כדי לבטל את הצמדת היישום, לחץ בו-זמנית לחיצה ארוכה על מקש 'אחרונים' ומקש החזרה."</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

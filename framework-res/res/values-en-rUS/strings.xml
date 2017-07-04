@@ -669,6 +669,10 @@ Try again in %2$d seconds."</string>
     <string name="sec_next_button_label">Next</string>
     <string name="sec_immersive_cling_step_one">Swipe from the bottom of the phone to show the Home, Back, and Recents buttons.</string>
     <string name="sec_immersive_cling_step_two">"You can use the Home button even while it's hidden. Hard press the bottom center of your phone to go to the Home screen."</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">"You're using full screen mode. The Home, Back, and Recents buttons are hidden to minimize visual distractions and to prevent you from leaving the app accidentally."</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">You can show the buttons again by swiping inward from the edge of the screen where the buttons normally appear.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">After a while, the buttons will disappear again.</string>
+    <string name="sec_immersive_cling_help_text_step_two">"You can use the Home button even while it's hidden. To go to the Home screen, hard press the area of the screen where the Home button normally appears."</string>
     <string name="done_label">Done</string>
     <string name="hour_picker_description">Analog hour picker</string>
     <string name="minute_picker_description">Analog minute picker</string>
@@ -874,6 +878,11 @@ command"</string>
     <string name="batt_cooldown_mode_attention">App closed</string>
     <string name="batt_cooldown_mode_attentions">Apps closed</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Phone overheating</string>
+    <string name="overheat_limit_warning">Your phone is overheating. Close this app immediately. %s will be closed automatically in 1 minute, and any unsaved data will be lost.</string>
+    <string name="overheat_limit_closed_title">App closed</string>
+    <string name="overheat_limit_closed">%1$s closed. Your phone is overheating. Try using %2$s again after your phone cools down.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">The <cst>device</cst> will restart.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe mode? While in Safe mode, apps that did not come with your phone will be temporarily turned off to help you troubleshoot your phone. When you restart your phone next time, Safe mode will be turned off and your apps will be available again.</string>
@@ -1326,6 +1335,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">"Can't use Bixby while connected to DeX Station."</string>
     <string name="conventional_mode_recent_noti">You can view this app in full screen by tapping the Expand icon on the Recent apps screen.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">To return to previous aspect ratio, go to Settings > Display > Full screen apps.</string>
+    <string name="conventional_mode_tap_here_to_fill">Tap here to fill entire screen</string>
     <string name="permlab_knoxCustomSetting">Manage device settings</string>
     <string name="permdesc_knoxCustomSetting">Configure device settings, such as Bluetooth, Location, Wi-Fi, Mobile data, and Android settings.</string>
     <string name="permlab_knoxCustomSystem">Manage system settings</string>
@@ -1635,4 +1645,6 @@ USB functions may be restricted while Maximum power saving mode is on."</string>
     <string name="charging_connected_via_usb">Charging connected device via USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">File system limit</string>
     <string name="lacking_filenode_internal_storage_view_text">Too many files have been created on your phone. Apps may stop working correctly and your phone may no longer start up. Back up any important data and factory reset your phone.</string>
+    <string name="lock_to_app_toast_for_navibar">To unpin app, touch and hold Recents and Back buttons at the same time.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

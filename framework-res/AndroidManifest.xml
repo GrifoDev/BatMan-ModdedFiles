@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" android:sharedUserLabel="@string/android_system_label" coreApp="true" package="android">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" android:sharedUserLabel="@string/android_system_label" coreApp="true" package="android">
     <eat-comment/>
     <protected-broadcast android:name="android.samsung.media.action.receiver_sar"/>
     <protected-broadcast android:name="com.samsung.intent.action.CHANGE_STATUSBAR_ICON"/>
@@ -1021,6 +1020,7 @@
     <protected-broadcast android:name="com.samsung.android.motion.PALM_DOWN"/>
     <protected-broadcast android:name="com.samsung.android.motion.PALM_UP"/>
     <protected-broadcast android:name="com.android.angryGps.XtraSettings"/>
+    <protected-broadcast android:name="android.intent.action.AGPS_UDP_RECEIVED"/>
     <protected-broadcast android:name="com.samsung.android.location.current_gps_status_alarm"/>
     <protected-broadcast android:name="com.samsung.android.location.current_reach_expected_distance_alarm"/>
     <protected-broadcast android:name="com.samsung.android.location.gps_status_key"/>
@@ -1252,6 +1252,7 @@
     <protected-broadcast android:name="com.samsung.intent.action.SIMCARDMGR"/>
     <protected-broadcast android:name="com.samsung.rcs.CALL_STATE_CHANGED"/>
     <protected-broadcast android:name="com.samsung.rcs.SERVICE_STATE_CHANGED"/>
+    <protected-broadcast android:name="com.samsung.settings.SIMCARD_MGT"/>
     <protected-broadcast android:name="com.sec.internal.ims.imsservice.alarmmanager"/>
     <protected-broadcast android:name="com.samsung.ims.dm.DM_CHANGED"/>
     <protected-broadcast android:name="com.samsung.ims.action.onsimloaded"/>

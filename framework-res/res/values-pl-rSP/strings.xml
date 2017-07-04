@@ -679,6 +679,10 @@ Sprōbuj jeszcze rŏz za %2$d s."</string>
     <string name="sec_next_button_label">Dalej</string>
     <string name="sec_immersive_cling_step_one">Szibnij palcym ze spodka mobilniŏka, coby pokŏzać knefle Ekran sztartowy, Nazŏd i Niydŏwne.</string>
     <string name="sec_immersive_cling_step_two">Przycisku ekranu startowego możesz używać nawet, gdy jest ukryty. Naciśnij mocno w środku dolnej części ekranu telefonu, aby przejść do ekranu startowego.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Używŏsz trybu fol ekranu. Knefle ekranu sztartowego, Nazŏd i Niydŏwne sōm skryte, coby dać na minimum dingsy wizualne kere zawŏdzajōm i coby niy było leda kerego zawarcia aplikacyji.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Mogesz pokŏzać tnefle zajś bez przejechanie palcem do strzodka ôd rantu ekranu tam, kaj knefle sōm zaôbycz widziane.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Po chwili przyciski ponownie znikną.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Knefla ekranu sztartowego poradzisz używać tak tyż, kej je skryty. Coby przelyź do ekranu sztartowego, tyknij fest plac ekranu, w kerym normalnie widziany je knefel ekranu sztartowego.</string>
     <string name="done_label">Fertich</string>
     <string name="hour_picker_description">Ôbranie analogowyj godziny</string>
     <string name="minute_picker_description">Ôbranie analogowyj minuty</string>
@@ -1333,6 +1337,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Nie można używać Bixby podczas połączenia ze Stacją DeX.</string>
     <string name="conventional_mode_recent_noti">Aby wyświetlić tę aplikację na pełnym ekranie, możesz dotknąć ikony Rozwiń na ekranie Ostatnie aplikacje.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Aby wrócić do poprzednich proporcji, przejdź do menu Ustawienia > Wyświetlacz > Aplikacje na pełnym ekranie.</string>
+    <string name="conventional_mode_tap_here_to_fill">Tyknij tukej coby nafolować cołki ekran</string>
     <string name="permlab_knoxCustomSetting">Reskyruj sztalowaniami masziny</string>
     <string name="permdesc_knoxCustomSetting">Narychtuj sztalowania, take co Bluetooth, Lokalizacyjo, Wi-Fi, Dane mobilne i Android.</string>
     <string name="permlab_knoxCustomSystem">Reskyruj sztalowaniami systymu</string>
@@ -1696,4 +1701,6 @@ Fōnkcyje USB poradzōm być ôgraniczōne przi załōnczōnym Trybie maksimum s
     <string name="charging_connected_via_usb">Ładowanie połączonego urządzenia przez USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limit systemu plików</string>
     <string name="lacking_filenode_internal_storage_view_text">W telefonie utworzono zbyt dużo plików. Aplikacje mogą przestać działać prawidłowo i nie można będzie już uruchomić telefonu. Utwórz backup wszystkich ważnych danych i zresetuj telefon do ustawień fabrycznych.</string>
+    <string name="lock_to_app_toast_for_navibar">Coby ôdepnōńć aplikacyjŏ, tyknij narŏz knefli Niydŏwne i Nazŏd, a potym trzimej je.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

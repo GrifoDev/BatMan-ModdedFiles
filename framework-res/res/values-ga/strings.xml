@@ -679,6 +679,10 @@ Triail arís i gceann %2$d soicind."</string>
     <string name="sec_next_button_label">Ar aghaidh</string>
     <string name="sec_immersive_cling_step_one">Svaidhpeáil aníos ó bhun an fhóin leis na cnaipí Baile, Siar, agus Le déanaí a thaispeáint.</string>
     <string name="sec_immersive_cling_step_two">"Is féidir leat an cnaipe Baile a úsáid fiú nuair atá sé folaithe. Brúigh bun d'fhóin sa lár go láidir le gabháil chuig an Scáileán baile."</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Tá Mód lánscáileáin á úsáid agat. Tá na cnaipí Baile, Siar, agus Le déanaí folaithe le seachrán amhairc a íoslaghdú agus le nach n-imeoidh tú ón bhfeidhmchlár de thaisme.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Is féidir leat na cnaipí a thaispeáint arís trí svaidhpeáil isteach ó imeall an scáileáin, áit a dtaispeántar na cnaipí de ghnáth.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Tar éis tamaill, folófar na cnaipí arís.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Is féidir leat an cnaipe Baile a úsáid fiú nuair atá sé folaithe. Le gabháil chuig an Scáileán baile, brúigh go láidir an áit den scáileán a dtaispeántar an cnaipe Baile de ghnáth.</string>
     <string name="done_label">Déanta</string>
     <string name="hour_picker_description">Roghnóir uaireanta analógacha</string>
     <string name="minute_picker_description">Roghnóir nóiméad analógach</string>
@@ -883,6 +887,11 @@ scáil."</string>
     <string name="batt_cooldown_mode_attention">Feidhmchlár dúnta</string>
     <string name="batt_cooldown_mode_attentions">Feidhmchláir dúnta</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Fón róthe</string>
+    <string name="overheat_limit_warning">"Tá d'fhón róthe. Dún an feidhmchlár seo láithreach. Dúnfar %s go huathoibríoch i gceann 1 nóiméad, agus caillfear aon sonraí neamhshábháilte."</string>
+    <string name="overheat_limit_closed_title">Feidhmchlár dúnta</string>
+    <string name="overheat_limit_closed">"%1$s dúnta. Tá d'fhón róthe. Triail %2$s a úsáid arís nuair a bheidh d'fhón fuaraithe."</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Atosófar an gléas.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1335,6 +1344,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Ní féidir Bixby a úsáid nuair atáthar nasctha le stáisiún DeX.</string>
     <string name="conventional_mode_recent_noti">Is féidir leat amharc ar an bhfeidhmchlár seo i lánscáileán trí thapáil ar an íocón Fairsingigh ar an scáileán Feidhmchláir le déanaí.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Le filleadh ar an gcóimheas treoíochta roimhe, gabh chuig Socruithe > Taispeáint > Feidhmchláir lánscáileáin.</string>
+    <string name="conventional_mode_tap_here_to_fill">Tapáil anseo leis an scáileán iomlán a líonadh</string>
     <string name="permlab_knoxCustomSetting">Bainistigh socruithe gléis</string>
     <string name="permdesc_knoxCustomSetting">Cumraigh socruithe gléis, amhail Bluetooth, Suíomh, Wi-Fi, Sonraí móibíleacha, agus socruithe Android.</string>
     <string name="permlab_knoxCustomSystem">Bainistigh socruithe córais</string>
@@ -1703,4 +1713,6 @@ Is féidir go gcuirfear srian le feidhmeanna USB agus Uasmhód coigilte cumhacht
     <string name="charging_connected_via_usb">Gléas atá ceangailte trí USB á luchtú…</string>
     <string name="lacking_filenode_internal_storage_view_title">Teorainn córais comhad</string>
     <string name="lacking_filenode_internal_storage_view_text">"Cruthaíodh an iomarca comhad ar d'fhón. Is féidir nach n-oibreoidh feidhmchláir i gceart agus nach dtosóidh d'fhón a thuilleadh. Cúltacaigh aon sonraí tábhachtacha agus fill d'fhón ar a réamhshocraithe monarchan."</string>
+    <string name="lock_to_app_toast_for_navibar">Le feidhmchlár a dhíphionnáil, tadhaill agus coinnigh na cnaipí Le déanaí agus Siar ag an am céanna.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

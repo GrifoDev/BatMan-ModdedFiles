@@ -1315,6 +1315,10 @@ Coba lagi dalam %3$d detik."</string>
     <string name="sec_next_button_label">Lanjut</string>
     <string name="sec_immersive_cling_step_one">Usap dari bawah ponsel untuk menampilkan Tombol depan, Kembali, dan Terbaru.</string>
     <string name="sec_immersive_cling_step_two">Anda dapat menggunakan Tombol depan bahkan saat disembunyikan. Tekan keras bagian tengah tombol ponsel untuk membuka Layar depan.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Anda sedang menggunakan mode layar penuh. Tombol Depan, Kembali, dan Terbaru disembunyikan untuk mengurangi gangguan visual dan mencegah Anda menutup aplikasi secara tidak sengaja.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Anda dapat menampilkan kembali tombol dengan mengusap ke arah dalam dari ujung layar di mana tombol biasanya ditampilkan.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Setelah beberapa saat, tombol akan hilang lagi.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Anda dapat menggunakan Tombol depan meskipun tombol disembunyikan. Untuk membuka Layar depan, tekan keras area layar tempat Tombol depan biasanya muncul.</string>
     <string name="done_label">Selesai</string>
     <string name="hour_picker_description">Penentu jam analog</string>
     <string name="minute_picker_description">Penentu menit analog</string>
@@ -1586,6 +1590,11 @@ udara"</string>
     <string name="batt_cooldown_mode_attention">Aplikasi ditutup</string>
     <string name="batt_cooldown_mode_attentions">Aplikasi ditutup</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Ponsel terlalu panas</string>
+    <string name="overheat_limit_warning">Ponsel terlalu panas. Segera tutup aplikasi ini. %s akan ditutup secara otomatis dalam 1 menit, dan data yang tidak disimpan akan hilang.</string>
+    <string name="overheat_limit_closed_title">Aplikasi ditutup</string>
+    <string name="overheat_limit_closed">%1$s ditutup. Ponsel terlalu panas. Coba gunakan %2$s lagi setelah ponsel mendingin.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Perangkat akan memulai ulang.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Bixby tidak dapat digunakan saat tersambung ke DeX Station.</string>
     <string name="conventional_mode_recent_noti">Anda dapat melihat aplikasi dalam layar penuh dengan mengetuk ikon Perluas di layar Aplikasi terbaru.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Untuk kembali ke rasio aspek sebelumnya, buka Pengaturan > Tampilan > Aplikasi layar penuh.</string>
+    <string name="conventional_mode_tap_here_to_fill">Ketuk di sini untuk mengisi seluruh layar</string>
     <string name="permlab_knoxCustomSetting">Mengelola pengaturan perangkat</string>
     <string name="permdesc_knoxCustomSetting">Konfigurasikan pengaturan perangkat, misalnya Bluetooth, Lokasi, Wi-Fi, Data seluler, dan pengaturan Android.</string>
     <string name="permlab_knoxCustomSystem">Mengelola pengaturan sistem</string>
@@ -2414,4 +2424,6 @@ Fungsi USB mungkin dibatasi saat Mode hemat daya maksimum aktif."</string>
     <string name="charging_connected_via_usb">Mengisi ulang daya perangkat yang tersambung lewat USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Batas sistem file</string>
     <string name="lacking_filenode_internal_storage_view_text">Anda terlalu banyak membuat file di ponsel. Aplikasi mungkin tidak dapat berfungsi dengan benar dan ponsel mungkin tidak dapat dimulai. Cadangkan data yang penting dan reset ponsel ke pengaturan pabrik.</string>
+    <string name="lock_to_app_toast_for_navibar">Untuk melepas sematan aplikasi, tekan dan tahan tombol Terbaru dan Kembali secara bersamaan.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -1311,6 +1311,10 @@
     <string name="sec_next_button_label">Հաջորդ</string>
     <string name="sec_immersive_cling_step_one">Մատը սահեցրեք հեռախոսի ներքևի մասից՝ Սկզբի, Վերադարձի և Վերջին օգտագործումների կոճակները ցույց տալու համար:</string>
     <string name="sec_immersive_cling_step_two">Կարող եք օգտագործել Սկզբի կոճակը, նույնիսկ երբ այն թաքցված լինի: Ուժեղ սեղմեք հեռախոսի ստորին կենտրոնական մասում՝ Հիմնական էկրան գնալու համար:</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Դուք լիաէկրան ռեժիմ եք օգտագործում: Սկզբի, Վերադարձի և Վերջին օգտագործումների կոճակները թաքցված են՝ ուշադրության տեսողական շեղումները նվազագույնի հասցնելու և ծրագրից պատահաբար դուրս գալը կանխելու համար:</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Կարող եք կրկին ցույց տալ կոճակները՝ մատը էկրանի եզրից, որտեղ սովորաբար լինում են կոճակները, սահեցնելով դեպի ներս:</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Որոշ ժամանակ անց, կոճակները կրկին կանհետանան:</string>
+    <string name="sec_immersive_cling_help_text_step_two">Կարող եք օգտագործել Սկզբի կոճակը, նույնիսկ երբ այն թաքցված լինի: Հիմնական էկրան գնալու համար ուժեղ սեղմեք էկրանի այն մասը, որտեղ սովորաբար հայտնվում է Սկզբի կոճակը:</string>
     <string name="done_label">Արված է</string>
     <string name="hour_picker_description">Ժամի անալոգային ընտրիչ</string>
     <string name="minute_picker_description">Րոպեի անալոգային ընտրիչ</string>
@@ -1582,6 +1586,11 @@
     <string name="batt_cooldown_mode_attention">Ծրագիրը փակվեց</string>
     <string name="batt_cooldown_mode_attentions">Ծրագրերը փակվեցին</string>
     <string name="batt_cooldown_mode_ok">Ընդունել</string>
+    <string name="overheat_limit_warning_title">Հեռախոսը գերտաքանում է</string>
+    <string name="overheat_limit_warning">Ձեր հեռախոսը գերտաքանում է: Իսկույն փակեք այս ծրագիրը: %s-ը 1 րոպեից ինքնաբերաբար կփակվի, և բոլոր չպահպանված տվյալները կկորչեն:</string>
+    <string name="overheat_limit_closed_title">Ծրագիրը փակվեց</string>
+    <string name="overheat_limit_closed">%1$s-ը փակվեց: Ձեր հեռախոսը գերտաքանում է: Փորձեք %2$s օգտագործել հեռախոսի հովացումից հետո:</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Սարքը կվերագործարկվի:</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2034,6 +2043,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Հնարավոր չէ Bixby օգտագործել DeX Կայանին միացված ժամանակ:</string>
     <string name="conventional_mode_recent_noti">Կարող եք այս ծրագիրը դիտել լրիվ էկրանով՝ Վերջերս օգտագործված ծրագրերի էկրանի վրա թակելով Ընդարձակման պատկերակը:</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Նախորդ չափերի հարաբերակցությանը վերադառնալու համար գնացեք Դրվածքներ > Ցուցադրել > Լիաէկրան ռեժիմում գործող ծրագրեր:</string>
+    <string name="conventional_mode_tap_here_to_fill">Թակեք այստեղ՝ ամբողջ էկրանը լրացնելու համար</string>
     <string name="permlab_knoxCustomSetting">Կառավարել սարքի դրվածքները</string>
     <string name="permdesc_knoxCustomSetting">Կազմաձևել սարքի դրվածքները, օրինակ՝ Bluetooth-ի, Տեղի, Wi-Fi-ի, Շարժական տվյալների և Android-ի դրվածքները:</string>
     <string name="permlab_knoxCustomSystem">Կառավարել համակարգի դրվածքները</string>
@@ -2378,4 +2388,6 @@ USB-ի գործառույթները կարող են սահմանափակված �
     <string name="charging_connected_via_usb">Կապակցված սարքի լիցքավորում USB-ով…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ֆայլային համակարգի սահմանաչափ</string>
     <string name="lacking_filenode_internal_storage_view_text">Չափազանց շատ ֆայլեր են ստեղծվել Ձեր հեռախոսում: Հնարավոր է՝ ծրագրերը դադարեն ճիշտ աշխատել, իսկ հեռախոսը կարող է այլևս չգործել: Կրկնօրինակեք կարևոր տվյալներն ու հեռախոսը հետադարձեք գործարանային դրվածքներին:</string>
+    <string name="lock_to_app_toast_for_navibar">Ծրագրի ամրակցումը հանելու համար միաժամանակ հպեք և պահեք Վերջին օգտագործումների ու Վերադարձի կոճակները:</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

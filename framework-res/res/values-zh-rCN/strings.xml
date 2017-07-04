@@ -1318,6 +1318,10 @@
     <string name="sec_next_button_label">下一页</string>
     <string name="sec_immersive_cling_step_one">滑动手机底部来显示主屏幕按钮、返回按钮和最近使用按钮。</string>
     <string name="sec_immersive_cling_step_two">主屏幕按钮即使在隐藏时也可以使用。用力按下手机底部的中心即可进入主屏幕。</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">您正在使用全屏模式。为了尽可能减少视觉干扰和防止您意外离开应用程序，主屏幕按钮、返回按钮和最近使用按钮已隐藏。</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">您可以通过从通常显示按钮的屏幕边缘向内滑动来重新显示按钮。</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">过一会按钮会再次消失。</string>
+    <string name="sec_immersive_cling_help_text_step_two">主屏幕按钮即使在隐藏时也可以使用。若要进入主屏幕，请用力按通常显示主屏幕按钮的屏幕区域。</string>
     <string name="done_label">完成</string>
     <string name="hour_picker_description">模拟小时选择器</string>
     <string name="minute_picker_description">模拟分钟选择器</string>
@@ -1588,6 +1592,11 @@
     <string name="batt_cooldown_mode_attention">已关闭应用程序</string>
     <string name="batt_cooldown_mode_attentions">已关闭应用程序</string>
     <string name="batt_cooldown_mode_ok">确定</string>
+    <string name="overheat_limit_warning_title">手机过热</string>
+    <string name="overheat_limit_warning">您的手机过热，请立即关闭此应用程序。%s将在 1 分钟后自动关闭，并且未保存的数据将丢失。</string>
+    <string name="overheat_limit_closed_title">已关闭应用程序</string>
+    <string name="overheat_limit_closed">您的手机过热，%1$s已关闭。请在手机冷却后再尝试用%2$s。</string>
+    <string name="overheat_limit_ok">确定</string>
     <string name="restart_confirm">设备将重新启动。</string>
     <string name="tw_reboot_safemode_title_vzw">以安全模式重新启动</string>
     <string name="tw_reboot_safemode_confirm_vzw">是否要以安全模式重新启动您的手机？在安全模式中，不是您手机附带的应用程序将暂时禁用以帮助您排除手机的故障。当您下一次重新启动手机时，安全模式将关闭且您的应用程序将重新可用。</string>
@@ -2038,6 +2047,7 @@
     <string name="bixby_edgecase_dexstation">连接至 DeX 中心时无法使用 Bixby</string>
     <string name="conventional_mode_recent_noti">通过点击最近使用应用程序屏幕中的【扩展】图标，您可以全屏查看此应用程序。</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">若要改回之前的宽高比，请进入【设置】>【显示】>【全屏应用程序】。</string>
+    <string name="conventional_mode_tap_here_to_fill">点击此处填充整个屏幕</string>
     <string name="permlab_knoxCustomSetting">管理设备设置</string>
     <string name="permdesc_knoxCustomSetting">配置设备设置，例如：蓝牙、定位服务、<cst>Wi-Fi</cst>、手机流量和 Android 设置。</string>
     <string name="permlab_knoxCustomSystem">管理系统设置</string>
@@ -2413,4 +2423,6 @@
     <string name="charging_connected_via_usb">正在通过 USB 给连接的设备充电…</string>
     <string name="lacking_filenode_internal_storage_view_title">文件系统限制</string>
     <string name="lacking_filenode_internal_storage_view_text">您手机中创建的文件过多。应用程序可能停止正常工作，且您的手机可能会无法启动。请备份所有重要的数据，然后将手机重置为出厂设置。</string>
+    <string name="lock_to_app_toast_for_navibar">若要取消固定应用程序，请同时按住最近使用按钮和返回按钮。</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">若要取消固定应用程序，请长按最近使用按钮。</string>
 </resources>

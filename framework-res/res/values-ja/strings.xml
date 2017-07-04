@@ -1316,6 +1316,10 @@
     <string name="sec_next_button_label">次へ</string>
     <string name="sec_immersive_cling_step_one">ホームボタン、戻るボタン、履歴ボタンを表示するには、端末の下部からスワイプします。</string>
     <string name="sec_immersive_cling_step_two">ホームボタンは、表示されていないときも使用することができます。端末の中央下部を押し込むと、ホーム画面に移動します。</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">全画面モードを使用しています。不要な表示を最小限に抑え、意図せずアプリが終了することを防ぐために、ホームボタン、戻るボタン、履歴ボタンが表示されません。</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">普段ボタンが表示される画面の端から内側にスワイプすると、再度ボタンを表示することができます。</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">しばらくすると、再度ボタンが表示されなくなります。</string>
+    <string name="sec_immersive_cling_help_text_step_two">ホームボタンは、表示されていないときも使用することができます。ホーム画面に移動するには、普段ホームボタンが表示されるところを押し込みます。</string>
     <string name="done_label">完了</string>
     <string name="hour_picker_description">アナログ時ピッカー</string>
     <string name="minute_picker_description">アナログ分ピッカー</string>
@@ -2036,6 +2040,7 @@
     <string name="bixby_edgecase_dexstation">DeX Stationへ接続中は、Bixbyを使用できません。</string>
     <string name="conventional_mode_recent_noti">最近使用したアプリ画面で展開アイコンをタップすることで、このアプリを全画面で表示することができます。</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">前の縦横比に戻すには、[設定] > [ディスプレイ] > [全画面アプリ]に移動してください。</string>
+    <string name="conventional_mode_tap_here_to_fill">画面全体に表示するには、ここをタップしてください</string>
     <string name="permlab_knoxCustomSetting">端末設定を管理</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth、位置情報、Wi-Fi、モバイルデータ、Android設定などの端末設定を行います。</string>
     <string name="permlab_knoxCustomSystem">システム設定を管理</string>
@@ -2411,4 +2416,6 @@
     <string name="charging_connected_via_usb">USBで接続したデバイスに給電中…</string>
     <string name="lacking_filenode_internal_storage_view_title">ファイルシステムの制限</string>
     <string name="lacking_filenode_internal_storage_view_text">端末で作成したファイルが多すぎます。アプリが正常に機能しなくなり、端末が起動しなくなる場合があります。重要なデータをバックアップして、端末を工場出荷状態にリセットしてください。</string>
+    <string name="lock_to_app_toast_for_navibar">アプリの固定を解除するには、履歴ボタンと戻るボタンを同時に長押ししてください。</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">アプリの固定を解除するには、履歴ボタンを長押ししてください。</string>
 </resources>

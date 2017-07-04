@@ -1310,6 +1310,10 @@
     <string name="sec_next_button_label">Кийинки</string>
     <string name="sec_immersive_cling_step_one">Башкы баскыч, телефонду Артка жана Акыркыларды көрсөтүү үчүн экрандын түбүнөн өйдө карай жылдырыңыз.</string>
     <string name="sec_immersive_cling_step_two">Сиз Башкы баскычтарды, алар көрсөтүлбөсө деле колдоно аласыз. Башкы экранга баруу үчүн телефонуңуздун ылдыйкы борборун катуу басыңыз.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Сиз толук экран режимин колдонуп жатасыз. Башкы, Артка жана Акыркылар баскычтары башка көңүлдү бөлгөн нерселерди кичирейтип, колдонмолордон күтүүсүз чыгуунун алдын алуу үчүн жашырылат.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Баскычтар нормалдуу көрүнгөн жерде экрандын кырынан ичине көздөй жылдыруу аркылуу баскычтарды кайра көрсөтсөңүз болот.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Бир аз убакыттан кийин, баскычтар кайра жок болот.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Сиз Башкы баскычты, жашырылган болсо деле колдоно аласыз. Башкы баскычка барып, Башкы экран демейде пайда болгон жерди басып коюнуз.</string>
     <string name="done_label">Бүттү</string>
     <string name="hour_picker_description">Аналогдук саат тандагыч</string>
     <string name="minute_picker_description">Аналогдук мүнөт тандагыч</string>
@@ -1580,6 +1584,11 @@ booker"</string>
     <string name="batt_cooldown_mode_attention">Колдонмо жабылды</string>
     <string name="batt_cooldown_mode_attentions">Колдонмолор жабылды</string>
     <string name="batt_cooldown_mode_ok">ОК</string>
+    <string name="overheat_limit_warning_title">Телефон өтө ысып кетүүдө</string>
+    <string name="overheat_limit_warning">Телефонуңуз өтө ысып кетүүдө. Бул колдонмону дароо жабыңыз. %s автоматтык түрдө 1 мүнөттөн кийин жабылып, бардык сакталбаган маалыматтар жоготулат.</string>
+    <string name="overheat_limit_closed_title">Колдонмо жабылды</string>
+    <string name="overheat_limit_closed">%1$s жабылды. Телефонуңуз өтө ысып кетүүдө. Телефонуңуз муздагандан кийин, %2$s кайра колдонуп көрүңүз.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Түзмөк кайра ишетилет.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2030,6 +2039,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">"DeX Station'ге туташылган учурда Bixby'ни колдонууга болбойт."</string>
     <string name="conventional_mode_recent_noti">Сиз бул колдонмону толук экранда, Акыркы колдонмолор экранына Сүрөтчөнү жайууну басып, көрсөңүз болот.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Мурунку экран капталдарынын ара катышына кайтуу үчүн, Орнотууларга барыңыз > Дисплей > Толук экрандагы колдонмолор.</string>
+    <string name="conventional_mode_tap_here_to_fill">Бүт экранга толуктоо үчүн бул жерди басыңыз</string>
     <string name="permlab_knoxCustomSetting">Түзмөк орнотууларын башкаруу</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Жайгашуу, Wi-Fi, Mобилдик маалыматтар, жана Android орнотуулары сыяктуу түзмөк орнотууларын конфигурациялоо.</string>
     <string name="permlab_knoxCustomSystem">Система орнотууларын башкаруу</string>
@@ -2372,4 +2382,6 @@ USB функциялары, Максималдык кубатты үнөмдөө
     <string name="charging_connected_via_usb">USB аркылуу туташкан түзмөктү заряддоодо…</string>
     <string name="lacking_filenode_internal_storage_view_title">Файл системасынын чеги</string>
     <string name="lacking_filenode_internal_storage_view_text">Телефонуңузда өтө көп файл түзүлгөн. Телефонуңуздагы колдонмолор туура иштөөсүн токтотушу мүмкүн жана ал күйгүзүлбөй калышы мүмкүн. Бардык маанилүү маалыматтарыңызды калыбына келтирип, телдефонуңузду заводдук орнотууларына кайра коюңуз.</string>
+    <string name="lock_to_app_toast_for_navibar">Колдонмону тиркөөдөн алып салуу үчүн Жакынкылар жана Артка баскычтарын бир убакта басып, кармап туруңуз.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

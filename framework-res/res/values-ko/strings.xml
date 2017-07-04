@@ -1315,6 +1315,10 @@ google.com/accounts/recovery"</string>
     <string name="sec_next_button_label">다음</string>
     <string name="sec_immersive_cling_step_one">홈, 뒤로가기, 최근 앱 버튼을 화면에 표시하려면 화면 하단 가장자리를 화면 안쪽으로 미세요.</string>
     <string name="sec_immersive_cling_step_two">홈 버튼이 표시되지 않는 동안에도 홈 버튼을 사용할 수 있습니다. 휴대전화의 하단 중간 부분을 세게 누르세요.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">전체 화면 모드로 사용 중입니다. 화면을 볼 때 방해 받지 않고 의도치 않게 앱이 종료되지 않도록 홈, 뒤로가기, 최근 앱 버튼이 표시되지 않습니다.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">버튼이 있었던 부분의 화면 바깥쪽에서 안쪽으로 밀면 버튼이 다시 나타납니다.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">잠시 후에 버튼이 다시 사라집니다.</string>
+    <string name="sec_immersive_cling_help_text_step_two">화면에 홈 버튼이 표시되지 않아도 홈 화면으로 이동할 수 있습니다. 홈 버튼이 표시되었던 부분을 세게 누르세요.</string>
     <string name="done_label">완료</string>
     <string name="hour_picker_description">아날로그 시간 피커</string>
     <string name="minute_picker_description">아날로그 분 피커</string>
@@ -2061,6 +2065,7 @@ google.com/accounts/recovery"</string>
     <string name="bixby_edgecase_dexstation">DeX Station에 연결된 상태에서는 Bixby를 사용할 수 없습니다.</string>
     <string name="conventional_mode_recent_noti">최근 앱 화면에서 확장 아이콘을 누르면 이 앱을 전체 화면으로 볼 수 있습니다.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">[설정 > 디스플레이 > 전체 화면 비율로 사용할 앱]에서 이전 화면 비율로 다시 변경할 수 있습니다.</string>
+    <string name="conventional_mode_tap_here_to_fill">전체 화면으로 보려면 여기를 누르세요</string>
     <string name="permlab_knoxCustomSetting">디바이스 설정 관리</string>
     <string name="permdesc_knoxCustomSetting">블루투스, 위치, Wi-Fi, 모바일 데이터, 안드로이드 설정과 같은 디바이스 설정을 관리합니다.</string>
     <string name="permlab_knoxCustomSystem">디바이스 시스템 설정</string>
@@ -2436,4 +2441,6 @@ google.com/accounts/recovery"</string>
     <string name="charging_connected_via_usb">USB로 연결된 디바이스 충전 중…</string>
     <string name="lacking_filenode_internal_storage_view_title">파일 시스템 한도</string>
     <string name="lacking_filenode_internal_storage_view_text">휴대전화에 파일이 너무 많습니다. 앱이 제대로 동작하지 않을 수 있으며 휴대전화 시작이 느려질 수 있습니다. 중요한 데이터를 백업한 후 휴대전화를 초기화하세요.</string>
+    <string name="lock_to_app_toast_for_navibar">앱 고정을 해제하려면 최근 앱 버튼과 뒤로가기 버튼을 동시에 길게 누르세요.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">앱 고정을 해제하려면 최근 앱 버튼을 길게 누르세요.</string>
 </resources>

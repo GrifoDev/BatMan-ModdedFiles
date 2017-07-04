@@ -681,6 +681,10 @@
     <string name="sec_next_button_label">ପରବର୍ତ୍ତୀ</string>
     <string name="sec_immersive_cling_step_one">ହୋମ୍, ବ୍ୟାକ୍, ଏବଂ ସମ୍ପ୍ରତି ବଟନଗୁଡିକ ଦେଖାଇବାକୁ ଫୋନର ନିମ୍ନରୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="sec_immersive_cling_step_two">ହୋମ୍ ବଟନ୍ ଏପରିକି ଲୁକ୍କାୟିତ ଥିଲେ ମଧ୍ୟ ଆପଣ ଏହା ବ୍ୟବହାର କରିପାରିବେ। ହୋମ୍ ସ୍କ୍ରିନକୁ ଯିବାକୁ ଆପଣଙ୍କ ଫୋନର ନିମ୍ନ କେନ୍ଦ୍ରରେ ଜୋରରେ ଦବାନ୍ତୁ।</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">ଆପଣ ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍ ମୋଡ୍ ବ୍ୟବହାର କରୁଛନ୍ତି। ଦୃଶ୍ୟତା ବିଚଳିତଗୁଡିକ ସର୍ବନିମ୍ନ କରିବାକୁ ଏବଂ ଆପଣଙ୍କ ଦୁର୍ଘଟଣାବଶତଃ ଆପ୍ଲିକେସନ୍ ପରିତ୍ୟାଗ କରିବାରୁ ପ୍ରତିରୋଧ କରିବାକୁ ହୋମ୍, ବ୍ୟାକ୍, ଏବଂ ସମ୍ପ୍ରତି ବଟନ୍ ଲୁକ୍କାୟିତ ହୋଇଛି।</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">ଆପଣ ସ୍କ୍ରିନର Edge ଯେଉଁଠାରେ ସାଧାରଣ ଭାବେ ବଟନଗୁଡିକ ଦୃଶ୍ୟମାନ ହୋଇଥିବାରୁ ଭିତରକୁ ସ୍ଵାଇପ୍ କରି ଆପଣ ପୁନଃ ବଟନ୍ ଦେଖାଇ ପାରିବେ।</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">କିଛି ସମୟ ପରେ, ବଟନ୍ ପୁନଃ ଅଦୃଶ୍ୟ ହେବ।</string>
+    <string name="sec_immersive_cling_help_text_step_two">ହୋମ୍ ବଟନ୍ ଏପରିକି ଲୁକ୍କାୟିତ ଥିଲେ ମଧ୍ୟ ଆପଣ ଏହା ବ୍ୟବହାର କରିପାରିବେ। ହୋମ୍ ସ୍କ୍ରିନକୁ ଯାଇ, ସାଧାରଣ ଭାବେ ହୋମ୍ ବଟନ୍ ଦୃଶ୍ୟମାନ ହେଉଥିବା ଅଞ୍ଚଳ ଜୋରରେ ଦବାନ୍ତୁ।</string>
     <string name="done_label">ସମାପ୍ତ</string>
     <string name="hour_picker_description">ଆନାଲଗ୍ ଘଣ୍ଟା ପିକର୍</string>
     <string name="minute_picker_description">ଆନାଲଗ୍ ମିନିଟ୍ ପିକର୍</string>
@@ -885,6 +889,11 @@
     <string name="batt_cooldown_mode_attention">ଆପ୍ଲିକେସନ୍‌ ବନ୍ଦ</string>
     <string name="batt_cooldown_mode_attentions">ଆପସ୍ ବନ୍ଦ</string>
     <string name="batt_cooldown_mode_ok">ଓକେ</string>
+    <string name="overheat_limit_warning_title">ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି</string>
+    <string name="overheat_limit_warning">ଆପଣଙ୍କ ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ତୁରନ୍ତ ଏହି ଆପ୍ଲିକେସନ୍ ବନ୍ଦ କରନ୍ତୁ। 1 ମିନିଟରେ %s ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବନ୍ଦ ହେବ, ଏବଂ ଯେକୌଣସି ଅସଞ୍ଚିତ ଡାଟା ହରାଇବେ।</string>
+    <string name="overheat_limit_closed_title">ଆପ୍ଲିକେସନ୍‌ ବନ୍ଦ</string>
+    <string name="overheat_limit_closed">%1$s ବନ୍ଦ ହୋଇଛି। ଆପଣଙ୍କ ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ଆପଣଙ୍କ ଫୋନ୍ ଥଣ୍ତା ହେବା ପରେ ପୁନଃ %2$s ବ୍ୟବହାର କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="overheat_limit_ok">ଓକେ</string>
     <string name="restart_confirm">ଏହି ଡିଭାଇସ ପୁନଃଆରମ୍ଭ ହେବ।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1335,6 +1344,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX ଷ୍ଟେସନକୁ ସଂଯୋଜିତ ଥିବା ସମୟରେ Bixby ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ।</string>
     <string name="conventional_mode_recent_noti">ଆପଣ ସମ୍ପ୍ରତି ଆପ୍ଲିକେସନ୍ ସ୍କ୍ରିନରେ ଆଇକନ୍ ସମ୍ପ୍ରସାରଣ ଟ୍ୟାପ୍ କରି ଏହି ଆପ୍ଲିକେସନକୁ ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନରେ ଦର୍ଶନ କରିପାରିବେ।</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">ପୂର୍ବବର୍ତ୍ତୀ ଆସପେକ୍ଟ ହାରକୁ ଫେରିବାକୁ, ସେଟିଂସ୍ > ପ୍ରଦର୍ଶନ > ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍ ଆପସକୁ ଯାଆନ୍ତୁ।</string>
+    <string name="conventional_mode_tap_here_to_fill">ସମଗ୍ର ସ୍କ୍ରିନ୍ ପୂର୍ଣ୍ଣ କରିବାକୁ ଏଠାରେ ଟ୍ୟାପ୍</string>
     <string name="permlab_knoxCustomSetting">ଡିଭାଇସ୍ ସେଟିଂସ୍ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="permdesc_knoxCustomSetting">ଡିଭାଇସ୍ ସେଟିଂସ୍, ଯେପରି ବ୍ଲୁଟୁଥ୍, ଅବସ୍ଥାନ, Wi-Fi, ମୋବାଇଲ୍ ଡାଟା, ଏବଂ ଆଣ୍ଡ୍ରୋଏଡ୍ ସେଟିଂସ୍ କନଫିଗର୍ କରନ୍ତୁ।</string>
     <string name="permlab_knoxCustomSystem">ସିଷ୍ଟମ୍ ସେଟିଂସ୍ ପରିଚାଳନା</string>
@@ -1704,4 +1714,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB ମାଧ୍ୟମରେ ସଂଯୋଜିତ ଡିଭାଇସ୍ ଚାର୍ଜିଂ ହେଉଛି…</string>
     <string name="lacking_filenode_internal_storage_view_title">ଫାଇଲ୍ ସିଷ୍ଟମ୍ ସୀମା</string>
     <string name="lacking_filenode_internal_storage_view_text">ଆପଣଙ୍କ ଫୋନରେ ବହୁତ ଅଧିକ ଫାଇଲ୍ ସୃଷ୍ଟି ହୋଇଛି। ଆପସ୍ ସଠିକ୍ ଭାବେ କାର୍ଯ୍ୟ କରିବା ସ୍ଥଗିତ କରିପାରେ ଏବଂ ଆପଣଙ୍କ ଫୋନ୍ ଆଉ ଅଧିକ ଆରମ୍ଭ ହେବ ନାହିଁ। ଯେକୌଣସି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ଡାଟା ବ୍ୟାକ୍ ଅପ୍ ନେଇ ଆପଣଙ୍କ ଫୋନର ଫ୍ୟାକ୍ଟୋରୀ ପୁନଃସେଟ୍ କରନ୍ତୁ।</string>
+    <string name="lock_to_app_toast_for_navibar">ଆପ୍ଲିକେସନ୍ ଅନପିନ୍‌ କରିବାକୁ‌, ସମାନ ସମୟରେ ସମ୍ପ୍ରତି ଏବଂ ବ୍ୟାକ୍ ବଟନ ଦବାନ୍ତୁ ଏବଂ ଧରି ରଖନ୍ତୁ।</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

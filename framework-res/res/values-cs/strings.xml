@@ -1315,6 +1315,10 @@ Zkuste to znovu za %2$d sekund."</string>
     <string name="sec_next_button_label">Další</string>
     <string name="sec_immersive_cling_step_one">Potažením od dolní strany telefonu zobrazíte tlačítka Domů, Zpět a Poslední.</string>
     <string name="sec_immersive_cling_step_two">Tlačítko Domů můžete používat, i když je skryté. Silným stisknutím dolního středu telefonu přejdete na Domovskou obrazovku.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Používáte celoobrazovkový režim. Tlačítka Domů, Zpět a Poslední jsou skrytá, aby vás nerušila a aby se zabránilo náhodnému opuštění aplikace.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Tlačítka znovu zobrazíte potažením směrem dovnitř od okraje obrazovky v místě, kde jsou tlačítka normálně zobrazená.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Za chvíli se tlačítka znovu zobrazí.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Tlačítko Domů můžete používat i když je skryté. Chcete-li přejít na Domovskou obrazovku, silně stiskněte oblast obrazovky, kde se normálně nachází tlačítko Domů.</string>
     <string name="done_label">Hot.</string>
     <string name="hour_picker_description">Analogový výběr hodin</string>
     <string name="minute_picker_description">Analogový výběr minut</string>
@@ -1585,6 +1589,11 @@ příkaz"</string>
     <string name="batt_cooldown_mode_attention">Aplikace ukončena</string>
     <string name="batt_cooldown_mode_attentions">Aplikace ukončeny</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon se přehřívá</string>
+    <string name="overheat_limit_warning">Telefon se přehřívá. Okamžitě ukončete aplikaci. Aplikace %s bude automaticky ukončena za 1 minutu a veškerá neuložená data budou ztracena.</string>
+    <string name="overheat_limit_closed_title">Aplikace ukončena</string>
+    <string name="overheat_limit_closed">Aplikace %1$s byla ukončena. Telefon se přehřívá. Aplikaci %2$s použijte znovu až telefon vychladne.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Zařízení bude restartováno.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2037,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Během připojení ke Stanici DeX nelze použít Bixby.</string>
     <string name="conventional_mode_recent_noti">Aplikaci zobrazíte na celé obrazovce klepnutím na ikonu Rozbalit na obrazovce Poslední aplikace.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Pro obnovení předchozího poměru stran použijte Nastavení > Displej > Aplikace na celou obrazovku.</string>
+    <string name="conventional_mode_tap_here_to_fill">Klepnutím sem vyplníte celou obrazovku</string>
     <string name="permlab_knoxCustomSetting">Správa nastavení zařízení</string>
     <string name="permdesc_knoxCustomSetting">Umožňuje nakonfigurovat nastavení zařízení, například nastavení Bluetooth, Poloha, Wi-Fi, Mobilní data a Android.</string>
     <string name="permlab_knoxCustomSystem">Správa nastavení systému</string>
@@ -2412,4 +2422,6 @@ Když je zapnutý Maximální úsporný režim, funkce USB mohou být omezené."
     <string name="charging_connected_via_usb">Nabíjení připojeného zařízení prostřednictvím USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limit systému souborů</string>
     <string name="lacking_filenode_internal_storage_view_text">V telefonu bylo vytvořeno příliš mnoho souborů. Aplikace mohou přestat správně fungovat a telefon se již nemusí spustit. Zálohujte všechna důležitá data a obnovte výrobní nastavení telefonu.</string>
+    <string name="lock_to_app_toast_for_navibar">Chcete-li aplikaci odepnout, současně se dotkněte tlačítek Poslední a Zpět a přidržte je.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

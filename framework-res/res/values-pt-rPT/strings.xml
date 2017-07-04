@@ -1315,6 +1315,10 @@ Tente novamente dentro de %2$d segundos."</string>
     <string name="sec_next_button_label">Seguinte</string>
     <string name="sec_immersive_cling_step_one">Deslize a partir da parte inferior do telefone, para ver os Botões principal, de retrocesso e de aplicações recentes.</string>
     <string name="sec_immersive_cling_step_two">Pode utilizar o Botão principal mesmo quando estiver oculto. Prima a área central inferior do telefone para aceder ao Ecrã principal.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Está a utilizar o modo de ecrã inteiro. Os Botões principal, de retrocesso e de aplicações recentes estão ocultados, para minimizar as distracções visuais e impedir que saia da aplicação acidentalmente.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Pode visualizar os botões novamente, deslizando para dentro a partir da parte lateral do ecrã onde normalmente são mostrados os botões.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Passado algum tempo, os botões irão desaparecer novamente.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Pode utilizar o Botão principal mesmo quando estiver oculto. Para aceder ao Ecrã principal, prima a área do ecrã onde aparece geralmente o Botão principal.</string>
     <string name="done_label">Concluir</string>
     <string name="hour_picker_description">Selector de hora analógico</string>
     <string name="minute_picker_description">Selector de minutos analógico</string>
@@ -1585,6 +1589,11 @@ aéreo"</string>
     <string name="batt_cooldown_mode_attention">Aplicação fechada</string>
     <string name="batt_cooldown_mode_attentions">Aplicações fechadas</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Sobreaquecimento telefone</string>
+    <string name="overheat_limit_warning">O seu telefone está a sobreaquecer. Feche esta aplicação imediatamente. %s será fechado automaticamente dentro de 1 minuto e os dados não guardados serão perdidos.</string>
+    <string name="overheat_limit_closed_title">Aplicação fechada</string>
+    <string name="overheat_limit_closed">%1$s fechado. O seu telefone está a sobreaquecer. Tende utilizar %2$s novamente depois de o telefone ter arrefecido.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">O dispositivo será reiniciado.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2037,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Impossível utilizar a Bixby durante a ligação a DeX Station.</string>
     <string name="conventional_mode_recent_noti">Pode ver esta aplicação em ecrã inteiro, tocando no ícone Expandir no ecrã Aplicações recentes.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Para voltar para a relação de visualização anterior, aceda a Definições > Apresentação > Aplicações de ecrã inteiro.</string>
+    <string name="conventional_mode_tap_here_to_fill">Tocar aqui para preencher todo o ecrã</string>
     <string name="permlab_knoxCustomSetting">Gerir definições do dispositivo</string>
     <string name="permdesc_knoxCustomSetting">Configurar definições do dispositivo, como Bluetooth, Localização, Wi-Fi, Dados móveis e Android.</string>
     <string name="permlab_knoxCustomSystem">Gerir definições de sistema</string>
@@ -2412,4 +2422,6 @@ As funções USB podem não estar restringidas quando o Modo de máxima economia
     <string name="charging_connected_via_usb">A carregar o dispositivo ligado via USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limite de sistema de ficheiros</string>
     <string name="lacking_filenode_internal_storage_view_text">Foram criados demasiados ficheiros no seu telefone. As aplicações podem deixar de funcionar correctamente e o seu telefone pode deixar de arrancar. Faça a cópia de segurança de todos os dados importantes e execute a reposição de fábrica do seu telefone.</string>
+    <string name="lock_to_app_toast_for_navibar">Para desafixar uma aplicação, toque sem soltar nos Botões de aplicações recentes e de retrocesso ao mesmo tempo.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

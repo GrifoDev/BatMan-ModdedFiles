@@ -679,6 +679,10 @@ Vuelva a intentarlo dentro de %2$d segundos."</string>
     <string name="sec_next_button_label">Siguiente</string>
     <string name="sec_immersive_cling_step_one">Deslice hacia arriba en el teléfono para mostrar los botones Inicio, Atrás y Aplicaciones recientes.</string>
     <string name="sec_immersive_cling_step_two">Puede usar el botón Inicio incluso cuando esté oculto. Pulse en el centro de la parte inferior del teléfono durante unos segundos para acceder a la pantalla Inicio.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Está usando el modo de pantalla completa. El botón Inicio y las teclas Atrás y Aplicaciones recientes se ocultan para minimizar las distracciones visuales y para impedir que cierre la aplicación de forma accidental.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Puede volver a mostrar los botones si desliza hacia adentro desde el borde de la pantalla donde normalmente aparecen los botones.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Transcurrido un momento, los botones desaparecerán de nuevo.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Puede usar el botón Inicio incluso cuando esté oculto. Para ir a la pantalla Inicio, pulse durante unos segundos el área de la pantalla donde normalmente aparece el botón Inicio.</string>
     <string name="done_label">Hecho</string>
     <string name="hour_picker_description">Selector de hora analógico</string>
     <string name="minute_picker_description">Selector de minuto analógico</string>
@@ -884,6 +888,11 @@ command"</string>
     <string name="batt_cooldown_mode_attention">Se ha cerrado una aplicación</string>
     <string name="batt_cooldown_mode_attentions">Se han cerrado aplicaciones</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Sobrecalentamiento del teléfono</string>
+    <string name="overheat_limit_warning">El teléfono se está sobrecalentando. Cierra la aplicación inmediatamente. %s se cerrará automáticamente en 1 minuto y se perderán todos los datos no guardados.</string>
+    <string name="overheat_limit_closed_title">Se ha cerrado una aplicación</string>
+    <string name="overheat_limit_closed">Se ha cerrado %1$s. El teléfono se está sobrecalentado. Espera que el teléfono se enfríe antes de volver a intentar usar %2$s.</string>
+    <string name="overheat_limit_ok">ACEPTAR</string>
     <string name="restart_confirm">Se reiniciará el dispositivo.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1336,6 +1345,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">No se puede usar Bixby mientras está conectado a la Base DeX.</string>
     <string name="conventional_mode_recent_noti">Puede ver esta aplicación en pantalla completa pulsando el icono de expandir de la pantalla Aplicaciones recientes.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Para volver a la relación de aspecto anterior, vaya a Ajustes > Pantalla > Aplicaciones a pantalla completa.</string>
+    <string name="conventional_mode_tap_here_to_fill">Pulsar aquí para llenar toda la pantalla</string>
     <string name="permlab_knoxCustomSetting">Administrar ajustes de dispositivo</string>
     <string name="permdesc_knoxCustomSetting">Configurar ajustes del dispositivo, como Bluetooth, Ubicación, Wi-Fi, Datos móviles y ajustes de Android.</string>
     <string name="permlab_knoxCustomSystem">Administrar ajustes de sistema</string>
@@ -1704,4 +1714,6 @@ Es posible que las funciones USB estén restringidas mientras el modo Ahorro de 
     <string name="charging_connected_via_usb">Cargando el dispositivo conectado mediante USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Límite de sistema de archivos</string>
     <string name="lacking_filenode_internal_storage_view_text">Se han creado demasiados archivos en el teléfono. Las aplicaciones pueden dejar de funcionar correctamente y es posible que el teléfono ya no se vuelva a encender. Realice una copia de seguridad de los datos importantes y restablezca el teléfono a los ajustes de fábrica.</string>
+    <string name="lock_to_app_toast_for_navibar">Para desenganchar la aplicación, mantenga pulsados los botones Aplicaciones recientes y Atrás al mismo tiempo.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

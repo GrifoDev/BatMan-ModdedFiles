@@ -1310,6 +1310,10 @@ Reyndu aftur eftir %2$d sekúndur."</string>
     <string name="sec_next_button_label">Áfram</string>
     <string name="sec_immersive_cling_step_one">Strjúktu upp frá neðsta hluta skjásins til birta hnappa fyrir heim, til baka og nýlegt.</string>
     <string name="sec_immersive_cling_step_two">Þú getur notað heimahnappinn, jafnvel þegar hann er falinn. Ýttu neðst á miðjan skjá símans til að opna heimaskjáinn.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Þú ert að nota allan skjáinn. Hnapparnir fyrir heim, til baka og nýlegt eru faldir til að draga úr truflunum og hindra að þú lokir óvart forritinu.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Þú getur sýnt hnappana aftur með því að strjúka frá brún skjásins inn að miðju hans þar sem hnapparnir birtast oftast.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Hnapparnir munu hverfa aftur eftir stutta stund.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Þú getur notað heimahnappinn, jafnvel þegar hann er falinn. Ýttu neðst á svæði skjásins þar sem heimahnappurinn birtist vanalega til að opna heimaskjáinn.</string>
     <string name="done_label">Lokið</string>
     <string name="hour_picker_description">Klukkustundavísir</string>
     <string name="minute_picker_description">Mínútuvísir</string>
@@ -1581,6 +1585,11 @@ skipun"</string>
     <string name="batt_cooldown_mode_attention">Forriti lokað</string>
     <string name="batt_cooldown_mode_attentions">Forritum lokað</string>
     <string name="batt_cooldown_mode_ok">Í lagi</string>
+    <string name="overheat_limit_warning_title">Síminn er að ofhitna</string>
+    <string name="overheat_limit_warning">Síminn þinn er að ofhitna. Lokaðu þessu forriti samstundis. „%s“ verður sjálfkrafa lokað eftir 1 mínútu og öll gögn sem ekki hafa verið vistuð munu glatast.</string>
+    <string name="overheat_limit_closed_title">Forriti lokað</string>
+    <string name="overheat_limit_closed">„%1$s“ var lokað vegna þess að síminn er að ofhitna. Prófaðu að nota „%2$s“ aftur þegar síminn hefur kólnað.</string>
+    <string name="overheat_limit_ok">Í LAGI</string>
     <string name="restart_confirm">Tækið verður endurræst.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2033,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Ekki er hægt að nota Bixby ef tækið er tengt við DeX-stöð.</string>
     <string name="conventional_mode_recent_noti">Hægt er að skoða þetta forrit á öllum skjánum með því að pikka á táknið „Stækka“ á skjánum fyrir nýleg forrit.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Opnaðu „Stillingar > Skjár > Forrit á öllum skjánum“ til að skipta aftur í fyrra myndhlutfall.</string>
+    <string name="conventional_mode_tap_here_to_fill">Pikkaðu hér til að fylla allan skjáinn</string>
     <string name="permlab_knoxCustomSetting">Stjórna tækjastillingum</string>
     <string name="permdesc_knoxCustomSetting">Stilltu tækjastillingar, t.d. stillingar fyrir Bluetooth, staðsetningu, Wi-Fi, farsímagögn og Android.</string>
     <string name="permlab_knoxCustomSystem">Stjórna kerfisstillingum</string>
@@ -2377,4 +2387,6 @@ USB-eiginleikar kunna að vera takmarkaðir á meðan kveikt er á hámarksorkus
     <string name="charging_connected_via_usb">Hleð tengt tæki um USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Kerfistakmörk skráar</string>
     <string name="lacking_filenode_internal_storage_view_text">Of margar skrár hafa verið búnar til í símanum. Forrit kunna að hætta að virka rétt og hugsanlega ræsir síminn sig ekki lengur. Taktu afrit af öllum mikilvægum gögnum og núllstilltu símann.</string>
+    <string name="lock_to_app_toast_for_navibar">Til að losa forrit skaltu halda fingri á takkanum fyrir nýlegt og bakktakkanum á sama tíma.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

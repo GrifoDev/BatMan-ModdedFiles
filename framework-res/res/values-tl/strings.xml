@@ -1315,6 +1315,10 @@ Subukang muli pagkatapos ng %2$d segundo."</string>
     <string name="sec_next_button_label">Susunod</string>
     <string name="sec_immersive_cling_step_one">Mag-swipe mula sa ibaba ng telepono para ipakita ang mga button na Home, Back at Recents.</string>
     <string name="sec_immersive_cling_step_two">Magagamit mo ang Home button kahit na nakatago ito. I-hard press ang ibabang-gitna ng telepono mo para pumunta sa Home screen.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Ginagamit mo ang full screen mode. Nakatago ang Home, Back at Recents button para i-minimize ang mga nakikitang sagabal at para mapigilan kang aksidenteng umalis ng app.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Maipapakita mo muli ang mga button sa pamamagitan ng pag-swipe papasok mula sa gilid ng screen kung saan karaniwang lumilitaw ang mga button.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Pagkaraan ng ilang sandali, muling mawawala ang mga button.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Magagamit mo ang Home button kahit na nakatago ito. Para pumunta sa Home screen, pindutin nang mariin ang lugar kung saan karaniwang lumilitaw ang Home button.</string>
     <string name="done_label">Tapos na</string>
     <string name="hour_picker_description">Tagapili ng analog na oras</string>
     <string name="minute_picker_description">Tagapili ng analog na minuto</string>
@@ -1586,6 +1590,11 @@ command"</string>
     <string name="batt_cooldown_mode_attention">Isinara ang app</string>
     <string name="batt_cooldown_mode_attentions">Isinara ang mga app</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Nag-o-overheat ang telepono</string>
+    <string name="overheat_limit_warning">Nag-o-overheat ang telepono mo. Isara agad ang app na ito. Awtomatikong isasara ang %s sa loob ng 1 minuto at mawawala ang anumang hindi naka-save na data.</string>
+    <string name="overheat_limit_closed_title">Isinara ang app</string>
+    <string name="overheat_limit_closed">Nagsara ang %1$s. Nag-o-overheat ang telepono mo. Muling subukan ang %2$s pagkatapos lumamig ng telepono mo.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Magre-restart ang device.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Hindi magagamit ang Bixby habang nakakonekta sa DeX Station.</string>
     <string name="conventional_mode_recent_noti">Matitingnan mo ang app na ito nang full screen sa pag-tap ng Expand icon sa Recent apps screen.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Para ibalik ang naunang aspect ratio, pumunta sa Settings > Display > Full screen apps.</string>
+    <string name="conventional_mode_tap_here_to_fill">I-tap dito para punan ang buong screen</string>
     <string name="permlab_knoxCustomSetting">Pamahalaan ang mga setting ng device</string>
     <string name="permdesc_knoxCustomSetting">I-configure ang mga setting ng device, gaya ng Bluetooth, Location, Wi-Fi, Mobile data at mga setting ng Android.</string>
     <string name="permlab_knoxCustomSystem">Pamahalaan ang mga setting ng system</string>
@@ -2413,4 +2423,6 @@ Maaaring pagbawalan ang mga function ng USB habang naka-on ang Maximum power sav
     <string name="charging_connected_via_usb">China-charge ang nakakonektang device gamit ang USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limit ng file system</string>
     <string name="lacking_filenode_internal_storage_view_text">Napakaraming file ang nalikha sa telepono mo. Maaaring huminto sa paggana nang wasto ang mga app at maaaring hindi na mag-start up ang telepono mo. I-back up ang anumang importanteng data at i-factory reset ang telepono mo.</string>
+    <string name="lock_to_app_toast_for_navibar">Para i-unpin ang app, i-touch at i-hold ang Recents at Back button nang sabay.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

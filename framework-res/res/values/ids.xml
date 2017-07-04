@@ -238,22 +238,26 @@
     <item type="id" name="new_app_description">false</item>
     <item type="id" name="icon_menu">false</item>
     <item type="id" name="port_help_step_one">false</item>
+    <item type="id" name="port_help_text_step_one">false</item>
     <item type="id" name="port_help_button_next">false</item>
     <item type="id" name="port_image_circ_arrow">false</item>
     <item type="id" name="port_circ_arrow_up">false</item>
     <item type="id" name="port_help_step_two">false</item>
+    <item type="id" name="port_help_text_step_two">false</item>
     <item type="id" name="port_ok">false</item>
     <item type="id" name="port_image_icon_circ">false</item>
     <item type="id" name="land_help_step_one">false</item>
     <item type="id" name="land_rot270_circ_arrow">false</item>
     <item type="id" name="land_circ_arrow_up_rot270">false</item>
     <item type="id" name="land_help_area_step_one">false</item>
+    <item type="id" name="land_help_text_step_one">false</item>
     <item type="id" name="land_help_button_next">false</item>
     <item type="id" name="land_rot90_circ_arrow">false</item>
     <item type="id" name="land_circ_arrow_up_rot90">false</item>
     <item type="id" name="land_help_step_two">false</item>
     <item type="id" name="land_rot270_icon_circ">false</item>
     <item type="id" name="land_help_area_step_two">false</item>
+    <item type="id" name="land_help_text_step_two">false</item>
     <item type="id" name="land_ok">false</item>
     <item type="id" name="land_rot90_icon_circ">false</item>
     <item type="id" name="fullscreenArea">false</item>

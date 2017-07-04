@@ -1310,6 +1310,10 @@ Téntao de novo en %2$d segundos."</string>
     <string name="sec_next_button_label">Seguinte</string>
     <string name="sec_immersive_cling_step_one">Pasa o dedo desde a parte inferior do teléfono para mostrar os botóns Inicio, Atrás e Recentes.</string>
     <string name="sec_immersive_cling_step_two">Podes utilizar o botón Inicio aínda que estea oculto. Preme con forza a parte inferior central do teléfono para ir á pantalla Inicio.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Estás utilizando o modo de pantalla completa. Os botóns Inicio, Atrás e Recentes ocúltanse para minimizar as distraccións visuais e para evitar que abandones a aplicación accidentalmente.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Podes volver mostrar os botóns pasando o dedo cara a dentro desde o bordo da pantalla no que normalmente aparecen os botóns.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Despois duns intres, os botóns volverán desaparecer.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Podes utilizar o botón Inicio aínda que estea oculto. Para ir á pantalla Inicio, preme con forza a parte da pantalla na que se atopa normalmente o botón Inicio.</string>
     <string name="done_label">Feito</string>
     <string name="hour_picker_description">Selector de hora analóxico</string>
     <string name="minute_picker_description">Selector de minuto analóxico</string>
@@ -1581,6 +1585,11 @@ command"</string>
     <string name="batt_cooldown_mode_attention">Aplicación pechada</string>
     <string name="batt_cooldown_mode_attentions">Aplicacións pechadas</string>
     <string name="batt_cooldown_mode_ok">Aceptar</string>
+    <string name="overheat_limit_warning_title">Teléfono demasiado quente</string>
+    <string name="overheat_limit_warning">O teléfono está demasiado quente. Pecha esta aplicación inmediatamente. %s pecharase automaticamente dentro de 1 minuto e os datos sen gardar perderanse.</string>
+    <string name="overheat_limit_closed_title">Aplicación pechada</string>
+    <string name="overheat_limit_closed">Pechouse %1$s. O teléfono está demasiado quente. Tenta volver usar %2$s cando arrefríe o teléfono.</string>
+    <string name="overheat_limit_ok">ACEPTAR</string>
     <string name="restart_confirm">O dispositivo reiniciarase.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2033,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Non se pode usar Bixby mentres estás conectado a DeX Station.</string>
     <string name="conventional_mode_recent_noti">Podes ver esta aplicación en pantalla completa tocando a icona Expandir na pantalla Aplicacións recentes.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Para volver á relación de aspecto anterior, vai a Axustes > Pantalla > Aplicacións en pantalla completa.</string>
+    <string name="conventional_mode_tap_here_to_fill">Toca aquí para encher a pantalla completa</string>
     <string name="permlab_knoxCustomSetting">Xestionar axustes do dispositivo</string>
     <string name="permdesc_knoxCustomSetting">Configura os axustes do dispositivo, como o Bluetooth, Localización, Wi-Fi, Datos móbiles e Axustes de Android.</string>
     <string name="permlab_knoxCustomSystem">Xestionar axustes do sistema</string>
@@ -2377,4 +2387,6 @@ VOLVE A"</string>
     <string name="charging_connected_via_usb">Cargando o dispositivo conectado a través de USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Límite do sistema de arquivos</string>
     <string name="lacking_filenode_internal_storage_view_text">Creáronse demasiados arquivos no teléfono. É posible que as aplicacións deixen de funcionar correctamente e que o teléfono non se volva acender. Fai unha copia de seguridade dos datos importantes e restablece os axustes de fábrica do teléfono.</string>
+    <string name="lock_to_app_toast_for_navibar">Para quitar unha aplicación, mantén tocados os botóns Recentes e Atrás ao mesmo tempo.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

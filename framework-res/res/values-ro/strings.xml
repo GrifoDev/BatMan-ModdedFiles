@@ -1315,6 +1315,10 @@ Accesați "<b>google.com/accounts/recovery</b>.</string>
     <string name="sec_next_button_label">Înainte</string>
     <string name="sec_immersive_cling_step_one">Glisați din partea de jos a telefonului pentru a afișa butoanele Acasă, Înapoi și Aplicații recente.</string>
     <string name="sec_immersive_cling_step_two">Puteți utiliza butonul Acasă chiar dacă este ascuns. Apăsați puternic butonul din centrul telefonului pentru a accesa ecranul Acasă.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Utilizați modul Ecran complet. Butoanele Acasă, Înapoi și Aplicații recente sunt ascunse pentru a reduce la minimum distragerea atenției și a vă împiedica să ieșiți accidental din aplicație.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Puteți să afișați in nou butoanele glisând spre interior din marginea ecranului, acolo unde apar butoanele în mod normal.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">După o perioadă, butoanele vor dispărea din nou.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Puteți utiliza butonul Acasă chiar dacă acesta este ascuns. Pentru a accesa ecranul Acasă, atingeți puternic zona ecranului în care apare butonul Acasă în mod normal.</string>
     <string name="done_label">Efectuat</string>
     <string name="hour_picker_description">Selector de oră analogic</string>
     <string name="minute_picker_description">Selector de minute analogic</string>
@@ -1585,6 +1589,11 @@ pe ecr."</string>
     <string name="batt_cooldown_mode_attention">Aplicație închisă</string>
     <string name="batt_cooldown_mode_attentions">Aplicații închise</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Supraîncălzire telefon</string>
+    <string name="overheat_limit_warning">Telefonul se supraîncălzește. Închideți această aplicație imediat. %s se va închide automat peste un minut și toate datele nesalvate se vor pierde.</string>
+    <string name="overheat_limit_closed_title">Aplicație închisă</string>
+    <string name="overheat_limit_closed">%1$s s-a închis. Telefonul dvs. se supraîncălzește. Încercați să utilizați %2$s din nou, după răcirea telefonului.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Dispozitivul va reporni.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2037,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Nu se poate utiliza serviciul Bixby în timp ce este conectat la Suportul DeX.</string>
     <string name="conventional_mode_recent_noti">Puteți vizualiza această aplicație pe ecran complet atingând pictograma Extindere de pe ecranul Aplicații recente.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Pentru a reveni la raportul de aspect anterior, accesați meniul Setări > Afișaje > Aplicații pe ecran complet.</string>
+    <string name="conventional_mode_tap_here_to_fill">Atingeți aici pentru a umple întregul ecran</string>
     <string name="permlab_knoxCustomSetting">Gestionare setări dispozitiv</string>
     <string name="permdesc_knoxCustomSetting">Configurați setările dispozitivului, cum ar fi cele pentru Bluetooth, Locație, Wi-Fi, Date mobile și cele pentru Android.</string>
     <string name="permlab_knoxCustomSystem">Gestionare setări de sistem</string>
@@ -2412,4 +2422,6 @@ Este posibil ca funcțiile USB să fie restricționate atunci când este pornit 
     <string name="charging_connected_via_usb">Dispozitivul conectat se încarcă prin USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limită sistem fișiere</string>
     <string name="lacking_filenode_internal_storage_view_text">Au fost create prea multe fișiere pe telefonul dvs. Este posibil ca aplicațiile să nu mai funcționeze corect și telefonul să nu mai pornească. Faceți backup tuturor datelor importante și resetați telefonul la valorile din fabrică.</string>
+    <string name="lock_to_app_toast_for_navibar">Pentru a anula fixarea unei aplicații, mențineți apăsate simultan butoanele Aplicații recente și Înapoi.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

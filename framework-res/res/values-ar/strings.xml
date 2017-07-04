@@ -1315,6 +1315,10 @@
     <string name="sec_next_button_label">التالي</string>
     <string name="sec_immersive_cling_step_one">اسحب من أسفل الهاتف لعرض أزرار الشاشة الرئيسية، والرجوع، والتطبيقات الأخيرة.</string>
     <string name="sec_immersive_cling_step_two">يمكنك استخدام زر الشاشة الرئيسية حتى إن كان مخفياً. اضغط بشدة أسفل الهاتف في المنتصف للانتقال إلى الشاشة الرئيسية.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">أنت تستخدم وضع ملء الشاشة. يتم إخفاء أزرار الشاشة الرئيسية والرجوع والتطبيقات الأخيرة لتقليل عوامل التشتيت البصرية إلى أدنى حد ولمنعك من مغادرة التطبيق من دون قصد.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">يمكنك إظهار الأزرار مجدداً عبر سحب الشاشة من الجانب نحو الداخل حيث تظهر الأزرار عادةً.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">سوف تختفي الأزرار مجدداً بعد فترة.</string>
+    <string name="sec_immersive_cling_help_text_step_two">يمكنك استخدام زر الشاشة الرئيسية حتى وهو مخفي. للانتقال إلى الشاشة الرئيسية، اضغط بشدة على المنطقة التي يظهر فيها زر الشاشة الرئيسية على الشاشة بشكل طبيعي.</string>
     <string name="done_label">تم</string>
     <string name="hour_picker_description">منتقي الساعات التناظري</string>
     <string name="minute_picker_description">منتقي الدقائق التناظري</string>
@@ -2037,6 +2041,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">يتعذر استخدام Bixby أثناء الاتصال بمحطة DeX.</string>
     <string name="conventional_mode_recent_noti">يمكنك عرض هذا التطبيق في وضع ملء الشاشة عبر النقر فوق الرمز توسيع على شاشة التطبيقات الأخيرة.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">للعودة إلى نسبة العرض إلى الارتفاع السابقة، انتقل إلى الضبط > شاشة العرض > تطبيقات ملء الشاشة.</string>
+    <string name="conventional_mode_tap_here_to_fill">النقر هنا لملء الشاشة بالكامل</string>
     <string name="permlab_knoxCustomSetting">إدارة ضبط الجهاز</string>
     <string name="permdesc_knoxCustomSetting">قم بتكوين إعدادات الجهاز، مثل البلوتوث والموقع وWi-Fi وبيانات الهاتف المحمول وإعدادات Android.</string>
     <string name="permlab_knoxCustomSystem">إدارة ضبط النظام</string>
@@ -2412,4 +2417,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">جارِ شحن الجهاز المتصل عبر USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">حد نظام الملفات</string>
     <string name="lacking_filenode_internal_storage_view_text">تم إنشاء الكثير من الملفات على هاتفك. قد تتوقف التطبيقات عن العمل بشكل صحيح وقد لا يتم بدء تشغيل هاتفك بعد الآن. انسخ أي بيانات مهمة احتياطياً وأعد ضبط هاتفك على ضبط المصنع.</string>
+    <string name="lock_to_app_toast_for_navibar">لإلغاء تثبيت تطبيق، المس مع الاستمرار على زري التطبيقات الأخيرة والرجوع في الوقت نفسه.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

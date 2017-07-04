@@ -1311,6 +1311,10 @@ Tente novamente dentro de %2$d segundos."</string>
     <string name="sec_next_button_label">Avançar</string>
     <string name="sec_immersive_cling_step_one">Deslize a parte inferior da tela para exibir os botões virtuais Início, Voltar e Aplicativos recentes.</string>
     <string name="sec_immersive_cling_step_two">Você pode usar o botão Início mesmo enquanto ele estiver oculto. Pressione a parte central inferior do seu telefone por alguns minutos para ir para a Tela inicial.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Você estava usando o modo de tela cheia. Os botões Início, Voltar e Aplicativos recentes ficam ocultos para minimizar as distrações visuais e para impedir que você saia do aplicativo acidentalmente.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Você pode exibir os botões novamente deslizando para dentro a partir da borda da tela onde os botões são normalmente exibidos.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Depois de um tempo, os botões desaparecerão novamente.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Você pode usar o botão Início mesmo enquanto ele estiver oculto. Para ir até a Tela inicial, pressione por alguns segundos a área da tela em que o botão Início é exibido normalmente.</string>
     <string name="done_label">OK</string>
     <string name="hour_picker_description">Seletor analógico de hora</string>
     <string name="minute_picker_description">Seletor analógico de minuto</string>
@@ -1320,7 +1324,7 @@ Tente novamente dentro de %2$d segundos."</string>
     <string name="select_year">Selecionar ano.</string>
     <string name="deleted_key">%s excluído.</string>
     <string name="managed_profile_label_badge">Trabalho: %1$s</string>
-    <string name="lock_to_app_toast">Para desmarcar o aplicativo, mantenha pressionada as teclas Aplicativos recentes e Voltar ao mesmo tempo.</string>
+    <string name="lock_to_app_toast">Para desafixar o aplicativo, mantenha pressionadas as Teclas Aplicações recentes e Voltar simultaneamente.</string>
     <string name="lock_to_app_toast_accessible">Para desmarcar o aplicativo, mantenha pressionada a Tecla Aplicativos recentes.</string>
     <string name="lock_to_app_toast_locked">Modo Bloquear para aplicativo foi ativado.</string>
     <string name="lock_to_app_start">Aplicativo marcado.</string>
@@ -1582,6 +1586,11 @@ susp."</string>
     <string name="batt_cooldown_mode_attention">Aplicativo fechado</string>
     <string name="batt_cooldown_mode_attentions">Aplicativos fechados</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Aquecimento do telefone</string>
+    <string name="overheat_limit_warning">Seu telefone está aquecendo. Feche este aplicativo imediatamente. %s será fechado automaticamente em 1 minuto, e os dados não salvos serão perdidos.</string>
+    <string name="overheat_limit_closed_title">Aplicativo fechado</string>
+    <string name="overheat_limit_closed">O %1$s foi fechado. Seu telefone está aquecendo. Tente usar %2$s novamente depois que o telefone esfriar.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">O dispositivo será reiniciado.</string>
     <string name="tw_reboot_safemode_title_vzw">Reiniciar no Modo seguro</string>
     <string name="tw_reboot_safemode_confirm_vzw">Deseja reiniciar o telefone no Modo seguro? No Modo seguro, os aplicativos que não foram fornecidos com o telefone ficarão temporariamente desativados para ajudá-lo a solucionar problemas do telefone. Na próxima vez que você reiniciar o telefone, o Modo seguro será desativado e seus aplicativos ficarão disponíveis novamente.</string>
@@ -2034,6 +2043,7 @@ Ativar o Modo offline?"</string>
     <string name="bixby_edgecase_dexstation">Não é possível usar o Bixby enquanto estiver conectado ao DeX Station.</string>
     <string name="conventional_mode_recent_noti">Você pode visualizar este aplicativo em tela cheia tocando no ícone Expandir na Tela de aplicativos recentes.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Para voltar para a proporção anterior, vá para Configurações > Visor > Aplicativos em tela cheia.</string>
+    <string name="conventional_mode_tap_here_to_fill">Tocar aqui para preencher a tela inteira</string>
     <string name="permlab_knoxCustomSetting">Gerenciar configurações do aparelho</string>
     <string name="permdesc_knoxCustomSetting">Defina as configurações do aparelho, como Bluetooth, Localização, Wi-Fi, Dados móveis e configurações do Android.</string>
     <string name="permlab_knoxCustomSystem">Gerenciar configurações do sistema</string>
@@ -2405,6 +2415,8 @@ As funções USB poderão ficar restritas quando o Modo economia máxima estiver
     <string name="charging_connected_via_usb">Carregando o aparelho conectado via USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limite do sistema de arquivos</string>
     <string name="lacking_filenode_internal_storage_view_text">Muitos arquivos foram criados no seu telefone. Os aplicativos podem parar de funcionar corretamente e seu telefone pode não inicializar mais. Faça backup de quaisquer dados importantes e restaure seu telefone para o padrão de fábrica.</string>
+    <string name="lock_to_app_toast_for_navibar">Para desafixar o aplicativo, mantenha pressionados os botões Aplicações recentes e Voltar simultaneamente.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="multisound_hun_title">Alterar apar. principal de saída de áudio?</string>
     <string name="multisound_hun_contents">O aparelho de áudio selecionado para este aplicativo (%1$s) é igual ao aparelho de saída de áudio principal (%2$s). Para separar o som deste aplicativo, o aparelho de saída de áudio principal precisa ser alterado para %3$s.</string>
     <string name="multisound_hun_close">Fechar</string>

@@ -1310,6 +1310,10 @@
     <string name="sec_next_button_label">അടുത്തത്</string>
     <string name="sec_immersive_cling_step_one">ഹോം, ബാക്ക്, സമീപകാലങ്ങൾ തുടങ്ങിയ ബട്ടണുകൾ കാണിക്കുന്നതിന് ഫോണിന്‍റെ താഴ്ഭാഗത്തുനിന്ന് സ്വൈപ് ചെയ്യുക.</string>
     <string name="sec_immersive_cling_step_two">ഹോം ബട്ടൺ അത് മറയ്ക്കപ്പെട്ടിരിക്കുന്ന സമയത്ത് പോലും നിങ്ങൾക്ക് ഉപയോഗിക്കാം. ഹോം സ്ക്രീനിലേക്ക് പോവുന്നതിന് നിങ്ങളുടെ ഫോണിന്‍റെ താഴ്ഭാഗ മധ്യത്തിൽ ദൃഢമായി അമർത്തുക.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">നിങ്ങൾ പൂർണ്ണ സ്ക്രീൻ മോഡാണ് ഉപയോഗിക്കുന്നത്. ദൃശ്യ തടസങ്ങൾ കുറച്ച് ആകസ്മികമായി നിങ്ങൾ ആപ്ലിക്കേഷൻ വിട്ടുപോരുന്നത് തടയാനായി ഹോം, ബാക്ക്, സമീപകാല ബട്ടണുകൾ മറയ്ക്കപ്പെടുന്നു.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">ബട്ടണുകൾ സാധാരണ ദൃശ്യമാകുന്ന സ്ക്രീനിന്‍റെ അരുകിൽ നിന്ന് ഉൾഭാഗത്തേക്ക് സ്വൈപ് ചെയ്ത് നിങ്ങൾക്ക് ബട്ടണുകൾ വീണ്ടും കാണിക്കാവുന്നതാണ്.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">അൽപ്പം കഴിഞ്ഞ്, ബട്ടണുകൾ വീണ്ടും അപ്രത്യക്ഷമാവും.</string>
+    <string name="sec_immersive_cling_help_text_step_two">ഹോം ബട്ടൺ അത് മറയ്ക്കപ്പെട്ടിരിക്കുന്ന സമയത്ത് പോലും നിങ്ങൾക്ക് ഉപയോഗിക്കാം. ഹോം സ്ക്രീനിലേക്ക് പോവുന്നതിന്, സ്ക്രീനിൽ ഹോം ബട്ടൺ സാധാരണ ദൃശ്യമാകുന്ന ഭാഗത്ത് ദൃഢമായി സ്പർശിക്കുക.</string>
     <string name="done_label">ചെയ്തു</string>
     <string name="hour_picker_description">അനലോഗ് മണിക്കൂർ പിക്കർ</string>
     <string name="minute_picker_description">അനലോഗ് മിനിറ്റ് പിക്കർ</string>
@@ -1580,6 +1584,11 @@
     <string name="batt_cooldown_mode_attention">ആപ്ലിക്കേഷൻ അടച്ചു</string>
     <string name="batt_cooldown_mode_attentions">ആപ്ലിക്കേഷനുകൾ അടച്ചു</string>
     <string name="batt_cooldown_mode_ok">ശരി</string>
+    <string name="overheat_limit_warning_title">ഫോൺ അമിതമായി ചൂടാവുന്നു</string>
+    <string name="overheat_limit_warning">നിങ്ങളുടെ ഫോൺ അമിതമായി ചൂടാവുന്നുണ്ട്. ഉടനെ ഈ ആപ്ലിക്കേഷൻ അടയ്ക്കുക. 1 മിനിറ്റ് കഴിഞ്ഞാൽ %s ഓട്ടോമാറ്റിക്കായി അടയ്ക്കുകയും സംരക്ഷിക്കാത്ത ഏതെങ്കിലും ഡാറ്റയുണ്ടെങ്കിൽ നഷ്ടപ്പെടുകയും ചെയ്യും.</string>
+    <string name="overheat_limit_closed_title">ആപ്ലിക്കേഷൻ അടച്ചു</string>
+    <string name="overheat_limit_closed">%1$s അടച്ചു. നിങ്ങളുടെ ഫോൺ അമിതമായി ചൂടാവുന്നുണ്ട്. നിങ്ങളുടെ ഫോൺ തണുത്തുകഴിഞ്ഞാൽ %2$s വീണ്ടും ഉപയോഗിക്കാൻ ശ്രമിക്കുക.</string>
+    <string name="overheat_limit_ok">ശരി</string>
     <string name="restart_confirm">ഉപകരണം പുനരാരംഭിക്കുക.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2030,6 +2039,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX സ്റ്റേഷനിൽ ബന്ധിപ്പിച്ച സമയത്ത് Bixby ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="conventional_mode_recent_noti">സമീപകാല ആപ്ലിക്കേഷൻ സ്ക്രീനിലെ വിപുലീകരിക്കുക ഐക്കണിൽ സ്പർശിച്ച് ഈ ആപ്ലിക്കേഷനെ നിങ്ങൾക്ക് പൂർണ്ണ സ്ക്രീനിൽ കാണാവുന്നതാണ്.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">മുമ്പത്തെ വീക്ഷണ അനുപാതത്തിലേക്ക് മടങ്ങുന്നതിന്, ക്രമീകരണങ്ങൾ > ഡിസ്പ്ലേ > പൂർണ്ണ സ്ക്രീൻ ആപ്ലിക്കേഷനുകൾ എന്നിവയിലേക്ക് പോവുക.</string>
+    <string name="conventional_mode_tap_here_to_fill">മുഴുവൻ സ്ക്രീനും ഫിൽ ചെയ്യാൻ ഇവിടെ സ്പർശിക്കുക</string>
     <string name="permlab_knoxCustomSetting">ഉപകരണ ക്രമീകരണങ്ങൾ മാനേജ് ചെയ്യുക</string>
     <string name="permdesc_knoxCustomSetting">ബ്ലൂടൂത്ത്, ലൊക്കേഷൻ, Wi-Fi, മൊബൈൽ ഡാറ്റ, ആൻഡ്രോയ്ഡ് ക്രമീകരണങ്ങൾ തുടങ്ങിയ ഉപകരണ ക്രമീകരണങ്ങൾ കോൺഫിഗർ ചെയ്യുക.</string>
     <string name="permlab_knoxCustomSystem">സിസ്റ്റം ക്രമീകരണങ്ങൾ മാനേജ് ചെയ്യുക</string>
@@ -2374,4 +2384,6 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">ബന്ധിപ്പിച്ച ഉപകരണം USB വഴി ചാർജ്ജ് ചെയ്യുന്നു…</string>
     <string name="lacking_filenode_internal_storage_view_title">ഫയൽ സിസ്റ്റം പരിധി</string>
     <string name="lacking_filenode_internal_storage_view_text">നിങ്ങളുടെ ഫോണിൽ വളരെയേറെ ഫയലുകൾ സൃഷ്ടിക്കപ്പെട്ടു. ആപ്ലിക്കേഷനുകൾ ശരിയായി പ്രവർത്തിക്കുന്നത് നിർത്തിയേക്കാം, മാത്രമല്ല നിങ്ങളുടെ ഫോൺ ഇനി ആരംഭിച്ചില്ലെന്നുംവരാം. സുപ്രധാന ഡാറ്റ ഏതെങ്കിലുമുണ്ടെങ്കിൽ ബാക്കപ്പ് ചെയ്ത് നിങ്ങളുടെ ഫോണിൽ ഫാക്ടറി പുനഃക്രമീകരണം നിർവഹിക്കുക.</string>
+    <string name="lock_to_app_toast_for_navibar">ആപ്ലിക്കേഷന്‍ പിന്‍ ചെയ്തതു നീക്കം ചെയ്യുന്നതിന്, സമീപകാല, ബാക്ക് കീകൾ ഒരേ സമയം സ്പർശിച്ചുപിടിക്കുക.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

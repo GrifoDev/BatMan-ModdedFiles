@@ -1310,6 +1310,10 @@
     <string name="sec_next_button_label">اگلا</string>
     <string name="sec_immersive_cling_step_one">ہوم، بیک، اور حالیہ بٹنز کو دکھانے کے لیے فون کے نچلے حصہ سے سوائپ کریں۔</string>
     <string name="sec_immersive_cling_step_two">ہوم بٹن چھپا ہوا ہونے کے باوجود آپ اس کا استعمال کرسکتے ہیں۔ ہوم اسکرین پر جانے کے لیے اپنے فون کے نیچے سینٹر کو زور سے دبائیں۔</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">آپ پورے اسکرین موڈ کا استعمال کررہے ہیں۔ اتفاقی طورپر ایپلیکیشن کو چھوڑنے سے بچانے کے لیے اور بصری سمتیں منیمائز کرنے کے لیے ہوم، واپسی، اور حالیہ بٹنز کو چھپا دیے گئے ہیں۔</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">آپ اسکرین کے کنارے جہاں عام طورپر بٹنز ظاہر ہوتے ہیں سے اندر کی طرف سوائپ کرکے پھرسے بٹنز دکھا سکتے ہیں۔</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">تھوڑی دیر کے بعد، بٹنز دوبارہ غائب ہوجائے گا۔</string>
+    <string name="sec_immersive_cling_help_text_step_two">پوشیدہ ہونے کے باوجود بھی آپ ہوم بٹن کا استعمال کرسکتے ہیں۔ ہوم اسکرین پر جانے کے لیے، ہوم بٹن عام طورپر جہاں ظاہر ہوتا ہے اسکرین کے اس حصہ کو زور سے دبائیں۔</string>
     <string name="done_label">مکمل</string>
     <string name="hour_picker_description">اینالاگ گھنٹہ چنندہ</string>
     <string name="minute_picker_description">اینالاگ منٹ چنندہ</string>
@@ -1580,6 +1584,11 @@
     <string name="batt_cooldown_mode_attention">ایپلیکشن بند ہو گئی</string>
     <string name="batt_cooldown_mode_attentions">ایپلیکیشنز بند ہو گئیں</string>
     <string name="batt_cooldown_mode_ok">ٹھیک ہے</string>
+    <string name="overheat_limit_warning_title">فون زیادہ گرم ہوگیا</string>
+    <string name="overheat_limit_warning">آپ کا فون زیادہ گرم ہورہا ہے۔ یہ ایپلیکیشن فورا بند کریں۔ 1 منٹ میں %s خودکار طورپر بند ہوجائے گا، اور کوئی بھی غیر محفوظ ڈیٹا ضائع ہوجائے گا۔</string>
+    <string name="overheat_limit_closed_title">ایپلیکشن بند ہو گئی</string>
+    <string name="overheat_limit_closed">%1$s بند ہوگیا۔ آپ کا فون زیادہ گرم ہورہا ہے۔ آپ فون ٹھنڈا ہونے کے بعد %2$s کو دوبارہ استعمال کرنے کی کوشش کریں۔</string>
+    <string name="overheat_limit_ok">ٹھیک ہے</string>
     <string name="restart_confirm">آلہ دوبارہ چالو ہوجائے گا۔</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2030,6 +2039,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">‏DeX اسٹیشن سے مربوط ہونے پر Bixby استعمال نہیں کرسکتے۔</string>
     <string name="conventional_mode_recent_noti">موجودہ ایپلیکیشنز کی اسکرین پر پھیلائیں والی شبیہ کو تھپکی دے کر مکمل اسکرین میں یہ ایپلیکیشن آپ دیکھ سکتے ہیں۔</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">گزشتہ پہلو کے تناسب پر واپسی کے لیے، سیٹنگز > ڈسپلے > مکمل اسکرین ایپلیکیشنز پر جائیں۔</string>
+    <string name="conventional_mode_tap_here_to_fill">پوری اسکرین بھر نے کے لیے یہاں تھپکی دیں</string>
     <string name="permlab_knoxCustomSetting">آلہ کی سیٹنگز کا نظم کریں</string>
     <string name="permdesc_knoxCustomSetting">بلیوٹوتھ، مقام، Wi-Fi، موبائل ڈیٹا، اور Android سیٹنگز کی طرح، آلہ سیٹنگز کو ترتیب دیں۔</string>
     <string name="permlab_knoxCustomSystem">سسٹم کی سیٹنگز کا نظم کریں</string>
@@ -2374,4 +2384,6 @@ USB فنکشنز زیادہ سے زیادہ پاور بچت موڈ کے آن ہ�
     <string name="charging_connected_via_usb">‏USB کے ذریعہ مربوط آلہ چارج ہورہا ہے…</string>
     <string name="lacking_filenode_internal_storage_view_title">فائل کے سسٹم کی حد</string>
     <string name="lacking_filenode_internal_storage_view_text">آپ کے فون میں بہت سی فائلیں بنائی گئيں ہیں۔ ممکن ہے کہ ایپلیکیشنز صحیح طورپر کام کرنا روک دے اور آپ کا فون اب مزید اسٹارٹ نہیں ہوگا۔ کوئی بھی اہم ڈیٹا اور اپنے فون کے فیکٹری ری سیٹ کا بیک اپ لیں۔</string>
+    <string name="lock_to_app_toast_for_navibar">ایپلیکیشن کو ان پن کرنے کے لیے، حالیہ اور پیچھے کے بٹن کو ایک ہی ساتھ دبا کر ہولڈ کریں۔</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

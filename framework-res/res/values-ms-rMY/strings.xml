@@ -1311,6 +1311,10 @@ Cuba lagi dalam masa %2$d saat."</string>
     <string name="sec_next_button_label">Berikut</string>
     <string name="sec_immersive_cling_step_one">Sapu dari bawah telefon untuk menunjukkan butang Utama, Kembali dan Terkini.</string>
     <string name="sec_immersive_cling_step_two">Anda boleh menggunakan butang Utama walaupun ia disembunyikan. Tekan lama pada bahagian tengah bawah telefon anda untuk pergi ke Skrin utama.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Anda sedang menggunakan mod skrin penuh. Butang Utama, Kembali dan Terkini disembunyikan untuk meminimumkan gangguan visual dan mengelakkan anda meninggalkan aplikasi secara tidak sengaja.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Anda boleh menunjukkan butang sekali lagi dengan meleret ke dalam dari sisi skrin, iaitu tempat butang biasanya muncul.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Selepas seketika, butang akan hilang lagi.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Anda boleh menggunakan butang Utama walaupun butang ini tersembunyi. Untuk menuju ke Skrin utama, tekan kuat pada bahagian skrin yang biasanya menunjukkan butang Utama.</string>
     <string name="done_label">Selesai</string>
     <string name="hour_picker_description">Pemilih jam analog</string>
     <string name="minute_picker_description">Pemilih minit analog</string>
@@ -1582,6 +1586,11 @@ udara"</string>
     <string name="batt_cooldown_mode_attention">Aplikasi ditutup</string>
     <string name="batt_cooldown_mode_attentions">Aplikasi ditutup</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon terlampau panas</string>
+    <string name="overheat_limit_warning">Telefon anda terlampau panas. Tutup aplikasi ini serta merta. %s akan ditutup secara automatik dalam 1 minit dan sebarang data yang tidak disimpan akan hilang.</string>
+    <string name="overheat_limit_closed_title">Aplikasi ditutup</string>
+    <string name="overheat_limit_closed">%1$s ditutup. Telefon anda terlampau panas. Cuba gunakan %2$s sekali lagi selepas telefon anda menyejuk.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Peranti akan dimulakan semula.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2034,6 +2043,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Tidak dapat menggunakan Bixby semasa disambung kepada Stesen DeX.</string>
     <string name="conventional_mode_recent_noti">Anda boleh melihat aplikasi ini dalam skrin penuh dengan mengetik ikon Kembangkan pada skrin Aplikasi terkini.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Untuk kembali ke nisbah aspek sebelumnya, pergi ke Aturan > Paparan > Aplikasi skrin penuh.</string>
+    <string name="conventional_mode_tap_here_to_fill">Ketik di sini untuk mengisi seluruh skrin</string>
     <string name="permlab_knoxCustomSetting">Urus aturan peranti</string>
     <string name="permdesc_knoxCustomSetting">Tatarajah aturan peranti seperti Bluetooth, Lokasi, Wi-Fi, Data mudah alih dan aturan Android.</string>
     <string name="permlab_knoxCustomSystem">Urus aturan sistem</string>
@@ -2378,4 +2388,6 @@ Fungsi USB mungkin terhad apabila Mod penjimatan kuasa maksimum dihidupkan."</st
     <string name="charging_connected_via_usb">Mengecas peranti yang disambungkan melalui USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Had sistem fail</string>
     <string name="lacking_filenode_internal_storage_view_text">Terlalu banyak fail telah dicipta pada telefon anda. Aplikasi mungkin berhenti berfungsi dengan betul dan telefon anda mungkin tidak lagi dihidupkan. Sandarkan data penting dan tetapkan semula telefon anda kepada aturan kilang.</string>
+    <string name="lock_to_app_toast_for_navibar">Untuk nyahpin aplikasi, sentuh dan tahan kekunci Terkini dan Kembali pada masa yang sama.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

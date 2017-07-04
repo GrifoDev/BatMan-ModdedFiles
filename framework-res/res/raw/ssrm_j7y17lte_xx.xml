@@ -40,6 +40,12 @@
 
 <siop_document>
 
+    <model_settings>
+        <setting name="FunctionsLimitation">
+            <set pst="530" wpc="450" />
+        </setting>
+    </model_settings>
+
     <levels>
         <level id="0" temp="380" />
         <level id="1" temp="400" />

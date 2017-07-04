@@ -1310,6 +1310,10 @@ Uni yopishni xohlaysizmi?"</string>
     <string name="sec_next_button_label">Keyingi</string>
     <string name="sec_immersive_cling_step_one">Asosiy, Orqaga va Oxirgilar tugmalari ko‘rsatilishi uchun telefon ekranini pastda yuqoriga suring.</string>
     <string name="sec_immersive_cling_step_two">Asosiy tugma yashirilganda ham Asosiy tugmadan foydalanishingiz mumkin. Asosiy ekranga o‘tish uchun telefoningizning pastki markazini qattiq bosing.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">To‘liq ekran rejimidan foydalanmoqdasiz. Vizual chalg‘ishlarni minimallashtirish va ilovadan bexosdan chiqib ketmaslik uchun Asosiy, Orqaga va Oxirgilar tugmalari yashiriladi.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Ekran chetida ichkariga,odatda tugmalar ko‘rsatiladigan joyga, surish orqali tugmalarni yana ko‘rsatishingiz mumkin.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Bir ozdan so‘ng, tugmalar yana yo‘qoladi.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Asosiy tugma yashirilganda ham Asosiy tugmadan foydalanishingiz mumkin. Asosiy ekranga o‘tish uchun ekranning Asosiy tugma odatiy ravishda ko‘rsatiladigan sohasini qattiq bosing.</string>
     <string name="done_label">OK</string>
     <string name="hour_picker_description">Analogli soat tanlovchisi</string>
     <string name="minute_picker_description">Analogli daqiqa tanlovchisi</string>
@@ -1581,6 +1585,11 @@ buyruq"</string>
     <string name="batt_cooldown_mode_attention">Ilova yopildi</string>
     <string name="batt_cooldown_mode_attentions">Ilovalar yopildi</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon qizimoqda</string>
+    <string name="overheat_limit_warning">Telefon qizib ketmoqda. Bu ilovani darhol yoping. %s 1 daqiqadan so‘ng avtomatik tarzda yopiladi va saqlanmagan ma’lumotlar yo‘qotiladi.</string>
+    <string name="overheat_limit_closed_title">Ilova yopildi</string>
+    <string name="overheat_limit_closed">%1$s yopiq. Telefon qizib ketmoqda. Telefoningiz sovigandan so‘ng %2$s’dan yana foydalanib ko‘ring.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Qurilma qayta ishga tushiriladi</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2033,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">DeX Stansiyasiga ulangan vaqtda Bixby’dan foydalanib bo‘lmaydi.</string>
     <string name="conventional_mode_recent_noti">Oxirgi ilovalar ekranidagi Kengaytirish ikonachasiga tegish orqlai ushbu ilovani to‘liq ekranga ko‘rishingiz mumkin.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Avvalgi nisbatga qaytish uchun Parametrlar > Displey > Toliq ekran ilovalariga o‘ting.</string>
+    <string name="conventional_mode_tap_here_to_fill">Butun ekranni to‘ldirish uchun bu yerga teging</string>
     <string name="permlab_knoxCustomSetting">Qurilma parametrlarini boshqarish</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Joylashuv, Wi-Fi, Mobil internet va Android parametrlari kabi qurilma parametrlarini sozlang.</string>
     <string name="permlab_knoxCustomSystem">Tizim parametrlarini boshqarish</string>
@@ -2377,4 +2387,6 @@ Maksimal quvvat tejash rejimi yoqilgan vaqtda USB funksiyalari cheklanishi mumki
     <string name="charging_connected_via_usb">Ulangan qurilma USB orqali zaryadlanmoqda…</string>
     <string name="lacking_filenode_internal_storage_view_title">Fayl tizimi cheklovi</string>
     <string name="lacking_filenode_internal_storage_view_text">Telefoningizda juda ko‘p fayllar yaratilgan. Ilovalar to‘g‘ri ishlamasligi va telefoningiz qayta ishga tushirilmasligi mumkin. Muhim ma’lumotlarni arxivlang va telefoningizni ishlab chiqaruvchi parametrlariga tashlang.</string>
+    <string name="lock_to_app_toast_for_navibar">Ilovani olib tashlash uchun Oxirgilar va Orqaga tugmalariga bir vaqtda tegib turing.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

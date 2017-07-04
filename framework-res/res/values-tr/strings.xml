@@ -1315,6 +1315,10 @@ izin talep edildi"</string>
     <string name="sec_next_button_label">Sonraki</string>
     <string name="sec_immersive_cling_step_one">Ana sayfa, Geri ve Donanım tuşlarını göstermek için telefonun altından kaydırın.</string>
     <string name="sec_immersive_cling_step_two">Gizliyken bile Ana ekran tuşunu kullanabilirsiniz. Telefonunuzun alt kısmının ortasına sertçe basarak Ana ekrana gidin.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Tam ekran modu kullanıyorsunuz. Ana sayfa, Geri ve Son kullanılanlar tuşları görsel dikkat dağınıklıklarını azaltmak ve uygulamadan kazara çıkmanızı önlemek için gizlenmiştir.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Ekranın kenarında tuşların normalde göründüğü yerden içe doğru kaydırarak tuşları tekrar gösterebilirsiniz.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Bir süre sonra tuşlar tekrar kaybolur.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Gizli olsa dahi Ana sayfa tuşunu kullanabilirsiniz. Ana sayfa ekranına dönmek için Ana sayfa tuşunun normalde görüntülendiği ekran alanına uzun süreyle basın.</string>
     <string name="done_label">Tamam</string>
     <string name="hour_picker_description">Analog saat seçici</string>
     <string name="minute_picker_description">Analog dakika seçici</string>
@@ -1585,6 +1589,11 @@ komut"</string>
     <string name="batt_cooldown_mode_attention">Uygulama kapatıldı</string>
     <string name="batt_cooldown_mode_attentions">Uygulamalar kapatıldı</string>
     <string name="batt_cooldown_mode_ok">Tamam</string>
+    <string name="overheat_limit_warning_title">Telefon aşırı ısınıyor</string>
+    <string name="overheat_limit_warning">Telefonunuz aşırı ısınıyor. Bu uygulamayı hemen kapatın. %s, 1 dakika sonra otomatik olarak kapanacak ve kaydedilmemiş tüm veriler kaybolacak.</string>
+    <string name="overheat_limit_closed_title">Uygulama kapatıldı</string>
+    <string name="overheat_limit_closed">%1$s kapatıldı. Telefonunuz aşırı ısınıyor. Telefonunuz soğuduktan sonra %2$s uygulamasını tekrar kullanmayı deneyin.</string>
+    <string name="overheat_limit_ok">Tamam</string>
     <string name="restart_confirm">Cihaz yeniden başlatılacaktır.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2035,6 +2044,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">"DeX Station'a bağlıyken Bixby kullanılamaz."</string>
     <string name="conventional_mode_recent_noti">Son uygulamalar ekranında Genişlet simgesine dokunarak bu uygulamayı tam ekranda görüntüleyebilirsiniz.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Önceki en-boy oranına geri dönmek için Ayarlar > Ekran > Tam ekran uygulamalar bölümüne gidin.</string>
+    <string name="conventional_mode_tap_here_to_fill">Tüm ekranı doldurmak için buraya dokunun</string>
     <string name="permlab_knoxCustomSetting">Cihaz ayarlarını yönet</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Konum, Wi-Fi, Mobil veri ve Android ayarları gibi cihaz ayarlarını yapılandırın.</string>
     <string name="permlab_knoxCustomSystem">Sistem ayarlarını yönet</string>
@@ -2410,4 +2420,6 @@ Maksimum güç tasarrufu modu açıkken USB işlevleri kısıtlanabilir."</strin
     <string name="charging_connected_via_usb">Bağlı cihaz USB ile şarj ediliyor…</string>
     <string name="lacking_filenode_internal_storage_view_title">Dosya sistemi sınırı</string>
     <string name="lacking_filenode_internal_storage_view_text">Telefonunuzda çok fazla dosya oluşturuldu. Uygulamalar düzgün çalışmayı bırakabilir ve telefonunuz artık başlatılmayabilir. Tüm önemli verileri yedekleyip telefonunuzu fabrika ayarlarına sıfırlayın.</string>
+    <string name="lock_to_app_toast_for_navibar">Uygulamayı serbest bırakmak için Donanım ve Geri tuşlarına aynı anda dokunup basılı tutun.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

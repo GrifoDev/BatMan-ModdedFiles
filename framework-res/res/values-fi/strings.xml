@@ -1315,6 +1315,10 @@ Yritä %2$d sekunnin kuluttua uudelleen."</string>
     <string name="sec_next_button_label">Seuraava</string>
     <string name="sec_immersive_cling_step_one">Pyyhkäisemällä puhelimen alareunasta ylöspäin voit näyttää kotipainikkeen, paluupainikkeen ja viimeksi käytettyjen sovellusten painikkeen.</string>
     <string name="sec_immersive_cling_step_two">Voit käyttää kotipainiketta myös silloin, kun se on piilotettu. Voit siirtyä alkunäyttöön painamalla voimakkaasti puhelimen alaosan keskikohtaa.</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">Käytät koko näytön tilaa. Kotipainike, paluupainike ja viimeksi käytettyjen sovellusten painike piilotetaan visuaalisten häiriöiden vähentämiseksi ja jotta estetään sinua poistumasta sovelluksesta vahingossa.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">Voit näyttää painikkeet uudelleen pyyhkäisemällä näytön reunasta, painikkeiden normaalista paikasta, sisäänpäin.</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">Painikkeet katoavat hetken kuluttua uudelleen.</string>
+    <string name="sec_immersive_cling_help_text_step_two">Voit käyttää kotipainiketta myös silloin, kun se on piilotettu. Pääset alkunäyttöön painamalla voimakkaasti sitä näytön aluetta, jolla kotipainike normaalisti näkyy.</string>
     <string name="done_label">Valmis</string>
     <string name="hour_picker_description">Analoginen tunnin valitsin</string>
     <string name="minute_picker_description">Analoginen minuutin valitsin</string>
@@ -1585,6 +1589,11 @@ komento"</string>
     <string name="batt_cooldown_mode_attention">Sovellus suljettu</string>
     <string name="batt_cooldown_mode_attentions">Sovellukset suljettu</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Puhelin ylikuumenee</string>
+    <string name="overheat_limit_warning">Puhelin ylikuumenee. Sulje tämä sovellus välittömästi. %s suljetaan automaattisesti 1 minuutin kuluttua, ja kaikki tallentamattomat tiedot menetetään.</string>
+    <string name="overheat_limit_closed_title">Sovellus suljettu</string>
+    <string name="overheat_limit_closed">%1$s on suljettu. Puhelin ylikuumenee. Yritä käyttää sovellusta %2$s uudelleen, kun puhelin on jäähtynyt.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Laite käynnistetään uudelleen.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2037,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">Bixbyä ei voi käyttää, kun ollaan yhteydessä DeX Stationiin.</string>
     <string name="conventional_mode_recent_noti">Voit näyttää tämän sovelluksen koko näytön tilassa napauttamalla Viimeksi käytetyt sovellukset -näytön Laajenna-kuvaketta.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Voit palata viimeksi käytettyyn kuvasuhteeseen valitsemalla Asetukset > Näyttö > Koko näytön sovellukset.</string>
+    <string name="conventional_mode_tap_here_to_fill">Täytä koko näyttö napauttamalla tätä</string>
     <string name="permlab_knoxCustomSetting">Laitteen asetusten hallinta</string>
     <string name="permdesc_knoxCustomSetting">Määritä laitteen asetukset, kuten Bluetooth-, Sijainti-, Wi-Fi-, mobiilidata- ja Android-asetukset.</string>
     <string name="permlab_knoxCustomSystem">Järjestelmäasetusten hallinta</string>
@@ -2412,4 +2422,6 @@ USB-toimintojen käyttöä voidaan rajoittaa, kun maksimivirransäästötila on 
     <string name="charging_connected_via_usb">Liitettyä laitetta ladataan USB-liitännän kautta…</string>
     <string name="lacking_filenode_internal_storage_view_title">Tiedostojärjestelmän rajoitus</string>
     <string name="lacking_filenode_internal_storage_view_text">Puhelimessa on luotu liian monta tiedostoa. Sovellukset voivat lakata toimimasta oikein eikä puhelin ehkä enää käynnisty. Varmuuskopioi tärkeät tiedot ja suorita puhelimen tehdaspalautus.</string>
+    <string name="lock_to_app_toast_for_navibar">Voit poistaa sovelluksen kiinnityksen pitämällä viimeksi käytettyjen sovellusten painiketta ja paluupainiketta samanaikaisesti painettuina.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

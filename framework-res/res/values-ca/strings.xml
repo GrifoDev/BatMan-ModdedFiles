@@ -1315,6 +1315,10 @@ Torni-ho a intentar en %2$d segons."</string>
     <string name="sec_next_button_label">Següent</string>
     <string name="sec_immersive_cling_step_one">"Desplaci's des de l'extrem inferior del telèfon per mostrar els botons Inici, Tornar i Recents."</string>
     <string name="sec_immersive_cling_step_two">"Pot utilitzar el botó Inici fins i tot quan estigui ocult. Premi el botó central del telèfon durant una estona per anar a la pantalla d'Inici."</string>
+    <string name="sec_immersive_cling_help_text_step_one_one">"Està utilitzant el mode de pantalla completa. Els botons Inici, Tornar i Recents estan ocults per minimitzar les distraccions visuals i impedir que surti de l'aplicació sense voler."</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">"Pot tornar a mostrar els botons desplaçant cap a dins des de l'extrem de la pantalla on normalment apareixen els botons."</string>
+    <string name="sec_immersive_cling_help_text_step_one_three">"Al cap d'una estona, els botons tornaran a desaparèixer."</string>
+    <string name="sec_immersive_cling_help_text_step_two">"Pot utilitzar el botó Inici fins i tot quan estigui ocult. Per anar a la pantalla d'Inici, premi durant una estona l'àrea al voltant de la pantalla on se sol trobar el botó Inici."</string>
     <string name="done_label">Fet</string>
     <string name="hour_picker_description">"Selector d'hora analògic"</string>
     <string name="minute_picker_description">Selector de minut analògic</string>
@@ -1586,6 +1590,11 @@ command"</string>
     <string name="batt_cooldown_mode_attention">"S'ha tancat l'aplicació"</string>
     <string name="batt_cooldown_mode_attentions">"S'han tancat les aplicacions"</string>
     <string name="batt_cooldown_mode_ok">Acceptar</string>
+    <string name="overheat_limit_warning_title">"El telèfon s'està sobreescalfant"</string>
+    <string name="overheat_limit_warning">"El telèfon s'està sobreescalfant. Tanca aquesta aplicació immediatament. Es tancarà %s automàticament d'aquí a 1 minut i es perdran les dades que no s'hagin desat."</string>
+    <string name="overheat_limit_closed_title">"S'ha tancat l'aplicació"</string>
+    <string name="overheat_limit_closed">"S'ha tancat %1$s. El telèfon s'està sobreescalfant. Intenta tornar a utilitzar %2$s després que el telèfon s'hagi refredat."</string>
+    <string name="overheat_limit_ok">ACCEPTAR</string>
     <string name="restart_confirm">El dispositiu es reiniciarà.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -2038,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_dexstation">"No es pot utilitzar Bixby mentre estigui connectat a l'Emissora DeX."</string>
     <string name="conventional_mode_recent_noti">"Pot veure aquesta aplicació en pantalla completa tocant la icona Expandir a la pantalla d'aplicacions recents."</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">"Per tornar a la relació d'aspecte anterior, vagi a Ajustaments > Pantalla > Aplicacions en pantalla completa."</string>
+    <string name="conventional_mode_tap_here_to_fill">Tocar aquí per emplenar tota la pantalla</string>
     <string name="permlab_knoxCustomSetting">Gestionar ajustaments del dispositiu</string>
     <string name="permdesc_knoxCustomSetting">"Configuri els ajustaments del dispositiu, com ara Bluetooth, Ubicació, Wi-Fi, Dades mòbils i Ajustaments d'Android."</string>
     <string name="permlab_knoxCustomSystem">Gestionar ajustaments del sistema</string>
@@ -2413,4 +2423,6 @@ TORNI'L A"</string>
     <string name="charging_connected_via_usb">"S'està carregant el dispositiu connectat mitjançant USB…"</string>
     <string name="lacking_filenode_internal_storage_view_title">Límit del sistema de fitxers</string>
     <string name="lacking_filenode_internal_storage_view_text">"S'han creat massa fitxers al telèfon. És possible que les aplicacions deixin de funcionar correctament i que el telèfon ja no es posi en marxa. Faci una còpia de seguretat de les dades importants i restableixi el telèfon als valors de fàbrica."</string>
+    <string name="lock_to_app_toast_for_navibar">"Per desenganxar l'aplicació, mantingui tocats els botons Recents i Tornar simultàniament."</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>
