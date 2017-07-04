@@ -12654,6 +12654,17 @@
 
     move-result v0
 
+    const-string p0, "fingerprint.unlock"
+
+    invoke-static {p0, v0}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
     return v0
 .end method
 

@@ -212,8 +212,6 @@
     :cond_0
     monitor-exit p0
 
-    invoke-static {}, Lcom/android/internal/os/ZygoteInit;->a()V
-
     return-void
 
     :catchall_0

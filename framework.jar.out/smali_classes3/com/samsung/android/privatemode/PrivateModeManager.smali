@@ -118,8 +118,6 @@
 
     sput v0, Lcom/samsung/android/privatemode/PrivateModeManager;->levelPrivatemode:I
 
-    invoke-static {}, Lcom/android/internal/os/ZygoteInit;->a()V
-
     return-void
 .end method
 
