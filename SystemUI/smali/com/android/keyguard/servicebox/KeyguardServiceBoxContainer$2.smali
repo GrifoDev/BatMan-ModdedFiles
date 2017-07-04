@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$2;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get9(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/clock/KeyguardOwnerInfoView;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get6(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/clock/KeyguardOwnerInfoView;
 
     move-result-object v0
 

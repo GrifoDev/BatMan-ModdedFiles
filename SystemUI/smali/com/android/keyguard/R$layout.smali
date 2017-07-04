@@ -60,33 +60,33 @@
 
 .field public static final keyguard_wallpaper_preview_activity:I = 0x7f04009e
 
-.field public static final servicebox_alarm_page:I = 0x7f040178
+.field public static final servicebox_alarm_page:I = 0x7f040179
 
-.field public static final servicebox_alarm_page_expand:I = 0x7f040179
+.field public static final servicebox_alarm_page_expand:I = 0x7f04017a
 
-.field public static final servicebox_alarm_page_small:I = 0x7f04017a
+.field public static final servicebox_alarm_page_small:I = 0x7f04017b
 
-.field public static final servicebox_music_page:I = 0x7f04017b
+.field public static final servicebox_music_page:I = 0x7f04017c
 
-.field public static final servicebox_music_page_big:I = 0x7f04017c
+.field public static final servicebox_music_page_big:I = 0x7f04017d
 
-.field public static final servicebox_music_page_expand:I = 0x7f04017d
+.field public static final servicebox_music_page_expand:I = 0x7f04017e
 
-.field public static final servicebox_music_page_small:I = 0x7f04017e
+.field public static final servicebox_music_page_small:I = 0x7f04017f
 
-.field public static final servicebox_remoteviews_page:I = 0x7f04017f
+.field public static final servicebox_remoteviews_page:I = 0x7f040180
 
-.field public static final servicebox_today_event_item_big:I = 0x7f040181
+.field public static final servicebox_today_event_item_big:I = 0x7f040182
 
-.field public static final servicebox_today_event_item_small:I = 0x7f040182
+.field public static final servicebox_today_event_item_small:I = 0x7f040183
 
-.field public static final servicebox_today_main_big:I = 0x7f040183
+.field public static final servicebox_today_main_big:I = 0x7f040184
 
-.field public static final servicebox_today_main_expand:I = 0x7f040184
+.field public static final servicebox_today_main_expand:I = 0x7f040185
 
-.field public static final servicebox_today_main_small:I = 0x7f040185
+.field public static final servicebox_today_main_small:I = 0x7f040186
 
-.field public static final servicebox_today_page:I = 0x7f040188
+.field public static final servicebox_today_page:I = 0x7f040189
 
 
 # direct methods

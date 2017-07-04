@@ -219,7 +219,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f13051f
+    const v0, 0x7f130520
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/ZenFooter;->findViewById(I)Landroid/view/View;
 
@@ -229,7 +229,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/volume/ZenFooter;->mIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f130520
+    const v0, 0x7f130521
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/ZenFooter;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/volume/ZenFooter;->mSummaryLine1:Landroid/widget/TextView;
 
-    const v0, 0x7f130521
+    const v0, 0x7f130522
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/ZenFooter;->findViewById(I)Landroid/view/View;
 
@@ -249,7 +249,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/volume/ZenFooter;->mSummaryLine2:Landroid/widget/TextView;
 
-    const v0, 0x7f130522
+    const v0, 0x7f130523
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/volume/ZenFooter;->findViewById(I)Landroid/view/View;
 
@@ -347,7 +347,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/volume/ZenFooter;->mContext:Landroid/content/Context;
 
-    const v4, 0x10405d9
+    const v4, 0x10405dd
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

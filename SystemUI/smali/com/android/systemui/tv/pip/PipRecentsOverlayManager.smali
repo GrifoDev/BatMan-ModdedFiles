@@ -110,7 +110,7 @@
 
     check-cast v6, Landroid/view/LayoutInflater;
 
-    const v0, 0x7f0401a6
+    const v0, 0x7f0401a7
 
     const/4 v1, 0x0
 
@@ -122,7 +122,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/tv/pip/PipRecentsOverlayManager;->mOverlayView:Landroid/view/View;
 
-    const v1, 0x7f1304fd
+    const v1, 0x7f1304fe
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -134,7 +134,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/tv/pip/PipRecentsOverlayManager;->mOverlayView:Landroid/view/View;
 
-    const v1, 0x7f130503
+    const v1, 0x7f130504
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

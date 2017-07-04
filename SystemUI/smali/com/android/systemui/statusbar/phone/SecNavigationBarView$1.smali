@@ -60,7 +60,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
@@ -68,9 +68,30 @@
 
     :cond_1
     :goto_0
-    return-void
+    const-string/jumbo v0, "navigationbar_hide_bar"
+
+    invoke-static {v0}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setForceImmersiveMode()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateImmersivePinIcon()V
 
     :cond_2
+    return-void
+
+    :cond_3
     const-string/jumbo v2, "navigationbar_use_theme_default"
 
     invoke-static {v2}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -81,13 +102,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get4(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get8(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
     move-result-object v3
 
@@ -95,18 +116,18 @@
 
     move-result v3
 
-    if-ne v3, v1, :cond_3
+    if-ne v3, v1, :cond_4
 
     move v0, v1
 
-    :cond_3
+    :cond_4
     iput-boolean v0, v2, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mIsThemeDefault:Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get2(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get4(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -133,25 +154,6 @@
     iget v2, v2, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationIconHints:I
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setNavigationIconHints(IZ)V
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v0, "navigationbar_key_order"
-
-    invoke-static {v0}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-wrap0(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
 
     goto :goto_0
 .end method

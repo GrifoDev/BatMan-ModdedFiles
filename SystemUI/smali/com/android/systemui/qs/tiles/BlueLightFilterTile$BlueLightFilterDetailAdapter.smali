@@ -83,7 +83,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040117
+    const v3, 0x7f040118
 
     const/4 v4, 0x0
 
@@ -97,7 +97,7 @@
 
     invoke-static {v2, v3}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-wrap1(Lcom/android/systemui/qs/tiles/BlueLightFilterTile;I)V
 
-    const v2, 0x7f130383
+    const v2, 0x7f130384
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

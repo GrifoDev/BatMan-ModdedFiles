@@ -78,7 +78,7 @@
     return v2
 
     :cond_0
-    const v3, 0x7f1304b2
+    const v3, 0x7f1304b3
 
     invoke-virtual {p0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040145
+    const v1, 0x7f040146
 
     invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -89,7 +89,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mAppListViewContainer:Landroid/view/View;
 
-    const v1, 0x7f1303f0
+    const v1, 0x7f1303f1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -374,7 +374,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mDecorView:Landroid/view/View;
 
-    const v0, 0x7f1303e8
+    const v0, 0x7f1303e9
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -384,7 +384,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mCloseAllButton:Landroid/widget/Button;
 
-    const v0, 0x7f1303ee
+    const v0, 0x7f1303ef
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -551,7 +551,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f130404
+    const v0, 0x7f130405
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsSlidingView;->findViewById(I)Landroid/view/View;
 

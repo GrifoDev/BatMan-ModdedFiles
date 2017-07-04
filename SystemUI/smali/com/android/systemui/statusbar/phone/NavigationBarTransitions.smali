@@ -42,7 +42,7 @@
 .method public constructor <init>(Lcom/android/systemui/statusbar/phone/NavigationBarView;)V
     .locals 3
 
-    const v2, 0x7f02036f
+    const v2, 0x7f020371
 
     invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/phone/BarTransitions;-><init>(Landroid/view/View;I)V
 
@@ -279,14 +279,28 @@
 .method public updateModeBackgroundColor(II)V
     .locals 1
 
-    const/4 v0, 0x7
+    sparse-switch p1, :sswitch_data_0
 
-    if-ne p1, v0, :cond_0
+    :goto_0
+    return-void
 
+    :sswitch_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mBarBackground:Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;
 
     invoke-virtual {v0, p2}, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->updateDockedOpaqueColor(I)V
 
-    :cond_0
-    return-void
+    goto :goto_0
+
+    :sswitch_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mBarBackground:Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;
+
+    invoke-virtual {v0, p2}, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->updateOpaqueColor(I)V
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x0 -> :sswitch_1
+        0x7 -> :sswitch_0
+    .end sparse-switch
 .end method

@@ -58,7 +58,7 @@
 
     move-result v1
 
-    const v2, 0x7f020736
+    const v2, 0x7f020738
 
     if-eqz v1, :cond_e
 
@@ -363,7 +363,7 @@
 
     if-eqz v3, :cond_b
 
-    const v2, 0x7f020734
+    const v2, 0x7f020736
 
     :goto_5
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$5;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
@@ -398,7 +398,7 @@
     goto :goto_4
 
     :cond_b
-    const v2, 0x7f020735
+    const v2, 0x7f020737
 
     goto :goto_5
 

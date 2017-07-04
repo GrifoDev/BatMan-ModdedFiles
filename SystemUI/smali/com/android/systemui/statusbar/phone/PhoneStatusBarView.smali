@@ -505,7 +505,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d04b3
+    const v2, 0x7f0d04b4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -549,7 +549,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mBackgroundView:Landroid/view/View;
 
-    const v3, 0x7f13048a
+    const v3, 0x7f13048b
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->findViewById(I)Landroid/view/View;
 

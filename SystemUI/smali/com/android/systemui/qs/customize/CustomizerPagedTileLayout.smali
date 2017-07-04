@@ -181,7 +181,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040115
+    const v3, 0x7f040116
 
     const/4 v4, 0x0
 
@@ -252,7 +252,7 @@
 .method private distributeTiles()V
     .locals 13
 
-    const v9, 0x7f040115
+    const v9, 0x7f040116
 
     const/4 v12, 0x0
 
@@ -1446,7 +1446,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->mPageIndicator:Lcom/android/systemui/qs/PageIndicator;
 
-    const v0, 0x7f1303b3
+    const v0, 0x7f1303b4
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->findViewById(I)Landroid/view/View;
 

@@ -338,7 +338,7 @@
 .end method
 
 .method private setUpSettingsItem()V
-    .locals 8
+    .locals 14
 
     const/4 v5, 0x0
 
@@ -424,119 +424,193 @@
 
     invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    new-instance v7, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    const-string/jumbo v9, "Global"
+
+    const-string/jumbo v10, "navigationbar_key_order"
+
+    const-string/jumbo v11, "Int"
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    move-object v8, p0
+
+    move v13, v6
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    new-instance v7, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    const-string/jumbo v9, "Global"
+
+    const-string/jumbo v10, "navigationbar_color"
+
+    const-string/jumbo v11, "Int"
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    move-object v8, p0
+
+    move v13, v6
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    new-instance v7, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    const-string/jumbo v9, "Global"
+
+    const-string/jumbo v10, "navigationbar_use_theme_default"
+
+    const-string/jumbo v11, "Int"
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    move-object v8, p0
+
+    move v13, v6
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    new-instance v7, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    const-string/jumbo v9, "Global"
+
+    const-string/jumbo v10, "navigationbar_current_color"
+
+    const-string/jumbo v11, "Int"
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    move-object v8, p0
+
+    move v13, v6
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    new-instance v7, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    const-string/jumbo v9, "Global"
+
+    const-string/jumbo v10, "navigationbar_theme_color"
+
+    const-string/jumbo v11, "Int"
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    move-object v8, p0
+
+    move v13, v6
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    new-instance v7, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    const-string/jumbo v9, "System"
+
+    const-string/jumbo v10, "navigationbar_height"
+
+    const-string/jumbo v11, "Int"
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    move-object v8, p0
+
+    move v13, v6
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    new-instance v7, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    const-string/jumbo v9, "Global"
+
+    const-string/jumbo v10, "navigationbar_hide_bar"
+
+    const-string/jumbo v11, "Int"
+
+    const/4 v1, 0x1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    move-object v8, p0
+
+    move v13, v6
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    new-instance v7, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    const-string/jumbo v9, "Global"
+
+    const-string/jumbo v10, "navigationbar_hide_bar_enabled"
+
+    const-string/jumbo v11, "Int"
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    move-object v8, p0
+
+    move v13, v6
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
     iget-object v7, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
 
     new-instance v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
 
     const-string/jumbo v2, "Global"
 
-    const-string/jumbo v3, "navigationbar_key_order"
+    const-string/jumbo v3, "force_immersive_mode_confirmations"
 
-    const-string/jumbo v4, "Int"
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    move-object v1, p0
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
-
-    const-string/jumbo v2, "Global"
-
-    const-string/jumbo v3, "navigationbar_color"
-
-    const-string/jumbo v4, "Int"
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    move-object v1, p0
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
-
-    const-string/jumbo v2, "Global"
-
-    const-string/jumbo v3, "navigationbar_use_theme_default"
-
-    const-string/jumbo v4, "Int"
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    move-object v1, p0
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
-
-    const-string/jumbo v2, "Global"
-
-    const-string/jumbo v3, "navigationbar_current_color"
-
-    const-string/jumbo v4, "Int"
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    move-object v1, p0
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
-
-    const-string/jumbo v2, "Global"
-
-    const-string/jumbo v3, "navigationbar_theme_color"
-
-    const-string/jumbo v4, "Int"
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    move-object v1, p0
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;-><init>(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Z)V
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
-
-    const-string/jumbo v2, "System"
-
-    const-string/jumbo v3, "navigationbar_height"
-
-    const-string/jumbo v4, "Int"
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
+    const-string/jumbo v4, "String"
 
     move-object v1, p0
 
@@ -707,6 +781,96 @@
     move-result v0
 
     return v0
+.end method
+
+.method public getNavigationBarHideEnabled()Z
+    .locals 3
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    const/16 v2, 0xc
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->getIntValue()I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method public getNavigationBarHideHelpConfirmed()Z
+    .locals 3
+
+    const-string/jumbo v1, "Confirmed"
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    const/16 v2, 0xd
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->getStringValue()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getNavigationBarHideSetting()Z
+    .locals 3
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    const/16 v2, 0xb
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->getIntValue()I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public getNavigationBarThemeColor()I
@@ -1028,6 +1192,52 @@
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->setIntValue(I)V
 
     return-void
+.end method
+
+.method public setNavigationBarHideEnabled(Z)V
+    .locals 5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mResolver:Landroid/content/ContentResolver;
+
+    const-string/jumbo v4, "navigationbar_hide_bar_enabled"
+
+    if-eqz p1, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    invoke-static {v3, v4, v0}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->mItemLists:Ljava/util/ArrayList;
+
+    const/16 v3, 0xc
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;
+
+    if-eqz p1, :cond_1
+
+    :goto_1
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->setIntValue(I)V
+
+    return-void
+
+    :cond_0
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
 .end method
 
 .method public setNavigationBarThemeColor(I)V

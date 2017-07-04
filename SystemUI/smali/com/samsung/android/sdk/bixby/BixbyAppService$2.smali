@@ -39,7 +39,6 @@
         }
     .end annotation
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -66,7 +65,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
 
-    # invokes: Lcom/samsung/android/sdk/bixby/BixbyAppService;->checkSenderIdentity()Z
     invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$300(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Z
 
     move-result v0
@@ -75,7 +73,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyAppService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$400(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -89,7 +86,6 @@
     return-void
 
     :cond_0
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -109,7 +105,6 @@
         }
     .end annotation
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -120,7 +115,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
 
-    # invokes: Lcom/samsung/android/sdk/bixby/BixbyAppService;->checkSenderIdentity()Z
     invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$300(Lcom/samsung/android/sdk/bixby/BixbyAppService;)Z
 
     move-result v0
@@ -129,13 +123,11 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyAppService$2;->this$0:Lcom/samsung/android/sdk/bixby/BixbyAppService;
 
-    # setter for: Lcom/samsung/android/sdk/bixby/BixbyAppService;->mCallbackToBa:Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
     invoke-static {v0, p1}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$102(Lcom/samsung/android/sdk/bixby/BixbyAppService;Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;)Lcom/samsung/android/bixby/agent/IBixbyAgentAppServiceCallback;
 
     return-void
 
     :cond_0
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyAppService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyAppService;->access$000()Ljava/lang/String;
 
     move-result-object v0

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.android.systemui.statusbar.NotificationBottomBarView android:background="@color/normal_mode_bottom_bar_bg" android:focusable="true" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<com.android.systemui.statusbar.NotificationBottomBarView android:background="#00000000" android:focusable="true" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <View android:background="@color/bottom_bar_divider_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
     <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:id="@id/notification_bottom_normal_mode" android:background="@color/normal_mode_bottom_bar_bg" android:focusable="true" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="@dimen/desk_normal_mode_bottom_bar_height" android:layout_marginTop="1.0px">

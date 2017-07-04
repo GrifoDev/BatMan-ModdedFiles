@@ -166,7 +166,7 @@
 
     iget-object v2, v0, Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f020375
+    const v3, 0x7f020377
 
     invoke-static {v2, v3}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 
@@ -184,7 +184,7 @@
 
     invoke-direct {v11, v12}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f020376
+    const v2, 0x7f020378
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -282,7 +282,7 @@
 
     move-result-object v2
 
-    const v3, 0x102043c
+    const v3, 0x1020440
 
     invoke-virtual {v15, v3, v2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 

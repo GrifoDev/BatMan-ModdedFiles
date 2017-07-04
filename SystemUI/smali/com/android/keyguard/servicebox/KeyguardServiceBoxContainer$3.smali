@@ -40,7 +40,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/remoteviews/MetadataParser;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get5(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/remoteviews/MetadataParser;
 
     move-result-object v0
 
@@ -63,11 +63,11 @@
 
     const/16 v1, 0x1180
 
-    invoke-static {p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-set3(Z)Z
+    invoke-static {p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-set4(Z)Z
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get18(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get18(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get18(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -121,7 +121,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get11(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
 
     move-result-object v0
 
@@ -142,7 +142,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get11(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
 
     move-result-object v0
 
@@ -168,7 +168,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get18(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -180,7 +180,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get18(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -189,7 +189,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get18(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -252,16 +252,6 @@
 .method public onUpdateCoverState(Lcom/samsung/android/cover/CoverState;)V
     .locals 2
 
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
-
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get11(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
-
-    move-result-object v1
-
     iget-boolean v0, p1, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
     if-nez v0, :cond_1
@@ -269,7 +259,23 @@
     const/4 v0, 0x1
 
     :goto_0
-    invoke-virtual {v1, v0}, Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;->setCoverShowing(Z)V
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-set3(Z)Z
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
+
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get4()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;->setCoverShowing(Z)V
 
     :cond_0
     return-void
@@ -285,7 +291,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get15(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get11(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper;
 
     move-result-object v0
 
@@ -299,7 +305,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$3;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-wrap8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Lcom/android/keyguard/servicebox/pages/remoteviews/ServiceBoxRemoteViewsItem;)V
+    invoke-static {v0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-wrap9(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Lcom/android/keyguard/servicebox/pages/remoteviews/ServiceBoxRemoteViewsItem;)V
 
     :cond_0
     return-void

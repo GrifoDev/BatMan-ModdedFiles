@@ -82,26 +82,6 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020267
-
-    const v2, 0x7f02026c
-
-    filled-new-array {v1, v2}, [I
-
-    move-result-object v1
-
-    aput-object v1, v0, v4
-
-    const v1, 0x7f020268
-
-    const v2, 0x7f02026d
-
-    filled-new-array {v1, v2}, [I
-
-    move-result-object v1
-
-    aput-object v1, v0, v5
-
     const v1, 0x7f020269
 
     const v2, 0x7f02026e
@@ -110,7 +90,7 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v4
 
     const v1, 0x7f02026a
 
@@ -120,11 +100,31 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v5
 
     const v1, 0x7f02026b
 
     const v2, 0x7f020270
+
+    filled-new-array {v1, v2}, [I
+
+    move-result-object v1
+
+    aput-object v1, v0, v6
+
+    const v1, 0x7f02026c
+
+    const v2, 0x7f020271
+
+    filled-new-array {v1, v2}, [I
+
+    move-result-object v1
+
+    aput-object v1, v0, v3
+
+    const v1, 0x7f02026d
+
+    const v2, 0x7f020272
 
     filled-new-array {v1, v2}, [I
 
@@ -138,26 +138,6 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020277
-
-    const v2, 0x7f020271
-
-    filled-new-array {v1, v2}, [I
-
-    move-result-object v1
-
-    aput-object v1, v0, v4
-
-    const v1, 0x7f020278
-
-    const v2, 0x7f020272
-
-    filled-new-array {v1, v2}, [I
-
-    move-result-object v1
-
-    aput-object v1, v0, v5
-
     const v1, 0x7f020279
 
     const v2, 0x7f020273
@@ -166,7 +146,7 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v4
 
     const v1, 0x7f02027a
 
@@ -176,7 +156,7 @@
 
     move-result-object v1
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v5
 
     const v1, 0x7f02027b
 
@@ -186,19 +166,39 @@
 
     move-result-object v1
 
+    aput-object v1, v0, v6
+
+    const v1, 0x7f02027c
+
+    const v2, 0x7f020276
+
+    filled-new-array {v1, v2}, [I
+
+    move-result-object v1
+
+    aput-object v1, v0, v3
+
+    const v1, 0x7f02027d
+
+    const v2, 0x7f020277
+
+    filled-new-array {v1, v2}, [I
+
+    move-result-object v1
+
     aput-object v1, v0, v7
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->ICONS_GIGA:[[I
 
-    const v0, 0x7f02027c
+    const v0, 0x7f02027e
 
-    const v1, 0x7f02027d
+    const v1, 0x7f02027f
 
-    const v2, 0x7f02027e
+    const v2, 0x7f020280
 
-    const v3, 0x7f02027f
+    const v3, 0x7f020281
 
-    const v4, 0x7f020280
+    const v4, 0x7f020282
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 

@@ -1583,13 +1583,13 @@
 .method private final getCdmaEriIcon()I
     .locals 10
 
-    const v9, 0x7f0205fd
+    const v9, 0x7f0205ff
 
-    const v8, 0x7f0205fc
+    const v8, 0x7f0205fe
 
     const/4 v7, 0x1
 
-    const v6, 0x7f0205fa
+    const v6, 0x7f0205fc
 
     const/4 v5, 0x0
 
@@ -1689,7 +1689,7 @@
     :cond_3
     if-ne v1, v7, :cond_2
 
-    const v2, 0x7f0205ff
+    const v2, 0x7f020601
 
     return v2
 
@@ -1711,12 +1711,12 @@
     return v5
 
     :pswitch_5
-    const v2, 0x7f020602
+    const v2, 0x7f020604
 
     return v2
 
     :pswitch_6
-    const v2, 0x7f020604
+    const v2, 0x7f020606
 
     return v2
 
@@ -2329,23 +2329,23 @@
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    const v0, 0x7f0205f8
+    const v0, 0x7f0205fa
 
     :goto_0
     return v0
 
     :pswitch_1
-    const v0, 0x7f0205f8
+    const v0, 0x7f0205fa
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020601
+    const v0, 0x7f020603
 
     goto :goto_0
 
     :pswitch_3
-    const v0, 0x7f020600
+    const v0, 0x7f020602
 
     goto :goto_0
 
@@ -2431,7 +2431,7 @@
     if-eqz v1, :cond_8
 
     :cond_2
-    const v0, 0x7f0205fa
+    const v0, 0x7f0205fc
 
     :cond_3
     :goto_0
@@ -2514,12 +2514,12 @@
 
     if-eqz v1, :cond_a
 
-    const v0, 0x7f02060a
+    const v0, 0x7f02060c
 
     goto :goto_0
 
     :cond_a
-    const v0, 0x7f020602
+    const v0, 0x7f020604
 
     goto :goto_0
 
@@ -2546,12 +2546,12 @@
 
     if-eqz v1, :cond_c
 
-    const v0, 0x7f02060b
+    const v0, 0x7f02060d
 
     goto :goto_0
 
     :cond_c
-    const v0, 0x7f020605
+    const v0, 0x7f020607
 
     goto :goto_0
 
@@ -2575,39 +2575,39 @@
 
     if-eqz v1, :cond_f
 
-    const v0, 0x7f020609
+    const v0, 0x7f02060b
 
     goto :goto_0
 
     :cond_f
-    const v0, 0x7f020637
+    const v0, 0x7f020639
 
     goto :goto_0
 
     :cond_10
-    const v1, 0x7f0205fa
-
-    if-ne v0, v1, :cond_11
-
-    const v0, 0x7f020606
-
-    goto :goto_1
-
-    :cond_11
     const v1, 0x7f0205fc
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_11
 
     const v0, 0x7f020608
 
     goto :goto_1
 
+    :cond_11
+    const v1, 0x7f0205fe
+
+    if-ne v0, v1, :cond_12
+
+    const v0, 0x7f02060a
+
+    goto :goto_1
+
     :cond_12
-    const v1, 0x7f020637
+    const v1, 0x7f020639
 
     if-ne v0, v1, :cond_4
 
-    const v0, 0x7f020606
+    const v0, 0x7f020608
 
     goto/16 :goto_1
 .end method
@@ -6008,11 +6008,11 @@
 .method private updateCTCRssiTypeIcon()V
     .locals 6
 
-    const v5, 0x7f020730
+    const v5, 0x7f020732
 
-    const v4, 0x7f02072e
+    const v4, 0x7f020730
 
-    const v3, 0x7f02072d
+    const v3, 0x7f02072f
 
     const/4 v2, 0x0
 
@@ -6204,7 +6204,7 @@
 
     if-lez v0, :cond_b
 
-    const v0, 0x7f02072f
+    const v0, 0x7f020731
 
     iput v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mRssiTypeIconId:I
 
@@ -6216,7 +6216,7 @@
     goto/16 :goto_0
 
     :cond_c
-    const v0, 0x7f020731
+    const v0, 0x7f020733
 
     iput v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mRssiTypeIconId:I
 
@@ -10429,9 +10429,9 @@
 .method private updateVZWMobileIconGroup()Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;
     .locals 11
 
-    const v7, 0x7f020612
+    const v7, 0x7f020614
 
-    const v6, 0x7f02060e
+    const v6, 0x7f020610
 
     const/4 v10, 0x0
 
@@ -10537,7 +10537,7 @@
 
     if-eqz v5, :cond_f
 
-    const v5, 0x7f02061a
+    const v5, 0x7f02061c
 
     :goto_3
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10753,7 +10753,7 @@
 
     if-eqz v5, :cond_8
 
-    const v5, 0x7f020618
+    const v5, 0x7f02061a
 
     :goto_5
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10761,7 +10761,7 @@
     goto/16 :goto_4
 
     :cond_8
-    const v5, 0x7f020614
+    const v5, 0x7f020616
 
     goto :goto_5
 
@@ -10799,7 +10799,7 @@
 
     if-eqz v5, :cond_a
 
-    const v5, 0x7f02061b
+    const v5, 0x7f02061d
 
     :goto_7
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10807,7 +10807,7 @@
     goto/16 :goto_4
 
     :cond_a
-    const v5, 0x7f020616
+    const v5, 0x7f020618
 
     goto :goto_7
 
@@ -10822,7 +10822,7 @@
 
     if-eqz v5, :cond_b
 
-    const v5, 0x7f02061c
+    const v5, 0x7f02061e
 
     :goto_8
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10830,7 +10830,7 @@
     goto/16 :goto_4
 
     :cond_b
-    const v5, 0x7f020617
+    const v5, 0x7f020619
 
     goto :goto_8
 
@@ -10845,7 +10845,7 @@
 
     if-eqz v5, :cond_c
 
-    const v5, 0x7f02060d
+    const v5, 0x7f02060f
 
     :goto_9
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10853,7 +10853,7 @@
     goto/16 :goto_4
 
     :cond_c
-    const v5, 0x7f020611
+    const v5, 0x7f020613
 
     goto :goto_9
 
@@ -10889,7 +10889,7 @@
 
     if-eqz v5, :cond_e
 
-    const v5, 0x7f020610
+    const v5, 0x7f020612
 
     :goto_b
     iput v5, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
@@ -10897,12 +10897,12 @@
     goto/16 :goto_4
 
     :cond_e
-    const v5, 0x7f020613
+    const v5, 0x7f020615
 
     goto :goto_b
 
     :cond_f
-    const v5, 0x7f020615
+    const v5, 0x7f020617
 
     goto/16 :goto_3
 
@@ -10984,7 +10984,7 @@
 .method private updateZVVMobileIconGroup()Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;
     .locals 5
 
-    const v4, 0x7f02060e
+    const v4, 0x7f020610
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mTag:Ljava/lang/String;
 
@@ -11028,7 +11028,7 @@
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    const v1, 0x7f02061a
+    const v1, 0x7f02061c
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
@@ -11048,7 +11048,7 @@
     goto :goto_1
 
     :pswitch_2
-    const v1, 0x7f020618
+    const v1, 0x7f02061a
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
@@ -11060,14 +11060,14 @@
     goto :goto_1
 
     :pswitch_4
-    const v1, 0x7f02061b
+    const v1, 0x7f02061d
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
     goto :goto_1
 
     :pswitch_5
-    const v1, 0x7f02061c
+    const v1, 0x7f02061e
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
@@ -11079,7 +11079,7 @@
     goto :goto_1
 
     :pswitch_7
-    const v1, 0x7f02060f
+    const v1, 0x7f020611
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mDisabledDataIcon:I
 
@@ -11633,7 +11633,7 @@
     goto :goto_0
 
     :cond_9
-    const v0, 0x7f020619
+    const v0, 0x7f02061b
 
     goto :goto_1
 
@@ -13834,7 +13834,7 @@
 
     move-result v2
 
-    const v9, 0x7f0206f9
+    const v9, 0x7f0206fb
 
     move-object/from16 v0, p1
 
@@ -14037,7 +14037,7 @@
 
     aget v4, v0, v6
 
-    const v5, 0x7f020656
+    const v5, 0x7f020658
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->getIcons()Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;
 
@@ -14051,7 +14051,7 @@
 
     if-eqz v0, :cond_0
 
-    const v5, 0x7f020657
+    const v5, 0x7f020659
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;

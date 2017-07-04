@@ -3,12 +3,12 @@
 .source "KeyguardServiceBoxContainer.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->dismissServiceBox(Ljava/lang/String;)V
+    value = Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->showServiceBox(Ljava/lang/String;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-.field final synthetic val$pkgName:Ljava/lang/String;
+.field final synthetic val$page:Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    iput-object p2, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;->val$pkgName:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;->val$page:Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,22 +38,22 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public onPreDraw()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;->val$page:Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->getContext()Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-wrap10(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)V
 
-    move-result-object v0
+    const/4 v0, 0x1
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;->val$pkgName:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->hideFloatingView(Ljava/lang/String;)V
-
-    return-void
+    return v0
 .end method

@@ -218,7 +218,7 @@
 
     if-eqz v3, :cond_4
 
-    const v3, 0x7f02047f
+    const v3, 0x7f020481
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -226,7 +226,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mLightDismissDrawable:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f02047e
+    const v3, 0x7f020480
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -234,7 +234,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mDarkDismissDrawable:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f0204a0
+    const v3, 0x7f0204a2
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -242,7 +242,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mLightSplitDrawable:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f02049f
+    const v3, 0x7f0204a1
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -254,7 +254,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f02049e
+    const v3, 0x7f0204a0
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -262,7 +262,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mLightSnapViewIcon:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f02049d
+    const v3, 0x7f02049f
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -313,7 +313,7 @@
 
     if-nez v3, :cond_1
 
-    const v3, 0x7f020498
+    const v3, 0x7f02049a
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -321,7 +321,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mLightFreeformIcon:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f020497
+    const v3, 0x7f020499
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -329,7 +329,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mDarkFreeformIcon:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f02049a
+    const v3, 0x7f02049c
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -337,7 +337,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mLightFullscreenIcon:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f020499
+    const v3, 0x7f02049b
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -346,7 +346,7 @@
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mDarkFullscreenIcon:Landroid/graphics/drawable/Drawable;
 
     :cond_1
-    const v3, 0x7f020493
+    const v3, 0x7f020495
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -354,7 +354,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mLightInfoIcon:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f020492
+    const v3, 0x7f020494
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -421,7 +421,7 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x7f020340
+    const v1, 0x7f020342
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -429,7 +429,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mLightLockTaskDrawable:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f02033f
+    const v1, 0x7f020341
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -441,7 +441,7 @@
     return-void
 
     :cond_4
-    const v3, 0x7f020481
+    const v3, 0x7f020483
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -449,7 +449,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mLightDismissDrawable:Landroid/graphics/drawable/Drawable;
 
-    const v3, 0x7f020480
+    const v3, 0x7f020482
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -594,7 +594,7 @@
 
     if-nez v7, :cond_1
 
-    const v7, 0x7f130418
+    const v7, 0x7f130419
 
     invoke-static {p0, v7}, Lcom/android/systemui/recents/misc/Utilities;->findViewStubById(Landroid/view/View;I)Landroid/view/ViewStub;
 
@@ -636,7 +636,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mAppOverlayView:Landroid/widget/FrameLayout;
 
-    const v8, 0x7f13041b
+    const v8, 0x7f13041c
 
     invoke-virtual {v7, v8}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -652,7 +652,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mAppOverlayView:Landroid/widget/FrameLayout;
 
-    const v8, 0x7f13041a
+    const v8, 0x7f13041b
 
     invoke-virtual {v7, v8}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1492,7 +1492,7 @@
 
     if-nez v2, :cond_5
 
-    const v2, 0x7f130416
+    const v2, 0x7f130417
 
     invoke-static {p0, v2}, Lcom/android/systemui/recents/misc/Utilities;->findViewStubById(Landroid/view/View;I)Landroid/view/ViewStub;
 
@@ -2421,7 +2421,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mTitleView:Landroid/widget/TextView;
 
-    const v1, 0x7f130415
+    const v1, 0x7f130416
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 
@@ -2439,7 +2439,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f130414
+    const v1, 0x7f130415
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 
@@ -2462,7 +2462,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f130412
+    const v1, 0x7f130413
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 
@@ -2491,7 +2491,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f130411
+    const v1, 0x7f130412
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 
@@ -2526,7 +2526,7 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x7f130413
+    const v1, 0x7f130414
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 

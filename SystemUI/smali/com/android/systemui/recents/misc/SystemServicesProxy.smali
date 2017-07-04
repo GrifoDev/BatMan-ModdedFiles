@@ -505,7 +505,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0171
+    const v6, 0x7f0b0172
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -529,7 +529,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mAppLockBmpOpts:Landroid/graphics/BitmapFactory$Options;
 
-    const v7, 0x7f02024b
+    const v7, 0x7f02024d
 
     invoke-static {v5, v7, v6}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
@@ -579,7 +579,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0172
+    const v6, 0x7f0b0173
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 

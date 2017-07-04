@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/FingerprintUnlockController$3;->this$0:Lcom/android/systemui/statusbar/phone/FingerprintUnlockController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/FingerprintUnlockController;->-get2(Lcom/android/systemui/statusbar/phone/FingerprintUnlockController;)Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/FingerprintUnlockController;->-get1(Lcom/android/systemui/statusbar/phone/FingerprintUnlockController;)Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;
 
     move-result-object v0
 

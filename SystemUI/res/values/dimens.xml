@@ -534,7 +534,7 @@
     <dimen name="close_handle_height">36.0dip</dimen>
     <dimen name="close_handle_underlap">32.0dip</dimen>
     <dimen name="status_bar_header_height">79.0dip</dimen>
-    <dimen name="status_bar_header_height_expanded">70.0dip</dimen>
+    <dimen name="status_bar_header_height_expanded">116.0dip</dimen>
     <dimen name="status_bar_header_height_keyguard">24.0dip</dimen>
     <dimen name="status_bar_header_height_keyguard_for_mum">54.0dip</dimen>
     <dimen name="system_icons_super_container_margin_start">16.0dip</dimen>
@@ -567,7 +567,7 @@
     <dimen name="qs_edit_tile_side_padding_6x2">7.0dip</dimen>
     <dimen name="qs_edit_tile_side_padding_8x2">7.0dip</dimen>
     <dimen name="qs_tile_vertical_margin">0.0dip</dimen>
-    <dimen name="qs_tile_margin_top">50.0dip</dimen>
+    <dimen name="qs_tile_margin_top">0.0dip</dimen>
     <dimen name="qs_quick_tile_size">38.0dip</dimen>
     <dimen name="qs_quick_tile_padding">0.0dip</dimen>
     <dimen name="qs_quick_tile_layout_side_padding">19.0dip</dimen>
@@ -1149,6 +1149,7 @@
     <item type="dimen" name="status_bar_battery_light_mode_alpha">0.74</item>
     <item type="dimen" name="status_bar_battery_dark_mode_alpha">0.68</item>
     <item type="dimen" name="battery_meter_text_size_ratio">0.666</item>
+    <dimen name="navigation_force_immersive_touch_window_breadth">7.0dip</dimen>
     <dimen name="badge_notification_background_size">16.0dip</dimen>
     <dimen name="badge_notification_background_size_on_desktop_mode">14.0dip</dimen>
     <dimen name="badge_notification_margin_top">4.0dip</dimen>

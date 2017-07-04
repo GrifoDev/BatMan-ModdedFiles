@@ -116,7 +116,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v3, 0x7f02036b
+    const v3, 0x7f02036d
 
     const/4 v4, 0x0
 

@@ -343,7 +343,7 @@
 .method protected inflateIconArea(Landroid/view/LayoutInflater;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f0400eb
+    const v0, 0x7f0400ec
 
     const/4 v1, 0x0
 

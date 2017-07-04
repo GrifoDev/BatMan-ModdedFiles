@@ -731,7 +731,7 @@
 
     if-eqz v5, :cond_1
 
-    const v5, 0x7f02039a
+    const v5, 0x7f02039c
 
     :goto_1
     invoke-virtual {v6, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -773,7 +773,7 @@
     goto :goto_0
 
     :cond_1
-    const v5, 0x7f020399
+    const v5, 0x7f02039b
 
     goto :goto_1
 
@@ -887,21 +887,11 @@
 
     move-result-object v3
 
-    const v5, 0x7f04011d
+    const v5, 0x7f04011e
 
     invoke-virtual {v3, v5, p3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
-
-    const v3, 0x7f130390
-
-    invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/TextView;
-
-    iput-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mMobileApName:Landroid/widget/TextView;
 
     const v3, 0x7f130391
 
@@ -911,9 +901,19 @@
 
     check-cast v3, Landroid/widget/TextView;
 
+    iput-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mMobileApName:Landroid/widget/TextView;
+
+    const v3, 0x7f130392
+
+    invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mConnectionMode:Landroid/widget/TextView;
 
-    const v3, 0x7f130397
+    const v3, 0x7f130398
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -921,7 +921,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mConnectedListContainer:Landroid/view/View;
 
-    const v3, 0x7f130398
+    const v3, 0x7f130399
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -931,7 +931,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mConnectedListTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f130393
+    const v3, 0x7f130394
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -941,7 +941,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mPassword:Landroid/widget/TextView;
 
-    const v3, 0x7f130394
+    const v3, 0x7f130395
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -964,7 +964,7 @@
     invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
     :cond_2
-    const v3, 0x7f130395
+    const v3, 0x7f130396
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -974,7 +974,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->mWifiSharingStatus:Landroid/widget/TextView;
 
-    const v3, 0x7f130396
+    const v3, 0x7f130397
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -986,7 +986,7 @@
 
     invoke-direct {p0, p2}, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->setupDetailView(Landroid/view/View;)V
 
-    const v3, 0x7f130399
+    const v3, 0x7f13039a
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1010,7 +1010,7 @@
 
     invoke-virtual {v3, p0}, Lcom/android/systemui/qs/QSDetailItems;->setCallback(Lcom/android/systemui/qs/QSDetailItems$Callback;)V
 
-    const v3, 0x7f13038f
+    const v3, 0x7f130390
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1022,7 +1022,7 @@
 
     if-eqz v3, :cond_3
 
-    const v3, 0x7f02039a
+    const v3, 0x7f02039c
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 

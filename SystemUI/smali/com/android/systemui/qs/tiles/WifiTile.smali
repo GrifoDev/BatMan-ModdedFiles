@@ -170,7 +170,7 @@
 
     const v6, 0x7f0c0086
 
-    const v3, 0x7f020467
+    const v3, 0x7f020469
 
     const v4, 0x7f0b00ff
 
@@ -190,7 +190,7 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020457
+    const v2, 0x7f020459
 
     const v7, 0x7f0c0087
 
@@ -204,7 +204,7 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020456
+    const v2, 0x7f020458
 
     const v5, 0x7f0b0100
 
@@ -663,7 +663,7 @@
 
     iput-boolean v1, p1, Lcom/android/systemui/qs/QSTile$SignalState;->dim:Z
 
-    const v8, 0x7f020455
+    const v8, 0x7f020457
 
     invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

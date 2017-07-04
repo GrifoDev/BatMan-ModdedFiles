@@ -363,7 +363,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02063f
+    const v3, 0x7f020641
 
     const/4 v4, 0x0
 
@@ -614,7 +614,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f02063f
+    const v4, 0x7f020641
 
     invoke-virtual {v1, v2, v4, v5, v3}, Landroid/app/StatusBarManager;->setIcon(Ljava/lang/String;IILjava/lang/String;)V
 

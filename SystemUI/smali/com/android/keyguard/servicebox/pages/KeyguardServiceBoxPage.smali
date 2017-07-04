@@ -46,8 +46,6 @@
 
 .field private mShowAnimationListener:Landroid/animation/Animator$AnimatorListener;
 
-.field protected mSuppressTransition:Z
-
 .field protected mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
 
 .field protected mWindowManager:Landroid/view/WindowManager;
@@ -127,8 +125,6 @@
 
     iput-boolean v0, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mIsReservedToTransition:Z
 
-    iput-boolean v0, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mSuppressTransition:Z
-
     iput v2, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mPageType:I
 
     iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
@@ -206,8 +202,6 @@
 .method protected attachContentsView(Landroid/animation/Animator$AnimatorListener;)V
     .locals 8
 
-    const/4 v4, 0x0
-
     const/4 v7, 0x0
 
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->getHolder()Landroid/view/ViewGroup;
@@ -245,10 +239,6 @@
     return-void
 
     :cond_0
-    iget-boolean v3, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mSuppressTransition:Z
-
-    if-nez v3, :cond_1
-
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->isTransitionEnabled()Z
 
     move-result v3
@@ -272,8 +262,6 @@
     move-result v2
 
     :goto_0
-    iput-boolean v4, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mSuppressTransition:Z
-
     sget-object v3, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -389,6 +377,14 @@
     invoke-direct {v3, v4, v1, v5, v6}, Lcom/android/keyguard/servicebox/utils/SecTransition;-><init>(Landroid/view/ViewTreeObserver;Landroid/view/ViewGroup;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;Z)V
 
     iput-object v3, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
+
+    iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/keyguard/servicebox/utils/SecTransition;->setAdditionalTag(Ljava/lang/String;)V
 
     :cond_5
     if-eqz v2, :cond_6
@@ -762,6 +758,14 @@
 
     iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
 
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/android/keyguard/servicebox/utils/SecTransition;->setAdditionalTag(Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -971,30 +975,19 @@
 
     iget v0, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mPageType:I
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_0
 
-    iget v0, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mPageType:I
-
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mSuppressTransition:Z
-
-    :cond_0
     iput p1, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mPageType:I
 
     iput-boolean p2, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mIsReservedToTransition:Z
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->mShowAnimationListener:Landroid/animation/Animator$AnimatorListener;
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;->attachContentsView(Landroid/animation/Animator$AnimatorListener;)V
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 

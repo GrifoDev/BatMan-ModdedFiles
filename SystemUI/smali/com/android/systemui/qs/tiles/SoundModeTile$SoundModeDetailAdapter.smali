@@ -445,7 +445,7 @@
 
     const/4 v1, 0x0
 
-    const v0, 0x7f1303ab
+    const v0, 0x7f1303ac
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -502,7 +502,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040121
+    const v3, 0x7f040122
 
     const v4, 0x1020016
 
@@ -530,7 +530,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    const v0, 0x7f1303ac
+    const v0, 0x7f1303ad
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -540,7 +540,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->mTempMuteContainer:Landroid/view/View;
 
-    const v1, 0x7f1303ae
+    const v1, 0x7f1303af
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -682,7 +682,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->mTempMuteContainer:Landroid/view/View;
 
-    const v5, 0x7f1303ad
+    const v5, 0x7f1303ae
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -735,7 +735,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->mTempMuteContainer:Landroid/view/View;
 
-    const v5, 0x7f1303ae
+    const v5, 0x7f1303af
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -820,7 +820,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040123
+    const v1, 0x7f040124
 
     const/4 v2, 0x0
 

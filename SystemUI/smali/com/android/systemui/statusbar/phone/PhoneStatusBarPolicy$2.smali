@@ -72,7 +72,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02063e
+    const v3, 0x7f020640
 
     invoke-virtual {v0, v1, v3, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIcon(Ljava/lang/String;ILjava/lang/CharSequence;)V
 

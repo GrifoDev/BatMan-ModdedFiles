@@ -31,11 +31,11 @@
 
 .field private mGradientAlphaStart:I
 
-.field private final mLightOut:I
+.field protected mLightOut:I
 
 .field private mMode:I
 
-.field private final mOpaque:I
+.field protected mOpaque:I
 
 .field private mPaint:Landroid/graphics/Paint;
 
@@ -592,6 +592,12 @@
 .end method
 
 .method public updateDockedOpaqueColor(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public updateOpaqueColor(I)V
     .locals 0
 
     return-void

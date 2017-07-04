@@ -39,7 +39,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get5(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get9(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
 
     move-result v1
 
@@ -66,7 +66,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get0(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/phone/NavigationBarController;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get1(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/phone/NavigationBarController;
 
     move-result-object v1
 

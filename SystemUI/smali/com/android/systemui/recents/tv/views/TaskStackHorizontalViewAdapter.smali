@@ -180,7 +180,7 @@
 
     new-instance v4, Lcom/android/systemui/recents/tv/views/TaskStackHorizontalViewAdapter$ViewHolder;
 
-    const v5, 0x7f040147
+    const v5, 0x7f040148
 
     invoke-virtual {v0, v5, p1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -198,7 +198,7 @@
     :cond_1
     new-instance v4, Lcom/android/systemui/recents/tv/views/TaskStackHorizontalViewAdapter$ViewHolder;
 
-    const v5, 0x7f040156
+    const v5, 0x7f040157
 
     invoke-virtual {v0, v5, p1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

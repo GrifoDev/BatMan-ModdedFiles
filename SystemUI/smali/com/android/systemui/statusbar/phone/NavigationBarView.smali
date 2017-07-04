@@ -84,6 +84,10 @@
 
 .field protected mMenuIcon:Landroid/graphics/drawable/Drawable;
 
+.field protected mNavBarPinIcon:Landroid/graphics/drawable/Drawable;
+
+.field protected mNavBarUnPinIcon:Landroid/graphics/drawable/Drawable;
+
 .field protected mNavigationIconHints:I
 
 .field private mNavigationInflaterView:Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;
@@ -273,11 +277,11 @@
 
     new-instance v1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
 
-    const v2, 0x7f1303e1
+    const v2, 0x7f1303e2
 
     invoke-direct {v1, v2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;-><init>(I)V
 
-    const v2, 0x7f1303e1
+    const v2, 0x7f1303e2
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
@@ -686,6 +690,18 @@
     return-void
 .end method
 
+.method public checkNaviKeyDisabled(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public dismissForceImmersiveHelp()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 10
 
@@ -1089,12 +1105,20 @@
     return-object v0
 .end method
 
+.method public getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public getRecentsButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mButtonDisatchers:Landroid/util/SparseArray;
 
-    const v1, 0x7f1303e1
+    const v1, 0x7f1303e2
 
     invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
@@ -1175,6 +1199,12 @@
     return-void
 .end method
 
+.method public onBootCompleted()V
+    .locals 0
+
+    return-void
+.end method
+
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 3
 
@@ -1204,6 +1234,8 @@
     invoke-virtual {p0, v1, v2, p1}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateIcons(Landroid/content/Context;Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateRecentsIcon()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateImmersivePinIcon()V
 
     if-nez v0, :cond_1
 
@@ -1249,7 +1281,7 @@
 .method public onFinishInflate()V
     .locals 3
 
-    const v1, 0x7f130347
+    const v1, 0x7f130348
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->findViewById(I)Landroid/view/View;
 
@@ -1419,7 +1451,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mCurrentView:Landroid/view/View;
 
-    const v1, 0x7f13034d
+    const v1, 0x7f13034e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1637,12 +1669,19 @@
     :goto_9
     invoke-virtual {v7, v8}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setVisibility(I)V
 
+    if-eqz v0, :cond_10
+
+    if-eqz v1, :cond_10
+
+    :goto_a
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->checkNaviKeyDisabled(Z)V
+
     return-void
 
     :cond_4
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_5
     const/4 v2, 0x1
@@ -1652,7 +1691,7 @@
     :cond_6
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_7
     const/4 v0, 0x0
@@ -1692,6 +1731,14 @@
 
     const/4 v1, 0x1
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_3
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setPinButtonVisibility(Z)V
+
     goto :goto_6
 
     :cond_d
@@ -1708,6 +1755,11 @@
     move v8, v6
 
     goto :goto_9
+
+    :cond_10
+    move v2, v6
+
+    goto :goto_a
 .end method
 
 .method public setIconColor(I)V
@@ -1929,6 +1981,8 @@
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateImmersivePinIcon()V
+
     iget v3, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mDisabledFlags:I
 
     invoke-virtual {p0, v3, v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setDisabledFlags(IZ)V
@@ -1993,6 +2047,12 @@
 .end method
 
 .method public setPhoneStatusBar(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setPinButtonVisibility(Z)V
     .locals 0
 
     return-void
@@ -2321,7 +2381,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mHomeDefaultIcon:Landroid/graphics/drawable/Drawable;
 
-    const v0, 0x7f02024a
+    const v0, 0x7f02024c
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2348,6 +2408,12 @@
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateCarModeIcons(Landroid/content/Context;)V
 
     :cond_0
+    return-void
+.end method
+
+.method public updateImmersivePinIcon()V
+    .locals 0
+
     return-void
 .end method
 

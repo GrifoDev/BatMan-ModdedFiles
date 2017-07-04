@@ -17,7 +17,7 @@
 .method protected findContentView()Landroid/view/View;
     .locals 1
 
-    const v0, 0x7f1304a4
+    const v0, 0x7f1304a5
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/EmptyShadeView;->findViewById(I)Landroid/view/View;
 

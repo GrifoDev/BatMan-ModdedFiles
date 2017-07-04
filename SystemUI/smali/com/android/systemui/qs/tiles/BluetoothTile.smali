@@ -727,7 +727,7 @@
 
     :cond_3
     :goto_3
-    const v8, 0x7f0203c8
+    const v8, 0x7f0203ca
 
     invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

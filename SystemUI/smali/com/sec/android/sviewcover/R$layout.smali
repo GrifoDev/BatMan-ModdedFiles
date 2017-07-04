@@ -34,11 +34,11 @@
 
 .field public static final clear_cover_view:I = 0x7f040041
 
-.field public static final s_view_cover_empty_popup_frame:I = 0x7f040162
+.field public static final s_view_cover_empty_popup_frame:I = 0x7f040163
 
-.field public static final s_view_cover_popup_frame:I = 0x7f040164
+.field public static final s_view_cover_popup_frame:I = 0x7f040165
 
-.field public static final s_view_cover_view:I = 0x7f040167
+.field public static final s_view_cover_view:I = 0x7f040168
 
 
 # direct methods

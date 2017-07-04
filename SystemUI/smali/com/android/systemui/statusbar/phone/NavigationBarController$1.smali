@@ -31,6 +31,20 @@
 
 
 # virtual methods
+.method public onBootCompleted()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController$1;->this$0:Lcom/android/systemui/statusbar/phone/NavigationBarController;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->-get0(Lcom/android/systemui/statusbar/phone/NavigationBarController;)Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->onBootCompleted()V
+
+    return-void
+.end method
+
 .method public onOpenThemeChanged()V
     .locals 2
 

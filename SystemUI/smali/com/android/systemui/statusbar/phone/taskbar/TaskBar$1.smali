@@ -122,7 +122,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1303e1
+    const v3, 0x7f1303e2
 
     invoke-virtual {v2, v3, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeAllExcept(IZ)V
 

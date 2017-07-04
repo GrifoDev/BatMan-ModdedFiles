@@ -4,7 +4,7 @@
 
 
 # static fields
-.field public static final battery_charging:I = 0x7f130433
+.field public static final battery_charging:I = 0x7f130434
 
 .field public static final clear_cover_battery_charging:I = 0x7f130142
 
@@ -106,21 +106,21 @@
 
 .field public static final s_view_cover_contact_button:I = 0x7f130000
 
-.field public static final s_view_cover_hide_effect:I = 0x7f130438
+.field public static final s_view_cover_hide_effect:I = 0x7f130439
 
-.field public static final s_view_cover_shortcut_camera_button:I = 0x7f13042f
+.field public static final s_view_cover_shortcut_camera_button:I = 0x7f130430
 
-.field public static final s_view_cover_swipearrow_camera:I = 0x7f130430
+.field public static final s_view_cover_swipearrow_camera:I = 0x7f130431
 
 .field public static final s_view_cover_swipearrow_contact:I = 0x7f130001
 
-.field public static final s_view_cover_unlock_area:I = 0x7f130435
+.field public static final s_view_cover_unlock_area:I = 0x7f130436
 
-.field public static final s_view_cover_wallpaper:I = 0x7f130439
+.field public static final s_view_cover_wallpaper:I = 0x7f13043a
 
-.field public static final sec_cover_camera_circle:I = 0x7f13042e
+.field public static final sec_cover_camera_circle:I = 0x7f13042f
 
-.field public static final sec_cover_contact_circle:I = 0x7f130431
+.field public static final sec_cover_contact_circle:I = 0x7f130432
 
 .field public static final servicebox_alarm_missing_alarm:I = 0x7f13012d
 

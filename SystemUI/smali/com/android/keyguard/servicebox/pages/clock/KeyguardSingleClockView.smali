@@ -1328,7 +1328,6 @@
     invoke-virtual {v1, v3}, Lcom/android/keyguard/KeyguardTextView;->setTransitionName(Ljava/lang/String;)V
 
     :cond_2
-
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HideBarometr()V
 
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->HidePedo1()V

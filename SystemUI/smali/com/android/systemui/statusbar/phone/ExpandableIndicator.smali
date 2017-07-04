@@ -53,9 +53,9 @@
 .method private getDrawableResourceId(Z)I
     .locals 3
 
-    const v1, 0x7f020255
+    const v1, 0x7f020257
 
-    const v0, 0x7f020253
+    const v0, 0x7f020255
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/ExpandableIndicator;->mIsDefaultDirection:Z
 

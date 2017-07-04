@@ -142,7 +142,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f130493
+    const v2, 0x7f130494
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->findViewById(I)Landroid/view/View;
 

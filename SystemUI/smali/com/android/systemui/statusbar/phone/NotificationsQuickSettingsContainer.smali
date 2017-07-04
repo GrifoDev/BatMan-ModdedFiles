@@ -314,7 +314,7 @@
 
     invoke-virtual {v1, p0}, Lcom/android/systemui/AutoReinflateContainer;->addInflateListener(Lcom/android/systemui/AutoReinflateContainer$InflateListener;)V
 
-    const v1, 0x7f130493
+    const v1, 0x7f130494
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->findViewById(I)Landroid/view/View;
 
@@ -342,7 +342,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->mKeyguardStatusBar:Landroid/view/View;
 
-    const v1, 0x7f130494
+    const v1, 0x7f130495
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->findViewById(I)Landroid/view/View;
 

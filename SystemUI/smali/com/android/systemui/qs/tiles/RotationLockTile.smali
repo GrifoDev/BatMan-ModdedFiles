@@ -190,9 +190,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f020430
+    const v2, 0x7f020432
 
-    const v3, 0x7f020440
+    const v3, 0x7f020442
 
     move-object v1, p0
 
@@ -206,9 +206,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f02040e
+    const v2, 0x7f020410
 
-    const v3, 0x7f02041e
+    const v3, 0x7f020420
 
     move-object v1, p0
 
@@ -222,9 +222,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f02041f
+    const v2, 0x7f020421
 
-    const v3, 0x7f02042f
+    const v3, 0x7f020431
 
     move-object v1, p0
 
@@ -238,9 +238,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203fd
+    const v2, 0x7f0203ff
 
-    const v3, 0x7f02040d
+    const v3, 0x7f02040f
 
     move-object v1, p0
 
@@ -600,7 +600,7 @@
 .method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
     .locals 8
 
-    const v4, 0x7f020440
+    const v4, 0x7f020442
 
     const/4 v7, 0x1
 
@@ -668,7 +668,7 @@
 
     if-eqz v3, :cond_5
 
-    const v3, 0x7f02041e
+    const v3, 0x7f020420
 
     invoke-static {v3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -803,7 +803,7 @@
     goto :goto_2
 
     :cond_b
-    const v3, 0x7f02042f
+    const v3, 0x7f020431
 
     goto :goto_6
 .end method

@@ -899,7 +899,7 @@ mirroring"</string>
     <string name="insert_sim_card_message">請插入 SIM 卡以存取網路服務。</string>
     <string name="mobile_data_show_toast_airplane_mode">啟用飛航模式時無法連接行動網路。停用飛航模式然後重試。</string>
     <string name="volte_show_toast_airplane_mode">啟用飛航模式時，無法使用 VoLTE 。停用飛航模式並重試。</string>
-    <string name="volte_show_toast_impossible_during_volte_call">VoLTE 通話期間無法停用可用時使用 VoLTE。</string>
+    <string name="volte_show_toast_impossible_during_volte_call">VoLTE 通話期間無法停用 VoLTE。</string>
     <string name="volte_show_toast_disable_not_allowed">電信業者不允許停用 VoLTE。</string>
     <string name="volte_show_toast_not_support_operator">您目前的軟體版本不支援 VoLTE 。如需詳細資訊，請聯絡客服中心。</string>
     <string name="volte_show_toast_enable_message">若要使用 VoLTE 服務，請訂閱 VoLTE。如需詳細資訊，請聯絡您的系統業者。</string>
@@ -1786,6 +1786,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">我接受</string>
+    <string name="force_immersive_guide_text">輕觸此圖示即可隱藏導覽列。您仍可透過從螢幕底部向上滑動來使用導覽按鈕。導覽列顯示時，可再次輕觸此圖示以固定其位置。於主螢幕等部分畫面上，將一律顯示導覽列。</string>
     <string name="car_lockscreen_disclaimer_title">安全駕駛</string>
     <string name="car_lockscreen_disclaimer_text">請隨時注意周遭路況並遵守交通規則。系統所提供的路線可能有誤、不完整，或包含危險、不合適、禁止通行或管制區域的路段；此外，商家資訊也可能有誤或不完整。路況資料並非即時更新，也無法保證定位資訊必然準確無誤。駕駛時請勿操作您的行動裝置，或使用不適用於 Android Auto 的應用程式。</string>
     <string name="pip_close">關閉子母畫面</string>

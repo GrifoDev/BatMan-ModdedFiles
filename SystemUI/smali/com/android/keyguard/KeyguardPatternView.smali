@@ -611,7 +611,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView;->mContext:Landroid/content/Context;
 
-    const v2, 0x10409f1
+    const v2, 0x10409fd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

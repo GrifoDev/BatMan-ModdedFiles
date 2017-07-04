@@ -812,7 +812,7 @@
 
     if-eqz v2, :cond_4
 
-    const v2, 0x7f1304b2
+    const v2, 0x7f1304b3
 
     move-object/from16 v0, v16
 

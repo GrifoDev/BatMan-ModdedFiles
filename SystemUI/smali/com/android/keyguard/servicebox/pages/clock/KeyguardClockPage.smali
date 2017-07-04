@@ -1413,88 +1413,6 @@
     goto :goto_0
 .end method
 
-.method public makeTransitionData()V
-    .locals 5
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->getHolder()Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    invoke-virtual {v1}, Lcom/android/keyguard/servicebox/utils/SecTransition;->cancel()V
-
-    :cond_1
-    new-instance v1, Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mServiceBoxController:Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;
-
-    invoke-interface {v2}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxController;->getContainerViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v4}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->getTransitionOption(Z)Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
-
-    move-result-object v3
-
-    invoke-direct {v1, v2, v0, v3, v4}, Lcom/android/keyguard/servicebox/utils/SecTransition;-><init>(Landroid/view/ViewTreeObserver;Landroid/view/ViewGroup;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;Z)V
-
-    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    const-string/jumbo v2, "keyguard_transition_clock_time_hour"
-
-    iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTimeMoveScaleOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    const-string/jumbo v2, "keyguard_transition_clock_time_colon"
-
-    iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mColonScaleOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    const-string/jumbo v2, "keyguard_transition_clock_time_min"
-
-    iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTimeMoveScaleOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    const-string/jumbo v2, "keyguard_transition_clock_date_normal"
-
-    iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mDateMoveOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTransition:Lcom/android/keyguard/servicebox/utils/SecTransition;
-
-    const-string/jumbo v2, "keyguard_transition_clock_date_shamsi"
-
-    iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mDateMoveOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
-
-    return-void
-.end method
-
 .method protected onAttachedToWindow()V
     .locals 3
 
@@ -1663,6 +1581,42 @@
     return-void
 .end method
 
+.method public prepareTransition(Lcom/android/keyguard/servicebox/utils/SecTransition;)V
+    .locals 2
+
+    const-string/jumbo v0, "keyguard_transition_clock_time_hour"
+
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTimeMoveScaleOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
+
+    const-string/jumbo v0, "keyguard_transition_clock_time_colon"
+
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mColonScaleOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
+
+    const-string/jumbo v0, "keyguard_transition_clock_time_min"
+
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mTimeMoveScaleOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
+
+    const-string/jumbo v0, "keyguard_transition_clock_date_normal"
+
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mDateMoveOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
+
+    const-string/jumbo v0, "keyguard_transition_clock_date_shamsi"
+
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mDateMoveOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/keyguard/servicebox/utils/SecTransition;->add(Ljava/lang/String;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
+
+    return-void
+.end method
+
 .method public refreshTime()V
     .locals 4
 
@@ -1773,28 +1727,19 @@
 .end method
 
 .method public setPageType(IZ)V
-    .locals 3
-
-    const/4 v2, 0x1
+    .locals 1
 
     iget v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mPageType:I
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_0
 
-    iget v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mPageType:I
-
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
-
-    iput-boolean v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mSuppressTransition:Z
-
-    :cond_0
     iput p1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mPageType:I
 
-    invoke-direct {p0, v2}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->considerChangeClockView(Z)V
+    const/4 v0, 0x1
 
-    :cond_1
+    invoke-direct {p0, v0}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->considerChangeClockView(Z)V
+
+    :cond_0
     return-void
 .end method
 

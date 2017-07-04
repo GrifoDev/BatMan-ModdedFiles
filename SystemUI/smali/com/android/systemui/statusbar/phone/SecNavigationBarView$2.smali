@@ -55,13 +55,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$2;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get3(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get6(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$2;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get1(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get2(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Ljava/lang/Runnable;
 
     move-result-object v2
 
@@ -69,13 +69,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$2;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get3(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get6(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$2;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get1(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get2(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Ljava/lang/Runnable;
 
     move-result-object v2
 

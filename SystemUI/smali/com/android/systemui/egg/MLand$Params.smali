@@ -70,7 +70,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v0, 0x7f0d04b8
+    const v0, 0x7f0d04b9
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -78,7 +78,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->TRANSLATION_PER_SEC:F
 
-    const v0, 0x7f0d04b7
+    const v0, 0x7f0d04b8
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -98,7 +98,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->OBSTACLE_PERIOD:I
 
-    const v0, 0x7f0d04b9
+    const v0, 0x7f0d04ba
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -106,7 +106,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->BOOST_DV:I
 
-    const v0, 0x7f0d04ba
+    const v0, 0x7f0d04bb
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -114,7 +114,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->PLAYER_HIT_SIZE:I
 
-    const v0, 0x7f0d04bb
+    const v0, 0x7f0d04bc
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -122,7 +122,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->PLAYER_SIZE:I
 
-    const v0, 0x7f0d04bc
+    const v0, 0x7f0d04bd
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -130,7 +130,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->OBSTACLE_WIDTH:I
 
-    const v0, 0x7f0d04bd
+    const v0, 0x7f0d04be
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -138,7 +138,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->OBSTACLE_STEM_WIDTH:I
 
-    const v0, 0x7f0d04be
+    const v0, 0x7f0d04bf
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -146,7 +146,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->OBSTACLE_GAP:I
 
-    const v0, 0x7f0d04bf
+    const v0, 0x7f0d04c0
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -154,7 +154,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->OBSTACLE_MIN:I
 
-    const v0, 0x7f0d04c2
+    const v0, 0x7f0d04c3
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -162,7 +162,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->BUILDING_HEIGHT_MIN:I
 
-    const v0, 0x7f0d04c0
+    const v0, 0x7f0d04c1
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -170,7 +170,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->BUILDING_WIDTH_MIN:I
 
-    const v0, 0x7f0d04c1
+    const v0, 0x7f0d04c2
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -178,7 +178,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->BUILDING_WIDTH_MAX:I
 
-    const v0, 0x7f0d04c3
+    const v0, 0x7f0d04c4
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -186,7 +186,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->CLOUD_SIZE_MIN:I
 
-    const v0, 0x7f0d04c4
+    const v0, 0x7f0d04c5
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -194,7 +194,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->CLOUD_SIZE_MAX:I
 
-    const v0, 0x7f0d04c7
+    const v0, 0x7f0d04c8
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -202,7 +202,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->STAR_SIZE_MIN:I
 
-    const v0, 0x7f0d04c8
+    const v0, 0x7f0d04c9
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -210,7 +210,7 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->STAR_SIZE_MAX:I
 
-    const v0, 0x7f0d04c9
+    const v0, 0x7f0d04ca
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -218,23 +218,13 @@
 
     iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->G:I
 
-    const v0, 0x7f0d04ca
-
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->MAX_V:I
-
     const v0, 0x7f0d04cb
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    int-to-float v0, v0
-
-    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->SCENERY_Z:F
+    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->MAX_V:I
 
     const v0, 0x7f0d04cc
 
@@ -244,7 +234,7 @@
 
     int-to-float v0, v0
 
-    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->OBSTACLE_Z:F
+    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->SCENERY_Z:F
 
     const v0, 0x7f0d04cd
 
@@ -254,7 +244,7 @@
 
     int-to-float v0, v0
 
-    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->PLAYER_Z:F
+    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->OBSTACLE_Z:F
 
     const v0, 0x7f0d04ce
 
@@ -264,9 +254,19 @@
 
     int-to-float v0, v0
 
-    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->PLAYER_Z_BOOST:F
+    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->PLAYER_Z:F
 
     const v0, 0x7f0d04cf
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    iput v0, p0, Lcom/android/systemui/egg/MLand$Params;->PLAYER_Z_BOOST:F
+
+    const v0, 0x7f0d04d0
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

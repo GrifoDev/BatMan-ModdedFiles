@@ -316,7 +316,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040148
+    const v2, 0x7f040149
 
     invoke-virtual {v0, v2, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -799,7 +799,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllButton:Landroid/widget/Button;
 
-    const v2, 0x7f02047c
+    const v2, 0x7f02047e
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -814,7 +814,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllButton:Landroid/widget/Button;
 
-    const v2, 0x7f02047b
+    const v2, 0x7f02047d
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -1998,7 +1998,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v5, 0x7f1303ea
+    const v5, 0x7f1303eb
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -2006,7 +2006,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v5, 0x7f1303ed
+    const v5, 0x7f1303ee
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -2093,7 +2093,7 @@
     :cond_3
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v5, 0x7f1303ed
+    const v5, 0x7f1303ee
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -2101,7 +2101,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v5, 0x7f1303ea
+    const v5, 0x7f1303eb
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3959,7 +3959,7 @@
 
     const/4 v0, 0x1
 
-    const v5, 0x7f020479
+    const v5, 0x7f02047b
 
     iput-object p2, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllContainer:Landroid/view/ViewGroup;
 
@@ -3973,7 +3973,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303e8
+    const v2, 0x7f1303e9
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4033,7 +4033,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303ef
+    const v2, 0x7f1303f0
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4087,7 +4087,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303ec
+    const v2, 0x7f1303ed
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4107,7 +4107,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303eb
+    const v2, 0x7f1303ec
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -4136,7 +4136,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f1303ee
+    const v2, 0x7f1303ef
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

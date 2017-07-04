@@ -3737,7 +3737,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b017b
+    const v2, 0x7f0b017c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3749,7 +3749,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b017c
+    const v2, 0x7f0b017d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5504,7 +5504,7 @@
     invoke-virtual {v1, v3, p2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setDismissed(ZZ)V
 
     :cond_1
-    const v3, 0x7f1304b2
+    const v3, 0x7f1304b3
 
     invoke-virtual {p0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7013,6 +7013,8 @@
 
     move-result v9
 
+    sget-boolean v10, Lcom/android/systemui/SystemUIRune;->mAllowNotificationColorChange:Z
+
     const/high16 v6, 0x3f800000    # 1.0f
 
     iget v4, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mDimAmount:F
@@ -7098,11 +7100,9 @@
     :goto_0
     iget-object v4, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBackgroundPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->allowTransparency()Z
-
-    move-result v10
-
     if-eqz v10, :cond_2
+
+    if-eqz v9, :cond_2
 
     const/4 v2, 0x0
 
@@ -7119,13 +7119,16 @@
     goto :goto_0
 
     :cond_4
-    if-nez v9, :cond_5
+    if-eqz v10, :cond_5
 
+    if-nez v9, :cond_6
+
+    :cond_5
     const/high16 v4, 0x437f0000    # 255.0f
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     const/4 v4, 0x0
 
     :goto_1
@@ -7145,13 +7148,16 @@
 
     iget v5, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBackgroundFadeAmount:F
 
-    if-nez v9, :cond_6
+    if-eqz v10, :cond_7
 
+    if-nez v9, :cond_8
+
+    :cond_7
     iget v6, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBgColor:I
 
     goto :goto_2
 
-    :cond_6
+    :cond_8
     const/4 v6, 0x0
 
     :goto_2
@@ -7177,13 +7183,16 @@
 
     iget v6, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBackgroundFadeAmount:F
 
-    if-nez v9, :cond_7
+    if-eqz v10, :cond_9
 
+    if-nez v9, :cond_a
+
+    :cond_9
     iget v7, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBgColor:I
 
     goto :goto_3
 
-    :cond_7
+    :cond_a
     const/4 v7, 0x0
 
     :goto_3
@@ -7209,18 +7218,19 @@
 
     iget v7, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBackgroundFadeAmount:F
 
-    if-nez v9, :cond_8
+    if-eqz v10, :cond_b
 
+    if-nez v9, :cond_c
+
+    :cond_b
     iget v8, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBgColor:I
 
     goto :goto_4
 
-    :cond_8
+    :cond_c
     const/4 v8, 0x0
 
     :goto_4
-    iget v8, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mBgColor:I
-
     invoke-static {v8}, Landroid/graphics/Color;->blue(I)I
 
     move-result v8
@@ -13808,7 +13818,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d05bd
+    const v6, 0x7f0d05be
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

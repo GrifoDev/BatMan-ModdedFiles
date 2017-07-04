@@ -182,7 +182,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04013d
+    const v1, 0x7f04013e
 
     const/4 v2, 0x0
 
@@ -198,7 +198,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f1303d7
+    const v1, 0x7f1303d8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,7 +210,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooter;->mRootView:Landroid/view/View;
 
-    const v1, 0x7f1303d8
+    const v1, 0x7f1303d9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

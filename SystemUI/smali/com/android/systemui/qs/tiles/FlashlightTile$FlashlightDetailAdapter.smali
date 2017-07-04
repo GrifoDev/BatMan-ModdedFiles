@@ -111,13 +111,13 @@
 
     move-result-object v4
 
-    const v5, 0x7f04011b
+    const v5, 0x7f04011c
 
     invoke-virtual {v4, v5, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
 
-    const v4, 0x7f13038b
+    const v4, 0x7f13038c
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -188,7 +188,7 @@
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_0
-    const v4, 0x7f13038c
+    const v4, 0x7f13038d
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -259,7 +259,7 @@
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_1
-    const v4, 0x7f13038d
+    const v4, 0x7f13038e
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -303,7 +303,7 @@
 
     invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v4, 0x7f13038a
+    const v4, 0x7f13038b
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

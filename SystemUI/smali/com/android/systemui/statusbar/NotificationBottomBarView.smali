@@ -747,9 +747,9 @@
 .method public updateShowButtonBackground()V
     .locals 5
 
-    const v1, 0x7f0205c8
+    const v1, 0x7f0205ca
 
-    const v2, 0x7f0205c6
+    const v2, 0x7f0205c8
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationBottomBarView;->mContext:Landroid/content/Context;
 

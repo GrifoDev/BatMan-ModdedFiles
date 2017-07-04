@@ -28,6 +28,8 @@
 
 .field public static final EXPAND_ENABLED:Z
 
+.field private static mIsCovered:Z
+
 .field private static mIsDeskMode:Z
 
 .field private static sIsSViewCovered:Z
@@ -170,39 +172,7 @@
     return v0
 .end method
 
-.method static synthetic -get10(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/animation/LayoutTransition;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mOwnerInfoLayoutTransition:Landroid/animation/LayoutTransition;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mResetTimer:Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
-
-    return-object v0
-.end method
-
-.method static synthetic -get12(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/GuideArrowAnimator;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mRightArrowAnimator:Lcom/android/keyguard/servicebox/utils/GuideArrowAnimator;
-
-    return-object v0
-.end method
-
-.method static synthetic -get13(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPageAdapter;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mServiceBoxPageAdapter:Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPageAdapter;
-
-    return-object v0
-.end method
-
-.method static synthetic -get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/view/View;
+.method static synthetic -get10(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mServiceBoxScailingView:Landroid/view/View;
@@ -210,7 +180,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper;
+.method static synthetic -get11(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mServiceBoxSettingsHelper:Lcom/android/keyguard/servicebox/utils/ServiceBoxSettingsHelper;
@@ -218,7 +188,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/KeyguardServiceBoxViewPager;
+.method static synthetic -get12(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/KeyguardServiceBoxViewPager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mServiceBoxViewPager:Lcom/android/keyguard/servicebox/KeyguardServiceBoxViewPager;
@@ -226,7 +196,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/KeyguardStatusCallback;
+.method static synthetic -get13(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/KeyguardStatusCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mStatusCallback:Lcom/android/keyguard/servicebox/KeyguardStatusCallback;
@@ -234,20 +204,12 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
+.method static synthetic -get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mUpdateClockHandler:Landroid/os/Handler;
 
     return-object v0
-.end method
-
-.method static synthetic -get19()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->sIsSViewCovered:Z
-
-    return v0
 .end method
 
 .method static synthetic -get2(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/os/Handler;
@@ -266,39 +228,15 @@
     return v0
 .end method
 
-.method static synthetic -get4(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Z
+.method static synthetic -get4()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsExpanded:Z
+    sget-boolean v0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsCovered:Z
 
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsMKeyboardConnected:Z
-
-    return v0
-.end method
-
-.method static synthetic -get6(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsScreenTurnedOn:Z
-
-    return v0
-.end method
-
-.method static synthetic -get7(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/GuideArrowAnimator;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mLeftArrowAnimator:Lcom/android/keyguard/servicebox/utils/GuideArrowAnimator;
-
-    return-object v0
-.end method
-
-.method static synthetic -get8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/remoteviews/MetadataParser;
+.method static synthetic -get5(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/remoteviews/MetadataParser;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mMetadataParser:Lcom/android/keyguard/servicebox/pages/remoteviews/MetadataParser;
@@ -306,10 +244,34 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/clock/KeyguardOwnerInfoView;
+.method static synthetic -get6(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/clock/KeyguardOwnerInfoView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mOwnerInfo:Lcom/android/keyguard/servicebox/pages/clock/KeyguardOwnerInfoView;
+
+    return-object v0
+.end method
+
+.method static synthetic -get7(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/animation/LayoutTransition;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mOwnerInfoLayoutTransition:Landroid/animation/LayoutTransition;
+
+    return-object v0
+.end method
+
+.method static synthetic -get8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mResetTimer:Lcom/android/keyguard/servicebox/utils/ServiceBoxPageResetTimer;
+
+    return-object v0
+.end method
+
+.method static synthetic -get9(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPageAdapter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mServiceBoxPageAdapter:Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPageAdapter;
 
     return-object v0
 .end method
@@ -341,17 +303,17 @@
 .method static synthetic -set3(Z)Z
     .locals 0
 
-    sput-boolean p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsDeskMode:Z
+    sput-boolean p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsCovered:Z
 
     return p0
 .end method
 
-.method static synthetic -set4(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Z)Z
+.method static synthetic -set4(Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsExpanded:Z
+    sput-boolean p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsDeskMode:Z
 
-    return p1
+    return p0
 .end method
 
 .method static synthetic -wrap0(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Z
@@ -372,7 +334,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap10(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Ljava/lang/String;)V
+.method static synthetic -wrap10(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->wakeUp()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap11(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->writePageToSettings(Ljava/lang/String;)V
@@ -420,7 +390,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)V
+.method static synthetic -wrap7(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->updateExpandState(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->updatePivotX()V
@@ -428,18 +406,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap8(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Lcom/android/keyguard/servicebox/pages/remoteviews/ServiceBoxRemoteViewsItem;)V
+.method static synthetic -wrap9(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Lcom/android/keyguard/servicebox/pages/remoteviews/ServiceBoxRemoteViewsItem;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->updateRemoteViewsPage(Lcom/android/keyguard/servicebox/pages/remoteviews/ServiceBoxRemoteViewsItem;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap9(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->wakeUp()V
 
     return-void
 .end method
@@ -452,6 +422,8 @@
     sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
 
     sput-boolean v0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->EXPAND_ENABLED:Z
+
+    sput-boolean v4, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsCovered:Z
 
     sput-boolean v4, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->sIsSViewCovered:Z
 
@@ -1803,9 +1775,9 @@
 
     move-result-object v3
 
-    new-instance v4, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;
+    new-instance v4, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$13;
 
-    invoke-direct {v4, p0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;-><init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;I)V
+    invoke-direct {v4, p0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$13;-><init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;I)V
 
     invoke-virtual {v3, v4}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
@@ -2271,6 +2243,178 @@
     goto/16 :goto_0
 .end method
 
+.method private updateExpandState(Z)V
+    .locals 7
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    const-string/jumbo v4, "KeyguardServiceBoxContainer"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "updateExpandState() >> START >> isExpand = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", mIsExpanded = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-boolean v6, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsExpanded:Z
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-boolean v4, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SERVICEBOX:Z
+
+    if-eqz v4, :cond_0
+
+    sget-boolean v4, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->sIsSViewCovered:Z
+
+    if-eqz v4, :cond_2
+
+    :cond_0
+    :goto_0
+    const/4 p1, 0x0
+
+    :cond_1
+    iget-boolean v4, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsExpanded:Z
+
+    if-ne v4, p1, :cond_3
+
+    const-string/jumbo v2, "KeyguardServiceBoxContainer"
+
+    const-string/jumbo v3, "updateExpandState() << END << same state"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    iget-boolean v4, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsMKeyboardConnected:Z
+
+    if-eqz v4, :cond_1
+
+    goto :goto_0
+
+    :cond_3
+    iput-boolean p1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsExpanded:Z
+
+    invoke-direct {p0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->updateContainerLayout()V
+
+    move v0, p1
+
+    iget-boolean v4, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsScreenTurnedOn:Z
+
+    if-eqz v4, :cond_4
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->isKeyguardShowing()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    sget-boolean v4, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->sIsSViewCovered:Z
+
+    if-eqz v4, :cond_5
+
+    :cond_4
+    move v1, v3
+
+    :goto_1
+    if-eqz v1, :cond_6
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mServiceBoxPageAdapter:Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPageAdapter;
+
+    invoke-virtual {v2}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPageAdapter;->makeTransitionData()V
+
+    invoke-virtual {p0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$10;
+
+    invoke-direct {v3, p0, v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$10;-><init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Z)V
+
+    invoke-virtual {v2, v3}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+
+    :goto_2
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mLeftArrowAnimator:Lcom/android/keyguard/servicebox/utils/GuideArrowAnimator;
+
+    iget-object v3, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v3, v0}, Lcom/android/keyguard/servicebox/utils/GuideArrowAnimator;->updateBottomPadding(Landroid/content/Context;Z)V
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mRightArrowAnimator:Lcom/android/keyguard/servicebox/utils/GuideArrowAnimator;
+
+    iget-object v3, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v3, v0}, Lcom/android/keyguard/servicebox/utils/GuideArrowAnimator;->updateBottomPadding(Landroid/content/Context;Z)V
+
+    const-string/jumbo v2, "KeyguardServiceBoxContainer"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "updateExpandState() << END << isExpandFinal = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_5
+    move v1, v2
+
+    goto :goto_1
+
+    :cond_6
+    iget-object v4, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mServiceBoxPageAdapter:Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPageAdapter;
+
+    if-eqz v0, :cond_7
+
+    :goto_3
+    invoke-virtual {v4, v2}, Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPageAdapter;->setPageType(I)V
+
+    goto :goto_2
+
+    :cond_7
+    move v2, v3
+
+    goto :goto_3
+.end method
+
 .method private updatePivotX()V
     .locals 3
 
@@ -2722,9 +2866,9 @@
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    new-instance v0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;
+    new-instance v0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;-><init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Ljava/lang/String;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;-><init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Ljava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->post(Ljava/lang/Runnable;)Z
 
@@ -2936,21 +3080,30 @@
 .end method
 
 .method public isShowServiceBox()Z
-    .locals 1
+    .locals 2
 
-    iget-boolean v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsScreenTurnedOn:Z
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_0
+    iget-boolean v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsScreenTurnedOn:Z
+
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->isKeyguardShowing()Z
 
-    move-result v0
+    move-result v1
 
+    if-eqz v1, :cond_0
+
+    sget-boolean v1, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mIsCovered:Z
+
+    if-eqz v1, :cond_1
+
+    :cond_0
     :goto_0
     return v0
 
-    :cond_0
-    const/4 v0, 0x0
+    :cond_1
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method
@@ -3553,6 +3706,12 @@
 .method public reissueAllPages()V
     .locals 8
 
+    const-string/jumbo v5, "KeyguardServiceBoxContainer"
+
+    const-string/jumbo v6, "reissueAllPages() >> START >>"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v5, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->mServiceBoxItemList:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->clear()V
@@ -3624,6 +3783,12 @@
     invoke-direct {p0, v5}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->setMobileKeyboardState(Z)V
 
     :cond_2
+    const-string/jumbo v5, "KeyguardServiceBoxContainer"
+
+    const-string/jumbo v6, "reissueAllPages() << END <<"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
 
     :cond_3
@@ -4313,11 +4478,11 @@
 
     move-result-object v3
 
-    new-instance v4, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$10;
+    new-instance v4, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v4, v0, v5}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$10;-><init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;)V
+    invoke-direct {v4, v0, v5}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$11;-><init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Lcom/android/keyguard/servicebox/pages/KeyguardServiceBoxPage;)V
 
     invoke-virtual {v3, v4}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 

@@ -215,11 +215,11 @@
 
     invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x10405d4
+    const v1, 0x10405d8
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setTitle(I)V
 
-    const v1, 0x10405d3
+    const v1, 0x10405d7
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(I)V
 
@@ -227,7 +227,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/DataSaverTile$1;-><init>(Lcom/android/systemui/qs/tiles/DataSaverTile;)V
 
-    const v2, 0x10405d5
+    const v2, 0x10405d9
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 

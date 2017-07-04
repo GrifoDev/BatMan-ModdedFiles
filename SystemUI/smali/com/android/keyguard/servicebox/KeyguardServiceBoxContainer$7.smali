@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$7;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get10(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/animation/LayoutTransition;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get7(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/animation/LayoutTransition;
 
     move-result-object v0
 
@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$7;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get10(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/animation/LayoutTransition;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get7(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/animation/LayoutTransition;
 
     move-result-object v0
 

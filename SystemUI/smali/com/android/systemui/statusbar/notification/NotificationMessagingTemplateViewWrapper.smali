@@ -27,7 +27,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/NotificationMessagingTemplateViewWrapper;->mView:Landroid/view/View;
 
-    const v4, 0x1020451
+    const v4, 0x1020455
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -113,7 +113,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v5, 0x7f1304e3
+    const v5, 0x7f1304e4
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -125,7 +125,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v5, 0x7f1304e5
+    const v5, 0x7f1304e6
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -137,7 +137,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v5, 0x7f1304e6
+    const v5, 0x7f1304e7
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -164,7 +164,7 @@
     :goto_0
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v5, 0x7f1304e4
+    const v5, 0x7f1304e5
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -219,7 +219,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v3, 0x7f1304ef
+    const v3, 0x7f1304f0
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -233,7 +233,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v3, 0x7f1304f0
+    const v3, 0x7f1304f1
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -251,7 +251,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v5, 0x7f1304e7
+    const v5, 0x7f1304e8
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -265,7 +265,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v5, 0x7f1304e8
+    const v5, 0x7f1304e9
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -277,7 +277,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v5, 0x7f1304e9
+    const v5, 0x7f1304ea
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -289,7 +289,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v5, 0x7f1304ea
+    const v5, 0x7f1304eb
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -307,7 +307,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v4, 0x7f1304eb
+    const v4, 0x7f1304ec
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -321,7 +321,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v4, 0x7f1304ec
+    const v4, 0x7f1304ed
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -331,7 +331,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v4, 0x7f1304ed
+    const v4, 0x7f1304ee
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -612,7 +612,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f04019d
+    const v32, 0x7f04019e
 
     const/16 v33, 0x0
 
@@ -685,7 +685,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304e0
+    const v32, 0x7f1304e1
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -705,7 +705,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304e1
+    const v32, 0x7f1304e2
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -745,7 +745,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304e2
+    const v32, 0x7f1304e3
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -821,7 +821,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304dd
+    const v32, 0x7f1304de
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -841,7 +841,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304df
+    const v32, 0x7f1304e0
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -859,7 +859,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304de
+    const v32, 0x7f1304df
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -882,7 +882,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304da
+    const v32, 0x7f1304db
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -902,7 +902,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304db
+    const v32, 0x7f1304dc
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -922,7 +922,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f1304dc
+    const v32, 0x7f1304dd
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1531,7 +1531,7 @@
     :cond_3
     iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f04019d
+    const v8, 0x7f04019e
 
     invoke-static {v7, v8, v12}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1541,7 +1541,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v8, 0x7f1304e3
+    const v8, 0x7f1304e4
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1553,7 +1553,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v8, 0x7f1304e5
+    const v8, 0x7f1304e6
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1565,7 +1565,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v8, 0x7f1304e6
+    const v8, 0x7f1304e7
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1577,7 +1577,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->mContextMenuView:Landroid/view/View;
 
-    const v8, 0x7f1304e4
+    const v8, 0x7f1304e5
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1770,7 +1770,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f09ad
+    const v7, 0x7f0f09ae
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1854,7 +1854,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f09ae
+    const v7, 0x7f0f09af
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2117,21 +2117,21 @@
         0x7f130163 -> :sswitch_11
         0x7f130164 -> :sswitch_12
         0x7f130165 -> :sswitch_13
-        0x7f1304db -> :sswitch_3
-        0x7f1304dc -> :sswitch_2
-        0x7f1304de -> :sswitch_4
-        0x7f1304df -> :sswitch_1
-        0x7f1304e1 -> :sswitch_0
-        0x7f1304e2 -> :sswitch_1
-        0x7f1304e4 -> :sswitch_7
-        0x7f1304e5 -> :sswitch_5
-        0x7f1304e6 -> :sswitch_6
-        0x7f1304e8 -> :sswitch_8
-        0x7f1304e9 -> :sswitch_9
-        0x7f1304ea -> :sswitch_a
-        0x7f1304ec -> :sswitch_b
-        0x7f1304ed -> :sswitch_c
-        0x7f1304f0 -> :sswitch_14
+        0x7f1304dc -> :sswitch_3
+        0x7f1304dd -> :sswitch_2
+        0x7f1304df -> :sswitch_4
+        0x7f1304e0 -> :sswitch_1
+        0x7f1304e2 -> :sswitch_0
+        0x7f1304e3 -> :sswitch_1
+        0x7f1304e5 -> :sswitch_7
+        0x7f1304e6 -> :sswitch_5
+        0x7f1304e7 -> :sswitch_6
+        0x7f1304e9 -> :sswitch_8
+        0x7f1304ea -> :sswitch_9
+        0x7f1304eb -> :sswitch_a
+        0x7f1304ed -> :sswitch_b
+        0x7f1304ee -> :sswitch_c
+        0x7f1304f1 -> :sswitch_14
     .end sparse-switch
 .end method
 

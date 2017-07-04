@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi$1;->this$0:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyApi;->mInterimListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
     invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->access$000(Lcom/samsung/android/sdk/bixby/BixbyApi;)Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi$1;->this$0:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyApi;->mInterimListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
     invoke-static {v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->access$000(Lcom/samsung/android/sdk/bixby/BixbyApi;)Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
     move-result-object v0

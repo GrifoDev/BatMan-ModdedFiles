@@ -29,7 +29,7 @@
 
     const/4 v2, 0x1
 
-    const v1, 0x7f02076f
+    const v1, 0x7f020771
 
     invoke-direct {p0, p1, v1}, Lcom/android/systemui/statusbar/phone/BarTransitions;-><init>(Landroid/view/View;I)V
 

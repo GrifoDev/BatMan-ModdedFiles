@@ -17,6 +17,8 @@
 
 .field private SCREEN_WIDTH:I
 
+.field private mAdditionalTag:Ljava/lang/String;
+
 .field private mAnimationState:I
 
 .field private mAnimations:Landroid/animation/AnimatorSet;
@@ -109,7 +111,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/keyguard/servicebox/utils/SecTransition;)I
+.method static synthetic -get0(Lcom/android/keyguard/servicebox/utils/SecTransition;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/keyguard/servicebox/utils/SecTransition;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAnimationState:I
@@ -117,7 +127,7 @@
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/animation/AnimatorSet;
+.method static synthetic -get2(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/animation/AnimatorSet;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAnimations:Landroid/animation/AnimatorSet;
@@ -125,7 +135,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/view/ViewGroup;
+.method static synthetic -get3(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/view/ViewGroup;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mContainer:Landroid/view/ViewGroup;
@@ -133,7 +143,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/view/View;
+.method static synthetic -get4(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mTargetRootView:Landroid/view/View;
@@ -213,6 +223,10 @@
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v4, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mTransitionNameWhiteList:Ljava/util/ArrayList;
+
+    const-string/jumbo v4, ""
+
+    iput-object v4, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
 
     iput-boolean v1, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mWithFade:Z
 
@@ -1590,9 +1604,9 @@
 .end method
 
 .method private buildAnimations()Z
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mGlobalOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
 
@@ -1633,11 +1647,29 @@
 
     const-string/jumbo v1, "SecTransition"
 
-    const-string/jumbo v2, "Empty animations. Ignore transition"
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Empty animations. Ignore transition "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v4
 
     :cond_1
     iget-object v1, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAnimations:Landroid/animation/AnimatorSet;
@@ -1834,11 +1866,29 @@
 .end method
 
 .method private handleTransitionFinished(Z)V
-    .locals 4
+    .locals 5
 
     const-string/jumbo v2, "SecTransition"
 
-    const-string/jumbo v3, "Handle transition finished."
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Handle transition finished. "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1974,9 +2024,9 @@
 .end method
 
 .method private isReadyToPreDraw()Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mTargetRootView:Landroid/view/View;
 
@@ -1984,11 +2034,29 @@
 
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "Target view is null."
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Target view is null. "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v2
+    return v3
 
     :cond_0
     iget v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAnimationState:I
@@ -1997,11 +2065,29 @@
 
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "Animation already started."
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Animation already started. "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v2
+    return v3
 
     :cond_1
     const/4 v0, 0x1
@@ -2098,7 +2184,7 @@
 .end method
 
 .method private removePreDrawListener()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mTopViewTreeObserver:Landroid/view/ViewTreeObserver;
 
@@ -2120,7 +2206,25 @@
 
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "Root view observer removed"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Root view observer removed "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2161,7 +2265,25 @@
 
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "Target view observer removed"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Target view observer removed "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2171,7 +2293,25 @@
     :cond_0
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "Root view observer cannot removed"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Root view observer cannot removed "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2180,7 +2320,25 @@
     :cond_1
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "Target view observer cannot removed"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Target view observer cannot removed "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2274,9 +2432,59 @@
     return-void
 
     :cond_0
+    if-eqz p2, :cond_2
+
+    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {p2}, Landroid/view/View;->getHeight()I
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    :cond_1
+    const-string/jumbo v4, "SecTransition"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "setAnimations() targetView is invalid ("
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {p2}, Landroid/view/View;->getTransitionName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ")"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
     const/4 v3, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3
 
     invoke-virtual {p1}, Landroid/view/View;->getTransitionName()Ljava/lang/String;
 
@@ -2293,7 +2501,7 @@
 
     check-cast v0, Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mGlobalOption:Lcom/android/keyguard/servicebox/utils/SecTransitionOption;
 
@@ -2362,18 +2570,18 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_5
 
     return-void
 
-    :cond_1
+    :cond_3
     invoke-virtual {p2}, Landroid/view/View;->getTransitionName()Ljava/lang/String;
 
     move-result-object v3
 
     goto :goto_0
 
-    :cond_2
+    :cond_4
     invoke-virtual {v0}, Lcom/android/keyguard/servicebox/utils/SecTransitionOption;->isFadeEnabled()Z
 
     move-result v1
@@ -2386,30 +2594,30 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_5
     invoke-virtual {v0}, Lcom/android/keyguard/servicebox/utils/SecTransitionOption;->isMoveEnabled()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6
 
     invoke-direct {p0, p1, p2, v2, v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->addMoveAnimation(Landroid/view/View;Landroid/view/View;Lcom/android/keyguard/servicebox/utils/SecTransitionViewParams;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
 
-    :cond_4
+    :cond_6
     invoke-virtual {v0}, Lcom/android/keyguard/servicebox/utils/SecTransitionOption;->isScaleEnabled()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
     invoke-direct {p0, p1, p2, v2, v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->addScaleAnimation(Landroid/view/View;Landroid/view/View;Lcom/android/keyguard/servicebox/utils/SecTransitionViewParams;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
 
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_7
+    if-eqz v1, :cond_8
 
     invoke-direct {p0, p1, p2, v2, v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->addFadeAnimation(Landroid/view/View;Landroid/view/View;Lcom/android/keyguard/servicebox/utils/SecTransitionViewParams;Lcom/android/keyguard/servicebox/utils/SecTransitionOption;)V
 
-    :cond_6
+    :cond_8
     return-void
 .end method
 
@@ -2584,11 +2792,29 @@
 .end method
 
 .method public cancel()V
-    .locals 2
+    .locals 3
 
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "Canceled."
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Canceled. "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2622,9 +2848,9 @@
 .end method
 
 .method public go(Landroid/view/View;Landroid/animation/Animator$AnimatorListener;)V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mContainer:Landroid/view/ViewGroup;
 
@@ -2684,7 +2910,25 @@
 
     const-string/jumbo v2, "SecTransition"
 
-    const-string/jumbo v3, "Predraw listener added."
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Predraw listener added. "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2693,7 +2937,7 @@
 
     iget-object v3, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mTargetRootView:Landroid/view/View;
 
-    invoke-virtual {v2, v3, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
+    invoke-virtual {v2, v3, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
     return-void
 
@@ -2724,7 +2968,7 @@
     goto :goto_1
 
     :cond_5
-    invoke-direct {p0, v4}, Lcom/android/keyguard/servicebox/utils/SecTransition;->handleTransitionFinished(Z)V
+    invoke-direct {p0, v5}, Lcom/android/keyguard/servicebox/utils/SecTransition;->handleTransitionFinished(Z)V
 
     goto :goto_0
 .end method
@@ -2747,6 +2991,38 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public setAdditionalTag(Ljava/lang/String;)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition;->mAdditionalTag:Ljava/lang/String;
+
+    return-void
 .end method
 
 .method public setClipOnAll(Landroid/view/View;Z)V

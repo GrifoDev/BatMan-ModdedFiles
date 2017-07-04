@@ -2344,7 +2344,7 @@
 
     invoke-direct {v5, v8}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v8, 0x7f0205da
+    const v8, 0x7f0205dc
 
     invoke-virtual {v5, v8}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -2817,7 +2817,7 @@
 
     invoke-direct {v4, v5}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0205f3
+    const v5, 0x7f0205f5
 
     invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -2960,7 +2960,7 @@
 
     invoke-direct {v11, v12}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v12, 0x7f0207a7
+    const v12, 0x7f0207a9
 
     invoke-virtual {v11, v12}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -3454,7 +3454,7 @@
 
     invoke-direct {v4, v5}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0205dc
+    const v5, 0x7f0205de
 
     invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -4076,7 +4076,7 @@
 
     invoke-direct {v4, v5}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0205eb
+    const v5, 0x7f0205ed
 
     invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -4456,7 +4456,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setTitle(I)V
 
-    const v1, 0x10405d2
+    const v1, 0x10405d6
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(I)V
 
@@ -6998,7 +6998,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0400fa
+    const v5, 0x7f0400fb
 
     invoke-virtual {v4, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

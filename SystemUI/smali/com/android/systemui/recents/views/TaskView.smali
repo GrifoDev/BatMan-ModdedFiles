@@ -1127,7 +1127,7 @@
 
     iget-object v5, v0, Lcom/android/systemui/recents/views/TaskView;->mScreenRatioButtonView:Landroid/view/View;
 
-    const v6, 0x7f13040b
+    const v6, 0x7f13040c
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1452,7 +1452,7 @@
 .method protected onFinishInflate()V
     .locals 2
 
-    const v0, 0x7f130410
+    const v0, 0x7f130411
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskView;->findViewById(I)Landroid/view/View;
 
@@ -1462,7 +1462,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/TaskView;->mHeaderView:Lcom/android/systemui/recents/views/TaskViewHeader;
 
-    const v0, 0x7f130409
+    const v0, 0x7f13040a
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskView;->findViewById(I)Landroid/view/View;
 
@@ -1478,7 +1478,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->updateClipToTaskBar(Landroid/view/View;)V
 
-    const v0, 0x7f13040d
+    const v0, 0x7f13040e
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskView;->findViewById(I)Landroid/view/View;
 
@@ -1494,7 +1494,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskView;->mActionButtonTranslationZ:F
 
-    const v0, 0x7f13040a
+    const v0, 0x7f13040b
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/TaskView;->findViewById(I)Landroid/view/View;
 
@@ -2172,7 +2172,7 @@
 
     if-nez v2, :cond_3
 
-    const v2, 0x7f13040e
+    const v2, 0x7f13040f
 
     invoke-static {p0, v2}, Lcom/android/systemui/recents/misc/Utilities;->findViewStubById(Landroid/view/View;I)Landroid/view/ViewStub;
 
@@ -2783,7 +2783,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/TaskView;->mScreenRatioButtonView:Landroid/view/View;
 
-    const v4, 0x7f13040c
+    const v4, 0x7f13040d
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2795,7 +2795,7 @@
 
     if-nez v3, :cond_8
 
-    const v3, 0x7f020784
+    const v3, 0x7f020786
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2848,7 +2848,7 @@
     return-void
 
     :cond_8
-    const v3, 0x7f020783
+    const v3, 0x7f020785
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 

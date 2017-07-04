@@ -245,7 +245,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationTemplateViewWrapper;->mView:Landroid/view/View;
 
-    const v2, 0x1020435
+    const v2, 0x1020439
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -417,7 +417,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationTemplateViewWrapper;->mView:Landroid/view/View;
 
-    const v2, 0x1020444
+    const v2, 0x1020448
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

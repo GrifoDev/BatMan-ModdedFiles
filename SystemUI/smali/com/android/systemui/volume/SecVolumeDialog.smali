@@ -3117,7 +3117,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401ab
+    const v2, 0x7f0401ac
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -3133,7 +3133,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401a9
+    const v2, 0x7f0401aa
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -3616,14 +3616,14 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f0401b0
+    const v1, 0x7f0401b1
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->setContentView(I)V
 
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f130515
+    const v1, 0x7f130516
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->findViewById(I)Landroid/view/View;
 
@@ -3643,7 +3643,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f130516
+    const v1, 0x7f130517
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->findViewById(I)Landroid/view/View;
 
@@ -3657,7 +3657,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialogView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f130517
+    const v1, 0x7f130518
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3791,9 +3791,9 @@
 
     const/16 v0, 0xa
 
-    const v1, 0x7f020796
+    const v1, 0x7f020798
 
-    const v2, 0x7f020798
+    const v2, 0x7f02079a
 
     invoke-direct {p0, v0, v1, v2, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
@@ -3801,24 +3801,24 @@
 
     invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
-    const v0, 0x7f02079e
+    const v0, 0x7f0207a0
 
-    const v1, 0x7f02079a
+    const v1, 0x7f02079c
 
     invoke-direct {p0, v12, v0, v1, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
     const/16 v0, 0xb
 
-    const v1, 0x7f02079e
+    const v1, 0x7f0207a0
 
-    const v2, 0x7f02079a
+    const v2, 0x7f02079c
 
     invoke-direct {p0, v0, v1, v2, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
     :goto_1
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f130518
+    const v1, 0x7f130519
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->findViewById(I)Landroid/view/View;
 
@@ -3834,7 +3834,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0401b2
+    const v1, 0x7f0401b3
 
     const/4 v2, 0x0
 
@@ -3871,7 +3871,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialogDndView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f13051a
+    const v1, 0x7f13051b
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3934,7 +3934,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialog:Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;
 
-    const v1, 0x7f0401b1
+    const v1, 0x7f0401b2
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/volume/SecVolumeDialog$CustomDialog;->setContentView(I)V
 
@@ -3969,9 +3969,9 @@
 
     const/16 v0, 0xa
 
-    const v1, 0x7f020796
+    const v1, 0x7f020798
 
-    const v2, 0x7f020798
+    const v2, 0x7f02079a
 
     invoke-direct {p0, v0, v1, v2, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
@@ -3979,17 +3979,17 @@
 
     invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
-    const v0, 0x7f02079e
+    const v0, 0x7f0207a0
 
-    const v1, 0x7f02079a
+    const v1, 0x7f02079c
 
     invoke-direct {p0, v12, v0, v1, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
     const/16 v0, 0xb
 
-    const v1, 0x7f02079e
+    const v1, 0x7f0207a0
 
-    const v2, 0x7f02079a
+    const v2, 0x7f02079c
 
     invoke-direct {p0, v0, v1, v2, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
@@ -4030,7 +4030,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0401b3
+    const v5, 0x7f0401b4
 
     const/4 v6, 0x0
 
@@ -4050,7 +4050,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f13051d
+    const v5, 0x7f13051e
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5344,9 +5344,9 @@
 
     sput v7, Lcom/android/systemui/volume/SecVolumeDialog;->mRemoteControlCurrentVolume:I
 
-    const v7, 0x7f02025a
+    const v7, 0x7f02025c
 
-    const v8, 0x7f02025b
+    const v8, 0x7f02025d
 
     invoke-direct {p0, v6, v7, v8, v10}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
@@ -7696,7 +7696,7 @@
 
     move-result-object v7
 
-    const v9, 0x7f0401ab
+    const v9, 0x7f0401ac
 
     invoke-direct {v5, v7, v9}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -7755,11 +7755,11 @@
 
     move-result-object v4
 
-    const v7, 0x7f130509
+    const v7, 0x7f13050a
 
     invoke-virtual {v5, v7, v3}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    const v7, 0x7f13050a
+    const v7, 0x7f13050b
 
     invoke-virtual {v5, v7, v4}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -7864,7 +7864,7 @@
 
     move-result-object v7
 
-    const v9, 0x7f0401aa
+    const v9, 0x7f0401ab
 
     invoke-direct {v5, v7, v9}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -7879,7 +7879,7 @@
 
     move-result-object v7
 
-    const v9, 0x7f0401a9
+    const v9, 0x7f0401aa
 
     invoke-direct {v5, v7, v9}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
     :try_end_4
@@ -10780,7 +10780,7 @@
 
     move-object/from16 v36, v0
 
-    const v37, 0x7f13051b
+    const v37, 0x7f13051c
 
     invoke-virtual/range {v36 .. v37}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

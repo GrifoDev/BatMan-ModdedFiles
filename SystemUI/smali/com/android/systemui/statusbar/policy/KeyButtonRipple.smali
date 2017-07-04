@@ -215,7 +215,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/policy/KeyButtonRipple;->mTargetView:Landroid/view/View;
 
-    const v0, 0x7f0b016b
+    const v0, 0x7f0b016c
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 

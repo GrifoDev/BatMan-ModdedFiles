@@ -1238,7 +1238,7 @@
 
     invoke-virtual {v15, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v15, 0x7f13035e
+    const v15, 0x7f13035f
 
     invoke-virtual {v8, v15}, Lcom/android/systemui/statusbar/NotificationGuts;->findViewById(I)Landroid/view/View;
 
@@ -1277,7 +1277,7 @@
 
     invoke-virtual {v8, v12, v13, v15}, Lcom/android/systemui/statusbar/NotificationGuts;->bindImportance(Landroid/content/pm/PackageManager;Landroid/service/notification/StatusBarNotification;I)V
 
-    const v15, 0x7f13035f
+    const v15, 0x7f130360
 
     invoke-virtual {v8, v15}, Lcom/android/systemui/statusbar/NotificationGuts;->findViewById(I)Landroid/view/View;
 
@@ -2118,7 +2118,7 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    const v8, 0x102043c
+    const v8, 0x1020440
 
     invoke-virtual {p2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2551,7 +2551,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f13036f
+    const v1, 0x7f130370
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2638,7 +2638,7 @@
 .method protected applyColorsAndBackgrounds(Landroid/service/notification/StatusBarNotification;Lcom/android/systemui/statusbar/NotificationData$Entry;)V
     .locals 7
 
-    const v5, 0x1020443
+    const v5, 0x1020447
 
     const/16 v6, 0x15
 
@@ -2751,7 +2751,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b0174
+    const v5, 0x7f0b0175
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -2798,7 +2798,7 @@
 .method protected bindVetoButtonClickListener(Landroid/view/View;Landroid/service/notification/StatusBarNotification;)Landroid/view/View;
     .locals 2
 
-    const v1, 0x7f1304b2
+    const v1, 0x7f1304b3
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4736,7 +4736,7 @@
 
     check-cast v31, Landroid/view/LayoutInflater;
 
-    const v5, 0x7f040196
+    const v5, 0x7f040197
 
     const/4 v6, 0x0
 
@@ -5217,7 +5217,7 @@
 
     move-result-object v0
 
-    const v2, 0x1020443
+    const v2, 0x1020447
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5346,7 +5346,7 @@
 
     move-result-object v5
 
-    const v6, 0x1020446
+    const v6, 0x102044a
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

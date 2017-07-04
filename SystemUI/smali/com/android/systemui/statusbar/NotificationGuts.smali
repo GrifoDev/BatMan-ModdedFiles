@@ -298,7 +298,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mInactiveSliderTint:Landroid/content/res/ColorStateList;
 
-    const v1, 0x7f13035c
+    const v1, 0x7f13035d
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -353,7 +353,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    const v1, 0x7f13035d
+    const v1, 0x7f13035e
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
 
-    const v0, 0x7f130359
+    const v0, 0x7f13035a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -422,7 +422,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mBlock:Landroid/widget/RadioButton;
 
-    const v0, 0x7f130358
+    const v0, 0x7f130359
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -432,7 +432,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mSilent:Landroid/widget/RadioButton;
 
-    const v0, 0x7f13035a
+    const v0, 0x7f13035b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -903,13 +903,13 @@
     move-result v5
 
     :goto_1
-    const v6, 0x7f13035b
+    const v6, 0x7f13035c
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/NotificationGuts;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    const v6, 0x7f130357
+    const v6, 0x7f130358
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/NotificationGuts;->findViewById(I)Landroid/view/View;
 
@@ -1207,7 +1207,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationGuts;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f02037b
+    const v1, 0x7f02037d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

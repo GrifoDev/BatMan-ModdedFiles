@@ -521,9 +521,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f02032e
+    const v1, 0x7f020330
 
-    const v2, 0x7f02032f
+    const v2, 0x7f020331
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/keyguard/util/ViewStyleUtils;->updateImageStyle(III)Landroid/graphics/drawable/Drawable;
 

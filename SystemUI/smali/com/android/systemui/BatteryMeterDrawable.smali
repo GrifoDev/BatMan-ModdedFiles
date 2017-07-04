@@ -817,7 +817,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d064d
+    const v7, 0x7f0d064e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -829,7 +829,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d064e
+    const v7, 0x7f0d064f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -838,7 +838,7 @@
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mIntrinsicHeight:I
 
     :goto_0
-    const v6, 0x7f0b0183
+    const v6, 0x7f0b0184
 
     const/4 v7, 0x0
 
@@ -848,7 +848,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryFrameLightColor:I
 
-    const v6, 0x7f0b0182
+    const v6, 0x7f0b0183
 
     const/4 v7, 0x0
 
@@ -862,7 +862,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelColor:I
 
-    const v6, 0x7f0b0185
+    const v6, 0x7f0b0186
 
     const/4 v7, 0x0
 
@@ -872,7 +872,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundLightColor:I
 
-    const v6, 0x7f0b0184
+    const v6, 0x7f0b0185
 
     const/4 v7, 0x0
 
@@ -882,7 +882,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundDarkColor:I
 
-    const v6, 0x7f0b0187
+    const v6, 0x7f0b0188
 
     const/4 v7, 0x0
 
@@ -892,7 +892,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLightningBoltLightColor:I
 
-    const v6, 0x7f0b0186
+    const v6, 0x7f0b0187
 
     const/4 v7, 0x0
 
@@ -1782,7 +1782,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0205f1
+    const v8, 0x7f0205f3
 
     const/4 v9, 0x0
 
@@ -2188,7 +2188,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0205f2
+    const v8, 0x7f0205f4
 
     const/4 v9, 0x0
 
@@ -4381,7 +4381,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d064d
+    const v1, 0x7f0d064e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4395,7 +4395,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d064e
+    const v1, 0x7f0d064f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

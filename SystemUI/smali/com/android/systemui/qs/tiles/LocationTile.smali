@@ -550,7 +550,7 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/android/systemui/qs/tiles/LocationTile;->checkIfRestrictionEnforcedByAdminOnly(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/String;)V
 
-    const v1, 0x7f0203ea
+    const v1, 0x7f0203ec
 
     invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

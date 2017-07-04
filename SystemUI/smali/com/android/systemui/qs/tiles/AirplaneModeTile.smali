@@ -267,7 +267,7 @@
 
     const v6, 0x7f0c0086
 
-    const v3, 0x7f0203c4
+    const v3, 0x7f0203c6
 
     const/4 v0, 0x1
 
@@ -285,7 +285,7 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203b4
+    const v2, 0x7f0203b6
 
     const v7, 0x7f0c0087
 
@@ -299,7 +299,7 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203b3
+    const v2, 0x7f0203b5
 
     const v5, 0x7f0b0100
 
@@ -886,7 +886,7 @@
     :cond_0
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0401a7
+    const v7, 0x7f0401a8
 
     invoke-static {v6, v7, v8}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -954,7 +954,7 @@
 
     :cond_1
     :goto_2
-    const v6, 0x7f130504
+    const v6, 0x7f130505
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -964,7 +964,7 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
-    const v6, 0x7f130505
+    const v6, 0x7f130506
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1122,7 +1122,7 @@
     goto :goto_4
 
     :cond_a
-    const v6, 0x104063d
+    const v6, 0x1040641
 
     goto :goto_5
 .end method
@@ -1715,7 +1715,7 @@
 
     iput-boolean v7, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
 
-    const v7, 0x7f0203c4
+    const v7, 0x7f0203c6
 
     invoke-static {v7}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1849,7 +1849,7 @@
 
     if-eqz v7, :cond_c
 
-    const v7, 0x7f0203c4
+    const v7, 0x7f0203c6
 
     invoke-static {v7}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

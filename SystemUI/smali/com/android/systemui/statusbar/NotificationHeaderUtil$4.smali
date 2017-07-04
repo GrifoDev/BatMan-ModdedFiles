@@ -90,7 +90,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v3, 0x1020441
+    const v3, 0x1020445
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

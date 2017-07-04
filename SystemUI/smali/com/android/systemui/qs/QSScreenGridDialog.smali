@@ -87,7 +87,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/qs/QSScreenGridDialog;->setCanceledOnTouchOutside(Z)V
 
-    const v2, 0x7f040134
+    const v2, 0x7f040135
 
     const/4 v6, 0x0
 
@@ -331,7 +331,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f0203ad
+    const v2, 0x7f0203af
 
     :goto_3
     invoke-virtual {v8, v2}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -370,12 +370,12 @@
 
     if-eqz v2, :cond_4
 
-    const v2, 0x7f0203af
+    const v2, 0x7f0203b1
 
     goto :goto_3
 
     :cond_4
-    const v2, 0x7f0203b1
+    const v2, 0x7f0203b3
 
     goto :goto_3
 

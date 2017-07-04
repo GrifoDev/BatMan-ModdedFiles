@@ -184,9 +184,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203d8
+    const v2, 0x7f0203da
 
-    const v3, 0x7f0203e8
+    const v3, 0x7f0203ea
 
     const v4, 0x7f0b00ff
 
@@ -204,9 +204,9 @@
 
     new-instance v0, Lcom/android/systemui/qs/QSTile$AnimationIcon;
 
-    const v2, 0x7f0203cc
+    const v2, 0x7f0203ce
 
-    const v3, 0x7f0203d7
+    const v3, 0x7f0203d9
 
     const v4, 0x7f0b00ff
 
@@ -499,7 +499,7 @@
 
     invoke-direct {v1, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0205db
+    const v4, 0x7f0205dd
 
     invoke-virtual {v1, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -932,7 +932,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f0203d7
+    const v2, 0x7f0203d9
 
     invoke-static {v2}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

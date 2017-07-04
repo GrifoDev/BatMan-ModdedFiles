@@ -71,13 +71,7 @@
 
     if-eqz v3, :cond_8
 
-    const-string v8, "unlock_qs_colors"
-
-    const/4 v9, 0x0
-
-    invoke-static {v8, v9}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v8
+    sget-boolean v8, Lcom/android/systemui/SystemUIRune;->mAllowQsColorChange:Z
 
     move-object v1, p2
 

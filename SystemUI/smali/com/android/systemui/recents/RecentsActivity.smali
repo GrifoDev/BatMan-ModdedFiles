@@ -1220,7 +1220,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f020488
+    const v1, 0x7f02048a
 
     const v2, 0x7f0f063b
 
@@ -1232,9 +1232,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f020484
+    const v1, 0x7f020486
 
-    const v2, 0x7f020487
+    const v2, 0x7f020489
 
     filled-new-array {v1, v2}, [I
 
@@ -1720,7 +1720,7 @@
 
     const/4 v10, 0x0
 
-    const v9, 0x7f1303e2
+    const v9, 0x7f1303e3
 
     const/16 v8, 0x700
 
@@ -1763,7 +1763,7 @@
 
     invoke-virtual {v5, p0}, Lcom/android/systemui/recents/model/RecentsPackageMonitor;->register(Landroid/content/Context;)V
 
-    const v5, 0x7f040140
+    const v5, 0x7f040141
 
     invoke-virtual {p0, v5}, Lcom/android/systemui/recents/RecentsActivity;->setContentView(I)V
 
@@ -1783,7 +1783,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/recents/RecentsActivity;->mRecentsViewStub:Landroid/view/ViewStub;
 
-    const v6, 0x7f04014e
+    const v6, 0x7f04014f
 
     invoke-virtual {v5, v6}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
@@ -1811,7 +1811,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/recents/RecentsActivity;->mSlidingView:Lcom/android/systemui/recents/views/RecentsSlidingView;
 
-    const v6, 0x7f130404
+    const v6, 0x7f130405
 
     invoke-virtual {v5, v6}, Lcom/android/systemui/recents/views/RecentsSlidingView;->findViewById(I)Landroid/view/View;
 
@@ -1919,7 +1919,7 @@
     :cond_2
     iget-object v7, p0, Lcom/android/systemui/recents/RecentsActivity;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
 
-    const v5, 0x7f1303e9
+    const v5, 0x7f1303ea
 
     invoke-virtual {p0, v5}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1927,7 +1927,7 @@
 
     check-cast v5, Landroid/view/ViewGroup;
 
-    const v6, 0x7f1303e7
+    const v6, 0x7f1303e8
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
 
@@ -2069,7 +2069,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/recents/RecentsActivity;->mRecentsViewStub:Landroid/view/ViewStub;
 
-    const v6, 0x7f040157
+    const v6, 0x7f040158
 
     invoke-virtual {v5, v6}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
@@ -2090,7 +2090,7 @@
     goto/16 :goto_0
 
     :cond_7
-    const v5, 0x7f1303e6
+    const v5, 0x7f1303e7
 
     invoke-virtual {p0, v5}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
 
@@ -2256,7 +2256,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f020491
+    const v1, 0x7f020493
 
     const v2, 0x7f0f0631
 
@@ -2266,7 +2266,7 @@
 
     new-array v1, v10, [I
 
-    const v2, 0x7f020486
+    const v2, 0x7f020488
 
     const/4 v3, 0x0
 
@@ -2280,7 +2280,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f02048b
+    const v1, 0x7f02048d
 
     const v2, 0x7f0f0635
 
@@ -2292,7 +2292,7 @@
 
     new-array v1, v10, [I
 
-    const v2, 0x7f020485
+    const v2, 0x7f020487
 
     const/4 v3, 0x0
 
@@ -2354,7 +2354,7 @@
     :cond_6
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f02048c
+    const v1, 0x7f02048e
 
     const v2, 0x7f0f0631
 
@@ -2362,7 +2362,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f020489
+    const v1, 0x7f02048b
 
     const v2, 0x7f0f0633
 
@@ -2399,13 +2399,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f02048e
+    const v1, 0x7f020490
 
     invoke-virtual {v0, v1, v2, v2, v3}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f020490
+    const v1, 0x7f020492
 
     const v2, 0x7f0f063a
 
@@ -2418,13 +2418,13 @@
     :cond_8
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f02048d
+    const v1, 0x7f02048f
 
     invoke-virtual {v0, v1, v2, v2, v3}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v1, 0x7f02048f
+    const v1, 0x7f020491
 
     const v2, 0x7f0f0639
 

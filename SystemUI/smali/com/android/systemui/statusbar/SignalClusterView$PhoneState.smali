@@ -1211,7 +1211,7 @@
 
     if-eqz v0, :cond_5
 
-    const v0, 0x7f0206f9
+    const v0, 0x7f0206fb
 
     iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mSlotFocusIconId:I
 
@@ -1269,7 +1269,7 @@
 
     if-ne v0, v1, :cond_1
 
-    const v0, 0x7f0206f7
+    const v0, 0x7f0206f9
 
     iput v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mSlotFocusIconId:I
 

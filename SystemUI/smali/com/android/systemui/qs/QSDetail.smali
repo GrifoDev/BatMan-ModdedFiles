@@ -941,7 +941,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/QSDetail;->mContext:Landroid/content/Context;
 
-    const v3, 0x10409f2
+    const v3, 0x10409fe
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1136,7 +1136,7 @@
 
     invoke-virtual {v4, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v4, 0x7f130380
+    const v4, 0x7f130381
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QSDetail;->findViewById(I)Landroid/view/View;
 
@@ -1199,7 +1199,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSDetail;->mDetailDoneButton:Landroid/widget/TextView;
 
-    const v0, 0x7f13037f
+    const v0, 0x7f130380
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSDetail;->findViewById(I)Landroid/view/View;
 
@@ -1231,7 +1231,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSDetail;->mQsDetailHeaderSwitch:Landroid/widget/Switch;
 
-    const v0, 0x7f13044e
+    const v0, 0x7f13044f
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSDetail;->findViewById(I)Landroid/view/View;
 
@@ -1323,9 +1323,9 @@
 .method public updateShowButtonBackground()V
     .locals 6
 
-    const v2, 0x7f0205c8
+    const v2, 0x7f0205ca
 
-    const v3, 0x7f0205c6
+    const v3, 0x7f0205c8
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSDetail;->mContext:Landroid/content/Context;
 

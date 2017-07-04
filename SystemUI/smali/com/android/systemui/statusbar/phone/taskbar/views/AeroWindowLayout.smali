@@ -73,7 +73,7 @@
 .method public makeAeroWindow(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Z)V
     .locals 6
 
-    const v5, 0x7f0d05fd
+    const v5, 0x7f0d05fe
 
     const/4 v4, -0x1
 
@@ -294,7 +294,7 @@
 .method public setThumbnailBitmap()V
     .locals 10
 
-    const v9, 0x7f0d0606
+    const v9, 0x7f0d0607
 
     const/4 v8, 0x1
 

@@ -359,8 +359,9 @@
     <color name="bottom_bar_divider_color">#ff999999</color>
     <color name="notification_panel_theme_ripple_color">#29000000</color>
     <color name="notification_panel_carrier_label_text_color">#ccfafafa</color>
-    <color name="light_navigation_bar_background_opaque">#fff5f5f5</color>
-    <color name="navigation_bar_theme_background_color">#fff5f5f5</color>
+    <color name="light_navigation_bar_background_opaque">#fff0f0f0</color>
+    <color name="navigation_bar_theme_background_color">#fff0f0f0</color>
+    <color name="default_navigation_bar_icon_color">#ff6e6e6e</color>
     <color name="light_navigation_bar_icon_color">#ff898989</color>
     <color name="dark_navigation_bar_white_icon_color">#fffafafa</color>
     <color name="dark_navigation_bar_icon_color">#ffa6a6a6</color>

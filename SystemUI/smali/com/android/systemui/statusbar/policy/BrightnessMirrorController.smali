@@ -67,7 +67,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
 
-    const v0, 0x7f1304bd
+    const v0, 0x7f1304be
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mBrightnessMirror:Landroid/view/View;
 
-    const v0, 0x7f13048d
+    const v0, 0x7f13048e
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
@@ -93,7 +93,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mNotificationPanel:Landroid/view/View;
 
-    const v0, 0x7f130493
+    const v0, 0x7f130494
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
 
@@ -416,7 +416,7 @@
 .method public updateResources()V
     .locals 6
 
-    const v5, 0x7f130452
+    const v5, 0x7f130453
 
     const/4 v4, 0x0
 
@@ -476,7 +476,7 @@
 
     check-cast v2, Landroid/widget/SeekBar;
 
-    const v3, 0x7f0207a5
+    const v3, 0x7f0207a7
 
     invoke-virtual {v1, v3, v4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -492,7 +492,7 @@
 
     check-cast v2, Landroid/widget/SeekBar;
 
-    const v3, 0x7f0205bb
+    const v3, 0x7f0205bd
 
     invoke-virtual {v1, v3, v4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -518,7 +518,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mBrightnessMirror:Landroid/view/View;
 
-    const v3, 0x7f1303d5
+    const v3, 0x7f1303d6
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

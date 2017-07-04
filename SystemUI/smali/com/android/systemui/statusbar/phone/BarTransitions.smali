@@ -296,6 +296,14 @@
     return-void
 .end method
 
+.method public setAlwaysOpaque(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/BarTransitions;->mAlwaysOpaque:Z
+
+    return-void
+.end method
+
 .method public transitionTo(IZ)V
     .locals 8
 

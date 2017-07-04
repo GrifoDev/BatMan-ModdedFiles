@@ -217,7 +217,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/SegmentedButtons;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040174
+    const v1, 0x7f040175
 
     const/4 v2, 0x0
 

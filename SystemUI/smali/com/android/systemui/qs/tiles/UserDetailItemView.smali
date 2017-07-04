@@ -130,7 +130,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04013a
+    const v1, 0x7f04013b
 
     const/4 v2, 0x0
 
@@ -287,7 +287,7 @@
     :cond_1
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->updateTypeface()V
 
-    const v0, 0x7f1303ce
+    const v0, 0x7f1303cf
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->findViewById(I)Landroid/view/View;
 

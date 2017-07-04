@@ -1123,7 +1123,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f040131
+    const v4, 0x7f040132
 
     invoke-virtual {v3, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1301,7 +1301,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040132
+    const v2, 0x7f040133
 
     invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1780,7 +1780,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f020448
+    const v0, 0x7f02044a
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1820,7 +1820,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0203eb
+    const v0, 0x7f0203ed
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1835,7 +1835,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f02044f
+    const v0, 0x7f020451
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1846,7 +1846,7 @@
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f020450
+    const v0, 0x7f020452
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

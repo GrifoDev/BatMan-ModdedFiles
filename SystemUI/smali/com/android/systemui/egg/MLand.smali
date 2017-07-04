@@ -289,16 +289,6 @@
 
     sput-object v0, Lcom/android/systemui/egg/MLand;->sTmpRect:Landroid/graphics/Rect;
 
-    const v0, 0x7f02035d
-
-    const v1, 0x7f02035e
-
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/systemui/egg/MLand;->ANTENNAE:[I
-
     const v0, 0x7f02035f
 
     const v1, 0x7f020360
@@ -307,15 +297,25 @@
 
     move-result-object v0
 
+    sput-object v0, Lcom/android/systemui/egg/MLand;->ANTENNAE:[I
+
+    const v0, 0x7f020361
+
+    const v1, 0x7f020362
+
+    filled-new-array {v0, v1}, [I
+
+    move-result-object v0
+
     sput-object v0, Lcom/android/systemui/egg/MLand;->EYES:[I
 
-    const v0, 0x7f020362
+    const v0, 0x7f020364
 
-    const v1, 0x7f020363
+    const v1, 0x7f020365
 
-    const v2, 0x7f020364
+    const v2, 0x7f020366
 
-    const v3, 0x7f020365
+    const v3, 0x7f020367
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -335,11 +335,11 @@
 
     sput-object v0, Lcom/android/systemui/egg/MLand;->CACTI:[I
 
-    const v0, 0x7f020367
+    const v0, 0x7f020369
 
-    const v1, 0x7f020368
+    const v1, 0x7f02036a
 
-    const v2, 0x7f020369
+    const v2, 0x7f02036b
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -3173,7 +3173,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Star;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
-    const v25, 0x7f020773
+    const v25, 0x7f020775
 
     move-object/from16 v0, v22
 
@@ -3185,7 +3185,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0d04c5
+    const v26, 0x7f0d04c6
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3348,7 +3348,7 @@
 
     invoke-direct {v14, v0, v1}, Lcom/android/systemui/egg/MLand$Star;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
-    const v25, 0x7f020366
+    const v25, 0x7f020368
 
     move/from16 v0, v25
 
@@ -3420,7 +3420,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0d04c5
+    const v26, 0x7f0d04c6
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

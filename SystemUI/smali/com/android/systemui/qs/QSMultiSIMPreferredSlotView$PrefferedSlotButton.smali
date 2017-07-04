@@ -148,7 +148,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04012e
+    const v2, 0x7f04012f
 
     const/4 v3, 0x1
 
@@ -466,7 +466,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView$PrefferedSlotButton;->mButtonGroup:Landroid/view/ViewGroup;
 
-    const v0, 0x7f1303c2
+    const v0, 0x7f1303c3
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -476,7 +476,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView$PrefferedSlotButton;->mSlotButtonLine2WithImage:Landroid/view/ViewGroup;
 
-    const v0, 0x7f1303c1
+    const v0, 0x7f1303c2
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -486,7 +486,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView$PrefferedSlotButton;->mSlotButtonTextLine1:Landroid/widget/TextView;
 
-    const v0, 0x7f1303c4
+    const v0, 0x7f1303c5
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -496,7 +496,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView$PrefferedSlotButton;->mSlotButtonTextLine2:Landroid/widget/TextView;
 
-    const v0, 0x7f1303c3
+    const v0, 0x7f1303c4
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -506,7 +506,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSMultiSIMPreferredSlotView$PrefferedSlotButton;->mSlotButtonImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f1303c5
+    const v0, 0x7f1303c6
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -548,7 +548,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b016f
+    const v2, 0x7f0b0170
 
     const/4 v3, 0x0
 

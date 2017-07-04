@@ -784,6 +784,7 @@
     <item type="id" name="width">false</item>
     <item type="id" name="drag">false</item>
     <item type="id" name="seekbar">false</item>
+    <item type="id" name="navbar_pin">false</item>
     <item type="id" name="navigation_inflater">false</item>
     <item type="id" name="left_remoteview">false</item>
     <item type="id" name="right_remoteview">false</item>

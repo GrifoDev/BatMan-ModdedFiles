@@ -189,11 +189,11 @@
 
     sget-object v4, Lcom/android/systemui/statusbar/policy/AccessibilityContentDescriptions;->WIFI_CONNECTION_STRENGTH:[I
 
-    const v5, 0x7f020766
+    const v5, 0x7f020768
 
     const v6, 0x7f020220
 
-    const v7, 0x7f020766
+    const v7, 0x7f020768
 
     const v8, 0x7f020220
 

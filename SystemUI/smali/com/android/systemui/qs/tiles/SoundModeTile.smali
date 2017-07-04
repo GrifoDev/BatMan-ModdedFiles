@@ -137,11 +137,11 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/SoundModeTile;->SOUND_MODE_TEXT:[I
 
-    const v0, 0x7f020444
+    const v0, 0x7f020446
 
-    const v1, 0x7f020445
+    const v1, 0x7f020447
 
-    const v2, 0x7f020443
+    const v2, 0x7f020445
 
     filled-new-array {v0, v1, v2}, [I
 

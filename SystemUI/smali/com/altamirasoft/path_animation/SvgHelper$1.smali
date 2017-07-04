@@ -64,7 +64,6 @@
 
     iget-object v1, p0, Lcom/altamirasoft/path_animation/SvgHelper$1;->this$0:Lcom/altamirasoft/path_animation/SvgHelper;
 
-    # getter for: Lcom/altamirasoft/path_animation/SvgHelper;->mPaths:Ljava/util/List;
     invoke-static {v1}, Lcom/altamirasoft/path_animation/SvgHelper;->access$100(Lcom/altamirasoft/path_animation/SvgHelper;)Ljava/util/List;
 
     move-result-object v1
@@ -75,7 +74,6 @@
 
     iget-object v4, p0, Lcom/altamirasoft/path_animation/SvgHelper$1;->this$0:Lcom/altamirasoft/path_animation/SvgHelper;
 
-    # getter for: Lcom/altamirasoft/path_animation/SvgHelper;->mSourcePaint:Landroid/graphics/Paint;
     invoke-static {v4}, Lcom/altamirasoft/path_animation/SvgHelper;->access$000(Lcom/altamirasoft/path_animation/SvgHelper;)Landroid/graphics/Paint;
 
     move-result-object v4

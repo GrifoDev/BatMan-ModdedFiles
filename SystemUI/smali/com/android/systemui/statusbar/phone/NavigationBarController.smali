@@ -101,6 +101,550 @@
     return-void
 .end method
 
+.method private getNavBarCustomIconColor(I)I
+    .locals 14
+
+    const-wide v12, 0x3feb333333333333L    # 0.85
+
+    const-wide v10, 0x3fee666666666666L    # 0.95
+
+    const/4 v8, 0x0
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x2
+
+    const/4 v2, 0x3
+
+    new-array v1, v2, [F
+
+    invoke-static {p1, v1}, Landroid/graphics/Color;->colorToHSV(I[F)V
+
+    sget-boolean v2, Lcom/android/systemui/statusbar/phone/NavigationBarController;->DEBUG:Z
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "NavigationBarController"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "(IconColor Calc) current Color H : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    aget v4, v1, v8
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", S : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    aget v4, v1, v7
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", V : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    aget v4, v1, v6
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b016a
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    const v2, -0xa0a0b
+
+    if-eq p1, v2, :cond_1
+
+    const v2, -0xf0f10
+
+    if-ne p1, v2, :cond_2
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0169
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v2
+
+    return v2
+
+    :cond_2
+    const v2, -0x19191a
+
+    if-eq p1, v2, :cond_1
+
+    const v2, -0x191910
+
+    if-eq p1, v2, :cond_1
+
+    const v2, -0xf0f1a
+
+    if-eq p1, v2, :cond_1
+
+    const v2, -0xf191a
+
+    if-eq p1, v2, :cond_1
+
+    const v2, -0xf1910
+
+    if-eq p1, v2, :cond_1
+
+    const v2, -0xf141a
+
+    if-eq p1, v2, :cond_1
+
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fc999999999999aL    # 0.2
+
+    cmpg-double v2, v2, v4
+
+    if-gtz v2, :cond_4
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpl-double v2, v2, v10
+
+    if-ltz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0176
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    :cond_3
+    :goto_0
+    return v0
+
+    :cond_4
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fa999999999999aL    # 0.05
+
+    cmpg-double v2, v2, v4
+
+    if-gtz v2, :cond_5
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0179
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_5
+    aget v2, v1, v8
+
+    const/high16 v3, 0x41f00000    # 30.0f
+
+    cmpg-float v2, v2, v3
+
+    if-lez v2, :cond_6
+
+    aget v2, v1, v8
+
+    const/high16 v3, 0x433e0000    # 190.0f
+
+    cmpl-float v2, v2, v3
+
+    if-ltz v2, :cond_b
+
+    aget v2, v1, v8
+
+    const/high16 v3, 0x43b40000    # 360.0f
+
+    cmpg-float v2, v2, v3
+
+    if-gtz v2, :cond_b
+
+    :cond_6
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fc999999999999aL    # 0.2
+
+    cmpl-double v2, v2, v4
+
+    if-ltz v2, :cond_8
+
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fdccccccccccccdL    # 0.45
+
+    cmpg-double v2, v2, v4
+
+    if-gtz v2, :cond_8
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpl-double v2, v2, v10
+
+    if-ltz v2, :cond_8
+
+    :cond_7
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0177
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_8
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fdccccccccccccdL    # 0.45
+
+    cmpg-double v2, v2, v4
+
+    if-gtz v2, :cond_9
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpl-double v2, v2, v12
+
+    if-ltz v2, :cond_9
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpg-double v2, v2, v10
+
+    if-lez v2, :cond_7
+
+    :cond_9
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fa999999999999aL    # 0.05
+
+    cmpg-double v2, v2, v4
+
+    if-gtz v2, :cond_a
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fe6666666666666L    # 0.7
+
+    cmpl-double v2, v2, v4
+
+    if-ltz v2, :cond_a
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpg-double v2, v2, v12
+
+    if-lez v2, :cond_7
+
+    :cond_a
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0178
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto/16 :goto_0
+
+    :cond_b
+    aget v2, v1, v8
+
+    const/high16 v3, 0x42480000    # 50.0f
+
+    cmpl-float v2, v2, v3
+
+    if-ltz v2, :cond_10
+
+    aget v2, v1, v8
+
+    const/high16 v3, 0x43110000    # 145.0f
+
+    cmpg-float v2, v2, v3
+
+    if-gtz v2, :cond_10
+
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fc999999999999aL    # 0.2
+
+    cmpl-double v2, v2, v4
+
+    if-ltz v2, :cond_d
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpl-double v2, v2, v10
+
+    if-ltz v2, :cond_d
+
+    :cond_c
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0177
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto/16 :goto_0
+
+    :cond_d
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpl-double v2, v2, v12
+
+    if-ltz v2, :cond_e
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpg-double v2, v2, v10
+
+    if-lez v2, :cond_c
+
+    :cond_e
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fc999999999999aL    # 0.2
+
+    cmpg-double v2, v2, v4
+
+    if-gtz v2, :cond_f
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fe6666666666666L    # 0.7
+
+    cmpl-double v2, v2, v4
+
+    if-ltz v2, :cond_f
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpg-double v2, v2, v12
+
+    if-lez v2, :cond_c
+
+    :cond_f
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0178
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto/16 :goto_0
+
+    :cond_10
+    aget v2, v1, v8
+
+    const/high16 v3, 0x41f00000    # 30.0f
+
+    cmpl-float v2, v2, v3
+
+    if-ltz v2, :cond_12
+
+    aget v2, v1, v8
+
+    const/high16 v3, 0x42480000    # 50.0f
+
+    cmpg-float v2, v2, v3
+
+    if-gtz v2, :cond_12
+
+    :goto_1
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fc999999999999aL    # 0.2
+
+    cmpl-double v2, v2, v4
+
+    if-ltz v2, :cond_13
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpl-double v2, v2, v10
+
+    if-ltz v2, :cond_13
+
+    :cond_11
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0177
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto/16 :goto_0
+
+    :cond_12
+    aget v2, v1, v8
+
+    const/high16 v3, 0x43110000    # 145.0f
+
+    cmpl-float v2, v2, v3
+
+    if-ltz v2, :cond_3
+
+    aget v2, v1, v8
+
+    const/high16 v3, 0x433e0000    # 190.0f
+
+    cmpg-float v2, v2, v3
+
+    if-gtz v2, :cond_3
+
+    goto :goto_1
+
+    :cond_13
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fdccccccccccccdL    # 0.45
+
+    cmpg-double v2, v2, v4
+
+    if-gtz v2, :cond_14
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpl-double v2, v2, v12
+
+    if-ltz v2, :cond_14
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpg-double v2, v2, v10
+
+    if-lez v2, :cond_11
+
+    :cond_14
+    aget v2, v1, v7
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fc3333333333333L    # 0.15
+
+    cmpg-double v2, v2, v4
+
+    if-gtz v2, :cond_15
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    const-wide v4, 0x3fe6666666666666L    # 0.7
+
+    cmpl-double v2, v2, v4
+
+    if-ltz v2, :cond_15
+
+    aget v2, v1, v6
+
+    float-to-double v2, v2
+
+    cmpg-double v2, v2, v12
+
+    if-lez v2, :cond_11
+
+    :cond_15
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0b0178
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    goto/16 :goto_0
+.end method
+
 .method private isDark(III)Z
     .locals 5
 
@@ -229,221 +773,215 @@
 .end method
 
 .method public getIconColor(ZI)I
-    .locals 11
+    .locals 13
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+    const v12, 0x7f0b016b
 
-    iget v6, v6, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mNavigationIconHints:I
-
-    and-int/lit8 v6, v6, 0x1
-
-    if-eqz v6, :cond_2
-
-    const/4 v1, 0x1
-
-    :goto_0
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
-
-    iget-boolean v4, v6, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mShowClipboard:Z
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
-
-    iget-boolean v5, v6, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mShowQuickPanel:Z
-
-    sget-boolean v6, Lcom/android/systemui/statusbar/phone/NavigationBarController;->DEBUG:Z
-
-    if-eqz v6, :cond_0
-
-    const-string/jumbo v6, "NavigationBarController"
-
-    const-string/jumbo v7, "isLight = %b, mDarkbar = %b, mDimmingDarkBar = %b, mOpenThemeAppliedBar = %biconColor = %s, showQuickPanel = %b, isBackAlt = %b, showClipboard = %b, BarMode = %d"
-
-    const/16 v8, 0x9
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    aput-object v9, v8, v10
-
-    iget-boolean v9, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBar:Z
-
-    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v9
-
-    const/4 v10, 0x1
-
-    aput-object v9, v8, v10
-
-    iget-boolean v9, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
-
-    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v9
+    const/4 v11, 0x7
 
     const/4 v10, 0x2
 
-    aput-object v9, v8, v10
+    const v9, 0x7f0b0169
 
-    iget-boolean v9, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
+    const/4 v8, 0x0
 
-    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    move-result-object v9
+    iget v4, v4, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mNavigationIconHints:I
 
-    const/4 v10, 0x3
+    and-int/lit8 v4, v4, 0x1
 
-    aput-object v9, v8, v10
+    if-eqz v4, :cond_2
 
-    invoke-static {p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    const/4 v0, 0x1
 
-    move-result-object v9
+    :goto_0
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    const/4 v10, 0x4
+    iget-boolean v2, v4, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mShowClipboard:Z
 
-    aput-object v9, v8, v10
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    iget-boolean v3, v4, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mShowQuickPanel:Z
 
-    move-result-object v9
+    sget-boolean v4, Lcom/android/systemui/statusbar/phone/NavigationBarController;->DEBUG:Z
 
-    const/4 v10, 0x5
+    if-eqz v4, :cond_0
 
-    aput-object v9, v8, v10
+    const-string/jumbo v4, "NavigationBarController"
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const-string/jumbo v5, "isLight = %b, mDarkbar = %b, mDimmingDarkBar = %b, mOpenThemeAppliedBar = %biconColor = %s, showQuickPanel = %b, isBackAlt = %b, showClipboard = %b, BarMode = %d"
 
-    move-result-object v9
+    const/16 v6, 0x9
 
-    const/4 v10, 0x6
+    new-array v6, v6, [Ljava/lang/Object;
 
-    aput-object v9, v8, v10
-
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v9
-
-    const/4 v10, 0x7
-
-    aput-object v9, v8, v10
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
-
-    move-result v9
-
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    const/16 v10, 0x8
-
-    aput-object v9, v8, v10
-
-    invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v7
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    aput-object v7, v6, v8
+
+    iget-boolean v7, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBar:Z
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    const/4 v8, 0x1
+
+    aput-object v7, v6, v8
+
+    iget-boolean v7, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    aput-object v7, v6, v10
+
+    iget-boolean v7, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    const/4 v8, 0x3
+
+    aput-object v7, v6, v8
+
+    invoke-static {p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v8, 0x4
+
+    aput-object v7, v6, v8
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    const/4 v8, 0x5
+
+    aput-object v7, v6, v8
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    const/4 v8, 0x6
+
+    aput-object v7, v6, v8
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    aput-object v7, v6, v11
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    const/16 v8, 0x8
+
+    aput-object v7, v6, v8
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
 
-    move-result v6
+    move-result v4
 
-    const/4 v7, 0x2
-
-    if-eq v6, v7, :cond_1
+    if-eq v4, v10, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
 
-    move-result v6
+    move-result v4
 
-    const/4 v7, 0x1
+    const/4 v5, 0x1
 
-    if-ne v6, v7, :cond_3
+    if-ne v4, v5, :cond_3
 
     :cond_1
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b016a
+    invoke-virtual {v4, v12}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_2
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_3
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
 
-    move-result v6
+    move-result v4
 
-    const/4 v7, 0x3
+    const/4 v5, 0x3
 
-    if-eq v6, v7, :cond_4
+    if-eq v4, v5, :cond_4
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
 
-    move-result v6
+    move-result v4
 
-    if-nez v6, :cond_5
+    if-nez v4, :cond_5
 
     :cond_4
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b016b
+    invoke-virtual {v4, v9}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_5
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
 
-    move-result v6
+    move-result v4
 
-    const/4 v7, 0x7
-
-    if-eq v6, v7, :cond_8
+    if-eq v4, v11, :cond_8
 
     if-eqz p1, :cond_6
 
-    if-eqz v5, :cond_7
+    if-eqz v3, :cond_7
 
     :cond_6
     :goto_1
     if-eqz p1, :cond_b
 
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
 
-    if-eqz v6, :cond_9
+    if-eqz v4, :cond_9
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b016a
+    invoke-virtual {v4, v12}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_7
-    if-nez v1, :cond_8
+    if-nez v0, :cond_8
 
-    if-eqz v4, :cond_6
+    if-eqz v2, :cond_6
 
     :cond_8
     const/4 p1, 0x0
@@ -456,107 +994,95 @@
     return p2
 
     :cond_a
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b016b
+    const v5, 0x7f0b016c
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
-    move-result v6
+    move-result v4
 
-    return v6
+    return v4
 
     :cond_b
-    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->SUPPORT_CUSTOM_NAVIBAR_BGCOLOR:Z
+    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_CUSTOM_NAVIBAR_BGCOLOR:Z
 
-    if-nez v6, :cond_c
+    if-nez v4, :cond_c
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0169
+    invoke-virtual {v4, v9}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_c
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
 
-    move-result v6
+    move-result v4
 
-    const/4 v7, 0x7
+    if-ne v4, v11, :cond_d
 
-    if-ne v6, v7, :cond_d
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->isThemeDefault()Z
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->isThemeDefault()Z
+    move-result v4
 
-    move-result v6
+    if-eqz v4, :cond_14
 
-    if-eqz v6, :cond_14
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    invoke-virtual {v4, v9}, Landroid/content/Context;->getColor(I)I
 
-    const v7, 0x7f0b0169
+    move-result v4
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_d
-    if-nez v1, :cond_e
+    if-nez v0, :cond_e
 
-    if-eqz v4, :cond_17
+    if-eqz v2, :cond_17
 
     :cond_e
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getCurrentRotation()I
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getCurrentRotation()I
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_f
+    if-eqz v4, :cond_f
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getCurrentRotation()I
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getCurrentRotation()I
 
-    move-result v6
+    move-result v4
 
-    const/4 v7, 0x2
-
-    if-ne v6, v7, :cond_10
+    if-ne v4, v10, :cond_10
 
     :cond_f
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0169
+    invoke-virtual {v4, v9}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_10
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
 
-    if-eqz v6, :cond_11
+    if-eqz v4, :cond_11
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b016a
+    invoke-virtual {v4, v12}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_11
     if-eqz p2, :cond_12
@@ -564,97 +1090,93 @@
     return p2
 
     :cond_12
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBar:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBar:Z
 
-    if-eqz v6, :cond_13
+    if-eqz v4, :cond_13
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b016b
+    const v5, 0x7f0b016c
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
-    move-result v6
+    move-result v4
 
-    return v6
+    return v4
 
     :cond_13
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->isThemeDefault()Z
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->isThemeDefault()Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_14
+    if-eqz v4, :cond_14
 
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
 
-    if-eqz v6, :cond_16
+    if-eqz v4, :cond_16
 
     :cond_14
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->isThemeDefault()Z
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->isThemeDefault()Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_1a
+    if-eqz v4, :cond_1a
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarThemeColor()I
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarThemeColor()I
 
-    move-result v2
+    move-result v1
 
     :goto_2
-    if-eqz v2, :cond_15
+    if-eqz v1, :cond_15
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0167
+    const v5, 0x7f0b0167
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
-    move-result v6
+    move-result v4
 
-    if-ne v2, v6, :cond_1b
+    if-ne v1, v4, :cond_1b
 
     :cond_15
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0169
+    invoke-virtual {v4, v9}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_16
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0169
+    invoke-virtual {v4, v9}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_17
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->isThemeDefault()Z
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->isThemeDefault()Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_18
+    if-eqz v4, :cond_18
 
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
 
-    if-eqz v6, :cond_19
+    if-eqz v4, :cond_19
 
     :cond_18
     if-eqz p2, :cond_14
@@ -662,615 +1184,29 @@
     return p2
 
     :cond_19
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0169
+    invoke-virtual {v4, v9}, Landroid/content/Context;->getColor(I)I
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
+    move-result v4
 
-    move-result v6
-
-    return v6
+    return v4
 
     :cond_1a
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarCurrentColor()I
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarCurrentColor()I
 
-    move-result v2
+    move-result v1
 
     goto :goto_2
 
     :cond_1b
-    const/4 v6, 0x3
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getNavBarCustomIconColor(I)I
 
-    new-array v3, v6, [F
+    move-result v4
 
-    invoke-static {v2, v3}, Landroid/graphics/Color;->colorToHSV(I[F)V
-
-    sget-boolean v6, Lcom/android/systemui/statusbar/phone/NavigationBarController;->DEBUG:Z
-
-    if-eqz v6, :cond_1c
-
-    const-string/jumbo v6, "NavigationBarController"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "(IconColor Calc) current Color H : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const/4 v8, 0x0
-
-    aget v8, v3, v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", S : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const/4 v8, 0x1
-
-    aget v8, v3, v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ", V : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const/4 v8, 0x2
-
-    aget v8, v3, v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1c
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0169
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fc999999999999aL    # 0.2
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_1e
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_1e
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0175
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    :cond_1d
-    :goto_3
-    return v0
-
-    :cond_1e
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fa999999999999aL    # 0.05
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_1f
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0178
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto :goto_3
-
-    :cond_1f
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x41f00000    # 30.0f
-
-    cmpg-float v6, v6, v7
-
-    if-lez v6, :cond_20
-
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x433e0000    # 190.0f
-
-    cmpl-float v6, v6, v7
-
-    if-ltz v6, :cond_25
-
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x43b40000    # 360.0f
-
-    cmpg-float v6, v6, v7
-
-    if-gtz v6, :cond_25
-
-    :cond_20
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fc999999999999aL    # 0.2
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_22
-
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fdccccccccccccdL    # 0.45
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_22
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_22
-
-    :cond_21
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0176
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto :goto_3
-
-    :cond_22
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fdccccccccccccdL    # 0.45
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_23
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_23
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_21
-
-    :cond_23
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fa999999999999aL    # 0.05
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_24
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fe6666666666666L    # 0.7
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_24
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_21
-
-    :cond_24
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0177
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto/16 :goto_3
-
-    :cond_25
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x42480000    # 50.0f
-
-    cmpl-float v6, v6, v7
-
-    if-ltz v6, :cond_2a
-
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x43110000    # 145.0f
-
-    cmpg-float v6, v6, v7
-
-    if-gtz v6, :cond_2a
-
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fc999999999999aL    # 0.2
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_27
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_27
-
-    :cond_26
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0176
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto/16 :goto_3
-
-    :cond_27
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_28
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_26
-
-    :cond_28
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fc999999999999aL    # 0.2
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_29
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fe6666666666666L    # 0.7
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_29
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_26
-
-    :cond_29
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0177
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto/16 :goto_3
-
-    :cond_2a
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x41f00000    # 30.0f
-
-    cmpl-float v6, v6, v7
-
-    if-ltz v6, :cond_2c
-
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x42480000    # 50.0f
-
-    cmpg-float v6, v6, v7
-
-    if-gtz v6, :cond_2c
-
-    :goto_4
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fc999999999999aL    # 0.2
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_2d
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_2d
-
-    :cond_2b
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0176
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto/16 :goto_3
-
-    :cond_2c
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x43110000    # 145.0f
-
-    cmpl-float v6, v6, v7
-
-    if-ltz v6, :cond_1d
-
-    const/4 v6, 0x0
-
-    aget v6, v3, v6
-
-    const/high16 v7, 0x433e0000    # 190.0f
-
-    cmpg-float v6, v6, v7
-
-    if-gtz v6, :cond_1d
-
-    goto :goto_4
-
-    :cond_2d
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fdccccccccccccdL    # 0.45
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_2e
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_2e
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fee666666666666L    # 0.95
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_2b
-
-    :cond_2e
-    const/4 v6, 0x1
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fc3333333333333L    # 0.15
-
-    cmpg-double v6, v6, v8
-
-    if-gtz v6, :cond_2f
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3fe6666666666666L    # 0.7
-
-    cmpl-double v6, v6, v8
-
-    if-ltz v6, :cond_2f
-
-    const/4 v6, 0x2
-
-    aget v6, v3, v6
-
-    float-to-double v6, v6
-
-    const-wide v8, 0x3feb333333333333L    # 0.85
-
-    cmpg-double v6, v6, v8
-
-    if-lez v6, :cond_2b
-
-    :cond_2f
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f0b0177
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    goto/16 :goto_3
+    return v4
 .end method
 
 .method public isDarkNavigation()Z
@@ -1282,57 +1218,61 @@
 .end method
 
 .method public onSystemUiVisibilityChanged(IIIZI)V
-    .locals 17
+    .locals 20
 
-    sget-boolean v12, Lcom/android/systemui/statusbar/phone/NavigationBarController;->DEBUG:Z
+    sget-boolean v15, Lcom/android/systemui/statusbar/phone/NavigationBarController;->DEBUG:Z
 
-    if-eqz v12, :cond_0
+    if-eqz v15, :cond_0
 
-    const-string/jumbo v12, "NavigationBarController"
+    const-string/jumbo v15, "NavigationBarController"
 
-    const-string/jumbo v13, "vis = %s, fullscreenVis = %s, nbModeChanged = %b navigationBarMode = %d"
+    const-string/jumbo v16, "vis = %s, fullscreenVis = %s, nbModeChanged = %b navigationBarMode = %d"
 
-    const/4 v14, 0x4
+    const/16 v17, 0x4
 
-    new-array v14, v14, [Ljava/lang/Object;
+    move/from16 v0, v17
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v17, v0
 
     invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v18
 
-    const/16 v16, 0x0
+    const/16 v19, 0x0
 
-    aput-object v15, v14, v16
+    aput-object v18, v17, v19
 
     invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v18
 
-    const/16 v16, 0x1
+    const/16 v19, 0x1
 
-    aput-object v15, v14, v16
+    aput-object v18, v17, v19
 
     invoke-static/range {p4 .. p4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v15
+    move-result-object v18
 
-    const/16 v16, 0x2
+    const/16 v19, 0x2
 
-    aput-object v15, v14, v16
+    aput-object v18, v17, v19
 
     invoke-static/range {p5 .. p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v15
+    move-result-object v18
 
-    const/16 v16, 0x3
+    const/16 v19, 0x3
 
-    aput-object v15, v14, v16
+    aput-object v18, v17, v19
 
-    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v16 .. v17}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v16
 
-    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     move/from16 v0, p5
@@ -1343,80 +1283,204 @@
 
     move-object/from16 v0, p0
 
-    iget-boolean v7, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBar:Z
+    iget-boolean v9, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBar:Z
 
     move-object/from16 v0, p0
 
-    iget-boolean v9, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
+    iget-boolean v11, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
 
     move-object/from16 v0, p0
 
-    iget-boolean v11, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
+    iget-boolean v13, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
 
     move-object/from16 v0, p0
 
-    iget v8, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBarVisivility:I
+    iget v10, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBarVisivility:I
 
     move/from16 v0, p3
 
-    not-int v12, v0
+    not-int v15, v0
 
-    and-int/2addr v12, v8
+    and-int/2addr v15, v10
 
-    and-int/lit8 v13, p1, 0x10
+    and-int/lit8 v16, p1, 0x10
 
-    and-int v13, v13, p3
+    and-int v16, v16, p3
 
-    or-int v5, v12, v13
+    or-int v7, v15, v16
 
-    xor-int v3, v5, v8
+    xor-int v3, v7, v10
 
     move-object/from16 v0, p0
 
-    iget v10, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mFullscreenVisivility:I
+    iget v12, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mFullscreenVisivility:I
 
-    move/from16 v6, p2
+    move/from16 v8, p2
 
-    xor-int v4, p2, v10
+    xor-int v4, p2, v12
 
-    if-nez p4, :cond_1
+    and-int/lit16 v15, v4, 0x100
 
-    and-int/lit8 v12, v3, 0x10
+    if-nez v15, :cond_1
 
-    if-eqz v12, :cond_4
+    if-eqz p4, :cond_4
 
     :cond_1
+    move/from16 v0, p2
+
+    and-int/lit16 v15, v0, 0x100
+
+    if-eqz v15, :cond_8
+
+    const/4 v14, 0x1
+
     :goto_0
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
+
+    move-result v15
+
+    const/16 v16, 0x7
+
+    move/from16 v0, v16
+
+    if-ne v15, v0, :cond_9
+
+    const/4 v5, 0x1
+
+    :goto_1
+    if-nez p2, :cond_a
+
+    const/4 v15, 0x1
+
+    move/from16 v0, p3
+
+    if-ne v0, v15, :cond_a
+
+    const/4 v6, 0x1
+
+    :goto_2
+    const-string/jumbo v15, "NavigationBarController"
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v17, "FLAG_NAVIGATIONBAR_SHOW_IMMERSIVE_ICON flag changed. show="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, ", isDocked="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, ", lowProfileOnly="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, ", barMode="
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->getBarMode()I
+
+    move-result v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    move-object/from16 v16, v0
+
+    if-nez v14, :cond_2
+
+    if-eqz v6, :cond_3
+
+    :cond_2
+    if-eqz v5, :cond_b
+
+    :cond_3
+    const/4 v15, 0x0
+
+    :goto_3
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v15}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setPinButtonVisibility(Z)V
+
+    :cond_4
+    if-nez p4, :cond_5
+
+    and-int/lit8 v15, v3, 0x10
+
+    if-eqz v15, :cond_c
+
+    :cond_5
+    :goto_4
     move-object/from16 v0, p0
 
     move/from16 v1, p2
 
     move/from16 v2, p5
 
-    invoke-direct {v0, v5, v1, v2}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->isDark(III)Z
+    invoke-direct {v0, v7, v1, v2}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->isDark(III)Z
 
-    move-result v12
-
-    move-object/from16 v0, p0
-
-    iput-boolean v12, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkNavigation:Z
-
-    if-nez p4, :cond_2
+    move-result v15
 
     move-object/from16 v0, p0
 
-    iget-boolean v12, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBar:Z
+    iput-boolean v15, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkNavigation:Z
 
-    if-eq v7, v12, :cond_5
+    if-nez p4, :cond_6
 
-    :cond_2
-    :goto_1
+    move-object/from16 v0, p0
+
+    iget-boolean v15, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBar:Z
+
+    if-eq v9, v15, :cond_d
+
+    :cond_6
+    :goto_5
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/NavigationBarController;->update()V
 
-    :cond_3
+    :cond_7
     move-object/from16 v0, p0
 
-    iput v5, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBarVisivility:I
+    iput v7, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDarkBarVisivility:I
 
     move/from16 v0, p2
 
@@ -1426,33 +1490,53 @@
 
     return-void
 
-    :cond_4
-    and-int/lit8 v12, v4, 0x10
+    :cond_8
+    const/4 v14, 0x0
 
-    if-nez v12, :cond_1
+    goto/16 :goto_0
 
-    and-int/lit8 v12, v4, 0x20
+    :cond_9
+    const/4 v5, 0x0
 
-    if-nez v12, :cond_1
+    goto/16 :goto_1
 
-    and-int/lit8 v12, v4, 0x40
+    :cond_a
+    const/4 v6, 0x0
 
-    if-eqz v12, :cond_3
+    goto/16 :goto_2
 
-    goto :goto_0
+    :cond_b
+    const/4 v15, 0x1
 
-    :cond_5
+    goto :goto_3
+
+    :cond_c
+    and-int/lit8 v15, v4, 0x10
+
+    if-nez v15, :cond_5
+
+    and-int/lit8 v15, v4, 0x20
+
+    if-nez v15, :cond_5
+
+    and-int/lit8 v15, v4, 0x40
+
+    if-eqz v15, :cond_7
+
+    goto :goto_4
+
+    :cond_d
     move-object/from16 v0, p0
 
-    iget-boolean v12, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
+    iget-boolean v15, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mDimmingDarkBar:Z
 
-    if-ne v9, v12, :cond_2
+    if-ne v11, v15, :cond_6
 
     move-object/from16 v0, p0
 
-    iget-boolean v12, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
+    iget-boolean v15, v0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mOpenThemeAppliedBar:Z
 
-    if-eq v11, v12, :cond_3
+    if-eq v13, v15, :cond_7
 
-    goto :goto_1
+    goto :goto_5
 .end method

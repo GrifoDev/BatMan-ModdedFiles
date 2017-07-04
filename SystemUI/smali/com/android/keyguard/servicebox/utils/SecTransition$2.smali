@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition$2;->this$0:Lcom/android/keyguard/servicebox/utils/SecTransition;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get0(Lcom/android/keyguard/servicebox/utils/SecTransition;)I
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get1(Lcom/android/keyguard/servicebox/utils/SecTransition;)I
 
     move-result v0
 
@@ -51,7 +51,29 @@
 
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "Animation state isn\'t none"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Animation state isn\'t none "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition$2;->this$0:Lcom/android/keyguard/servicebox/utils/SecTransition;
+
+    invoke-static {v2}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get0(Lcom/android/keyguard/servicebox/utils/SecTransition;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -68,7 +90,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition$2;->this$0:Lcom/android/keyguard/servicebox/utils/SecTransition;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get3(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get4(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/view/View;
 
     move-result-object v0
 
@@ -78,7 +100,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/utils/SecTransition$2;->this$0:Lcom/android/keyguard/servicebox/utils/SecTransition;
 
-    invoke-static {v1}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get2(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/view/ViewGroup;
+    invoke-static {v1}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get3(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/view/ViewGroup;
 
     move-result-object v1
 
@@ -101,7 +123,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition$2;->this$0:Lcom/android/keyguard/servicebox/utils/SecTransition;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get1(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/animation/AnimatorSet;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get2(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/animation/AnimatorSet;
 
     move-result-object v0
 
@@ -115,7 +137,29 @@
 
     const-string/jumbo v0, "SecTransition"
 
-    const-string/jumbo v1, "animation started"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "animation started "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/utils/SecTransition$2;->this$0:Lcom/android/keyguard/servicebox/utils/SecTransition;
+
+    invoke-static {v2}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get0(Lcom/android/keyguard/servicebox/utils/SecTransition;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

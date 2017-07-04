@@ -859,7 +859,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f1304c9
+    const v25, 0x7f1304ca
 
     invoke-virtual/range {v24 .. v25}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->findViewById(I)Landroid/view/View;
 
@@ -950,7 +950,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0d05c3
+    const v25, 0x7f0d05c4
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

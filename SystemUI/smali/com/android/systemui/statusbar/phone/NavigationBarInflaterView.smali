@@ -597,7 +597,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0400e4
+    const v1, 0x7f0400e5
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -619,7 +619,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0400e5
+    const v1, 0x7f0400e6
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -664,9 +664,9 @@
 .method private initiallyFill(Lcom/android/systemui/statusbar/phone/ButtonDispatcher;)V
     .locals 3
 
-    const v2, 0x7f13034b
+    const v2, 0x7f13034c
 
-    const v1, 0x7f13034a
+    const v1, 0x7f13034b
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mRot0:Landroid/widget/FrameLayout;
 
@@ -917,6 +917,14 @@
 
     move-result v0
 
+    if-nez v0, :cond_4
+
+    const-string/jumbo v0, "pin"
+
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
     if-eqz v0, :cond_2
 
     :cond_4
@@ -942,9 +950,9 @@
 .method private updateAlternativeOrder()V
     .locals 3
 
-    const v2, 0x7f13034b
+    const v2, 0x7f13034c
 
-    const v1, 0x7f13034a
+    const v1, 0x7f13034b
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mRot0:Landroid/widget/FrameLayout;
 
@@ -1117,7 +1125,7 @@
 
     invoke-direct {p0, v7, p3}, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->addToDispatchers(Landroid/view/View;Z)V
 
-    if-eqz p3, :cond_c
+    if-eqz p3, :cond_d
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mLastRot90:Landroid/view/View;
 
@@ -1131,7 +1139,7 @@
     invoke-virtual {v7, v8}, Landroid/view/View;->setAccessibilityTraversalAfter(I)V
 
     :cond_3
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_e
 
     iput-object v7, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mLastRot90:Landroid/view/View;
 
@@ -1179,7 +1187,7 @@
 
     if-eqz v8, :cond_7
 
-    const v8, 0x7f04013f
+    const v8, 0x7f040140
 
     invoke-virtual {v2, v8, p2, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1288,14 +1296,31 @@
     goto/16 :goto_1
 
     :cond_b
-    return-object v10
+    const-string/jumbo v8, "pin"
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_c
+
+    const v8, 0x7f0400e0
+
+    invoke-virtual {v2, v8, p2, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v7
+
+    goto/16 :goto_1
 
     :cond_c
+    return-object v10
+
+    :cond_d
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mLastRot0:Landroid/view/View;
 
     goto/16 :goto_2
 
-    :cond_d
+    :cond_e
     iput-object v7, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mLastRot0:Landroid/view/View;
 
     goto/16 :goto_3
@@ -1304,13 +1329,13 @@
 .method protected inflateLayout(Ljava/lang/String;)V
     .locals 11
 
-    const v7, 0x7f13034a
+    const v7, 0x7f13034b
 
     const/4 v10, 0x1
 
     const/4 v9, 0x0
 
-    const v8, 0x7f13034c
+    const v8, 0x7f13034d
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mCurrentLayout:Ljava/lang/String;
 
@@ -1403,7 +1428,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mRot0:Landroid/widget/FrameLayout;
 
-    const v6, 0x7f13034b
+    const v6, 0x7f13034c
 
     invoke-virtual {v5, v6}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1415,7 +1440,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mRot90:Landroid/widget/FrameLayout;
 
-    const v6, 0x7f13034b
+    const v6, 0x7f13034c
 
     invoke-virtual {v5, v6}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1631,7 +1656,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0400e2
+    const v3, 0x7f0400e3
 
     invoke-virtual {v0, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1688,7 +1713,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f0400e3
+    const v3, 0x7f0400e4
 
     invoke-virtual {v0, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1806,6 +1831,22 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->inflateLayout(Ljava/lang/String;)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateCurrentView()V
+
     goto :goto_0
 .end method
 
@@ -1856,20 +1897,26 @@
 
     if-eqz v0, :cond_0
 
+    if-eqz p2, :cond_0
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mCurrentLayout:Ljava/lang/String;
 
     invoke-static {v0, p2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_1
 
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->clearViews()V
 
     invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->inflateLayout(Ljava/lang/String;)V
 
-    :cond_0
-    return-void
+    goto :goto_0
 .end method
 
 .method public setAlternativeOrder(Z)V

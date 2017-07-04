@@ -573,7 +573,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400e9
+    const v1, 0x7f0400ea
 
     const/4 v2, 0x0
 
@@ -2956,7 +2956,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/stack/NotificationChildrenContainer;->mNotificationHeader:Landroid/view/NotificationHeaderView;
 
-    const v4, 0x1020441
+    const v4, 0x1020445
 
     invoke-virtual {v3, v4}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 

@@ -113,7 +113,7 @@
 
     const-string/jumbo v3, "servicebox_clock"
 
-    invoke-static {v2, v3}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-wrap10(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-wrap11(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Ljava/lang/String;)V
 
     goto :goto_0
 

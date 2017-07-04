@@ -852,7 +852,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0205e1
+    const v4, 0x7f0205e3
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -1965,7 +1965,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040835
+    const v4, 0x104083e
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -1984,7 +1984,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040834
+    const v4, 0x104083d
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 

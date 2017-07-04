@@ -454,13 +454,13 @@
     :cond_0
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RedPacketTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0401a8
+    const v4, 0x7f0401a9
 
     invoke-static {v3, v4, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    const v3, 0x7f130506
+    const v3, 0x7f130507
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -472,7 +472,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 
-    const v3, 0x7f130507
+    const v3, 0x7f130508
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -494,7 +494,7 @@
 
     invoke-direct {v4, p0, v1}, Lcom/android/systemui/qs/tiles/RedPacketTile$5;-><init>(Lcom/android/systemui/qs/tiles/RedPacketTile;Landroid/widget/CheckBox;)V
 
-    const v5, 0x104063d
+    const v5, 0x1040641
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -571,7 +571,7 @@
 
     invoke-direct {v3, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f020374
+    const v4, 0x7f020376
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -813,7 +813,7 @@
 
     iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
-    const v0, 0x7f0203e9
+    const v0, 0x7f0203eb
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

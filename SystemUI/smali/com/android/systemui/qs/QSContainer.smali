@@ -852,7 +852,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 12
+    .locals 11
 
     const v4, 0x7f0d03f6
 
@@ -902,7 +902,7 @@
 
     invoke-virtual {v3, v6, v7}, Lcom/android/systemui/qs/QSDetail;->setQsPanel(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;)V
 
-    const v3, 0x7f1303b5
+    const v3, 0x7f1303b6
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -1022,7 +1022,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/QSContainer;->mHeader:Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;
 
-    const v5, 0x7f1303df
+    const v5, 0x7f1303e0
 
     invoke-virtual {v3, v5}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->findViewById(I)Landroid/view/View;
 

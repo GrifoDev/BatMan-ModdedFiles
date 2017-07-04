@@ -337,7 +337,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconsKeyguard:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1304c7
+    const v2, 0x7f1304c8
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -347,7 +347,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusBarBatteryRoot:Landroid/widget/FrameLayout;
 
-    const v2, 0x7f1304c7
+    const v2, 0x7f1304c8
 
     invoke-virtual {p3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -539,7 +539,7 @@
 
     if-eqz v2, :cond_4
 
-    const v2, 0x7f13048a
+    const v2, 0x7f13048b
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

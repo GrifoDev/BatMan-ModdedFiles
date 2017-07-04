@@ -1578,7 +1578,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0203c9
+    const v3, 0x7f0203cb
 
     invoke-static {v3}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

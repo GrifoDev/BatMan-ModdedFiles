@@ -324,7 +324,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x104063d
+    const v18, 0x1040641
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -900,13 +900,13 @@
 
     move-result-object v5
 
-    const v7, 0x7f04018c
+    const v7, 0x7f04018d
 
     invoke-virtual {v5, v7, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v4
 
-    const v7, 0x7f130482
+    const v7, 0x7f130483
 
     invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -920,7 +920,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/popup/PopupUINotificationsImpl;->mResources:Landroid/content/res/Resources;
 
-    const v8, 0x7f0205cf
+    const v8, 0x7f0205d1
 
     invoke-virtual {v7, v8, v10}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -942,7 +942,7 @@
     const v6, 0x7f0f0665
 
     :goto_1
-    const v7, 0x7f130483
+    const v7, 0x7f130484
 
     invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1012,7 +1012,7 @@
     :cond_3
     iget-object v7, p0, Lcom/android/systemui/popup/PopupUINotificationsImpl;->mResources:Landroid/content/res/Resources;
 
-    const v8, 0x7f0205d4
+    const v8, 0x7f0205d6
 
     invoke-virtual {v7, v8, v10}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 

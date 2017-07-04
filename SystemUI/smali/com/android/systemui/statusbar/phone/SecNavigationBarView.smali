@@ -9,12 +9,22 @@
         Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;,
         Lcom/android/systemui/statusbar/phone/SecNavigationBarView$2;,
         Lcom/android/systemui/statusbar/phone/SecNavigationBarView$3;,
-        Lcom/android/systemui/statusbar/phone/SecNavigationBarView$4;
+        Lcom/android/systemui/statusbar/phone/SecNavigationBarView$4;,
+        Lcom/android/systemui/statusbar/phone/SecNavigationBarView$5;,
+        Lcom/android/systemui/statusbar/phone/SecNavigationBarView$6;
     }
 .end annotation
 
 
+# static fields
+.field private static CONFIRMED:Ljava/lang/String;
+
+.field private static final IS_FACTORY_BINARY:Z
+
+
 # instance fields
+.field private mAllKeyDisabled:Z
+
 .field private mAppliedIconColor:I
 
 .field private final mBarController:Lcom/android/systemui/statusbar/phone/NavigationBarController;
@@ -23,9 +33,15 @@
 
 .field private mClipboardReceiver:Landroid/content/BroadcastReceiver;
 
+.field private mConfirm:Ljava/lang/Runnable;
+
 .field mCurrentRemoteView:Landroid/view/View;
 
+.field private mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
 .field private final mHandler:Landroid/os/Handler;
+
+.field private mHelpConfirmed:Z
 
 .field private mHomeActionDown:Landroid/graphics/drawable/AnimationDrawable;
 
@@ -33,7 +49,13 @@
 
 .field private mHomeAnimRunning:Z
 
+.field private mHorizontalMoved:I
+
+.field private mHorizontalShift:I
+
 .field private mImageIcon:Z
+
+.field private final mImmersivePinClickListener:Landroid/view/View$OnClickListener;
 
 .field private mIsDarkNavigation:Z
 
@@ -49,7 +71,7 @@
 
 .field private mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
-.field private mRandom:Ljava/util/Random;
+.field private mPinButtonshow:Z
 
 .field private mRequestedIconcolor:I
 
@@ -57,9 +79,21 @@
 
 .field private mShowBackAlt:Z
 
+.field private mVerticalMoved:I
+
+.field private mVerticalShift:I
+
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/phone/NavigationBarController;
+.method static synthetic -get0()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->CONFIRMED:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/phone/NavigationBarController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBarController:Lcom/android/systemui/statusbar/phone/NavigationBarController;
@@ -67,7 +101,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Ljava/lang/Runnable;
+.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Ljava/lang/Runnable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mChangeIconColor:Ljava/lang/Runnable;
@@ -75,7 +109,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/content/Context;
+.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mConfirm:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
@@ -83,7 +125,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/os/Handler;
+.method static synthetic -get5(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/app/AlertDialog;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHandler:Landroid/os/Handler;
@@ -91,7 +141,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+.method static synthetic -get7(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHelpConfirmed:Z
+
+    return v0
+.end method
+
+.method static synthetic -get8(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
@@ -99,7 +157,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
+.method static synthetic -get9(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mShowBackAlt:Z
@@ -107,12 +165,30 @@
     return v0
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+.method static synthetic -set0(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setMenuImeSidePadding()V
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
 
-    return-void
+    return-object p1
+.end method
+
+.method static synthetic -set1(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHelpConfirmed:Z
+
+    return p1
+.end method
+
+.method static synthetic -wrap0(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Landroid/app/Dialog;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getForceImmersiveHelpDialog()Landroid/app/Dialog;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method static synthetic -wrap1(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;Z)V
@@ -131,8 +207,28 @@
     return-void
 .end method
 
+.method static constructor <clinit>()V
+    .locals 1
+
+    invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->IS_FACTORY_BINARY:Z
+
+    const-string/jumbo v0, "Confirmed"
+
+    sput-object v0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->CONFIRMED:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .locals 8
+
+    const/4 v2, 0x0
+
+    const v7, 0x7f130347
 
     const/4 v6, 0x1
 
@@ -154,17 +250,21 @@
 
     iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImageIcon:Z
 
-    const/4 v1, 0x0
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentRemoteView:Landroid/view/View;
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentRemoteView:Landroid/view/View;
+    iput v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalShift:I
 
-    new-instance v1, Ljava/util/Random;
+    iput v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalShift:I
 
-    invoke-direct {v1}, Ljava/util/Random;-><init>()V
+    iput v6, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalMoved:I
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRandom:Ljava/util/Random;
+    iput v6, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalMoved:I
 
     iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHomeAnimRunning:Z
+
+    iput-boolean v6, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHelpConfirmed:Z
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
 
     new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$1;
 
@@ -201,6 +301,18 @@
     iput v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRequestedIconcolor:I
 
     iput v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mAppliedIconColor:I
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$5;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$5;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImmersivePinClickListener:Landroid/view/View$OnClickListener;
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$6;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$6;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mConfirm:Ljava/lang/Runnable;
 
     new-instance v1, Lcom/android/systemui/statusbar/phone/NavigationBarController;
 
@@ -277,7 +389,23 @@
 
     new-array v3, v6, [Landroid/net/Uri;
 
-    const-string/jumbo v4, "navigationbar_key_order"
+    const-string/jumbo v4, "navigationbar_hide_bar"
+
+    invoke-static {v4}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    aput-object v4, v3, v5
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->registerCallback(Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsCallback:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$OnChangedCallback;
+
+    new-array v3, v6, [Landroid/net/Uri;
+
+    const-string/jumbo v4, "navigationbar_hide_bar_enabled"
 
     invoke-static {v4}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -289,15 +417,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBarTransitions:Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+    const/4 v2, 0x7
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarCurrentColor()I
+    invoke-virtual {v1, v2, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->updateModeBackgroundColor(II)V
 
-    move-result v2
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBarTransitions:Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;
 
-    const/4 v3, 0x7
-
-    invoke-virtual {v1, v3, v2}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->updateModeBackgroundColor(II)V
+    invoke-virtual {v1, v5, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->updateModeBackgroundColor(II)V
 
     :cond_1
     sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
@@ -307,6 +433,32 @@
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateHomeIconTouchAnimation(Landroid/content/Context;)V
 
     :cond_2
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mButtonDisatchers:Landroid/util/SparseArray;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    invoke-direct {v2, v7}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;-><init>(I)V
+
+    invoke-virtual {v1, v7, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->getInstance()Lcom/android/systemui/statusbar/phone/NaviBarHideController;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->init(Landroid/content/Context;)V
+
+    iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinButtonshow:Z
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarHideHelpConfirmed()Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHelpConfirmed:Z
+
     return-void
 .end method
 
@@ -327,6 +479,87 @@
 
     :cond_0
     return-void
+.end method
+
+.method private getForceImmersiveHelpDialog()Landroid/app/Dialog;
+    .locals 4
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f0f0746
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarHideEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    :goto_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    return-object v2
+
+    :cond_1
+    new-instance v0, Landroid/app/AlertDialog$Builder;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$7;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$7;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+
+    const v3, 0x7f0f0057
+
+    invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$8;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$8;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$9;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$9;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v2}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    const/16 v3, 0x7d8
+
+    invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
+
+    goto :goto_0
 .end method
 
 .method private isHomeKey(Landroid/view/MotionEvent;)Z
@@ -696,6 +929,30 @@
 
     const/4 v6, 0x0
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getMenuButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->getCurrentView()Landroid/view/View;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getImeSwitchButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->getCurrentView()Landroid/view/View;
+
+    move-result-object v3
+
+    if-nez v3, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -722,30 +979,6 @@
 
     double-to-int v0, v4
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getMenuButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->getCurrentView()Landroid/view/View;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getImeSwitchButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->getCurrentView()Landroid/view/View;
-
-    move-result-object v3
-
-    if-nez v3, :cond_1
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateCurrentView()V
-
-    :cond_1
     iget v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentRotation:I
 
     const/4 v4, 0x1
@@ -771,6 +1004,16 @@
     move-result-object v3
 
     invoke-virtual {v3, v6, v0, v6, v6}, Landroid/view/View;->setPadding(IIII)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->getCurrentView()Landroid/view/View;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v6, v6, v6, v0}, Landroid/view/View;->setPadding(IIII)V
 
     :goto_0
     return-void
@@ -802,6 +1045,16 @@
 
     invoke-virtual {v3, v6, v6, v6, v0}, Landroid/view/View;->setPadding(IIII)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->getCurrentView()Landroid/view/View;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v6, v0, v6, v6}, Landroid/view/View;->setPadding(IIII)V
+
     goto :goto_0
 
     :cond_3
@@ -824,6 +1077,16 @@
     move-result-object v3
 
     invoke-virtual {v3, v6, v6, v2, v6}, Landroid/view/View;->setPadding(IIII)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->getCurrentView()Landroid/view/View;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2, v6, v6, v6}, Landroid/view/View;->setPadding(IIII)V
 
     goto :goto_0
 .end method
@@ -869,7 +1132,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentRemoteView:Landroid/view/View;
 
-    const v4, 0x7f130348
+    const v4, 0x7f130349
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -881,7 +1144,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentRemoteView:Landroid/view/View;
 
-    const v4, 0x7f130349
+    const v4, 0x7f13034a
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -964,11 +1227,13 @@
 .end method
 
 .method private updateNavigationBarColor(Z)V
-    .locals 4
+    .locals 5
 
-    const v3, 0x7f0b0167
+    const v4, 0x7f0b0167
 
-    if-eqz p1, :cond_0
+    const/4 v3, 0x0
+
+    if-eqz p1, :cond_1
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
 
@@ -984,16 +1249,29 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1, v3}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {v1, v4}, Landroid/content/Context;->getColor(I)I
 
     move-result v0
 
     :goto_0
+    if-nez v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v4}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    :cond_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBarTransitions:Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;
 
     const/4 v2, 0x7
 
     invoke-virtual {v1, v2, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->updateModeBackgroundColor(II)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBarTransitions:Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;
+
+    invoke-virtual {v1, v3, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->updateModeBackgroundColor(II)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
@@ -1005,16 +1283,14 @@
 
     move-result v1
 
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setIconsLight(ZZ)V
+    invoke-virtual {p0, v1, v3}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setIconsLight(ZZ)V
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1, v3}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {v1, v4}, Landroid/content/Context;->getColor(I)I
 
     move-result v0
 
@@ -1042,7 +1318,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0207f6
+    const v1, 0x7f0207f8
 
     :try_start_0
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1051,7 +1327,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mDockedIcon:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f0207f4
+    const v1, 0x7f0207f6
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1063,7 +1339,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBackLandIcon:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f0207f7
+    const v1, 0x7f0207f9
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1075,7 +1351,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBackAltLandIcon:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f0207f3
+    const v1, 0x7f0207f5
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1083,7 +1359,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHomeDefaultIcon:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f0207f2
+    const v1, 0x7f0207f4
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1091,7 +1367,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRecentIcon:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f0207f5
+    const v1, 0x7f0207f7
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1099,7 +1375,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mMenuIcon:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f0207f8
+    const v1, 0x7f0207fa
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1139,9 +1415,9 @@
 
     const/4 v9, 0x1
 
-    const/4 v8, 0x0
+    const/4 v8, 0x4
 
-    const/4 v7, 0x4
+    const/4 v7, 0x0
 
     const-string/jumbo v4, "SecNavigationBarView"
 
@@ -1182,7 +1458,7 @@
     :cond_0
     iget v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentRotation:I
 
-    if-ne v4, v9, :cond_6
+    if-ne v4, v9, :cond_7
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNaviBarRemoteViewManager:Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager;
 
@@ -1193,7 +1469,7 @@
     :goto_0
     iget v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentRotation:I
 
-    if-ne v4, v9, :cond_7
+    if-ne v4, v9, :cond_8
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNaviBarRemoteViewManager:Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager;
 
@@ -1202,7 +1478,7 @@
     move-result-object v2
 
     :goto_1
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager$NaviBarRemoteView;->getView()Landroid/view/View;
 
@@ -1227,7 +1503,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v4, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
 
@@ -1239,7 +1515,7 @@
 
     :cond_2
     :goto_2
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager$NaviBarRemoteView;->getView()Landroid/view/View;
 
@@ -1264,7 +1540,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRightRemoteViewContainer:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v4, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRightRemoteViewContainer:Landroid/widget/LinearLayout;
 
@@ -1288,26 +1564,41 @@
 
     iget v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentRotation:I
 
-    if-ne v4, v9, :cond_a
+    if-ne v4, v9, :cond_b
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v4, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     :cond_5
     :goto_4
-    return-void
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
+
+    if-eqz v4, :cond_6
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v4}, Landroid/widget/LinearLayout;->getVisibility()I
+
+    move-result v4
+
+    if-nez v4, :cond_6
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setPinButtonVisibility(Z)V
 
     :cond_6
+    return-void
+
+    :cond_7
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNaviBarRemoteViewManager:Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager;
 
     invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager;->getLeftRemoteView()Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager$NaviBarRemoteView;
 
     move-result-object v0
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_7
+    :cond_8
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNaviBarRemoteViewManager:Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager;
 
     invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager;->getRightRemoteView()Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager$NaviBarRemoteView;
@@ -1316,32 +1607,32 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
 
     invoke-virtual {v4}, Landroid/widget/LinearLayout;->removeAllViews()V
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v4, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     goto :goto_2
-
-    :cond_9
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRightRemoteViewContainer:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v4}, Landroid/widget/LinearLayout;->removeAllViews()V
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRightRemoteViewContainer:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    goto :goto_3
 
     :cond_a
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRightRemoteViewContainer:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v4}, Landroid/widget/LinearLayout;->removeAllViews()V
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRightRemoteViewContainer:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v4, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto :goto_3
+
+    :cond_b
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRightRemoteViewContainer:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v4, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     goto :goto_4
 .end method
@@ -1378,6 +1669,42 @@
     return-void
 .end method
 
+.method public checkNaviKeyDisabled(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mAllKeyDisabled:Z
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mAllKeyDisabled:Z
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->getInstance()Lcom/android/systemui/statusbar/phone/NaviBarHideController;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->checkNaviKeyDisabled(Z)V
+
+    return-void
+.end method
+
+.method public dismissForceImmersiveHelp()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public getBarController()Lcom/android/systemui/statusbar/phone/NavigationBarController;
     .locals 1
 
@@ -1386,168 +1713,180 @@
     return-object v0
 .end method
 
+.method public getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mButtonDisatchers:Landroid/util/SparseArray;
+
+    const v1, 0x7f130347
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    return-object v0
+.end method
+
 .method public marqueeNavigationBar()V
-    .locals 12
+    .locals 8
 
-    const/4 v11, 0x7
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentView:Landroid/view/View;
 
-    const/4 v10, 0x4
+    if-eqz v5, :cond_0
 
-    const/4 v8, 0x0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getHomeButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentView:Landroid/view/View;
+    move-result-object v5
 
-    if-nez v7, :cond_0
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->getCurrentView()Landroid/view/View;
+
+    move-result-object v5
+
+    if-nez v5, :cond_1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateCurrentView()V
 
     return-void
 
-    :cond_0
-    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+    :cond_1
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalShift:I
 
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const/16 v6, 0x10
 
-    move-result-object v7
+    if-ge v5, v6, :cond_2
 
-    invoke-virtual {v7}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalShift:I
 
-    move-result-object v7
+    const/16 v6, -0x10
 
-    iget v7, v7, Landroid/util/DisplayMetrics;->density:F
+    if-gt v5, v6, :cond_3
 
-    const/high16 v9, 0x40800000    # 4.0f
+    :cond_2
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalMoved:I
 
-    div-float v4, v7, v9
+    neg-int v5, v5
+
+    iput v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalMoved:I
+
+    :cond_3
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalShift:I
+
+    const/16 v6, 0xa
+
+    if-ge v5, v6, :cond_4
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalShift:I
+
+    const/16 v6, -0xa
+
+    if-gt v5, v6, :cond_5
+
+    :cond_4
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalMoved:I
+
+    neg-int v5, v5
+
+    iput v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalMoved:I
+
+    :cond_5
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalShift:I
+
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalMoved:I
+
+    add-int/2addr v5, v6
+
+    iput v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalShift:I
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalShift:I
+
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalMoved:I
+
+    add-int/2addr v5, v6
+
+    iput v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalShift:I
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v5
+
+    iget v5, v5, Landroid/util/DisplayMetrics;->density:F
+
+    const/high16 v6, 0x40800000    # 4.0f
+
+    div-float v3, v5, v6
+
+    const/4 v1, 0x0
+
+    const/4 v4, 0x0
 
     const/4 v2, 0x0
 
-    const/4 v5, 0x0
-
-    const/4 v3, 0x0
-
     const/4 v0, 0x0
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRandom:Ljava/util/Random;
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHorizontalShift:I
 
-    const/16 v9, 0xf
+    int-to-float v5, v5
 
-    invoke-virtual {v7, v9}, Ljava/util/Random;->nextInt(I)I
+    mul-float/2addr v5, v3
 
-    move-result v6
+    float-to-double v6, v5
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mRandom:Ljava/util/Random;
+    invoke-static {v6, v7}, Ljava/lang/Math;->ceil(D)D
 
-    const/16 v9, 0x9
+    move-result-wide v6
 
-    invoke-virtual {v7, v9}, Ljava/util/Random;->nextInt(I)I
+    double-to-int v1, v6
 
-    move-result v1
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mVerticalShift:I
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getHomeButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+    int-to-float v5, v5
 
-    move-result-object v7
+    mul-float/2addr v5, v3
 
-    invoke-virtual {v7, v8, v8, v8, v8}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
+    float-to-double v6, v5
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getRecentsButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+    invoke-static {v6, v7}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-object v7
+    move-result-wide v6
 
-    invoke-virtual {v7, v8, v8, v8, v8}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getBackButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v8, v8, v8, v8}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
-
-    if-ge v6, v11, :cond_2
-
-    add-int/lit8 v7, v6, 0x1
-
-    :goto_0
-    int-to-float v7, v7
-
-    mul-float/2addr v7, v4
-
-    invoke-static {v7}, Ljava/lang/Math;->round(F)I
-
-    move-result v2
-
-    if-lt v1, v10, :cond_3
-
-    add-int/lit8 v7, v1, -0x4
-
-    :goto_1
-    int-to-float v7, v7
-
-    mul-float/2addr v7, v4
-
-    invoke-static {v7}, Ljava/lang/Math;->round(F)I
-
-    move-result v5
-
-    if-lt v6, v11, :cond_4
-
-    add-int/lit8 v7, v6, -0x7
-
-    :goto_2
-    int-to-float v7, v7
-
-    mul-float/2addr v7, v4
-
-    invoke-static {v7}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    if-ge v1, v10, :cond_1
-
-    add-int/lit8 v8, v1, 0x1
-
-    :cond_1
-    int-to-float v7, v8
-
-    mul-float/2addr v7, v4
-
-    invoke-static {v7}, Ljava/lang/Math;->round(F)I
-
-    move-result v0
+    double-to-int v4, v6
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getHomeButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7, v2, v5, v3, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
+    invoke-virtual {v5, v1, v4, v2, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getRecentsButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7, v2, v5, v3, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
+    invoke-virtual {v5, v1, v4, v2, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getBackButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7, v2, v5, v3, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
+    invoke-virtual {v5, v1, v4, v2, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1, v4, v2, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setPaddingRelative(IIII)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->invalidate()V
 
     return-void
-
-    :cond_2
-    move v7, v8
-
-    goto :goto_0
-
-    :cond_3
-    move v7, v8
-
-    goto :goto_1
-
-    :cond_4
-    move v7, v8
-
-    goto :goto_2
 .end method
 
 .method protected onAttachedToWindow()V
@@ -1596,6 +1935,14 @@
     const/4 v1, 0x1
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->onFinishInflate()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImmersivePinClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIBAR_REMOTEVIEW:Z
 
@@ -1653,6 +2000,14 @@
     invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setNavigationIconHints(IZ)V
 
     :cond_2
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->getInstance()Lcom/android/systemui/statusbar/phone/NaviBarHideController;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->setNavigationBarImmersiveMode(Landroid/content/Context;)Z
+
     return-void
 
     :cond_3
@@ -1676,10 +2031,31 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImageIcon:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     :cond_0
     :goto_0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->isHomeKey(Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->reScheduleAutohide(Landroid/view/MotionEvent;)V
@@ -1690,24 +2066,24 @@
 
     return v0
 
-    :cond_1
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    if-ne v0, v4, :cond_4
-
     :cond_2
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    if-ne v0, v4, :cond_5
+
+    :cond_3
     :goto_1
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHomeAnimRunning:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->isHomeKey(Landroid/view/MotionEvent;)Z
 
@@ -1715,7 +2091,7 @@
 
     if-eqz v0, :cond_0
 
-    :cond_3
+    :cond_4
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
@@ -1748,7 +2124,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
@@ -1781,8 +2157,6 @@
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHomeAnimRunning:Z
 
     goto :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -1949,7 +2323,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentView:Landroid/view/View;
 
-    const v1, 0x7f13034c
+    const v1, 0x7f13034d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1960,6 +2334,35 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateRemoteView()V
 
     :cond_0
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->getInstance()Lcom/android/systemui/statusbar/phone/NaviBarHideController;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->onOrientationChanged()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mForceImmersiveHelpDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    :cond_1
+    return-void
+.end method
+
+.method public setForceImmersiveMode()V
+    .locals 2
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->getInstance()Lcom/android/systemui/statusbar/phone/NaviBarHideController;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->setNavigationBarImmersiveMode(Landroid/content/Context;)Z
+
     return-void
 .end method
 
@@ -2264,6 +2667,12 @@
     invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
 
     :cond_3
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinButtonshow:Z
+
+    const/4 v3, 0x1
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setPinButtonVisibility(ZZ)V
+
     return-void
 
     :cond_4
@@ -2288,6 +2697,166 @@
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     return-void
+.end method
+
+.method public setPinButtonVisibility(Z)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setPinButtonVisibility(ZZ)V
+
+    return-void
+.end method
+
+.method public setPinButtonVisibility(ZZ)V
+    .locals 8
+
+    const/4 v4, 0x0
+
+    if-nez p2, :cond_0
+
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinButtonshow:Z
+
+    if-ne v5, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarHideSetting()Z
+
+    move-result v2
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLeftRemoteViewContainer:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v5}, Landroid/widget/LinearLayout;->getVisibility()I
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
+    const/4 v1, 0x1
+
+    :goto_0
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationIconHints:I
+
+    and-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_3
+
+    const/4 v0, 0x1
+
+    :goto_1
+    if-eqz p1, :cond_1
+
+    sget-boolean v5, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->IS_FACTORY_BINARY:Z
+
+    if-nez v5, :cond_1
+
+    if-eqz v2, :cond_1
+
+    if-nez v1, :cond_1
+
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mAllKeyDisabled:Z
+
+    if-nez v5, :cond_1
+
+    if-eqz v0, :cond_4
+
+    :cond_1
+    const/4 v3, 0x0
+
+    :goto_2
+    const-string/jumbo v5, "SecNavigationBarView"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "setPinButtonVisibility() shouldshow="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", settingsEnabled="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", leftRemoteVisible="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", isBackAlt="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinButtonshow:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v5
+
+    if-eqz v3, :cond_5
+
+    :goto_3
+    invoke-virtual {v5, v4}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setVisibility(I)V
+
+    return-void
+
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v3, 0x1
+
+    goto :goto_2
+
+    :cond_5
+    const/4 v4, 0x4
+
+    goto :goto_3
 .end method
 
 .method protected updateCarMode(Landroid/content/res/Configuration;)Z
@@ -2327,7 +2896,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mCurrentView:Landroid/view/View;
 
-    const v1, 0x7f13034c
+    const v1, 0x7f13034d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2431,6 +3000,22 @@
     if-eqz v9, :cond_4
 
     :goto_1
+    const v1, 0x7f02024b
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavBarPinIcon:Landroid/graphics/drawable/Drawable;
+
+    const v1, 0x7f02024a
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavBarUnPinIcon:Landroid/graphics/drawable/Drawable;
+
     sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
 
     if-eqz v1, :cond_1
@@ -2551,7 +3136,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHomeDefaultIcon:Landroid/graphics/drawable/Drawable;
 
-    const v1, 0x7f02024a
+    const v1, 0x7f02024c
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2603,4 +3188,54 @@
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBackIcon:Landroid/graphics/drawable/Drawable;
 
     goto :goto_4
+.end method
+
+.method public updateImmersivePinIcon()V
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;->getNavigationBarHideEnabled()Z
+
+    move-result v0
+
+    const-string/jumbo v1, "SecNavigationBarView"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "updateImmersivePinIcon() isImmersiveMode="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getNavBarPinButton()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    move-result-object v2
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavBarUnPinIcon:Landroid/graphics/drawable/Drawable;
+
+    :goto_0
+    invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavBarPinIcon:Landroid/graphics/drawable/Drawable;
+
+    goto :goto_0
 .end method

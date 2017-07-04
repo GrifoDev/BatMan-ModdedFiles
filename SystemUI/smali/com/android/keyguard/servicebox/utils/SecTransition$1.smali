@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/utils/SecTransition$1;->this$0:Lcom/android/keyguard/servicebox/utils/SecTransition;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get1(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/animation/AnimatorSet;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/utils/SecTransition;->-get2(Lcom/android/keyguard/servicebox/utils/SecTransition;)Landroid/animation/AnimatorSet;
 
     move-result-object v0
 

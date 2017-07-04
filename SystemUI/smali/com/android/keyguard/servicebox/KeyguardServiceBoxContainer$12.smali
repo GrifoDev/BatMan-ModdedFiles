@@ -1,11 +1,14 @@
 .class Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "KeyguardServiceBoxContainer.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->playPageMoveAnimation(I)V
+    value = Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->dismissServiceBox(Ljava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,126 +20,40 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-.field final synthetic val$toIdx:I
+.field final synthetic val$pkgName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;I)V
+.method constructor <init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    iput p2, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->val$toIdx:I
+    iput-object p2, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->val$pkgName:Ljava/lang/String;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 3
-
-    const/4 v2, 0x0
+.method public run()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
-
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;
 
     move-result-object v0
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->val$pkgName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
-
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get16(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/KeyguardServiceBoxViewPager;
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->val$toIdx:I
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxViewPager;->setCurrentItem(IZ)V
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
-
-    invoke-static {v0, v2}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-set2(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;Z)Z
-
-    invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationCancel(Landroid/animation/Animator;)V
-
-    return-void
-.end method
-
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
-
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get16(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Lcom/android/keyguard/servicebox/KeyguardServiceBoxViewPager;
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->val$toIdx:I
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxViewPager;->setCurrentItem(IZ)V
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
-
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/view/View;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;->this$0:Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;
-
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;->-get14(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer;)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    const-wide/16 v2, 0x180
-
-    invoke-virtual {v0, v2, v3}, Landroid/view/ViewPropertyAnimator;->setStartDelay(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    const-wide/16 v2, 0x74
-
-    invoke-virtual {v0, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12$1;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12$1;-><init>(Lcom/android/keyguard/servicebox/KeyguardServiceBoxContainer$12;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/servicebox/KeyguardServiceBoxWindowManager;->hideFloatingView(Ljava/lang/String;)V
 
     return-void
 .end method

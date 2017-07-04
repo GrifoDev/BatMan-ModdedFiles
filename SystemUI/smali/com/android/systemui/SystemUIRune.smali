@@ -340,6 +340,14 @@
 
 .field public static final WFC_PLMN_INFO_AT_AIRPLANE_MODE:Ljava/lang/String;
 
+.field public static mAllowHeaderColorChange:Z
+
+.field public static mAllowNavbarColorChange:Z
+
+.field public static mAllowNotificationColorChange:Z
+
+.field public static mAllowQsColorChange:Z
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -2801,7 +2809,6 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_XSA_POPUP:Z
 
-    :goto_30
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_WFC_REFRESH_BY_SIM:Z
 
     invoke-static {}, Lcom/android/internal/app/AppLockPolicy;->isSupportAppLock()Z
@@ -2822,7 +2829,7 @@
 
     if-eqz v0, :cond_39
 
-    :goto_31
+    :goto_30
     sput-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_GOOGLE_SERVICE:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
@@ -2842,6 +2849,36 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_POWER_PLANNING:Z
+
+    const-string v0, "tweaks_unlock_header_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowHeaderColorChange:Z
+
+    const-string v0, "tweaks_unlock_qs_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowQsColorChange:Z
+
+    const-string v0, "tweaks_unlock_notification_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowNotificationColorChange:Z
 
     return-void
 
@@ -3058,42 +3095,42 @@
     :cond_32
     move v0, v2
 
-    goto/16 :goto_2a
+    goto/16 :goto_29
 
     :cond_33
     move v0, v1
 
-    goto/16 :goto_2b
+    goto/16 :goto_2a
 
     :cond_34
     move v0, v2
 
-    goto/16 :goto_2c
+    goto/16 :goto_2b
 
     :cond_35
     move v0, v1
 
-    goto/16 :goto_2d
+    goto/16 :goto_2c
 
     :cond_36
     move v0, v1
 
-    goto/16 :goto_2e
+    goto/16 :goto_2d
 
     :cond_37
     move v0, v1
 
-    goto/16 :goto_2f
+    goto/16 :goto_2e
 
     :cond_38
     move v0, v2
 
-    goto/16 :goto_30
+    goto/16 :goto_2f
 
     :cond_39
     move v1, v2
 
-    goto/16 :goto_31
+    goto/16 :goto_30
 .end method
 
 .method public constructor <init>()V

@@ -42,3 +42,13 @@
 
     return-void
 .end method
+
+.method public updateOpaqueColor(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions$NavigationBarBackgroundDrawable;->mOpaque:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions$NavigationBarBackgroundDrawable;->invalidateSelf()V
+
+    return-void
+.end method

@@ -1748,13 +1748,7 @@
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    const-string v9, "unlock_qs_colors"
-
-    const/4 v10, 0x0
-
-    invoke-static {v9, v10}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v9
+    sget-boolean v9, Lcom/android/systemui/SystemUIRune;->mAllowQsColorChange:Z
 
     instance-of v3, p2, Lcom/android/systemui/qs/QSTile$BooleanState;
 

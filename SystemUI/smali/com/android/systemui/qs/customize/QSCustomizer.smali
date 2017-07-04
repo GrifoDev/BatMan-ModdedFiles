@@ -136,11 +136,11 @@
 
     move-result-object v2
 
-    const v3, 0x7f04010f
+    const v3, 0x7f040110
 
     invoke-virtual {v2, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v2, 0x1020486
+    const v2, 0x102048a
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/customize/QSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -403,7 +403,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    const v3, 0x7f130379
+    const v3, 0x7f13037a
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/qs/customize/QSCustomizer;->findViewById(I)Landroid/view/View;
 

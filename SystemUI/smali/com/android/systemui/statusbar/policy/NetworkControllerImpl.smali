@@ -1141,7 +1141,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0205ec
+    const v4, 0x7f0205ee
 
     const v5, 0x7f0f0304
 
@@ -2155,7 +2155,7 @@
 
     move-result-object v6
 
-    const v1, 0x7f020654
+    const v1, 0x7f020656
 
     :goto_1
     new-instance v8, Landroid/app/Notification$Builder;
@@ -2267,7 +2267,7 @@
 
     move-result-object v6
 
-    const v1, 0x7f020653
+    const v1, 0x7f020655
 
     goto :goto_1
 
@@ -2294,7 +2294,7 @@
 
     move-result-object v6
 
-    const v1, 0x7f020653
+    const v1, 0x7f020655
 
     goto/16 :goto_1
 
@@ -2311,7 +2311,7 @@
 
     move-result-object v6
 
-    const v1, 0x7f020653
+    const v1, 0x7f020655
 
     goto/16 :goto_1
 
@@ -2429,7 +2429,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0205ec
+    const v5, 0x7f0205ee
 
     const v6, 0x7f0f0304
 
@@ -2719,7 +2719,7 @@
 
     move-object/from16 v28, v0
 
-    const v29, 0x7f0205ec
+    const v29, 0x7f0205ee
 
     const v30, 0x7f0f0304
 
@@ -5451,11 +5451,11 @@
 
     if-eqz v9, :cond_a
 
-    const v6, 0x7f020644
+    const v6, 0x7f020646
 
     if-eqz v8, :cond_8
 
-    const v4, 0x7f020645
+    const v4, 0x7f020647
 
     :goto_5
     if-eqz v3, :cond_9
@@ -5468,7 +5468,7 @@
     :goto_6
     packed-switch v0, :pswitch_data_0
 
-    const v1, 0x7f020649
+    const v1, 0x7f02064b
 
     :cond_7
     :goto_7
@@ -5481,7 +5481,7 @@
     goto :goto_4
 
     :cond_8
-    const v4, 0x7f020646
+    const v4, 0x7f020648
 
     goto :goto_5
 
@@ -5493,17 +5493,17 @@
     goto :goto_6
 
     :pswitch_0
-    const v1, 0x7f020647
+    const v1, 0x7f020649
 
     goto :goto_7
 
     :pswitch_1
-    const v1, 0x7f02064a
+    const v1, 0x7f02064c
 
     goto :goto_7
 
     :pswitch_2
-    const v1, 0x7f020648
+    const v1, 0x7f02064a
 
     goto :goto_7
 
@@ -5520,28 +5520,28 @@
 
     if-eqz v8, :cond_b
 
-    const v6, 0x7f02064b
+    const v6, 0x7f02064d
 
     or-int v0, v2, v7
 
     packed-switch v0, :pswitch_data_1
 
-    const v1, 0x7f02064e
+    const v1, 0x7f020650
 
     goto :goto_7
 
     :pswitch_3
-    const v1, 0x7f02064c
+    const v1, 0x7f02064e
 
     goto :goto_7
 
     :pswitch_4
-    const v1, 0x7f02064f
+    const v1, 0x7f020651
 
     goto :goto_7
 
     :pswitch_5
-    const v1, 0x7f02064d
+    const v1, 0x7f02064f
 
     goto :goto_7
 
@@ -5553,11 +5553,11 @@
     return-void
 
     :cond_c
-    const v6, 0x7f020652
+    const v6, 0x7f020654
 
     if-eqz v8, :cond_e
 
-    const v4, 0x7f020650
+    const v4, 0x7f020652
 
     :goto_8
     if-eqz v3, :cond_f
@@ -5570,12 +5570,12 @@
     :goto_9
     packed-switch v0, :pswitch_data_2
 
-    const v1, 0x7f020708
+    const v1, 0x7f02070a
 
     goto :goto_7
 
     :cond_e
-    const v4, 0x7f020651
+    const v4, 0x7f020653
 
     goto :goto_8
 
@@ -5587,17 +5587,17 @@
     goto :goto_9
 
     :pswitch_6
-    const v1, 0x7f0206fa
+    const v1, 0x7f0206fc
 
     goto :goto_7
 
     :pswitch_7
-    const v1, 0x7f02070f
+    const v1, 0x7f020711
 
     goto :goto_7
 
     :pswitch_8
-    const v1, 0x7f020702
+    const v1, 0x7f020704
 
     goto :goto_7
 

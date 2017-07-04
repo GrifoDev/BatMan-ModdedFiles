@@ -697,7 +697,7 @@
 
     move-result v5
 
-    const v6, 0x1020432
+    const v6, 0x1020436
 
     if-ne v5, v6, :cond_1
 
