@@ -56,7 +56,7 @@
 
     iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$4;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-static {v2, v5}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set12(Lcom/android/server/policy/SamsungPhoneWindowManager;I)I
+    invoke-static {v2, v5}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set13(Lcom/android/server/policy/SamsungPhoneWindowManager;I)I
 
     iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$4;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
@@ -123,7 +123,7 @@
 
     iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$4;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-static {v2, v5}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set12(Lcom/android/server/policy/SamsungPhoneWindowManager;I)I
+    invoke-static {v2, v5}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set13(Lcom/android/server/policy/SamsungPhoneWindowManager;I)I
 
     iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$4;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 

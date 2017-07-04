@@ -23,6 +23,8 @@
 
 .field mNavbarIsAlwaysEnabled:Z
 
+.field mNonImmersive:Z
+
 .field mReducedScreenParams:Lcom/android/server/PackageConfigurationController$ReducedAppScreenParams;
 
 .field mReducedScreenSpec:Landroid/view/MagnificationSpec;
@@ -122,6 +124,61 @@
     return v0
 .end method
 
+.method private isNonImmersiveModePackage(Ljava/lang/String;)Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    if-eqz p1, :cond_0
+
+    :try_start_0
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
+
+    iget-object v3, v3, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+
+    iget v3, v3, Lcom/android/server/wm/Session;->mUid:I
+
+    invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v3
+
+    const/16 v4, 0x80
+
+    invoke-interface {v2, p1, v4, v3}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v2, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    const-string/jumbo v3, "com.samsung.android.non_immersive"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v1
+
+    :cond_0
+    return v5
+.end method
+
 
 # virtual methods
 .method public applyAspectRatio(Landroid/graphics/Rect;)Z
@@ -214,11 +271,7 @@
     :goto_1
     if-eqz v1, :cond_5
 
-    invoke-virtual {v1}, Lcom/android/server/wm/WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
-
-    move-result-object v8
-
-    invoke-interface {v8}, Lcom/samsung/android/view/IWindowStateBridge;->getSystemUiVisibility()I
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowState;->getSystemUiVisibility()I
 
     move-result v5
 
@@ -294,7 +347,11 @@
     goto :goto_1
 
     :cond_5
-    iget v5, p0, Lcom/android/server/wm/SamsungWindowState;->mSystemUiVisibility:I
+    iget-object v8, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
+
+    invoke-virtual {v8}, Lcom/android/server/wm/WindowState;->getSystemUiVisibility()I
+
+    move-result v5
 
     goto :goto_2
 .end method
@@ -805,6 +862,14 @@
     return-void
 .end method
 
+.method public getAspectRatio()F
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/SamsungWindowState;->mAspectRatio:F
+
+    return v0
+.end method
+
 .method public getAspectRatioFrame()Landroid/graphics/Rect;
     .locals 2
 
@@ -1154,7 +1219,7 @@
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_4
 
     iget-object v2, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
 
@@ -1207,7 +1272,7 @@
 
     cmpl-float v2, v2, v0
 
-    if-ltz v2, :cond_4
+    if-ltz v2, :cond_5
 
     const/4 v2, 0x0
 
@@ -1219,9 +1284,30 @@
 
     :cond_2
     :goto_1
-    return-void
+    iget-object v2, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->isDefaultDisplay()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
+
+    iget-object v2, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget-object v2, v2, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+
+    invoke-direct {p0, v2}, Lcom/android/server/wm/SamsungWindowState;->isNonImmersiveModePackage(Ljava/lang/String;)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/wm/SamsungWindowState;->mNonImmersive:Z
 
     :cond_3
+    return-void
+
+    :cond_4
     iget-object v2, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
 
     iget-object v2, v2, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
@@ -1236,7 +1322,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     iget-object v2, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
 
     iget-object v2, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
@@ -1401,6 +1487,14 @@
 
     :cond_0
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public isNonImmersiveWindow()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/wm/SamsungWindowState;->mNonImmersive:Z
 
     return v0
 .end method

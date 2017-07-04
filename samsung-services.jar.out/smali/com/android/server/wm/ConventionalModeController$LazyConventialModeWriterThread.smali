@@ -71,7 +71,7 @@
 
     move-result v5
 
-    invoke-static {v3, v5}, Lcom/android/server/wm/ConventionalModeController;->-wrap1(Lcom/android/server/wm/ConventionalModeController;I)V
+    invoke-static {v3, v5}, Lcom/android/server/wm/ConventionalModeController;->-wrap2(Lcom/android/server/wm/ConventionalModeController;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

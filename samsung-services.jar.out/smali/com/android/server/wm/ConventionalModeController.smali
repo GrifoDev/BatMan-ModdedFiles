@@ -8,8 +8,11 @@
     value = {
         Lcom/android/server/wm/ConventionalModeController$1;,
         Lcom/android/server/wm/ConventionalModeController$2;,
+        Lcom/android/server/wm/ConventionalModeController$3;,
+        Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;,
+        Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;,
         Lcom/android/server/wm/ConventionalModeController$LazyConventialModeWriterThread;,
-        Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+        Lcom/android/server/wm/ConventionalModeController$VerticalTextView;
     }
 .end annotation
 
@@ -25,15 +28,41 @@
 
 .field private final FILE_NAME:Ljava/lang/String;
 
+.field private final MSG_HIDE_CHANGE_RATIO_WINDOW:I
+
 .field private final MSG_KILL_APPLICATION:I
 
 .field private final MSG_SAVE_PACKAGES_NOW:I
+
+.field private final MSG_SHOW_CHANGE_RATIO_WINDOW:I
+
+.field private final NAV_BAR_BOTTOM:I
+
+.field private final NAV_BAR_LEFT:I
+
+.field private final NAV_BAR_RIGHT:I
 
 .field private final TIME_FOR_KILL_APPLICATION:I
 
 .field private final TIME_FOR_SAVE_PACKAGES:I
 
+.field private mChangeRatioButtonView:Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
+
+.field private mChangeRatioButtonViewShowing:Z
+
+.field private mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+.field private mChangeRatioWindowPosition:I
+
+.field private mChangeRatioWindowSize:I
+
 .field private mConventionModeDir:Ljava/io/File;
+
+.field private mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
+
+.field private mCurrentTopFullOpaquePkg:Ljava/lang/String;
+
+.field private mCurrentTopFullOpaqueUid:I
 
 .field private final mGuidePopupRunnable:Ljava/lang/Runnable;
 
@@ -53,7 +82,9 @@
 
 .field final mPackageReceiver:Landroid/content/BroadcastReceiver;
 
-.field private mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+.field private mReLaunchTaskId:I
+
+.field private final mRelaunchTaskRunnable:Ljava/lang/Runnable;
 
 .field mSavePackageQueue:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -79,9 +110,75 @@
     .end annotation
 .end field
 
+.field private mWindowManager:Landroid/view/WindowManager;
+
 
 # direct methods
-.method static synthetic -get0(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+.method static synthetic -get0(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonView:Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/server/wm/ConventionalModeController;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonViewShowing:Z
+
+    return v0
+.end method
+
+.method static synthetic -get2(Lcom/android/server/wm/ConventionalModeController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowPosition:I
+
+    return v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mCurrentTopFullOpaquePkg:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/android/server/wm/ConventionalModeController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mCurrentTopFullOpaqueUid:I
+
+    return v0
+.end method
+
+.method static synthetic -get6(Lcom/android/server/wm/ConventionalModeController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mReLaunchTaskId:I
+
+    return v0
+.end method
+
+.method static synthetic -get7(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mRelaunchTaskRunnable:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
@@ -89,7 +186,57 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/android/server/wm/ConventionalModeController;Ljava/lang/String;I)V
+.method static synthetic -get9(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mWindowManager:Landroid/view/WindowManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/wm/ConventionalModeController;Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;)Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonView:Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
+
+    return-object p1
+.end method
+
+.method static synthetic -set1(Lcom/android/server/wm/ConventionalModeController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonViewShowing:Z
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/android/server/wm/ConventionalModeController;Landroid/view/WindowManager$LayoutParams;)Landroid/view/WindowManager$LayoutParams;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    return-object p1
+.end method
+
+.method static synthetic -set3(Lcom/android/server/wm/ConventionalModeController;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/wm/ConventionalModeController;->mCurrentTopFullOpaquePkg:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic -wrap0(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager$LayoutParams;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/wm/ConventionalModeController;->getWindowLayoutParams()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/server/wm/ConventionalModeController;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/wm/ConventionalModeController;->killApplication(Ljava/lang/String;I)V
@@ -97,7 +244,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/wm/ConventionalModeController;I)V
+.method static synthetic -wrap2(Lcom/android/server/wm/ConventionalModeController;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/ConventionalModeController;->saveConventionalModePackageMap(I)V
@@ -106,7 +253,15 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .locals 6
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v3, -0x1
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -138,11 +293,11 @@
 
     iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->FILE_NAME:Ljava/lang/String;
 
-    new-instance v0, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    new-instance v0, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
-    invoke-direct {v0, p0}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;-><init>(Lcom/android/server/wm/ConventionalModeController;)V
+    invoke-direct {v0, p0}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;-><init>(Lcom/android/server/wm/ConventionalModeController;)V
 
-    iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -156,19 +311,31 @@
 
     iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mShowGuidePopup:Ljava/util/ArrayList;
 
+    iput-boolean v2, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonViewShowing:Z
+
+    iput v2, p0, Lcom/android/server/wm/ConventionalModeController;->NAV_BAR_BOTTOM:I
+
+    iput v4, p0, Lcom/android/server/wm/ConventionalModeController;->NAV_BAR_RIGHT:I
+
+    iput v5, p0, Lcom/android/server/wm/ConventionalModeController;->NAV_BAR_LEFT:I
+
     new-instance v0, Lcom/android/server/wm/ConventionalModeController$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/wm/ConventionalModeController$1;-><init>(Lcom/android/server/wm/ConventionalModeController;)V
 
     iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mGuidePopupRunnable:Ljava/lang/Runnable;
 
-    const/4 v0, 0x1
+    iput v4, p0, Lcom/android/server/wm/ConventionalModeController;->MSG_SAVE_PACKAGES_NOW:I
 
-    iput v0, p0, Lcom/android/server/wm/ConventionalModeController;->MSG_SAVE_PACKAGES_NOW:I
+    iput v5, p0, Lcom/android/server/wm/ConventionalModeController;->MSG_KILL_APPLICATION:I
 
-    const/4 v0, 0x2
+    const/4 v0, 0x3
 
-    iput v0, p0, Lcom/android/server/wm/ConventionalModeController;->MSG_KILL_APPLICATION:I
+    iput v0, p0, Lcom/android/server/wm/ConventionalModeController;->MSG_SHOW_CHANGE_RATIO_WINDOW:I
+
+    const/4 v0, 0x4
+
+    iput v0, p0, Lcom/android/server/wm/ConventionalModeController;->MSG_HIDE_CHANGE_RATIO_WINDOW:I
 
     const/16 v0, 0x7d0
 
@@ -190,7 +357,78 @@
 
     iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageReceiver:Landroid/content/BroadcastReceiver;
 
+    iput v3, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowPosition:I
+
+    iput v2, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
+
+    iput v3, p0, Lcom/android/server/wm/ConventionalModeController;->mReLaunchTaskId:I
+
+    new-instance v0, Lcom/android/server/wm/ConventionalModeController$3;
+
+    invoke-direct {v0, p0}, Lcom/android/server/wm/ConventionalModeController$3;-><init>(Lcom/android/server/wm/ConventionalModeController;)V
+
+    iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mRelaunchTaskRunnable:Ljava/lang/Runnable;
+
     return-void
+.end method
+
+.method private adjustWindowLayoutParams(Landroid/view/WindowManager$LayoutParams;)V
+    .locals 2
+
+    const/4 v1, -0x1
+
+    iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowPosition:I
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
+    return-void
+
+    :pswitch_0
+    iput v1, p1, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
+
+    iput v0, p1, Landroid/view/WindowManager$LayoutParams;->height:I
+
+    const/16 v0, 0x50
+
+    iput v0, p1, Landroid/view/WindowManager$LayoutParams;->gravity:I
+
+    goto :goto_0
+
+    :pswitch_1
+    iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
+
+    iput v0, p1, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    iput v1, p1, Landroid/view/WindowManager$LayoutParams;->height:I
+
+    const/4 v0, 0x5
+
+    iput v0, p1, Landroid/view/WindowManager$LayoutParams;->gravity:I
+
+    goto :goto_0
+
+    :pswitch_2
+    iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
+
+    iput v0, p1, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    iput v1, p1, Landroid/view/WindowManager$LayoutParams;->height:I
+
+    const/4 v0, 0x3
+
+    iput v0, p1, Landroid/view/WindowManager$LayoutParams;->gravity:I
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method
 
 .method private checkCallerIsSystemOrPermission()V
@@ -487,6 +725,57 @@
     return-object v0
 .end method
 
+.method private getWindowLayoutParams()Landroid/view/WindowManager$LayoutParams;
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/view/WindowManager$LayoutParams;
+
+    invoke-direct {v0}, Landroid/view/WindowManager$LayoutParams;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    const/16 v1, 0x8e0
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    const-string/jumbo v1, "ChangeRatioButtonWindow"
+
+    invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-direct {p0, v0}, Lcom/android/server/wm/ConventionalModeController;->adjustWindowLayoutParams(Landroid/view/WindowManager$LayoutParams;)V
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    const v1, 0x20108
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    const/high16 v2, 0x20000
+
+    or-int/2addr v1, v2
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    return-object v0
+.end method
+
 .method private isCallerSystem()Z
     .locals 1
 
@@ -557,7 +846,11 @@
 
     const-string/jumbo v3, "conventionalmode"
 
-    invoke-virtual {v0, p1, v1, v2, v3}, Landroid/app/ActivityManagerInternal;->killPackageProcess(Ljava/lang/String;IILjava/lang/String;)V
+    invoke-virtual {v0, p1, v1, v2, v3}, Landroid/app/ActivityManagerInternal;->killPackageProcess(Ljava/lang/String;IILjava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/wm/ConventionalModeController;->mReLaunchTaskId:I
 
     :cond_0
     return-void
@@ -1153,32 +1446,32 @@
 
     const/4 v3, 0x2
 
-    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
-    invoke-virtual {v1, v3}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->hasMessages(I)Z
+    invoke-virtual {v1, v3}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->hasMessages(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
-    invoke-virtual {v1, v3}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->removeMessages(I)V
+    invoke-virtual {v1, v3}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->removeMessages(I)V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v3, p2, v2, p1}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v1, v3, p2, v2, p1}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
     const-wide/16 v2, 0xc8
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     return-void
 .end method
@@ -1188,30 +1481,30 @@
 
     const/4 v2, 0x1
 
-    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->hasMessages(I)Z
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->hasMessages(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->removeMessages(I)V
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->removeMessages(I)V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
     const-wide/16 v2, 0x7d0
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     return-void
 .end method
@@ -1623,6 +1916,46 @@
     return v0
 .end method
 
+.method public hideChangeRatioButtonWindow()V
+    .locals 3
+
+    const/4 v2, 0x4
+
+    iget-boolean v1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonViewShowing:Z
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v1, -0x1
+
+    iput v1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowPosition:I
+
+    const/4 v1, 0x0
+
+    iput v1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
+
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->hasMessages(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
+
+    invoke-static {v1, v2}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    :cond_1
+    return-void
+.end method
+
 .method public init(Lcom/android/server/wm/SamsungWindowManagerService;)V
     .locals 4
 
@@ -1716,6 +2049,20 @@
     invoke-virtual {v1}, Lcom/android/server/wm/ConventionalModeController$LazyConventialModeWriterThread;->start()V
 
     :cond_1
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "window"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/WindowManager;
+
+    iput-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mWindowManager:Landroid/view/WindowManager;
+
     return-void
 .end method
 
@@ -2361,6 +2708,71 @@
     return-void
 .end method
 
+.method public showChangeRatioButtonWindow(IILjava/lang/String;I)V
+    .locals 3
+
+    const/4 v2, 0x3
+
+    iget-boolean v1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonViewShowing:Z
+
+    if-eqz v1, :cond_1
+
+    iget v1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowPosition:I
+
+    if-ne p1, v1, :cond_1
+
+    iget v1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
+
+    if-ne p2, v1, :cond_1
+
+    if-eqz p3, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mCurrentTopFullOpaquePkg:Ljava/lang/String;
+
+    invoke-virtual {p3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget v1, p0, Lcom/android/server/wm/ConventionalModeController;->mCurrentTopFullOpaqueUid:I
+
+    if-eq p4, v1, :cond_0
+
+    iput p4, p0, Lcom/android/server/wm/ConventionalModeController;->mCurrentTopFullOpaqueUid:I
+
+    :cond_0
+    return-void
+
+    :cond_1
+    iput p1, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowPosition:I
+
+    iput p2, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
+
+    iput-object p3, p0, Lcom/android/server/wm/ConventionalModeController;->mCurrentTopFullOpaquePkg:Ljava/lang/String;
+
+    iput p4, p0, Lcom/android/server/wm/ConventionalModeController;->mCurrentTopFullOpaqueUid:I
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
+
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->hasMessages(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
+
+    invoke-static {v1, v2}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    :cond_2
+    return-void
+.end method
+
 .method public showGuidePopup(Ljava/lang/String;I)V
     .locals 7
 
@@ -2427,17 +2839,17 @@
 
     if-nez v3, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
     iget-object v4, p0, Lcom/android/server/wm/ConventionalModeController;->mGuidePopupRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v3, v4}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v3, v4}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageSaveScheduler:Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;
+    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
 
     iget-object v4, p0, Lcom/android/server/wm/ConventionalModeController;->mGuidePopupRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v3, v4}, Lcom/android/server/wm/ConventionalModeController$PackageSaveScheduler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v3, v4}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->post(Ljava/lang/Runnable;)Z
 
     :cond_1
     return-void

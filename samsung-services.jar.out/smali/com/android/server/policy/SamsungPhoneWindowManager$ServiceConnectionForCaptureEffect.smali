@@ -240,7 +240,7 @@
 
     const/4 v9, 0x0
 
-    invoke-static {v7, v9}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set12(Lcom/android/server/policy/SamsungPhoneWindowManager;I)I
+    invoke-static {v7, v9}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set13(Lcom/android/server/policy/SamsungPhoneWindowManager;I)I
 
     iget-object v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$ServiceConnectionForCaptureEffect;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 

@@ -4829,6 +4829,16 @@
     throw v5
 .end method
 
+.method public hideConventionalModeChangeRatioButton()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mConventionalModeCtr:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/ConventionalModeController;->hideChangeRatioButtonWindow()V
+
+    return-void
+.end method
+
 .method public inVSMode()Z
     .locals 1
 
@@ -5866,59 +5876,6 @@
 
     :cond_a
     return-void
-.end method
-
-.method public needLayoutForNavigationBar(Lcom/android/server/wm/WindowState;Lcom/android/server/wm/WindowState;)Z
-    .locals 3
-
-    const/4 v2, 0x0
-
-    if-eqz p1, :cond_0
-
-    if-nez p2, :cond_1
-
-    :cond_0
-    return v2
-
-    :cond_1
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getBaseType()I
-
-    move-result v0
-
-    const/16 v1, 0x7d0
-
-    if-lt v0, v1, :cond_2
-
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getBaseType()I
-
-    move-result v0
-
-    const/16 v1, 0xbb7
-
-    if-gt v0, v1, :cond_2
-
-    invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->getSystemUiVisibility()I
-
-    move-result v0
-
-    and-int/lit8 v0, v0, 0x2
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->getSystemUiVisibility()I
-
-    move-result v0
-
-    and-int/lit8 v0, v0, 0x2
-
-    if-nez v0, :cond_2
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_2
-    return v2
 .end method
 
 .method public notifyDisplayBoundsUpdated(ILandroid/graphics/Rect;)V
@@ -8998,6 +8955,16 @@
     move-result v0
 
     return v0
+.end method
+
+.method public showConventionalModeChangeRatioButton(IILjava/lang/String;I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mConventionalModeCtr:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/server/wm/ConventionalModeController;->showChangeRatioButtonWindow(IILjava/lang/String;I)V
+
+    return-void
 .end method
 
 .method public showConventionalModeGuidePopup(Lcom/android/server/wm/AppWindowToken;)V
