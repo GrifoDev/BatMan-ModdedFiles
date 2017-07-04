@@ -78,7 +78,7 @@
 
     move-result-object v1
 
-    const v2, 0x105016a
+    const v2, 0x105016b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -86,7 +86,7 @@
 
     iput v2, p0, Landroid/widget/YearPickerView;->mViewSize:I
 
-    const v2, 0x1050153
+    const v2, 0x1050154
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

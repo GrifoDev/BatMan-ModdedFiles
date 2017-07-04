@@ -34,7 +34,7 @@
 
 .field private static final DEFAULT_BACKGROUND_FADE_DURATION_MS:I = 0x12c
 
-.field static final DEX_NAVIBAR_COLOR:I = -0xa0a0b
+.field static final DEX_NAVIBAR_COLOR:I = -0xf0f10
 
 .field private static final DISPLAY_ASPECT_RATIO_DIVIDE_THRESHOLD:F = 1.8f
 
@@ -337,7 +337,7 @@
 
     iput-boolean v2, p0, Lcom/android/internal/policy/PhoneWindow;->mForcedNavigationBarColor:Z
 
-    const v0, -0xa0a0b
+    const v0, -0xf0f10
 
     iput v0, p0, Lcom/android/internal/policy/PhoneWindow;->mDefaultNavigationBarColor:I
 
@@ -789,7 +789,7 @@
     invoke-direct {p0}, Lcom/android/internal/policy/PhoneWindow;->installDecor()V
 
     :cond_1
-    const v0, 0x1020482
+    const v0, 0x1020486
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/PhoneWindow;->findViewById(I)Landroid/view/View;
 
@@ -908,7 +908,7 @@
     invoke-direct {p0}, Lcom/android/internal/policy/PhoneWindow;->installDecor()V
 
     :cond_1
-    const v0, 0x1020483
+    const v0, 0x1020487
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/PhoneWindow;->findViewById(I)Landroid/view/View;
 
@@ -1407,7 +1407,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x1020484
+    const v20, 0x1020488
 
     invoke-virtual/range {v19 .. v20}, Lcom/android/internal/policy/DecorView;->findViewById(I)Landroid/view/View;
 
@@ -3475,6 +3475,109 @@
     move-exception v0
 
     goto :goto_0
+.end method
+
+.method private setNavigationBarIconColorInDarkBar(Z)V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    iget v3, p0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
+
+    if-nez v3, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v3, 0x3
+
+    new-array v1, v3, [F
+
+    iget v3, p0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
+
+    invoke-static {v3, v1}, Landroid/graphics/Color;->colorToHSV(I[F)V
+
+    const/4 v3, 0x1
+
+    aget v3, v1, v3
+
+    const v4, 0x3e99999a    # 0.3f
+
+    cmpg-float v3, v3, v4
+
+    if-gez v3, :cond_3
+
+    const/4 v3, 0x2
+
+    aget v3, v1, v3
+
+    const v4, 0x3f6147ae    # 0.88f
+
+    cmpl-float v3, v3, v4
+
+    if-ltz v3, :cond_3
+
+    const/4 v0, 0x1
+
+    :goto_0
+    iget v3, p0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
+
+    const/high16 v4, -0x1000000
+
+    if-eq v3, v4, :cond_1
+
+    if-eqz v0, :cond_4
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/internal/policy/PhoneWindow;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v5}, Landroid/view/WindowManager$LayoutParams;->semSetNavigationBarIconColor(I)V
+
+    :goto_1
+    invoke-virtual {p0}, Lcom/android/internal/policy/PhoneWindow;->getWindowManager()Landroid/view/WindowManager;
+
+    move-result-object v2
+
+    if-eqz p1, :cond_2
+
+    if-eqz v2, :cond_2
+
+    iget-object v3, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
+
+    invoke-virtual {v3}, Lcom/android/internal/policy/DecorView;->isAttachedToWindow()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
+
+    invoke-virtual {p0}, Lcom/android/internal/policy/PhoneWindow;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v4
+
+    invoke-interface {v2, v3, v4}, Landroid/view/ViewManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_2
+    return-void
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {p0}, Lcom/android/internal/policy/PhoneWindow;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v3
+
+    const v4, -0x50506
+
+    invoke-virtual {v3, v4}, Landroid/view/WindowManager$LayoutParams;->semSetNavigationBarIconColor(I)V
+
+    goto :goto_1
 .end method
 
 .method private showProgressBars(Landroid/widget/ProgressBar;Landroid/widget/ProgressBar;)V
@@ -5729,11 +5832,11 @@
 
     sget-boolean v33, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_LIGHT_NAVIGATION_BAR:Z
 
-    if-eqz v33, :cond_3a
+    if-eqz v33, :cond_39
 
     sget-boolean v33, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_CUSTOM_BG_COLOR:Z
 
-    if-eqz v33, :cond_3a
+    if-eqz v33, :cond_39
 
     new-instance v20, Landroid/util/TypedValue;
 
@@ -5802,7 +5905,7 @@
 
     const/16 v33, 0x24
 
-    const/high16 v34, -0x1000000
+    const v34, -0xf0f10
 
     move/from16 v0, v33
 
@@ -5885,14 +5988,6 @@
     :cond_1b
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/internal/policy/PhoneWindow;->mIsParentThemeDeviceDefaultLight:Z
-
-    move/from16 v33, v0
-
-    if-eqz v33, :cond_39
-
-    move-object/from16 v0, p0
-
     iget v0, v0, Lcom/android/internal/policy/PhoneWindow;->mDefaultNavigationBarColor:I
 
     move/from16 v33, v0
@@ -5910,7 +6005,6 @@
 
     iput v0, v1, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
 
-    :goto_d
     move/from16 v0, v25
 
     move-object/from16 v1, p0
@@ -5918,7 +6012,7 @@
     iput v0, v1, Lcom/android/internal/policy/PhoneWindow;->mDefaultNavigationBarColor:I
 
     :cond_1c
-    :goto_e
+    :goto_d
     sget-boolean v33, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_LIGHT_NAVIGATION_BAR:Z
 
     if-eqz v33, :cond_1e
@@ -5974,6 +6068,34 @@
 
     if-eq v0, v1, :cond_1e
 
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
+
+    move/from16 v33, v0
+
+    const v34, -0xf0f10
+
+    move/from16 v0, v33
+
+    move/from16 v1, v34
+
+    if-eq v0, v1, :cond_1e
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
+
+    move/from16 v33, v0
+
+    const v34, -0xa0a0b
+
+    move/from16 v0, v33
+
+    move/from16 v1, v34
+
+    if-eq v0, v1, :cond_1e
+
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/policy/DecorView;->getSystemUiVisibility()I
 
     move-result v33
@@ -5985,6 +6107,14 @@
     move/from16 v1, v33
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/DecorView;->setSystemUiVisibility(I)V
+
+    const/16 v33, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v33
+
+    invoke-direct {v0, v1}, Lcom/android/internal/policy/PhoneWindow;->setNavigationBarIconColorInDarkBar(Z)V
 
     :cond_1e
     move-object/from16 v0, p0
@@ -6336,11 +6466,11 @@
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_3b
+    if-eqz v33, :cond_3a
 
     const v16, 0x10900e5
 
-    :goto_f
+    :goto_e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
@@ -6381,7 +6511,7 @@
 
     check-cast v7, Landroid/view/ViewGroup;
 
-    if-nez v7, :cond_45
+    if-nez v7, :cond_44
 
     new-instance v33, Ljava/lang/RuntimeException;
 
@@ -6552,7 +6682,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/DecorView;->setSystemUiVisibility(I)V
 
-    :goto_10
+    :goto_f
     invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v33
@@ -6613,7 +6743,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/DecorView;->setSystemUiVisibility(I)V
 
-    goto :goto_10
+    goto :goto_f
 
     :cond_35
     const/16 v33, 0x0
@@ -6636,15 +6766,6 @@
     goto/16 :goto_c
 
     :cond_39
-    move/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
-
-    goto/16 :goto_d
-
-    :cond_3a
     const/16 v33, 0x24
 
     const/high16 v34, -0x1000000
@@ -6663,12 +6784,12 @@
 
     iput v0, v1, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
 
-    goto/16 :goto_e
+    goto/16 :goto_d
 
-    :cond_3b
+    :cond_3a
     and-int/lit8 v33, v9, 0x18
 
-    if-eqz v33, :cond_3d
+    if-eqz v33, :cond_3c
 
     move-object/from16 v0, p0
 
@@ -6676,7 +6797,7 @@
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_3c
+    if-eqz v33, :cond_3b
 
     new-instance v23, Landroid/util/TypedValue;
 
@@ -6710,7 +6831,7 @@
 
     move/from16 v16, v0
 
-    :goto_11
+    :goto_10
     const/16 v33, 0x8
 
     move-object/from16 v0, p0
@@ -6719,34 +6840,34 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/PhoneWindow;->removeFeature(I)V
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
-    :cond_3c
+    :cond_3b
     const v16, 0x10900e7
 
-    goto :goto_11
+    goto :goto_10
 
-    :cond_3d
+    :cond_3c
     and-int/lit8 v33, v9, 0x24
 
-    if-eqz v33, :cond_3e
+    if-eqz v33, :cond_3d
 
     and-int/lit16 v0, v9, 0x100
 
     move/from16 v33, v0
 
-    if-nez v33, :cond_3e
+    if-nez v33, :cond_3d
 
     const v16, 0x10900e2
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
-    :cond_3e
+    :cond_3d
     and-int/lit16 v0, v9, 0x80
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_40
+    if-eqz v33, :cond_3f
 
     move-object/from16 v0, p0
 
@@ -6754,7 +6875,7 @@
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_3f
+    if-eqz v33, :cond_3e
 
     new-instance v23, Landroid/util/TypedValue;
 
@@ -6788,7 +6909,7 @@
 
     move/from16 v16, v0
 
-    :goto_12
+    :goto_11
     const/16 v33, 0x8
 
     move-object/from16 v0, p0
@@ -6797,17 +6918,17 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/PhoneWindow;->removeFeature(I)V
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
-    :cond_3f
+    :cond_3e
     const v16, 0x10900e1
 
-    goto :goto_12
+    goto :goto_11
 
-    :cond_40
+    :cond_3f
     and-int/lit8 v33, v9, 0x2
 
-    if-nez v33, :cond_43
+    if-nez v33, :cond_42
 
     move-object/from16 v0, p0
 
@@ -6815,7 +6936,7 @@
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_41
+    if-eqz v33, :cond_40
 
     new-instance v23, Landroid/util/TypedValue;
 
@@ -6849,14 +6970,14 @@
 
     move/from16 v16, v0
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
-    :cond_41
+    :cond_40
     and-int/lit16 v0, v9, 0x100
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_42
+    if-eqz v33, :cond_41
 
     const/16 v33, 0x30
 
@@ -6870,33 +6991,33 @@
 
     move-result v16
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
-    :cond_42
+    :cond_41
     const v16, 0x10900e6
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
-    :cond_43
+    :cond_42
     and-int/lit16 v0, v9, 0x400
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_44
+    if-eqz v33, :cond_43
 
     const v16, 0x10900e4
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
-    :cond_44
+    :cond_43
     const v16, 0x10900e3
 
-    goto/16 :goto_f
+    goto/16 :goto_e
 
-    :cond_45
+    :cond_44
     and-int/lit8 v33, v9, 0x20
 
-    if-eqz v33, :cond_46
+    if-eqz v33, :cond_45
 
     const/16 v33, 0x0
 
@@ -6908,7 +7029,7 @@
 
     move-result-object v22
 
-    if-eqz v22, :cond_46
+    if-eqz v22, :cond_45
 
     const/16 v33, 0x1
 
@@ -6918,21 +7039,21 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setIndeterminate(Z)V
 
-    :cond_46
+    :cond_45
     and-int/lit16 v0, v9, 0x800
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_47
+    if-eqz v33, :cond_46
 
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/PhoneWindow;->registerSwipeCallbacks()V
 
-    :cond_47
+    :cond_46
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/PhoneWindow;->getContainer()Landroid/view/Window;
 
     move-result-object v33
 
-    if-nez v33, :cond_4c
+    if-nez v33, :cond_4b
 
     move-object/from16 v0, p0
 
@@ -6940,7 +7061,7 @@
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_4d
+    if-eqz v33, :cond_4c
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/PhoneWindow;->getContext()Landroid/content/Context;
 
@@ -7004,7 +7125,7 @@
 
     cmpl-float v33, v24, v33
 
-    if-lez v33, :cond_48
+    if-lez v33, :cond_47
 
     move-object/from16 v0, p0
 
@@ -7014,8 +7135,8 @@
 
     packed-switch v33, :pswitch_data_0
 
-    :cond_48
-    :goto_13
+    :cond_47
+    :goto_12
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/PhoneWindow;->getContext()Landroid/content/Context;
 
     move-result-object v33
@@ -7042,13 +7163,13 @@
 
     move/from16 v1, v34
 
-    if-ne v0, v1, :cond_49
+    if-ne v0, v1, :cond_48
 
     instance-of v0, v5, Landroid/graphics/drawable/StateListDrawable;
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_49
+    if-eqz v33, :cond_48
 
     const v33, 0x1080aad
 
@@ -7086,8 +7207,8 @@
 
     move-result-object v5
 
-    :cond_49
-    :goto_14
+    :cond_48
+    :goto_13
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
@@ -7104,7 +7225,7 @@
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_4e
+    if-eqz v33, :cond_4d
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/PhoneWindow;->getContext()Landroid/content/Context;
 
@@ -7120,7 +7241,7 @@
 
     move-result-object v12
 
-    :goto_15
+    :goto_14
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
@@ -7165,7 +7286,7 @@
 
     move-object/from16 v33, v0
 
-    if-eqz v33, :cond_4a
+    if-eqz v33, :cond_49
 
     move-object/from16 v0, p0
 
@@ -7179,14 +7300,14 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/PhoneWindow;->setTitle(Ljava/lang/CharSequence;)V
 
-    :cond_4a
+    :cond_49
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/policy/PhoneWindow;->mTitleColor:I
 
     move/from16 v33, v0
 
-    if-nez v33, :cond_4b
+    if-nez v33, :cond_4a
 
     move-object/from16 v0, p0
 
@@ -7200,7 +7321,7 @@
 
     iput v0, v1, Lcom/android/internal/policy/PhoneWindow;->mTitleColor:I
 
-    :cond_4b
+    :cond_4a
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/policy/PhoneWindow;->mTitleColor:I
@@ -7213,7 +7334,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/PhoneWindow;->setTitleColor(I)V
 
-    :cond_4c
+    :cond_4b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
@@ -7247,19 +7368,19 @@
 
     invoke-virtual/range {v33 .. v34}, Lcom/android/internal/policy/DecorView;->setLastBackgroundResource(I)V
 
-    goto/16 :goto_13
+    goto/16 :goto_12
 
-    :cond_4d
+    :cond_4c
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/internal/policy/PhoneWindow;->mBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
-    goto/16 :goto_14
+    goto/16 :goto_13
 
-    :cond_4e
+    :cond_4d
     const/4 v12, 0x0
 
-    goto/16 :goto_15
+    goto/16 :goto_14
 
     :pswitch_data_0
     .packed-switch 0x1080aad
@@ -10696,15 +10817,15 @@
 .end method
 
 .method public setNavigationBarColor(I)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
+
+    const/4 v3, 0x1
 
     iput p1, p0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
 
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/android/internal/policy/PhoneWindow;->mForcedNavigationBarColor:Z
+    iput-boolean v3, p0, Lcom/android/internal/policy/PhoneWindow;->mForcedNavigationBarColor:Z
 
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
 
@@ -10714,7 +10835,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v3, v2}, Lcom/android/internal/policy/DecorView;->updateColorViews(Landroid/view/WindowInsets;Z)Landroid/view/WindowInsets;
+    invoke-virtual {v1, v4, v2}, Lcom/android/internal/policy/DecorView;->updateColorViews(Landroid/view/WindowInsets;Z)Landroid/view/WindowInsets;
 
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
 
@@ -10736,9 +10857,23 @@
 
     if-eq v1, v2, :cond_1
 
+    iget v1, p0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
+
+    const v2, -0xf0f10
+
+    if-eq v1, v2, :cond_1
+
+    iget v1, p0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
+
+    const v2, -0xa0a0b
+
+    if-eq v1, v2, :cond_1
+
     or-int/lit8 v0, v0, 0x10
 
     :goto_0
+    invoke-direct {p0, v3}, Lcom/android/internal/policy/PhoneWindow;->setNavigationBarIconColorInDarkBar(Z)V
+
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
 
     invoke-virtual {v1, v0}, Lcom/android/internal/policy/DecorView;->setSystemUiVisibilityInternal(I)V
@@ -10758,6 +10893,10 @@
     iget-object v0, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
 
     if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/policy/DecorView;->updateNavigationGuardColor(I)V
 
     :cond_0
     return-void
@@ -10784,7 +10923,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     const/4 v1, 0x1
 
@@ -10799,7 +10938,7 @@
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     const/4 v0, 0x1
 
@@ -10823,36 +10962,17 @@
     move-result p1
 
     :cond_0
-    iget-boolean v2, p0, Lcom/android/internal/policy/PhoneWindow;->mIsParentThemeDeviceDefaultLight:Z
-
-    if-nez v2, :cond_3
-
-    iput p1, p0, Lcom/android/internal/policy/PhoneWindow;->mDefaultNavigationBarColor:I
-
-    return-void
-
-    :cond_1
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_3
     iget v2, p0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
 
     iget v3, p0, Lcom/android/internal/policy/PhoneWindow;->mDefaultNavigationBarColor:I
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_1
 
     iput p1, p0, Lcom/android/internal/policy/PhoneWindow;->mNavigationBarColor:I
 
     iget-object v2, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/internal/policy/PhoneWindow;->mDecor:Lcom/android/internal/policy/DecorView;
 
@@ -10862,10 +10982,20 @@
 
     invoke-virtual {v2}, Lcom/android/internal/policy/DecorView;->updateNavigationGuardColor()V
 
-    :cond_4
+    :cond_1
     iput p1, p0, Lcom/android/internal/policy/PhoneWindow;->mDefaultNavigationBarColor:I
 
     return-void
+
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method public setReenterTransition(Landroid/transition/Transition;)V

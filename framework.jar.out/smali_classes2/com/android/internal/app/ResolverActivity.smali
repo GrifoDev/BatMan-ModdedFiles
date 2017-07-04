@@ -801,7 +801,7 @@
 
     iput-object v0, p0, Lcom/android/internal/app/ResolverActivity;->mMoreActions:Lcom/samsung/android/share/SShareMoreActions;
 
-    const v0, 0x10204cb
+    const v0, 0x10204cf
 
     invoke-virtual {p0, v0}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -832,7 +832,7 @@
 .method private addRecentHistoryGridView(Landroid/content/Intent;)V
     .locals 3
 
-    const v1, 0x10204ca
+    const v1, 0x10204ce
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -1393,7 +1393,7 @@
 
     move-result-object v7
 
-    const v8, 0x1050255
+    const v8, 0x1050256
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1403,7 +1403,7 @@
 
     move-result-object v7
 
-    const v8, 0x1050256
+    const v8, 0x1050257
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1413,7 +1413,7 @@
 
     move-result-object v7
 
-    const v8, 0x1040702
+    const v8, 0x104070b
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2302,7 +2302,7 @@
 
     move-result-object v3
 
-    const v4, 0x10502dc
+    const v4, 0x10502dd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3957,7 +3957,7 @@
     move v2, v1
 
     :goto_0
-    const v1, 0x1020477
+    const v1, 0x102047b
 
     if-ne v0, v1, :cond_1
 
@@ -4725,7 +4725,7 @@
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/app/ResolverActivity;->addMoreActionsView()V
 
     :cond_9
-    const v27, 0x10204c3
+    const v27, 0x10204c7
 
     move-object/from16 v0, p0
 
@@ -4741,7 +4741,7 @@
 
     iput-object v0, v1, Lcom/android/internal/app/ResolverActivity;->mVisibleArea:Landroid/view/View;
 
-    const v27, 0x10204c2
+    const v27, 0x10204c6
 
     move-object/from16 v0, p0
 
@@ -4757,7 +4757,7 @@
 
     iput-object v0, v1, Lcom/android/internal/app/ResolverActivity;->mTitlePanelAFW:Landroid/view/View;
 
-    const v27, 0x10204c1
+    const v27, 0x10204c5
 
     move-object/from16 v0, p0
 
@@ -4796,7 +4796,7 @@
 
     if-nez v27, :cond_e
 
-    const v27, 0x10204d4
+    const v27, 0x10204d8
 
     move-object/from16 v0, p0
 
@@ -4812,7 +4812,7 @@
 
     move-result-object v27
 
-    const v28, 0x1050268
+    const v28, 0x1050269
 
     invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4861,7 +4861,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_b
-    const v27, 0x10204c4
+    const v27, 0x10204c8
 
     move-object/from16 v0, p0
 
@@ -4883,7 +4883,7 @@
 
     if-eqz v27, :cond_12
 
-    const v27, 0x10406fd
+    const v27, 0x1040706
 
     move-object/from16 v0, v24
 
@@ -5120,7 +5120,7 @@
     return-void
 
     :cond_12
-    const v27, 0x10406fc
+    const v27, 0x1040705
 
     move-object/from16 v0, v24
 
@@ -5310,7 +5310,7 @@
 
     if-eqz v27, :cond_19
 
-    const v27, 0x1020469
+    const v27, 0x102046d
 
     move-object/from16 v0, p0
 
@@ -5330,7 +5330,7 @@
 
     invoke-virtual {v7, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    const v27, 0x1020477
+    const v27, 0x102047b
 
     move/from16 v0, v27
 
@@ -5346,7 +5346,7 @@
 
     iput-object v0, v1, Lcom/android/internal/app/ResolverActivity;->mAlwaysButton:Landroid/widget/Button;
 
-    const v27, 0x1020476
+    const v27, 0x102047a
 
     move/from16 v0, v27
 
@@ -7247,7 +7247,7 @@
 
     iput p1, p0, Lcom/android/internal/app/ResolverActivity;->mTotalCount:I
 
-    const v2, 0x10204c5
+    const v2, 0x10204c9
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -7290,7 +7290,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050257
+    const v3, 0x1050258
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7320,7 +7320,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050259
+    const v3, 0x105025a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7363,7 +7363,7 @@
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ViewPager;->setOnPageChangeListener(Lcom/android/internal/widget/ViewPager$OnPageChangeListener;)V
 
     :cond_4
-    const v2, 0x10204c6
+    const v2, 0x10204ca
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -7373,7 +7373,7 @@
 
     iput-object v2, p0, Lcom/android/internal/app/ResolverActivity;->mViewPagerNavi:Landroid/widget/LinearLayout;
 
-    const v2, 0x10204c7
+    const v2, 0x10204cb
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 
@@ -7405,7 +7405,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050258
+    const v3, 0x1050259
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7622,7 +7622,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x10204d1
+    const v2, 0x10204d5
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverActivity;->findViewById(I)Landroid/view/View;
 

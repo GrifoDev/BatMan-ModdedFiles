@@ -26,7 +26,7 @@
 .method private buildIntoRemoteViewContent(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
     .locals 3
 
-    const v2, 0x1020444
+    const v2, 0x1020448
 
     if-eqz p2, :cond_0
 

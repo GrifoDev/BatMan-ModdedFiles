@@ -89,7 +89,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x102050d
+    .packed-switch 0x1020511
         :pswitch_3
         :pswitch_0
         :pswitch_4

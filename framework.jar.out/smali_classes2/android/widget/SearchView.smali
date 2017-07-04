@@ -615,7 +615,7 @@
 
     iput-boolean v13, v0, Landroid/widget/SearchView;->mIsPenSupport:Z
 
-    const v13, 0x1020492
+    const v13, 0x1020496
 
     move-object/from16 v0, p0
 
@@ -637,7 +637,7 @@
 
     invoke-virtual {v13, v0}, Landroid/widget/SearchView$SearchAutoComplete;->setSearchView(Landroid/widget/SearchView;)V
 
-    const v13, 0x102048f
+    const v13, 0x1020493
 
     move-object/from16 v0, p0
 
@@ -649,7 +649,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mSearchEditFrame:Landroid/view/View;
 
-    const v13, 0x1020491
+    const v13, 0x1020495
 
     move-object/from16 v0, p0
 
@@ -661,7 +661,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mSearchPlate:Landroid/view/View;
 
-    const v13, 0x1020494
+    const v13, 0x1020498
 
     move-object/from16 v0, p0
 
@@ -673,7 +673,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mSubmitArea:Landroid/view/View;
 
-    const v13, 0x102048e
+    const v13, 0x1020492
 
     move-object/from16 v0, p0
 
@@ -687,7 +687,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mSearchButton:Landroid/widget/ImageView;
 
-    const v13, 0x1020495
+    const v13, 0x1020499
 
     move-object/from16 v0, p0
 
@@ -701,7 +701,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mGoButton:Landroid/widget/ImageView;
 
-    const v13, 0x1020493
+    const v13, 0x1020497
 
     move-object/from16 v0, p0
 
@@ -715,7 +715,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mCloseButton:Landroid/widget/ImageView;
 
-    const v13, 0x1020496
+    const v13, 0x102049a
 
     move-object/from16 v0, p0
 
@@ -729,7 +729,7 @@
 
     iput-object v13, v0, Landroid/widget/SearchView;->mVoiceButton:Landroid/widget/ImageView;
 
-    const v13, 0x1020490
+    const v13, 0x1020494
 
     move-object/from16 v0, p0
 

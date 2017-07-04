@@ -3713,13 +3713,13 @@
 
     const/4 v0, 0x0
 
-    const v6, 0x10500d8
+    const v6, 0x10500d9
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
-    const v6, 0x10500d9
+    const v6, 0x10500da
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -12086,7 +12086,7 @@
 
     if-nez v22, :cond_5
 
-    const v22, 0x10500d8
+    const v22, 0x10500d9
 
     move-object/from16 v0, v19
 
@@ -12096,7 +12096,7 @@
 
     move-result v7
 
-    const v22, 0x10500d9
+    const v22, 0x10500da
 
     move-object/from16 v0, v19
 
@@ -12459,7 +12459,7 @@
 
     aput-object p1, v1, v2
 
-    const v2, 0x10405c0
+    const v2, 0x10405c4
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

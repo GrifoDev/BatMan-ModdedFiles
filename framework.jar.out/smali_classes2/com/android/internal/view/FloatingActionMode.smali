@@ -261,7 +261,7 @@
 
     move-result-object v1
 
-    const v2, 0x10502b5
+    const v2, 0x10502b6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -368,17 +368,15 @@
 
     aget v4, v4, v0
 
-    iget-object v5, p0, Lcom/android/internal/view/FloatingActionMode;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
 
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v5}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object v5
 
-    iget v5, v5, Landroid/util/DisplayMetrics;->widthPixels:I
+    invoke-virtual {v5}, Landroid/view/View;->getRight()I
+
+    move-result v5
 
     add-int/2addr v4, v5
 
@@ -386,17 +384,15 @@
 
     aget v5, v5, v6
 
-    iget-object v6, p0, Lcom/android/internal/view/FloatingActionMode;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v6}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object v6
 
-    iget v6, v6, Landroid/util/DisplayMetrics;->heightPixels:I
+    invoke-virtual {v6}, Landroid/view/View;->getBottom()I
+
+    move-result v6
 
     add-int/2addr v5, v6
 

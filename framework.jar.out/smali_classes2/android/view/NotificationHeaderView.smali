@@ -259,7 +259,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040a4e
+    const v3, 0x1040a5a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -297,7 +297,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040a4d
+    const v3, 0x1040a59
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -459,7 +459,7 @@
 
     invoke-super {p0}, Landroid/view/ViewGroup;->onFinishInflate()V
 
-    const v0, 0x102043c
+    const v0, 0x1020440
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -467,7 +467,7 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mAppName:Landroid/view/View;
 
-    const v0, 0x102043e
+    const v0, 0x1020442
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -475,7 +475,7 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mHeaderText:Landroid/view/View;
 
-    const v0, 0x1020441
+    const v0, 0x1020445
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -504,7 +504,7 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mIcon:Landroid/view/View;
 
-    const v0, 0x1020442
+    const v0, 0x1020446
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 

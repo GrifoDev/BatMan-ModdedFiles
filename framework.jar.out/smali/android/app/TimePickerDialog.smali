@@ -107,7 +107,7 @@
 
     invoke-virtual {p0, v6}, Landroid/app/TimePickerDialog;->setButtonPanelLayoutHint(I)V
 
-    const v4, 0x10204de
+    const v4, 0x10204e2
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

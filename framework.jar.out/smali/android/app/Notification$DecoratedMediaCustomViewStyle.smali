@@ -51,7 +51,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x1020444
+    const v1, 0x1020448
 
     invoke-direct {p0, v0, v1, p1}, Landroid/app/Notification$DecoratedMediaCustomViewStyle;->buildIntoRemoteView(Landroid/widget/RemoteViews;ILandroid/widget/RemoteViews;)Landroid/widget/RemoteViews;
 
@@ -74,7 +74,7 @@
 
     move-result-object v0
 
-    const v1, 0x1020450
+    const v1, 0x1020454
 
     invoke-direct {p0, v0, v1, p1}, Landroid/app/Notification$DecoratedMediaCustomViewStyle;->buildIntoRemoteView(Landroid/widget/RemoteViews;ILandroid/widget/RemoteViews;)Landroid/widget/RemoteViews;
 
@@ -151,7 +151,7 @@
 
     iget-object v1, v1, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    const v2, 0x1020450
+    const v2, 0x1020454
 
     invoke-direct {p0, v0, v2, v1}, Landroid/app/Notification$DecoratedMediaCustomViewStyle;->buildIntoRemoteView(Landroid/widget/RemoteViews;ILandroid/widget/RemoteViews;)Landroid/widget/RemoteViews;
 

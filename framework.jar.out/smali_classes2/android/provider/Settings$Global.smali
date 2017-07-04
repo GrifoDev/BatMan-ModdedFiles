@@ -370,6 +370,12 @@
 
 .field public static final NAVIGATIONBAR_CURRENT_COLOR:Ljava/lang/String; = "navigationbar_current_color"
 
+.field public static final NAVIGATIONBAR_HIDE_BAR:Ljava/lang/String; = "navigationbar_hide_bar"
+
+.field public static final NAVIGATIONBAR_HIDE_BAR_ENABLED:Ljava/lang/String; = "navigationbar_hide_bar_enabled"
+
+.field public static final NAVIGATIONBAR_HIDE_BAR_HELP_CONFIRMATIONS:Ljava/lang/String; = "force_immersive_mode_confirmations"
+
 .field public static final NAVIGATIONBAR_KEY_ORDER:Ljava/lang/String; = "navigationbar_key_order"
 
 .field public static final NAVIGATIONBAR_PRESSURE_USER_LEVEL:Ljava/lang/String; = "navigationbar_pressure_user_level"

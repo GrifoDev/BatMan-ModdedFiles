@@ -2430,7 +2430,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager;->mContext:Landroid/content/Context;
 
-    const v1, 0x1040624
+    const v1, 0x1040628
 
     const/4 v2, 0x0
 
@@ -3039,7 +3039,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040623
+    const v2, 0x1040627
 
     const/4 v3, 0x0
 
@@ -3172,7 +3172,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/content/clipboard/SemClipboardManager;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040623
+    const v3, 0x1040627
 
     invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

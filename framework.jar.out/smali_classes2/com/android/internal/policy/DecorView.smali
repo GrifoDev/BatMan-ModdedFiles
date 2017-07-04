@@ -1341,7 +1341,7 @@
     goto :goto_2
 
     :cond_3
-    const v7, 0x102047f
+    const v7, 0x1020483
 
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/DecorView;->findViewById(I)Landroid/view/View;
 

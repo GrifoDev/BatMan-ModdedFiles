@@ -133,7 +133,7 @@
     return-void
 
     :cond_4
-    const v3, 0x1020417
+    const v3, 0x102041b
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -156,7 +156,7 @@
     iput-object v3, p0, Landroid/app/ListFragment;->mEmptyView:Landroid/view/View;
 
     :goto_2
-    const v3, 0x1020415
+    const v3, 0x1020419
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -164,7 +164,7 @@
 
     iput-object v3, p0, Landroid/app/ListFragment;->mProgressContainer:Landroid/view/View;
 
-    const v3, 0x1020416
+    const v3, 0x102041a
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

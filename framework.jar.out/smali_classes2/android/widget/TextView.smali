@@ -91,7 +91,7 @@
 
 .field static final ID_UNDO:I = 0x1020032
 
-.field static final ID_WEBSEARCH:I = 0x102054a
+.field static final ID_WEBSEARCH:I = 0x102054e
 
 .field private static final IS_PEN_SELECTION_ENABLED:Z = true
 
@@ -2314,7 +2314,7 @@
 
     move-result-object v76
 
-    const v77, 0x10502b4
+    const v77, 0x10502b5
 
     invoke-virtual/range {v76 .. v77}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3710,7 +3710,7 @@
 
     move-result-object v76
 
-    const v77, 0x10502b9
+    const v77, 0x10502ba
 
     invoke-virtual/range {v76 .. v77}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3730,7 +3730,7 @@
 
     move-result-object v76
 
-    const v77, 0x105029c
+    const v77, 0x105029d
 
     invoke-virtual/range {v76 .. v77}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -32142,7 +32142,7 @@
         0x1020064 -> :sswitch_a
         0x1020065 -> :sswitch_8
         0x1020066 -> :sswitch_d
-        0x102054a -> :sswitch_b
+        0x102054e -> :sswitch_b
     .end sparse-switch
 .end method
 

@@ -400,7 +400,7 @@
 
     invoke-virtual {p0, v1}, Landroid/app/Dialog;->setContentView(I)V
 
-    const v1, 0x1020420
+    const v1, 0x1020424
 
     invoke-virtual {p0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -410,7 +410,7 @@
 
     iput-object v1, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeLayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x1020421
+    const v1, 0x1020425
 
     invoke-virtual {p0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -428,7 +428,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    const v1, 0x1020423
+    const v1, 0x1020427
 
     invoke-virtual {p0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -462,7 +462,7 @@
 
     iput-object v1, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mControlView:Landroid/view/View;
 
-    const v1, 0x1020422
+    const v1, 0x1020426
 
     invoke-virtual {p0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 

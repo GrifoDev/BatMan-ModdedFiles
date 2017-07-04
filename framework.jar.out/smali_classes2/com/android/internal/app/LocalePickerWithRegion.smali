@@ -347,7 +347,7 @@
 
     invoke-virtual {p2, v2, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    const v2, 0x1020545
+    const v2, 0x1020549
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -365,12 +365,12 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x1040652
+    const v2, 0x1040656
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
     :goto_0
-    const v2, 0x1020546
+    const v2, 0x102054a
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -384,7 +384,7 @@
     return-void
 
     :cond_1
-    const v2, 0x1040651
+    const v2, 0x1040655
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -540,8 +540,8 @@
     :sswitch_data_0
     .sparse-switch
         0x102002c -> :sswitch_0
-        0x1020545 -> :sswitch_1
-        0x1020546 -> :sswitch_2
+        0x1020549 -> :sswitch_1
+        0x102054a -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -624,13 +624,13 @@
 
     const/4 v3, 0x0
 
-    const v2, 0x1020545
+    const v2, 0x1020549
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v2, 0x1020546
+    const v2, 0x102054a
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -761,7 +761,7 @@
 
     move-result-object v0
 
-    const v1, 0x10405fa
+    const v1, 0x10405fe
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 

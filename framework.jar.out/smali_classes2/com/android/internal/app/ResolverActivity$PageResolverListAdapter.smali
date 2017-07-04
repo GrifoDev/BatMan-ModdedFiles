@@ -84,7 +84,7 @@
 .method private final bindView(Landroid/view/View;Lcom/android/internal/app/ResolverActivity$TargetInfo;)V
     .locals 12
 
-    const v9, 0x10502dc
+    const v9, 0x10502dd
 
     const/4 v8, 0x2
 
@@ -405,7 +405,7 @@
 
     move-result-object v7
 
-    const v8, 0x10502dd
+    const v8, 0x10502de
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

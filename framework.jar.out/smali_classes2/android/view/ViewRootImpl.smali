@@ -6321,7 +6321,7 @@
 
     iget-object v7, p0, Landroid/view/ViewRootImpl;->mTmpValue:Landroid/util/TypedValue;
 
-    const v8, 0x105016d
+    const v8, 0x105016e
 
     const/4 v9, 0x1
 
@@ -6421,7 +6421,7 @@
     :cond_4
     iget-object v7, p0, Landroid/view/ViewRootImpl;->mTmpValue:Landroid/util/TypedValue;
 
-    const v8, 0x105016c
+    const v8, 0x105016d
 
     const/4 v9, 0x1
 

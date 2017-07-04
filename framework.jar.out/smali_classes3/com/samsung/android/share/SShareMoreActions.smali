@@ -722,7 +722,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406fa
+    const v4, 0x1040703
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -747,7 +747,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406fb
+    const v4, 0x1040704
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -776,7 +776,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406f5
+    const v4, 0x10406fe
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -806,7 +806,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mWindow:Landroid/view/Window;
 
-    const v4, 0x10204cc
+    const v4, 0x10204d0
 
     invoke-virtual {v3, v4}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -883,7 +883,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406f5
+    const v4, 0x10406fe
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -910,7 +910,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406f6
+    const v4, 0x10406ff
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -958,7 +958,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406f8
+    const v4, 0x1040701
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -985,7 +985,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/share/SShareMoreActions;->mContext:Landroid/content/Context;
 
-    const v4, 0x10406f9
+    const v4, 0x1040702
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

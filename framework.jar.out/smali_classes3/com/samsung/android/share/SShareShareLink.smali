@@ -331,7 +331,7 @@
 
     move-object/from16 v26, v0
 
-    const v27, 0x10204d2
+    const v27, 0x10204d6
 
     invoke-virtual/range {v26 .. v27}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -580,7 +580,7 @@
 
     move-result-object v26
 
-    const v27, 0x1050283
+    const v27, 0x1050284
 
     invoke-virtual/range {v26 .. v27}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -681,7 +681,7 @@
 
     move-result-object v26
 
-    const v27, 0x1050284
+    const v27, 0x1050285
 
     invoke-virtual/range {v26 .. v27}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -744,7 +744,7 @@
     invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const v26, 0x10204d3
+    const v26, 0x10204d7
 
     move-object/from16 v0, v18
 

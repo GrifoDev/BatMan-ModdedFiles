@@ -472,7 +472,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 10
 
-    const v9, 0x10502a5
+    const v9, 0x10502a6
 
     const/4 v8, 0x2
 
@@ -848,7 +848,7 @@
 
     move-result-object v3
 
-    const v4, 0x10502ac
+    const v4, 0x10502ad
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -880,7 +880,7 @@
 
     move-result-object v3
 
-    const v4, 0x10502a4
+    const v4, 0x10502a5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -910,7 +910,7 @@
 
     move-result-object v2
 
-    const v3, 0x10502ad
+    const v3, 0x10502ae
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1064,7 +1064,7 @@
 
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContext:Landroid/content/Context;
 
-    const v4, 0x10408de
+    const v4, 0x10408e7
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1080,7 +1080,7 @@
 
     move-result-object v2
 
-    const v3, 0x10502a3
+    const v3, 0x10502a4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1817,7 +1817,7 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContext:Landroid/content/Context;
 
-    const v3, 0x10408dd
+    const v3, 0x10408e6
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -5213,7 +5213,7 @@
 
     iget-object v5, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContext:Landroid/content/Context;
 
-    const v6, 0x10405f1
+    const v6, 0x10405f5
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -5426,7 +5426,7 @@
 
     iget-object v5, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContext:Landroid/content/Context;
 
-    const v6, 0x10405f0
+    const v6, 0x10405f4
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

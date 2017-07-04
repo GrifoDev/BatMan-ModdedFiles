@@ -450,7 +450,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050298
+    const v2, 0x1050299
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -466,7 +466,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050294
+    const v2, 0x1050295
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -481,7 +481,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050295
+    const v2, 0x1050296
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -496,7 +496,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050296
+    const v2, 0x1050297
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -511,7 +511,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050297
+    const v2, 0x1050298
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -597,7 +597,7 @@
     invoke-virtual {v1, v2}, Landroid/app/FragmentTransaction;->setTransition(I)Landroid/app/FragmentTransaction;
 
     :cond_1
-    const v2, 0x1020468
+    const v2, 0x102046c
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -1869,7 +1869,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->setContentView(I)V
 
-    const v30, 0x1020465
+    const v30, 0x1020469
 
     move-object/from16 v0, p0
 
@@ -1887,7 +1887,7 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mHeaderLayout:Landroid/widget/LinearLayout;
 
-    const v30, 0x1020466
+    const v30, 0x102046a
 
     move-object/from16 v0, p0
 
@@ -1905,7 +1905,7 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mListFooter:Landroid/widget/FrameLayout;
 
-    const v30, 0x1020467
+    const v30, 0x102046b
 
     move-object/from16 v0, p0
 
@@ -2005,7 +2005,7 @@
     if-eqz v30, :cond_b
 
     :cond_0
-    const v30, 0x102051a
+    const v30, 0x102051e
 
     move-object/from16 v0, p0
 
@@ -2135,7 +2135,7 @@
 
     if-eqz v30, :cond_11
 
-    const v30, 0x1020465
+    const v30, 0x1020469
 
     move-object/from16 v0, p0
 
@@ -2247,7 +2247,7 @@
 
     if-eqz v30, :cond_7
 
-    const v30, 0x1020469
+    const v30, 0x102046d
 
     move-object/from16 v0, p0
 
@@ -2261,7 +2261,7 @@
 
     invoke-virtual/range {v30 .. v31}, Landroid/view/View;->setVisibility(I)V
 
-    const v30, 0x102046a
+    const v30, 0x102046e
 
     move-object/from16 v0, p0
 
@@ -2285,7 +2285,7 @@
 
     invoke-virtual {v5, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v30, 0x102046b
+    const v30, 0x102046f
 
     move-object/from16 v0, p0
 
@@ -2311,7 +2311,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v30, 0x102046c
+    const v30, 0x1020470
 
     move-object/from16 v0, p0
 
@@ -2510,7 +2510,7 @@
     goto/16 :goto_1
 
     :cond_b
-    const v30, 0x102051a
+    const v30, 0x102051e
 
     move-object/from16 v0, p0
 
@@ -2534,7 +2534,7 @@
 
     if-eqz v30, :cond_1
 
-    const v30, 0x1020465
+    const v30, 0x1020469
 
     move-object/from16 v0, p0
 
@@ -2858,7 +2858,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->setContentView(I)V
 
-    const v30, 0x1020466
+    const v30, 0x102046a
 
     move-object/from16 v0, p0
 
@@ -2876,7 +2876,7 @@
 
     iput-object v0, v1, Landroid/preference/PreferenceActivity;->mListFooter:Landroid/widget/FrameLayout;
 
-    const v30, 0x1020468
+    const v30, 0x102046c
 
     move-object/from16 v0, p0
 
@@ -3728,7 +3728,7 @@
 
     move-result-object v0
 
-    const v1, 0x1020468
+    const v1, 0x102046c
 
     invoke-virtual {v0, v1, p1}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
@@ -3799,7 +3799,7 @@
 
     move-result-object v8
 
-    const v0, 0x1020468
+    const v0, 0x102046c
 
     invoke-virtual {v8, v0, v7}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 

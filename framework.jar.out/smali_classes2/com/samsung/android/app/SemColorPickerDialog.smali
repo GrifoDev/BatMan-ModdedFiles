@@ -62,7 +62,7 @@
 
     invoke-virtual {p0, v2}, Landroid/app/AlertDialog;->setView(Landroid/view/View;)V
 
-    const v3, 0x10405b8
+    const v3, 0x10405bc
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -86,7 +86,7 @@
 
     invoke-virtual {p0, v3}, Landroid/app/Dialog;->requestWindowFeature(I)Z
 
-    const v3, 0x10204a1
+    const v3, 0x10204a5
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

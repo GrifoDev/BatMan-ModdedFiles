@@ -189,7 +189,7 @@
 .method private createKeyboardsWithDefaultWidth()V
     .locals 6
 
-    const v5, 0x102053f
+    const v5, 0x1020543
 
     const/4 v4, 0x1
 
@@ -291,7 +291,7 @@
 .method private createKeyboardsWithSpecificSize(II)V
     .locals 7
 
-    const v3, 0x102053f
+    const v3, 0x1020543
 
     const/4 v6, 0x1
 

@@ -64,7 +64,7 @@
 
     move-result-object v2
 
-    const v3, 0x10405c3
+    const v3, 0x10405c7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -94,7 +94,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->mSaturdayTextColor:I
 
-    const v3, 0x1050316
+    const v3, 0x1050317
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

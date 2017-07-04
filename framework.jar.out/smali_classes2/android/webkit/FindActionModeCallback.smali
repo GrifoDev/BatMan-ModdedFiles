@@ -105,7 +105,7 @@
 
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mCustomView:Landroid/view/View;
 
-    const v1, 0x1020532
+    const v1, 0x1020536
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -426,7 +426,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x102054b
+    .packed-switch 0x102054f
         :pswitch_0
         :pswitch_1
     .end packed-switch

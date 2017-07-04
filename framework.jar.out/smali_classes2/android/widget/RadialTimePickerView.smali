@@ -808,7 +808,7 @@
 
     move-result-object v4
 
-    const v5, 0x105014c
+    const v5, 0x105014d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -816,7 +816,7 @@
 
     iput v5, p0, Landroid/widget/RadialTimePickerView;->mSelectorRadius:I
 
-    const v5, 0x105014d
+    const v5, 0x105014e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -824,7 +824,7 @@
 
     iput v5, p0, Landroid/widget/RadialTimePickerView;->mSelectorStroke:I
 
-    const v5, 0x105014f
+    const v5, 0x1050150
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -832,7 +832,7 @@
 
     iput v5, p0, Landroid/widget/RadialTimePickerView;->mSelectorDotRadius:I
 
-    const v5, 0x105014e
+    const v5, 0x105014f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -842,25 +842,13 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
 
-    const v6, 0x1050151
+    const v6, 0x1050152
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v6
 
     const/4 v7, 0x0
-
-    aput v6, v5, v7
-
-    iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
-
-    const v6, 0x1050151
-
-    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v6
-
-    const/4 v7, 0x1
 
     aput v6, v5, v7
 
@@ -872,13 +860,25 @@
 
     move-result v6
 
+    const/4 v7, 0x1
+
+    aput v6, v5, v7
+
+    iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
+
+    const v6, 0x1050153
+
+    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v6
+
     const/4 v7, 0x2
 
     aput v6, v5, v7
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v6, 0x1050150
+    const v6, 0x1050151
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -890,7 +890,7 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v6, 0x1050150
+    const v6, 0x1050151
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -902,7 +902,7 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v6, 0x10500e0
+    const v6, 0x10500e1
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

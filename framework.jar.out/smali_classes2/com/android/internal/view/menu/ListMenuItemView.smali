@@ -409,7 +409,7 @@
 
     move-result-object v5
 
-    const v6, 0x10502f7
+    const v6, 0x10502f8
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -425,7 +425,7 @@
 
     move-result-object v7
 
-    const v8, 0x10502f8
+    const v8, 0x10502f9
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -661,7 +661,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     :cond_0
-    const v0, 0x1020418
+    const v0, 0x102041c
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ListMenuItemView;->findViewById(I)Landroid/view/View;
 
@@ -671,7 +671,7 @@
 
     iput-object v0, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mShortcutView:Landroid/widget/TextView;
 
-    const v0, 0x102045f
+    const v0, 0x1020463
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ListMenuItemView;->findViewById(I)Landroid/view/View;
 

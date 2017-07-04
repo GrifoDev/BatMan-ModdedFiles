@@ -50,7 +50,7 @@
 
     sget v3, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
 
-    const v2, 0x1020448
+    const v2, 0x102044c
 
     if-eqz v3, :cond_0
 

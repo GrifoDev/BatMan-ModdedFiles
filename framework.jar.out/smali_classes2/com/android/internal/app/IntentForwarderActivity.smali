@@ -676,7 +676,7 @@
 
     move-result-object v9
 
-    const v10, 0x10409d9
+    const v10, 0x10409e5
 
     invoke-virtual {p0, v10}, Lcom/android/internal/app/IntentForwarderActivity;->getString(I)Ljava/lang/String;
 
@@ -762,7 +762,7 @@
 
     move-result-object v9
 
-    const v10, 0x10409d9
+    const v10, 0x10409e5
 
     invoke-virtual {p0, v10}, Lcom/android/internal/app/IntentForwarderActivity;->getString(I)Ljava/lang/String;
 
@@ -853,7 +853,7 @@
 
     move-result-object v9
 
-    const v10, 0x10409d9
+    const v10, 0x10409e5
 
     invoke-virtual {p0, v10}, Lcom/android/internal/app/IntentForwarderActivity;->getString(I)Ljava/lang/String;
 
@@ -2019,7 +2019,7 @@
 
     if-eqz v38, :cond_1d
 
-    const v38, 0x1040842
+    const v38, 0x104084b
 
     move-object/from16 v0, p0
 
@@ -2037,7 +2037,7 @@
 
     move-object/from16 v39, v0
 
-    const v40, 0x1040843
+    const v40, 0x104084c
 
     move-object/from16 v0, p0
 
@@ -2098,7 +2098,7 @@
     goto/16 :goto_5
 
     :cond_1d
-    const v38, 0x1040840
+    const v38, 0x1040849
 
     move-object/from16 v0, p0
 

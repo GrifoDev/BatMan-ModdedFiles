@@ -1123,7 +1123,7 @@
 
     if-nez v18, :cond_7
 
-    const v18, 0x1020458
+    const v18, 0x102045c
 
     move-object/from16 v0, p0
 
@@ -1170,7 +1170,7 @@
 
     if-nez v18, :cond_8
 
-    const v18, 0x102045a
+    const v18, 0x102045e
 
     move-object/from16 v0, p0
 
@@ -1209,7 +1209,7 @@
     invoke-virtual {v0, v15}, Landroid/widget/ImageButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     :goto_4
-    const v18, 0x1020459
+    const v18, 0x102045d
 
     move-object/from16 v0, p0
 

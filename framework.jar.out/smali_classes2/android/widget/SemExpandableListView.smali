@@ -1063,7 +1063,7 @@
 
     move-result-object v3
 
-    const v4, 0x10408fd
+    const v4, 0x1040906
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1071,7 +1071,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x10408ff
+    const v3, 0x1040908
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1093,7 +1093,7 @@
 
     move-result-object v3
 
-    const v4, 0x10408fe
+    const v4, 0x1040907
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1101,29 +1101,13 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x10408ff
+    const v3, 0x1040908
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/widget/SemExpandableListView;->COLLAPSE_CONTENT_DESCRIPTION:Ljava/lang/String;
-
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x10503a0
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Landroid/widget/SemExpandableListView;->mGroupIndicatorWidth:I
 
     iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
@@ -1139,7 +1123,7 @@
 
     float-to-int v1, v1
 
-    iput v1, p0, Landroid/widget/SemExpandableListView;->mGroupIndicatorHeight:I
+    iput v1, p0, Landroid/widget/SemExpandableListView;->mGroupIndicatorWidth:I
 
     iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
@@ -1148,6 +1132,22 @@
     move-result-object v1
 
     const v2, 0x10503a2
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Landroid/widget/SemExpandableListView;->mGroupIndicatorHeight:I
+
+    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x10503a3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -1264,9 +1264,9 @@
 .method protected initContentView()V
     .locals 9
 
-    const v8, 0x102050b
+    const v8, 0x102050f
 
-    const v7, 0x102050a
+    const v7, 0x102050e
 
     const/4 v6, 0x1
 
@@ -1308,7 +1308,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
-    const v4, 0x1020508
+    const v4, 0x102050c
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1352,7 +1352,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
-    const v4, 0x1020509
+    const v4, 0x102050d
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

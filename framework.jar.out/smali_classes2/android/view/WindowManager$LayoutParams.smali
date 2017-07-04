@@ -364,6 +364,8 @@
 
 .field public static final SEM_TYPE_INTERNAL_PRESENTATION:I = 0x967
 
+.field public static final SEM_TYPE_NAVIBAR_TOUCH_INTERCEPT_OVERLAY:I = 0x8e1
+
 .field public static final SEM_TYPE_NAVIGATION_BAR_OVERLAY:I = 0x7e8
 
 .field public static final SEM_TYPE_POPUP_PLAYER:I = 0x966
@@ -459,6 +461,8 @@
 .field public static final TYPE_COCKTAIL_BAR_BACKGROUND:I = 0x8ad
 
 .field public static final TYPE_COCKTAIL_BAR_OVERLAY:I = 0x8ae
+
+.field public static final TYPE_CONVENTIONAL_RATIO_CHANGE_GUIDE:I = 0x8e0
 
 .field public static final TYPE_DISPLAY_OVERLAY:I = 0x7ea
 

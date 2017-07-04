@@ -56,10 +56,12 @@
 .method public abstract killForegroundAppsForUser(I)V
 .end method
 
-.method public killPackageProcess(Ljava/lang/String;IILjava/lang/String;)V
-    .locals 0
+.method public killPackageProcess(Ljava/lang/String;IILjava/lang/String;)I
+    .locals 1
 
-    return-void
+    const/4 v0, -0x1
+
+    return v0
 .end method
 
 .method public abstract notifyAppTransitionCancelled()V

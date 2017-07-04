@@ -343,7 +343,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x1020465
+    const v24, 0x1020469
 
     invoke-virtual/range {v23 .. v24}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -817,7 +817,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x1020465
+    const v24, 0x1020469
 
     invoke-virtual/range {v23 .. v24}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

@@ -156,7 +156,7 @@
 
     invoke-virtual {v5, v6}, Landroid/view/Window;->addFlags(I)V
 
-    const v5, 0x10405b8
+    const v5, 0x10405bc
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -174,7 +174,7 @@
 
     invoke-virtual {p0, v7, v5, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v5, 0x10204de
+    const v5, 0x10204e2
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -60,7 +60,7 @@
 
     const/4 v3, -0x1
 
-    const v1, 0x1020432
+    const v1, 0x1020436
 
     iget-object v2, p1, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
@@ -137,7 +137,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x1020452
+    const v0, 0x1020456
 
     invoke-virtual {p1, v0, v1}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
 
@@ -154,7 +154,7 @@
 
     const/4 v9, 0x0
 
-    const v8, 0x1020446
+    const v8, 0x102044a
 
     const/4 v7, 0x0
 
@@ -265,7 +265,7 @@
 .method private makeMediaContentView()Landroid/widget/RemoteViews;
     .locals 12
 
-    const v10, 0x1020446
+    const v10, 0x102044a
 
     const/4 v7, 0x0
 
@@ -403,7 +403,7 @@
     const v3, 0x1050042
 
     :cond_3
-    const v7, 0x1020444
+    const v7, 0x1020448
 
     invoke-virtual {v6, v7, v3}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
 

@@ -61,7 +61,7 @@
 .method protected static getSeekBar(Landroid/view/View;)Landroid/widget/SeekBar;
     .locals 1
 
-    const v0, 0x1020464
+    const v0, 0x1020468
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

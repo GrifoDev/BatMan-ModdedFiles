@@ -123,7 +123,7 @@
 
     move-result-object v6
 
-    const v7, 0x10502dc
+    const v7, 0x10502dd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -161,7 +161,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v5, 0x10204d0
+    const v5, 0x10204d4
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -232,7 +232,7 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    const v8, 0x10204c9
+    const v8, 0x10204cd
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -256,7 +256,7 @@
 
     move-result-object v9
 
-    const v10, 0x10502dc
+    const v10, 0x10502dd
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -295,7 +295,7 @@
     invoke-virtual {v7, v8}, Landroid/view/View;->setVisibility(I)V
 
     :goto_0
-    const v8, 0x10204cf
+    const v8, 0x10204d3
 
     invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -384,7 +384,7 @@
 
     move-result-object v9
 
-    const v10, 0x10502dd
+    const v10, 0x10502de
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -422,7 +422,7 @@
 
     move-result-object v9
 
-    const v10, 0x10502dc
+    const v10, 0x10502dd
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -575,7 +575,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
 
-    const v2, 0x10204c9
+    const v2, 0x10204cd
 
     const/4 v3, 0x0
 

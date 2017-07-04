@@ -423,7 +423,7 @@
 
     move-result-object v9
 
-    const v10, 0x10501ca
+    const v10, 0x10501cb
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -576,7 +576,7 @@
 
     move-result-object v9
 
-    const v10, 0x10501c9
+    const v10, 0x10501ca
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

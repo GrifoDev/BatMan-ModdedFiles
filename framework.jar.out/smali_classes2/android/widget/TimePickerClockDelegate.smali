@@ -358,7 +358,7 @@
 
     move-result-object v15
 
-    const v18, 0x10405bb
+    const v18, 0x10405bf
 
     move/from16 v0, v18
 
@@ -372,7 +372,7 @@
 
     iput-object v0, v1, Landroid/widget/TimePickerClockDelegate;->mSelectHours:Ljava/lang/String;
 
-    const v18, 0x10405bc
+    const v18, 0x10405c0
 
     move/from16 v0, v18
 
@@ -404,7 +404,7 @@
 
     move-result-object v14
 
-    const v18, 0x102050c
+    const v18, 0x1020510
 
     move/from16 v0, v18
 
@@ -422,7 +422,7 @@
 
     invoke-virtual {v10, v0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    const v18, 0x102050d
+    const v18, 0x1020511
 
     move/from16 v0, v18
 
@@ -488,7 +488,7 @@
 
     new-instance v19, Landroid/widget/TimePickerClockDelegate$ClickActionDelegate;
 
-    const v20, 0x10405bb
+    const v20, 0x10405bf
 
     move-object/from16 v0, v19
 
@@ -500,7 +500,7 @@
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    const v18, 0x102050e
+    const v18, 0x1020512
 
     move/from16 v0, v18
 
@@ -516,7 +516,7 @@
 
     iput-object v0, v1, Landroid/widget/TimePickerClockDelegate;->mSeparatorView:Landroid/widget/TextView;
 
-    const v18, 0x102050f
+    const v18, 0x1020513
 
     move/from16 v0, v18
 
@@ -582,7 +582,7 @@
 
     new-instance v19, Landroid/widget/TimePickerClockDelegate$ClickActionDelegate;
 
-    const v20, 0x10405bc
+    const v20, 0x10405c0
 
     move-object/from16 v0, v19
 
@@ -606,7 +606,7 @@
 
     invoke-virtual/range {v18 .. v20}, Lcom/android/internal/widget/NumericTextView;->setRange(II)V
 
-    const v18, 0x1020511
+    const v18, 0x1020515
 
     move/from16 v0, v18
 
@@ -644,7 +644,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x1020510
+    const v19, 0x1020514
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -702,7 +702,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x1020512
+    const v19, 0x1020516
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -904,7 +904,7 @@
     :cond_3
     invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
 
-    const v18, 0x1020514
+    const v18, 0x1020518
 
     move/from16 v0, v18
 

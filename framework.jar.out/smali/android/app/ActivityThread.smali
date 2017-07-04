@@ -932,7 +932,7 @@
 
     iput-object v1, p0, Landroid/app/ActivityThread;->mThumbnailCanvas:Landroid/graphics/Canvas;
 
-    const v0, -0xa0a0b
+    const v0, -0xf0f10
 
     iput v0, p0, Landroid/app/ActivityThread;->mNavigationBarColor:I
 

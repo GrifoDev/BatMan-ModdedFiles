@@ -22,6 +22,9 @@
 .method public abstract dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
 .end method
 
+.method public abstract getAspectRatio()F
+.end method
+
 .method public abstract getAspectRatioFrame()Landroid/graphics/Rect;
 .end method
 
@@ -68,6 +71,9 @@
 .end method
 
 .method public abstract isHomeTask()Z
+.end method
+
+.method public abstract isNonImmersiveWindow()Z
 .end method
 
 .method public abstract isOnScreen()Z

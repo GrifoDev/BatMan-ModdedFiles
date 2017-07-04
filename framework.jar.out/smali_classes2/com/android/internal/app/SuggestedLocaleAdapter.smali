@@ -815,7 +815,7 @@
     move-result-object p2
 
     :cond_4
-    const v6, 0x1020410
+    const v6, 0x1020414
 
     invoke-virtual {p2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -825,7 +825,7 @@
 
     if-nez v1, :cond_5
 
-    const v5, 0x10405fd
+    const v5, 0x1040601
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -853,21 +853,21 @@
 
     if-eqz v5, :cond_6
 
-    const v5, 0x1040652
+    const v5, 0x1040656
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 
     :cond_6
-    const v5, 0x1040651
+    const v5, 0x1040655
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 
     :cond_7
-    const v5, 0x10405fe
+    const v5, 0x1040602
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 

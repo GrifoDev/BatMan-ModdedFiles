@@ -1310,7 +1310,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x1040891
+    const v2, 0x104089a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1320,7 +1320,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x1040894
+    const v2, 0x104089d
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1330,7 +1330,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x1040893
+    const v2, 0x104089c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1340,7 +1340,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x1040892
+    const v2, 0x104089b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1428,7 +1428,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/DirectionLockView;->myContext:Landroid/content/Context;
 
-    const v2, 0x1040896
+    const v2, 0x104089f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

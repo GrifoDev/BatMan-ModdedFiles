@@ -27,6 +27,8 @@
 
     iput-object v0, p0, Lcom/samsung/android/privatemode/PrivateModeListener;->mClient:Lcom/samsung/android/privatemode/IPrivateModeClient;
 
+    invoke-static {}, Lcom/android/internal/os/ZygoteInit;->a()V
+
     return-void
 .end method
 

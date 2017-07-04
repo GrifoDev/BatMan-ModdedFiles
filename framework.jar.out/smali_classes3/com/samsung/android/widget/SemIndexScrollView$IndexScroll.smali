@@ -2943,7 +2943,7 @@
 
     iput v4, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mItemWidthGap:I
 
-    const v0, 0x1050384
+    const v0, 0x1050385
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2953,7 +2953,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mBgRectWidth:I
 
-    const v0, 0x1050385
+    const v0, 0x1050386
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2963,7 +2963,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mTextSize:I
 
-    const v0, 0x1050386
+    const v0, 0x1050387
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2973,7 +2973,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mScrollTop:I
 
-    const v0, 0x1050387
+    const v0, 0x1050388
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2983,7 +2983,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mWidthShift:I
 
-    const v0, 0x1050388
+    const v0, 0x1050389
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2993,7 +2993,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mContentPadding:I
 
-    const v0, 0x1050389
+    const v0, 0x105038a
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3001,7 +3001,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mContentMinHeight:F
 
-    const v0, 0x105038a
+    const v0, 0x105038b
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3011,7 +3011,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mAdditionalSpace:I
 
-    const v0, 0x1050381
+    const v0, 0x1050382
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3019,7 +3019,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mIndexScrollPreviewRadius:F
 
-    const v0, 0x1050383
+    const v0, 0x1050384
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3089,7 +3089,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mSecondLang:Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll$LangAttributeValues;
 
-    const v0, 0x105038c
+    const v0, 0x105038d
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3099,7 +3099,7 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScroll;->mScrollThumbBgRectPadding:I
 
-    const v0, 0x105038d
+    const v0, 0x105038e
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getDimension(I)F
 

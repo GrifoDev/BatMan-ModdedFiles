@@ -13,5 +13,5 @@ unknownFiles:
   vertexshader3d.glsl: '8'
   vertexshader.glsl: '8'
 usesFramework: null
-version: 2.2.2
+version: 2.2.3
 versionInfo: null
