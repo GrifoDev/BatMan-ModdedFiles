@@ -255,7 +255,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mSystemIconArea:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f130567
+    const v2, 0x7f130564
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -550,7 +550,7 @@
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusBarContents:Landroid/widget/LinearLayout;
 
     :cond_4
-    const v2, 0x7f13057c
+    const v2, 0x7f130579
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -570,17 +570,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClock:Lcom/android/systemui/statusbar/policy/Clock;
 
-    const v2, 0x7f130565
-
-    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/policy/Clock;
-
-    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
-
-    const v2, 0x7f130566
+    const v2, 0x7f130563
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -589,6 +579,16 @@
     check-cast v2, Lcom/android/systemui/statusbar/policy/Clock;
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
+
+    const v2, 0x7f130562
+
+    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/policy/Clock;
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
 
     const v2, 0x7f130299
 
@@ -1716,11 +1716,11 @@
 
     invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mTintArea:Landroid/graphics/Rect;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
 
     iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
 
@@ -1730,11 +1730,11 @@
 
     invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mTintArea:Landroid/graphics/Rect;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockLeft:Lcom/android/systemui/statusbar/policy/Clock;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockCenter:Lcom/android/systemui/statusbar/policy/Clock;
 
     iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
 
@@ -1750,7 +1750,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mKeyguardClock:Lcom/android/systemui/statusbar/policy/Clock;
 
-    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconTint:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mClockTint:I
 
     invoke-static {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
 

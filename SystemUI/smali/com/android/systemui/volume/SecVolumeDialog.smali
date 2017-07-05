@@ -3773,7 +3773,7 @@
 
     const/4 v0, 0x4
 
-    invoke-direct {p0, v0, v11, v10, v8}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
+    invoke-direct {p0, v0, v11, v10, v9}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
     const v0, 0x1080a1a
 

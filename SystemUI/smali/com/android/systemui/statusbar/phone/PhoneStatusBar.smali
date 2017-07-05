@@ -20656,6 +20656,8 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateKeyguardText()V
 
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpNetspeedColor()V
+
     move-object/from16 v0, p0
 
     const/4 v7, 0x0
