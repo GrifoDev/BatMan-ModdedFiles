@@ -7050,6 +7050,8 @@
     invoke-virtual {v6}, Landroid/util/ArrayMap;->clear()V
 
     invoke-direct {p0}, Lcom/android/server/MountService;->addInternalVolumeLocked()V
+
+    invoke-virtual {p0}, Lcom/android/server/MountService;->addPrivateVolume()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
