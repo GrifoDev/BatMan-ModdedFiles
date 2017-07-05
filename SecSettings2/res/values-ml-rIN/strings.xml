@@ -1115,6 +1115,7 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
     <string name="general_device_management_title">പൊതുവായ മാനേജ്മെന്‍റ്</string>
     <string name="application_settings_summary">ഡിഫോൾട്ട് ആപ്ലിക്കേഷനുകൾ, അനുമതികൾ, അൺഇൻസ്റ്റാൾ ചെയ്യുക</string>
     <string name="notifications_settings_summary">തടയുക, അനുവദിക്കുക, മുൻഗണന നൽകുക</string>
+    <string name="ime_security_warning_title">തിരഞ്ഞെടുത്തെ കീബോർഡ് ഓൺ ചെയ്യണോ?</string>
     <string name="language_settings_summary">താഴെ നിരവധി ഭാഷകൾ ചേർക്കുക, അതുവഴി ഒരു ആപ്ലിക്കേഷൻ നിങ്ങളുടെ ഡിഫോൾട്ട് ഭാഷയെ (പട്ടികയുടെ മുകൾഭാഗത്തുള്ളത്) പിന്തുണയ്ക്കുന്നില്ലെങ്കിൽ, പട്ടികയിലെ പിന്തുണയ്ക്കുന്ന അടുത്ത ഭാഷ പകരം ഉപയോഗിക്കപ്പെടും. ഒരു ഭാഷയെ ഡിഫോൾട്ടായി ക്രമീകരിക്കുന്നതിന് അതിനെ പട്ടികയുടെ മുകൾഭാഗത്തേക്ക് നീക്കുക.</string>
     <string name="language_settings_noti_desc">നിങ്ങളുടെ രാജ്യത്ത് പിന്തുണയുള്ള ഭാഷകളും ഡിസ്പ്ലേ മോഡലിൽ കാണിക്കുന്നവയും വ്യത്യസ്തമായേക്കാം.</string>
     <string name="language_settings_set_locale_title">%s-നെ ഡിഫോൾട്ട് ഭാഷയായി ക്രമീകരിക്കണോ?</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">ഹോം ബട്ടൺ ദൃഢമായി അമർത്താൻ ആവശ്യമായ മർദ്ദത്തിന്‍റെ തോത് ക്രമപ്പെടുത്തുക.</string>
     <string name="navigationbar_pressure_low">കൂടുതല്‍ ദൃഢത</string>
     <string name="navigationbar_pressure_high">കുറഞ്ഞ ദൃഢത</string>
+    <string name="navigationbar_hide_bar">കാണിക്കുക &amp; മറയ്ക്കുക ബട്ടൺ</string>
+    <string name="navigationbar_hide_bar_summary">നാവിഗേഷൻ ബാർ കാണിക്കുകയോ മറയ്ക്കുകയോ ചെയ്യുന്നതിന് നാവിഗേഷൻ ബാറിന്‍റെ ഇടതുവശത്ത് ഒരു ബട്ടൺ ചേർക്കുക.</string>
     <string name="full_screen_apps_title">പൂർണ്ണ സ്ക്രീൻ ആപ്ലിക്കേഷനുകൾ</string>
     <string name="full_screen_apps_summary">പൂർണ്ണ സ്ക്രീൻ വീക്ഷണ അനുപാതത്തിൽ ഏതൊക്കെ ആപ്ലിക്കേഷനുകൾ ഉപയോഗിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
     <string name="full_screen_apps_item_summary_optimized_full">പൂർണ്ണ സ്ക്രീനിൽ റൺ ചെയ്യാൻ ഈ ആപ്പ് ഒപ്റ്റിമൈസ് ചെയ്യുകയാണ്.</string>
@@ -4845,7 +4848,7 @@ Receiving SMS"</string>
     <string name="phone_language">ഭാഷ</string>
     <string name="show_password">പാസ്‍വേഡുകള്‍ ദൃശ്യമാക്കുക</string>
     <string name="show_password_summary">നിങ്ങൾ പാസ്‍വേഡ് പ്രതീകങ്ങൾ ടൈപ്പ് ചെയ്യുമ്പോൾ അവയെ ചുരുക്കി കാണിക്കുക.</string>
-    <string name="ime_security_warning">സ്വകാര്യ ഡാറ്റയും ക്രെഡിറ്റ് കാര്‍ഡ് നമ്പറുകളും ഉള്‍പ്പെടെ എന്നാല്‍ പാസ്‍വേഡുകള്‍ ഒഴികെ നിങ്ങള്‍ നല്‍കുന്ന എല്ലാ ടെക്സ്റ്റും ഈ രീതിക്ക് കണക്ട് ചെയ്യാന്‍ കഴിയും. ഇത് ആപ് %1$s ല്‍ നിന്നും വരുന്നു. ഏതുവിധേനയും ഉപയോഗിക്കണമോ?</string>
+    <string name="ime_security_warning">പാസ്‌വേഡുകളും ക്രെഡിറ്റ് കാർഡ് നമ്പറുകളും പോലുള്ള വ്യക്തിഗത ഡാറ്റ ഉൾപ്പെടെ, നിങ്ങൾ ടൈപ്പ് ചെയ്യുന്ന എല്ലാ ടെക്സ്റ്റും ശേഖരിക്കാൻ %s-ന് സാധിച്ചേക്കും.</string>
     <string name="failed_to_open_app_settings_toast">%s-ന് വേണ്ടി ക്രമീകരണങ്ങള്‍ തുറക്കുന്നതില്‍ പരാജയപ്പെട്ടു.</string>
     <string name="keyboard_and_input_methods_category">കീബോര്‍ഡുകള്‍</string>
     <string name="virtual_keyboard_category">ഓൺ-സ്ക്രീൻ കീബോർഡ്</string>

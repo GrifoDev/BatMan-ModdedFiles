@@ -664,7 +664,7 @@
 
     iget-object v4, v0, Lcom/android/settings/deviceinfo/StorageSettings;->mInternalSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
 
-    const v5, 0x7f0b1534
+    const v5, 0x7f0b1537
 
     move-object/from16 v0, p0
 
@@ -716,7 +716,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b1536
+    const v6, 0x7f0b1539
 
     move-object/from16 v0, p0
 
@@ -1018,7 +1018,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19f5
+    const v0, 0x7f0b19f8
 
     return v0
 .end method
@@ -1223,7 +1223,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1540
+    const v1, 0x7f0b1543
 
     invoke-static {p0, v1, v0}, Lcom/android/settings/deviceinfo/StorageSettings$DiskInitFragment;->show(Landroid/app/Fragment;ILjava/lang/String;)V
 
@@ -1336,7 +1336,7 @@
 
     if-eqz v0, :cond_b
 
-    const v0, 0x7f0b1541
+    const v0, 0x7f0b1544
 
     invoke-static {p0, v0, v7}, Lcom/android/settings/deviceinfo/StorageSettings$DiskInitFragment;->show(Landroid/app/Fragment;ILjava/lang/String;)V
 
@@ -1357,7 +1357,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1525
+    const v3, 0x7f0b1528
 
     move-object v0, p0
 

@@ -2,6 +2,7 @@
 <PreferenceScreen android:title="@string/navigationbar_title" android:key="navibationbar_setting"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <SwitchPreference android:title="@string/navigationbar_hide_bar" android:key="show_hide_bar" android:summary="@string/navigationbar_hide_bar_summary" />
     <PreferenceCategory android:title="@string/navigationbar_color_title" />
     <SwitchPreference android:title="@string/navigationbar_theme_switch" android:key="theme_switch" />
     <com.samsung.android.settings.navigationbar.NavigationbarColorPreference android:key="color" />

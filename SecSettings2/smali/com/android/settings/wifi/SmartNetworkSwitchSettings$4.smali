@@ -99,7 +99,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b1421
+    const v3, 0x7f0b1424
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -109,7 +109,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/SmartNetworkSwitchSettings$4;->val$mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b080d
+    const v2, 0x7f0b0810
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -125,7 +125,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/SmartNetworkSwitchSettings$4;->val$mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b13f0
+    const v2, 0x7f0b13f3
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

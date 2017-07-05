@@ -35,7 +35,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mLanguagePacks:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$400(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -50,7 +49,6 @@
 
     move-result-object v6
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$500()Ljava/lang/String;
 
     move-result-object v0
@@ -79,7 +77,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$500()Ljava/lang/String;
 
     move-result-object v0
@@ -96,7 +93,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadInProgress:Z
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$800(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Z
 
     move-result v3
@@ -113,7 +109,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadProgress:I
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v3
@@ -133,7 +128,6 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadProgress:I
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v0
@@ -147,18 +141,15 @@
 
     iget-object v1, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mServiceId:I
     invoke-static {v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$600(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v1
 
-    # invokes: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->createNotificationForNegative(IZI)V
     invoke-static {v0, v1, v2, p1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$900(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;IZI)V
 
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadProgress:I
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v0
@@ -167,7 +158,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadInProgress:Z
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$800(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Z
 
     move-result v0
@@ -177,22 +167,18 @@
     :goto_1
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # setter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadProgress:I
     invoke-static {v0, v7}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$202(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;I)I
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # setter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadInProgress:Z
     invoke-static {v0, v2}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$802(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;Z)Z
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # setter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadListener:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;
     invoke-static {v0, v8}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$002(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;)Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # setter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadLanguageListener:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;
     invoke-static {v0, v8}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$1102(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;)Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->mListener:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$OnDownloadListener;
@@ -205,19 +191,16 @@
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # operator++ for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadProgress:I
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$208(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadProgress:I
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v0
 
     iget-object v1, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mLanguagePacks:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$400(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -230,14 +213,12 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mLanguagePacks:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$400(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Ljava/util/ArrayList;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadProgress:I
     invoke-static {v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v1
@@ -255,7 +236,6 @@
     :cond_3
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadInProgress:Z
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$800(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Z
 
     move-result v0
@@ -269,7 +249,6 @@
 
     iget-object v1, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mServiceId:I
     invoke-static {v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$600(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v1
@@ -280,7 +259,6 @@
 
     move v5, v2
 
-    # invokes: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->createNotification(IZZII)V
     invoke-static/range {v0 .. v5}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$700(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;IZZII)V
 
     goto :goto_0
@@ -288,7 +266,6 @@
     :cond_5
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mLanguagePackManager:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$1000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
     move-result-object v0
@@ -300,7 +277,6 @@
     :cond_6
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mLanguagePackManager:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$1000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
     move-result-object v0
@@ -326,7 +302,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadProgress:I
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v6
@@ -346,7 +321,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mLanguagePacks:Ljava/util/ArrayList;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$400(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -357,10 +331,8 @@
 
     div-int/2addr v1, v3
 
-    # setter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mCurrentDownloadProgress:I
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$302(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;I)I
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$500()Ljava/lang/String;
 
     move-result-object v1
@@ -371,7 +343,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mLanguagePacks:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$400(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -398,7 +369,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mCurrentDownloadProgress:I
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$300(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v3
@@ -423,21 +393,18 @@
 
     iget-object v1, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mServiceId:I
     invoke-static {v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$600(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v1
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mCurrentDownloadProgress:I
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$300(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v5
 
     const/4 v3, 0x1
 
-    # invokes: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->createNotification(IZZII)V
     invoke-static/range {v0 .. v5}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$700(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;IZZII)V
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->mListener:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$OnDownloadListener;
@@ -457,7 +424,6 @@
 
     iget-object v1, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mCurrentDownloadProgress:I
     invoke-static {v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$300(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v1

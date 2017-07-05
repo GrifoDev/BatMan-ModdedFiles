@@ -1114,6 +1114,7 @@ Edhe kur Kapja inteligjente është paaftësuar, mund t‘ia aksesosh funksional
     <string name="general_device_management_title">Menaxhimi i përgjithshëm</string>
     <string name="application_settings_summary">App-et me parazgjedhje, lejet, çinstalo</string>
     <string name="notifications_settings_summary">Blloko, lejo, jep përparësi</string>
+    <string name="ime_security_warning_title">Ta ndez tastierën e përzgjedhur?</string>
     <string name="language_settings_summary">Shto disa gjuhë më poshtë në mënyrë që, po të mos e mbështetë app-i gjuhën tënde të parazgjedhur (në krye të listës), të përdoret gjuha e mbështetur pasuese nga lista. Zhvendose një gjuhë në krye të listës, për ta cilësuar si parazgjedhje.</string>
     <string name="language_settings_noti_desc">Gjuhët e mbështetura në vendin tënd mund të ndryshojnë nga ato që tregohen në modelin në vitrinë.</string>
     <string name="language_settings_set_locale_title">Ta cilësoj %s si gjuhë të parazgjedhur?</string>
@@ -1425,6 +1426,8 @@ Trokit mbi OK për të lejuar që ndriçimi të rritet mbi nivelet e sigurisë."
     <string name="navigationbar_pressure_sensitivity_summary">Përshtat forcën e shtypjes që dëshiron të aplikosh mbi Butonin Bazë.</string>
     <string name="navigationbar_pressure_low">Më e ndjeshme</string>
     <string name="navigationbar_pressure_high">Më pak e ndjeshme</string>
+    <string name="navigationbar_hide_bar">Shfaqe dhe fshihe butonin</string>
+    <string name="navigationbar_hide_bar_summary">Shto një buton në anën e majtë të shiritit të navigimit, për ta treguar ose fshehur shiritin e navigimit.</string>
     <string name="full_screen_apps_title">App-e në gjithë ekranin</string>
     <string name="full_screen_apps_summary">Zgjidh se cilat app-e dëshiron të përdorësh në përpjesëtimin e kuadrit në gjithë ekranin.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ky app është optimizuar për të punuar në gjithë ekranin.</string>
@@ -4844,7 +4847,7 @@ Të dhënat e tua ekzistuese në app-et nuk do të humbasin."</string>
     <string name="phone_language">Gjuha</string>
     <string name="show_password">Bëji fjalëkalimet të dukshme</string>
     <string name="show_password_summary">Shfaq shenjat e fjalëkalimit për pak çaste, kur je duke i shtypur.</string>
-    <string name="ime_security_warning">Kjo mënyrë mund të grumbullojë të gjithë tekstin që shkruani, përveç fjalëkalimeve, duke përfshirë të dhënat personale dhe numrat e kartave të kreditit. Vjen nga aplikacioni %1$s. Të përdoret gjithsesi?</string>
+    <string name="ime_security_warning">%s mund të jetë në gjendje të mbledhë gjithë tekstin që ti shkruan, përfshi të dhëna personale si fjalëkalimet dhe numrat e kartave të kreditit.</string>
     <string name="failed_to_open_app_settings_toast">Dështova të hap cilësimet për %s.</string>
     <string name="keyboard_and_input_methods_category">Tastierat</string>
     <string name="virtual_keyboard_category">Tastiera në ekran</string>

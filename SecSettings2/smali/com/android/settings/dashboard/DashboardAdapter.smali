@@ -2046,7 +2046,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0bef
+    const v1, 0x7f0b0bf2
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2060,7 +2060,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0c0e
+    const v1, 0x7f0b0c11
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2119,7 +2119,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14d4
+    const v3, 0x7f0b14d7
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2173,7 +2173,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0b10ac
+    const v4, 0x7f0b10af
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -2233,7 +2233,7 @@
 .method private updateTile(Lcom/android/settingslib/drawer/Tile;)Lcom/android/settingslib/drawer/Tile;
     .locals 2
 
-    const v1, 0x7f0b1465
+    const v1, 0x7f0b1468
 
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
@@ -3055,7 +3055,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b050e
+    const v8, 0x7f0b050f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3071,7 +3071,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04db
+    const v10, 0x7f0b04dc
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3121,7 +3121,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b050d
+    const v9, 0x7f0b050e
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3145,7 +3145,7 @@
 
     invoke-direct {v8, p0}, Lcom/android/settings/dashboard/DashboardAdapter$13;-><init>(Lcom/android/settings/dashboard/DashboardAdapter;)V
 
-    const v9, 0x7f0b124c
+    const v9, 0x7f0b124f
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3461,7 +3461,7 @@
     :cond_b
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b04db
+    const v11, 0x7f0b04dc
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3484,7 +3484,7 @@
 
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b1499
+    const v11, 0x7f0b149c
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3513,7 +3513,7 @@
 
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b128d
+    const v11, 0x7f0b1290
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3667,7 +3667,7 @@
     :cond_11
     iget-object v10, p0, Lcom/android/settings/dashboard/DashboardAdapter;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b04cd
+    const v11, 0x7f0b04ce
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -297,7 +297,7 @@
 
     iget-object v11, p0, Lcom/android/settings/datausage/BillingCycleSettings$CycleEditorFragment;->mCycleDayPicker:Lcom/samsung/android/widget/SemNumberPicker;
 
-    const v12, 0x1020459
+    const v12, 0x102045d
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/widget/SemNumberPicker;->findViewById(I)Landroid/view/View;
 
@@ -315,7 +315,7 @@
 
     invoke-virtual {v5, v11}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    const v11, 0x7f0b1937
+    const v11, 0x7f0b193a
 
     invoke-virtual {v0, v11}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -325,7 +325,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b1939
+    const v12, 0x7f0b193c
 
     invoke-virtual {v11, v12, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

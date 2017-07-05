@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;
 
-    # invokes: Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;->completeOnDelayed()V
     invoke-static {v0}, Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;->access$000(Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;)V
 
     return-void

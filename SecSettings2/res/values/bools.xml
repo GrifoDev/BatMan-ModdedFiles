@@ -37,7 +37,7 @@
     <bool name="support_manage_accessibility">true</bool>
     <bool name="support_vzw_network_lock">false</bool>
     <bool name="support_bluelight_filter">false</bool>
-    <bool name="support_private_mode">false</bool>
+    <bool name="support_private_mode">true</bool>
     <bool name="helphubtextview_inside_image_auto_scale_by_fontsize">true</bool>
     <bool name="icgl_network_roaming">true</bool>
     <bool name="config_msid_enable">false</bool>

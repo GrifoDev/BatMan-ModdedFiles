@@ -2259,7 +2259,7 @@
 
     const-string/jumbo v20, "navigationbar_color"
 
-    const/16 v21, 0x0
+    const v21, -0xf0f10
 
     invoke-static/range {v19 .. v21}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -2340,6 +2340,22 @@
     const-string/jumbo v20, "navigationbar_pressure_user_level"
 
     const/16 v21, 0x3
+
+    invoke-static/range {v19 .. v21}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "navigationbar_hide_bar"
+
+    const/16 v21, 0x1
 
     invoke-static/range {v19 .. v21}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

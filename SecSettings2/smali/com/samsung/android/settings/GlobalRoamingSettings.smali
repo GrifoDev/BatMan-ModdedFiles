@@ -210,7 +210,7 @@
 
     sget-object v0, Lcom/samsung/android/settings/GlobalRoamingSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b1028
+    const v1, 0x7f0b102b
 
     const/4 v2, 0x1
 
@@ -414,7 +414,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0bef
+    const v1, 0x7f0b0bf2
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -657,7 +657,7 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0bfc
+    const v3, 0x7f0b0bff
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/GlobalRoamingSettings;->getString(I)Ljava/lang/String;
 
@@ -675,7 +675,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0bfd
+    const v4, 0x7f0b0c00
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/GlobalRoamingSettings;->getString(I)Ljava/lang/String;
 
@@ -840,7 +840,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/GlobalRoamingSettings;->mButtonDataRoaming:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b1029
+    const v2, 0x7f0b102c
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -896,7 +896,7 @@
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/settings/GlobalRoamingSettings;->mButtonDataRoaming:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b1028
+    const v2, 0x7f0b102b
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

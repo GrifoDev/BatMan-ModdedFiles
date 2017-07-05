@@ -195,7 +195,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/SeekBarPreference;->onBindView(Landroid/view/View;)V
 
-    const v0, 0x1020464
+    const v0, 0x1020468
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

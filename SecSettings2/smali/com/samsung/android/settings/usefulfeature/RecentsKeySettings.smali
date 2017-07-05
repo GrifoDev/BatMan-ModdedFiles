@@ -380,7 +380,7 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
-    const v8, 0x7f0b0a57
+    const v8, 0x7f0b0a5a
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->getString(I)Ljava/lang/String;
 

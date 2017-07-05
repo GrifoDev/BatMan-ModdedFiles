@@ -1115,6 +1115,7 @@ Smart capture desgaituta badago ere, Air command bidez atzitu ahal izango dituzu
     <string name="general_device_management_title">Kudeaketa orokorra</string>
     <string name="application_settings_summary">Aplikazio lehenetsiak, baimenak, desinstalatu</string>
     <string name="notifications_settings_summary">Blokeatu, baimendu, eman lehentasuna</string>
+    <string name="ime_security_warning_title">Hautatutako teklatua aktibatu?</string>
     <string name="language_settings_summary">Gehitu hizkuntza anitz behean. Horrela, aplikazioan zure hizkuntza lehenetsia onartzen ez bada (zerrendaren goialdean), onartzen den hurrengo hizkuntza erabiliko da. Eraman hizkuntza bat zerrendaren goialdera lehenetsi gisa ezartzeko.</string>
     <string name="language_settings_noti_desc">Zure herrialdean onartzen diren hizkuntzak agian ez dira erakutsitako modeloan agertzen direnen berdinak izango.</string>
     <string name="language_settings_set_locale_title">%s hizkuntza lehenetsi gisa ezarri?</string>
@@ -1426,6 +1427,8 @@ Argitasuna segurtasun mailatik gora ezartzeko, ukitu ADOS."</string>
     <string name="navigationbar_pressure_sensitivity_summary">Egokitu Botoi nagusia luze sakatzeko behar den presioa.</string>
     <string name="navigationbar_pressure_low">Sentikortasun handiagoa</string>
     <string name="navigationbar_pressure_high">Sentikortasun txikiagoa</string>
+    <string name="navigationbar_hide_bar">Erakutsi eta ezkutatu botoia</string>
+    <string name="navigationbar_hide_bar_summary">Nabigazio barra erakusteko edo ezkutatzeko, gehitu botoi bat nabigazio barraren ezkerraldean.</string>
     <string name="full_screen_apps_title">Pantaila osoko aplikazioak</string>
     <string name="full_screen_apps_summary">Aukeratu pantaila osoan erabili nahi dituzun aplikazioak.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Pantaila osoan exekutatzeko optimizatuta dago aplikazio hau.</string>
@@ -4846,7 +4849,7 @@ Aplikazioetan dituzun datuak ez dira galduko."</string>
     <string name="phone_language">Hizkuntza</string>
     <string name="show_password">Jarri pasahitza ikusgai</string>
     <string name="show_password_summary">Erakutsi pasahitzaren karaktereak labur, idatzi bitartean.</string>
-    <string name="ime_security_warning">Metodo horren bidez, idazten dituzun testu guztiak bilduko dira, kreditu txartelen zenbakiak eta datu pertsonalak barne, pasahitzak izan ezik. %1$s aplikaziotik dator. Hala ere, erabili nahi duzu?</string>
+    <string name="ime_security_warning">Idazten duzun testu guztia biltzeko gai izango da %s, datu pertsonalak barne (hala nola pasahitzak eta kreditu txartelen zenbakiak).</string>
     <string name="failed_to_open_app_settings_toast">Ezin izan da %s-rako ezarpenik ireki</string>
     <string name="keyboard_and_input_methods_category">Teklatuak</string>
     <string name="virtual_keyboard_category">Teklatua pantailan</string>

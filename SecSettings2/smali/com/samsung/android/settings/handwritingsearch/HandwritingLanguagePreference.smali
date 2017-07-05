@@ -124,9 +124,9 @@
 .method private getDescriptionString()Ljava/lang/String;
     .locals 11
 
-    const v10, 0x7f0b0c49
+    const v10, 0x7f0b0c4c
 
-    const v9, 0x7f0b0c45
+    const v9, 0x7f0b0c48
 
     const/4 v7, 0x1
 
@@ -146,7 +146,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0c4c
+    const v6, 0x7f0b0c4f
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -212,7 +212,7 @@
     :cond_1
     iget-object v5, p0, Lcom/samsung/android/settings/handwritingsearch/HandwritingLanguagePreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0c4b
+    const v6, 0x7f0b0c4e
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -265,7 +265,7 @@
 
     aput-object v4, v6, v8
 
-    const v7, 0x7f0b0c4a
+    const v7, 0x7f0b0c4d
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -280,7 +280,7 @@
 
     aput-object v4, v6, v8
 
-    const v7, 0x7f0b0c48
+    const v7, 0x7f0b0c4b
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -327,7 +327,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b0c47
+    const v7, 0x7f0b0c4a
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -155,7 +155,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    const v5, 0x7f0b1547
+    const v5, 0x7f0b154a
 
     const-string/jumbo v0, "InternalStorage"
 
@@ -171,15 +171,15 @@
 
     sput-object v0, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->ITEMS_NO_SHOW_SHARED:[I
 
-    const v0, 0x7f0b1502
+    const v0, 0x7f0b1505
 
-    const v1, 0x7f0b1500
+    const v1, 0x7f0b1503
 
-    const v2, 0x7f0b0543
+    const v2, 0x7f0b0544
 
-    const v3, 0x7f0b0542
+    const v3, 0x7f0b0543
 
-    const v4, 0x7f0b154c
+    const v4, 0x7f0b154f
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -187,9 +187,9 @@
 
     sput-object v0, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->ITEMS_SHOW_SHARED:[I
 
-    const v0, 0x7f0b0544
+    const v0, 0x7f0b0545
 
-    const v1, 0x7f0b154a
+    const v1, 0x7f0b154d
 
     filled-new-array {v5, v0, v1}, [I
 
@@ -209,13 +209,13 @@
 
     :array_0
     .array-data 4
-        0x7f0b1502
-        0x7f0b1500
-        0x7f0b0543
-        0x7f0b1547
+        0x7f0b1505
+        0x7f0b1503
         0x7f0b0544
         0x7f0b154a
-        0x7f0b154c
+        0x7f0b0545
+        0x7f0b154d
+        0x7f0b154f
     .end array-data
 .end method
 
@@ -364,13 +364,13 @@
 
     aget v2, v1, v0
 
-    const v3, 0x7f0b0542
+    const v3, 0x7f0b0543
 
     if-eq v2, v3, :cond_1
 
     aget v2, v1, v0
 
-    const v3, 0x7f0b0544
+    const v3, 0x7f0b0545
 
     if-ne v2, v3, :cond_6
 
@@ -403,7 +403,7 @@
     :cond_6
     aget v2, v1, v0
 
-    const v3, 0x7f0b154a
+    const v3, 0x7f0b154d
 
     if-ne v2, v3, :cond_2
 
@@ -448,7 +448,7 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setKey(Ljava/lang/String;)V
 
     :goto_1
-    const v1, 0x7f0b1502
+    const v1, 0x7f0b1505
 
     if-ne p2, v1, :cond_2
 
@@ -492,7 +492,7 @@
     goto :goto_1
 
     :cond_2
-    const v1, 0x7f0b1500
+    const v1, 0x7f0b1503
 
     if-ne p2, v1, :cond_3
 
@@ -503,7 +503,7 @@
     goto :goto_2
 
     :cond_3
-    const v1, 0x7f0b0543
+    const v1, 0x7f0b0544
 
     if-ne p2, v1, :cond_4
 
@@ -514,7 +514,7 @@
     goto :goto_2
 
     :cond_4
-    const v1, 0x7f0b1503
+    const v1, 0x7f0b1506
 
     invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setSummary(I)V
 
@@ -724,7 +724,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0546
+    const v5, 0x7f0b0547
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -771,7 +771,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0c19
+    const v5, 0x7f0b0c1c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1054,7 +1054,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0542
+    const v1, 0x7f0b0543
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1350,18 +1350,18 @@
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_c
-        0x7f0b0542 -> :sswitch_b
-        0x7f0b0543 -> :sswitch_a
-        0x7f0b0544 -> :sswitch_1
-        0x7f0b0545 -> :sswitch_7
-        0x7f0b1500 -> :sswitch_9
-        0x7f0b1502 -> :sswitch_8
-        0x7f0b1547 -> :sswitch_0
-        0x7f0b1548 -> :sswitch_2
-        0x7f0b1549 -> :sswitch_3
-        0x7f0b154a -> :sswitch_4
-        0x7f0b154b -> :sswitch_6
-        0x7f0b154c -> :sswitch_5
+        0x7f0b0543 -> :sswitch_b
+        0x7f0b0544 -> :sswitch_a
+        0x7f0b0545 -> :sswitch_1
+        0x7f0b0546 -> :sswitch_7
+        0x7f0b1503 -> :sswitch_9
+        0x7f0b1505 -> :sswitch_8
+        0x7f0b154a -> :sswitch_0
+        0x7f0b154b -> :sswitch_2
+        0x7f0b154c -> :sswitch_3
+        0x7f0b154d -> :sswitch_4
+        0x7f0b154e -> :sswitch_6
+        0x7f0b154f -> :sswitch_5
     .end sparse-switch
 .end method
 
@@ -1712,7 +1712,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1520
+    const v3, 0x7f0b1523
 
     move-object v0, p0
 
@@ -1739,7 +1739,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1521
+    const v3, 0x7f0b1524
 
     move-object v0, p0
 
@@ -1921,7 +1921,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x7f0b1547
+    const v6, 0x7f0b154a
 
     const/4 v7, 0x0
 
@@ -2391,7 +2391,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0542
+    const v8, 0x7f0b0543
 
     const/4 v9, 0x0
 
@@ -2465,16 +2465,16 @@
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_a
-        0x7f0b0542 -> :sswitch_9
-        0x7f0b0544 -> :sswitch_8
-        0x7f0b0545 -> :sswitch_7
-        0x7f0b1527 -> :sswitch_6
-        0x7f0b1547 -> :sswitch_0
-        0x7f0b1548 -> :sswitch_1
-        0x7f0b1549 -> :sswitch_2
-        0x7f0b154a -> :sswitch_3
-        0x7f0b154b -> :sswitch_5
-        0x7f0b154c -> :sswitch_4
+        0x7f0b0543 -> :sswitch_9
+        0x7f0b0545 -> :sswitch_8
+        0x7f0b0546 -> :sswitch_7
+        0x7f0b152a -> :sswitch_6
+        0x7f0b154a -> :sswitch_0
+        0x7f0b154b -> :sswitch_1
+        0x7f0b154c -> :sswitch_2
+        0x7f0b154d -> :sswitch_3
+        0x7f0b154e -> :sswitch_5
+        0x7f0b154f -> :sswitch_4
     .end sparse-switch
 .end method
 
@@ -2547,7 +2547,7 @@
     invoke-interface {v0, v8}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     :goto_0
-    const v6, 0x7f0b1522
+    const v6, 0x7f0b1525
 
     invoke-interface {v0, v6}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -3091,7 +3091,7 @@
 
     move-object/from16 v25, v0
 
-    const v26, 0x7f0b1534
+    const v26, 0x7f0b1537
 
     move-object/from16 v0, p0
 
@@ -3161,7 +3161,7 @@
 
     aput-object v27, v26, v28
 
-    const v27, 0x7f0b1535
+    const v27, 0x7f0b1538
 
     move-object/from16 v0, p0
 
@@ -3507,7 +3507,7 @@
 
     if-lez v25, :cond_16
 
-    const v25, 0x7f0b1530
+    const v25, 0x7f0b1533
 
     move-object/from16 v0, p0
 
@@ -3615,7 +3615,7 @@
     invoke-direct {v0, v14, v1}, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->addCategory(Landroid/preference/PreferenceGroup;Ljava/lang/CharSequence;)Landroid/preference/PreferenceCategory;
 
     :cond_16
-    const v25, 0x7f0b154b
+    const v25, 0x7f0b154e
 
     const/16 v26, 0x0
 
@@ -3664,7 +3664,7 @@
 
     :cond_18
     :goto_c
-    const v25, 0x7f0b1527
+    const v25, 0x7f0b152a
 
     move-object/from16 v0, p0
 
@@ -3775,7 +3775,7 @@
     goto :goto_d
 
     :cond_1a
-    const v25, 0x7f0b0545
+    const v25, 0x7f0b0546
 
     const/16 v26, 0x0
 

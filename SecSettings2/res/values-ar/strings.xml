@@ -1115,6 +1115,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">الإدارة العامة</string>
     <string name="application_settings_summary">التطبيقات الافتراضية، الأذونات، إلغاء التثبيت</string>
     <string name="notifications_settings_summary">حظر، سماح، منح أولوية</string>
+    <string name="ime_security_warning_title">هل تريد تشغيل لوحة المفاتيح المحددة؟</string>
     <string name="language_settings_summary">يمكنك إضافة عدة لغات أدناه بحيث إذا لم يكن أحد التطبيقات يدعم لغتك الافتراضية (الموجودة في أعلى القائمة)، فسيتم استخدام اللغة المدعومة التالية في القائمة كبديل. يمكنك نقل أية لغة إلى أعلى القائمة لتعيينها كلغة افتراضية.</string>
     <string name="language_settings_noti_desc">قد تختلف اللغات المدعومة في بلدك عن تلك المبينة في نموذج الشاشة.</string>
     <string name="language_settings_set_locale_title">هل تريد ضبط %s كلغة افتراضية؟</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">يمكنك تعديل مقدار الضغط اللازم للضغط بقوة على مفتاح الشاشة الرئيسية.</string>
     <string name="navigationbar_pressure_low">حساسية أكثر</string>
     <string name="navigationbar_pressure_high">حساسية أقل</string>
+    <string name="navigationbar_hide_bar">إظهار الزر وإخفائه</string>
+    <string name="navigationbar_hide_bar_summary">أضف زراً في الجهة اليسرى من شريط التنقل لإظهار شريط التنقل أو إخفائه.</string>
     <string name="full_screen_apps_title">تطبيقات ملء الشاشة</string>
     <string name="full_screen_apps_summary">اختر التطبيقات التي تريد استخدامها في نسبة العرض إلى الارتفاع الخاصة بملء الشاشة.</string>
     <string name="full_screen_apps_item_summary_optimized_full">تم تحسين هذا التطبيق للتشغيل في وضع ملء الشاشة.</string>
@@ -4844,7 +4847,7 @@ Wi-Fi is now on."</string>
     <string name="phone_language">اللغة</string>
     <string name="show_password">جعل كلمات المرور مرئية</string>
     <string name="show_password_summary">عرض أحرف كلمة المرور أثناء كتابتها لفترة وجيزة.</string>
-    <string name="ime_security_warning">يمكن لهذه الطريقة جمع النص الذي أدخلته بالكامل، باستثناء كلمات المرور، بما في ذلك البيانات الشخصية وأرقام بطاقات الائتمان. وهي مشتقة من التطبيق %1$s. هل تريد الاستخدم بأي حال من الأحوال؟</string>
+    <string name="ime_security_warning">قد تتمكن %s من جمع كل النصوص التي تكتبها، بما في ذلك البيانات الشخصية مثل كلمات المرور وأرقام بطاقات الائتمان.</string>
     <string name="failed_to_open_app_settings_toast">فشل فتح الإعدادات من أجل %s.</string>
     <string name="keyboard_and_input_methods_category">لوحات المفاتيح</string>
     <string name="virtual_keyboard_category">لوحة المفاتيح التي تظهر على الشاشة</string>

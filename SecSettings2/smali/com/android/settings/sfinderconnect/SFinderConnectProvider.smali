@@ -266,7 +266,7 @@
 
     iget-object v13, v0, Lcom/android/settings/sfinderconnect/SFinderConnectProvider;->mContext:Landroid/content/Context;
 
-    const v14, 0x7f0b1250
+    const v14, 0x7f0b1253
 
     invoke-virtual {v13, v14}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -393,7 +393,7 @@
 
     iget-object v14, v0, Lcom/android/settings/sfinderconnect/SFinderConnectProvider;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0b1250
+    const v15, 0x7f0b1253
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

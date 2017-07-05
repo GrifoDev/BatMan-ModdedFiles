@@ -118,7 +118,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/DockSettings$3;-><init>(Lcom/samsung/android/settings/DockSettings;)V
 
-    const v2, 0x7f0b063d
+    const v2, 0x7f0b0640
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -710,7 +710,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0c84
+    const v2, 0x7f0b0c87
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -724,7 +724,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0c87
+    const v2, 0x7f0b0c8a
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1270,7 +1270,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0996
+    const v9, 0x7f0b0999
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1290,7 +1290,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0c40
+    const v9, 0x7f0b0c43
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

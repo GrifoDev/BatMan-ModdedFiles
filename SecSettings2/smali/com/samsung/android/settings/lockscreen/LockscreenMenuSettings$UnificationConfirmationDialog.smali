@@ -72,7 +72,7 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b1649
+    const v3, 0x7f0b164c
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -80,7 +80,7 @@
 
     if-eqz v0, :cond_0
 
-    const v2, 0x7f0b164a
+    const v2, 0x7f0b164d
 
     :goto_0
     invoke-virtual {v3, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
@@ -89,7 +89,7 @@
 
     if-eqz v0, :cond_1
 
-    const v2, 0x7f0b164c
+    const v2, 0x7f0b164f
 
     :goto_1
     new-instance v4, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$UnificationConfirmationDialog$1;
@@ -100,7 +100,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b124c
+    const v3, 0x7f0b124f
 
     const/4 v4, 0x0
 
@@ -115,12 +115,12 @@
     return-object v2
 
     :cond_0
-    const v2, 0x7f0b164b
+    const v2, 0x7f0b164e
 
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0b164d
+    const v2, 0x7f0b1650
 
     goto :goto_1
 .end method

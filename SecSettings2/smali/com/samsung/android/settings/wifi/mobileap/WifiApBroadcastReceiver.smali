@@ -716,7 +716,7 @@
 
     sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const v2, 0x7f0b0e79
+    const v2, 0x7f0b0e7c
 
     invoke-virtual {v0, v3, v2, v1}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
@@ -743,7 +743,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mNotificationManager:Landroid/app/NotificationManager;
 
-    const v1, 0x7f0b0e78
+    const v1, 0x7f0b0e7b
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
@@ -2670,7 +2670,7 @@
 
     if-eqz v50, :cond_22
 
-    const v50, 0x7f0b0e7a
+    const v50, 0x7f0b0e7d
 
     const/16 v51, 0x0
 
@@ -3699,7 +3699,7 @@
 
     invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v50, 0x7f0b0e5f
+    const v50, 0x7f0b0e62
 
     const/16 v51, 0x1
 
@@ -3869,7 +3869,7 @@
 
     invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v50, 0x7f0b0e5e
+    const v50, 0x7f0b0e61
 
     const/16 v51, 0x1
 
@@ -4100,7 +4100,7 @@
 
     invoke-static/range {v50 .. v51}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v50, 0x7f0b0e5f
+    const v50, 0x7f0b0e62
 
     const/16 v51, 0x1
 
@@ -4373,7 +4373,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0b0e7a
+    const v3, 0x7f0b0e7d
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4383,7 +4383,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0b1911
+    const v3, 0x7f0b1914
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4488,7 +4488,7 @@
 
     sget-object v3, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
 
-    const v5, 0x7f0b0e79
+    const v5, 0x7f0b0e7c
 
     invoke-virtual {v0, v4, v5, v1, v3}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 
@@ -4500,7 +4500,7 @@
 
     const/4 v9, 0x0
 
-    const v8, 0x7f0b0e78
+    const v8, 0x7f0b0e7b
 
     const/4 v6, 0x0
 

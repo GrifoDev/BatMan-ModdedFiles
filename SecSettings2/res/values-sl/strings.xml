@@ -1115,6 +1115,7 @@ Tudi ko je funkcija Pametno zajemanje onemogočena, lahko do njenih funkcij dost
     <string name="general_device_management_title">Splošno upravljanje</string>
     <string name="application_settings_summary">Privzete aplikacije, dovoljenja, odstranitev</string>
     <string name="notifications_settings_summary">Blokiraj, dovoli, daj prednost</string>
+    <string name="ime_security_warning_title">Želite vklopiti izbrano tipkovnico?</string>
     <string name="language_settings_summary">Spodaj dodajte več jezikov in če aplikacija ne bo podpirala vašega privzetega jezika (na vrhu seznama), bo namesto njega uporabljen naslednji podprt jezik na seznamu. Premaknite jezik na vrh seznama, da ga nastavite kot privzetega.</string>
     <string name="language_settings_noti_desc">Jeziki, podprti v vaši državi, se lahko razlikujejo od tistih, prikazanih v razstavnem modelu.</string>
     <string name="language_settings_set_locale_title">Želite jezik %s nastaviti kot privzeti jezik?</string>
@@ -1426,6 +1427,8 @@ Upoštevajte, da Samsung lahko še vedno zbira podatke o vaši uporabi mobilne n
     <string name="navigationbar_pressure_sensitivity_summary">Prilagodite moč pritiska, ki je potreben za močan pritisk gumba Domov.</string>
     <string name="navigationbar_pressure_low">Bolj občutljivo</string>
     <string name="navigationbar_pressure_high">Manj občutljivo</string>
+    <string name="navigationbar_hide_bar">Prikažite in skrijte gumb</string>
+    <string name="navigationbar_hide_bar_summary">Dodajte gumb na levo stran navigacijske vrstice, da vrstico prikažete ali skrijete.</string>
     <string name="full_screen_apps_title">Celozaslonske aplikacije</string>
     <string name="full_screen_apps_summary">Izberite, katere aplikacije želite uporabljati v celozaslonskem načinu.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ta aplikacija je optimizirana za zagon v celozaslonskem načinu.</string>
@@ -4845,7 +4848,7 @@ Obstoječi podatki aplikacij ne bodo izgubljeni."</string>
     <string name="phone_language">Jezik</string>
     <string name="show_password">Gesla naredite vidna</string>
     <string name="show_password_summary">Hitri prikaz znakov gesla, ko jih vnašate.</string>
-    <string name="ime_security_warning">Ta način lahko zbere vsa besedila, ki jih vnesete, razen gesel, vključno z osebnimi podatki in številkami kreditnih kartic. Uporablja ga program %1$s. Ga želite vseeno uporabiti?</string>
+    <string name="ime_security_warning">Tipkovnica %s lahko zbira celotno natipkano besedilo, vključno z osebnimi podatki, denimo gesli in številkami kreditnih kartic.</string>
     <string name="failed_to_open_app_settings_toast">Nastavitev za %s ni uspelo odpreti.</string>
     <string name="keyboard_and_input_methods_category">Tipkovnice</string>
     <string name="virtual_keyboard_category">Zaslonska tipkovnica</string>

@@ -1115,6 +1115,7 @@ Wi-Fi және Bluetooth опциялары да өшеді, бірақ олар
     <string name="general_device_management_title">Жалпы басқару</string>
     <string name="application_settings_summary">Әдепкі қолданбалар, рұқсаттар, жою</string>
     <string name="notifications_settings_summary">Бұғаттау, рұқсат беру, басымдық беру</string>
+    <string name="ime_security_warning_title">Таңдалған пернетақтаны қосу керек пе?</string>
     <string name="language_settings_summary">Қолданба әдепкі тілге (тізімнің жоғарғы жағында) қолдау көрсетпеген жағдайда, тізімдегі келесі қолдау көрсетілетін тіл оның орнына пайдаланылуы үшін бірнеше тілді төменде қосыңыз. Тілді әдепкі ретінде орнату үшін оны тізімнің жоғарғы жағына жылжытыңыз.</string>
     <string name="language_settings_noti_desc">Еліңізде қолдау көрсетілетін тілдер дисплей моделінде көрсетілгеннен басқа болуы мүмкін.</string>
     <string name="language_settings_set_locale_title">%s әдепкі тіл ретінде орнату керек пе?</string>
@@ -1426,6 +1427,8 @@ Samsung жарнамасының идентификаторын мобильді
     <string name="navigationbar_pressure_sensitivity_summary">“Бастапқы” түймесін қатты басу үшін қажетті қысым мөлшерін реттеу.</string>
     <string name="navigationbar_pressure_low">Сезімталдығы жоғары</string>
     <string name="navigationbar_pressure_high">Сезімталдығы төмен</string>
+    <string name="navigationbar_hide_bar">Түймені көрсету және жасыру</string>
+    <string name="navigationbar_hide_bar_summary">Шарлау жолағын көрсету немесе жасыру үшін шарлау жолағының сол жағына түймені қосыңыз.</string>
     <string name="full_screen_apps_title">Толық экран қолданбалары</string>
     <string name="full_screen_apps_summary">Толық экранның өлшемдер арақатынасында пайдаланғыңыз келетін қолданбаларды таңдаңыз.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Бұл қолданба толық экранда іске қосу үшін оңтайландырылған.</string>
@@ -4846,7 +4849,7 @@ Receiving SMS"</string>
     <string name="phone_language">Тіл</string>
     <string name="show_password">Құпиясөздерді көрінетін ету</string>
     <string name="show_password_summary">Теру кезінде құпия сөз таңбаларын қысқаша көрсетіңіз.</string>
-    <string name="ime_security_warning">Бұл әдіс құпиясөздерден басқа, барлық енгізілген мәтінді, оның ішінде жеке деректер мен несие картасының нөмірлерін жинайды. Ол %1$s бағдарламасынан келеді. Бәрібір пайдалану керек пе?</string>
+    <string name="ime_security_warning">%s терілетін барлық мәтінді, оның ішінде, құпиясөздер мен несие картасы нөмірлері сияқты жеке деректерді жинай алады.</string>
     <string name="failed_to_open_app_settings_toast">%s үшін параметрлерді ашу сәтсіз болды.</string>
     <string name="keyboard_and_input_methods_category">Пернетақталар</string>
     <string name="virtual_keyboard_category">Экрандық пернетақта</string>

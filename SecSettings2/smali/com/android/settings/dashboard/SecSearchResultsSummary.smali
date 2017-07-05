@@ -1771,7 +1771,7 @@
 
     iget-object v2, p0, Lcom/android/settings/dashboard/SecSearchResultsSummary;->mSearchView:Landroid/widget/SearchView;
 
-    const v3, 0x1020492
+    const v3, 0x1020496
 
     invoke-virtual {v2, v3}, Landroid/widget/SearchView;->findViewById(I)Landroid/view/View;
 

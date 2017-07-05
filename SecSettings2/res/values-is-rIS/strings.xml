@@ -1116,6 +1116,7 @@ Jafnvel þótt slökkt sé á snjallmyndatöku geturðu opnað eiginleika hennar
     <string name="general_device_management_title">Almenn stjórnun</string>
     <string name="application_settings_summary">Sjálfgefin forrit, heimildir, fjarlægja</string>
     <string name="notifications_settings_summary">Útiloka, leyfa, forgangsraða</string>
+    <string name="ime_security_warning_title">Viltu kveikja á völdu lyklaborði?</string>
     <string name="language_settings_summary">Hér að neðan geturðu bætt við mörgum tungumálum. Ef forrit styður ekki sjálfgefna tungumállið þitt (efst á listanum) er næsta tungumál á listanum notað. Tungumál er stillt á sjálfgefið með því að færa það efst á listann.</string>
     <string name="language_settings_noti_desc">Tungumálin sem studd eru í þínu landi kunna að vera önnur en þau sem birt eru á sýniseintakinu.</string>
     <string name="language_settings_set_locale_title">Viltu velja %s sem sjálfgefið tungumál?</string>
@@ -1427,6 +1428,8 @@ Pikkaðu á Í LAGI til að gefa leyfi fyrir því að birtustig sé hækkað um
     <string name="navigationbar_pressure_sensitivity_summary">Stilla þrýstinginn sem þarf til að ýta á heimahnappinn.</string>
     <string name="navigationbar_pressure_low">Meira næmi</string>
     <string name="navigationbar_pressure_high">Minna næmi</string>
+    <string name="navigationbar_hide_bar">Hnappur til að sýna og fela</string>
+    <string name="navigationbar_hide_bar_summary">Bæta við hnappi vinstra megin við yfirlitsstikuna til að sýna eða fela hana.</string>
     <string name="full_screen_apps_title">Forrit á öllum skjánum</string>
     <string name="full_screen_apps_summary">Veldu hvaða forrit þú vilt nota í myndhlutfalli fyrir allan skjáinn.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Þetta forrit er fínstillt á að keyra á öllum skjánum.</string>
@@ -4844,7 +4847,7 @@ Hægt er að velja nýjan lás fyrir tækið og vinnuprófílinn en allar stefnu
     <string name="phone_language">Tungumál</string>
     <string name="show_password">Gera lykilorð sýnilegt</string>
     <string name="show_password_summary">Sýna stafi lykilorðsins í stutta stund þegar þeir eru slegnir inn.</string>
-    <string name="ime_security_warning">Þessi aðferð getur safnað öllum texta sem þú slærð inn, þ.m.t. persónuupplýsingum og kreditkortanúmerum. Hún kemur frá forritinu %1$s. Nota engu að síður?</string>
+    <string name="ime_security_warning">%s getur hugsanlega safnað öllum texta sem þú slærð inn, þar á meðal persónugögnum á borð við lykilorð og kreditkortanúmer.</string>
     <string name="failed_to_open_app_settings_toast">Mistókst að opna stillingar fyrir %s.</string>
     <string name="keyboard_and_input_methods_category">Lyklaborð</string>
     <string name="virtual_keyboard_category">Skjályklaborð</string>

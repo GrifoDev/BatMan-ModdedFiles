@@ -58,7 +58,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0b1bb0
+    const v1, 0x7f0b1bb3
 
     :goto_0
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -74,12 +74,12 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0b1bae
+    const v1, 0x7f0b1bb1
 
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1baf
+    const v1, 0x7f0b1bb2
 
     goto :goto_0
 .end method
@@ -328,7 +328,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b124c
+    const v2, 0x7f0b124f
 
     const/4 v3, 0x0
 
@@ -352,7 +352,7 @@
 
     if-nez v1, :cond_0
 
-    const v1, 0x7f0b124f
+    const v1, 0x7f0b1252
 
     invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -474,7 +474,7 @@
 
     if-eqz p2, :cond_1
 
-    const v1, 0x7f0b1bed
+    const v1, 0x7f0b1bf0
 
     :goto_0
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
@@ -489,7 +489,7 @@
 
     if-eqz p2, :cond_2
 
-    const v1, 0x7f0b1bef
+    const v1, 0x7f0b1bf2
 
     :goto_1
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
@@ -522,12 +522,12 @@
     return-object p1
 
     :cond_1
-    const v1, 0x7f0b1bee
+    const v1, 0x7f0b1bf1
 
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1bf0
+    const v1, 0x7f0b1bf3
 
     goto :goto_1
 .end method

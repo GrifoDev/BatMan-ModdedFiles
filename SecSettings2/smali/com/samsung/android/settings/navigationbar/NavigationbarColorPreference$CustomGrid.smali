@@ -136,7 +136,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b05e2
+    const v1, 0x7f0b05e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -166,56 +166,23 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_0
 
     invoke-virtual {v4, v8}, Landroid/widget/ImageView;->setVisibility(I)V
 
     invoke-virtual {v5, v8}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :goto_0
-    iget-object v0, p0, Lcom/samsung/android/settings/navigationbar/NavigationbarColorPreference$CustomGrid;->colorValue:[I
-
-    array-length v0, v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    if-ne p1, v0, :cond_0
-
-    const v0, 0x7f02061c
-
-    invoke-virtual {v6, v0}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
-
-    invoke-virtual {v6, v0}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    const/4 v0, 0x3
-
-    if-ne p1, v0, :cond_4
-
-    :cond_1
-    :goto_1
     const/high16 v0, -0x1000000
 
     invoke-virtual {v5, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
-    :cond_2
     return-object p2
 
-    :cond_3
+    :cond_0
     invoke-virtual {v4, v9}, Landroid/widget/ImageView;->setVisibility(I)V
 
     invoke-virtual {v5, v9}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_0
-
-    :cond_4
-    const/4 v0, 0x6
-
-    if-ne p1, v0, :cond_2
-
-    goto :goto_1
 .end method

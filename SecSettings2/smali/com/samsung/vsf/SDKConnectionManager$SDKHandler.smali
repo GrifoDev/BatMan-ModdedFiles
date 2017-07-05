@@ -41,7 +41,6 @@
 
     iget-object v1, p0, Lcom/samsung/vsf/SDKConnectionManager$SDKHandler;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # invokes: Lcom/samsung/vsf/SDKConnectionManager;->handleServiceControl(Landroid/os/Message;)V
     invoke-static {v1, p1}, Lcom/samsung/vsf/SDKConnectionManager;->access$900(Lcom/samsung/vsf/SDKConnectionManager;Landroid/os/Message;)V
 
     :goto_0
@@ -50,7 +49,6 @@
     :pswitch_0
     iget-object v1, p0, Lcom/samsung/vsf/SDKConnectionManager$SDKHandler;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # invokes: Lcom/samsung/vsf/SDKConnectionManager;->connect()V
     invoke-static {v1}, Lcom/samsung/vsf/SDKConnectionManager;->access$700(Lcom/samsung/vsf/SDKConnectionManager;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -64,7 +62,6 @@
 
     iget-object v1, p0, Lcom/samsung/vsf/SDKConnectionManager$SDKHandler;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # invokes: Lcom/samsung/vsf/SDKConnectionManager;->notifyConnectionError()V
     invoke-static {v1}, Lcom/samsung/vsf/SDKConnectionManager;->access$500(Lcom/samsung/vsf/SDKConnectionManager;)V
 
     goto :goto_0
@@ -73,7 +70,6 @@
     :try_start_1
     iget-object v1, p0, Lcom/samsung/vsf/SDKConnectionManager$SDKHandler;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # invokes: Lcom/samsung/vsf/SDKConnectionManager;->disconnect()V
     invoke-static {v1}, Lcom/samsung/vsf/SDKConnectionManager;->access$800(Lcom/samsung/vsf/SDKConnectionManager;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0

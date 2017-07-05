@@ -1114,6 +1114,7 @@ Hətta ağıllı çəkim qeyri-aktiv edilən zaman Hava əmri ilə onun funksiya
     <string name="general_device_management_title">Ümumi idarəetmə</string>
     <string name="application_settings_summary">Defolt proqramlar, icazələr, poz</string>
     <string name="notifications_settings_summary">Blokla, icazə ver, üstünlük ver</string>
+    <string name="ime_security_warning_title">Seçilən klaviatura yansın?</string>
     <string name="language_settings_summary">Aşağıda bir neçə dil əlavə edin ki, proqram defolt dili dəstəkləmədikdə (siyahının yuxarısında) növbəti dəstəklənən dil əvəzində istifadə edilsin. Defolt kimi qurmaq üçün dili siyahının yuxarısına köçür.</string>
     <string name="language_settings_noti_desc">Sizin ölkənizdə dəstəklənən dillər ekrandakı modeldə görünənlərdən fərqlənə bilər.</string>
     <string name="language_settings_set_locale_title">%s defolt dil kimi qurulsun?</string>
@@ -1425,6 +1426,8 @@ Parlaqlığın təhlükəsizlik ssəviyyələrindən artmasına icazə vermək �
     <string name="navigationbar_pressure_sensitivity_summary">Əsas düyməsinin sıxılması üçün lazım olan təzyiqi tənzimləyin.</string>
     <string name="navigationbar_pressure_low">Daha həssas</string>
     <string name="navigationbar_pressure_high">Az həssas</string>
+    <string name="navigationbar_hide_bar">Düyməni göstər və gizlət</string>
+    <string name="navigationbar_hide_bar_summary">Naviqasiya panelini göstərmək və ya gizlətmək üçün naviqasiya panelinin soluna düymə əlavə edin.</string>
     <string name="full_screen_apps_title">Tam ekran proqramları</string>
     <string name="full_screen_apps_summary">Tam ekran nisbətində istifadə etmək istədiyiniz proqramları seçin.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Bu proqram tam ekranda açılmaq üçün optimallaşdırılıb.</string>
@@ -2711,7 +2714,7 @@ Bluetooth audio cihazı seçsəniz, Bluetooth cihazı qoşulmayan zaman səs def
     <string name="stop_setup_popup_msg">Dəyişdiyiniz bütün parametrlər tətbiq edilməyəcək.</string>
     <string name="app_turned_on">%s yandırılıb.</string>
     <string name="force_touch_title">Sıxıb saxl vibrasya əks-əlaqəsi</string>
-    <string name="volume_key_control_title">Defolt Səs düyməsilə idarəetmə</string>
+    <string name="volume_key_control_title">Standart Səs düyməsilə idarəetmə</string>
     <string name="sound_mode">Səs rejimi</string>
     <string name="sound_mode_vibrate">Titrəmə</string>
     <string name="sound_mode_mute">Səssiz</string>
@@ -4843,7 +4846,7 @@ Sizin mövcud proqram məlumatınız itməyəcək."</string>
     <string name="phone_language">Dil</string>
     <string name="show_password">Parolları görünən et</string>
     <string name="show_password_summary">Parol simvollarını daxil etdikcə, onların xülasəsini göstər.</string>
-    <string name="ime_security_warning">Bu üsul parollar istisna olmaqla, daxil etdiyiniz bütün məlumatları, həmçinin, şəxsi məlumatları və kredit karı nömrələrini toplaya bilər. %1$s proqramdan gəlir. Yenə də istifadə edilsin?</string>
+    <string name="ime_security_warning">%s daxiletmə üsulu parollar və kredit kartı nömrələri kimi şəxsi məlumatlar da daxil olmaqla sizin yazdığının bütün mətni əldə edə bilər.</string>
     <string name="failed_to_open_app_settings_toast">%s üçün parametrlər açılmadı.</string>
     <string name="keyboard_and_input_methods_category">Klaviaturalar</string>
     <string name="virtual_keyboard_category">Ekran klaviaturası</string>

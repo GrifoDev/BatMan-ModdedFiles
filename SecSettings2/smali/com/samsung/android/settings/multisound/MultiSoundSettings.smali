@@ -131,7 +131,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b1c
+    const v3, 0x7f0b0b1f
 
     const/4 v6, 0x0
 
@@ -213,7 +213,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v6, 0x7f0b0b1b
+    const v6, 0x7f0b0b1e
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -426,7 +426,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mDeviceType:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b0b28
+    const v1, 0x7f0b0b2b
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -475,7 +475,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mDeviceType:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b0b29
+    const v1, 0x7f0b0b2c
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -500,7 +500,7 @@
 
     new-array v1, v3, [Ljava/lang/Object;
 
-    const v2, 0x7f0b0b19
+    const v2, 0x7f0b0b1c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->getString(I)Ljava/lang/String;
 
@@ -508,7 +508,7 @@
 
     aput-object v2, v1, v6
 
-    const v2, 0x7f0b0b2e
+    const v2, 0x7f0b0b31
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -545,7 +545,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b1f
+    const v3, 0x7f0b0b22
 
     move-object v4, v2
 
@@ -566,11 +566,11 @@
 
     invoke-direct {v8, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0b0b2c
+    const v0, 0x7f0b0b2f
 
     invoke-virtual {v8, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v0, 0x7f0b0b2d
+    const v0, 0x7f0b0b30
 
     invoke-virtual {v8, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -580,7 +580,7 @@
 
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/multisound/MultiSoundSettings$3;-><init>(Lcom/samsung/android/settings/multisound/MultiSoundSettings;)V
 
-    const v1, 0x7f0b080d
+    const v1, 0x7f0b0810
 
     invoke-virtual {v8, v1, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -655,7 +655,7 @@
 
     invoke-direct {v1, v8}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v8, 0x7f0b0b21
+    const v8, 0x7f0b0b24
 
     invoke-virtual {v1, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -669,7 +669,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0b19
+    const v11, 0x7f0b0b1c
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -677,7 +677,7 @@
 
     aput-object v10, v9, v7
 
-    const v10, 0x7f0b0b23
+    const v10, 0x7f0b0b26
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -691,7 +691,7 @@
 
     invoke-direct {v8, p0}, Lcom/samsung/android/settings/multisound/MultiSoundSettings$5;-><init>(Lcom/samsung/android/settings/multisound/MultiSoundSettings;)V
 
-    const v9, 0x7f0b0b26
+    const v9, 0x7f0b0b29
 
     invoke-virtual {v1, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

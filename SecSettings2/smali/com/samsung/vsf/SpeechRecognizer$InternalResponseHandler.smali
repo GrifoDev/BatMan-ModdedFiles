@@ -274,7 +274,6 @@
     :cond_2
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->this$0:Lcom/samsung/vsf/SpeechRecognizer;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer;->mConnMgr:Lcom/samsung/vsf/SDKConnectionManager;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer;->access$200(Lcom/samsung/vsf/SpeechRecognizer;)Lcom/samsung/vsf/SDKConnectionManager;
 
     move-result-object v0
@@ -283,7 +282,6 @@
 
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->this$0:Lcom/samsung/vsf/SpeechRecognizer;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer;->mConnMgr:Lcom/samsung/vsf/SDKConnectionManager;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer;->access$200(Lcom/samsung/vsf/SpeechRecognizer;)Lcom/samsung/vsf/SDKConnectionManager;
 
     move-result-object v0

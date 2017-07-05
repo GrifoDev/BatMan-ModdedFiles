@@ -89,7 +89,7 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v2, 0x7f0b17bd
+    const v2, 0x7f0b17c0
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -534,7 +534,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a01
+    const v0, 0x7f0b1a04
 
     return v0
 .end method
@@ -630,7 +630,7 @@
 
     const/4 v1, 0x4
 
-    const v2, 0x7f0b1bac
+    const v2, 0x7f0b1baf
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -727,7 +727,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1bac
+    const v3, 0x7f0b1baf
 
     move-object v5, v4
 
@@ -953,7 +953,7 @@
 
     aput-object v14, v40, v41
 
-    const v41, 0x7f0b17c4
+    const v41, 0x7f0b17c7
 
     move-object/from16 v0, v39
 
@@ -1603,7 +1603,7 @@
 
     move-result-object v39
 
-    const v40, 0x7f0b1034
+    const v40, 0x7f0b1037
 
     invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

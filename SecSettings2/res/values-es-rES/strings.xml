@@ -986,6 +986,7 @@ Aunque la opción Captura completa esté desactivada, puede acceder a sus funcio
     <string name="general_device_management_title">Administración general</string>
     <string name="application_settings_summary">Aplicaciones predeterminadas, permisos, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, priorizar</string>
+    <string name="ime_security_warning_title">¿Activar el teclado seleccionado?</string>
     <string name="language_settings_summary">Añada varios idiomas a continuación de modo que, si una aplicación no admite su idioma predeterminado (el primero de la lista), se utilice en su lugar el siguiente idioma admitido de la lista. Mueva un idioma al principio de la lista para establecerlo como predeterminado.</string>
     <string name="language_settings_noti_desc">Los idiomas compatibles en su país pueden ser diferentes de los que aparecen en el modelo de la pantalla.</string>
     <string name="language_settings_set_locale_title">¿Establecer %s como idioma predeterminado?</string>
@@ -1297,6 +1298,8 @@ Pulse ACEPTAR para permitir aumentar el brillo por encima de los niveles seguros
     <string name="navigationbar_pressure_sensitivity_summary">Ajusta la cantidad de presión necesaria para la pulsación durante varios segundos del botón Inicio.</string>
     <string name="navigationbar_pressure_low">Más sensibilidad</string>
     <string name="navigationbar_pressure_high">Sensibilidad baja</string>
+    <string name="navigationbar_hide_bar">Botón de mostrar y ocultar</string>
+    <string name="navigationbar_hide_bar_summary">Añade un botón en el lado izquierdo de la barra de navegación para mostrar u ocultar la barra de navegación.</string>
     <string name="full_screen_apps_title">Apps a pantalla completa</string>
     <string name="full_screen_apps_summary">Elija las aplicaciones que quiere usar en la relación de aspecto de pantalla completa.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Esta aplicación está optimizada para ejecutarse en pantalla completa.</string>
@@ -2584,7 +2587,7 @@ Si selecciona un dispositivo de audio Bluetooth, el sonido se reproducirá en el
     <string name="stop_setup_popup_msg">No se aplicarán los ajustes que haya cambiado.</string>
     <string name="app_turned_on">%s activado</string>
     <string name="force_touch_title">Vibración por presión intensa</string>
-    <string name="volume_key_control_title">Control botón Volumen predet</string>
+    <string name="volume_key_control_title">Control botón Volumen</string>
     <string name="sound_mode">Modo de sonido</string>
     <string name="sound_mode_vibrate">Vibración</string>
     <string name="sound_mode_mute">Silencio</string>
@@ -4695,7 +4698,7 @@ No se perderán sus datos de aplicaciones existentes."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Hacer las contraseñas visibles</string>
     <string name="show_password_summary">Mostrar los caracteres de la contraseña brevemente mientras se escribe.</string>
-    <string name="ime_security_warning">Este método puede recopilar todo el texto que escriba, excepto contraseñas, incluso datos personales y números de tarjetas de crédito. Proviene de la aplicación %1$s. ¿Utilizar de todos modos?</string>
+    <string name="ime_security_warning">%s puede recopilar todo el texto que escriba, incluso datos personales como contraseñas y números de tarjeta de crédito.</string>
     <string name="failed_to_open_app_settings_toast">Error al abrir ajustes para %s</string>
     <string name="keyboard_and_input_methods_category">Teclados</string>
     <string name="virtual_keyboard_category">Teclado en pantalla</string>

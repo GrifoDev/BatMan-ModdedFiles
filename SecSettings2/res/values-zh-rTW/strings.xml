@@ -1113,6 +1113,7 @@
     <string name="general_device_management_title">一般管理</string>
     <string name="application_settings_summary">預設應用程式、權限、解除安裝</string>
     <string name="notifications_settings_summary">封鎖、允許、排列優先順序</string>
+    <string name="ime_security_warning_title">開啟所選鍵盤嗎？</string>
     <string name="language_settings_summary">新增下列多種語言，若應用程式不支援您的預設語言 (列於清單上方)，則會以清單上的第二種支援語言來取代。請將一種語言移至清單上方來設為預設。</string>
     <string name="language_settings_noti_desc">所在國家支援的語言可能與展示機上顯示的不同。</string>
     <string name="language_settings_set_locale_title">將 %s 設為預設語言嗎？</string>
@@ -1424,6 +1425,8 @@
     <string name="navigationbar_pressure_sensitivity_summary">調整首頁鍵需按壓的力道。</string>
     <string name="navigationbar_pressure_low">高敏感度</string>
     <string name="navigationbar_pressure_high">低敏感度</string>
+    <string name="navigationbar_hide_bar">顯示與隱藏按鈕</string>
+    <string name="navigationbar_hide_bar_summary">新增按鈕至導覽列左側即可顯示或隱藏導覽列。</string>
     <string name="full_screen_apps_title">全螢幕應用程式</string>
     <string name="full_screen_apps_summary">請選擇欲使用全螢幕長寬比的應用程式。</string>
     <string name="full_screen_apps_item_summary_optimized_full">已最佳化此應用程式來於全螢幕執行。</string>
@@ -4838,7 +4841,7 @@ Wi-Fi 已開啟。"</string>
     <string name="phone_language">語言</string>
     <string name="show_password">顯示密碼</string>
     <string name="show_password_summary">當您輸入時顯示密碼字元。</string>
-    <string name="ime_security_warning">此方法可蒐集密碼以外的所有文字，包括個人資料與信用卡號碼。此方法來自應用程式 %1$s。仍要使用嗎？</string>
+    <string name="ime_security_warning">%s 可能會蒐集您輸入的所有文字，包含密碼與信用卡號等個人資料。</string>
     <string name="failed_to_open_app_settings_toast">無法開啟 %s 設定。</string>
     <string name="keyboard_and_input_methods_category">鍵盤</string>
     <string name="virtual_keyboard_category">螢幕鍵盤</string>

@@ -78,7 +78,6 @@
 
     if-nez p1, :cond_0
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$100()Ljava/lang/String;
 
     move-result-object v4
@@ -95,7 +94,6 @@
 
     iget-object v6, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v6}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)I
 
     move-result v6
@@ -110,14 +108,12 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageManagers:Ljava/util/ArrayList;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$300()Ljava/util/ArrayList;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v5}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)I
 
     move-result v5
@@ -141,14 +137,12 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)I
 
     move-result v3
 
     add-int/lit8 v3, v3, 0x1
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageManagers:Ljava/util/ArrayList;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$300()Ljava/util/ArrayList;
 
     move-result-object v4
@@ -161,7 +155,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageList:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$400(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -175,14 +168,12 @@
 
     iget-object v5, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageListNew:Ljava/util/HashMap;
     invoke-static {v5}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v5
 
     invoke-direct {v4, v5}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
-    # setter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageList:Ljava/util/HashMap;
     invoke-static {v3, v4}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$402(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;Ljava/util/HashMap;)Ljava/util/HashMap;
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->mListener:Ljava/util/ArrayList;
@@ -204,7 +195,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # setter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v3, v10}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$202(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;I)I
 
     return-void
@@ -212,7 +202,6 @@
     :cond_0
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageListNew:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -232,7 +221,6 @@
 
     if-nez v4, :cond_1
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$100()Ljava/lang/String;
 
     move-result-object v3
@@ -249,7 +237,6 @@
 
     iget-object v5, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v5}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)I
 
     move-result v5
@@ -270,7 +257,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # setter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v3, v10}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$202(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;I)I
 
     return-void
@@ -291,7 +277,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageListNew:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -304,7 +289,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageListNew:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -331,7 +315,6 @@
     :cond_3
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageListNew:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v7
@@ -340,7 +323,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageList:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$400(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -361,7 +343,6 @@
 
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageListNew:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -372,7 +353,6 @@
 
     check-cast v3, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mInstance:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$500()Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
     move-result-object v7
@@ -384,10 +364,8 @@
     :cond_4
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # operator++ for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$208(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)I
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageManagers:Ljava/util/ArrayList;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$300()Ljava/util/ArrayList;
 
     move-result-object v3
@@ -401,14 +379,12 @@
     if-gt v3, v4, :cond_5
 
     :goto_5
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageManagers:Ljava/util/ArrayList;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$300()Ljava/util/ArrayList;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v4}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)I
 
     move-result v4
@@ -419,7 +395,6 @@
 
     check-cast v3, Lcom/samsung/android/sdk/handwriting/resources/interfaces/LanguageManagerInterface;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mServerConnection:Z
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$600()Z
 
     move-result v4
@@ -429,7 +404,6 @@
     return-void
 
     :cond_5
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$100()Ljava/lang/String;
 
     move-result-object v3
@@ -446,7 +420,6 @@
 
     iget-object v5, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mUpdateProgress:I
     invoke-static {v5}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$200(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)I
 
     move-result v5
@@ -466,7 +439,6 @@
     :cond_6
     iget-object v3, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager$UpdateLanguageManagerListener;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->mLanguageList:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;->access$400(Lcom/samsung/android/sdk/handwriting/resources/LanguagePackManager;)Ljava/util/HashMap;
 
     move-result-object v3

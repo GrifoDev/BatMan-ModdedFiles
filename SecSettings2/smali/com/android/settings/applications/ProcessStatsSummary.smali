@@ -189,7 +189,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1be4
+    const v3, 0x7f0b1be7
 
     move-object v0, p0
 

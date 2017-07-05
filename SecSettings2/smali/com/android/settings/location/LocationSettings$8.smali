@@ -53,7 +53,7 @@
 
     iget-object v5, p0, Lcom/android/settings/location/LocationSettings$8;->this$0:Lcom/android/settings/location/LocationSettings;
 
-    const v3, 0x7f0b15e0
+    const v3, 0x7f0b15e3
 
     const/4 v6, 0x0
 

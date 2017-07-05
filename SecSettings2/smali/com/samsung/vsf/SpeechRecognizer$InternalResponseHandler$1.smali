@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v0
@@ -56,7 +55,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v0
@@ -68,7 +66,6 @@
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v0
@@ -80,7 +77,6 @@
     :pswitch_2
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v1
@@ -96,7 +92,6 @@
     :pswitch_3
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v1
@@ -112,7 +107,6 @@
     :pswitch_4
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v1
@@ -128,7 +122,6 @@
     :pswitch_5
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v1
@@ -141,7 +134,6 @@
 
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v1
@@ -157,7 +149,6 @@
     :pswitch_6
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v1
@@ -177,7 +168,6 @@
     :pswitch_7
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler$1;->this$1:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # getter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$100(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;)Lcom/samsung/vsf/RecognitionListener;
 
     move-result-object v1

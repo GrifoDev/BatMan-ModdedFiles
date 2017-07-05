@@ -55,7 +55,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$ListenerHandler;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadListener:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;
 
     move-result-object v0
@@ -64,7 +63,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$ListenerHandler;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadListener:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;
     invoke-static {v0}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$000(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$LanguagePackDownloadListener;
 
     move-result-object v0

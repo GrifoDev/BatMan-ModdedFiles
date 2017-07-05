@@ -1118,6 +1118,7 @@ Wi-Fi และ Bluetooth จะถูกปิดด้วย แต่คุ�
     <string name="general_device_management_title">การจัดการทั่วไป</string>
     <string name="application_settings_summary">แอพเริ่มต้น, การอนุญาต, ถอนการติดตั้ง</string>
     <string name="notifications_settings_summary">บล็อก อนุญาต จัดให้มีความสำคัญ</string>
+    <string name="ime_security_warning_title">เปิดแป้นพิมพ์ที่เลือกหรือไม่</string>
     <string name="language_settings_summary">เพิ่มหลายภาษาด้านล่าง ในกรณีที่แอพไม่รองรับภาษาเริ่มต้นของคุณ (ที่ด้านบนของรายการ) ภาษาที่รองรับถัดไปในรายการจะถูกใช้แทน ย้ายภาษาไปที่บนสุดของรายการเพื่อตั้งค่าเป็นภาษาเริ่มต้น</string>
     <string name="language_settings_noti_desc">ภาษาที่สนับสนุนในประเทศของคุณอาจแตกต่างจากรุ่นที่แสดง</string>
     <string name="language_settings_set_locale_title">ตั้งค่า %s เป็นภาษาเริ่มต้นหรือไม่</string>
@@ -1429,6 +1430,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">ปรับแรงกดที่ต้องใช้สำหรับการกดแบบหนักที่ปุ่มหน้าหลัก</string>
     <string name="navigationbar_pressure_low">เพิ่มความไวต่อการสัมผัส</string>
     <string name="navigationbar_pressure_high">ลดความไวต่อการสัมผัส</string>
+    <string name="navigationbar_hide_bar">ปุ่มแสดงและซ่อน</string>
+    <string name="navigationbar_hide_bar_summary">เพิ่มปุ่มไปยังด้านซ้ายของแถบการนำทางเพื่อแสดงหรือซ่อนแถบการนำทาง</string>
     <string name="full_screen_apps_title">แอพเต็มหน้าจอ</string>
     <string name="full_screen_apps_summary">เลือกแอพที่คุณต้องการใช้ในสัดส่วนภาพเต็มหน้าจอ</string>
     <string name="full_screen_apps_item_summary_optimized_full">แอพนี้ถูกปรับเพื่อทำงานแบบเต็มหน้าจอ</string>
@@ -4855,7 +4858,7 @@ Wi-Fi is now on."</string>
     <string name="phone_language">ภาษา</string>
     <string name="show_password">ทำ​รหัส​ผ่าน​ให้​มอง​เห็น​ได้</string>
     <string name="show_password_summary">แสดงตัวอักษรรหัสผ่านเป็นเวลาสั้นๆ ขณะพิมพ์</string>
-    <string name="ime_security_warning">วิธี​นี้​สามารถ​รวบ​รวม​ข้อ​ความ​ที่​คุณ​ใส่​ทั้ง​หมด ยก​เว้น​รหัส​ผ่าน รวม​ถึง​ข้อมูล​ส่วน​ตัว​และ​หมาย​เลข​บัตร​เครดิต มา​จาก​แอพ %1$s ​ใช้​หรือ​ไม่?</string>
+    <string name="ime_security_warning">%s อาจสามารถรวบรวมข้อความทั้งหมดที่คุณพิมพ์ รวมถึงข้อมูลส่วนตัว เช่น รหัสผ่านและหมายเลขบัตรเครดิต</string>
     <string name="failed_to_open_app_settings_toast">เปิดการตั้งค่าสำหรับ %s ล้มเหลว</string>
     <string name="keyboard_and_input_methods_category">แป้นพิมพ์</string>
     <string name="virtual_keyboard_category">แป้นพิมพ์บนหน้าจอ</string>

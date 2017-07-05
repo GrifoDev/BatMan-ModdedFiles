@@ -1114,6 +1114,7 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="general_device_management_title">일반</string>
     <string name="application_settings_summary">기본 앱, 권한, 설치 삭제</string>
     <string name="notifications_settings_summary">차단, 허용, 중요 알림</string>
+    <string name="ime_security_warning_title">선택한 키보드 실행</string>
     <string name="language_settings_summary">앱에서 기본 언어(목록의 맨 위)가 지원되지 않을 경우 목록에 있는 언어 중 지원되는 언어를 대신 사용할 수 있도록 여러 개의 언어를 추가하세요. 기본으로 설정할 언어를 목록의 맨 위로 이동하세요.</string>
     <string name="language_settings_noti_desc">현재 국가에서 지원되는 언어는 디스플레이 모델에 표시된 언어와 다를 수 있습니다.</string>
     <string name="language_settings_set_locale_title">%s를 기본 언어로 설정할까요?</string>
@@ -1418,6 +1419,8 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="navigationbar_pressure_sensitivity_summary">홈 버튼을 세게 누를 때 어떤 강도로 누를 것인지 선택합니다.</string>
     <string name="navigationbar_pressure_low">약하게 누르기</string>
     <string name="navigationbar_pressure_high">강하게 누르기</string>
+    <string name="navigationbar_hide_bar">고정/숨기기 버튼</string>
+    <string name="navigationbar_hide_bar_summary">내비게이션 바를 고정하거나 숨길 수 있도록 내비게이션 바의 왼쪽에 버튼을 추가합니다.</string>
     <string name="full_screen_apps_title">전체 화면 비율로 사용할 앱</string>
     <string name="full_screen_apps_summary">전체 화면 비율로 사용할 앱을 선택하세요.</string>
     <string name="full_screen_apps_item_summary_optimized_full">전체 화면으로 실행되도록 이 앱이 최적화된 상태입니다.</string>
@@ -4841,7 +4844,7 @@ SMS 수신"</string>
     <string name="phone_language">언어</string>
     <string name="show_password">입력 시 비밀번호 표시</string>
     <string name="show_password_summary">비밀번호를 입력할 때 입력한 글자가 잠깐 표시됩니다.</string>
-    <string name="ime_security_warning">이 방식을 사용하면 비밀번호를 제외하고 개인 데이터, 신용카드 번호를 포함하여 사용자가 입력한 모든 텍스트를 수집할 수 있습니다. 이 방식은 앱 %1$s에서 제공합니다. 사용할까요?</string>
+    <string name="ime_security_warning">%s에서 개인 데이터(비밀번호, 신용카드 번호 등)를 포함하여 사용자가 입력한 모든 텍스트를 수집할 수 있습니다.</string>
     <string name="failed_to_open_app_settings_toast">%s 설정을 열지 못했습니다.</string>
     <string name="keyboard_and_input_methods_category">키보드</string>
     <string name="virtual_keyboard_category">스크린 키보드</string>

@@ -289,9 +289,9 @@
 .method private updateEmptyView()V
     .locals 10
 
-    const v9, 0x7f0b17ae
+    const v9, 0x7f0b17b1
 
-    const v8, 0x7f0b17a5
+    const v8, 0x7f0b17a8
 
     const v7, 0x7f0400ef
 

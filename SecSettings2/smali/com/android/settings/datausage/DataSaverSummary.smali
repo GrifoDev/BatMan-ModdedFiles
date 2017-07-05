@@ -126,7 +126,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19fc
+    const v0, 0x7f0b19ff
 
     return v0
 .end method
@@ -230,7 +230,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b04e6
+    const v2, 0x7f0b04e7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -248,7 +248,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b04e7
+    const v2, 0x7f0b04e8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

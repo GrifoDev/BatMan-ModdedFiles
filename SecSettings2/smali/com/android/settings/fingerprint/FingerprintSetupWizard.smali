@@ -409,7 +409,7 @@
 .method private showSensorErrorDialog()V
     .locals 5
 
-    const v1, 0x7f0b0703
+    const v1, 0x7f0b0706
 
     const-string/jumbo v2, "VZW"
 
@@ -423,14 +423,14 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f0b0704
+    const v1, 0x7f0b0707
 
     :cond_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0700
+    const v3, 0x7f0b0703
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -733,7 +733,7 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const v2, 0x7f0b06fb
+    const v2, 0x7f0b06fe
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I)Ljava/lang/String;
 
@@ -741,7 +741,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b07b3
+    const v2, 0x7f0b07b6
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -964,7 +964,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b0763
+    const v4, 0x7f0b0766
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSetupWizard;->getString(I)Ljava/lang/String;
 

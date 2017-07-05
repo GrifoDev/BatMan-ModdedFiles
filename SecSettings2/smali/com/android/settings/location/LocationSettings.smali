@@ -395,7 +395,7 @@
 
     invoke-virtual {v5, p1}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setEnabled(Z)V
 
-    const v3, 0x7f0b1b35
+    const v3, 0x7f0b1b38
 
     if-nez p1, :cond_2
 
@@ -415,7 +415,7 @@
 
     if-eqz v2, :cond_4
 
-    const v3, 0x7f0b1b35
+    const v3, 0x7f0b1b38
 
     :goto_2
     iget-object v4, p0, Lcom/android/settings/location/LocationSettings;->mManagedProfileSwitch:Lcom/android/settingslib/SecRestrictedSwitchPreference;
@@ -438,7 +438,7 @@
     goto :goto_1
 
     :cond_4
-    const v3, 0x7f0b1b34
+    const v3, 0x7f0b1b37
 
     goto :goto_2
 .end method
@@ -772,7 +772,7 @@
 
     if-eqz v19, :cond_6
 
-    const v19, 0x7f0b15de
+    const v19, 0x7f0b15e1
 
     move/from16 v0, v19
 
@@ -896,7 +896,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v19, 0x7f0b15df
+    const v19, 0x7f0b15e2
 
     move/from16 v0, v19
 
@@ -992,7 +992,7 @@
 
     invoke-virtual {v5, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    const v19, 0x7f0b15dc
+    const v19, 0x7f0b15df
 
     move/from16 v0, v19
 
@@ -1074,22 +1074,22 @@
     return v0
 
     :pswitch_0
-    const v0, 0x7f0b15da
+    const v0, 0x7f0b15dd
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f0b15d9
+    const v0, 0x7f0b15dc
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b15d8
+    const v0, 0x7f0b15db
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b15d7
+    const v0, 0x7f0b15da
 
     return v0
 
@@ -1222,7 +1222,7 @@
 .method public getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a08
+    const v0, 0x7f0b1a0b
 
     return v0
 .end method
@@ -1329,7 +1329,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b15e4
+    const v1, 0x7f0b15e7
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1365,7 +1365,7 @@
 
     if-eqz v6, :cond_0
 
-    const v7, 0x7f0b15da
+    const v7, 0x7f0b15dd
 
     if-ne v6, v7, :cond_5
 
@@ -1588,7 +1588,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b15e5
+    const v3, 0x7f0b15e8
 
     const/4 v6, 0x0
 

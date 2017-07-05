@@ -245,7 +245,7 @@
 
     if-ne v3, v13, :cond_0
 
-    const v8, 0x7f0b0b2b
+    const v8, 0x7f0b0b2e
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/notification/SoundModeSettings;->getString(I)Ljava/lang/String;
 
@@ -308,7 +308,7 @@
 
     aput-object v7, v9, v11
 
-    const v10, 0x7f0b0b37
+    const v10, 0x7f0b0b3a
 
     invoke-virtual {v8, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -506,7 +506,7 @@
 
     aput-object v3, v2, v7
 
-    const v3, 0x7f0b0b2b
+    const v3, 0x7f0b0b2e
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/notification/SoundModeSettings;->getString(I)Ljava/lang/String;
 
@@ -697,9 +697,9 @@
 .method private updateControls()V
     .locals 14
 
-    const v13, 0x7f0b0b35
+    const v13, 0x7f0b0b38
 
-    const v12, 0x7f0b0b33
+    const v12, 0x7f0b0b36
 
     const/16 v10, 0x21
 
@@ -997,7 +997,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/SoundModeSettings;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0b0b32
+    const v10, 0x7f0b0b35
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1026,7 +1026,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/SoundModeSettings;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f0b1465
+    const v10, 0x7f0b1468
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1187,7 +1187,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    const v1, 0x7f0b0b36
+    const v1, 0x7f0b0b39
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/app/SemTimePickerDialog;->setTitle(I)V
 

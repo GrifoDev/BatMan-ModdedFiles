@@ -1115,6 +1115,7 @@ Chiar dacă funcția Captură inteligentă este dezactivată, caracteristicile a
     <string name="general_device_management_title">Gestionare generală</string>
     <string name="application_settings_summary">Aplicații implicite, permisiuni, dezinstalare</string>
     <string name="notifications_settings_summary">Blocare, permitere, prioritizare</string>
+    <string name="ime_security_warning_title">Porniți tastatura selectată?</string>
     <string name="language_settings_summary">Adăugați mai multe limbi mai jos pentru ca, dacă o aplicație nu acceptă limba dvs. implicită (cea din partea de sus a listei), următoarea limbă acceptată din listă va fi utilizată în schimb. Mutați o limbă în partea de sus a listei pentru a o seta drept implicită.</string>
     <string name="language_settings_noti_desc">Limbile acceptate în țara dvs. pot diferi de cele indicate pe modelul de pe afișaj.</string>
     <string name="language_settings_set_locale_title">Setați %s ca limbă implicită?</string>
@@ -1426,6 +1427,8 @@ Atingeți OK pentru a mări luminozitatea peste nivelurile de siguranță."</str
     <string name="navigationbar_pressure_sensitivity_summary">Ajustați presiunea necesară pentru a apăsa puternic butonul Acasă.</string>
     <string name="navigationbar_pressure_low">Sensibilitate mărită</string>
     <string name="navigationbar_pressure_high">Sensibilitate redusă</string>
+    <string name="navigationbar_hide_bar">Afișare și ascundere buton</string>
+    <string name="navigationbar_hide_bar_summary">Adăugați un buton în partea stângă a barei de navigare pentru a o afișa sau a o ascunde.</string>
     <string name="full_screen_apps_title">Aplicații pe ecran complet</string>
     <string name="full_screen_apps_summary">Alegeți aplicația pe care doriți să o utilizați în raportul de aspect Ecran complet.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Această aplicație este optimizată pentru a rula pe ecran complet.</string>
@@ -4845,7 +4848,7 @@ Datele existente ale aplicațiilor nu se vor pierde."</string>
     <string name="phone_language">Limbă</string>
     <string name="show_password">Faceți parolele vizibile</string>
     <string name="show_password_summary">Afișați scurt caracterele parolelor pe măsură ce le introduceți.</string>
-    <string name="ime_security_warning">Această metodă poate colecta tot textul pe care îl introduceți, cu excepția parolelor, inclusiv datele personale și numerele cardurilor de credit. Provine de la aplicația %1$s. Utilizați totuși?</string>
+    <string name="ime_security_warning">%s poate colecta toate textele pe care le introduceți, inclusiv date personale, cum ar fi parolele și numerele cardurilor de credit.</string>
     <string name="failed_to_open_app_settings_toast">Deschiderea setărilor pentru %s nu a reușit.</string>
     <string name="keyboard_and_input_methods_category">Tastaturi</string>
     <string name="virtual_keyboard_category">Tastatură pe ecran</string>

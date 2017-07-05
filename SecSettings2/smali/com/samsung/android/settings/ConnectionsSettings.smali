@@ -1101,7 +1101,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0c06
+    const v21, 0x7f0b0c09
 
     invoke-virtual/range {v20 .. v21}, Landroid/preference/PreferenceScreen;->setTitle(I)V
 

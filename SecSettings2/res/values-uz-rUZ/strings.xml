@@ -1115,6 +1115,7 @@ Hatto Smart rasmga olish o‘chirilgan bo‘lsa ham, Havodagi buyruq orqali unin
     <string name="general_device_management_title">Umumiy boshqaruv</string>
     <string name="application_settings_summary">Birlamchi ilovalar, ruxsatlar, olib tashlash</string>
     <string name="notifications_settings_summary">Bloklash, ruxsat berish, xususiylashtirish</string>
+    <string name="ime_security_warning_title">Tanlangan klaviatura yoqilsinmi?</string>
     <string name="language_settings_summary">Quyida bir nechta til qo‘shing, agar ilova birlamchi o‘rnatilgan tilni (ro‘yxatning eng yuqorisidagi) qo‘llab-quvvatlanmasa, uning o‘rniga ro‘yxatdagi keyingi qo‘llab-quvvatlanadigan til ishlatiladi. Tilni birlamchi sifatida o‘rnatish uchun uni ro‘yxatning eng yuqorisiga ko‘chiring.</string>
     <string name="language_settings_noti_desc">Mamlakatingizda qo‘llab-quvvatlanadigan tillar modelda ko‘rsatilganidan farq qilishi mumkin.</string>
     <string name="language_settings_set_locale_title">%s birlamchi til sifatida o‘rnatilsinmi?</string>
@@ -1426,6 +1427,8 @@ Yorqinlik xavfsiz darajadan yuqori bo‘lishiga ruxsat berish uchun OK’ga tegi
     <string name="navigationbar_pressure_sensitivity_summary">Asosiy tugmani bosish uchun zarur bo‘lgan bosim miqdorini sozlang.</string>
     <string name="navigationbar_pressure_low">Ko‘proq sezgirlik</string>
     <string name="navigationbar_pressure_high">Kamroq sezgirlik</string>
+    <string name="navigationbar_hide_bar">Ko‘rsatish va yashirish tugmasi</string>
+    <string name="navigationbar_hide_bar_summary">Navigatsiya panelini ko‘rsatish yoki yashirish uchun navigatsiya panelining chap tomoniga tugma qo‘shing.</string>
     <string name="full_screen_apps_title">To‘liq ekran ilovalari</string>
     <string name="full_screen_apps_summary">To‘liq ekran nisbatida foydalanmoqchi bo‘lgan ilovalarni tanlang.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Bu ilova to‘liq ekranda ishga tushirish uchun optimallashtirilgan.</string>
@@ -4844,7 +4847,7 @@ Sizdagi mavjud ilova ma’lumotlari yo’qotilmaydi."</string>
     <string name="phone_language">Til</string>
     <string name="show_password">Parollarni ko‘rinadigan qilish</string>
     <string name="show_password_summary">Parol belgilarini kiritayotganingizda, ularni qisqa vaqt davomida ko‘rsatish.</string>
-    <string name="ime_security_warning">"Ushbu usul kiritilgan barcha matnni to‘plashi mumkin, jumladan, shaxsiy ma'lumotlar va kredit kartochka raqamlari, parollar bundan mustasno. Bu %1$s ilovasidan kelgan. Baribir ishlatilsinmi?"</string>
+    <string name="ime_security_warning">%s barcha kiritgan matningizni, jumladan, parol va kredit karta raqamlarini, to‘plash imkoniga ega bo‘lishi mumkin.</string>
     <string name="failed_to_open_app_settings_toast">%s parametrlarini ochib bo‘lmadi.</string>
     <string name="keyboard_and_input_methods_category">Klaviaturalar</string>
     <string name="virtual_keyboard_category">Ekran klaviaturasi</string>

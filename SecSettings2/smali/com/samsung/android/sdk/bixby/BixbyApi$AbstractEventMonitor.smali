@@ -28,7 +28,6 @@
 .method public onPathRuleStarted(Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;)V
     .locals 2
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -43,7 +42,6 @@
 .method public onServiceBound(Landroid/content/Intent;)V
     .locals 2
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -58,7 +56,6 @@
 .method public onServiceCreated()V
     .locals 2
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -73,7 +70,6 @@
 .method public onServiceDestroyed()V
     .locals 2
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -88,7 +84,6 @@
 .method public onServiceUnbound(Landroid/content/Intent;)V
     .locals 2
 
-    # getter for: Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->access$000()Ljava/lang/String;
 
     move-result-object v0

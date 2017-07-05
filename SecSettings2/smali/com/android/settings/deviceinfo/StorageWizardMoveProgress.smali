@@ -53,7 +53,7 @@
 .method private moveStatusToMessage(I)Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0b16ae
+    const v0, 0x7f0b16b1
 
     packed-switch p1, :pswitch_data_0
 
@@ -72,7 +72,7 @@
     return-object v0
 
     :pswitch_2
-    const v0, 0x7f0b16b3
+    const v0, 0x7f0b16b6
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->getString(I)Ljava/lang/String;
 
@@ -81,7 +81,7 @@
     return-object v0
 
     :pswitch_3
-    const v0, 0x7f0b16af
+    const v0, 0x7f0b16b2
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->getString(I)Ljava/lang/String;
 
@@ -90,7 +90,7 @@
     return-object v0
 
     :pswitch_4
-    const v0, 0x7f0b16b0
+    const v0, 0x7f0b16b3
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->getString(I)Ljava/lang/String;
 
@@ -99,7 +99,7 @@
     return-object v0
 
     :pswitch_5
-    const v0, 0x7f0b16b1
+    const v0, 0x7f0b16b4
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->getString(I)Ljava/lang/String;
 
@@ -108,7 +108,7 @@
     return-object v0
 
     :pswitch_6
-    const v0, 0x7f0b16b2
+    const v0, 0x7f0b16b5
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->getString(I)Ljava/lang/String;
 
@@ -191,7 +191,7 @@
 
     aput-object v0, v2, v6
 
-    const v3, 0x7f0b156a
+    const v3, 0x7f0b156d
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->setHeaderText(I[Ljava/lang/String;)V
 
@@ -203,7 +203,7 @@
 
     aput-object v0, v2, v5
 
-    const v3, 0x7f0b156b
+    const v3, 0x7f0b156e
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->setBodyText(I[Ljava/lang/String;)V
 

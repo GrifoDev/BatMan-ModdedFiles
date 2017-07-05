@@ -248,27 +248,27 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f0b1202
+    const v0, 0x7f0b1205
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b11ff
+    const v0, 0x7f0b1202
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1201
+    const v0, 0x7f0b1204
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1203
+    const v0, 0x7f0b1206
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1200
+    const v0, 0x7f0b1203
 
     return v0
 
@@ -428,13 +428,13 @@
 
     invoke-direct {v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b11fd
+    const v5, 0x7f0b1200
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v4
 
-    const v5, 0x7f0b11fe
+    const v5, 0x7f0b1201
 
     invoke-virtual {v4, v5, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

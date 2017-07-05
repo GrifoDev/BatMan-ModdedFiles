@@ -1115,6 +1115,7 @@ Kahit na hindi gumagana ang Smart capture, maa-access mo ang mga feature nito ga
     <string name="general_device_management_title">Pangkalahatang pamamahala</string>
     <string name="application_settings_summary">Mga default app, mga pahintulot, i-uninstall</string>
     <string name="notifications_settings_summary">I-block, payagan, unahin</string>
+    <string name="ime_security_warning_title">I-on ang napiling keyboard?</string>
     <string name="language_settings_summary">Magdagdag ng maraming wika sa ibaba para, kung hindi suportado ng app ang default na wika mo (sa itaas ng lista), gagamitin ang susunod na wika sa lista. Ilipat ang isang wika sa itaas ng lista para i-set ito bilang default.</string>
     <string name="language_settings_noti_desc">Maaaring naiiba ang mga wikang suportado sa bansa mo mula sa mga ipinapakita sa display model.</string>
     <string name="language_settings_set_locale_title">I-set ang %s bilang default na wika?</string>
@@ -1426,6 +1427,8 @@ I-tap ang OK para payagan na mataasan ang liwanag nang lagpas sa ligtas na level
     <string name="navigationbar_pressure_sensitivity_summary">I-adjust ang diin na kailangan para i-hard press ang Home button.</string>
     <string name="navigationbar_pressure_low">Mas sensitibo</string>
     <string name="navigationbar_pressure_high">Hindi masyadong sensitibo</string>
+    <string name="navigationbar_hide_bar">Ipakita at itago ang button</string>
+    <string name="navigationbar_hide_bar_summary">Magdagdag ng button sa kaliwang gilid ng navigation bar para ipakita o itago ang navigation bar.</string>
     <string name="full_screen_apps_title">Mga full screen na app</string>
     <string name="full_screen_apps_summary">Piliin kung aling mga app ang nais mong gamitin sa full screen na aspect ratio.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Naka-optimize ang app na ito para tumakbo nang naka-full screen.</string>
@@ -4844,7 +4847,7 @@ Hindi mawawala ang dati mo nang app data."</string>
     <string name="phone_language">Wika</string>
     <string name="show_password">Gawing nakikita ang mga password</string>
     <string name="show_password_summary">Ipakita nang panandalian ang mga character ng password habang tina-type mo ang mga iyon.</string>
-    <string name="ime_security_warning">Makukuha ng paraang ito ang lahat ng text na ipapasok mo, maliban sa mga password, kasama na ang personal data at mga credit card number. Mula ito sa app na %1$s. Gamitin pa rin?</string>
+    <string name="ime_security_warning">Maaaring makuha ng %s ang lahat ng text na ita-type mo, kasama na ang personal na data gaya ng mga password at credit card number.</string>
     <string name="failed_to_open_app_settings_toast">Nabigong buksan ang mga setting para sa %s.</string>
     <string name="keyboard_and_input_methods_category">Mga keyboard</string>
     <string name="virtual_keyboard_category">On-screen na keyboard</string>

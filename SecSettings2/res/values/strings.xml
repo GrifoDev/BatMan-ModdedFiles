@@ -1272,6 +1272,7 @@ Even while Smart capture is disabled, you can access its features via Air comman
     <string name="general_device_management_title">General management</string>
     <string name="application_settings_summary">Default apps, permissions, uninstall</string>
     <string name="notifications_settings_summary">Block, allow, prioritise</string>
+    <string name="ime_security_warning_title">Turn on the selected keyboard?</string>
     <string name="language_settings_summary">Add multiple languages below so that, if an app does not support your default language (at the top of the list), the next supported language in the list will be used instead. Move a language to the top of the list to set it as the default.</string>
     <string name="language_settings_noti_desc">The languages supported in your country may differ from those shown on the display model.</string>
     <string name="language_settings_set_locale_title">Set %s as default language?</string>
@@ -1629,6 +1630,8 @@ Tap OK to allow the brightness to be increased above safe levels."</string>
     <string name="navigationbar_pressure_sensitivity_summary">Adjust the amount of pressure needed to hard press the Home button.</string>
     <string name="navigationbar_pressure_low">More sensitive</string>
     <string name="navigationbar_pressure_high">Less sensitive</string>
+    <string name="navigationbar_hide_bar">Show and hide button</string>
+    <string name="navigationbar_hide_bar_summary">Add a button to the left side of the navigation bar to show or hide the navigation bar.</string>
     <string name="full_screen_apps_title">Full screen apps</string>
     <string name="full_screen_apps_summary">Choose which apps you want to use in the full screen aspect ratio.</string>
     <string name="full_screen_apps_item_summary_optimized_full">This app is optimized to run in full screen.</string>
@@ -6352,7 +6355,7 @@ Your existing app data will not be lost."</string>
     <string name="auto_punctuate_summary">Double tap the space bar twice to insert a full stop.</string>
     <string name="show_password">Make passwords visible</string>
     <string name="show_password_summary">Show password characters briefly as you type them.</string>
-    <string name="ime_security_warning">This method can collect all of the text you enter, except passwords, including personal data and credit card numbers. It comes from the app %1$s. Use anyway?</string>
+    <string name="ime_security_warning">%s may be able to collect all the text you type, including personal data such as passwords and credit card numbers.</string>
     <string name="spellchecker_security_warning">This spell checker can collect all of the text you enter, including personal data, credit card numbers, and passwords. This service has been installed as part of the %s app. Tap OK to use this spell checker.</string>
     <string name="spellchecker_quick_settings">Settings</string>
     <string name="spellchecker_language">Language</string>
@@ -7904,9 +7907,9 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_name">Rom Name</string>
     <string name="rom_name_details">BatMan-Rom</string>
     <string name="rom_ver">Rom Version</string>
-    <string name="rom_ver_details">V1.0.0</string>
+    <string name="rom_ver_details">V1.1.0</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">06.06.17</string>
+    <string name="rom_date_details">06.07.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="autostarts_title">Autostarts</string>

@@ -1115,6 +1115,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="general_device_management_title">一般管理</string>
     <string name="application_settings_summary">標準アプリ、権限、アンインストール</string>
     <string name="notifications_settings_summary">ブロック、許可、重要な通知</string>
+    <string name="ime_security_warning_title">選択したキーボードをONにしますか？</string>
     <string name="language_settings_summary">アプリが標準言語(リストの一番上の言語)に対応していない場合は、リスト内から対応している言語が代わりに使用されるように、複数の言語を追加してください。標準言語として設定する言語をリストの一番上に移動してください。</string>
     <string name="language_settings_noti_desc">お住まいの国で対応している言語は、店頭見本に表示されている言語と異なる場合があります。</string>
     <string name="language_settings_set_locale_title">%sを標準の言語に設定しますか？</string>
@@ -1426,6 +1427,8 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
     <string name="navigationbar_pressure_sensitivity_summary">ホームボタンの押し込みに必要な圧力を調整します。</string>
     <string name="navigationbar_pressure_low">高感度</string>
     <string name="navigationbar_pressure_high">低感度</string>
+    <string name="navigationbar_hide_bar">表示/非表示ボタン</string>
+    <string name="navigationbar_hide_bar_summary">ナビゲーションバーの左側にナビゲーションバーの表示/非表示を切り替えるボタンを追加します。</string>
     <string name="full_screen_apps_title">全画面アプリ</string>
     <string name="full_screen_apps_summary">全画面の縦横比で使用するアプリを選択してください。</string>
     <string name="full_screen_apps_item_summary_optimized_full">このアプリは、全画面表示で実行するように最適化されています。</string>
@@ -4839,7 +4842,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="phone_language">言語</string>
     <string name="show_password">パスワードを表示</string>
     <string name="show_password_summary">パスワード入力時に、一時的に入力した文字を表示します。</string>
-    <string name="ime_security_warning">アプリ%1$sは、入力した全てのテキスト（パスワード以外の個人データ、クレジットカード番号）を収集する可能性があります。また、ユーザーインターフェイスの操作を記録する可能性もあります。使用しますか？</string>
+    <string name="ime_security_warning">%sは、パスワードやクレジットカード番号などの個人情報を含む全ての入力内容を収集できる可能性があります。</string>
     <string name="failed_to_open_app_settings_toast">%sの設定を開くのに失敗</string>
     <string name="keyboard_and_input_methods_category">キーボード</string>
     <string name="virtual_keyboard_category">オンスクリーンキーボード</string>

@@ -213,7 +213,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0883
+    const v2, 0x7f0b0886
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -396,7 +396,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0881
+    const v3, 0x7f0b0884
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -558,7 +558,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/iris/IrisConfirmBackupPassword;->mAltPasswordError:Landroid/widget/TextView;
 
-    const v0, 0x7f0b0882
+    const v0, 0x7f0b0885
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/iris/IrisConfirmBackupPassword;->setTitle(I)V
 
@@ -582,7 +582,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b13f0
+    const v1, 0x7f0b13f3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -743,7 +743,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0883
+    const v3, 0x7f0b0886
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

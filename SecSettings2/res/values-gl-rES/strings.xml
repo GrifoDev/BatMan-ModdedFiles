@@ -1115,6 +1115,7 @@ Incluído con Captura completa desactivado, podes acceder ás súas funcións me
     <string name="general_device_management_title">Xestión xeral</string>
     <string name="application_settings_summary">Aplicacións predeterminadas, permisos, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, dar prioridade</string>
+    <string name="ime_security_warning_title">Queres activar o teclado seleccionado?</string>
     <string name="language_settings_summary">Engade varios idiomas a continuación para que, en caso de que unha aplicación non admita o teu idioma predeterminado (situado na parte superior da lista), se utilice o seguinte idioma admitido da lista no seu lugar. Move un idioma á parte superior da lista para definilo como predeterminado.</string>
     <string name="language_settings_noti_desc">É posible que os idiomas admitidos no teu país varíen dos amosados no modelo de mostra.</string>
     <string name="language_settings_set_locale_title">Queres definir %s como o idioma predeterminado?</string>
@@ -1426,6 +1427,8 @@ Toca ACEPTAR para permitir o aumento do brillo por enriba dos niveis seguros."</
     <string name="navigationbar_pressure_sensitivity_summary">Axusta a cantidade de presión necesaria para premer con forza o botón Inicio.</string>
     <string name="navigationbar_pressure_low">Máis sensible</string>
     <string name="navigationbar_pressure_high">Menos sensible</string>
+    <string name="navigationbar_hide_bar">Mostrar e ocultar o botón</string>
+    <string name="navigationbar_hide_bar_summary">Engade un botón á esquerda da barra de navegación para amosar ou ocultar a barra de navegación.</string>
     <string name="full_screen_apps_title">Aplicacións en pantalla completa</string>
     <string name="full_screen_apps_summary">Escolle que aplicacións queres utilizar en relación de aspecto de pantalla completa.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Esta aplicación está optimizada para executarse en pantalla completa.</string>
@@ -4845,7 +4848,7 @@ Non perderás ningún dato existente das aplicacións."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Facer visibles os contrasinais</string>
     <string name="show_password_summary">Amosar carácteres do contrasinal brevemente mentres os escribes.</string>
-    <string name="ime_security_warning">Este método pode recompilar todo o texto que insiras, excepto os contrasinais, incluídos os datos persoais e os números de tarxeta de crédito. Provén da aplicación %1$s. Desexas usalo igualmente?</string>
+    <string name="ime_security_warning">É posible que %s recompile todo o texto que escribas, incluídos datos persoais como contrasinais e números de tarxetas de crédito.</string>
     <string name="failed_to_open_app_settings_toast">Non se puideron abrir os axustes para %s</string>
     <string name="keyboard_and_input_methods_category">Teclados</string>
     <string name="virtual_keyboard_category">Teclado en pantalla</string>

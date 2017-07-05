@@ -283,7 +283,7 @@
 
     invoke-virtual {v5, v6}, Lcom/android/settingslib/RestrictedPreference;->setEnabled(Z)V
 
-    const v6, 0x7f0b1320
+    const v6, 0x7f0b1323
 
     invoke-virtual {v5, v6}, Lcom/android/settingslib/RestrictedPreference;->setSummary(I)V
 
@@ -497,7 +497,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b164e
+    const v25, 0x7f0b1651
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -765,7 +765,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0b1b34
+    const v26, 0x7f0b1b37
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -920,7 +920,7 @@
 
     if-eqz v24, :cond_f
 
-    const v18, 0x7f0b186f
+    const v18, 0x7f0b1872
 
     :goto_3
     move/from16 v0, v18
@@ -1234,7 +1234,7 @@
     goto/16 :goto_2
 
     :cond_f
-    const v18, 0x7f0b1870
+    const v18, 0x7f0b1873
 
     goto/16 :goto_3
 
@@ -1321,7 +1321,7 @@
 
     invoke-virtual {v12, v0}, Landroid/support/v7/preference/Preference;->setEnabled(Z)V
 
-    const v24, 0x7f0b1320
+    const v24, 0x7f0b1323
 
     move/from16 v0, v24
 
@@ -1772,7 +1772,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b12d2
+    const v3, 0x7f0b12d5
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1811,7 +1811,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b12d3
+    const v3, 0x7f0b12d6
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1989,7 +1989,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b12cc
+    const v3, 0x7f0b12cf
 
     const/16 v4, 0x7b
 
@@ -2019,7 +2019,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b12cd
+    const v3, 0x7f0b12d0
 
     const/16 v4, 0x7f
 
@@ -2080,7 +2080,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1591
+    const v2, 0x7f0b1594
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2100,7 +2100,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1658
+    const v2, 0x7f0b165b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2136,7 +2136,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a09
+    const v0, 0x7f0b1a0c
 
     return v0
 .end method
@@ -2542,7 +2542,7 @@
 
     move-result-object v7
 
-    const v9, 0x7f0b12d2
+    const v9, 0x7f0b12d5
 
     invoke-virtual {v7, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2664,7 +2664,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b12cc
+    const v3, 0x7f0b12cf
 
     const/16 v4, 0x7b
 
@@ -2720,7 +2720,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b12cd
+    const v3, 0x7f0b12d0
 
     const/16 v4, 0x7f
 

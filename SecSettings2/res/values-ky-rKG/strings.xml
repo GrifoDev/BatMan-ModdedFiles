@@ -1115,6 +1115,7 @@ Wi-Fi менен Bluetooth дагы өчүрүлөт, бирок аларды О
     <string name="general_device_management_title">Жалпы башкаруулар</string>
     <string name="application_settings_summary">Баштапкы колдонмолор, уруксаттар, өчүрүү</string>
     <string name="notifications_settings_summary">Камоо, уруксат берүү, маанилүүлүгү боюнча иреттөө</string>
+    <string name="ime_security_warning_title">Тандалган клавиатураны күйгүзүүбү?</string>
     <string name="language_settings_summary">Эгерде колдонмо баштапкы тилиңизди (тизменин жогору жагындагы) колдоого албаса, ордуна тизмедеги кийинки колдоого алынган тил колдонула тургандай кылып, төмөндөн бир нече тил кошуңуз. Тилди баштапкы катары орнотуу үчүн, аны тизменин башына жылдырыңыз.</string>
     <string name="language_settings_noti_desc">Өлкөңүздө колдоого алынган тилдер дисплей моделиндегиден айырмаланышы мүмкун.</string>
     <string name="language_settings_set_locale_title">%s баштапкы тил катары коюулсунбу?</string>
@@ -1426,6 +1427,8 @@ Samsung Жекелик сактоо Саясатынын негизги тулк
     <string name="navigationbar_pressure_sensitivity_summary">Башкы баскычты катуу басууга керек болгон басымдын көлөмүн жөндөңүз.</string>
     <string name="navigationbar_pressure_low">Сезгичирээк</string>
     <string name="navigationbar_pressure_high">Сезгичтиги азыраак</string>
+    <string name="navigationbar_hide_bar">Баскычты көрсөтүү жана жашыруу</string>
+    <string name="navigationbar_hide_bar_summary">Навигация тилкесин көрсөтүү же жашыруу үчүн баскычты навигация тилкесинин сол тарабына кошуңуз.</string>
     <string name="full_screen_apps_title">Толук экран колдонмолору</string>
     <string name="full_screen_apps_summary">Экран капталдарынын ара катышындагы кайсы колдонмо тез чакырмаларын колдонгуңуз келгенин тандаңыз.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Бул колдонмо толук экранда иштөо үчүн ыңгайлаштырылган.</string>
@@ -4844,7 +4847,7 @@ Receiving SMS"</string>
     <string name="phone_language">Тил</string>
     <string name="show_password">Сырсөздөрдү көрүнөө кылуу</string>
     <string name="show_password_summary">Сырсөз белгилерин, аларды жазып жатканда, кыска убакытка көрсөтүү.</string>
-    <string name="ime_security_warning">Бул ыкма сиз киргизген ар кандай текстти, сырсөздөрдөн бөлөк, жекелик айтымдар жана насыя карта номерлери да бар, чогулта алат. Ал %1$s сунуучусунан келет. Баары бир колдонуубу?</string>
+    <string name="ime_security_warning">%s сырсөз жана насыя карталарынын номерлери сыяктуу жеке маалыматтарды камтыган, сиз терген бардык тексттерди топтой алышы мүмкүн.</string>
     <string name="failed_to_open_app_settings_toast">%s үчүн орнотууларды ачуу ишке ашкан жок</string>
     <string name="keyboard_and_input_methods_category">Клавиатуралар</string>
     <string name="virtual_keyboard_category">Экрандагы клавиатура</string>

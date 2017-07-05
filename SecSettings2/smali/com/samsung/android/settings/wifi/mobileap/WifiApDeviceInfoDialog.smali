@@ -148,13 +148,13 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 14
 
-    const v9, 0x7f0b0ee0
+    const v9, 0x7f0b0ee3
 
     const-wide/16 v12, 0x3e8
 
     const v11, 0x7f11087f
 
-    const v8, 0x7f0b0ee1
+    const v8, 0x7f0b0ee4
 
     const/4 v10, 0x5
 
@@ -479,7 +479,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1695
+    const v6, 0x7f0b1698    # 1.8488E38f
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

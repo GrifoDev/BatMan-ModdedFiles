@@ -224,7 +224,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14a8
+    const v3, 0x7f0b14ab    # 1.8487E38f
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -236,7 +236,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14a7
+    const v3, 0x7f0b14aa
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -248,7 +248,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14a6
+    const v3, 0x7f0b14a9
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -283,7 +283,7 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b14ab    # 1.8487E38f
+    const v3, 0x7f0b14ae
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -358,7 +358,7 @@
 
     if-nez v1, :cond_0
 
-    const v2, 0x7f0b14a9
+    const v2, 0x7f0b14ac
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -515,7 +515,7 @@
 .method public getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a06
+    const v0, 0x7f0b1a09
 
     return v0
 .end method
@@ -617,7 +617,7 @@
 
     invoke-virtual {v0, v3, v5, v4, v2}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    const v8, 0x7f0b0c21
+    const v8, 0x7f0b0c24
 
     invoke-virtual {v0, v8}, Landroid/widget/TextView;->setText(I)V
 
@@ -812,7 +812,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/DreamSettings$2;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    const v2, 0x7f0b14ac
+    const v2, 0x7f0b14af
 
     move-object v0, p0
 
@@ -854,7 +854,7 @@
 
     invoke-direct {v10, p0}, Lcom/android/settings/DreamSettings$3;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    const v7, 0x7f0b14ab    # 1.8487E38f
+    const v7, 0x7f0b14ae
 
     const/4 v8, 0x0
 

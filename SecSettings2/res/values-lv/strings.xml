@@ -1115,6 +1115,7 @@ Pat tad, ja Viedā tveršana ir deaktivizēta, jūs varat piekļūt tās funkcij
     <string name="general_device_management_title">Vispārīga pārvaldība</string>
     <string name="application_settings_summary">Noklusējuma programmas, atļaujas, atinstalēšana</string>
     <string name="notifications_settings_summary">Bloķējiet, atļaujiet, piešķiriet prioritāti</string>
+    <string name="ime_security_warning_title">Vai ieslēgt izvēlēto tastatūru?</string>
     <string name="language_settings_summary">Tālāk pievienojiet vairākas valodas, lai tad, ja programma neatbalsta jūsu noklusējuma valodu (saraksta sākumā), tās vietā tiktu izmantota nākamā saraksta valoda. Pārvietojiet valodu uz saraksta sākumu, lai iestatītu to kā noklusējuma valodu.</string>
     <string name="language_settings_noti_desc">Jūsu valstī atbalstītās valodas var atšķirties no tām, kas tiek rādītas displeja modelī.</string>
     <string name="language_settings_set_locale_title">Vai iestatīt %s kā noklusējuma valodu?</string>
@@ -1426,6 +1427,8 @@ Pieskarieties pie Labi, lai atļautu palielināt spilgtumu virs drošā līmeņa
     <string name="navigationbar_pressure_sensitivity_summary">Pielāgojiet to, cik stipri ir jānospiež sākuma poga.</string>
     <string name="navigationbar_pressure_low">Vairāk jutīgs</string>
     <string name="navigationbar_pressure_high">Mazāk jutīgs</string>
+    <string name="navigationbar_hide_bar">Rādīšanas un slēpšanas poga</string>
+    <string name="navigationbar_hide_bar_summary">Pievienojiet pogu navigācijas joslas kreisajā pusē, lai rādītu vai slēptu navigācijas joslu.</string>
     <string name="full_screen_apps_title">Pilnekrāna programmas</string>
     <string name="full_screen_apps_summary">Izvēlieties, kuras programmas izmantot pilnekrāna proporcijā.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Šī programma ir optimizēta darbībai pilnekrāna režīmā.</string>
@@ -4847,7 +4850,7 @@ Jūsu esošie programmu dati netiks zaudēti."</string>
     <string name="phone_language">Valoda</string>
     <string name="show_password">Padarīt paroles redzamas</string>
     <string name="show_password_summary">Īslaicīgi rādīt paroles rakstzīmes rakstīšanas laikā.</string>
-    <string name="ime_security_warning">Šī metode var apkopot visu jūsu ievadīto tekstu, izņemot paroles, ieskaitot personīgos datus un kredītkaršu numurus. Tā pieder programmai %1$s. Vai tomēr izmantot?</string>
+    <string name="ime_security_warning">%s var apkopot visu jūsu ievadīto tekstu, tostarp personas datus, piemēram, paroles un kredītkaršu numurus.</string>
     <string name="failed_to_open_app_settings_toast">Neizdevās atvērt %s iestatījumus.</string>
     <string name="keyboard_and_input_methods_category">Tastatūras</string>
     <string name="virtual_keyboard_category">Ekrāna tastatūra</string>

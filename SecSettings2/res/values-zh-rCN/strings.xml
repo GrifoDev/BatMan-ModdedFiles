@@ -1114,6 +1114,7 @@
     <string name="general_device_management_title">常规管理</string>
     <string name="application_settings_summary">默认应用程序，权限，卸载</string>
     <string name="notifications_settings_summary">阻止，允许，优先</string>
+    <string name="ime_security_warning_title">是否启用已选择的键盘？</string>
     <string name="language_settings_summary">请在下面添加多个语言，以便在应用程序不支持您的默认语言 (在列表顶部显示) 时，改为使用列表中下一个受支持的语言。将一种语言移至列表顶部可将其设为默认语言。</string>
     <string name="language_settings_noti_desc">您的国家/地区所支持的语言可能与展示机型上显示的有所不同。</string>
     <string name="language_settings_set_locale_title">是否将%s设为默认语言？</string>
@@ -1425,6 +1426,8 @@
     <string name="navigationbar_pressure_sensitivity_summary">调整用力按主屏幕按钮时所需的压力值</string>
     <string name="navigationbar_pressure_low">敏感度高</string>
     <string name="navigationbar_pressure_high">敏感度低</string>
+    <string name="navigationbar_hide_bar">显示和隐藏按钮</string>
+    <string name="navigationbar_hide_bar_summary">在导航栏左侧添加按钮，用于显示或隐藏导航栏。</string>
     <string name="full_screen_apps_title">全屏应用程序</string>
     <string name="full_screen_apps_summary">请选择要在全屏宽高比中使用的应用程序。</string>
     <string name="full_screen_apps_item_summary_optimized_full">此应用程序已针对全屏运行进行优化</string>
@@ -4839,7 +4842,7 @@
     <string name="phone_language">语言</string>
     <string name="show_password">密码可见</string>
     <string name="show_password_summary">在您输入时短暂显示密码字符</string>
-    <string name="ime_security_warning">该方法可收集您输入的所有文本，除密码以外，包括个人数据和信用卡编号。其来自应用程序 %1$s。是否使用？</string>
+    <string name="ime_security_warning">%s可能会收集您输入的全部文本，包括密码和信用卡号等个人数据。</string>
     <string name="failed_to_open_app_settings_toast">打开 %s 的设置失败。</string>
     <string name="keyboard_and_input_methods_category">键盘</string>
     <string name="virtual_keyboard_category">屏幕键盘</string>

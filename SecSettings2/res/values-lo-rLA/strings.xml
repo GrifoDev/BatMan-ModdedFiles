@@ -1114,6 +1114,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">ການຈັດການທົ່ວໄປ</string>
     <string name="application_settings_summary">ແອັບມາດຕະຖານ, ການອະນຸຍາດ, ຖອນຕິດຕັ້ງ</string>
     <string name="notifications_settings_summary">ບລັອກ, ອະນຸຍາດ, ຈັດລໍາດັບຄວາມສໍາຄັນ</string>
+    <string name="ime_security_warning_title">ເປີດຄີບອດທີ່ເລືອກໄວ້ບໍ?</string>
     <string name="language_settings_summary">ເພີ່ມຫຼາຍໆພາສາລຸ່ມນີ້ເຂົ້າເພື່ອວ່າ, ຖ້າແອັບບໍ່ຮອງຮັບພາສາມາດຕະຖານຂອງທ່ານ (ຢູ່ດ້ານເທິງສຸດຂອງລາຍການ), ພາສາທີ່ຮອງຮັບຖັດໄປຢູ່ໃນລາຍການຈະຖືກໃຊ້ແທນ. ຍ້າຍພາສາໃສ່ດ້ານເທິງສຸດຂອງລາຍການເພື່ອຕັ້ງມັນເປັນມາດຕະຖານ.</string>
     <string name="language_settings_noti_desc">ພາສາທີ່ຮອງຮັບໃນປະເທດຂອງທ່ານອາດຈະແຕກຕ່າງຈາກບັນດາພາສາທີ່ສະແດງໃນຮູບແບບສະແດງ.</string>
     <string name="language_settings_set_locale_title">ຕັ້ງ %s ເປັນພາສາມາດຕະຖານບໍ?</string>
@@ -1425,6 +1426,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">ປັບປ່ຽນປະລິມານຂອງຄວາມດັນຈຳເປັນຕ້ອງໄດ້ກົດທີ່ປຸ່ມໂຮມແຮງໆ.</string>
     <string name="navigationbar_pressure_low">ມີຄວາມອ່ອນໄຫວຫຼາຍຂຶ້ນ</string>
     <string name="navigationbar_pressure_high">ມີຄວາມອ່ອນໄຫວນ້ອຍກວ່າ</string>
+    <string name="navigationbar_hide_bar">ສະແດງແລະເຊື່ອງປຸ່ມ</string>
+    <string name="navigationbar_hide_bar_summary">ເພີ່ມປຸ່ມໃສ່ຂ້າງເບື້ອງຊາຍຂອງແຖບການກຳນົດທິດທາງ ເພື່ອສະແດງ ຫຼື ເຊື່ອງແຖບການກຳນົດທິດທາງ.</string>
     <string name="full_screen_apps_title">ແອັບໜ້າຈໍເຕັມ</string>
     <string name="full_screen_apps_summary">ເລືອກແອັບທີ່ທ່ານຕ້ອງການໃຊ້ໃນອັດຕາສ່ວນແບບເຕັມໜ້າຈໍ.</string>
     <string name="full_screen_apps_item_summary_optimized_full">ແອັບ​ນີ້​ຖືກ​ເພີ່ມ​ປະ​ສິດ​ທິ​ພາບ​ເພື່ອ​ແລ່ນ​ໃນ​ໜ້າ​ຈໍ​ເຕັມ.</string>
@@ -4842,7 +4845,7 @@ Receiving SMS"</string>
     <string name="phone_language">ພາສາ</string>
     <string name="show_password">ເຮັດໃຫ້ເຫັນລະຫັດໄດ້</string>
     <string name="show_password_summary">ສະແດງຕົວອັກສອນລະຫັດໄວໆເວລາທ່ານພິມມັນ.</string>
-    <string name="ime_security_warning">ວິທີນີ້ສາມາດເກັບກໍາທຸກຂໍ້ຄວາມທີ່ທ່ານໃສ່ເຂົ້າໄປ, ຍົກເວັ້ນລະຫັດ, ລວມທັງຂໍ້ມູນສ່ວນຕົວ ແລະໝາຍເລກບັດເຄຣດິດ. ມັນມາຈາກ %1$s ແອບ. ແນວໃດກໍ່ໃຊ້ບໍ?</string>
+    <string name="ime_security_warning">%s ອາດຈະສາມາດສະສົມຂໍ້ຄວາມທັງໝົດທີ່ທ່ານພິມ ລວມທັງຂໍ້ມູນສ່ວນຕົວ ເຊັ່ນ ລະຫັດຜ່ານແລະໝາຍເລກບັດເຄຣດິດ.</string>
     <string name="failed_to_open_app_settings_toast">ເປີດການຕັ້ງຄ່າສໍາລັບ %s ບໍ່ສໍາເລັດ.</string>
     <string name="keyboard_and_input_methods_category">ຄີບອດ</string>
     <string name="virtual_keyboard_category">ຄີບອດຢູ່ເທິງໜ້າຈໍ</string>

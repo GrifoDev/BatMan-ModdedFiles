@@ -124,7 +124,7 @@
 
     invoke-direct {v0, v8, v9}, Lcom/samsung/android/settings/UnclickablePreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const v8, 0x7f0b0b1e
+    const v8, 0x7f0b0b21
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 

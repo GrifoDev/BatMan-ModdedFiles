@@ -387,7 +387,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b04bf
+    const v3, 0x7f0b04c0
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -407,7 +407,7 @@
 
     invoke-direct {v2, p0, p1}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter$2;-><init>(Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
 
-    const v3, 0x7f0b04c1
+    const v3, 0x7f0b04c2
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -417,7 +417,7 @@
 
     invoke-direct {v2, p0, p1}, Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter$3;-><init>(Lcom/samsung/android/settings/localepicker/LocaleDragAndDropAdapter;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
 
-    const v3, 0x7f0b04c0
+    const v3, 0x7f0b04c1
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

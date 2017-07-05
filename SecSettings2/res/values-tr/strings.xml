@@ -1115,6 +1115,7 @@ Akıllı yakalama devre dışıyken bile Temassız komut yoluyla özelliklerine 
     <string name="general_device_management_title">Genel yönetim</string>
     <string name="application_settings_summary">Varsayılan uygulamalar, izinler, kaldır</string>
     <string name="notifications_settings_summary">Engelle, izin ver, önceliklendir</string>
+    <string name="ime_security_warning_title">Seçilen klavye açılsın mı?</string>
     <string name="language_settings_summary">Bir uygulama varsayılan dilinizi (listenin en üstündeki) desteklemiyorsa bunun yerine listedeki bir sonraki desteklenen dilin kullanılması için aşağıda birkaç dil ekleyin. Varsayılan olarak ayarlamak için bir dili listenin en üstüne taşıyın.</string>
     <string name="language_settings_noti_desc">Ülkenizde desteklenen diller, ekran modelinde gösterilenlerden farklı olabilir.</string>
     <string name="language_settings_set_locale_title">%s varsayılan dil olarak ayarlansın mı?</string>
@@ -1426,6 +1427,8 @@ Parlaklığın güvenli seviyelerin üzerine çıkmasına izin vermek için Tama
     <string name="navigationbar_pressure_sensitivity_summary">Ana sayfa tuşuna sert basmak için gereken baskı miktarını ayarlayın.</string>
     <string name="navigationbar_pressure_low">Daha hassas</string>
     <string name="navigationbar_pressure_high">Daha az hassas</string>
+    <string name="navigationbar_hide_bar">Görüntüle ve gizle tuşu</string>
+    <string name="navigationbar_hide_bar_summary">Navigasyon çubuğunu görüntülemek veya gizlemek için navigasyon çubuğunun sol kısmına bir tuş ekler.</string>
     <string name="full_screen_apps_title">Tam ekran uygulamalar</string>
     <string name="full_screen_apps_summary">Tam ekran en-boy oranında kullanmak istediğiniz uygulamaları seçin.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Bu uygulama, tam ekranda çalışacak şekilde optimize edildi.</string>
@@ -4845,7 +4848,7 @@ Mevcut uygulama verileriniz kaybolmaz."</string>
     <string name="phone_language">Dil</string>
     <string name="show_password">Şifreyi görünür yap</string>
     <string name="show_password_summary">Şifre karakterlerini siz yazarken kısa süreyle gösterir.</string>
-    <string name="ime_security_warning">Bu yöntem, şifreler hariç, kişisel veriler ve kredi kartı numaraları dahil girdiğiniz metinleri toplayabilir. %1$s uygulamasından gelir. Yine de kullanılsın mı?</string>
+    <string name="ime_security_warning">%s, şifreler ve kredi kartı numaraları gibi kişisel veriler dahil olmak üzere yazdığınız tüm metinleri toplayabilir.</string>
     <string name="failed_to_open_app_settings_toast">%s için ayarları açma başarısız.</string>
     <string name="keyboard_and_input_methods_category">Klavyeler</string>
     <string name="virtual_keyboard_category">Ekran klavyesi</string>

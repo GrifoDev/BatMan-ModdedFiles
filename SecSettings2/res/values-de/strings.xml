@@ -1116,6 +1116,7 @@ Auch wenn Smart-Aufnahme deaktiviert ist, können Sie auf diese Funktionen über
     <string name="general_device_management_title">Allgemeine Verwaltung</string>
     <string name="application_settings_summary">Standard-Apps, Berechtigungen, deinstallieren</string>
     <string name="notifications_settings_summary">Sperren, zulassen, priorisieren</string>
+    <string name="ime_security_warning_title">Die ausgewählte Tastatur einschalten?</string>
     <string name="language_settings_summary">Fügen Sie unten mehrere Sprachen hinzu. So wird von einer App, die Ihre Standardsprache (die erste in der Liste) nicht unterstützt, stattdessen die nächste unterstützte Sprache in der Liste verwendet. Verschieben Sie eine Sprache an den Anfang der Liste, um sie als Standard festzulegen.</string>
     <string name="language_settings_noti_desc">Die in Ihrem Land unterstützten Sprachen können sich von den auf dem Anzeigemodell angezeigten Sprachen unterscheiden.</string>
     <string name="language_settings_set_locale_title">%s als Standardsprache festlegen?</string>
@@ -1427,6 +1428,8 @@ Tippen Sie auf „OK“, um zuzulassen, dass die Helligkeit über die sicheren S
     <string name="navigationbar_pressure_sensitivity_summary">Die Druckempfindlichkeit der Home-Taste anpassen.</string>
     <string name="navigationbar_pressure_low">Empfindlicher</string>
     <string name="navigationbar_pressure_high">Weniger empfindlich</string>
+    <string name="navigationbar_hide_bar">„Anzeigen/ausblenden“-Schaltfläche</string>
+    <string name="navigationbar_hide_bar_summary">Links auf der Navigationsleiste eine Schaltfläche zum Anzeigen und Ausblenden der Navigationsleiste hinzufügen.</string>
     <string name="full_screen_apps_title">Vollbild-Apps</string>
     <string name="full_screen_apps_summary">Wählen Sie aus, welche Apps Sie im Vollbildformat verwenden möchten.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Diese App ist für die Vollbild-Ausführung optimiert.</string>
@@ -4844,7 +4847,7 @@ Sie verlieren keine vorhandenen Apps."</string>
     <string name="phone_language">Sprache</string>
     <string name="show_password">Passwörter sichtbar machen</string>
     <string name="show_password_summary">Zeichen des Passworts beim Eingeben kurz anzeigen.</string>
-    <string name="ime_security_warning">Diese Methode kann alle von Ihnen eingegebenen Texte einschließlich Kennwörter, Kreditkartennummern und andere persönliche Daten sammeln. Sie wird von der App %1$s verwendet. Trotzdem verwenden?</string>
+    <string name="ime_security_warning">%s kann alle von Ihnen eingegebenen Texte, einschließlich persönlicher Daten wie Passwörter und Kreditkartennummern, sammeln.</string>
     <string name="failed_to_open_app_settings_toast">Einstellungen für %s konnten nicht geöffnet werden.</string>
     <string name="keyboard_and_input_methods_category">Tastaturen</string>
     <string name="virtual_keyboard_category">Bildschirmtastatur</string>

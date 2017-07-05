@@ -604,7 +604,7 @@
 
     iput-object v3, v1, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v3, 0x7f0b1176
+    const v3, 0x7f0b1179
 
     invoke-virtual {p0, v3}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->getString(I)Ljava/lang/String;
 
@@ -633,7 +633,7 @@
 
     aput-object v2, v3, v6
 
-    const v4, 0x7f0b11e3
+    const v4, 0x7f0b11e6
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -646,7 +646,7 @@
 
     aput-object v2, v3, v6
 
-    const v4, 0x7f0b11e5
+    const v4, 0x7f0b11e8
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -659,7 +659,7 @@
 
     aput-object v2, v3, v6
 
-    const v4, 0x7f0b11e9
+    const v4, 0x7f0b11ec
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -891,7 +891,7 @@
 
     if-ne v6, v9, :cond_2
 
-    const v6, 0x7f0b11e1
+    const v6, 0x7f0b11e4
 
     invoke-virtual {p0, v6}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->getString(I)Ljava/lang/String;
 
@@ -949,7 +949,7 @@
 
     if-ne v6, v10, :cond_3
 
-    const v6, 0x7f0b11e4
+    const v6, 0x7f0b11e7
 
     invoke-virtual {p0, v6}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->getString(I)Ljava/lang/String;
 
@@ -966,7 +966,7 @@
 
     if-ne v6, v11, :cond_4
 
-    const v6, 0x7f0b11e8
+    const v6, 0x7f0b11eb
 
     invoke-virtual {p0, v6}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->getString(I)Ljava/lang/String;
 
@@ -985,7 +985,7 @@
 
     if-ne v6, v7, :cond_5
 
-    const v6, 0x7f0b11ea
+    const v6, 0x7f0b11ed
 
     invoke-virtual {p0, v6}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->getString(I)Ljava/lang/String;
 

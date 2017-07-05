@@ -51,21 +51,18 @@
 
     iget-object v2, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;->previousPercent:F
     invoke-static {v2}, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;->access$100(Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;)F
 
     move-result v2
 
     iget-object v3, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;->targetPercent:F
     invoke-static {v3}, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;->access$200(Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;)F
 
     move-result v3
 
     iget-object v4, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;->previousPercent:F
     invoke-static {v4}, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;->access$100(Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;)F
 
     move-result v4
@@ -76,7 +73,6 @@
 
     add-float/2addr v2, v3
 
-    # setter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;->currentPercent:F
     invoke-static {v1, v2}, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;->access$002(Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;F)F
 
     iget-object v1, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle_old;

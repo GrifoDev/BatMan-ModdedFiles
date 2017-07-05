@@ -770,7 +770,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b117a
+    const v7, 0x7f0b117d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -901,7 +901,7 @@
 
     move-result-object v6
 
-    const v7, 0x10407a4
+    const v7, 0x10407ad
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -965,7 +965,7 @@
 
     move-result-object v6
 
-    const v7, 0x10407a5
+    const v7, 0x10407ae
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -990,7 +990,7 @@
 
     move-result-object v6
 
-    const v7, 0x10407a6
+    const v7, 0x10407af
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1015,7 +1015,7 @@
 
     move-result-object v6
 
-    const v7, 0x10407a7
+    const v7, 0x10407b0
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1049,7 +1049,7 @@
 
     move-result-object v6
 
-    const v7, 0x10407a9
+    const v7, 0x10407b2
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1074,7 +1074,7 @@
 
     move-result-object v6
 
-    const v7, 0x10407aa
+    const v7, 0x10407b3
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1099,7 +1099,7 @@
 
     move-result-object v6
 
-    const v7, 0x10407b4
+    const v7, 0x10407bd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1387,7 +1387,7 @@
 
     const/4 v8, 0x1
 
-    const v7, 0x7f0b117a
+    const v7, 0x7f0b117d
 
     const/4 v6, 0x0
 
@@ -1605,7 +1605,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/nfc/PaymentDropDownPreference;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0a97
+    const v6, 0x7f0b0a9a
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

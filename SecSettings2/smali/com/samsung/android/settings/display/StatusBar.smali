@@ -232,7 +232,7 @@
 
     aput-object v6, v5, v4
 
-    const v6, 0x7f0b05dc
+    const v6, 0x7f0b05dd
 
     invoke-virtual {p0, v6, v5}, Lcom/samsung/android/settings/display/StatusBar;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -1115,6 +1115,7 @@ Wi-Fi و بلوتوث هم خاموش می‌شوند، اما می‌توانی
     <string name="general_device_management_title">مدیریت عمومی</string>
     <string name="application_settings_summary">برنامه‌های پیش‌فرض، مجوزها، حذف</string>
     <string name="notifications_settings_summary">انسداد، اجازه، اولویت‌بندی</string>
+    <string name="ime_security_warning_title">صفحه کلید انتخابی روشن شود؟</string>
     <string name="language_settings_summary">چند زبان را در اینجا اضافه کنید تا اگر یکی از برنامه‌ها از زبان پیش‌فرض شما (در بالای لیست) پشتیبانی نکرد، زبان پشتیبانی‌شده بعدی در لیست به جای آن استفاده شود. یک زبان را به بالای لیست انتقال دهید تا بعنوان پیش‌فرض تنظیم شود.</string>
     <string name="language_settings_noti_desc">زبان‌هایی که در کشور شما پشتیبانی می‌شوند ممکن است با زبان‌هایی که در مدل نمایشگر نشان داده می‌شوند فرق داشته باشند.</string>
     <string name="language_settings_set_locale_title">%s به عنوان زبان پیش‌فرض تنظیم شود؟</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">مقدار فشار مورد نیاز برای فشار فیزیکی دکمه صفحه اصلی را تنظیم کنید.</string>
     <string name="navigationbar_pressure_low">حساسیت بیشتر</string>
     <string name="navigationbar_pressure_high">حساسیت کم</string>
+    <string name="navigationbar_hide_bar">دکمه نمایش دادن و مخفی کردن</string>
+    <string name="navigationbar_hide_bar_summary">برای مخفی کردن یا نمایش نوار پیمایش، دکمه‌ای به سمت چپ نوار پیمایش اضافه کنید.</string>
     <string name="full_screen_apps_title">برنامه‌های تمام‌صفحه</string>
     <string name="full_screen_apps_summary">برنامه‌هایی را که می‌خواهید با نسبت ابعادی تمام‌صفحه استفاده شود انتخاب کنید.</string>
     <string name="full_screen_apps_item_summary_optimized_full">این برنامه برای اجرا در حالت تمام‌صفحه بهینه شده است.</string>
@@ -4844,7 +4847,7 @@ Receiving SMS"</string>
     <string name="phone_language">زبان</string>
     <string name="show_password">قابل رؤیت کردن رمزهای ورود</string>
     <string name="show_password_summary">وقتی رمز ورود را تایپ می‌کنید، نویسه‌ها مختصراً نمایش داده شوند.</string>
-    <string name="ime_security_warning">این روش می تواند همه متن هایی را که وارد کرده اید به جز رمزهای ورود را جمع آوری کند، از جمله داده های شخصی و شماره های کارت اعتباری. از برنامه %1$s می آید. در هر صورت استفاده می کنید؟</string>
+    <string name="ime_security_warning">%s ممکن است کل متنی که تایپ می‌کنید، شامل اطلاعات شخصی همچون رمزعبور و شماره کارت اعتباری شما را جمع‌آوری کند.</string>
     <string name="failed_to_open_app_settings_toast">باز کردن تنظیمات %s انجام نشد.</string>
     <string name="keyboard_and_input_methods_category">صفحه کلیدها</string>
     <string name="virtual_keyboard_category">صفحه کلید روی صفحه</string>

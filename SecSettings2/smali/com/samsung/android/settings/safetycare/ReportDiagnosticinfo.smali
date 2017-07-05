@@ -198,7 +198,7 @@
 
     iget-object v12, v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v19, 0x7f0b0536
+    const v19, 0x7f0b0537
 
     move-object/from16 v0, p0
 
@@ -685,7 +685,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0538
+    const v20, 0x7f0b0539
 
     move-object/from16 v0, p0
 
@@ -849,7 +849,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0539
+    const v20, 0x7f0b053a
 
     move-object/from16 v0, p0
 

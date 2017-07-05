@@ -1115,6 +1115,7 @@ Même lorsque la fonction Capture intelligente est désactivée, vous pouvez acc
     <string name="general_device_management_title">Gestion globale</string>
     <string name="application_settings_summary">Applications par défaut, autorisations, désinstaller</string>
     <string name="notifications_settings_summary">Bloquer, autoriser, prioriser</string>
+    <string name="ime_security_warning_title">Activer le clavier sélectionné ?</string>
     <string name="language_settings_summary">Ajoutez plusieurs langues ci-dessous. Ainsi, si une application ne prend pas en charge votre langue par défaut (en haut de la liste), la langue prise en charge qui suit dans la liste sera utilisée à la place. Déplacez une langue vers le haut de la liste pour la définir par défaut.</string>
     <string name="language_settings_noti_desc">Il se peut que les langues prises en charge dans votre pays diffèrent de celles affichées sur le modèle de présentation.</string>
     <string name="language_settings_set_locale_title">Définir %s comme langue par défaut ?</string>
@@ -1426,6 +1427,8 @@ Appuyez sur OK pour autoriser l'augmentation de la luminosité au-dessus des niv
     <string name="navigationbar_pressure_sensitivity_summary">"Réglez la force requise pour l'appui sur la touche Accueil."</string>
     <string name="navigationbar_pressure_low">Plus sensible</string>
     <string name="navigationbar_pressure_high">Moins sensible</string>
+    <string name="navigationbar_hide_bar">Touche affichage et masquage</string>
+    <string name="navigationbar_hide_bar_summary">Ajoutez une touche sur le côté gauche de la barre de navigation pour afficher ou masquer la barre de navigation.</string>
     <string name="full_screen_apps_title">Applications en plein écran</string>
     <string name="full_screen_apps_summary">Choisissez les applications que vous souhaitez utiliser dans le rapport largeur/hauteur plein écran.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Cette application est optimisée pour le plein écran.</string>
@@ -4845,7 +4848,7 @@ Vous ne perdrez aucune donnée d'application."</string>
     <string name="phone_language">Langue</string>
     <string name="show_password">Rendre les mots de passe visibles</string>
     <string name="show_password_summary">Affichez brièvement les caractères composant le mot de passe à mesure que vous les saisissez.</string>
-    <string name="ime_security_warning">"Cette méthode permet de collecter tous les textes saisis, notamment les données personnelles et les numéros de carte bancaire, à l'exception des mots de passe. Cela vient de l'application %1$s. Utiliser quand même ?"</string>
+    <string name="ime_security_warning">%s peut collecter tout le texte saisi, notamment les données personnelles telles que les mots de passe et les numéros de carte de crédit.</string>
     <string name="failed_to_open_app_settings_toast">"Impossible d'ouvrir les paramètres de %s."</string>
     <string name="keyboard_and_input_methods_category">Claviers</string>
     <string name="virtual_keyboard_category">"Clavier à l'écran"</string>

@@ -882,7 +882,7 @@
 
     aput-object v6, v12, v13
 
-    const v13, 0x7f0b1baa
+    const v13, 0x7f0b1bad
 
     move-object/from16 v0, p0
 
@@ -1112,13 +1112,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b16ed
+    const v1, 0x7f0b16f0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b16ee
+    const v1, 0x7f0b16f1    # 1.848818E38f
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1128,13 +1128,13 @@
 
     invoke-direct {v1, p0, p1, p2}, Lcom/android/settings/applications/ProcessStatsDetail$5;-><init>(Lcom/android/settings/applications/ProcessStatsDetail;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v2, 0x7f0b1695
+    const v2, 0x7f0b1698    # 1.8488E38f
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b1696
+    const v1, 0x7f0b1699
 
     const/4 v2, 0x0
 
@@ -1453,7 +1453,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b1667
+    const v1, 0x7f0b166a
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

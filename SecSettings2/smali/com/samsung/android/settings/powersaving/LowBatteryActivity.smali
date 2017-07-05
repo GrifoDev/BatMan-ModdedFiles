@@ -611,7 +611,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mWarningDesc:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0b79
+    const v2, 0x7f0b0b7c
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -627,7 +627,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mWarningDesc:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0b7a
+    const v2, 0x7f0b0b7d
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -814,7 +814,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mOffTextMain:Landroid/widget/TextView;
 
-    const v5, 0x7f0b0b7f
+    const v5, 0x7f0b0b82
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -847,7 +847,7 @@
     :goto_4
     iget-object v8, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mMidTextMain:Landroid/widget/TextView;
 
-    const v5, 0x7f0b0b81
+    const v5, 0x7f0b0b84
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -880,7 +880,7 @@
     :goto_5
     iget-object v8, p0, Lcom/samsung/android/settings/powersaving/LowBatteryActivity;->mMaxTextMain:Landroid/widget/TextView;
 
-    const v5, 0x7f0b0b80
+    const v5, 0x7f0b0b83
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1556,7 +1556,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b7f
+    const v3, 0x7f0b0b82
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1570,7 +1570,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b81
+    const v3, 0x7f0b0b84
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1584,7 +1584,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0b80
+    const v3, 0x7f0b0b83
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

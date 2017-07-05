@@ -171,11 +171,11 @@
 .method private initLockscreenNotifications()V
     .locals 11
 
-    const v10, 0x7f0b1abc
+    const v10, 0x7f0b1abf
 
-    const v9, 0x7f0b1abb
+    const v9, 0x7f0b1abe
 
-    const v8, 0x7f0b1aba
+    const v8, 0x7f0b1abd
 
     invoke-virtual {p0}, Lcom/android/settings/notification/ConfigureNotificationSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
@@ -347,11 +347,11 @@
 .method private initLockscreenNotificationsForProfile()V
     .locals 12
 
-    const v11, 0x7f0b1ac1
+    const v11, 0x7f0b1ac4
 
-    const v9, 0x7f0b1ac0
+    const v9, 0x7f0b1ac3
 
-    const v8, 0x7f0b1abf
+    const v8, 0x7f0b1ac2
 
     const/4 v10, 0x0
 
@@ -680,7 +680,7 @@
     :goto_0
     if-nez v1, :cond_2
 
-    const v2, 0x7f0b1abc
+    const v2, 0x7f0b1abf
 
     :goto_1
     iput v2, p0, Lcom/android/settings/notification/ConfigureNotificationSettings;->mLockscreenSelectedValue:I
@@ -705,12 +705,12 @@
     :cond_2
     if-eqz v0, :cond_3
 
-    const v2, 0x7f0b1aba
+    const v2, 0x7f0b1abd
 
     goto :goto_1
 
     :cond_3
-    const v2, 0x7f0b1abb
+    const v2, 0x7f0b1abe
 
     goto :goto_1
 .end method
@@ -753,7 +753,7 @@
     :goto_0
     if-nez v1, :cond_3
 
-    const v2, 0x7f0b1ac1
+    const v2, 0x7f0b1ac4
 
     :goto_1
     iput v2, p0, Lcom/android/settings/notification/ConfigureNotificationSettings;->mLockscreenSelectedValueProfile:I
@@ -778,12 +778,12 @@
     :cond_3
     if-eqz v0, :cond_4
 
-    const v2, 0x7f0b1abf
+    const v2, 0x7f0b1ac2
 
     goto :goto_1
 
     :cond_4
-    const v2, 0x7f0b1ac0
+    const v2, 0x7f0b1ac3
 
     goto :goto_1
 .end method

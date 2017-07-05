@@ -1058,7 +1058,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b0ed2
+    const v1, 0x7f0b0ed5
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1264,7 +1264,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0ed3
+    const v2, 0x7f0b0ed6
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

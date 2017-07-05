@@ -845,33 +845,6 @@
     return-void
 
     :pswitch_0
-    const v1, 0x7f0b1456
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :pswitch_1
-    const v1, 0x7f0b1457
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :pswitch_2
-    const v1, 0x7f0b1458
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :pswitch_3
     const v1, 0x7f0b1459
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->getString(I)Ljava/lang/String;
@@ -880,8 +853,35 @@
 
     goto :goto_0
 
-    :pswitch_4
+    :pswitch_1
     const v1, 0x7f0b145a
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_2
+    const v1, 0x7f0b145b
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_3
+    const v1, 0x7f0b145c
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_4
+    const v1, 0x7f0b145d
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->getString(I)Ljava/lang/String;
 
@@ -904,7 +904,7 @@
 .method private final updatePingState()V
     .locals 6
 
-    const v5, 0x7f0b1198
+    const v5, 0x7f0b119b
 
     new-instance v0, Landroid/os/Handler;
 

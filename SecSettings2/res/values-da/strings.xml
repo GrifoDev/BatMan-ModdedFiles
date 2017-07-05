@@ -1116,6 +1116,7 @@ Selvom Smart skærmbillede er deaktiveret, har du stadig adgang til dets funktio
     <string name="general_device_management_title">Generel administration</string>
     <string name="application_settings_summary">Standardapps, tilladelser, afinstaller</string>
     <string name="notifications_settings_summary">Bloker, tillad, prioriter</string>
+    <string name="ime_security_warning_title">Vil du aktivere det valgte tastatur?</string>
     <string name="language_settings_summary">Tilføj flere sprog herunder. Hvis en app så ikke understøtter dit standardsprog (øverst på listen), vil det næste understøttede sprog blive brugt i stedet. Hvis du vil gøre et sprog til standardsprog, skal du placere det øverst på listen.</string>
     <string name="language_settings_noti_desc">De understøttede sprog i dit land kan afvige fra dem, der vises på skærmmodellen.</string>
     <string name="language_settings_set_locale_title">Vil du angive %s som standardsprog?</string>
@@ -1427,6 +1428,8 @@ Tryk på OK for at tillade, at lysstyrken øges til over sikkerhedsniveauet."</s
     <string name="navigationbar_pressure_sensitivity_summary">Juster den mængde tryk, der skal bruges for at trykke hårdt på startknappen.</string>
     <string name="navigationbar_pressure_low">Mere følsom</string>
     <string name="navigationbar_pressure_high">Mindre følsom</string>
+    <string name="navigationbar_hide_bar">Vis og skjul knap</string>
+    <string name="navigationbar_hide_bar_summary">Tilføj en knap til venstre for navigationslinjen for at vise eller skjule navigationslinjen.</string>
     <string name="full_screen_apps_title">Fuldskærmsapps</string>
     <string name="full_screen_apps_summary">Vælg, hvilke apps du vil bruge i fuldskærmsvisningen.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Denne app er optimeret til at køre på fuld skærm.</string>
@@ -4848,7 +4851,7 @@ Du mister ikke dine eksisterende appdata."</string>
     <string name="phone_language">Sprog</string>
     <string name="show_password">Gør adgangskoder synlige</string>
     <string name="show_password_summary">Vis kort adgangskodens tegn, når du taster dem.</string>
-    <string name="ime_security_warning">Denne metode kan indsamle al den tekst, du skriver, undtagen adgangskoder, herunder personlige data og kreditkortnumre. Det kommer fra programmet %1$s. Brug alligevel?</string>
+    <string name="ime_security_warning">%s kan muligvis indsamle al den tekst, du skriver, herunder personlige data som adgangskoder og kreditkortnumre.</string>
     <string name="failed_to_open_app_settings_toast">Kunne ikke åbne indstillinger for %s.</string>
     <string name="keyboard_and_input_methods_category">Tastaturer</string>
     <string name="virtual_keyboard_category">Tastatur på skærmen</string>

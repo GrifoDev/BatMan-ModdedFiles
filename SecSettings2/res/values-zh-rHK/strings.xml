@@ -1114,6 +1114,7 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="general_device_management_title">一般管理</string>
     <string name="application_settings_summary">預設應用程式、權限、解除安裝</string>
     <string name="notifications_settings_summary">封鎖、允許、優先</string>
+    <string name="ime_security_warning_title">開啟已選擇的鍵盤嗎？</string>
     <string name="language_settings_summary">在下方加入多種語言，當應用程式不支援您的預設語言 (清單最上方) 時，將以清單中的下一個語言取代。請移動語言至清單頂部以將其設定為預設。</string>
     <string name="language_settings_noti_desc">在您的國家支援的語言可能與展示型號上顯示的語言不同。</string>
     <string name="language_settings_set_locale_title">將 %s 設定為預設語言嗎？</string>
@@ -1425,6 +1426,8 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="navigationbar_pressure_sensitivity_summary">調整按壓首頁鍵時需要的力度。</string>
     <string name="navigationbar_pressure_low">高靈敏度</string>
     <string name="navigationbar_pressure_high">低靈敏度</string>
+    <string name="navigationbar_hide_bar">顯示與隱藏按鍵</string>
+    <string name="navigationbar_hide_bar_summary">加入按鍵至導覽列左側以顯示或隱藏導覽列。</string>
     <string name="full_screen_apps_title">全螢幕應用程式</string>
     <string name="full_screen_apps_summary">選擇您想要在全螢幕寬高比中使用的應用程式。</string>
     <string name="full_screen_apps_item_summary_optimized_full">已優化此應用程式以在全螢幕中執行。</string>
@@ -4839,7 +4842,7 @@ Wi-Fi 現已開啟。"</string>
     <string name="phone_language">語言</string>
     <string name="show_password">顯示密碼</string>
     <string name="show_password_summary">在輸入時短暫顯示密碼字元。</string>
-    <string name="ime_security_warning">此方法可蒐集密碼以外所有您輸入的文字，包括個人數據與信用卡號碼。此方法來自應用程式 %1$s。仍要使用嗎？</string>
+    <string name="ime_security_warning">%s 可能可以蒐集您輸入的所有文字，包括個人數據，如密碼與信用卡號碼。</string>
     <string name="failed_to_open_app_settings_toast">無法開啟 %s 設定。</string>
     <string name="keyboard_and_input_methods_category">鍵盤</string>
     <string name="virtual_keyboard_category">螢幕鍵盤</string>

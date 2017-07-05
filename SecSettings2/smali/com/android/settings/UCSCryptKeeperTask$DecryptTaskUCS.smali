@@ -527,7 +527,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0b18f6
+    const v1, 0x7f0b18f9
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

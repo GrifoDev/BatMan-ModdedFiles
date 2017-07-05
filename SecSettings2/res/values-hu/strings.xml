@@ -1115,6 +1115,7 @@ A Gyors funkciók használatával akkor is hozzáférhet az Intelligens felvéte
     <string name="general_device_management_title">Általános kezelés</string>
     <string name="application_settings_summary">Alapértelmezett alkalmazások, engedélyek, eltávolítás</string>
     <string name="notifications_settings_summary">Blokkolás, engedélyezés, előnyben részesítés</string>
+    <string name="ime_security_warning_title">Bekapcsolja a kiválasztott billentyűzetet?</string>
     <string name="language_settings_summary">Vegyen fel több nyelvet alább, és ha egy alkalmazás nem támogatja az alapértelmezett (a lista tetején szereplő) nyelvet, akkor a listában található következő támogatott nyelvet használja. Az alapértelmezettként beállítani kívánt nyelvet helyezze a lista tetejére.</string>
     <string name="language_settings_noti_desc">Az országában támogatott nyelvek eltérhetnek a bemutatódarabon láthatóktól.</string>
     <string name="language_settings_set_locale_title">A(z) %s nyelvet állítja be alapértelmezettként?</string>
@@ -1426,6 +1427,8 @@ Az OK gombot megérintve engedélyezheti a fényerő biztonságosnál magasabb s
     <string name="navigationbar_pressure_sensitivity_summary">Beállíthatja a Kezdőlap gomb erős megnyomáshoz szükséges nyomáserőt.</string>
     <string name="navigationbar_pressure_low">Érzékenyebb</string>
     <string name="navigationbar_pressure_high">Kevésbé érzékeny</string>
+    <string name="navigationbar_hide_bar">Gomb mutatása és rejtése</string>
+    <string name="navigationbar_hide_bar_summary">A navigációs sáv megjelenítésére, illetve elrejtésére szolgáló gomb hozzáadása a navigációs sáv bal oldalához.</string>
     <string name="full_screen_apps_title">Teljes képernyős alkalmazások</string>
     <string name="full_screen_apps_summary">Válassza ki azokat az alkalmazásokat, amelyeket teljes képernyős képaránnyal szeretne használni.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ez az alkalmazás teljes képernyős futásra van optimalizálva.</string>
@@ -4845,7 +4848,7 @@ A meglévő alkalmazásadatok nem vesznek el."</string>
     <string name="phone_language">Nyelv</string>
     <string name="show_password">Jelszavak láthatóvá tétele</string>
     <string name="show_password_summary">Beíráskor rövid ideig láthatók a jelszó karakterei.</string>
-    <string name="ime_security_warning">Ezzel a módszerrel minden bevitt szöveg összegyűjthető, ideértve a személyes adatokat és a hitelkártyaszámokat, a jelszavakat azonban nem. A funkciót a(z) %1$s alkalmazás biztosítja. Ennek ellenére használni kívánja?</string>
+    <string name="ime_security_warning">A(z) %s összegyűjtheti az összes beírt szöveget, beleértve a az olyan személyes adatokat is, mint a jelszavak és a bankkártyaszámok.</string>
     <string name="failed_to_open_app_settings_toast">Nem sikerült megnyitni a(z) %s beállításait.</string>
     <string name="keyboard_and_input_methods_category">Billentyűzetek</string>
     <string name="virtual_keyboard_category">Képernyő-billentyűzet</string>

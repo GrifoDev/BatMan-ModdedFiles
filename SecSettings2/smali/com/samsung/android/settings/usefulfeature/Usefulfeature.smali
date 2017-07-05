@@ -852,7 +852,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->mAppLock:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b1b34
+    const v2, 0x7f0b1b37
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -862,7 +862,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->mAppLock:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b1b35
+    const v2, 0x7f0b1b38
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1242,18 +1242,18 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f0b0a54
+    const v0, 0x7f0b0a57
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f0b0a56
+    const v0, 0x7f0b0a59
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0b0a55
+    const v0, 0x7f0b0a58
 
     goto :goto_0
 .end method
@@ -2054,7 +2054,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0cc9
+    const v9, 0x7f0b0ccc
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2330,7 +2330,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b1759
+    const v9, 0x7f0b175c
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2350,7 +2350,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b176d
+    const v9, 0x7f0b1770
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2410,7 +2410,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0cca
+    const v9, 0x7f0b0ccd
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2496,7 +2496,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0b0629
+    const v4, 0x7f0b062c
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 
@@ -2609,7 +2609,7 @@
 
     if-eqz v4, :cond_0
 
-    const v4, 0x7f0b0a38
+    const v4, 0x7f0b0a3b
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 
@@ -2639,7 +2639,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0b0629
+    const v3, 0x7f0b062c
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 
@@ -2752,7 +2752,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f0b0a38
+    const v3, 0x7f0b0a3b
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 
@@ -2963,7 +2963,7 @@
 
     if-eqz v1, :cond_2
 
-    const v2, 0x7f0b0cc4
+    const v2, 0x7f0b0cc7
 
     :goto_2
     invoke-virtual {v4, v2}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -3006,7 +3006,7 @@
     goto :goto_1
 
     :cond_2
-    const v2, 0x7f0b0cc2
+    const v2, 0x7f0b0cc5
 
     goto :goto_2
 
@@ -3289,7 +3289,7 @@
     :goto_0
     iget-object v6, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->mLinkedData1:Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;
 
-    const v7, 0x7f0b0c73
+    const v7, 0x7f0b0c76
 
     iput v7, v6, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -3324,7 +3324,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->mLinkedData2:Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;
 
-    const v7, 0x7f0b066f
+    const v7, 0x7f0b0672
 
     iput v7, v6, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -3451,9 +3451,9 @@
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 8
 
-    const v3, 0x7f0b1b35
+    const v3, 0x7f0b1b38
 
-    const v1, 0x7f0b1b34
+    const v1, 0x7f0b1b37
 
     const v2, 0x7f0b044b
 
@@ -6405,7 +6405,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->mSwipeToCallorSendMessages:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    const v9, 0x7f0b1b34
+    const v9, 0x7f0b1b37
 
     invoke-virtual {v8, v9}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -6501,7 +6501,7 @@
 
     if-eqz v8, :cond_50
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_9
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -6745,7 +6745,7 @@
 
     if-eqz v8, :cond_e
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_c
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -6801,12 +6801,12 @@
 
     if-eqz v8, :cond_f
 
-    const v8, 0x7f0b0a52
+    const v8, 0x7f0b0a55
 
     goto :goto_c
 
     :cond_f
-    const v8, 0x7f0b0a51
+    const v8, 0x7f0b0a54
 
     goto :goto_c
 
@@ -6828,7 +6828,7 @@
 
     if-eqz v8, :cond_12
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_f
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -6836,7 +6836,7 @@
     goto :goto_e
 
     :cond_12
-    const v8, 0x7f0b1b35
+    const v8, 0x7f0b1b38
 
     goto :goto_f
 
@@ -6891,7 +6891,7 @@
 
     if-eqz v8, :cond_14
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_10
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -6947,12 +6947,12 @@
 
     if-eqz v8, :cond_15
 
-    const v8, 0x7f0b0a50
+    const v8, 0x7f0b0a53
 
     goto :goto_10
 
     :cond_15
-    const v8, 0x7f0b0a4f
+    const v8, 0x7f0b0a52
 
     goto :goto_10
 
@@ -6974,7 +6974,7 @@
 
     if-eqz v8, :cond_18
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_13
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -6982,7 +6982,7 @@
     goto :goto_12
 
     :cond_18
-    const v8, 0x7f0b1b35
+    const v8, 0x7f0b1b38
 
     goto :goto_13
 
@@ -7037,7 +7037,7 @@
 
     if-eqz v8, :cond_1b
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_14
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -7144,7 +7144,7 @@
 
     if-eqz v8, :cond_1e
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_17
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -7152,7 +7152,7 @@
     goto :goto_16
 
     :cond_1e
-    const v8, 0x7f0b1b35
+    const v8, 0x7f0b1b38
 
     goto :goto_17
 
@@ -7275,7 +7275,7 @@
 
     if-eqz v8, :cond_22
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_18
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -7338,7 +7338,7 @@
 
     if-eqz v8, :cond_25
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_1a
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -7346,7 +7346,7 @@
     goto/16 :goto_3
 
     :cond_25
-    const v8, 0x7f0b1b35
+    const v8, 0x7f0b1b38
 
     goto :goto_1a
 
@@ -7438,7 +7438,7 @@
 
     if-eqz v8, :cond_28
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_1b
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -7501,7 +7501,7 @@
 
     if-eqz v8, :cond_2b
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_1d
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -7509,7 +7509,7 @@
     goto/16 :goto_3
 
     :cond_2b
-    const v8, 0x7f0b1b35
+    const v8, 0x7f0b1b38
 
     goto :goto_1d
 
@@ -7558,7 +7558,7 @@
 
     if-eqz v8, :cond_2d
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_1e
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -7729,7 +7729,7 @@
 
     if-eqz v8, :cond_32
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_20
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -7854,7 +7854,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0ccb
+    const v10, 0x7f0b0cce
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7937,7 +7937,7 @@
 
     if-eqz v8, :cond_3b
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     :goto_23
     invoke-virtual {v9, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -8020,7 +8020,7 @@
 
     if-eqz v8, :cond_3e
 
-    const v8, 0x7f0b1b34
+    const v8, 0x7f0b1b37
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 
@@ -8997,7 +8997,7 @@
 
     if-eqz v17, :cond_2d
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_2
     move-object/from16 v0, v32
@@ -9085,7 +9085,7 @@
 
     if-eqz v31, :cond_2e
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_3
     move-object/from16 v0, v32
@@ -9129,7 +9129,7 @@
 
     if-eqz v31, :cond_2f
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_4
     move-object/from16 v0, v32
@@ -9388,7 +9388,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b0a52
+    const v32, 0x7f0b0a55
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -9464,7 +9464,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b0a50
+    const v32, 0x7f0b0a53
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -9921,7 +9921,7 @@
 
     if-eqz v31, :cond_5f
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_12
     move-object/from16 v0, v32
@@ -10006,7 +10006,7 @@
 
     if-eqz v14, :cond_61
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_14
     move-object/from16 v0, v32
@@ -10120,7 +10120,7 @@
 
     if-eqz v22, :cond_63
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_16
     move-object/from16 v0, v32
@@ -10211,7 +10211,7 @@
 
     if-eqz v11, :cond_65
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_18
     move-object/from16 v0, v32
@@ -10305,7 +10305,7 @@
 
     if-eqz v29, :cond_67
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_1a
     move-object/from16 v0, v32
@@ -10442,7 +10442,7 @@
 
     if-eqz v8, :cond_6b
 
-    const v31, 0x7f0b0cc4
+    const v31, 0x7f0b0cc7
 
     :goto_1e
     move-object/from16 v0, v32
@@ -10523,7 +10523,7 @@
 
     if-eqz v6, :cond_6e
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_20
     move-object/from16 v0, v32
@@ -10625,7 +10625,7 @@
 
     if-eqz v13, :cond_73
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     move-object/from16 v0, p0
 
@@ -10817,7 +10817,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b34
+    const v32, 0x7f0b1b37
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -10932,7 +10932,7 @@
 
     if-eqz v12, :cond_7b
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_28
     move-object/from16 v0, v32
@@ -11266,17 +11266,17 @@
     goto/16 :goto_1
 
     :cond_2d
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto/16 :goto_2
 
     :cond_2e
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto/16 :goto_3
 
     :cond_2f
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto/16 :goto_4
 
@@ -11343,7 +11343,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b0a51
+    const v32, 0x7f0b0a54
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11356,7 +11356,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11419,7 +11419,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b0a52
+    const v32, 0x7f0b0a55
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11432,7 +11432,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b0a51
+    const v32, 0x7f0b0a54
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11445,7 +11445,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11517,7 +11517,7 @@
 
     if-eqz v20, :cond_3b
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_2d
     move-object/from16 v0, v32
@@ -11540,12 +11540,12 @@
 
     if-eqz v31, :cond_3c
 
-    const v31, 0x7f0b0a52
+    const v31, 0x7f0b0a55
 
     goto :goto_2d
 
     :cond_3c
-    const v31, 0x7f0b0a51
+    const v31, 0x7f0b0a54
 
     goto :goto_2d
 
@@ -11558,7 +11558,7 @@
 
     if-eqz v20, :cond_3e
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_2e
     move-object/from16 v0, v32
@@ -11570,7 +11570,7 @@
     goto/16 :goto_9
 
     :cond_3e
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto :goto_2e
 
@@ -11581,7 +11581,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b0a4f
+    const v32, 0x7f0b0a52
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11594,7 +11594,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11657,7 +11657,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b0a50
+    const v32, 0x7f0b0a53
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11670,7 +11670,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b0a4f
+    const v32, 0x7f0b0a52
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11683,7 +11683,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11755,7 +11755,7 @@
 
     if-eqz v21, :cond_46
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_30
     move-object/from16 v0, v32
@@ -11778,12 +11778,12 @@
 
     if-eqz v31, :cond_47
 
-    const v31, 0x7f0b0a50
+    const v31, 0x7f0b0a53
 
     goto :goto_30
 
     :cond_47
-    const v31, 0x7f0b0a4f
+    const v31, 0x7f0b0a52
 
     goto :goto_30
 
@@ -11796,7 +11796,7 @@
 
     if-eqz v21, :cond_49
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_31
     move-object/from16 v0, v32
@@ -11808,7 +11808,7 @@
     goto/16 :goto_a
 
     :cond_49
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto :goto_31
 
@@ -11819,7 +11819,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11891,7 +11891,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -11963,7 +11963,7 @@
 
     if-eqz v18, :cond_4f
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_33
     move-object/from16 v0, v32
@@ -11995,7 +11995,7 @@
 
     if-eqz v18, :cond_51
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_34
     move-object/from16 v0, v32
@@ -12007,7 +12007,7 @@
     goto/16 :goto_b
 
     :cond_51
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto :goto_34
 
@@ -12018,7 +12018,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -12094,7 +12094,7 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -12166,7 +12166,7 @@
 
     if-eqz v19, :cond_57
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_36
     move-object/from16 v0, v32
@@ -12196,7 +12196,7 @@
 
     if-eqz v19, :cond_59
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_37
     move-object/from16 v0, v32
@@ -12208,7 +12208,7 @@
     goto/16 :goto_d
 
     :cond_59
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto :goto_37
 
@@ -12250,7 +12250,7 @@
 
     if-eqz v23, :cond_5c
 
-    const v31, 0x7f0b1b34
+    const v31, 0x7f0b1b37
 
     :goto_38
     move-object/from16 v0, v32
@@ -12300,14 +12300,14 @@
 
     move-object/from16 v31, v0
 
-    const v32, 0x7f0b1b35
+    const v32, 0x7f0b1b38
 
     invoke-virtual/range {v31 .. v32}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
     goto/16 :goto_11
 
     :cond_5f
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto/16 :goto_12
 
@@ -12317,7 +12317,7 @@
     goto/16 :goto_13
 
     :cond_61
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto/16 :goto_14
 
@@ -12327,7 +12327,7 @@
     goto/16 :goto_15
 
     :cond_63
-    const v31, 0x7f0b1b35
+    const v31, 0x7f0b1b38
 
     goto/16 :goto_16
 
@@ -12375,7 +12375,7 @@
     goto/16 :goto_1d
 
     :cond_6b
-    const v31, 0x7f0b0cc2
+    const v31, 0x7f0b0cc5
 
     goto/16 :goto_1e
 
@@ -12457,7 +12457,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b0bb9
+    const v33, 0x7f0b0bbc
 
     move-object/from16 v0, p0
 

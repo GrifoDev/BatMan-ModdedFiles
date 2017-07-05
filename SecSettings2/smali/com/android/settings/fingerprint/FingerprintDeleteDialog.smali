@@ -150,7 +150,7 @@
 
     const-string/jumbo v1, "FpstFingerprintDeleteDialog"
 
-    const v2, 0x7f0b08a1
+    const v2, 0x7f0b08a4
 
     invoke-static {v0, v2, v1}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 

@@ -1115,6 +1115,7 @@ Potete accedere alle funzioni di Acquisizione intelligente con Air command, anch
     <string name="general_device_management_title">Gestione generale</string>
     <string name="application_settings_summary">Applicazioni predefinite, autorizzazioni, annulla installazione</string>
     <string name="notifications_settings_summary">Blocca, consenti, assegna priorità</string>
+    <string name="ime_security_warning_title">Attivare la tastiera selezionata?</string>
     <string name="language_settings_summary">"Aggiungete più lingue di seguito in modo che, se un'applicazione non supporta la lingua predefinita (in cima all'elenco), venga utilizzata la successiva lingua supportata dell'elenco. Spostate una lingua in cima all'elenco per impostarla come predefinita."</string>
     <string name="language_settings_noti_desc">Le lingue supportate nel vostro Paese potrebbero differire da quelle mostrate nel modello dimostrativo.</string>
     <string name="language_settings_set_locale_title">Impostare %s come lingua predefinita?</string>
@@ -1426,6 +1427,8 @@ Toccate OK per consentire l'aumento della luminosità oltre i livelli di sicurez
     <string name="navigationbar_pressure_sensitivity_summary">Regolate la pressione richiesta per la pressione prolungata del pulsante Home.</string>
     <string name="navigationbar_pressure_low">Più sensibile</string>
     <string name="navigationbar_pressure_high">Meno sensibile</string>
+    <string name="navigationbar_hide_bar">Pulsante Mostra e nascondi</string>
+    <string name="navigationbar_hide_bar_summary">Aggiungete un pulsante sul lato sinistro della barra di navigazione per mostrarla o nasconderla.</string>
     <string name="full_screen_apps_title">Applicazioni a schermo intero</string>
     <string name="full_screen_apps_summary">Selezionate le applicazioni da utilizzare nel formato a schermo intero.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Questa applicazione è ottimizzata per essere eseguita a schermo intero.</string>
@@ -4844,7 +4847,7 @@ I dati delle applicazioni esistenti non andranno persi."</string>
     <string name="phone_language">Lingua</string>
     <string name="show_password">Rendi visibili le password</string>
     <string name="show_password_summary">Visualizzate i caratteri della password per un attimo durante la digitazione.</string>
-    <string name="ime_security_warning">"Questo metodo può raccogliere tutto il testo inserito dall'utente, inclusi dati personali e numeri di carta di credito ma escluse le password. Appartiene all'applicazione %1$s. Utilizzare comunque?"</string>
+    <string name="ime_security_warning">%s può raccogliere tutto il testo digitato, inclusi i dati personali come password e numeri di carte di credito.</string>
     <string name="failed_to_open_app_settings_toast">Impossibile aprire le impostazioni per %s.</string>
     <string name="keyboard_and_input_methods_category">Tastiere</string>
     <string name="virtual_keyboard_category">Tastiera sullo schermo</string>

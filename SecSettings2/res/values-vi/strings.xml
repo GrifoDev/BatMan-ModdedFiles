@@ -1115,6 +1115,7 @@ Ngay cả khi tắt Chụp thông minh, bạn vẫn có thể truy cập các t�
     <string name="general_device_management_title">Quản lý chung</string>
     <string name="application_settings_summary">Ứng dụng mặc định, quyền, gỡ cài đặt</string>
     <string name="notifications_settings_summary">Chặn, cho phép, ưu tiên</string>
+    <string name="ime_security_warning_title">Bật bàn phím đã chọn?</string>
     <string name="language_settings_summary">Thêm nhiều ngôn ngữ bên dưới để nếu một ứng dụng không hỗ trợ ngôn ngữ mặc định của bạn (ở trên cùng danh sách) thì ngôn ngữ hỗ trợ tiếp theo trong danh sách sẽ được sử dụng để thay thế. Chuyển một ngôn ngữ lên đầu danh sách để đặt làm mặc định.</string>
     <string name="language_settings_noti_desc">Các ngôn ngữ được hỗ trợ tại quốc gia của bạn có thể khác với ngôn ngữ hiển thị trên model hiển thị.</string>
     <string name="language_settings_set_locale_title">Đặt %s làm ngôn ngữ mặc định?</string>
@@ -1426,6 +1427,8 @@ Chạm OK để cho phép tăng độ sáng trên mức an toàn."</string>
     <string name="navigationbar_pressure_sensitivity_summary">Điều chỉnh cường độ áp lực cần thiết để nhấn mạnh phím Trang chính.</string>
     <string name="navigationbar_pressure_low">Nhạy hơn</string>
     <string name="navigationbar_pressure_high">Ít nhạy hơn</string>
+    <string name="navigationbar_hide_bar">Phím ẩn và hiện</string>
+    <string name="navigationbar_hide_bar_summary">Thêm một phím vào bên trái của thanh điều hướng để hiển thị hoặc ẩn thanh điều hướng.</string>
     <string name="full_screen_apps_title">Ứng dụng toàn màn hình</string>
     <string name="full_screen_apps_summary">Chọn ứng dụng bạn muốn sử dụng ở tỉ lệ khung hình toàn màn hình.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ứng dụng này được tối ưu để chạy ở chế độ toàn màn hình.</string>
@@ -4845,7 +4848,7 @@ Dữ liệu ứng dụng hiện có của bạn sẽ không bị mất."</string
     <string name="phone_language">Ngôn ngữ</string>
     <string name="show_password">Hiện mật mã</string>
     <string name="show_password_summary">Hiển thị nhanh các ký tự mật mã khi bạn nhập.</string>
-    <string name="ime_security_warning">Cách nhập này có thể thu thập mọi văn bản bạn nhập vào, bao gồm các dữ liệu cá nhân như mật mã và số thẻ tín dụng. Việc này đến từ ứng dụng %1$s. Sử dụng?</string>
+    <string name="ime_security_warning">%s có thể thu thập tất cả văn bản bạn nhập, bao gồm dữ liệu cá nhân như mật mã và số thẻ tín dụng.</string>
     <string name="failed_to_open_app_settings_toast">Không mở được cài đặt cho %s.</string>
     <string name="keyboard_and_input_methods_category">Bàn phím</string>
     <string name="virtual_keyboard_category">Bàn phím trên màn hình</string>

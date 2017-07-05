@@ -1115,6 +1115,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">সাধারণ ব্যবস্থাপনা</string>
     <string name="application_settings_summary">ডিফল্ট অ্যাপ, অনুমতি, আনইনস্টল করা</string>
     <string name="notifications_settings_summary">ব্লক করা, অনুমতি দেয়া, অগ্রাধিকার দেয়া</string>
+    <string name="ime_security_warning_title">নির্বাচিত কীবোর্ড চালু করবেন?</string>
     <string name="language_settings_summary">নিচে একাধিক ভাষা যোগ করুন যাতে, যদি কোনো অ্যাপ আপনার ডিফল্ট ভাষা (তালিকার শীর্ষে থাকা) সমর্থন না করে, তাহলে এর পরিবর্তে তালিকায় থাকা সমর্থিত পরবর্তী ভাষাটি ব্যবহার করা হবে৷ ডিফল্ট হিসেবে ব্যবহার করতে একটি ভাষাকে তালিকার শীর্ষে নিয়ে যান৷</string>
     <string name="language_settings_noti_desc">আপনার দেশে সমর্থিত ভাষাগুলো ডিসপ্লে মডেলে দেখানো ভাষাগুলোর চেয়ে ভিন্ন হতে পারে৷</string>
     <string name="language_settings_set_locale_title">%s-কে ডিফল্ট ভাষা হিসেবে সেট করবেন?</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">হোম বাটন জোরে চাপ দিতে যে পরিমাণ চাপ প্রয়োজন তা সমন্বয় করুন৷</string>
     <string name="navigationbar_pressure_low">আরো সংবেদনশীল</string>
     <string name="navigationbar_pressure_high">কম সংবেদনশীল</string>
+    <string name="navigationbar_hide_bar">বাটন দেখান ও লুকান</string>
+    <string name="navigationbar_hide_bar_summary">নেভিগেশন বার দেখাতে বা লুকাতে নেভিগেশন বারের বামদিকে একটি বাটন যোগ করুন৷</string>
     <string name="full_screen_apps_title">ফুল স্ক্রিন অ্যাপ</string>
     <string name="full_screen_apps_summary">আপনি ফুল স্ক্রিন অ্যাসপেক্ট অনুপাতে যে অ্যাপ ব্যবহার করতে চান সেগুলো বেছে নিন৷</string>
     <string name="full_screen_apps_item_summary_optimized_full">ফুল স্ক্রিনে চলার জন্য এই অ্যাপটি অপটিমাইজ করা হয়েছে৷</string>
@@ -4844,7 +4847,7 @@ Receiving SMS"</string>
     <string name="phone_language">ভাষা</string>
     <string name="show_password">পাসওয়ার্ড দৃশ্যমান করুন</string>
     <string name="show_password_summary">পাসওয়ার্ডের অক্ষরগুলো টাইপ করার সাথে সাথে সংক্ষেপে দেখান।</string>
-    <string name="ime_security_warning">এই পদ্ধতি পাসওয়ার্ড ছাড়া আপনার প্রবেশ করানো সকল লেখা সংগ্রহ করতে পারে, যার অন্তর্ভুক্ত হল ব্যক্তিগত তথ্য ও ক্রেডিট কার্ড নম্বর। এটি %1$s অ্যাপ্লিকেশনে পাওয়া যাবে। যেকোনোভাবে ব্যবহার করবেন?</string>
+    <string name="ime_security_warning">%s আপনার টাইপ করা ব্যক্তিগত তথ্য যেমন পাসওয়ার্ড ও ক্রেডিট কার্ডের নম্বরসহ আপনার লেখা সব টেক্সট হয়তো সংগ্রহ করতে সক্ষম৷</string>
     <string name="failed_to_open_app_settings_toast">%s-এর জন্য সেটিংস খুলতে ব্যর্থ।</string>
     <string name="keyboard_and_input_methods_category">কীবোর্ডসমূহ</string>
     <string name="virtual_keyboard_category">স্ক্রিনের উপরের কীবোর্ড</string>

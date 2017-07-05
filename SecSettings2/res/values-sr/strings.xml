@@ -1115,6 +1115,7 @@ Dva povezana uređaja mogu neznatno da se razlikuju u pogledu izlaznog zvuka."</
     <string name="general_device_management_title">Opšte upravljanje</string>
     <string name="application_settings_summary">Podrazumevane aplikacije, dozvole, deinstaliranje</string>
     <string name="notifications_settings_summary">Blokiranje, dozvola, davanje prioriteta</string>
+    <string name="ime_security_warning_title">Uključiti izabranu tastaturu?</string>
     <string name="language_settings_summary">Dodajte više jezika u nastavku da bi se koristio naredni podržani jezik na listi u slučaju da neka aplikacija ne podržava podrazumevani jezik (na vrhu liste). Premestite jezik na vrh liste da biste ga podesili kao podrazumevani jezik.</string>
     <string name="language_settings_noti_desc">Jezici koji su podržani u vašoj zemlji mogu da se razlikuju od onih koji se prikazuju na modelu prikaza.</string>
     <string name="language_settings_set_locale_title">Podesiti jezik %s kao podrazumevani jezik?</string>
@@ -1426,6 +1427,8 @@ Kucnite na OK da biste dozvolili da se osvetljenje poveća iznad bezbednih nivoa
     <string name="navigationbar_pressure_sensitivity_summary">Podesite jačinu pritiska koji je potreban da se jako pritisne dugme Početak.</string>
     <string name="navigationbar_pressure_low">Veća osetljivost</string>
     <string name="navigationbar_pressure_high">Manja osetljivost</string>
+    <string name="navigationbar_hide_bar">Prikaz i skrivanje dugmeta</string>
+    <string name="navigationbar_hide_bar_summary">Dodajte dugme sa leve strane trake za navigaciju da biste prikazali ili sakrili traku za navigaciju.</string>
     <string name="full_screen_apps_title">Aplikacije na celom ekranu</string>
     <string name="full_screen_apps_summary">Odaberite aplikacije koje želite da koristite u punoj razmeri ekrana.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ova aplikacija je optimizovana za pokretanje preko celog ekrana.</string>
@@ -4845,7 +4848,7 @@ Postojeći podaci o aplikaciji će biti izgubljeni."</string>
     <string name="phone_language">Jezik</string>
     <string name="show_password">Učini lozinke vidljivim</string>
     <string name="show_password_summary">Prikaži nakratko karaktere lozinke tokom njihovog unosa.</string>
-    <string name="ime_security_warning">Ovaj način može da prikupi sav uneti tekst, osim lozinki, ličnih podataka i brojeva kreditnih kartica. Proističe iz aplikacije %1$s. Ipak koristiti?</string>
+    <string name="ime_security_warning">Uređaj %s je možda u stanju da prikuplja sav uneti tekst, uključujući lične podatke kao što su lozinke i brojevi kreditnih kartica.</string>
     <string name="failed_to_open_app_settings_toast">Neuspešno otvaranje podešavanja za %s.</string>
     <string name="keyboard_and_input_methods_category">Tastature</string>
     <string name="virtual_keyboard_category">Tastatura na ekranu</string>

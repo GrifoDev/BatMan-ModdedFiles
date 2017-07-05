@@ -851,7 +851,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mDirectionLockPreference:Landroid/preference/PreferenceScreen;
 
-    const v7, 0x7f0b12e5
+    const v7, 0x7f0b12e8
 
     invoke-virtual {v4, v7}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -908,7 +908,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mNotificationReminderPreference:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b1b34
+    const v5, 0x7f0b1b37
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -935,7 +935,7 @@
     :cond_6
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettings;->mNotificationReminderPreference:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b1b35
+    const v5, 0x7f0b1b38
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1359,7 +1359,7 @@
 
     move-object/from16 v24, v0
 
-    const v25, 0x7f0b179f
+    const v25, 0x7f0b17a2    # 1.848854E38f
 
     move-object/from16 v0, p0
 
@@ -1478,7 +1478,7 @@
     :goto_2
     if-eqz v18, :cond_8
 
-    const v24, 0x7f0b1b34
+    const v24, 0x7f0b1b37
 
     move-object/from16 v0, p0
 
@@ -1515,7 +1515,7 @@
     goto :goto_2
 
     :cond_8
-    const v24, 0x7f0b1b35
+    const v24, 0x7f0b1b38
 
     move-object/from16 v0, p0
 
@@ -1725,7 +1725,7 @@
 
     if-eqz v24, :cond_b
 
-    const v24, 0x7f0b17a0
+    const v24, 0x7f0b17a3
 
     move-object/from16 v0, p0
 
@@ -1754,7 +1754,7 @@
 
     const-string/jumbo v24, "settings_title"
 
-    const v25, 0x7f0b1771
+    const v25, 0x7f0b1774
 
     move-object/from16 v0, p0
 
@@ -1913,7 +1913,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19f6
+    const v0, 0x7f0b19f9
 
     return v0
 .end method
@@ -1991,7 +1991,7 @@
 
     iput-object v8, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v10, 0x7f0b066f
+    const v10, 0x7f0b0672
 
     iput v10, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -2021,7 +2021,7 @@
 
     iput-object v9, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v10, 0x7f0b0bd2
+    const v10, 0x7f0b0bd5
 
     iput v10, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 

@@ -1115,6 +1115,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">ניהול כללי</string>
     <string name="application_settings_summary">יישומי ברירת מחדל, הרשאות, הסרה</string>
     <string name="notifications_settings_summary">חסום, אפשר, תעדף</string>
+    <string name="ime_security_warning_title">האם להפעיל את המקלדת שנבחרה?</string>
     <string name="language_settings_summary">הוסף מספר שפות להלן, כדי שאם תיתקל ביישום שאינו תומך בשפת ברירת המחדל שלך (המופיעה בראש הרשימה) היישום ישתמש בשפה הנתמכת הבאה ברשימה. כדי לקבוע שפה מסוימת כברירת מחדל, העבר אותה לראש הרשימה.</string>
     <string name="language_settings_noti_desc">ייתכן שהשפות הנתמכות במדינתך אינן זהות לאלה המוצגות בדגם שבתצוגה.</string>
     <string name="language_settings_set_locale_title">האם להגדיר %s כשפת ברירת המחדל?</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">התאם את מידת הלחץ שתידרש ללחיצה ארוכה על לחצן הבית.</string>
     <string name="navigationbar_pressure_low">יותר רגיש</string>
     <string name="navigationbar_pressure_high">פחות רגיש</string>
+    <string name="navigationbar_hide_bar">לחצן הצגה והסתרה</string>
+    <string name="navigationbar_hide_bar_summary">הוסף לחצן בצד השמאלי של סרגל הניווט כדי להציג או להסתיר את סרגל הניווט.</string>
     <string name="full_screen_apps_title">יישומי מסך מלא</string>
     <string name="full_screen_apps_summary">בחר את היישומים שתרצה להפעיל ביחס תצוגה של מסך מלא.</string>
     <string name="full_screen_apps_item_summary_optimized_full">יישום זה עבר התאמה מיטבית להפעלה במסך מלא.</string>
@@ -4845,7 +4848,7 @@ Wi-Fi is now on."</string>
     <string name="phone_language">שפה</string>
     <string name="show_password">הפוך סיסמאות לגלויות</string>
     <string name="show_password_summary">הצג את תווי הסיסמה לזמן קצר תוך כדי הקלדתם.</string>
-    <string name="ime_security_warning">בשיטה זו ניתן לאסוף את כל הטקסט שאתה מזין, מלבד סיסמאות, כולל נתונים אישיים ומספרי כרטיסי אשראי. מקור השיטה ביישום %1$s. להשתמש בכל מקרה?</string>
+    <string name="ime_security_warning">ייתכן ש-%s יוכל לאסוף את כל הטקסט שתקליד, כולל נתונים אישיים כמו סיסמאות ומספרי כרטיסי אשראי.</string>
     <string name="failed_to_open_app_settings_toast">פתיחת ההגדרות עבור %s נכשלה.</string>
     <string name="keyboard_and_input_methods_category">מקלדות</string>
     <string name="virtual_keyboard_category">מקלדת במסך</string>

@@ -339,7 +339,7 @@
 
     iget-object v6, p0, Lcom/android/settings/users/RestrictedProfileSettings;->mUser:Landroid/os/UserHandle;
 
-    const v4, 0x7f0b1288
+    const v4, 0x7f0b128b
 
     move-object v1, p0
 
@@ -375,7 +375,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0d80
+    const v1, 0x7f0b0d83
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

@@ -455,7 +455,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x10405e1
+    const v4, 0x10405e5
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1165,7 +1165,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings;->mRingOrNotificationPreference:Lcom/android/settings/notification/SecVolumeSeekBarPreference;
 
-    const v4, 0x7f0b146c
+    const v4, 0x7f0b146f
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/notification/VolumeSettings;->getString(I)Ljava/lang/String;
 
@@ -1262,7 +1262,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b0b15
+    const v1, 0x7f0b0b18
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1299,7 +1299,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b15
+    const v3, 0x7f0b0b18
 
     move-object v4, v2
 

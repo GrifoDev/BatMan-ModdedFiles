@@ -504,7 +504,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setAlpha(F)V
 
-    const v2, 0x7f0b0dc5
+    const v2, 0x7f0b0dc8
 
     invoke-virtual {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSummary(I)V
 
@@ -512,7 +512,7 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f0b0dc2
+    const v2, 0x7f0b0dc5
 
     invoke-direct {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSecondSummary(I)V
 
@@ -545,7 +545,7 @@
     return-void
 
     :cond_2
-    const v2, 0x7f0b0dc4
+    const v2, 0x7f0b0dc7
 
     invoke-virtual {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSummary(I)V
 
@@ -576,7 +576,7 @@
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v2, 0x7f0b0dc3
+    const v2, 0x7f0b0dc6
 
     invoke-direct {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSecondSummary(I)V
 

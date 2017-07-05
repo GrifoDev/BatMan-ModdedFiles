@@ -406,7 +406,7 @@
 
     if-nez v2, :cond_1
 
-    const v2, 0x7f0b0a8f
+    const v2, 0x7f0b0a92
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
@@ -454,7 +454,7 @@
     return-void
 
     :cond_3
-    const v2, 0x7f0b10e3
+    const v2, 0x7f0b10e6
 
     invoke-interface {p1, v5, v5, v6, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -645,7 +645,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b19d6
+    const v3, 0x7f0b19d9
 
     const/4 v5, 0x0
 
@@ -860,7 +860,7 @@
 
     invoke-direct {v2, v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b10e1
+    const v3, 0x7f0b10e4
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/nfc/PaymentSettings;->getString(I)Ljava/lang/String;
 
@@ -950,7 +950,7 @@
 
     invoke-virtual {v9, v2}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    const v2, 0x7f0b0a88
+    const v2, 0x7f0b0a8b
 
     move-object/from16 v0, p0
 

@@ -399,7 +399,7 @@
 .method private createConfirmCredentialReasonMessage()Ljava/lang/String;
     .locals 4
 
-    const v0, 0x7f0b179a
+    const v0, 0x7f0b179d
 
     iget-object v1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -445,12 +445,12 @@
     return-object v1
 
     :sswitch_0
-    const v0, 0x7f0b1798
+    const v0, 0x7f0b179b
 
     goto :goto_0
 
     :sswitch_1
-    const v0, 0x7f0b1799
+    const v0, 0x7f0b179c
 
     goto :goto_0
 
@@ -531,7 +531,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b1796
+    const v19, 0x7f0b1799
 
     move-object/from16 v0, p0
 
@@ -588,7 +588,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b1794
+    const v19, 0x7f0b1797
 
     move-object/from16 v0, p0
 
@@ -695,7 +695,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->setCapabilitiesText(Landroid/widget/TextView;Z)V
 
-    const v18, 0x7f0b179b
+    const v18, 0x7f0b179e
 
     move-object/from16 v0, p0
 
@@ -917,7 +917,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v18, 0x7f0b179c
+    const v18, 0x7f0b179f
 
     move-object/from16 v0, p0
 
@@ -2265,7 +2265,7 @@
 
     aput-object v18, v17, v19
 
-    const v18, 0x7f0b179e
+    const v18, 0x7f0b17a1
 
     move-object/from16 v0, p0
 
@@ -2326,7 +2326,7 @@
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b0d3d
+    const v16, 0x7f0b0d40
 
     move-object/from16 v0, p0
 
@@ -2336,7 +2336,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b0d3e
+    const v16, 0x7f0b0d41
 
     move-object/from16 v0, p0
 
@@ -2375,7 +2375,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b197e
+    const v17, 0x7f0b1981
 
     move-object/from16 v0, v16
 
@@ -2476,7 +2476,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b16e5
+    const v17, 0x7f0b16e8
 
     move-object/from16 v0, v16
 
@@ -2543,7 +2543,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b066b
+    const v17, 0x7f0b066e
 
     move-object/from16 v0, p0
 
@@ -2780,7 +2780,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b16e5
+    const v17, 0x7f0b16e8
 
     move-object/from16 v0, v16
 
@@ -2847,7 +2847,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b066b
+    const v17, 0x7f0b066e
 
     move-object/from16 v0, p0
 
@@ -3089,7 +3089,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b066b
+    const v17, 0x7f0b066e
 
     move-object/from16 v0, p0
 
@@ -3360,7 +3360,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1696
+    const v17, 0x7f0b1699
 
     move-object/from16 v0, v16
 

@@ -789,7 +789,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b1593
+    const v7, 0x7f0b1596
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -808,7 +808,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b0bf7
+    const v7, 0x7f0b0bfa
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -825,7 +825,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b0bf8
+    const v7, 0x7f0b0bfb
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -848,7 +848,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b0bf3
+    const v7, 0x7f0b0bf6
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1757,7 +1757,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f0b1572
+    const v6, 0x7f0b1575
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2014,7 +2014,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1591
+    const v2, 0x7f0b1594
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2028,7 +2028,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings$3;-><init>(Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;)V
 
-    const v3, 0x7f0b09a4
+    const v3, 0x7f0b09a7
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2053,7 +2053,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1384
+    const v2, 0x7f0b1387
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2063,7 +2063,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0c23
+    const v2, 0x7f0b0c26
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2157,7 +2157,7 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 10
 
-    const v7, 0x7f0b0bf2
+    const v7, 0x7f0b0bf5
 
     const/4 v9, 0x1
 
@@ -2267,7 +2267,7 @@
     :cond_2
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b0bf3
+    const v7, 0x7f0b0bf6
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2300,7 +2300,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b0bf4
+    const v7, 0x7f0b0bf7
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2346,7 +2346,7 @@
     :cond_5
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b0bf5
+    const v7, 0x7f0b0bf8
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2388,7 +2388,7 @@
     :cond_7
     iget-object v6, p0, Lcom/samsung/android/settings/cpa/CpaAdvancedSettings;->mRes:Landroid/content/res/Resources;
 
-    const v7, 0x7f0b0bf6
+    const v7, 0x7f0b0bf9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2666,7 +2666,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1591
+    const v1, 0x7f0b1594
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

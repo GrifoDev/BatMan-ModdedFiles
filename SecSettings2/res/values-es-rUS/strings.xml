@@ -1115,6 +1115,7 @@ Aun si la función Captura inteligente está desactivada, puede acceder a sus fu
     <string name="general_device_management_title">Administración general</string>
     <string name="application_settings_summary">Aplicaciones predeterminadas, permisos, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, priorizar</string>
+    <string name="ime_security_warning_title">¿Activar teclado seleccionado?</string>
     <string name="language_settings_summary">Añada varios idiomas a continuación de modo que, si una aplicación no admite su idioma predeterminado (el primero de la lista), se utilizará en su lugar el siguiente idioma admitido de la lista. Mueva un idioma hasta el principio de la lista para definirlo como predeterminado.</string>
     <string name="language_settings_noti_desc">Es posible que los idiomas admitidos en su país difieran de los que se muestran en el modelo para exhibición.</string>
     <string name="language_settings_set_locale_title">¿Definir %s como idioma predeterminado?</string>
@@ -1428,6 +1429,8 @@ Pulse ACEPTAR para permitir aumentar el brillo sobre los niveles seguros."</stri
     <string name="navigationbar_pressure_sensitivity_summary">Ajustar la presión necesaria para hacer un pulsado largo del botón Inicio.</string>
     <string name="navigationbar_pressure_low">Más sensible</string>
     <string name="navigationbar_pressure_high">Menos sensible</string>
+    <string name="navigationbar_hide_bar">Botón para mostrar y ocultar</string>
+    <string name="navigationbar_hide_bar_summary">Añada un botón a la izquierda de la barra de navegación para mostrarla u ocultarla.</string>
     <string name="full_screen_apps_title">Aplicaciones pantalla completa</string>
     <string name="full_screen_apps_summary">Elija qué aplicaciones desea usar en la relación de aspecto de pantalla completa.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Esta aplicación está optimizada para ejecutarse en pantalla completa.</string>
@@ -4847,7 +4850,7 @@ No se perderán los datos existentes de las aplicaciones."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Hacer visible las contraseñas</string>
     <string name="show_password_summary">Mostrar caracteres de la contraseña brevemente a medida que los escribe.</string>
-    <string name="ime_security_warning">Este método puede recopilar todo el texto introducido, a excepción de las contraseñas, incluidos los datos personales y los números de las tarjetas de crédito. Proviene de la aplicación %1$s. ¿Utilizar?</string>
+    <string name="ime_security_warning">Es posible que %s pueda recopilar todo el texto que escriba. Esto incluye sus datos personales, como las contraseñas y los números de tarjetas de crédito.</string>
     <string name="failed_to_open_app_settings_toast">Error al abrir los ajustes de %s.</string>
     <string name="keyboard_and_input_methods_category">Teclados</string>
     <string name="virtual_keyboard_category">Teclado en pantalla</string>

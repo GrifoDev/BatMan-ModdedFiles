@@ -1115,6 +1115,7 @@ Até mesmo enquanto a Captura inteligente estiver desativada, você poderá aces
     <string name="general_device_management_title">Gerenciamento geral</string>
     <string name="application_settings_summary">Aplicativos padrão, permissões, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, priorizar</string>
+    <string name="ime_security_warning_title">Ativar o teclado selecionado?</string>
     <string name="language_settings_summary">Adicione vários idiomas abaixo de modo que, se um aplicativo não for compatível com o seu idioma padrão (na parte superior da lista), o próximo idioma compatível da lista seja usado. Mova um idioma para a parte superior da lista para defini-lo como o padrão.</string>
     <string name="language_settings_noti_desc">Os idiomas aceitos no seu país podem ser diferentes dos exibidos no modelo de visor.</string>
     <string name="language_settings_set_locale_title">Definir %s como idioma padrão?</string>
@@ -1428,6 +1429,8 @@ Toque em OK para aumentar o brilho acima dos níveis de segurança."</string>
     <string name="navigationbar_pressure_sensitivity_summary">Ajuste a pressão necessária a ser aplicada por alguns segundos ao botão Início.</string>
     <string name="navigationbar_pressure_low">Mais sensível</string>
     <string name="navigationbar_pressure_high">Menos sensível</string>
+    <string name="navigationbar_hide_bar">Exibir e ocultar o botão</string>
+    <string name="navigationbar_hide_bar_summary">Adicione um botão ao lado esquerdo da barra de navegação para exibi-la ou ocultá-la.</string>
     <string name="full_screen_apps_title">Aplicativos de tela cheia</string>
     <string name="full_screen_apps_summary">Escolha quais aplicativos deseja usar na proporção de tela cheia.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Este aplicativo é otimizado para ser executado em tela cheia.</string>
@@ -4847,7 +4850,7 @@ Seus dados de aplicativo existentes não serão perdidos."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Tornar senhas visíveis</string>
     <string name="show_password_summary">Exibe rapidamente os caracteres da senha conforme os digita.</string>
-    <string name="ime_security_warning">Este método pode coletar todo o texto que você inserir, exceto senhas, incluindo dados pessoais e números de cartões de crédito. Ele provém do aplicativo %1$s. Usar mesmo assim?</string>
+    <string name="ime_security_warning">%s pode coletar todo o texto que você digitar, incluindo dados pessoais como senhas e números do cartão de crédito.</string>
     <string name="failed_to_open_app_settings_toast">Falha ao abrir configurações para %s.</string>
     <string name="keyboard_and_input_methods_category">Teclados</string>
     <string name="virtual_keyboard_category">Teclado na tela</string>

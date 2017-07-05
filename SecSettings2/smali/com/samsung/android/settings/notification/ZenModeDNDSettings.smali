@@ -431,7 +431,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mStart:Lcom/samsung/android/settings/notification/ZenModeDNDSettings$TimePickerPreference;
 
-    const v4, 0x7f0b1b22
+    const v4, 0x7f0b1b25
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/notification/ZenModeDNDSettings$TimePickerPreference;->setTitle(I)V
 
@@ -477,7 +477,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mEnd:Lcom/samsung/android/settings/notification/ZenModeDNDSettings$TimePickerPreference;
 
-    const v4, 0x7f0b1b23
+    const v4, 0x7f0b1b26
 
     invoke-virtual {v3, v4}, Lcom/samsung/android/settings/notification/ZenModeDNDSettings$TimePickerPreference;->setTitle(I)V
 
@@ -589,7 +589,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0afa
+    const v4, 0x7f0b0afd
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -924,7 +924,7 @@
 .method private showDaysDialog()V
     .locals 11
 
-    const v9, 0x7f0b0b12
+    const v9, 0x7f0b0b15
 
     const/4 v10, 0x0
 
@@ -982,7 +982,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1995
+    const v7, 0x7f0b1998
 
     invoke-virtual {v6, v7, v10}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1147,7 +1147,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b1b04
+    const v1, 0x7f0b1b07
 
     const/4 v2, 0x0
 
@@ -1312,7 +1312,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b1b0c
+    const v7, 0x7f0b1b0f
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1363,7 +1363,7 @@
     :cond_4
     iget-object v6, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mDays:Landroid/preference/Preference;
 
-    const v7, 0x7f0b1b08
+    const v7, 0x7f0b1b0b
 
     invoke-virtual {v6, v7}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1410,7 +1410,7 @@
     :goto_0
     if-eqz v1, :cond_1
 
-    const v3, 0x7f0b1b24
+    const v3, 0x7f0b1b27
 
     :goto_1
     iget-object v4, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mEnd:Lcom/samsung/android/settings/notification/ZenModeDNDSettings$TimePickerPreference;
@@ -1449,9 +1449,9 @@
 .method private updateVisualSettingsSummary()V
     .locals 6
 
-    const v5, 0x7f0b1b2e
+    const v5, 0x7f0b1b31
 
-    const v4, 0x7f0b1b2d
+    const v4, 0x7f0b1b30
 
     const/4 v2, 0x1
 
@@ -1473,7 +1473,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0b1b30
+    const v1, 0x7f0b1b33
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->getString(I)Ljava/lang/String;
 
@@ -1531,7 +1531,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0b1b2f
+    const v1, 0x7f0b1b32
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->getString(I)Ljava/lang/String;
 
@@ -1759,7 +1759,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0b00
+    const v1, 0x7f0b0b03
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1774,7 +1774,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0b01
+    const v1, 0x7f0b0b04
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1837,7 +1837,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mAllowException:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b0afc
+    const v2, 0x7f0b0aff
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1857,7 +1857,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/ZenModeDNDSettings;->mAllowException:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b1ab1
+    const v2, 0x7f0b1ab4
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 

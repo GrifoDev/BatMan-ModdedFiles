@@ -1115,6 +1115,7 @@ Wi-Fi மற்றும் ப்ளூடூத் ஆகியவையும
     <string name="general_device_management_title">பொது மேலாண்மை</string>
     <string name="application_settings_summary">டீஃபால்ட் பயன்பாடுகள், அனுமதிகள், நிறுவல் நீக்கவும்</string>
     <string name="notifications_settings_summary">தடை செய்யவும், அனுமதிக்கவும், முன்னுரிமை வழங்கவும்</string>
+    <string name="ime_security_warning_title">தேர்வு செய்த விசைப்பலகையை ஆன் செய்யவா?</string>
     <string name="language_settings_summary">கீழே உள்ள பல மொழிகளைச் சேர்க்கவும், இதனால் பயன்பாடானது உங்கள் டீஃபால்ட் மொழியை ஆதரிக்கவில்லையெனில் (பட்டியலின் மேலே), அதற்குப் பதிலாக பட்டியலில் உள்ள அடுத்த ஆதரிக்கப்படும் மொழியைப் பயன்படுத்தப்படும். மொழியை டீஃபால்ட்டாக அமைக்க பட்டியலின் மேலே அதை நகர்த்தவும்.</string>
     <string name="language_settings_noti_desc">உங்கள் நாட்டில் ஆதரிக்கப்படும் மொழிகள் காட்டப்பட்டுள்ள மாடலில் இருந்து மாறுபடலாம்.</string>
     <string name="language_settings_set_locale_title">%s-ஐ டீஃபால்ட் மொழியாக அமைக்கவா?</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">முகப்புப் பொத்தானை வலிமையாக அழுத்துவதற்குத் தேவையான அழுத்தத்தைச் சரிசெய்யவும்.</string>
     <string name="navigationbar_pressure_low">கூடுதல் கூருணர்வு</string>
     <string name="navigationbar_pressure_high">குறைவான கூருணர்வு</string>
+    <string name="navigationbar_hide_bar">பொத்தானைக் காட்டி மறைக்கவும்</string>
+    <string name="navigationbar_hide_bar_summary">நகர்தல் பட்டையைக் காட்ட அல்லது மறைக்க நகர்தல் பட்டையின் இடதுபக்கத்தில் பொத்தானை சேர்க்கவும்.</string>
     <string name="full_screen_apps_title">முழுத் திரை பயன்பாடுகள்</string>
     <string name="full_screen_apps_summary">முழுத் திரை படிம விகிதத்தில் எந்தப் பயன்பாடுகளைப் பயன்படுத்த விரும்புகிறீர்கள் என்பதைத் தேர்வுசெய்யவும்.</string>
     <string name="full_screen_apps_item_summary_optimized_full">இந்தப் பயன்பாடு முழுத் திரையில் இயங்குவதற்காக உகந்ததாக்கப்பட்டுள்ளது.</string>
@@ -4845,7 +4848,7 @@ Receiving SMS"</string>
     <string name="phone_language">மொழி</string>
     <string name="show_password">கடவுச்சொற்களை தெரியும்படியாக செய்யவும்</string>
     <string name="show_password_summary">நீங்கள் கடவுச்சொல் எழுத்துக்களைத் தட்டச்சுச் செய்கையில் அவற்றைச் சுருக்கமாகக் காட்டவும்.</string>
-    <string name="ime_security_warning">நீங்கள் உள்ளிட்ட அனைத்து உரை, கடவுச்சொற்கள் தவிர, தனிப்பட்ட தரவு, கடனட்டை எண்கள் உட்பட அனைத்தையும் இந்த முறையில் சேகரிக்கலாம். இது அப் %1$s-லிருந்து வருகிறது. எப்படியும் பயன்படுத்தவா?</string>
+    <string name="ime_security_warning">கடவுச்சொற்கள் மற்றும் கடனட்டை எண்கள் போன்ற தனிப்பட்ட தரவு உட்பட, நீங்கள் தட்டச்சு செய்யும் எல்லா உரையையும் %s-ஆல் சேகரிக்க இயலும்.</string>
     <string name="failed_to_open_app_settings_toast">%sக்கான அமைவுகளை திறப்பதில் தோல்வி.</string>
     <string name="keyboard_and_input_methods_category">விசைப்பலகைகள்</string>
     <string name="virtual_keyboard_category">ஆன்-ஸ்க்ரீன் விசைப்பலகை</string>

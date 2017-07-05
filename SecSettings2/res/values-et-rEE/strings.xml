@@ -1115,6 +1115,7 @@ Isegi kui nutikas jäädvustamine on inaktiveeritud, pääsete ligi selle funkts
     <string name="general_device_management_title">Üldine haldus</string>
     <string name="application_settings_summary">Vaikimisi rakendused, load, desinstalli</string>
     <string name="notifications_settings_summary">Blokeeri, luba, sea prioriteet</string>
+    <string name="ime_security_warning_title">Kas lülitada valitud klaviatuur sisse?</string>
     <string name="language_settings_summary">Lisage all mitu keelt. Nii valib rakendus, mis ei toeta teie vaikimisi keelt (nimekirja alguses), nimekirjast järgmise toetatud keele. Tõstke keel nimekirja ette, et määrata see vaikekeeleks.</string>
     <string name="language_settings_noti_desc">Teie riigis toetatavad keeled võivad erineda nendest, mis on näha näidismudelis.</string>
     <string name="language_settings_set_locale_title">Kas määrata %s vaikimisi keeleks?</string>
@@ -1426,6 +1427,8 @@ Toksake valikut OK, et lubada heleduse tõstmine üle ohutu taseme."</string>
     <string name="navigationbar_pressure_sensitivity_summary">Saate reguleerida avaekraani nupu tugeva vajutuse jaoks vajalikku survet.</string>
     <string name="navigationbar_pressure_low">Rohkem tundlik</string>
     <string name="navigationbar_pressure_high">Vähem tundlik</string>
+    <string name="navigationbar_hide_bar">Kuvamise ja peitmise nupp</string>
+    <string name="navigationbar_hide_bar_summary">Saate lisada nupu navigatsiooniriba vasakule küljele navigatsiooniriba kuvamiseks või peitmiseks.</string>
     <string name="full_screen_apps_title">Täisekraani rakendused</string>
     <string name="full_screen_apps_summary">Valige, milliseid rakendusi soovite kasutada täisekraani kuvasuhtega.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Rakendus on optimeeritud täisekraanil töötamiseks.</string>
@@ -4845,7 +4848,7 @@ Teie olemasolevad rakenduste andmed ei lähe kaduma."</string>
     <string name="phone_language">Keel</string>
     <string name="show_password">Muuda paroolid nähtavaks</string>
     <string name="show_password_summary">Kuva korraks parooli märke tippimise ajal.</string>
-    <string name="ime_security_warning">See meetod saab koguda kogu sisestatavat teksti, sealhulgas isiklikke andmeid ja krediitkaardinumbreid, kuid mitte paroole. See tuleb rakendusest %1$s. Kas kasutada ikkagi?</string>
+    <string name="ime_security_warning">%s võib koguda teie sisestatud teksti, sh isiklikke andmeid, nagu paroolid ja krediitkaardi numbrid.</string>
     <string name="failed_to_open_app_settings_toast">Üksuse %s seadete avamine nurjus.</string>
     <string name="keyboard_and_input_methods_category">Klaviatuurid</string>
     <string name="virtual_keyboard_category">Ekraanil kuvatav klaviatuur</string>

@@ -556,7 +556,7 @@
 
     if-eqz v2, :cond_1
 
-    const v8, 0x7f0b1a34
+    const v8, 0x7f0b1a37
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -577,7 +577,7 @@
     :cond_1
     if-eqz v1, :cond_2
 
-    const v8, 0x7f0b1a35
+    const v8, 0x7f0b1a38
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

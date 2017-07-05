@@ -1115,6 +1115,7 @@ Wi-Fi и Bluetooth също ще бъдат изключени, но може д
     <string name="general_device_management_title">Основно управление</string>
     <string name="application_settings_summary">Приложения по подразбиране, разрешения, деинсталиране</string>
     <string name="notifications_settings_summary">Блокиране, разрешаване, приоритизиране</string>
+    <string name="ime_security_warning_title">Включване на избраната клавиатура?</string>
     <string name="language_settings_summary">Добавете няколко езика по-долу, така че ако дадено приложение не поддържа езика по подразбиране (в началото на списъка), вместо него ще се използва следващият поддържан език в списъка. Преместете даден език в началото на списъка, за да го зададете по подразбиране.</string>
     <string name="language_settings_noti_desc">Езиците, поддържани във вашата държава, може да се различават от показаните на модела на дисплея.</string>
     <string name="language_settings_set_locale_title">Задаване на %s като език по подразбиране?</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">Регулирайте силата на натиска, необходим за силно натискане на началния бутон.</string>
     <string name="navigationbar_pressure_low">По-голяма чувствителност</string>
     <string name="navigationbar_pressure_high">По-малка чувствителност</string>
+    <string name="navigationbar_hide_bar">Показване и скриване на бутона</string>
+    <string name="navigationbar_hide_bar_summary">Добавете бутон отляво на лентата за навигация, за да покажете или скриете лентата за навигация.</string>
     <string name="full_screen_apps_title">Приложения на цял екран</string>
     <string name="full_screen_apps_summary">Изберете кои приложения да се използват в съотношение на цял екран.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Това приложение е оптимизирано да се изпълнява на цял екран.</string>
@@ -4845,7 +4848,7 @@ Receiving SMS"</string>
     <string name="phone_language">Език</string>
     <string name="show_password">Направи паролата видима</string>
     <string name="show_password_summary">За показване на знаците на паролата за кратко, докато ги пишете.</string>
-    <string name="ime_security_warning">Този метод може да събира целия въведен от вас текст, с изключение на пароли, включително лични данни и номера на кредитни карти. Той идва от приложението %1$s. Използване въпреки това?</string>
+    <string name="ime_security_warning">%s може да събира целия текст, който въвеждате, включително лични данни, като например пароли и номера на кредитни карти.</string>
     <string name="failed_to_open_app_settings_toast">Неуспешно отваряне на настройките за %s.</string>
     <string name="keyboard_and_input_methods_category">Клавиатури</string>
     <string name="virtual_keyboard_category">Екранна клавиатура</string>

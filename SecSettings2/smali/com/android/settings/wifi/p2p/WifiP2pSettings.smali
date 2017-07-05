@@ -515,9 +515,9 @@
 .method private addMyDeviceCenterText(Z)V
     .locals 3
 
-    const v0, 0x7f0b0dc8
+    const v0, 0x7f0b0dcb
 
-    const v1, 0x7f0b0dcb
+    const v1, 0x7f0b0dce
 
     const/4 v2, 0x0
 
@@ -677,7 +677,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0e2e
+    const v2, 0x7f0b0e31
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1712,7 +1712,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
-    const v1, 0x7f0b0dc1
+    const v1, 0x7f0b0dc4
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getString(I)Ljava/lang/String;
 
@@ -3373,7 +3373,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0dc7
+    const v11, 0x7f0b0dca
 
     const/4 v12, 0x1
 
@@ -3402,7 +3402,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0dca
+    const v11, 0x7f0b0dcd
 
     const/4 v12, 0x1
 

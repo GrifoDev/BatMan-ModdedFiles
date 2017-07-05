@@ -210,7 +210,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1b13
+    const v2, 0x7f0b1b16
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -222,7 +222,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1b14
+    const v2, 0x7f0b1b17
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -234,7 +234,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1b15
+    const v2, 0x7f0b1b18
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0978
+    const v2, 0x7f0b097b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -489,7 +489,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0b1b1d
+    const v5, 0x7f0b1b20
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -548,7 +548,7 @@
     :cond_1
     iget-object v2, p0, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->mEvents:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b0b0c
+    const v3, 0x7f0b0b0f
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -829,7 +829,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b1b04
+    const v1, 0x7f0b1b07
 
     const/4 v2, 0x0
 

@@ -986,6 +986,7 @@ Ale tyż po wyłōnczyniu fōnkcyji Przechytywanie inteligyntne idzie mieć dost
     <string name="general_device_management_title">Reskyrowanie ôgōlne</string>
     <string name="application_settings_summary">Dōmyślne aplikacyje, uprŏwniynia, dezinstalacyjo</string>
     <string name="notifications_settings_summary">Bloknij, dozwolej, ôkryślej priorytety</string>
+    <string name="ime_security_warning_title">Włączyć wybraną klawiaturę?</string>
     <string name="language_settings_summary">Przidej niżyj mocka gŏdek, coby kej aplikacyjŏ niy ôbsuguje gŏdki dōmyślnyj (na wiyrchu listy), we plac niyj boło użytŏ dŏlszŏ ôbsugiwanŏ gŏdka z listy. Przeciep gŏdka na wiyrch listy, coby nasztalować jako dōmyślnŏ.</string>
     <string name="language_settings_noti_desc">Języki obsługiwane w danym kraju mogą różnić się od tych pokazywanych na prezentowanym modelu.</string>
     <string name="language_settings_set_locale_title">Ustawić %s jako język domyślny?</string>
@@ -1297,6 +1298,8 @@ Tyknij OK, coby przizwolić na zwielgszynie widności wiyncyj co bezpieczny pozi
     <string name="navigationbar_pressure_sensitivity_summary">Dostosuj siłę nacisku potrzebnego do mocnego naciśnięcia przycisku ekranu startowego.</string>
     <string name="navigationbar_pressure_low">Większa czułość</string>
     <string name="navigationbar_pressure_high">Mniejsza czułość</string>
+    <string name="navigationbar_hide_bar">Przycisk pokaż i ukryj</string>
+    <string name="navigationbar_hide_bar_summary">Dodaj przycisk po lewej stronie paska nawigacji, aby pokazać lub ukryć pasek nawigacji.</string>
     <string name="full_screen_apps_title">Aplikacje na pełnym ekranie</string>
     <string name="full_screen_apps_summary">Wybierz, które aplikacje mają być używane w proporcji pełnego ekranu.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ta aplikacja została zoptymalizowana do uruchamiania na pełnym ekranie.</string>
@@ -2582,7 +2585,7 @@ Jeśli wybierzesz urządzenie audio Bluetooth, dźwięk będzie odtwarzany na do
     <string name="stop_setup_popup_msg">Zmienione ustawienia nie zostaną zastosowane.</string>
     <string name="app_turned_on">%s zał.</string>
     <string name="force_touch_title">Wibracje przy silnym naciskaniu</string>
-    <string name="volume_key_control_title">Domyśln. sterow. kl. głośności</string>
+    <string name="volume_key_control_title">Dōmyślne kerowanie kneflami głośności</string>
     <string name="sound_mode">Tryb klangu</string>
     <string name="sound_mode_vibrate">Wibracyjŏ</string>
     <string name="sound_mode_mute">Wycisz</string>
@@ -4693,7 +4696,7 @@ Trzimane dane aplikacyji niy bydōm stracōne."</string>
     <string name="phone_language">Gŏdka</string>
     <string name="show_password">Hasła na widziku</string>
     <string name="show_password_summary">Pokŏż znaki ôd hasła krōtko przi jejich przidŏwaniu.</string>
-    <string name="ime_security_warning">Ten knif poradzi mieć możność zamlowaniŏ cŏłygo podanego tekstu, cuzamnyn z danymi ôsobistymi i nōmerami kart kredytowych (ôkrōm haseł). Knif je z aplikactji %1$s. Na sicher chcesz go użyć?</string>
+    <string name="ime_security_warning">Klawiatura %s może gromadzić cały wpisywany tekst, łącznie z takimi danymi osobistymi, jak hasła i numery kart kredytowych.</string>
     <string name="failed_to_open_app_settings_toast">Niy idzie ôdewrzić nasztalowań dlŏ aplikacje %s.</string>
     <string name="keyboard_and_input_methods_category">Tastatury</string>
     <string name="virtual_keyboard_category">Klawiatura ekranowa</string>

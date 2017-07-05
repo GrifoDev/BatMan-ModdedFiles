@@ -1115,6 +1115,7 @@ Nawet po wyłączeniu funkcji Przechwytywanie inteligentne można uzyskiwać dos
     <string name="general_device_management_title">Zarządzanie ogólne</string>
     <string name="application_settings_summary">Domyślne aplikacje, uprawnienia, dezinstalacja</string>
     <string name="notifications_settings_summary">Blokuj, zezwalaj, określaj priorytety</string>
+    <string name="ime_security_warning_title">Włączyć wybraną klawiaturę?</string>
     <string name="language_settings_summary">Dodaj poniżej wiele języków, aby gdy aplikacja nie obsługuje języka domyślnego (na górze listy), zamiast niego został użyty kolejny obsługiwany język z listy. Przenieś język na górę listy, aby ustawić go jako domyślny.</string>
     <string name="language_settings_noti_desc">Języki obsługiwane w danym kraju mogą różnić się od tych pokazywanych na prezentowanym modelu.</string>
     <string name="language_settings_set_locale_title">Ustawić %s jako język domyślny?</string>
@@ -1426,6 +1427,8 @@ Dotknij OK, aby zezwolić na zwiększenie jasności powyżej bezpiecznego poziom
     <string name="navigationbar_pressure_sensitivity_summary">Dostosuj siłę nacisku potrzebnego do mocnego naciśnięcia przycisku ekranu startowego.</string>
     <string name="navigationbar_pressure_low">Większa czułość</string>
     <string name="navigationbar_pressure_high">Mniejsza czułość</string>
+    <string name="navigationbar_hide_bar">Przycisk pokaż i ukryj</string>
+    <string name="navigationbar_hide_bar_summary">Dodaj przycisk po lewej stronie paska nawigacji, aby pokazać lub ukryć pasek nawigacji.</string>
     <string name="full_screen_apps_title">Aplikacje na pełnym ekranie</string>
     <string name="full_screen_apps_summary">Wybierz, które aplikacje mają być używane w proporcji pełnego ekranu.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ta aplikacja została zoptymalizowana do uruchamiania na pełnym ekranie.</string>
@@ -4845,7 +4848,7 @@ Istniejące dane aplikacji nie zostaną utracone."</string>
     <string name="phone_language">Język</string>
     <string name="show_password">Widoczne hasła</string>
     <string name="show_password_summary">Pokazuj znaki hasła na krótko po ich wpisaniu.</string>
-    <string name="ime_security_warning">Ta metoda może mieć możliwość gromadzenia całego wpisywanego tekstu, łącznie z danymi osobistymi i numerami kart kredytowych (oprócz haseł). Metoda pochodzi z aplikacji %1$s. Użyć mimo to?</string>
+    <string name="ime_security_warning">Klawiatura %s może gromadzić cały wpisywany tekst, łącznie z takimi danymi osobistymi, jak hasła i numery kart kredytowych.</string>
     <string name="failed_to_open_app_settings_toast">Nie można otworzyć ustawień dla aplikacji %s.</string>
     <string name="keyboard_and_input_methods_category">Klawiatury</string>
     <string name="virtual_keyboard_category">Klawiatura ekranowa</string>

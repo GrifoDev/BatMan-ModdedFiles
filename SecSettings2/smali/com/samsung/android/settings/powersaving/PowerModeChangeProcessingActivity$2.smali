@@ -97,7 +97,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b0ba4
+    const v4, 0x7f0b0ba7
 
     invoke-virtual {v2, v4, v3}, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

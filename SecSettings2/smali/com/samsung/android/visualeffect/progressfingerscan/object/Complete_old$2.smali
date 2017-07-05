@@ -49,19 +49,16 @@
 
     move-result v0
 
-    # setter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;->completeViewOnAnimationValue:F
     invoke-static {v1, v0}, Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;->access$102(Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;F)F
 
     iget-object v0, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;->completeViewOld:Lcom/samsung/android/visualeffect/progressfingerscan/object/CompleteView_old;
     invoke-static {v0}, Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;->access$200(Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;)Lcom/samsung/android/visualeffect/progressfingerscan/object/CompleteView_old;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;->completeViewOnAnimationValue:F
     invoke-static {v1}, Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;->access$100(Lcom/samsung/android/visualeffect/progressfingerscan/object/Complete_old;)F
 
     move-result v1

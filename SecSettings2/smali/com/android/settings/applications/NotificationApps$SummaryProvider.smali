@@ -79,7 +79,7 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/NotificationApps$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b1c2b
+    const v2, 0x7f0b1c2e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

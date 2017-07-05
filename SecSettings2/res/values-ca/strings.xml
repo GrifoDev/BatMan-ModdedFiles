@@ -1115,6 +1115,7 @@ Fins i tot mentre la Captura sencera estigui desactivada, pot accedir a les seve
     <string name="general_device_management_title">Administració general</string>
     <string name="application_settings_summary">Apps predeterminades, permisos, desinstal·lar</string>
     <string name="notifications_settings_summary">Bloquejar, concedir, prioritzar</string>
+    <string name="ime_security_warning_title">Vol activar el teclat seleccionat?</string>
     <string name="language_settings_summary">"Afegeixi múltiples idiomes a continuació de manera que, si una aplicació no admet l'idioma predeterminat (a l'extrem superior de la llista), s'utilitzi l'idioma compatible següent de la llista. Mogui un idioma a l'extrem superior de la llista per establir-lo com a predeterminat."</string>
     <string name="language_settings_noti_desc">Els idiomes compatibles al seu país poden variar dels que es mostren al model de la pantalla.</string>
     <string name="language_settings_set_locale_title">Vol establir %s com a idioma predeterminat?</string>
@@ -1426,6 +1427,8 @@ Toqui ACCEPTAR per permetre que la brillantor augmenti per sobre dels nivells se
     <string name="navigationbar_pressure_sensitivity_summary">Ajusti la quantitat de pressió necessària per prémer el botó Inici durant una estona.</string>
     <string name="navigationbar_pressure_low">Més sensible</string>
     <string name="navigationbar_pressure_high">Menys sensible</string>
+    <string name="navigationbar_hide_bar">Mostrar i ocultar el botó</string>
+    <string name="navigationbar_hide_bar_summary">Afegeix un botó al costat esquerre de la barra de navegació per visualitzar o ocultar la barra de navegació.</string>
     <string name="full_screen_apps_title">Aplicacions Pantalla completa</string>
     <string name="full_screen_apps_summary">"Seleccioni quines aplicacions vol utilitzar a la relació d'aspecte de la pantalla completa."</string>
     <string name="full_screen_apps_item_summary_optimized_full">Aquesta aplicació està optimitzada per executar-se en pantalla completa.</string>
@@ -4844,7 +4847,7 @@ Les dades de l'aplicació existents no es perdran."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Fer que la contrasenya sigui visible</string>
     <string name="show_password_summary">"Mostrar els caràcters de la contrasenya breument en escriure'ls."</string>
-    <string name="ime_security_warning">"Aquest mètode pot recopilar tot el text que introdueixi, excepte contrasenyes, fins i tot números de targeta de crèdit i dades personals. Prové de l'aplicació %1$s. Utilitzar de totes maneres?"</string>
+    <string name="ime_security_warning">%s podrà recopilar tots els textos que escrigui, incloent-hi les dades personals, com ara les contrasenyes i els números de targetes de crèdit.</string>
     <string name="failed_to_open_app_settings_toast">"Error en obrir l'ajustament de %s"</string>
     <string name="keyboard_and_input_methods_category">Teclats</string>
     <string name="virtual_keyboard_category">Teclat en pantalla</string>

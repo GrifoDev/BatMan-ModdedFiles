@@ -986,6 +986,7 @@ Smart capture ကို ပိတ္ထားလင့္ကစား ၎၏ဝ�
     <string name="general_device_management_title">အေထြေထြ စီမံခ်က္</string>
     <string name="application_settings_summary">မူရင္ပါပုံစံ အက္ပ္မ်ား၊ ခြင့္ျပဳခ်က္မ်ား၊ ျဖဳတ္ရန္</string>
     <string name="notifications_settings_summary">ပိတ္ဆို႔ပါ၊ ခြင့္ျပဳပါ၊ ဦးစားေပးပါ</string>
+    <string name="ime_security_warning_title">ေရြးထားသည့္ ကီးဘုတ္ကုိ ဖြင့္မလား?</string>
     <string name="language_settings_summary">ဘာသာစကားမ်ိဳးစုံကို ေအာက္၌ ထည့္ပါ၊ သို႔ျဖစ္၍ အက္ပ္တစ္ခုက သင္၏ မူရင္းပုံစံပါဘာသာစကား (စာရင္းထိပ္ပိုင္း၌) ကိုု ပံ့ပိုးမေပးလွ်င္၊ စာရင္းထဲရွိ ပံ့ပိုးေသာ ေနာက္ဘာသာစကားတစ္ခုကို အစားထိုး သုံးပါမည္။ ဘာသာစကားတစ္ခုကုိ မူရင္းပုံစံပါအျဖစ္ သတ္မွတ္ရန္ စာရင္းထိပ္ဆံုးသုိ႔ ေရႊ႕ပါ။</string>
     <string name="language_settings_noti_desc">သင့္ႏုိင္ငံတြင္ ပံ့ပုိးေပးထားသည့္ ဘာသာစကားမ်ားသည္ ျပသေမာ္ဒယ္ေပၚတြင္ ျပသထားေသာ ဘာသာစကားမ်ားႏွင့္ ကြဲျပားႏုိင္သည္။</string>
     <string name="language_settings_set_locale_title">%s ကုိ မူရင္းပါ ဘာသာစကားအျဖစ္ သတ္မွတ္မလား?</string>
@@ -1297,6 +1298,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">ပင္မခလုတ္ကုိ ခပ္ျပင္းျပင္းဖိရန္ လုိအပ္သည့္ ဖိအားပမာဏကုိ ခ်ိန္ညႇိပါ။</string>
     <string name="navigationbar_pressure_low">တုံ႔ျပန္အား ပိုေကာင္း</string>
     <string name="navigationbar_pressure_high">တုံ႔ျပန္အား နည္း</string>
+    <string name="navigationbar_hide_bar">ခလုတ္ ျပရန္ႏွင့္ ဝွက္ရန္</string>
+    <string name="navigationbar_hide_bar_summary">လမ္းညႊန္ဘား ျပရန္ (သို႔) ဝွက္ရန္အတြက္ ခလုတ္တစ္ခုကို လမ္းညႊန္ဘား၏ ဘယ္ဘက္တြင္ ထည့္ပါ။</string>
     <string name="full_screen_apps_title">စခရင္အျပည့္ အက္ပ္မ်ား</string>
     <string name="full_screen_apps_summary">စခရင္အျပည့္ သြင္ျပင္အခ်ိဳးအဆတြင္ မည္သည့္အက္ပ္မ်ားအား သင္အသုံးျပဳလိုသည္ကို ေရြးခ်ယ္ပါ။</string>
     <string name="full_screen_apps_item_summary_optimized_full">ဖန္သားျပင္အျပည့္တြင္ ဖြင့္ရန္ ဤအက္ပ္ကုိ ပုိေကာင္းေအာင္ လုပ္ထားသည္။</string>
@@ -4694,7 +4697,7 @@ Receiving SMS"</string>
     <string name="phone_language">ဘာသာစကား</string>
     <string name="show_password">စကားဝွက္ကို ျမင္ေအာင္လုပ္ပါ</string>
     <string name="show_password_summary">စကား၀ွက္ သေကၤတမ်ားကို သင္ တိုက္ရိုက္ထည့္မည္ ျဖစ္ေသာေၾကာင့္ ခဏ ျပပါ။</string>
-    <string name="ime_security_warning">ဤနည္းသည္ စကားဝွက္မွလြဲ၍ ပုဂၢိဳလ္ေရးအခ်က္အလက္မ်ား ခရိဒစ္ကတ္ နံပါတ္မ်ား အပါအဝင္ သင္သြင္းလိုက္သည္ စာသားအားလံုးကို စုေဆာင္းႏိုင္သည္။ ၎သည္ %1$s အပ္မွ လာသည္။ မည္သို႔ဆိုေစ သံုးမည္လား?</string>
+    <string name="ime_security_warning">စကားဝွက္မ်ားႏွင့္ ခရက္တစ္ကတ္ နံပါတ္မ်ားကဲ့သို႔ ကိုယ္ေရးကုိယ္တာ ေဒတာ အပါအဝင္ သင္႐ိုက္ထည့္သည့္ စာသားအားလုံးကို %s က စုစည္းေကာက္ယူႏိုင္သည္။</string>
     <string name="failed_to_open_app_settings_toast">%s အတြက္ သတ္မွတ္ခ်က္မ်ား ဖြင့္ရန္ လုပ္မရ။</string>
     <string name="keyboard_and_input_methods_category">ကီးဘုတ္မ်ား</string>
     <string name="virtual_keyboard_category">ဖန္သားျပင္-ေပၚ ကီးဘုတ္</string>

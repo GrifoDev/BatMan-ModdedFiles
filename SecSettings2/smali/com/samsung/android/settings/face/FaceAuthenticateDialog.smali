@@ -762,7 +762,7 @@
 
     const/4 v3, 0x0
 
-    const v6, 0x7f0b124c
+    const v6, 0x7f0b124f
 
     const v5, 0x10302d2
 
@@ -857,7 +857,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/face/FaceAuthenticateDialog$14;-><init>(Lcom/samsung/android/settings/face/FaceAuthenticateDialog;)V
 
-    const v4, 0x7f0b080d
+    const v4, 0x7f0b0810
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1140,7 +1140,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0806
+    const v3, 0x7f0b0809
 
     invoke-virtual {v1, v3, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1319,7 +1319,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mAlert:Landroid/app/AlertDialog;
 
-    const v4, 0x7f0b0802
+    const v4, 0x7f0b0805
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog;->setTitle(I)V
 
@@ -1663,7 +1663,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b080a
+    const v3, 0x7f0b080d
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1696,7 +1696,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mInfoText:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0805
+    const v2, 0x7f0b0808
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -1751,7 +1751,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b080f
+    const v3, 0x7f0b0812
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1961,7 +1961,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mInfoText:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0805
+    const v2, 0x7f0b0808
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -1995,7 +1995,7 @@
 
     move-result-object v11
 
-    const v1, 0x7f0b124c
+    const v1, 0x7f0b124f
 
     invoke-virtual {v11, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -2015,9 +2015,9 @@
 
     if-ne v0, v1, :cond_12
 
-    const v14, 0x7f0b0811
+    const v14, 0x7f0b0814
 
-    const v9, 0x7f0b0810
+    const v9, 0x7f0b0813
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mContext:Landroid/content/Context;
 
@@ -2202,7 +2202,7 @@
 
     move-result-object v11
 
-    const v1, 0x7f0b080d
+    const v1, 0x7f0b0810
 
     invoke-virtual {v11, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -2211,9 +2211,9 @@
     :cond_12
     if-eqz p2, :cond_9
 
-    const v14, 0x7f0b0809
+    const v14, 0x7f0b080c
 
-    const v9, 0x7f0b080e
+    const v9, 0x7f0b0811
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mContext:Landroid/content/Context;
 
@@ -2246,7 +2246,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0809
+    const v3, 0x7f0b080c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2297,7 +2297,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mAlert:Landroid/app/AlertDialog;
 
-    const v2, 0x7f0b0809
+    const v2, 0x7f0b080c
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setTitle(I)V
 
@@ -2337,7 +2337,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/face/FaceAuthenticateDialog;->mBackupCancelButton:Landroid/widget/Button;
 
-    const v2, 0x7f0b080d
+    const v2, 0x7f0b0810
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
 
@@ -2425,7 +2425,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b080c
+    const v3, 0x7f0b080f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2557,7 +2557,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b080b
+    const v5, 0x7f0b080e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

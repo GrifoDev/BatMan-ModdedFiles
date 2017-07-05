@@ -1094,7 +1094,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b09b9
+    const v10, 0x7f0b09bc
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2665,7 +2665,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->descTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b09b6
+    const v2, 0x7f0b09b9
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

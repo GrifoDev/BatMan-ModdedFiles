@@ -1115,6 +1115,7 @@ Wi-Fi და Bluetooth ასევე გამოირთვება, მა
     <string name="general_device_management_title">ზოგადი მართვა</string>
     <string name="application_settings_summary">ნაგულისხმევი აპლიკაციები, ნებართვები, დეინსტალაცია</string>
     <string name="notifications_settings_summary">დაბლოკვა, დაშვება, პრიორიტეტის მინიჭება</string>
+    <string name="ime_security_warning_title">ჩაირთოს შერჩეული კლავიატურა?</string>
     <string name="language_settings_summary">ქვემოთ (ენების სიის თავში) დაამატეთ რამდენიმე ენა, და იმ შემთხვევაში, როცა აპლიკაციას არ აქვს თქვენი ნაგულისხმევი ენის მხარდაჭერა, სანაცვლოდ გამოყენებული იქნება შემდეგი მხარდაჭერილი ენა. გადაიტანეთ ენა სიის თავში, რომ დააყენოთ ნაგულისხმევ ვარიანტად.</string>
     <string name="language_settings_noti_desc">თქვენს ქვეყანაში მხარდაჭერილი ენები შეიძლება განსხვავდებოდეს ნაჩვენებ მოდელზე წარმოდგენილისგან.</string>
     <string name="language_settings_set_locale_title">%s დაყენდეს ნაგულისხმევ ენად?</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">შეარჩიეთ დაჭერის დონე, რომელიც საჭიროა „საწყის გვერდზე გადასვლის“ კლავიშზე დასაჭერად.</string>
     <string name="navigationbar_pressure_low">უფრო მგრძნობიარე</string>
     <string name="navigationbar_pressure_high">ნაკლებად მგრძნობიარე</string>
+    <string name="navigationbar_hide_bar">ჩვენებისა და დამალვის ღილაკი</string>
+    <string name="navigationbar_hide_bar_summary">დაამატეთ ღილაკი ნავიგაციის ზოლის გვერდით, რომ გამოაჩინოთ ან დამალოთ ნავიგაციის ზოლი.</string>
     <string name="full_screen_apps_title">აპლიკაციები სრულ ეკრანზე</string>
     <string name="full_screen_apps_summary">აირჩიეთ, რომელი აპლიკაციების გამოყენება გსურთ მთელი ეკრანის გვერდების ფარდობით.</string>
     <string name="full_screen_apps_item_summary_optimized_full">ეს აპლიკაცია ოპტიმიზირებულია მთელ ეკრანზე გასაშვებად.</string>
@@ -4845,7 +4848,7 @@ Receiving SMS"</string>
     <string name="phone_language">ენა</string>
     <string name="show_password">გამოჩნდეს პაროლები</string>
     <string name="show_password_summary">პაროლის სიმბოლოები მცირე ხნით გამოჩნდეს, მათი აკრეფის დროს.</string>
-    <string name="ime_security_warning">ამ მეთოდით შესაძლებელია თქვენს მიერ აკრეფილი ყველა ტექსტის შეგროვება, გარდა პაროლებისა, პერსონალური მონაცემებისა და საკრედიტო ბარათის ნომრების ჩათვლით. ამას აკეთებს პროგრამა %1$s. მაინც გამოიყენებთ?</string>
+    <string name="ime_security_warning">%s-მ შეიძლება შეაგროვოს თქვენ მიერ აკრეფილი ყველა ტექსტი, პერსონალური მონაცემების ჩათვლით, როგორიცაა პაროლები და საკრედიტო ბარათების ნომრები.</string>
     <string name="failed_to_open_app_settings_toast">ვერ გაიხსნა %s-ის პარამეტრები.</string>
     <string name="keyboard_and_input_methods_category">კლავიატურები</string>
     <string name="virtual_keyboard_category">კლავიატურა ეკრანზე</string>

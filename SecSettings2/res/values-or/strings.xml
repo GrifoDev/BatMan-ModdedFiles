@@ -986,6 +986,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">ସାଧାରଣ ପରିଚାଳନା</string>
     <string name="application_settings_summary">ଡିଫଲ୍ଟ ଆପସ୍, ଅନୁମତି, ଅଣସଂସ୍ଥାପନ</string>
     <string name="notifications_settings_summary">ଅବରୋଧ, ଅନୁମତି, ଅଗ୍ରାଧିକାର</string>
+    <string name="ime_security_warning_title">ଚୟନିତ କୀବୋର୍ଡ୍ ଟର୍ନ୍ ଅନ୍ କରିବେ?</string>
     <string name="language_settings_summary">ନିମ୍ନରେ ଏକାଧିକ ଭାଷା ଯୋଡନ୍ତୁ, ଯଦି ଏକ ଆପ୍ଲିକେସନ୍ ଆପଣଙ୍କ ଡିଫଲ୍ଟ ଭାଷାକୁ (ତାଲିକାର ଶୀର୍ଷରେ) ସମର୍ଥନ ନକରେ, ତେବେ ଏହା ବଦଳରେ ତାଲିକାର ପରବର୍ତ୍ତୀ ସମର୍ଥିତ ଭାଷା ବ୍ୟବହାର ହେବ। ଭାଷାକୁ ଡିଫଲ୍ଟ ଭାବରେ ସେଟ୍‌ କରିବାକୁ ଏହାକୁ ତାଲିକାର ଶୀର୍ଷକୁ ଘୁଞ୍ଚାନ୍ତୁ।</string>
     <string name="language_settings_noti_desc">ଆପଣଙ୍କ ଦେଶରେ ଅସମର୍ଥିତ ଭାଷାଗୁଡିକ ହୁଏତ ପ୍ରଦର୍ଶନ ମଡେଲରେ ଦେଖାଯିବରୁ ଭିନ୍ନ ହୋପାରେ।</string>
     <string name="language_settings_set_locale_title">%s ଡିଫଲ୍ଟ ଭାଷା ଭାବରେ ସେଟ୍ କରିବେ?</string>
@@ -1297,6 +1298,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">ହୋମ୍ ବଟନକୁ ଜୋରରେ ଦବାଇବାକୁ ଆବଶ୍ୟକ ହେଉଥିବା ଚାପର ପରିମାଣ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ।</string>
     <string name="navigationbar_pressure_low">ଅଧିକ ସମ୍ବେଦନଶୀଳ</string>
     <string name="navigationbar_pressure_high">କମ ସମ୍ବେଦନଶୀଳ</string>
+    <string name="navigationbar_hide_bar">ବଟନ୍ ଦେଖାନ୍ତୁ ଏବଂ ଲୁଚାନ୍ତୁ</string>
+    <string name="navigationbar_hide_bar_summary">ନେଭିଗେସନ୍ ବାର୍ ଦେଖାଇବା କିମ୍ୱା ଲୁଚାଇବାକୁ ନେଭିଗେସନ୍ ବାରର ବାମ ପାର୍ଶ୍ଵରେ ଏକ ବଟନ୍ ଯୋଡନ୍ତୁ।</string>
     <string name="full_screen_apps_title">ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍ ଆପସ୍</string>
     <string name="full_screen_apps_summary">ଆପଣ ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍ ଆସପେକ୍ଟ ହାରରେ ଯେଉଁ ଆପସ୍ ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁଛନ୍ତି ବାଛନ୍ତୁ।</string>
     <string name="full_screen_apps_item_summary_optimized_full">ଏହି ଆପ୍ଲିକେସନ୍ କଲ୍ ସ୍କ୍ରିନରେ ଚାଳନ କରିବାକୁ ଅପ୍ଟିମାଇଜ୍ ହୋଇଛି।</string>
@@ -4692,7 +4695,7 @@ Receiving SMS"</string>
     <string name="phone_language">ଭାଷା</string>
     <string name="show_password">ପାସୱାର୍ଡ୍‌ ଦୃଶ୍ୟମାନ କରନ୍ତୁ</string>
     <string name="show_password_summary">ଆପଣ ପାସୱାର୍ଡ୍ ଟାଇପ୍‍ କରିବା ସମୟରେ ପାସୱାର୍ଡ୍ ବର୍ଣ୍ଣଗୁଡିକ ସଂକ୍ଷେପରେ ଦର୍ଶାଏ।</string>
-    <string name="ime_security_warning">ଆପଣ ପ୍ରବେଶ କରିଥିବା ସମସ୍ତ ଟେକ୍ସଟ୍‌, ପାସୱାର୍ଡ୍ ବ୍ୟତିତ, ବ୍ୟକ୍ତିଗତ ଡାଟା ଏବଂ କ୍ରେଡିଟ୍ କାର୍ଡ୍ ନମ୍ଵରଗୁଡିକ ସହିତକୁ ଏହି ପଦ୍ଧତି ସମସ୍ତ ସଂଗ୍ରହ କରିପାରିବ। ଏହା %1$s ଆପ୍ଲିକେସନ୍‌ ଠାରୁ ଆସିଛି। ଯେକୌଣସି ଭାବେ ବ୍ୟବହାର କରିବେ?</string>
+    <string name="ime_security_warning">%s ଆପଣ ଟାଇପ୍‌ କରିଥିବା ସମସ୍ତ ଟେକ୍ସଟ୍ ସଂଗ୍ରହ କରିବାକୁ ସମର୍ଥ, ଯେଉଁଥିରେ ବ୍ୟକ୍ତିଗତ ଡାଟା ଯେପରିକି ପାସୱା‌ର୍ଡ୍ ଏବଂ କ୍ରେଡିଟ୍ କାର୍ଡ ନମ୍ବରଗୁଡିକ ଅନ୍ତର୍ଭୁକ୍ତ ହୋଇପାରେ।</string>
     <string name="failed_to_open_app_settings_toast">%s ପାଇଁ ସେଟିଂସ୍ ଖୋଲିବାକୁ ବିଫଳ ହୋଇଛି।</string>
     <string name="keyboard_and_input_methods_category">କୀବୋର୍ଡ୍</string>
     <string name="virtual_keyboard_category">ଅନ୍-ସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍</string>

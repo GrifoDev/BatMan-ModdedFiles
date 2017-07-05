@@ -1115,6 +1115,7 @@ Dva povezana uređaja mogu se neznatno razlikovati u pogledu izlaza zvuka."</str
     <string name="general_device_management_title">Opće upravljanje</string>
     <string name="application_settings_summary">Zadane aplikacije, dozvole, deinstalacija</string>
     <string name="notifications_settings_summary">Blokirajte, dopustite, dajte prioritet</string>
+    <string name="ime_security_warning_title">Uključiti odabranu tipkovnicu?</string>
     <string name="language_settings_summary">U nastavku dodajte više jezika kako bi se, u slučaju da aplikacija ne podržava vaš zadani jezik (na vrhu popisa), mogao upotrijebiti sljedeći podržani jezik na popisu. Pomaknite jezik na vrh popisa kako biste ga postavili kao zadani jezik.</string>
     <string name="language_settings_noti_desc">Jezici podržani u vašoj zemlji mogu se razlikovati od onih prikazanih na modelu prikaza.</string>
     <string name="language_settings_set_locale_title">Postaviti %s kao zadani jezik?</string>
@@ -1426,6 +1427,8 @@ Dodirnite U REDU kako biste dopustili povećanje svjetline iznad sigurnosne razi
     <string name="navigationbar_pressure_sensitivity_summary">Prilagodite koliko snažno treba pritisnuti za snažno pritiskanje početnog gumba.</string>
     <string name="navigationbar_pressure_low">Osjetljivije</string>
     <string name="navigationbar_pressure_high">Manje osjetljivo</string>
+    <string name="navigationbar_hide_bar">Prikaži i sakrij gumb</string>
+    <string name="navigationbar_hide_bar_summary">Dodajte gumb na lijevu stranu navigacijske trake da biste prikazali ili sakrili navigacijsku traku.</string>
     <string name="full_screen_apps_title">Aplikacije na cijelom zaslonu</string>
     <string name="full_screen_apps_summary">Odaberite koje aplikacije želite upotrijebiti u omjeru cijelog zaslona.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ova je aplikacija optimizirana za rad na cijelom zaslonu.</string>
@@ -4845,7 +4848,7 @@ Nećete izgubiti postojeće podatke o aplikaciji."</string>
     <string name="phone_language">Jezik</string>
     <string name="show_password">Učini šifre vidljivima</string>
     <string name="show_password_summary">Kratko prikaži znakove lozinke dok ih pišete.</string>
-    <string name="ime_security_warning">Tim se načinom može spremati sav utipkani tekst, osim šifri, uključujući osobne podatke i brojeve kreditnih kartica. Dolazi od aplikacije %1$s. Svejedno koristiti?</string>
+    <string name="ime_security_warning">Tipkovnica %s možda može prikupiti sav uneseni tekst, uključujući osobne podatke poput lozinki i brojeva kreditnih kartica.</string>
     <string name="failed_to_open_app_settings_toast">Neuspješno otvaranje postavki za %s.</string>
     <string name="keyboard_and_input_methods_category">Tipkovnice</string>
     <string name="virtual_keyboard_category">Zaslonska tipkovnica</string>

@@ -618,7 +618,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b07f5
+    const v3, 0x7f0b07f8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2124,7 +2124,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b074c
+    const v2, 0x7f0b074f
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/face/bixbysetupwizard/FaceSetupwizardBixby;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

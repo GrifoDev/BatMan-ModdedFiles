@@ -5005,7 +5005,7 @@
 
     invoke-direct/range {v15 .. v16}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v16, 0x7f0b0fbc
+    const v16, 0x7f0b0fbf
 
     invoke-virtual/range {v15 .. v16}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -5019,7 +5019,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1695
+    const v17, 0x7f0b1698    # 1.8488E38f
 
     invoke-virtual/range {v16 .. v17}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -5041,7 +5041,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1696
+    const v17, 0x7f0b1699
 
     invoke-virtual/range {v16 .. v17}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -5224,7 +5224,7 @@
 
     if-nez v4, :cond_0
 
-    const v4, 0x7f0b1367
+    const v4, 0x7f0b136a
 
     invoke-virtual {v2, v4}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setSummary(I)V
 
@@ -6709,7 +6709,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b136a
+    const v6, 0x7f0b136d
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -6719,13 +6719,13 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b136c
+    const v6, 0x7f0b136f
 
     invoke-virtual {v5, v6, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v5
 
-    const v6, 0x7f0b136b
+    const v6, 0x7f0b136e
 
     invoke-virtual {v5, v6, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6975,7 +6975,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a0b
+    const v0, 0x7f0b1a0e
 
     return v0
 .end method
@@ -7651,7 +7651,7 @@
 
     check-cast v3, Landroid/preference/Preference;
 
-    const v4, 0x7f0b0fb6
+    const v4, 0x7f0b0fb9
 
     invoke-interface {p1, v4}, Landroid/view/ContextMenu;->setHeaderTitle(I)Landroid/view/ContextMenu;
 
@@ -8500,7 +8500,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0fbe
+    const v6, 0x7f0b0fc1
 
     invoke-virtual {p0, v6}, Lcom/android/settings/wfd/WifiDisplaySettings;->getString(I)Ljava/lang/String;
 
@@ -8527,7 +8527,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0fbf
+    const v6, 0x7f0b0fc2
 
     invoke-virtual {p0, v6}, Lcom/android/settings/wfd/WifiDisplaySettings;->getString(I)Ljava/lang/String;
 

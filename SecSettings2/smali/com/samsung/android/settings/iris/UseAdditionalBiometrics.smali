@@ -534,7 +534,7 @@
 
     const-string/jumbo v1, ""
 
-    const v3, 0x7f0b0775
+    const v3, 0x7f0b0778
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->getString(I)Ljava/lang/String;
 
@@ -567,7 +567,7 @@
 
     aput-object v0, v4, v5
 
-    const v5, 0x7f0b0869
+    const v5, 0x7f0b086c
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -580,7 +580,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b12dc
+    const v4, 0x7f0b12df
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -593,7 +593,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b12de
+    const v4, 0x7f0b12e1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -606,7 +606,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b12da
+    const v4, 0x7f0b12dd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -619,7 +619,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b094e
+    const v4, 0x7f0b0951
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1292,7 +1292,7 @@
     iput-object v1, p0, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->mFaceManager:Lcom/samsung/android/bio/face/SemBioFaceManager;
 
     :cond_1
-    const v1, 0x7f0b0868
+    const v1, 0x7f0b086b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/UseAdditionalBiometrics;->setTitle(I)V
 

@@ -1115,6 +1115,7 @@ Wi-Fi اور بلیوٹوتھ بھی آف ہو جائے گا، لیکن آپ س�
     <string name="general_device_management_title">عام نظم</string>
     <string name="application_settings_summary">ڈیفالٹ ایپلیکیشنز، اجازتیں، نا تنصیب</string>
     <string name="notifications_settings_summary">بلاک کریں، اجازت دیں، ترجیح</string>
+    <string name="ime_security_warning_title">منتخب شدہ کی بورڈ آن کریں؟</string>
     <string name="language_settings_summary">اس طرح کی متعدد زبانیں ذیل میں شامل کریں، اگر کوئی ایپلیکیشن آپ کے ڈیفالٹ زبان کے (فہرست کے سب سے اوپر) معاون نہیں ہے، تو اس کے باوجود فہرست کا اگلا تعاون یافتہ زبان استعمال کیا جائے گا۔ بطورر ڈیفالٹ کے فہرست کے سب سے اوپر اسے سیٹ کرنے کے لیے زبان کو منتقل کریں۔</string>
     <string name="language_settings_noti_desc">آپ کے ملک میں تعاون یافتہ زبانیں ڈسپلے ماڈل پر دکھائے گئے سے مختلف ہوسکتا ہے۔</string>
     <string name="language_settings_set_locale_title">بطور ڈیفالٹ زبان %s سیٹ کریں؟</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">پریشر کی مقدار کو مطابق کریں جو کہ ہوم بٹن کو زور سے دبانے کے لیے ضروری ہے۔</string>
     <string name="navigationbar_pressure_low">زیادہ حساس</string>
     <string name="navigationbar_pressure_high">کم حساس</string>
+    <string name="navigationbar_hide_bar">بٹن دکھائیں اور چھپائیں</string>
+    <string name="navigationbar_hide_bar_summary">نیویگیشن بار دکھانے یا چھپانے کے لیے نیویگیشن بار کے بائیں جانب ایک بٹن شامل کریں۔</string>
     <string name="full_screen_apps_title">مکمل اسکرین ایپلیکیشنز</string>
     <string name="full_screen_apps_summary">منتخب کریں کہ کون سا ایپلیکیشنز آپ مکمل اسکرین کے پہلو تناسب میں استعمال کرنا چاہتے ہیں۔</string>
     <string name="full_screen_apps_item_summary_optimized_full">یہ ایپلیکیشن مکمل اسکرین میں احسن نہیں بنایا گيا ہے۔</string>
@@ -4844,7 +4847,7 @@ Receiving SMS"</string>
     <string name="phone_language">زبان</string>
     <string name="show_password">پاس ورڈز کو دیکھنے کے قابل بنائیں</string>
     <string name="show_password_summary">پاس ورڈ کو ٹائپ کرتے ہوئے اس کے حروف کو مختصر طور پر دکھائیں۔</string>
-    <string name="ime_security_warning">یہ طریقہ اندراج وہ تمام متن جو آپ داخل کریں، بشمول پاس ورڈز، کریڈٹ کارڈوں کے نمبر، اور دوسرے شخصی کوائف جمع کرلے۔ یہ %1$s ایپلیکشن سے آیا ہے۔ بہرصورت استعمال کریں؟</string>
+    <string name="ime_security_warning">%s ہوسکتا ہے آپ کا ٹائپ کردہ تمام متن جمع کرنے پر قادرہ ہو، بشمول ذاتی ڈیٹا جیسے پاس ورڈز اور کریڈٹ کارڈ نمبرز۔</string>
     <string name="failed_to_open_app_settings_toast">%s کے لئے سیٹنگز کھولنا ناکام ہوگیا۔</string>
     <string name="keyboard_and_input_methods_category">کیی بورڈز</string>
     <string name="virtual_keyboard_category">آن اسکرین کی بورڈ</string>

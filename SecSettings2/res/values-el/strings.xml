@@ -1115,6 +1115,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">Γενική διαχείριση</string>
     <string name="application_settings_summary">Προεπιλεγμένες εφαρμογές, δικαιώματα, κατάργηση εγκατάστασης</string>
     <string name="notifications_settings_summary">Αποκλεισμός, αποδοχή, προτεραιότητα</string>
+    <string name="ime_security_warning_title">Να ενεργοπ. το επιλεγμένο πληκτρολόγιο;</string>
     <string name="language_settings_summary">Προσθέστε παρακάτω πολλές γλώσσες ώστε αν μια εφαρμογή δεν υποστηρίζει την προεπιλεγμένη γλώσσα (αυτή που βρίσκεται στην κορυφή της λίστας), να χρησιμοποιηθεί η επόμενη υποστηριζόμενη γλώσσα της λίστας. Μεταφέρετε μια γλώσσα στην κορυφή της λίστας για να την ορίσετε ως την προεπιλεγμένη γλώσσα.</string>
     <string name="language_settings_noti_desc">Η γλώσσες που υποστηρίζονται στη χώρα σας μπορεί να διαφέρουν από αυτές που εμφανίζονται στο μοντέλο επίδειξης.</string>
     <string name="language_settings_set_locale_title">Θέλετε να ορίσετε τα %s ως την προεπιλεγμένη γλώσσα;</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">Προσαρμόστε την πίεση που απαιτείται για το δυνατό πάτημα του κεντρικού κουμπιού.</string>
     <string name="navigationbar_pressure_low">Πιο ευαίσθητη</string>
     <string name="navigationbar_pressure_high">Λιγότερο ευαίσθητη</string>
+    <string name="navigationbar_hide_bar">Κουμπί εμφάνισης και απόκρυψης</string>
+    <string name="navigationbar_hide_bar_summary">Προσθέστε ένα κουμπί στην αριστερή πλευρά της γραμμής πλοήγησης, για να την εμφανίζετε και να την αποκρύπτετε.</string>
     <string name="full_screen_apps_title">Εφαρμογές πλήρους οθόνης</string>
     <string name="full_screen_apps_summary">Επιλέξτε τις εφαρμογές που θέλετε να χρησιμοποιείτε σε αναλογία πλήρους οθόνης.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Αυτή η εφαρμογή είναι βελτιστοποιημένη για προβολή σε πλήρη οθόνη.</string>
@@ -4845,7 +4848,7 @@ Receiving SMS"</string>
     <string name="phone_language">Γλώσσα</string>
     <string name="show_password">Ορατοί κωδικοί πρόσβασης</string>
     <string name="show_password_summary">Σύντομη εμφάνιση χαρακτήρων του κωδικού πρόσβασης κατά την πληκτρολόγηση τους.</string>
-    <string name="ime_security_warning">Αυτή η μέθοδος μπορεί να συλλέξει όλα τα κείμενα που πληκτρολογείτε, εκτός από τους κωδικούς πρόσβασης, συμπεριλαμβανομένων αριθμών πιστωτικών καρτών και άλλων προσωπικών δεδομένων. Προέρχεται από την εφαρμογή %1$s. Να χρησιμοποιηθεί;</string>
+    <string name="ime_security_warning">Το πληκτρολόγιο %s μπορεί να συλλέγει το κείμενο που πληκτρολογείτε, συμπεριλαμβανομένων των προσωπικών δεδομένων σας, όπως είναι οι κωδικοί πρόσβασης και οι αριθμοί πιστωτικών καρτών.</string>
     <string name="failed_to_open_app_settings_toast">Το άνοιγμα ρυθμίσεων για %s απέτυχε.</string>
     <string name="keyboard_and_input_methods_category">Πληκτρολόγια</string>
     <string name="virtual_keyboard_category">Πληκτρολόγιο οθόνης</string>

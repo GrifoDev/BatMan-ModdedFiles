@@ -963,7 +963,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/NewModePreview;->mEdgeColorBalanceSubText:Landroid/widget/TextView;
 
-    const v8, 0x7f0b05aa
+    const v8, 0x7f0b05ab
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -1528,7 +1528,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0614
+    const v4, 0x7f0b0617
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -1536,7 +1536,7 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    const v6, 0x7f0b062a
+    const v6, 0x7f0b062d
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -1554,7 +1554,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1696
+    const v4, 0x7f0b1699
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -1568,7 +1568,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1695
+    const v4, 0x7f0b1698    # 1.8488E38f
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -1635,7 +1635,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05ad
+    const v2, 0x7f0b05ae
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -1649,7 +1649,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05ae
+    const v2, 0x7f0b05af
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -1895,7 +1895,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0652
+    const v9, 0x7f0b0655
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1909,7 +1909,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0651
+    const v9, 0x7f0b0654
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1923,7 +1923,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0653
+    const v9, 0x7f0b0656
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1937,7 +1937,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0654
+    const v9, 0x7f0b0657
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2108,7 +2108,7 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    const v7, 0x7f0b05a2
+    const v7, 0x7f0b05a3
 
     invoke-virtual {v0, v7}, Landroid/widget/TextView;->setText(I)V
 
@@ -2116,7 +2116,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v7, 0x7f0b05a3
+    const v7, 0x7f0b05a4
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -2128,7 +2128,7 @@
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v7, 0x7f0b05a7
+    const v7, 0x7f0b05a8
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -2140,7 +2140,7 @@
 
     invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v7, 0x7f0b05a8
+    const v7, 0x7f0b05a9
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -2683,7 +2683,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b0793
+    const v2, 0x7f0b0796
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 

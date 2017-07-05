@@ -986,6 +986,7 @@ Fiú agus Gabháil chliste díchumasaithe, is féidir leat a cuid gnéithe a roc
     <string name="general_device_management_title">Bainistiú ginearálta</string>
     <string name="application_settings_summary">Feidhmchláir réamhshocruithe, ceadanna, díshuiteáil</string>
     <string name="notifications_settings_summary">Cuir bac air, ceadaigh, cuir in ord tosaíochta</string>
+    <string name="ime_security_warning_title">Cas air an t-eochairchlár roghnaithe?</string>
     <string name="language_settings_summary">Cuir roinnt teangacha leis thíos ionas go n-úsáidfear an chéad teanga eile sa liosta sa chás nach bhfuil tacú i bhfeidhmchlár do do theanga réamhshocraithe (an ceann ag barr an liosta). Bog teanga chuig barr an liosta lena socrú mar an réamhshocrú.</string>
     <string name="language_settings_noti_desc">Is féidir go mbeidh na teangacha a bhfuil tacú dóibh i do thír difriúil ó na cinn atá taispeánta ar an múnla taispeána.</string>
     <string name="language_settings_set_locale_title">Socraigh %s mar an teanga réamhshocraithe?</string>
@@ -1297,6 +1298,8 @@ Tapáil OK le méadú ar ghile thar na leibhéil shábháilte a cheadú."</strin
     <string name="navigationbar_pressure_sensitivity_summary">Ceartaigh an méid brú is gá leis an gcnaipe Baile a bhrú go láidir.</string>
     <string name="navigationbar_pressure_low">Íogaireacht níos mó</string>
     <string name="navigationbar_pressure_high">Íogaireacht níos lú</string>
+    <string name="navigationbar_hide_bar">Taispeáin agus folaigh cnaipe</string>
+    <string name="navigationbar_hide_bar_summary">Cuir cnaipe leis an taobh clé den bharra nascleanúna leis an mbarra nascleanúna a thaispeáint nó a fholú.</string>
     <string name="full_screen_apps_title">Feidhmchláir lánscáileáin</string>
     <string name="full_screen_apps_summary">Roghnaigh cé na feidhmchláir is mian leat a úsáid sa chóimheas treoíochta lánscáileáin.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Tá an feidhmchlár seo optamaithe le rith i lánscáileán.</string>
@@ -4693,7 +4696,7 @@ Ní chaillfidh tú na sonraí feidhmchláir atá ann cheana."</string>
     <string name="phone_language">Teanga</string>
     <string name="show_password">Déan pasfhocail infheicthe</string>
     <string name="show_password_summary">Taispeán carachtair an phasfhocail go haicearrach agus iad á scríobh.</string>
-    <string name="ime_security_warning">Is féidir an téacs uile a iontrálfaidh tú a bhailiú, seachas pasfhocail, lena n-áirítear sonraí pearsanta agus uimhreacha cártaí creidmheasa sa mhod seo. Is as an bhfeidhmchlár %1$s é. Úsáid ar aon nós?</string>
+    <string name="ime_security_warning">"D'fhéadfadh sé go mbeadh %s in ann an téacs uile a chlóscríobhfaidh tú a bhailiú, lena n-áirítear sonraí pearsanta amhail pasfhocail agus uimhreacha cártaí creidmheasa."</string>
     <string name="failed_to_open_app_settings_toast">Theip ar oscailt socruithe do %s.</string>
     <string name="keyboard_and_input_methods_category">Eochairchláir</string>
     <string name="virtual_keyboard_category">Eochairchlár ar scáileán</string>

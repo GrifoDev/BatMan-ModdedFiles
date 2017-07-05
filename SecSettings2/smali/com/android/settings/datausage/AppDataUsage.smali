@@ -354,11 +354,11 @@
 
     iput v0, p0, Lcom/android/settings/datausage/AppDataUsage;->RESTRICTION_DURING_ROAMING:I
 
-    const v0, 0x7f0b04f6
+    const v0, 0x7f0b04f7
 
-    const v1, 0x7f0b04f7
+    const v1, 0x7f0b04f8
 
-    const v2, 0x7f0b04f8
+    const v2, 0x7f0b04f9
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -2108,7 +2108,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b04e9
+    const v25, 0x7f0b04ea
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2130,7 +2130,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b04ea
+    const v25, 0x7f0b04eb
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2232,7 +2232,7 @@
 
     move-object/from16 v24, v0
 
-    const v25, 0x7f0b04f6
+    const v25, 0x7f0b04f7
 
     move-object/from16 v0, p0
 
@@ -2246,7 +2246,7 @@
 
     aput-object v25, v24, v26
 
-    const v25, 0x7f0b04f7
+    const v25, 0x7f0b04f8
 
     move-object/from16 v0, p0
 
@@ -2260,7 +2260,7 @@
 
     aput-object v25, v24, v26
 
-    const v25, 0x7f0b04f8
+    const v25, 0x7f0b04f9
 
     move-object/from16 v0, p0
 

@@ -986,6 +986,7 @@ Smart-düşüriş ýapyk hem bolsa, Degmeýän buýruk arkaly onuň funksiýalar
     <string name="general_device_management_title">Umumy dolandyryş</string>
     <string name="application_settings_summary">Standart goýmalar, rugsatlar, gurnawdan aýyr</string>
     <string name="notifications_settings_summary">Bekle, rugsat ber, öňürtilik ber</string>
+    <string name="ime_security_warning_title">Saýlanan klawiaturany açmalymy?</string>
     <string name="language_settings_summary">Eger bir goýma standart diliňizi goldamaýan bolsa (sanawyň iň ýokarsynda), oňa derek sanawdaky indiki goldanylýan dil ulanylar ýaly, aşak birnäçe dil goşuň. Dili standart edip bellemek üçin, ony sanawyň iň ýokarsyna geçiriň.</string>
     <string name="language_settings_noti_desc">Ýurduňyzda goldanylýan diller displeý modelinde görkezilýänden başgaça bolup biler.</string>
     <string name="language_settings_set_locale_title">%s standart dil edip bellemelimi?</string>
@@ -1297,6 +1298,8 @@ Emma, ýöriteleşdirilen marketingi almakdan çyksaňyz hem, ol mobil enjamlary
     <string name="navigationbar_pressure_sensitivity_summary">Öý düwmäni gaty basmak üçin gerekli basyş möçberini sazlaň.</string>
     <string name="navigationbar_pressure_low">Has duýgur</string>
     <string name="navigationbar_pressure_high">Az duýgur</string>
+    <string name="navigationbar_hide_bar">Görkez we gizle düwmesi</string>
+    <string name="navigationbar_hide_bar_summary">Nawigasiýa panelini görkezmek ýa-da gizlemek üçin, nawigasiýa paneliniň çep tarapyna düwme goşuň.</string>
     <string name="full_screen_apps_title">Doly ekran goýmalary</string>
     <string name="full_screen_apps_summary">Doly ekran ölçeginde ulanmak isleýän goýmalaryňyzy saýlaň.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Bu goýma doly ekranda işlemäge optimizlenen.</string>
@@ -4692,7 +4695,7 @@ Bar bolan goýma maglumatyňyz ýitmez."</string>
     <string name="phone_language">Dil</string>
     <string name="show_password">Açarsözlerini görünýän et</string>
     <string name="show_password_summary">Ýazdygyňyzça açarsözüň alamatlaryny gysga wagtlyk görkezmek.</string>
-    <string name="ime_security_warning">Bu usul açarsözlerinden başga siziň ýazan ähli ýazgylaryňyzy, şol sanda, şahsy maglumatlaryňyzy we kredit karta belgileriňizi toplap biler. Bu %1$s gollanmasyndan gelýär. Şonda-da ulanmalymy?</string>
+    <string name="ime_security_warning">%s ähli ýazýan tekstiňizi, şol sanda parollar we kredit kart belgileri ýaly şahsy maglumatlary ýygnap biler.</string>
     <string name="failed_to_open_app_settings_toast">%s üçin sazlamalaryny açyp bolmady.</string>
     <string name="keyboard_and_input_methods_category">Klawiaturalar</string>
     <string name="virtual_keyboard_category">Ekran klawiaturasy</string>

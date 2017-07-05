@@ -212,7 +212,7 @@
     :goto_0
     iget-object v6, p0, Lcom/samsung/android/settings/personalpage/PersonalPageEnabler;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0b5b
+    const v7, 0x7f0b0b5e
 
     invoke-static {v6, v7, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -247,7 +247,7 @@
     :goto_1
     iget-object v6, p0, Lcom/samsung/android/settings/personalpage/PersonalPageEnabler;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0b0793
+    const v7, 0x7f0b0796
 
     invoke-static {v6, v7, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

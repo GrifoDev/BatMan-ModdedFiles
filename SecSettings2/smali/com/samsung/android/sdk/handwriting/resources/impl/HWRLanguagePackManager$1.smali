@@ -59,7 +59,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/impl/HWRLanguagePackManager$1;->this$0:Lcom/samsung/android/sdk/handwriting/resources/impl/HWRLanguagePackManager;
 
-    # invokes: Lcom/samsung/android/sdk/handwriting/resources/impl/HWRLanguagePackManager;->updateLanguageList(Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;)V
     invoke-static {v0, p1, p2, p3}, Lcom/samsung/android/sdk/handwriting/resources/impl/HWRLanguagePackManager;->access$000(Lcom/samsung/android/sdk/handwriting/resources/impl/HWRLanguagePackManager;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;)V
 
     return-void

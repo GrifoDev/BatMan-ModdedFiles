@@ -174,7 +174,7 @@
 .method private confirmFingerprintPassword(I)Z
     .locals 10
 
-    const v5, 0x7f0b0b5d
+    const v5, 0x7f0b0b60
 
     const/4 v9, 0x1
 
@@ -233,7 +233,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b12de
+    const v7, 0x7f0b12e1
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -270,7 +270,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b12da
+    const v7, 0x7f0b12dd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -307,7 +307,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b12dc
+    const v7, 0x7f0b12df
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -748,7 +748,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->mInlineHelp:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v2, 0x7f0b0b54
+    const v2, 0x7f0b0b57
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->getString(I)Ljava/lang/String;
 
@@ -867,7 +867,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0b62
+    const v4, 0x7f0b0b65
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1176,7 +1176,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0793
+    const v1, 0x7f0b0796
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->getString(I)Ljava/lang/String;
 
@@ -1221,7 +1221,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0b47
+    const v2, 0x7f0b0b4a
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1397,7 +1397,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->mLockTypeFinger:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0b60
+    const v2, 0x7f0b0b63
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1458,7 +1458,7 @@
     :goto_2
     iget-object v1, p0, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->mLockTypeFinger:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0b5f
+    const v2, 0x7f0b0b62
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

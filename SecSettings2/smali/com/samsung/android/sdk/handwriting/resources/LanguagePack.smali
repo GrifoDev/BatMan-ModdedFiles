@@ -315,7 +315,6 @@
 
     move v5, p5
 
-    # invokes: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;->createNotification(IZZII)V
     invoke-static/range {v0 .. v5}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;->access$1600(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;IZZII)V
 
     return-void
@@ -333,7 +332,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadNotification:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;
 
-    # invokes: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;->createNotificationForNegative(IZI)V
     invoke-static {v0, p1, p2, p3}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;->access$1700(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;IZI)V
 
     return-void

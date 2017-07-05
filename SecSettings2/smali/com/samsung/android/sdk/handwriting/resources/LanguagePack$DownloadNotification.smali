@@ -66,7 +66,6 @@
 
     iget-object v1, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadNotification:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;
     invoke-static {v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$1500(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;
 
     move-result-object v1
@@ -166,7 +165,6 @@
 
     iget-object v2, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mServiceId:I
     invoke-static {v2}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$600(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v2
@@ -268,7 +266,6 @@
 
     iget-object v1, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mDownloadNotification:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;
     invoke-static {v1}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$1500(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;
 
     move-result-object v1
@@ -366,7 +363,6 @@
 
     iget-object v2, p0, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack$DownloadNotification;->this$0:Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;
 
-    # getter for: Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->mServiceId:I
     invoke-static {v2}, Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;->access$600(Lcom/samsung/android/sdk/handwriting/resources/LanguagePack;)I
 
     move-result v2

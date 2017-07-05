@@ -143,13 +143,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b0c80
+    const v1, 0x7f0b0c83
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/ResetSettingsConfirm;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f0b0c82
+    const v2, 0x7f0b0c85
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/ResetSettingsConfirm;->getString(I)Ljava/lang/String;
 
@@ -204,7 +204,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0ca6
+    const v2, 0x7f0b0ca9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

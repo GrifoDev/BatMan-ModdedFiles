@@ -138,7 +138,7 @@
 .method public setTemplate(Landroid/net/NetworkTemplate;ILcom/android/settings/datausage/TemplatePreference$NetworkServices;)V
     .locals 11
 
-    const v10, 0x7f0b1c69
+    const v10, 0x7f0b1c6c
 
     const/4 v3, 0x2
 
@@ -249,7 +249,7 @@
 .method public updateSummary()V
     .locals 11
 
-    const v10, 0x7f0b1c69
+    const v10, 0x7f0b1c6c
 
     const/4 v9, 0x1
 

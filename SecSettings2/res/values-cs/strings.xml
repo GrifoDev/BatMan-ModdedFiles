@@ -1115,6 +1115,7 @@ I když je Inteligentní zachycení vypnuté, budete mít přístup k jeho funkc
     <string name="general_device_management_title">Obecná správa</string>
     <string name="application_settings_summary">Výchozí aplikace, oprávnění, odinstalovat</string>
     <string name="notifications_settings_summary">Blokovat, povolit, stanovit prioritu</string>
+    <string name="ime_security_warning_title">Zapnout vybranou klávesnici?</string>
     <string name="language_settings_summary">Přidejte níže další jazyky, aby v případě, že aplikace nepodporuje výchozí jazyk (na začátku seznamu), byl místo něho použit další podporovaný jazyk. Jazyk nastavíte jako výchozí přesunutím na začátek seznamu.</string>
     <string name="language_settings_noti_desc">Jazyky podporované v této zemi se mohou lišit od jazyků zobrazených na daném modelu displeje.</string>
     <string name="language_settings_set_locale_title">Nastavit %s jako výchozí jazyk?</string>
@@ -1426,6 +1427,8 @@ Klepnutím na OK umožníte zvýšení jasu nad bezpečnou úroveň."</string>
     <string name="navigationbar_pressure_sensitivity_summary">Umožňuje nastavit tlak potřebný k silnému stisknutí tlačítka Domů.</string>
     <string name="navigationbar_pressure_low">Více citlivé</string>
     <string name="navigationbar_pressure_high">Méně citlivé</string>
+    <string name="navigationbar_hide_bar">Tlačítko zobrazení a skrytí</string>
+    <string name="navigationbar_hide_bar_summary">Přidá na levou stranu navigačního panelu tlačítko umožňující zobrazit nebo skrýt navigační panel.</string>
     <string name="full_screen_apps_title">Aplikace na celou obrazovku</string>
     <string name="full_screen_apps_summary">Zvolte, které aplikace chcete použít v poměru stran celé obrazovky.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Aplikace je optimalizována pro spuštění na celé obrazovce.</string>
@@ -4845,7 +4848,7 @@ Nepřijdete o žádná data aplikací."</string>
     <string name="phone_language">Jazyk</string>
     <string name="show_password">Viditelná hesla</string>
     <string name="show_password_summary">Krátce zobrazí znaky hesla při jejich zadávání.</string>
-    <string name="ime_security_warning">Tato metoda může ukládat veškerý zadávaný text včetně hesel, osobních údajů a čísel kreditních karet. Pochází od aplikace %1$s. Opravdu ji chcete použít?</string>
+    <string name="ime_security_warning">%s bude pravděpodobně schopna ukládat veškerý zadávaný text včetně osobních dat, jako jsou hesla a čísla kreditních karet.</string>
     <string name="failed_to_open_app_settings_toast">Otevření nastavení pro aplikaci %s se nezdařilo.</string>
     <string name="keyboard_and_input_methods_category">Klávesnice</string>
     <string name="virtual_keyboard_category">Obrazovková klávesnice</string>

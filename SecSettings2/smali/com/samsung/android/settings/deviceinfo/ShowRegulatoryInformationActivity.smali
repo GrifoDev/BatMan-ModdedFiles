@@ -147,7 +147,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->mContext:Landroid/content/Context;
 
-    const v31, 0x7f0b15fe
+    const v31, 0x7f0b1601
 
     move-object/from16 v0, p0
 
@@ -212,7 +212,7 @@
 
     move-result-object v23
 
-    const v31, 0x7f0b1169
+    const v31, 0x7f0b116c
 
     move-object/from16 v0, p0
 
@@ -222,7 +222,7 @@
 
     move-result-object v21
 
-    const v31, 0x7f0b116a
+    const v31, 0x7f0b116d
 
     move-object/from16 v0, p0
 
@@ -232,7 +232,7 @@
 
     move-result-object v22
 
-    const v31, 0x7f0b116b
+    const v31, 0x7f0b116e
 
     move-object/from16 v0, p0
 
@@ -242,7 +242,7 @@
 
     move-result-object v19
 
-    const v31, 0x7f0b116c
+    const v31, 0x7f0b116f
 
     move-object/from16 v0, p0
 
@@ -439,7 +439,7 @@
 
     invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v31, 0x7f0b115e
+    const v31, 0x7f0b1161
 
     move-object/from16 v0, p0
 
@@ -475,7 +475,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b115f
+    const v31, 0x7f0b1162
 
     move-object/from16 v0, p0
 
@@ -511,7 +511,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1160
+    const v31, 0x7f0b1163
 
     move-object/from16 v0, p0
 
@@ -547,7 +547,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1161
+    const v31, 0x7f0b1164
 
     move-object/from16 v0, p0
 
@@ -583,7 +583,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1162
+    const v31, 0x7f0b1165
 
     move-object/from16 v0, p0
 
@@ -617,7 +617,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1163
+    const v31, 0x7f0b1166
 
     move-object/from16 v0, p0
 
@@ -661,7 +661,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1164
+    const v31, 0x7f0b1167
 
     move-object/from16 v0, p0
 
@@ -717,7 +717,7 @@
 
     :cond_5
     :goto_2
-    const v31, 0x7f0b1167
+    const v31, 0x7f0b116a
 
     move-object/from16 v0, p0
 
@@ -753,7 +753,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1168
+    const v31, 0x7f0b116b
 
     move-object/from16 v0, p0
 
@@ -819,7 +819,7 @@
     goto/16 :goto_1
 
     :cond_8
-    const v31, 0x7f0b1165
+    const v31, 0x7f0b1168
 
     move-object/from16 v0, p0
 
@@ -853,7 +853,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1166
+    const v31, 0x7f0b1169
 
     move-object/from16 v0, p0
 

@@ -150,7 +150,6 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/vsf/SpeechRecognizer;->mResponseHandler:Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;
 
-    # setter for: Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->client:Lcom/samsung/vsf/RecognitionListener;
     invoke-static {v0, p1}, Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;->access$102(Lcom/samsung/vsf/SpeechRecognizer$InternalResponseHandler;Lcom/samsung/vsf/RecognitionListener;)Lcom/samsung/vsf/RecognitionListener;
 
     goto :goto_0

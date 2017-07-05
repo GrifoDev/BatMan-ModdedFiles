@@ -525,7 +525,7 @@
 
     iput v0, p0, Lcom/samsung/android/settings/face/FaceLockSettings;->mKeepSessionAndActivity:I
 
-    const v0, 0x7f0b0954
+    const v0, 0x7f0b0957
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/FaceLockSettings;->getString(I)Ljava/lang/String;
 
@@ -614,17 +614,17 @@
     return-void
 
     :sswitch_0
-    const v0, 0x7f0b0778
+    const v0, 0x7f0b077b
 
     goto :goto_0
 
     :sswitch_1
-    const v0, 0x7f0b077a
+    const v0, 0x7f0b077d
 
     goto :goto_0
 
     :sswitch_2
-    const v0, 0x7f0b0779
+    const v0, 0x7f0b077c
 
     goto :goto_0
 
@@ -703,7 +703,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b07f5
+    const v2, 0x7f0b07f8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -715,7 +715,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b07f6
+    const v2, 0x7f0b07f9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -727,7 +727,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b07f7
+    const v2, 0x7f0b07fa
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -879,7 +879,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b0709
+    const v7, 0x7f0b070c
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -891,7 +891,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0b0700
+    const v6, 0x7f0b0703
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -933,7 +933,7 @@
 
     if-eqz v5, :cond_1
 
-    const v5, 0x7f0b0792
+    const v5, 0x7f0b0795
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/face/FaceLockSettings;->getString(I)Ljava/lang/String;
 
@@ -1114,7 +1114,7 @@
 
     const-string/jumbo v1, "com.samsung.android.settings.face.FaceSettings"
 
-    const v3, 0x7f0b08a0
+    const v3, 0x7f0b08a3
 
     const/4 v4, 0x0
 
@@ -1133,7 +1133,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0b08a0
+    const v5, 0x7f0b08a3
 
     const/4 v6, 0x0
 
@@ -3119,7 +3119,7 @@
 
     const-string/jumbo v0, "FcstFaceLockSettings"
 
-    const v1, 0x7f0b08a0
+    const v1, 0x7f0b08a3
 
     invoke-static {p0, v1, v0}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 

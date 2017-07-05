@@ -117,7 +117,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b10e0
+    const v1, 0x7f0b10e3
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -330,7 +330,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b10c4
+    const v2, 0x7f0b10c7
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 

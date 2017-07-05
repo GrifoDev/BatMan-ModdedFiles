@@ -1115,6 +1115,7 @@ Net jei išmaniojo fiksavimo funkcija yra išjungta, jūs galite pasiekti funkci
     <string name="general_device_management_title">Bendrasis valdymas</string>
     <string name="application_settings_summary">Numatytosios programos, leidimai, išdiegti</string>
     <string name="notifications_settings_summary">Blokuoti, leisti, suteikti pirmenybę</string>
+    <string name="ime_security_warning_title">Įjungti pasirinktą klaviatūrą?</string>
     <string name="language_settings_summary">Žemiau pridėkite kelias kalbas, kad, jei programa nepalaikytų numatytosios kalbos (sąrašo viršuje), būtų naudojama kita sąraše nurodyta palaikoma kalba. Perkelkite kalbą į sąrašo viršų – taip ją nustatysite kaip numatytąją.</string>
     <string name="language_settings_noti_desc">Jūsų šalyje palaikomos kalbos gali skirtis nuo rodomų ekrano modelyje.</string>
     <string name="language_settings_set_locale_title">Nustatyti %s kaip numatytąją kalbą?</string>
@@ -1426,6 +1427,8 @@ Bakstelėkite „Gerai“, kad leistumėte ryškumą padidinti virš saugaus lyg
     <string name="navigationbar_pressure_sensitivity_summary">Reguliuokite spaudimo stiprumą, kurio reikia pradžios mygtukui paspausti.</string>
     <string name="navigationbar_pressure_low">Didesnis jautrumas</string>
     <string name="navigationbar_pressure_high">Mažesnis jautrumas</string>
+    <string name="navigationbar_hide_bar">Rodymo ir slėpimo mygtukas</string>
+    <string name="navigationbar_hide_bar_summary">Kairėje naršymo juostos pusėje pridėkite mygtuką, kad būtų parodyta arba paslėpta naršymo juosta.</string>
     <string name="full_screen_apps_title">Viso ekrano programos</string>
     <string name="full_screen_apps_summary">Pasirinkite, kurias programas norite naudoti veikiant viso ekrano vaizdo formatui.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Ši programa optimizuota veikti visame ekrane.</string>
@@ -4846,7 +4849,7 @@ Jūsų turimi programų duomenys nebus prarasti."</string>
     <string name="phone_language">Kalba</string>
     <string name="show_password">Paversti slaptažodį matomu</string>
     <string name="show_password_summary">Įvedant trumpai rodyti slaptažodžio simbolius.</string>
-    <string name="ime_security_warning">Naudojant šį metodą, galima surinkti visą jūsų įvestą tekstą, išskyrus slaptažodžius, įskaitant asmeninius duomenis ir kredito kortelių numerius. Taip yra dėl %1$s programos. Vis tiek naudoti?</string>
+    <string name="ime_security_warning">%s galima surinkti visą jūsų įvestą tekstą, taip pat asmeninius duomenis, pvz., slaptažodžius ir kredito kortelių numerius.</string>
     <string name="failed_to_open_app_settings_toast">Nepavyko atidaryti %s skirtų nustatymų.</string>
     <string name="keyboard_and_input_methods_category">Klaviatūros</string>
     <string name="virtual_keyboard_category">Ekrano klaviatūra</string>

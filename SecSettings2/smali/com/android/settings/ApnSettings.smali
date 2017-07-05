@@ -1909,7 +1909,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0583
+    const v4, 0x7f0b0584
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1944,7 +1944,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0584
+    const v4, 0x7f0b0585
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2960,7 +2960,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0c25
+    const v1, 0x7f0b0c28
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3636,7 +3636,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1596
+    const v2, 0x7f0b1599
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3726,7 +3726,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1597
+    const v2, 0x7f0b159a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3901,7 +3901,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b1a48
+    const v17, 0x7f0b1a4b
 
     move/from16 v0, v17
 

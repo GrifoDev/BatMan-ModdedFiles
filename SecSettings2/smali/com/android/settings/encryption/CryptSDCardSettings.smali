@@ -572,13 +572,13 @@
 .method private finishProgress()V
     .locals 8
 
-    const v7, 0x7f0b06a9
+    const v7, 0x7f0b06ac
 
-    const v6, 0x7f0b06a8
+    const v6, 0x7f0b06ab
 
-    const v5, 0x7f0b069d
+    const v5, 0x7f0b06a0
 
-    const v3, 0x7f0b069b
+    const v3, 0x7f0b069e
 
     const/4 v4, 0x0
 
@@ -785,14 +785,14 @@
 
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mParent:Landroid/app/Activity;
 
-    const v1, 0x7f0b069b
+    const v1, 0x7f0b069e
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
     :goto_0
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextEncMessages:Landroid/widget/TextView;
 
-    const v1, 0x7f0b06a5
+    const v1, 0x7f0b06a8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -801,7 +801,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mParent:Landroid/app/Activity;
 
-    const v1, 0x7f0b069d
+    const v1, 0x7f0b06a0
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1227,7 +1227,7 @@
     return v4
 
     :cond_0
-    const v2, 0x7f0b06bb
+    const v2, 0x7f0b06be
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1245,9 +1245,9 @@
 
     const/4 v14, 0x1
 
-    const v13, 0x7f0b069d
+    const v13, 0x7f0b06a0
 
-    const v12, 0x7f0b069b
+    const v12, 0x7f0b069e
 
     const/16 v11, 0x8
 
@@ -1298,13 +1298,13 @@
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextDesc:Landroid/widget/TextView;
 
-    const v8, 0x7f0b06a2
+    const v8, 0x7f0b06a5
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mLeftButton:Landroid/widget/Button;
 
-    const v8, 0x7f0b06a4
+    const v8, 0x7f0b06a7
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setText(I)V
 
@@ -1381,7 +1381,7 @@
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextDesc:Landroid/widget/TextView;
 
-    const v8, 0x7f0b06ab
+    const v8, 0x7f0b06ae
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
@@ -1391,7 +1391,7 @@
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mRightButton:Landroid/widget/Button;
 
-    const v8, 0x7f0b06a3
+    const v8, 0x7f0b06a6
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setText(I)V
 
@@ -1427,13 +1427,13 @@
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextDesc:Landroid/widget/TextView;
 
-    const v8, 0x7f0b06a1
+    const v8, 0x7f0b06a4
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mRightButton:Landroid/widget/Button;
 
-    const v8, 0x7f0b06a3
+    const v8, 0x7f0b06a6
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setText(I)V
 
@@ -1515,7 +1515,7 @@
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextDesc:Landroid/widget/TextView;
 
-    const v8, 0x7f0b06b9
+    const v8, 0x7f0b06bc
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
@@ -1529,7 +1529,7 @@
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mLeftButton:Landroid/widget/Button;
 
-    const v8, 0x7f0b06a4
+    const v8, 0x7f0b06a7
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setText(I)V
 
@@ -1542,19 +1542,19 @@
     :cond_c
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextDesc:Landroid/widget/TextView;
 
-    const v8, 0x7f0b06aa
+    const v8, 0x7f0b06ad
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mLeftButton:Landroid/widget/Button;
 
-    const v8, 0x7f0b0683
+    const v8, 0x7f0b0686
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setText(I)V
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mRightButton:Landroid/widget/Button;
 
-    const v8, 0x7f0b0682
+    const v8, 0x7f0b0685
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setText(I)V
 
@@ -1623,7 +1623,7 @@
 
     iget-object v7, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextDesc:Landroid/widget/TextView;
 
-    const v8, 0x7f0b06ac
+    const v8, 0x7f0b06af
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
@@ -1663,13 +1663,13 @@
 
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mParent:Landroid/app/Activity;
 
-    const v3, 0x7f0b069b
+    const v3, 0x7f0b069e
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->setTitle(I)V
 
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextEncMessages:Landroid/widget/TextView;
 
-    const v3, 0x7f0b06a6
+    const v3, 0x7f0b06a9
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -1769,13 +1769,13 @@
     :cond_1
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mParent:Landroid/app/Activity;
 
-    const v3, 0x7f0b069d
+    const v3, 0x7f0b06a0
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->setTitle(I)V
 
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mTextEncMessages:Landroid/widget/TextView;
 
-    const v3, 0x7f0b06a7
+    const v3, 0x7f0b06aa
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -2266,10 +2266,10 @@
 
     if-eqz v4, :cond_1
 
-    const v1, 0x7f0b06ad
+    const v1, 0x7f0b06b0
 
     :goto_0
-    const v0, 0x7f0b06b8
+    const v0, 0x7f0b06bb
 
     const-string/jumbo v4, "CryptKeeperSDSettings"
 
@@ -2358,14 +2358,14 @@
     return-object v4
 
     :cond_1
-    const v1, 0x7f0b06ae
+    const v1, 0x7f0b06b1
 
     goto :goto_0
 
     :pswitch_1
-    const v1, 0x7f0b06ad
+    const v1, 0x7f0b06b0
 
-    const v0, 0x7f0b06b2
+    const v0, 0x7f0b06b5
 
     const-string/jumbo v4, "CryptKeeperSDSettings"
 
@@ -2408,14 +2408,14 @@
 
     if-eqz v4, :cond_2
 
-    const v1, 0x7f0b06ad
+    const v1, 0x7f0b06b0
 
     :goto_1
     iget-boolean v4, p0, Lcom/android/settings/encryption/CryptSDCardSettings;->mDoEncrypt:Z
 
     if-eqz v4, :cond_3
 
-    const v0, 0x7f0b06b4
+    const v0, 0x7f0b06b7
 
     :goto_2
     const-string/jumbo v4, "CryptKeeperSDSettings"
@@ -2455,19 +2455,19 @@
     return-object v4
 
     :cond_2
-    const v1, 0x7f0b06ae
+    const v1, 0x7f0b06b1
 
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f0b06b5
+    const v0, 0x7f0b06b8
 
     goto :goto_2
 
     :pswitch_3
-    const v1, 0x7f0b06ad
+    const v1, 0x7f0b06b0
 
-    const v0, 0x7f0b06b2
+    const v0, 0x7f0b06b5
 
     const-string/jumbo v4, "CryptKeeperSDSettings"
 
@@ -2506,9 +2506,9 @@
     return-object v4
 
     :pswitch_4
-    const v1, 0x7f0b06ae
+    const v1, 0x7f0b06b1
 
-    const v0, 0x7f0b06b3
+    const v0, 0x7f0b06b6
 
     const-string/jumbo v4, "CryptKeeperSDSettings"
 

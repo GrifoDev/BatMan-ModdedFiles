@@ -1116,6 +1116,7 @@ Zelfs wanneer Slim vastleggen is uitgeschakeld, hebt u toegang tot de functies e
     <string name="general_device_management_title">Algemeen beheer</string>
     <string name="application_settings_summary">Standaard-apps, machtigingen, verwijderen</string>
     <string name="notifications_settings_summary">Blokkeren, toestaan, voorrang geven</string>
+    <string name="ime_security_warning_title">Geselecteerd toetsenbord inschakelen?</string>
     <string name="language_settings_summary">Voeg hieronder meerdere talen toe zodat, als een app niet uw standaardtaal (boven aan de lijst) ondersteunt, in plaats daarvan de volgende ondersteunde taal op de lijst wordt gebruikt. Verplaats een taal naar het begin van de lijst om deze als standaard in te stellen.</string>
     <string name="language_settings_noti_desc">De ondersteunde talen in uw land wijken mogelijk af van de talen in het weergavemodel.</string>
     <string name="language_settings_set_locale_title">%s instellen als standaardtaal?</string>
@@ -1427,6 +1428,8 @@ Tik op OK om toe te staan dat de helderheid boven veilige niveaus wordt verhoogd
     <string name="navigationbar_pressure_sensitivity_summary">Pas de hoeveelheid druk aan die nodig is om hard op de knop Start te drukken.</string>
     <string name="navigationbar_pressure_low">Gevoeliger</string>
     <string name="navigationbar_pressure_high">Minder gevoelig</string>
+    <string name="navigationbar_hide_bar">Knop weergeven en verbergen</string>
+    <string name="navigationbar_hide_bar_summary">Voeg links op de navigatiebalk een knop toe om de navigatiebalk weer te geven of te verbergen.</string>
     <string name="full_screen_apps_title">Apps op volledig scherm</string>
     <string name="full_screen_apps_summary">Kies welke apps u wilt gebruiken in de verhouding voor volledig scherm.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Deze app is geoptimaliseerd om in volledig scherm uit te voeren.</string>
@@ -4846,7 +4849,7 @@ Uw bestaande app-gegevens gaan niet verloren."</string>
     <string name="phone_language">Taal</string>
     <string name="show_password">Wachtwoorden zichtbaar</string>
     <string name="show_password_summary">Geef de tekens van het wachtwoord kort weer terwijl u ze typt.</string>
-    <string name="ime_security_warning">Deze methode kan alle ingegeven tekst verzamelen, met uitzondering van wachtwoorden, maar met inbegrip van persoonlijke gegevens en creditcardnummers. Dit is afkomstig van de app %1$s. Toch gebruiken?</string>
+    <string name="ime_security_warning">%s kan mogelijk alle ingetypte tekst verzamelen, met inbegrip van persoonlijke gegevens zoals wachtwoorden en creditcardnummers.</string>
     <string name="failed_to_open_app_settings_toast">Kan instellingen niet openen voor %s.</string>
     <string name="keyboard_and_input_methods_category">Toetsenborden</string>
     <string name="virtual_keyboard_category">Schermtoetsenbord</string>

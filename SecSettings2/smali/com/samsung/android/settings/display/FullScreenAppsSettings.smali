@@ -801,7 +801,7 @@
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    const v4, 0x7f0b0603
+    const v4, 0x7f0b0606
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -829,7 +829,7 @@
 
     :cond_2
     :goto_2
-    const v4, 0x7f0b0604
+    const v4, 0x7f0b0607
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1181,7 +1181,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0601
+    const v1, 0x7f0b0604
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1239,13 +1239,13 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b0605
+    const v1, 0x7f0b0608
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b0606
+    const v1, 0x7f0b0609
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

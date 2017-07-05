@@ -1115,6 +1115,7 @@ Wi-Fi आणि ब्‍लुटूथ देखील बंद केले 
     <string name="general_device_management_title">साधारण व्यवस्थापन</string>
     <string name="application_settings_summary">डिफॉल्ट अनुप्रयोग, परवानग्या, अनइन्स्टॉल करा</string>
     <string name="notifications_settings_summary">अवरोधित करा, अनुमती द्या, प्राधान्य द्या</string>
+    <string name="ime_security_warning_title">निवडलेला कीबोर्ड चालू करायचा?</string>
     <string name="language_settings_summary">खाली बहुविध भाषा जोडा जणेकरून अनुप्रयोग आपल्या डिफॉल्ट भाषेचे समर्थन करत नसल्यास (सूचीच्या शीर्षा वर), त्याऐवजी यादी मधील पुढील समर्थित भाषा वापरली जाईल. भाषेला डिफॉल्ट म्हणून सेट करण्या साठी यादीच्या शीर्षावर ती हलवा.</string>
     <string name="language_settings_noti_desc">आपल्‍या देशातील समर्थित भाषा प्रदर्शित मॉडेल वर दर्शवलेल्‍या भाषेपेक्षा वेगळ्या असू शकतात खात्‍याचा तयार प्रोजेक्‍ट स्‍वयं चालवले जातील.</string>
     <string name="language_settings_set_locale_title">%s डिफॉल्ट भाषा म्हणून सेट करायची?</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">होम बटण जोरात दाबण्या साठी गरज असलेल्या दाबाचे प्रमाण समायोजित करा.</string>
     <string name="navigationbar_pressure_low">अधिक संवेदनशील</string>
     <string name="navigationbar_pressure_high">कमी संवेदनशील</string>
+    <string name="navigationbar_hide_bar">दर्शवा आणि लपवा बटण</string>
+    <string name="navigationbar_hide_bar_summary">नेव्हिगेशन बार दर्शवण्यास आणि लपवण्यास नेव्हिगेशन बारच्या डावी कडे बटण जोडा.</string>
     <string name="full_screen_apps_title">संपूर्ण स्क्रीन अनुप्रयोग</string>
     <string name="full_screen_apps_summary">आपण पूर्ण स्क्रीन स्थिती अनुपाता मध्ये कोणते अनुप्रयोग वापरू इच्छिता ते निवडा.</string>
     <string name="full_screen_apps_item_summary_optimized_full">हा अनुप्रयोग संपूर्ण स्क्रीन मध्ये रन करण्या साठी ऑप्टिमाइझ केला आहे.</string>
@@ -4845,7 +4848,7 @@ Receiving SMS"</string>
     <string name="phone_language">भाषा</string>
     <string name="show_password">पॅटर्न दृश्यमान करा</string>
     <string name="show_password_summary">आपण जसे ते प्रकार करता तसे पासवर्ड वर्ण संक्षिप्तपणे दर्शवा.</string>
-    <string name="ime_security_warning">आपण प्रविष्ट केलेला सर्व मजकूर, पासवर्ड शिवाय, वैयक्तिक डेटा आणि क्रेडिट कार्ड क्रमांक यांसह, ही पद्धत गोळा करू शकते. ते %1$s ऍपपासून येते. तरीही वापराचे?</string>
+    <string name="ime_security_warning">%s पासवर्ड्स आणि क्रेडिट कार्ड क्रमांकां सारख्या वैयक्तिक डेटा सह, आपण टाइप केलेला सर्व मजकूर गोळा करण्यास सक्षम असेल.</string>
     <string name="failed_to_open_app_settings_toast">%s साठी सेटिंग्स उघडणे अयशस्वी.</string>
     <string name="keyboard_and_input_methods_category">कीबोर्डस</string>
     <string name="virtual_keyboard_category">ऑन-स्क्रीन कीबोर्ड</string>

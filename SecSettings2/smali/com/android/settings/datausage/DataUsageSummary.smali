@@ -840,7 +840,7 @@
 
     if-ne v4, v8, :cond_14
 
-    const v5, 0x7f0b1b34
+    const v5, 0x7f0b1b37
 
     invoke-virtual {p0, v5}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I)Ljava/lang/String;
 
@@ -978,7 +978,7 @@
     goto/16 :goto_6
 
     :cond_14
-    const v5, 0x7f0b1b35
+    const v5, 0x7f0b1b38
 
     invoke-virtual {p0, v5}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I)Ljava/lang/String;
 
@@ -1610,7 +1610,7 @@
 
     aput-object v7, v6, v5
 
-    const v7, 0x7f0b10a3
+    const v7, 0x7f0b10a6
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1707,7 +1707,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0504
+    const v1, 0x7f0b0505
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2082,7 +2082,7 @@
 
     if-gtz v14, :cond_b
 
-    const v14, 0x7f0b1c5e
+    const v14, 0x7f0b1c61
 
     :goto_3
     const/16 v16, 0x2
@@ -2257,7 +2257,7 @@
     goto/16 :goto_2
 
     :cond_b
-    const v14, 0x7f0b1c5f    # 1.8491E38f
+    const v14, 0x7f0b1c62
 
     goto/16 :goto_3
 
@@ -2282,7 +2282,7 @@
 
     aput-object v10, v15, v16
 
-    const v16, 0x7f0b0506
+    const v16, 0x7f0b0507
 
     move-object/from16 v0, p0
 
@@ -3396,7 +3396,7 @@
     :cond_f
     if-eqz v6, :cond_24
 
-    const v17, 0x7f0b1c5b
+    const v17, 0x7f0b1c5e
 
     :goto_7
     move/from16 v0, v17
@@ -3861,12 +3861,12 @@
     :cond_24
     if-eqz v7, :cond_25
 
-    const v17, 0x7f0b1c5c
+    const v17, 0x7f0b1c5f    # 1.8491E38f
 
     goto/16 :goto_7
 
     :cond_25
-    const v17, 0x7f0b1c5d
+    const v17, 0x7f0b1c60
 
     goto/16 :goto_7
 .end method
@@ -4147,7 +4147,7 @@
     :pswitch_1
     const-string/jumbo v2, "com.android.settings.datausage.DataUsageHelp"
 
-    const v3, 0x7f0b19eb
+    const v3, 0x7f0b19ee
 
     const/4 v5, 0x0
 
@@ -4406,7 +4406,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1099
+    const v2, 0x7f0b109c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4475,7 +4475,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1096
+    const v3, 0x7f0b1099
 
     move-object v4, v2
 

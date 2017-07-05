@@ -459,38 +459,38 @@
 
     packed-switch v0, :pswitch_data_0
 
-    const v1, 0x7f0b1cbe
+    const v1, 0x7f0b1cc1
 
     return v1
 
     :pswitch_0
-    const v1, 0x7f0b09b3
+    const v1, 0x7f0b09b6
 
     return v1
 
     :pswitch_1
-    const v1, 0x7f0b1cbb
+    const v1, 0x7f0b1cbe
 
     return v1
 
     :pswitch_2
     iget-object v1, p0, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;->mHeaderTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b1cc7
+    const v2, 0x7f0b1cca
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    const v1, 0x7f0b1cb9
+    const v1, 0x7f0b1cbc
 
     return v1
 
     :pswitch_3
-    const v1, 0x7f0b1cba
+    const v1, 0x7f0b1cbd
 
     return v1
 
     :pswitch_4
-    const v1, 0x7f0b1ccd
+    const v1, 0x7f0b1cd0
 
     return v1
 
@@ -509,7 +509,7 @@
 .method private getDefaultHeader()I
     .locals 1
 
-    const v0, 0x7f0b1613
+    const v0, 0x7f0b1616
 
     return v0
 .end method
@@ -533,7 +533,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0fcd
+    const v2, 0x7f0b0fd0
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -551,7 +551,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0fce
+    const v2, 0x7f0b0fd1
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1616,7 +1616,7 @@
 
     iput-object v2, v0, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;->progDlg:Landroid/app/ProgressDialog;
 
-    const v2, 0x7f0b1cbf
+    const v2, 0x7f0b1cc2
 
     move-object/from16 v0, p0
 
@@ -2168,7 +2168,7 @@
 
     iget-object v2, v0, Lcom/android/settings/ConfirmUCMLockPassword$ConfirmUCMLockPasswordFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    const v3, 0x7f0b12d2
+    const v3, 0x7f0b12d5
 
     move-object/from16 v0, p0
 
@@ -2580,7 +2580,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1611
+    const v4, 0x7f0b1614
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2646,7 +2646,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1613
+    const v4, 0x7f0b1616
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

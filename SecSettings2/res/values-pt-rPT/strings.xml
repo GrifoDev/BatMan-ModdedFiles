@@ -1115,6 +1115,7 @@ Mesmo quando a Captura inteligente está desactivada, pode aceder às respectiva
     <string name="general_device_management_title">Gestão geral</string>
     <string name="application_settings_summary">Aplicações padrão, permissões, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, priorizar</string>
+    <string name="ime_security_warning_title">Ligar o teclado seleccionado?</string>
     <string name="language_settings_summary">Adicione vários idiomas abaixo de modo a que, caso uma aplicação não suporte o seu idioma padrão (no início da lista), seja utilizado o idioma suportado seguinte na lista. Mova um idioma para o início da lista, para o definir como padrão.</string>
     <string name="language_settings_noti_desc">Os idiomas suportados no seu país podem ser diferentes dos apresentados no modelo de apresentação.</string>
     <string name="language_settings_set_locale_title">Definir %s como idioma padrão?</string>
@@ -1426,6 +1427,8 @@ Toque em OK para permitir que o brilho seja aumentado acima dos níveis seguros.
     <string name="navigationbar_pressure_sensitivity_summary">Ajustar a pressão necessária para premir o Botão principal.</string>
     <string name="navigationbar_pressure_low">Mais sensível</string>
     <string name="navigationbar_pressure_high">Menos sensível</string>
+    <string name="navigationbar_hide_bar">Botão de mostrar e ocultar</string>
+    <string name="navigationbar_hide_bar_summary">Adicionar um botão ao lado esquerdo da barra de navegação para a mostrar ou ocultar.</string>
     <string name="full_screen_apps_title">Aplicações de ecrã inteiro</string>
     <string name="full_screen_apps_summary">Escolha as aplicações que pretende utilizar na relação de visualização de ecrã inteiro.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Esta aplicação foi optimizada para funcionar em ecrã inteiro.</string>
@@ -4845,7 +4848,7 @@ Não perderá os dados de aplicações existentes."</string>
     <string name="phone_language">Idioma</string>
     <string name="show_password">Mostrar palavras-passe</string>
     <string name="show_password_summary">Mostrar os caracteres da palavra-passe por breves instantes quando os está a escrever.</string>
-    <string name="ime_security_warning">Este método pode recolher todos os textos que introduzir, excepto palavras-passe, incluindo dados pessoais e números de cartões de crédito. Isto é devido à aplicação %1$s. Utilizar na mesma?</string>
+    <string name="ime_security_warning">%s pode conseguir recolher todos os textos que introduzir, incluindo dados pessoais como palavras-passe e números de cartões de crédito.</string>
     <string name="failed_to_open_app_settings_toast">Falha ao abrir as definições de %s.</string>
     <string name="keyboard_and_input_methods_category">Teclados</string>
     <string name="virtual_keyboard_category">Teclado no ecrã</string>

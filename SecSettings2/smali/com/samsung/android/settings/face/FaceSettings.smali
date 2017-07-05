@@ -348,7 +348,7 @@
 .method private deleteFace()Z
     .locals 5
 
-    const v4, 0x7f0b07e2
+    const v4, 0x7f0b07e5
 
     iget-object v2, p0, Lcom/samsung/android/settings/face/FaceSettings;->mDeleteDialog:Landroid/app/AlertDialog;
 
@@ -379,7 +379,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b07e4
+    const v2, 0x7f0b07e7
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/face/FaceSettings;->getString(I)Ljava/lang/String;
 
@@ -562,7 +562,7 @@
 
     const-string/jumbo v3, "FcstFaceSettings"
 
-    const v4, 0x7f0b08a0
+    const v4, 0x7f0b08a3
 
     invoke-static {v2, v4, v3}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -1127,7 +1127,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0890
+    const v4, 0x7f0b0893
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1235,7 +1235,7 @@
 
     invoke-direct {v2, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b07ef
+    const v3, 0x7f0b07f2
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1484,7 +1484,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b19ec
+    const v0, 0x7f0b19ef
 
     return v0
 .end method
@@ -1546,7 +1546,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07e5
+    const v19, 0x7f0b07e8
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1605,7 +1605,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07e9
+    const v19, 0x7f0b07ec
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1664,7 +1664,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07e6
+    const v19, 0x7f0b07e9
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1695,7 +1695,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07e7
+    const v19, 0x7f0b07ea
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1715,7 +1715,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07e8
+    const v19, 0x7f0b07eb
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1748,7 +1748,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b07ea
+    const v19, 0x7f0b07ed
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1931,7 +1931,7 @@
 
     const-string/jumbo v3, "FcstFaceSettings"
 
-    const v4, 0x7f0b08a0
+    const v4, 0x7f0b08a3
 
     invoke-static {v2, v4, v3}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -2173,7 +2173,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b06fe
+    const v1, 0x7f0b0701
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

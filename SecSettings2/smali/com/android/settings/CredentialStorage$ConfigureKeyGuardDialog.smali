@@ -73,7 +73,7 @@
 
     if-ne v1, v3, :cond_2
 
-    const v3, 0x7f0b0a18
+    const v3, 0x7f0b0a1b
 
     invoke-virtual {p1, v3}, Lcom/android/settings/CredentialStorage;->getString(I)Ljava/lang/String;
 
@@ -84,7 +84,7 @@
 
     invoke-direct {v3, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b0a1b
+    const v4, 0x7f0b0a1e
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -123,7 +123,7 @@
     return-void
 
     :cond_1
-    const v3, 0x7f0b0a19
+    const v3, 0x7f0b0a1c
 
     invoke-virtual {p1, v3}, Lcom/android/settings/CredentialStorage;->getString(I)Ljava/lang/String;
 
@@ -132,7 +132,7 @@
     goto :goto_0
 
     :cond_2
-    const v3, 0x7f0b0a17
+    const v3, 0x7f0b0a1a
 
     invoke-virtual {p1, v3}, Lcom/android/settings/CredentialStorage;->getString(I)Ljava/lang/String;
 

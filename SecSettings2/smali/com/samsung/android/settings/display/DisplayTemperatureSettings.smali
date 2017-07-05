@@ -292,7 +292,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0b0be2
+    const v0, 0x7f0b0be5
 
     invoke-interface {p1, v1, v2, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

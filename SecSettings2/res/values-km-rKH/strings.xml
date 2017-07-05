@@ -1115,6 +1115,7 @@ Wi-Fi និង Bluetooth ក៏​នឹង​ត្រូវ​បាន​ប
     <string name="general_device_management_title">ការគ្រប់គ្រង​ទូទៅ</string>
     <string name="application_settings_summary">កម្មវិធី​លំនាំដើម, ការអនុញ្ញាត, លុប</string>
     <string name="notifications_settings_summary">ខ្ទង់, អនុញ្ញាត, អាទិភាព</string>
+    <string name="ime_security_warning_title">បើក​ក្ដារចុច​ដែល​បាន​ជ្រើស?</string>
     <string name="language_settings_summary">ថែម​ភាសា​ច្រើន​ខាងក្រោម ដូច្នេះ បើ​កម្មវិធី​មួយ​មិន​គាំទ្រ​ភាសា​លំនាំដើម​របស់​អ្នក (នៅ​កំពូល​បញ្ជី) ភាសា​ដែល​បាន​គាំទ្រ​បន្ទាប់​ក្នុង​បញ្ជី នឹង​ត្រូវ​បាន​ប្រើ​ជំនួស​នោះ។ ផ្លាស់ទី​ភាសា​មួយ​ទៅ​កំពូល​បញ្ជី ដើម្បី​កំណត់​វា​ជា​លំនាំដើម។</string>
     <string name="language_settings_noti_desc">ភាសា​ដែល​បាន​គាំទ្រ​ក្នុង​ប្រទេស​របស់​អ្នក​អាច​ខុស​ពី​ភាសា​ដែល​បាន​បង្ហាញ​លើ​ម៉ូដែល​បង្ហាញ។</string>
     <string name="language_settings_set_locale_title">កំណត់ %s ជា​ភាសា​លំនាំដើម?</string>
@@ -1426,6 +1427,8 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="navigationbar_pressure_sensitivity_summary">លៃតម្រូវ​បរិមាណ​នៃ​សម្ពាធ​ដែល​ត្រូវការ​ដើម្បី​ចុច​ខ្លាំង​លើ​គេហប៊ូតុង។</string>
     <string name="navigationbar_pressure_low">ដឹង​ខ្លាំង</string>
     <string name="navigationbar_pressure_high">មិន​សូវ​ដឹង</string>
+    <string name="navigationbar_hide_bar">បង្ហាញ ឬ លាក់​ប៊ូតុង</string>
+    <string name="navigationbar_hide_bar_summary">ថែម​ប៊ូតុង​មួយ​នៅ​ជ្រុង​ខាងឆ្វេង​នៃ​របារ​រុករក ដើម្បី​បង្ហាញ​ឬ​លាក់​របារ​រុករក។</string>
     <string name="full_screen_apps_title">កម្មវិធី​ពេញអេក្រង់</string>
     <string name="full_screen_apps_summary">ជ្រើស​កម្មវិធី​ណា​ដែល​អ្នក​ចង់​ប្រើ​ក្នុង​អនុបាត​ទិដ្ឋភាព​ពេញ​អេក្រង់។</string>
     <string name="full_screen_apps_item_summary_optimized_full">កម្មវិធី​នេះ​ត្រូវ​បាន​ធ្វើ​ឲ្យ​ល្អប្រសើរ ដើម្បី​ដំណើរការ​ពេញ​អេក្រង់។</string>
@@ -4845,7 +4848,7 @@ Receiving SMS"</string>
     <string name="phone_language">ភាសា</string>
     <string name="show_password">ធ្វើ​ឲ្យ​មើល​ឃើញ​ពាក្យ​សម្ងាត់</string>
     <string name="show_password_summary">បង្ហាញ​តួអក្សរ​ពាក្យសម្ងាត់​បន្តិច នៅពេល​អ្នក​វាយ​ពួកវា។</string>
-    <string name="ime_security_warning">វិធី​នេះ​អាច​ប្រមូល​អត្ថបទ​ទាំងអស់​ដែល​អ្នក​វាយបញ្ចូល លើកលែង​តែ​ពាក្យ​សម្ងាត់ រួម​វាយបញ្ចូល​ទាំង​ទិន្នន័យ​ផ្ទាល់ខ្លួន និង លេខ​បណ្ណ​ឥណទាន។ វា​មក​ពី​កម្មវិធី %1$s។ នៅ​តែ​ប្រើ​ទៀត?</string>
+    <string name="ime_security_warning">%s ប្រហែល​ជា​អាច​ប្រមូល​អត្ថបទ​ទាំងអស់​ដែល​អ្នក​វាយ រួមទាំង​ទិន្នន័យ​ផ្ទាល់ខ្លួន ដូចជា​ពាក្យសម្ងាត់​និង​លេខ​បណ្ណ​ឥណទាន។</string>
     <string name="failed_to_open_app_settings_toast">បាន​បរាជ័យ​ក្នុង​ការ​បើក​ការកំណត់​សម្រាប់ %s។</string>
     <string name="keyboard_and_input_methods_category">ក្ដារចុច</string>
     <string name="virtual_keyboard_category">ក្ដារចុច​លើ​អេក្រង់</string>

@@ -925,7 +925,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v3, 0x7f0b0953
+    const v3, 0x7f0b0956
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 

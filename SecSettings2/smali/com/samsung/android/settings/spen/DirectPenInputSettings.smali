@@ -969,13 +969,13 @@
 .method public showEnableDialog(Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 11
 
-    const v10, 0x7f0b0a5b
+    const v10, 0x7f0b0a5e
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    const v8, 0x7f0b0d4d
+    const v8, 0x7f0b0d50
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1058,7 +1058,7 @@
 
     invoke-direct {v8, p0}, Lcom/samsung/android/settings/spen/DirectPenInputSettings$9;-><init>(Lcom/samsung/android/settings/spen/DirectPenInputSettings;)V
 
-    const v9, 0x7f0b0d4c
+    const v9, 0x7f0b0d4f
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

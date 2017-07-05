@@ -1116,6 +1116,7 @@ Du kan öppna funktionerna i Smart bild via Luftkommando, även om Smart bild ä
     <string name="general_device_management_title">Allmän hantering</string>
     <string name="application_settings_summary">Standardprogram, behörigheter, avinstallera</string>
     <string name="notifications_settings_summary">Spärra, tillåt, prioritera</string>
+    <string name="ime_security_warning_title">Vill du slå på det valda tangentbordet?</string>
     <string name="language_settings_summary">Lägg till fler språk nedan. Om ett program inte stödjer ditt standardspråk (överst i listan) används i stället nästa möjliga språk i listan. Gör ett språk till standardspråk genom att placera det först i listan.</string>
     <string name="language_settings_noti_desc">Språken som stöds i ditt land kan skilja sig från dem som visas på utställningsmodellen.</string>
     <string name="language_settings_set_locale_title">Ställ in %s som standardspråk?</string>
@@ -1427,6 +1428,8 @@ Tryck på OK om du vill att ljusstyrkan ska kunna ökas till nivåer som inte ä
     <string name="navigationbar_pressure_sensitivity_summary">Justera hur mycket tryck som behövs för att trycka hårt på hemknappen.</string>
     <string name="navigationbar_pressure_low">Känsligare</string>
     <string name="navigationbar_pressure_high">Mindre känslig</string>
+    <string name="navigationbar_hide_bar">Visa och dölj</string>
+    <string name="navigationbar_hide_bar_summary">Lägg till en knapp till vänster på navigeringsfältet som visar och döljer navigeringsfältet.</string>
     <string name="full_screen_apps_title">Program för helskärm</string>
     <string name="full_screen_apps_summary">Välj vilka program som ska användas i helskärmsbildförhållandet.</string>
     <string name="full_screen_apps_item_summary_optimized_full">Det här programmet är optimerat för att köras i helskärmsläge.</string>
@@ -4848,7 +4851,7 @@ Dina befintliga programdata tas inte bort."</string>
     <string name="phone_language">Språk</string>
     <string name="show_password">Gör lösenord synliga</string>
     <string name="show_password_summary">Visa tecknen i lösenord en kort tid när du skriver in dem.</string>
-    <string name="ime_security_warning">Med den här metoden kan du samla in alla texter du skriver, kreditkortsnummer och andra personliga data, men inte lösenord. Den kommer från programmet %1$s. Använda i alla fall?</string>
+    <string name="ime_security_warning">%s kan spara all text du skriver, även personliga uppgifter som lösenord och kreditkortsnummer.</string>
     <string name="failed_to_open_app_settings_toast">Det gick inte att öppna inställningarna för %s.</string>
     <string name="keyboard_and_input_methods_category">Tangentbord</string>
     <string name="virtual_keyboard_category">Skärmtangentbord</string>

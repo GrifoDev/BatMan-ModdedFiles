@@ -146,7 +146,7 @@
 
     invoke-virtual {p1, p0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    const v1, 0x1020464
+    const v1, 0x1020468
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -207,7 +207,7 @@
     return v2
 
     :cond_0
-    const v1, 0x1020464
+    const v1, 0x1020468
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

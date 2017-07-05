@@ -73,17 +73,14 @@
 
     move-result-object v1
 
-    # setter for: Lcom/samsung/vsf/SDKConnectionManager;->mService:Lcom/samsung/android/svoice/asrserviceinterface/IAsrService;
     invoke-static {v0, v1}, Lcom/samsung/vsf/SDKConnectionManager;->access$102(Lcom/samsung/vsf/SDKConnectionManager;Lcom/samsung/android/svoice/asrserviceinterface/IAsrService;)Lcom/samsung/android/svoice/asrserviceinterface/IAsrService;
 
     const/4 v0, 0x2
 
-    # setter for: Lcom/samsung/vsf/SDKConnectionManager;->mServiceConnectionState:I
     invoke-static {v0}, Lcom/samsung/vsf/SDKConnectionManager;->access$202(I)I
 
     iget-object v0, p0, Lcom/samsung/vsf/SDKConnectionManager$AsrServiceConnection;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # getter for: Lcom/samsung/vsf/SDKConnectionManager;->waitQueue:Ljava/util/Queue;
     invoke-static {v0}, Lcom/samsung/vsf/SDKConnectionManager;->access$300(Lcom/samsung/vsf/SDKConnectionManager;)Ljava/util/Queue;
 
     move-result-object v0
@@ -96,14 +93,12 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/vsf/SDKConnectionManager$AsrServiceConnection;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # getter for: Lcom/samsung/vsf/SDKConnectionManager;->mSdkHandler:Lcom/samsung/vsf/SDKConnectionManager$SDKHandler;
     invoke-static {v0}, Lcom/samsung/vsf/SDKConnectionManager;->access$400(Lcom/samsung/vsf/SDKConnectionManager;)Lcom/samsung/vsf/SDKConnectionManager$SDKHandler;
 
     move-result-object v1
 
     iget-object v0, p0, Lcom/samsung/vsf/SDKConnectionManager$AsrServiceConnection;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # getter for: Lcom/samsung/vsf/SDKConnectionManager;->waitQueue:Ljava/util/Queue;
     invoke-static {v0}, Lcom/samsung/vsf/SDKConnectionManager;->access$300(Lcom/samsung/vsf/SDKConnectionManager;)Ljava/util/Queue;
 
     move-result-object v0
@@ -119,7 +114,6 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/vsf/SDKConnectionManager$AsrServiceConnection;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # getter for: Lcom/samsung/vsf/SDKConnectionManager;->waitQueue:Ljava/util/Queue;
     invoke-static {v0}, Lcom/samsung/vsf/SDKConnectionManager;->access$300(Lcom/samsung/vsf/SDKConnectionManager;)Ljava/util/Queue;
 
     move-result-object v0
@@ -144,17 +138,14 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/samsung/vsf/SDKConnectionManager;->mServiceConnectionState:I
     invoke-static {v0}, Lcom/samsung/vsf/SDKConnectionManager;->access$202(I)I
 
     iget-object v0, p0, Lcom/samsung/vsf/SDKConnectionManager$AsrServiceConnection;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # invokes: Lcom/samsung/vsf/SDKConnectionManager;->notifyConnectionError()V
     invoke-static {v0}, Lcom/samsung/vsf/SDKConnectionManager;->access$500(Lcom/samsung/vsf/SDKConnectionManager;)V
 
     iget-object v0, p0, Lcom/samsung/vsf/SDKConnectionManager$AsrServiceConnection;->this$0:Lcom/samsung/vsf/SDKConnectionManager;
 
-    # invokes: Lcom/samsung/vsf/SDKConnectionManager;->cleanUpSDKComponents()V
     invoke-static {v0}, Lcom/samsung/vsf/SDKConnectionManager;->access$600(Lcom/samsung/vsf/SDKConnectionManager;)V
 
     return-void
