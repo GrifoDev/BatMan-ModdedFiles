@@ -112,7 +112,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f13053f
+    const v0, 0x7f130571
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 

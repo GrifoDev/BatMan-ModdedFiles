@@ -1251,7 +1251,9 @@
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->applyDarkIntensity(FLandroid/view/View;Landroid/view/View;)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mWifi:Landroid/widget/ImageView;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setWifiTint()V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mEthernet:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mTintArea:Landroid/graphics/Rect;
 
@@ -1264,8 +1266,6 @@
     move-result v2
 
     invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/SignalClusterView;->setWifiTint()V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mEthernetActivity:Landroid/widget/ImageView;
 

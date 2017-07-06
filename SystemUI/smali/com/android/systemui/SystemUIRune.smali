@@ -342,8 +342,6 @@
 
 .field public static mAllowHeaderColorChange:Z
 
-.field public static mAllowNavbarColorChange:Z
-
 .field public static mAllowNotificationColorChange:Z
 
 .field public static mAllowQsColorChange:Z
@@ -351,7 +349,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 11
 
     const v6, 0x138e4
 
@@ -477,26 +475,21 @@
 
     sput v0, Lcom/android/systemui/SystemUIRune;->MAX_SIGNAL_LEVEL:I
 
-    const-string/jumbo v0, "LTE"
+    const-string v7, "LTEIcon"
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const/4 v8, 0x1
 
-    move-result-object v3
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
-    const-string/jumbo v4, "CscFeature_SystemUI_ConfigOverrideDataIcon"
+    move-result v7
 
-    const-string/jumbo v5, ""
+    if-eqz v7, :cond_0
 
-    invoke-virtual {v3, v4, v5}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const/4 v7, 0x1
 
-    move-result-object v3
+    sput-boolean v7, Lcom/android/systemui/SystemUIRune;->DISPLAY_LTE_INSTEAD_OF_4G_ICON:Z
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->DISPLAY_LTE_INSTEAD_OF_4G_ICON:Z
-
+    :cond_0
     const-string/jumbo v0, "DCM"
 
     sget-object v3, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
@@ -509,17 +502,17 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_MULTI_USER:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_FACTORY_BINARY:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_a
 
-    :cond_0
+    :cond_1
     move v0, v1
 
     :goto_0
@@ -559,7 +552,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const-string/jumbo v0, "TMB"
 
@@ -569,7 +562,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const-string/jumbo v0, "AIO"
 
@@ -579,7 +572,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const-string/jumbo v0, "MTR"
 
@@ -589,9 +582,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b
 
-    :cond_1
+    :cond_2
     move v0, v1
 
     :goto_1
@@ -605,7 +598,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_c
 
     const-string/jumbo v0, "CHU"
 
@@ -615,7 +608,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_c
 
     const-string/jumbo v0, "CHC"
 
@@ -646,7 +639,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_d
 
     const-string/jumbo v0, "LRA"
 
@@ -656,7 +649,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_d
 
     const-string/jumbo v0, "CCT"
 
@@ -666,7 +659,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_d
 
     const-string/jumbo v0, "VZW_OPEN"
 
@@ -687,7 +680,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     const-string/jumbo v0, "KTT"
 
@@ -697,7 +690,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     const-string/jumbo v0, "LGT"
 
@@ -707,7 +700,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     const-string/jumbo v0, "KOO"
 
@@ -717,9 +710,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_e
 
-    :cond_2
+    :cond_3
     move v0, v1
 
     :goto_4
@@ -733,7 +726,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_f
 
     const-string/jumbo v0, "CHU"
 
@@ -743,7 +736,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_f
 
     const-string/jumbo v0, "VZW"
 
@@ -753,7 +746,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_f
 
     const-string/jumbo v0, "ZVV"
 
@@ -763,7 +756,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_f
 
     const-string/jumbo v0, "ZTM"
 
@@ -773,7 +766,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_f
 
     const-string/jumbo v0, "TGY"
 
@@ -783,7 +776,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_f
 
     const-string/jumbo v0, "BRI"
 
@@ -793,7 +786,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_f
 
     const-string/jumbo v0, "CHC"
 
@@ -808,7 +801,7 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SHOW_DISABLED_DATA_ICON:Z
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_10
 
     const-string/jumbo v0, "US"
 
@@ -829,7 +822,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     const-string/jumbo v0, "LGT"
 
@@ -839,7 +832,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     const-string/jumbo v0, "KOO"
 
@@ -849,7 +842,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     const-string/jumbo v0, "DCM"
 
@@ -859,7 +852,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     const-string/jumbo v0, "KDI"
 
@@ -869,7 +862,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     const-string/jumbo v0, "SBM"
 
@@ -879,9 +872,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_11
 
-    :cond_3
+    :cond_4
     move v0, v1
 
     :goto_7
@@ -895,7 +888,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_12
 
     const-string/jumbo v0, "TUR"
 
@@ -910,7 +903,7 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_MPTCP:Z
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_13
 
     const-string/jumbo v0, "TUR"
 
@@ -1013,7 +1006,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_15
 
     const-string/jumbo v0, "TMB"
 
@@ -1023,7 +1016,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_14
 
     const-string/jumbo v0, "MTR"
 
@@ -1044,7 +1037,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_16
 
     const-string/jumbo v0, "MTR"
 
@@ -1097,7 +1090,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -1109,9 +1102,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_17
 
-    :cond_4
+    :cond_5
     const-string/jumbo v0, "CHC"
 
     sget-object v3, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
@@ -1131,7 +1124,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_18
 
     const-string/jumbo v0, "VMU"
 
@@ -1141,7 +1134,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_18
 
     const-string/jumbo v0, "BST"
 
@@ -1151,7 +1144,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_18
 
     const-string/jumbo v0, "XAS"
 
@@ -1172,7 +1165,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -1192,9 +1185,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_19
 
-    :cond_5
+    :cond_6
     const-string/jumbo v0, "LGT"
 
     sget-object v3, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
@@ -1203,7 +1196,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_19
 
     const-string/jumbo v0, "VZW"
 
@@ -1234,7 +1227,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_1a
 
     move v0, v1
 
@@ -1317,7 +1310,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "LRA"
 
@@ -1327,7 +1320,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "SPR"
 
@@ -1337,7 +1330,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "DCM"
 
@@ -1347,7 +1340,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "KDI"
 
@@ -1357,7 +1350,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "SBM"
 
@@ -1367,7 +1360,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "CTC"
 
@@ -1377,7 +1370,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "TFN"
 
@@ -1387,7 +1380,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "XID"
 
@@ -1397,7 +1390,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "XSE"
 
@@ -1407,7 +1400,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "CCT"
 
@@ -1417,7 +1410,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "XME"
 
@@ -1427,7 +1420,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     const-string/jumbo v0, "VZW_OPEN"
 
@@ -1437,7 +1430,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1b
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_SIGNAL_LEVE_ZERO_IN_NO_SVC_AT_TMOWFC:Z
 
@@ -1488,7 +1481,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1c
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
@@ -1497,7 +1490,7 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1d
 
     move v0, v1
 
@@ -1506,11 +1499,11 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1e
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_LED:Z
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1e
 
     move v0, v1
 
@@ -1539,7 +1532,7 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_LED:Z
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1f
 
     const-string/jumbo v0, "VZW"
 
@@ -1549,7 +1542,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1f
 
     const-string/jumbo v0, "ATT"
 
@@ -1559,7 +1552,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1f
 
     const-string/jumbo v0, "SPR"
 
@@ -1569,7 +1562,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1f
 
     const-string/jumbo v0, "TMB"
 
@@ -1614,7 +1607,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_20
 
     move v0, v1
 
@@ -1639,7 +1632,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_21
 
     move v0, v1
 
@@ -1678,7 +1671,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_22
 
     const-string/jumbo v0, "ril.product_code"
 
@@ -1694,7 +1687,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_22
 
     const-string/jumbo v0, "ril.product_code"
 
@@ -1823,15 +1816,15 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_SKT_POPUP:Z
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_23
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_KTT_POPUP:Z
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_23
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_LGT_POPUP:Z
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_23
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_KOR_OPEN_POPUP:Z
 
@@ -2000,63 +1993,63 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_ATT_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_AIO_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TMB_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_MTR_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_SPR_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_VMU_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_BST_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_XAS_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_USC_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_LRA_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TFN_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_CCT_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_ACG_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_CSP_POPUP:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_24
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_XAR_POPUP:Z
 
@@ -2115,15 +2108,15 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_CHN_OPEN_POPUP:Z
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_25
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_CMCC_POPUP:Z
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_25
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_CU_POPUP:Z
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_25
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_CTC_POPUP:Z
 
@@ -2192,15 +2185,15 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_26
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_KDI_POPUP:Z
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_26
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_SBM_POPUP:Z
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_26
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_XJP_POPUP:Z
 
@@ -2239,7 +2232,7 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_FMC_POPUP:Z
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_27
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_RWC_POPUP:Z
 
@@ -2348,7 +2341,7 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_28
 
     move v0, v2
 
@@ -2363,7 +2356,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_27
+    if-nez v0, :cond_29
 
     const-string/jumbo v0, "4"
 
@@ -2378,7 +2371,7 @@
 
     const-string/jumbo v0, "WQHD,FHD,HD"
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     const-string/jumbo v0, "WQHD,FHD,HD"
 
@@ -2386,9 +2379,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_2a
 
-    :cond_6
+    :cond_7
     move v0, v1
 
     :goto_1f
@@ -2402,7 +2395,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_2b
 
     move v0, v1
 
@@ -2411,11 +2404,27 @@
 
     sget v0, Landroid/os/Build$VERSION;->SEM_PLATFORM_INT:I
 
-    if-lt v0, v6, :cond_2a
+    if-lt v0, v6, :cond_2c
 
     move v0, v2
 
     :goto_21
+    const/4 v9, 0x0
+
+    const-string v10, "battery_color_main"
+
+    invoke-static {v10, v9}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v10
+
+    if-nez v10, :cond_8
+
+    goto :goto_22
+
+    :cond_8
+    const/4 v0, 0x0
+
+    :goto_22
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_SEC_BATTERY_GUI:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
@@ -2440,7 +2449,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_2d
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -2452,7 +2461,7 @@
 
     move-result v0
 
-    :goto_22
+    :goto_23
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_WIFICALLING:Z
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_PLMN_TMOWFC:Z
@@ -2505,11 +2514,11 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TW_POPUP:Z
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_2e
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_HK_POPUP:Z
 
-    :goto_23
+    :goto_24
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_VOLTE_CHECK_OPERATOR:Z
 
     const-string/jumbo v0, "hongbao_assistant"
@@ -2540,11 +2549,11 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_USA_POPUP:Z
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_2f
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_JAPAN_POPUP:Z
 
-    :goto_24
+    :goto_25
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_MOBILE_DATA_OFF_POPUP:Z
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
@@ -2553,11 +2562,11 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
 
-    if-nez v0, :cond_2e
+    if-nez v0, :cond_30
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
 
-    :goto_25
+    :goto_26
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_LOCATION_ENABLE_POPUP:Z
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_CHINA_POPUP:Z
@@ -2566,11 +2575,11 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_KOREA_POPUP:Z
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_31
 
     move v0, v2
 
-    :goto_26
+    :goto_27
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_NFC_3TOGGLE:Z
 
     const-string/jumbo v0, "0"
@@ -2581,20 +2590,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_32
 
     move v0, v1
 
-    :goto_27
+    :goto_28
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_ALWAYS_ON_DISPLAY:Z
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_USA_POPUP:Z
 
-    if-nez v0, :cond_31
+    if-nez v0, :cond_33
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_CMCC_POPUP:Z
 
-    :goto_28
+    :goto_29
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_AIRPLANE_MODE_ENABLE_POPUP:Z
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_KOREA_POPUP:Z
@@ -2613,20 +2622,20 @@
 
     move-result v8
 
-    if-nez v8, :cond_7
+    if-nez v8, :cond_9
 
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QUICKPANEL_DATAUSAGE:Z
 
-    goto :goto_29
+    goto :goto_2a
 
-    :cond_7
+    :cond_9
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QUICKPANEL_DATAUSAGE:Z
 
-    :goto_29
+    :goto_2a
     const-string/jumbo v0, "CTC"
 
     sget-object v3, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
@@ -2645,7 +2654,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_34
 
     const-string/jumbo v0, "CHU"
 
@@ -2655,7 +2664,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_34
 
     const-string/jumbo v0, "CHM"
 
@@ -2665,7 +2674,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_34
 
     const-string/jumbo v0, "CTC"
 
@@ -2675,16 +2684,16 @@
 
     move-result v0
 
-    :goto_2a
+    :goto_2b
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_CHN_SIM_CARD_MANAGER:Z
 
     sget v0, Landroid/os/Build$VERSION;->SEM_PLATFORM_INT:I
 
-    if-ge v0, v6, :cond_33
+    if-ge v0, v6, :cond_35
 
     move v0, v2
 
-    :goto_2b
+    :goto_2c
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_S_FINDER_QS_BAR:Z
 
     const-string/jumbo v0, "0"
@@ -2737,11 +2746,11 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_ATT_POPUP:Z
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_36
 
     move v0, v1
 
-    :goto_2c
+    :goto_2d
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_SYNC_TILE:Z
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_OPV_POPUP:Z
@@ -2752,20 +2761,20 @@
 
     const v3, 0x13880
 
-    if-ge v0, v3, :cond_35
-
-    move v0, v2
-
-    :goto_2d
-    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_INVALID_CHARGING_STRING:Z
-
-    sget v0, Lcom/android/systemui/SystemUIRune;->CONFIG_STATUSBAR_SIDE_PADDING:I
-
-    if-lez v0, :cond_36
+    if-ge v0, v3, :cond_37
 
     move v0, v2
 
     :goto_2e
+    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_INVALID_CHARGING_STRING:Z
+
+    sget v0, Lcom/android/systemui/SystemUIRune;->CONFIG_STATUSBAR_SIDE_PADDING:I
+
+    if-lez v0, :cond_38
+
+    move v0, v2
+
+    :goto_2f
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_ASSIST_ROUND_DISCLOSURE:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
@@ -2792,23 +2801,24 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_WIFICALLING:Z
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_39
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_INDIA_OP_CONCEPT:Z
 
-    :goto_2f
+    :goto_30
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_RJILWFC:Z
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_RJILWFC:Z
 
-    if-nez v0, :cond_38
+    if-nez v0, :cond_3a
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_SER_POPUP:Z
 
-    if-nez v0, :cond_38
+    if-nez v0, :cond_3a
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_XSA_POPUP:Z
 
+    :goto_31
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_WFC_REFRESH_BY_SIM:Z
 
     invoke-static {}, Lcom/android/internal/app/AppLockPolicy;->isSupportAppLock()Z
@@ -2827,9 +2837,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_39
+    if-eqz v0, :cond_3b
 
-    :goto_30
+    :goto_32
     sput-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_GOOGLE_SERVICE:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
@@ -2850,7 +2860,7 @@
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_POWER_PLANNING:Z
 
-    const-string v0, "tweaks_unlock_header_colors"
+    const-string v0, "unlock_header_colors"
 
     const/4 v1, 0x0
 
@@ -2860,7 +2870,7 @@
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowHeaderColorChange:Z
 
-    const-string v0, "tweaks_unlock_qs_colors"
+    const-string v0, "unlock_qs_colors"
 
     const/4 v1, 0x0
 
@@ -2870,7 +2880,7 @@
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowQsColorChange:Z
 
-    const-string v0, "tweaks_unlock_notification_colors"
+    const-string v0, "unlock_notification_colors"
 
     const/4 v1, 0x0
 
@@ -2882,225 +2892,215 @@
 
     return-void
 
-    :cond_8
+    :cond_a
     move v0, v2
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_b
     move v0, v2
 
     goto/16 :goto_1
 
-    :cond_a
+    :cond_c
     move v0, v2
 
     goto/16 :goto_2
 
-    :cond_b
+    :cond_d
     move v0, v2
 
     goto/16 :goto_3
 
-    :cond_c
+    :cond_e
     move v0, v2
 
     goto/16 :goto_4
 
-    :cond_d
+    :cond_f
     move v0, v2
 
     goto/16 :goto_5
 
-    :cond_e
+    :cond_10
     move v0, v2
 
     goto/16 :goto_6
 
-    :cond_f
+    :cond_11
     move v0, v2
 
     goto/16 :goto_7
 
-    :cond_10
+    :cond_12
     move v0, v2
 
     goto/16 :goto_8
 
-    :cond_11
+    :cond_13
     move v0, v1
 
     goto/16 :goto_9
 
-    :cond_12
-    move v0, v2
-
-    goto/16 :goto_a
-
-    :cond_13
-    move v0, v1
-
-    goto/16 :goto_a
-
     :cond_14
     move v0, v2
 
-    goto/16 :goto_b
+    goto/16 :goto_a
 
     :cond_15
     move v0, v1
 
-    goto/16 :goto_c
+    goto/16 :goto_a
 
     :cond_16
     move v0, v2
 
-    goto/16 :goto_d
+    goto/16 :goto_b
 
     :cond_17
-    move v0, v2
+    move v0, v1
 
-    goto/16 :goto_e
+    goto/16 :goto_c
 
     :cond_18
     move v0, v2
 
-    goto/16 :goto_f
+    goto/16 :goto_d
 
     :cond_19
     move v0, v2
 
-    goto/16 :goto_10
+    goto/16 :goto_e
 
     :cond_1a
     move v0, v2
 
-    goto/16 :goto_11
+    goto/16 :goto_f
 
     :cond_1b
     move v0, v2
 
-    goto/16 :goto_12
+    goto/16 :goto_10
 
     :cond_1c
     move v0, v2
 
-    goto/16 :goto_13
+    goto/16 :goto_11
 
     :cond_1d
     move v0, v2
 
-    goto/16 :goto_14
+    goto/16 :goto_12
 
     :cond_1e
     move v0, v2
 
-    goto/16 :goto_15
+    goto/16 :goto_13
 
     :cond_1f
     move v0, v2
 
-    goto/16 :goto_16
+    goto/16 :goto_14
 
     :cond_20
     move v0, v2
 
-    goto/16 :goto_17
+    goto/16 :goto_15
 
     :cond_21
     move v0, v2
 
-    goto/16 :goto_18
+    goto/16 :goto_16
 
     :cond_22
     move v0, v2
 
-    goto/16 :goto_19
+    goto/16 :goto_17
 
     :cond_23
     move v0, v2
 
-    goto/16 :goto_1a
+    goto/16 :goto_18
 
     :cond_24
     move v0, v2
 
-    goto/16 :goto_1b
+    goto/16 :goto_19
 
     :cond_25
     move v0, v2
 
-    goto/16 :goto_1c
+    goto/16 :goto_1a
 
     :cond_26
-    move v0, v1
+    move v0, v2
 
-    goto/16 :goto_1d
+    goto/16 :goto_1b
 
     :cond_27
     move v0, v2
 
-    goto/16 :goto_1e
+    goto/16 :goto_1c
 
     :cond_28
-    move v0, v2
+    move v0, v1
 
-    goto/16 :goto_1f
+    goto/16 :goto_1d
 
     :cond_29
     move v0, v2
 
-    goto/16 :goto_20
+    goto/16 :goto_1e
 
     :cond_2a
-    move v0, v1
+    move v0, v2
 
-    goto/16 :goto_21
+    goto/16 :goto_1f
 
     :cond_2b
     move v0, v2
 
-    goto/16 :goto_22
+    goto/16 :goto_20
 
     :cond_2c
-    move v0, v2
+    move v0, v1
 
-    goto/16 :goto_23
+    goto/16 :goto_21
 
     :cond_2d
     move v0, v2
 
-    goto/16 :goto_24
+    goto/16 :goto_23
 
     :cond_2e
     move v0, v2
 
-    goto/16 :goto_25
+    goto/16 :goto_24
 
     :cond_2f
-    move v0, v1
+    move v0, v2
 
-    goto/16 :goto_26
+    goto/16 :goto_25
 
     :cond_30
     move v0, v2
 
-    goto/16 :goto_27
+    goto/16 :goto_26
 
     :cond_31
-    move v0, v2
+    move v0, v1
 
-    goto/16 :goto_28
+    goto/16 :goto_27
 
     :cond_32
     move v0, v2
 
-    goto/16 :goto_29
+    goto/16 :goto_28
 
     :cond_33
-    move v0, v1
+    move v0, v2
 
-    goto/16 :goto_2a
+    goto/16 :goto_29
 
     :cond_34
     move v0, v2
@@ -3113,7 +3113,7 @@
     goto/16 :goto_2c
 
     :cond_36
-    move v0, v1
+    move v0, v2
 
     goto/16 :goto_2d
 
@@ -3123,14 +3123,24 @@
     goto/16 :goto_2e
 
     :cond_38
-    move v0, v2
+    move v0, v1
 
     goto/16 :goto_2f
 
     :cond_39
-    move v1, v2
+    move v0, v1
 
     goto/16 :goto_30
+
+    :cond_3a
+    move v0, v2
+
+    goto/16 :goto_31
+
+    :cond_3b
+    move v1, v2
+
+    goto/16 :goto_32
 .end method
 
 .method public constructor <init>()V

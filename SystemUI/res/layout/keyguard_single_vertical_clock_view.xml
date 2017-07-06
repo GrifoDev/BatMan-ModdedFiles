@@ -9,11 +9,6 @@
         <com.android.keyguard.KeyguardTextClock android:textSize="@dimen/keyguard_single_date_view_text_size" android:textStyle="bold" android:textColor="@color/theme_clock_date_color" android:id="@id/keyguard_single_vertical_date_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="20.0dip" android:textAllCaps="true" android:fontFamily="sec-roboto-condensed" android:transitionName="keyguard_transition_clock_date_normal" style="@style/keyguard_headline_text_shadow" />
         <com.android.keyguard.KeyguardTextView android:textSize="@dimen/keyguard_single_date_view_text_size" android:textStyle="bold" android:textColor="@color/theme_clock_date_color" android:id="@id/keyguard_single_vertical_shamsi_date_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/keyguard_single_date_view_min_height" android:textAllCaps="true" android:fontFamily="sec-roboto-condensed" android:transitionName="keyguard_transition_clock_date_shamsi" style="@style/keyguard_headline_text_shadow" />
     </LinearLayout>
-    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/pedometr" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="pedo">
-            <com.android.keyguard.KeyguardWidget android:layout_width="wrap_content" android:layout_height="42.0dip" widget_package="com.sec.android.app.shealth" widget_class="com.sec.android.app.shealth.widget.WalkMatePlainAppWidget" />
-        </com.android.systemui.rz.LeftLayout>
-    </LinearLayout>
     <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
         <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="hide_nextalarm">
             <com.android.keyguard.nextalarm.GetNextAlarmTimeText android:gravity="left" android:id="@id/next_alarm_txt" android:layout_width="wrap_content" android:layout_height="wrap_content" />

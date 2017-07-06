@@ -18549,7 +18549,7 @@
 
     const-string v1, "skip_tracks"
 
-    const v2, 0x1
+    const v2, 0x0
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -23627,6 +23627,7 @@
     :cond_1
     const/16 v22, 0x0
 
+    :goto_0
     return v22
 
     :cond_2
@@ -23638,7 +23639,7 @@
 
     const/4 v10, 0x1
 
-    :goto_0
+    :goto_1
     invoke-virtual/range {p1 .. p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v22
@@ -23647,7 +23648,7 @@
 
     const/4 v7, 0x1
 
-    :goto_1
+    :goto_2
     invoke-virtual/range {p1 .. p1}, Landroid/view/KeyEvent;->isCanceled()Z
 
     move-result v6
@@ -23672,7 +23673,7 @@
 
     const/4 v12, 0x1
 
-    :goto_2
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
@@ -23683,7 +23684,7 @@
 
     const/4 v15, 0x0
 
-    :goto_3
+    :goto_4
     sget-boolean v22, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_INPUT:Z
 
     if-eqz v22, :cond_3
@@ -23773,7 +23774,7 @@
 
     move-result v13
 
-    :goto_4
+    :goto_5
     if-nez v10, :cond_e
 
     if-eqz v12, :cond_4
@@ -23792,7 +23793,7 @@
     const/16 v17, 0x1
 
     :cond_5
-    :goto_5
+    :goto_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
@@ -23864,17 +23865,17 @@
     :cond_8
     const/4 v10, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_9
     const/4 v7, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_a
     const/4 v12, 0x0
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :cond_b
     if-eqz v10, :cond_c
@@ -23883,7 +23884,7 @@
 
     move-result v15
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :cond_c
     move-object/from16 v0, p0
@@ -23896,19 +23897,19 @@
 
     move-result v15
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :cond_d
     const/4 v13, 0x1
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_e
     const/16 v17, 0x1
 
     const/4 v13, 0x0
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_f
     const/16 v17, 0x0
@@ -23928,7 +23929,7 @@
     :cond_10
     const/4 v13, 0x0
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_11
     and-int/lit8 v22, v19, 0x4
@@ -23938,7 +23939,7 @@
     or-int/lit8 v17, v17, 0x1
 
     :cond_12
-    :goto_6
+    :goto_7
     invoke-static {v14}, Lcom/android/server/policy/PhoneWindowManager;->isValidGlobalKey(I)Z
 
     move-result v22
@@ -23995,7 +23996,7 @@
 
     and-int/lit8 v17, v17, -0x2
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_15
     const/16 v21, 0x0
@@ -24020,7 +24021,7 @@
 
     const/4 v11, 0x1
 
-    :goto_7
+    :goto_8
     if-nez v7, :cond_16
 
     and-int/lit8 v22, p2, 0x2
@@ -24032,11 +24033,11 @@
     :cond_16
     const/16 v21, 0x0
 
-    :goto_8
+    :goto_9
     sparse-switch v14, :sswitch_data_0
 
     :cond_17
-    :goto_9
+    :goto_a
     invoke-static {}, Lcom/android/server/SamsungCoreServices;->getEdgeWindowPolicy()Lcom/android/server/policy/EdgeWindowPolicy;
 
     move-result-object v22
@@ -24078,7 +24079,7 @@
     invoke-interface {v0, v1}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->performSystemKeyFeedback(Landroid/view/KeyEvent;)V
 
     :cond_18
-    :goto_a
+    :goto_b
     if-eqz v13, :cond_19
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/KeyEvent;->getEventTime()J
@@ -24158,14 +24159,14 @@
     :cond_1d
     const/4 v11, 0x0
 
-    goto/16 :goto_7
+    goto/16 :goto_8
 
     :cond_1e
     if-nez v11, :cond_16
 
     const/16 v21, 0x1
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_1f
     if-eqz v7, :cond_22
@@ -24189,7 +24190,7 @@
 
     const/16 v21, 0x1
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_21
     and-int/lit8 v22, p2, 0x2
@@ -24199,12 +24200,12 @@
     :cond_22
     const/16 v21, 0x0
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_23
     const/16 v21, 0x0
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :sswitch_0
     if-eqz v7, :cond_24
@@ -24271,7 +24272,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_24
     move-object/from16 v0, p0
@@ -24284,7 +24285,7 @@
 
     and-int/lit8 v17, v17, -0x2
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_1
     invoke-static {}, Lcom/android/server/SamsungCoreServices;->getEdgeWindowPolicy()Lcom/android/server/policy/EdgeWindowPolicy;
@@ -24320,13 +24321,13 @@
 
     iput-boolean v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mGrxEsLongVol:Z
 
-    move/from16 v1, v8
+    move/from16 v1, v12
 
     iput v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mGrxTeclaVol:I
 
     invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->grx_tecla_vol()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     :cond_26
     move-object/from16 v0, p0
@@ -24401,7 +24402,7 @@
 
     and-int/lit8 v17, v17, -0x2
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_29
     const-string/jumbo v22, "WindowManager"
@@ -24427,7 +24428,7 @@
     :cond_2a
     and-int/lit8 v17, v17, -0x2
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_2b
     invoke-virtual/range {v20 .. v20}, Landroid/telecom/TelecomManager;->isInCall()Z
@@ -24460,7 +24461,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/session/MediaSessionLegacyHelper;->sendVolumeKeyEvent(Landroid/view/KeyEvent;Z)V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_2c
     move-object/from16 v0, p0
@@ -24473,7 +24474,7 @@
 
     or-int/lit8 v17, v17, 0x1
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_2d
     and-int/lit8 v22, v17, 0x1
@@ -24500,7 +24501,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/session/MediaSessionLegacyHelper;->sendVolumeKeyEvent(Landroid/view/KeyEvent;Z)V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_2
     move-object/from16 v0, p0
@@ -24527,7 +24528,7 @@
 
     const/4 v13, 0x0
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_3
     and-int/lit8 v22, v17, 0x1
@@ -24547,7 +24548,7 @@
 
     invoke-direct {v0, v1, v10}, Lcom/android/server/policy/PhoneWindowManager;->interceptPowerKeyDown(Landroid/view/KeyEvent;Z)V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_2f
     move-object/from16 v0, p0
@@ -24556,7 +24557,7 @@
 
     invoke-direct {v0, v1, v10, v6}, Lcom/android/server/policy/PhoneWindowManager;->interceptPowerKeyUp(Landroid/view/KeyEvent;ZZ)V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_4
     and-int/lit8 v17, v17, -0x2
@@ -24590,7 +24591,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/policy/PhoneWindowManager;->sleepPress(J)V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_31
     invoke-virtual/range {p1 .. p1}, Landroid/view/KeyEvent;->getEventTime()J
@@ -24603,7 +24604,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/policy/PhoneWindowManager;->sleepRelease(J)V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_5
     and-int/lit8 v17, v17, -0x2
@@ -24620,14 +24621,14 @@
 
     invoke-virtual/range {v22 .. v22}, Landroid/os/PowerManagerInternal;->setUserInactiveOverrideFromWindowManager()V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_6
     and-int/lit8 v17, v17, -0x2
 
     const/4 v13, 0x1
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_7
     move-object/from16 v0, p0
@@ -24697,7 +24698,7 @@
 
     invoke-virtual/range {v16 .. v16}, Landroid/os/Message;->sendToTarget()V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_8
     if-eqz v7, :cond_17
@@ -24724,7 +24725,7 @@
 
     and-int/lit8 v17, v17, -0x2
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :sswitch_9
     and-int/lit8 v22, v17, 0x1
@@ -24751,7 +24752,7 @@
 
     const/16 v22, 0x1
 
-    :goto_b
+    :goto_c
     const/16 v24, 0xc
 
     const/16 v25, 0x0
@@ -24778,12 +24779,12 @@
 
     invoke-virtual/range {v16 .. v16}, Landroid/os/Message;->sendToTarget()V
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_33
     const/16 v22, 0x0
 
-    goto :goto_b
+    goto :goto_c
 
     :sswitch_a
     move-object/from16 v0, p0
@@ -24815,7 +24816,7 @@
     :cond_34
     and-int/lit8 v17, v17, -0x2
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :cond_35
     sget-boolean v22, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_IMMERSIVE_FORCE_TOUCH:Z
@@ -24838,7 +24839,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedbackLw(Landroid/view/WindowManagerPolicy$WindowState;IZ)Z
 
-    goto/16 :goto_a
+    goto/16 :goto_b
 
     :cond_36
     const/16 v22, 0x0
@@ -24857,7 +24858,9 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedbackLw(Landroid/view/WindowManagerPolicy$WindowState;IZ)Z
 
-    goto/16 :goto_a
+    goto/16 :goto_b
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

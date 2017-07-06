@@ -10679,7 +10679,7 @@
     :cond_1
     iput-boolean v6, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mRecentConsumed:Z
 
-    iget-boolean v8, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mRecentKill:I
+    iget v8, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mRecentKill:I
 
     if-eqz v8, :cond_2
 
@@ -13192,7 +13192,7 @@
     :cond_2f
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBackKill:I
+    iget v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBackKill:I
 
     move/from16 v46, v0
 

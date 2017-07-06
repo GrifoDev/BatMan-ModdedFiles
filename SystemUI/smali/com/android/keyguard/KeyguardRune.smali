@@ -562,12 +562,6 @@
 
     sput v0, Lcom/android/keyguard/KeyguardRune;->CONFIG_STATUSBAR_SIDE_PADDING:I
 
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
-
-    move-result-object v0
-
-    const-string/jumbo v3, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_SERVICEBOX"
-
     const-string v6, "s_eight_style"
 
     const/4 v7, 0x1
