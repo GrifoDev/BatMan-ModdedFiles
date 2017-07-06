@@ -26311,7 +26311,13 @@
 
     if-eqz v0, :cond_6
 
-    const v2, 0x0
+    const-string v1, "header_background_color"
+
+    const v2, -0x50506
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
 
     const-string v0, "header"
 
