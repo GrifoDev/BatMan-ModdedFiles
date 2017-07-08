@@ -4585,6 +4585,10 @@
 
     move-result v3
 
+    invoke-virtual {p0}, Lcom/android/internal/policy/DecorView;->fixNavBarColorAfterReboot()I
+
+    move-result v3
+
     invoke-virtual {v2, v3}, Landroid/view/View;->setBackgroundColor(I)V
 
     :goto_0
@@ -4632,6 +4636,10 @@
     iget-object v3, p0, Lcom/android/internal/policy/DecorView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v9}, Landroid/content/Context;->getColor(I)I
+
+    move-result v3
+
+    invoke-virtual {p0}, Lcom/android/internal/policy/DecorView;->fixNavBarColorAfterReboot()I
 
     move-result v3
 
@@ -5738,6 +5746,28 @@
     invoke-direct {p0}, Lcom/android/internal/policy/DecorView;->drawableChanged()V
 
     return-void
+.end method
+
+.method public fixNavBarColorAfterReboot()I
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/internal/policy/DecorView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "navigationbar_color"
+
+    const v2, -0xf0f10
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    return v2
 .end method
 
 .method public gatherTransparentRegion(Landroid/graphics/Region;)Z

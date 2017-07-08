@@ -342,6 +342,8 @@
 
 .field public static mAllowHeaderColorChange:Z
 
+.field public static mAllowNavbarColorChange:Z
+
 .field public static mAllowNotificationColorChange:Z
 
 .field public static mAllowQsColorChange:Z
@@ -2889,6 +2891,16 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowNotificationColorChange:Z
+
+    const-string v0, "unlock_navbar_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowNavbarColorChange:Z
 
     return-void
 

@@ -11,6 +11,10 @@
 .end annotation
 
 
+# static fields
+.field public static mNavBarIconColor:I
+
+
 # instance fields
 .field private mAlpha:Ljava/lang/Integer;
 
@@ -79,6 +83,8 @@
     iput v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mRippleColor:I
 
     iput p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mId:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setNavBarIconColor()V
 
     return-void
 .end method
@@ -612,7 +618,7 @@
 .end method
 
 .method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 4
+    .locals 6
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -629,7 +635,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
 
@@ -641,13 +647,30 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Landroid/graphics/drawable/Drawable;
 
+    const-string v4, "unlock_navbar_colors"
+
+    const/4 v5, 0x0
+
+    invoke-static {v4, v5}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    sget-object v4, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    sget v5, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mNavBarIconColor:I
+
+    invoke-virtual {v3, v5, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
     invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -692,6 +715,22 @@
     goto :goto_0
 
     :cond_0
+    return-void
+.end method
+
+.method public setNavBarIconColor()V
+    .locals 2
+
+    const-string v0, "navbar_icon_color"
+
+    const v1, -0x50506
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v1
+
+    sput v1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mNavBarIconColor:I
+
     return-void
 .end method
 
