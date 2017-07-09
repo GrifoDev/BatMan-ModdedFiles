@@ -1670,7 +1670,7 @@
 
     iput v7, p0, Lcom/android/server/policy/PhoneWindowManager;->mGrxTeclaVol:I
 
-    const v7, 0x258
+    const v7, 0x12c
 
     iput v7, p0, Lcom/android/server/policy/PhoneWindowManager;->mGrxTimeOutVolumen:I
 
@@ -1678,7 +1678,7 @@
 
     iput-boolean v7, p0, Lcom/android/server/policy/PhoneWindowManager;->mGrxTeclaVolDobleTapPendiente:Z
 
-    const/4 v7, 0x1
+    const/4 v7, 0x0
 
     iput-boolean v7, p0, Lcom/android/server/policy/PhoneWindowManager;->mGrxDobleClickVol:Z
 
@@ -18566,7 +18566,7 @@
 
     const-string v1, "double_click_skip_tracks"
 
-    const v2, 0x1
+    const v2, 0x0
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -18583,7 +18583,7 @@
 
     const-string v1, "timeout_skip_tracks"
 
-    const v2, 0x258
+    const v2, 0x12c
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -24321,7 +24321,7 @@
 
     iput-boolean v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mGrxEsLongVol:Z
 
-    move/from16 v1, v12
+    move/from16 v1, v14
 
     iput v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mGrxTeclaVol:I
 
