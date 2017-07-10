@@ -20,8 +20,8 @@
     <string name="dock_minimized_toast_text">%s minimized.</string>
     <string name="dock_minimized_notification_dimiss_text">Close</string>
     <string name="dock_minimized_notification_content_text">Tap here to open.</string>
-    <string name="date_format_for_display">ccccMMMMd</string>
-    <string name="date_format_for_tts">ccccMMMMd</string>
+    <string name="date_format_for_display">EEEMMMMd</string>
+    <string name="date_format_for_tts">EEEEMMMMd</string>
     <string name="more_notification_format">+%d</string>
     <string name="cancel">Cancel</string>
     <string name="clearcover_1_missed_call">You have 1 missed call</string>
@@ -2011,12 +2011,12 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="font_roboto_regular">sans-serif</string>
     <string name="font_roboto_light">sans-serif-light</string>
     <string name="config_default_color_code">black</string>
-    <string name="abbrev_wday_month_day_no_year">ccccMMMMd</string>
-    <string name="abbrev_wday_month_day_no_year_alarm">ccccMMMd</string>
+    <string name="abbrev_wday_month_day_no_year">EEEEMMMMd</string>
+    <string name="abbrev_wday_month_day_no_year_alarm">EEEMMMd</string>
     <string name="clock_12hr_format">hm</string>
     <string name="clock_24hr_format">Hm</string>
-    <string name="status_view_wday_day_month_no_year">cccc, d MMMM</string>
-    <string name="keyguard_clock_page_date_format">ccccMMMMd</string>
+    <string name="status_view_wday_day_month_no_year">E, d MMMM</string>
+    <string name="keyguard_clock_page_date_format">EEEMMMMd</string>
     <string name="keyguard_ampm_view_12hour_format">aa</string>
     <string name="keyguard_ampm_view_24hour_format" />
     <string name="theme_pin_enter_text">OK</string>
