@@ -1035,31 +1035,32 @@
 .end method
 
 .method private issueCommand(Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Ljava/io/IOException;
+            Ljava/io/IOException;,
+            Lsun/net/ftp/FtpProtocolException;
         }
     .end annotation
 
     invoke-virtual {p0}, Lsun/net/ftp/impl/FtpClient;->isConnected()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v2, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v2, "Not connected"
+    const-string/jumbo v3, "Not connected"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 
     :cond_0
-    iget-boolean v1, p0, Lsun/net/ftp/impl/FtpClient;->replyPending:Z
+    iget-boolean v2, p0, Lsun/net/ftp/impl/FtpClient;->replyPending:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     :try_start_0
     invoke-virtual {p0}, Lsun/net/ftp/impl/FtpClient;->completePending()Lsun/net/ftp/FtpClient;
@@ -1068,36 +1069,63 @@
 
     :cond_1
     :goto_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    const/16 v2, 0xa
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p1, v2}, Ljava/lang/String;->indexOf(I)I
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v2
 
-    move-result-object v1
+    const/4 v3, -0x1
 
-    const-string/jumbo v2, "\r\n"
+    if-eq v2, v3, :cond_2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v1, Lsun/net/ftp/FtpProtocolException;
 
-    move-result-object v1
+    const-string/jumbo v2, "Illegal FTP command"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v1, v2}, Lsun/net/ftp/FtpProtocolException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v1
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p0, v1}, Lsun/net/ftp/impl/FtpClient;->sendServer(Ljava/lang/String;)V
+    const-string/jumbo v3, "Illegal carriage return"
 
-    invoke-direct {p0}, Lsun/net/ftp/impl/FtpClient;->readReply()Z
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    move-result v1
+    invoke-virtual {v1, v2}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    return v1
+    throw v1
 
     :catch_0
     move-exception v0
 
     goto :goto_0
+
+    :cond_2
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "\r\n"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lsun/net/ftp/impl/FtpClient;->sendServer(Ljava/lang/String;)V
+
+    invoke-direct {p0}, Lsun/net/ftp/impl/FtpClient;->readReply()Z
+
+    move-result v2
+
+    return v2
 .end method
 
 .method private issueCommandCheck(Ljava/lang/String;)V
@@ -2237,7 +2265,8 @@
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Ljava/io/IOException;
+            Ljava/io/IOException;,
+            Lsun/net/ftp/FtpProtocolException;
         }
     .end annotation
 
@@ -2676,7 +2705,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2685,22 +2714,31 @@
 
     invoke-virtual {p0}, Lsun/net/ftp/impl/FtpClient;->isConnected()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v0, "QUIT"
+    :try_start_0
+    const-string/jumbo v1, "QUIT"
 
-    invoke-direct {p0, v0}, Lsun/net/ftp/impl/FtpClient;->issueCommand(Ljava/lang/String;)Z
+    invoke-direct {p0, v1}, Lsun/net/ftp/impl/FtpClient;->issueCommand(Ljava/lang/String;)Z
+    :try_end_0
+    .catch Lsun/net/ftp/FtpProtocolException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v0, 0x0
+    :goto_0
+    const/4 v1, 0x0
 
-    iput-boolean v0, p0, Lsun/net/ftp/impl/FtpClient;->loggedIn:Z
+    iput-boolean v1, p0, Lsun/net/ftp/impl/FtpClient;->loggedIn:Z
 
     :cond_0
     invoke-direct {p0}, Lsun/net/ftp/impl/FtpClient;->disconnect()V
 
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method public completePending()Lsun/net/ftp/FtpClient;
