@@ -770,7 +770,7 @@ Bạn có chắc chắn muốn điều hướng khỏi trang này không?"</stri
     <string name="aerr_process">Tiến trình %1$s đã dừng.</string>
     <string name="aerr_application_repeated">%1$s tiếp tục dừng</string>
     <string name="aerr_process_repeated">%1$s tiếp tục dừng</string>
-    <string name="aerr_restart">K.động lại ứ.dụng</string>
+    <string name="aerr_restart">Khởi động lại ứng dụng</string>
     <string name="aerr_reset">Đặt lại và khởi động lại ứng dụng</string>
     <string name="aerr_report">Gửi phản hồi</string>
     <string name="aerr_close">Đóng</string>
@@ -915,9 +915,9 @@ Bạn có muốn đóng trang không?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Sạc qua USB thiết bị này</string>
     <string name="usb_supplying_notification_title">Nguồn cấp điện qua USB cho thiết bị được kết nối</string>
-    <string name="usb_mtp_notification_title">Đang truyền file media qua USB</string>
-    <string name="usb_ptp_notification_title">USB đang truyền ảnh</string>
-    <string name="usb_midi_notification_title">USB đã kết nối với th.bị MIDI</string>
+    <string name="usb_mtp_notification_title">USB để truyền file</string>
+    <string name="usb_ptp_notification_title">USB để truyền hình ảnh</string>
+    <string name="usb_midi_notification_title">USB dành cho MIDI</string>
     <string name="usb_accessory_notification_title">Đã kết nối tới phụ kiện USB</string>
     <string name="usb_notification_message">Chạm để có các tùy chọn USB khác.</string>
     <string name="adb_active_notification_title">Gỡ rối USB đã kết nối.</string>
@@ -1319,6 +1319,8 @@ Hãy thử lại sau %2$d giây."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Bạn có thể hiển thị lại các phím bằng cách vuốt vào trong từ cạnh màn hình nơi các phím thường xuất hiện.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Sau một lúc, các phím sẽ lại biến mất.</string>
     <string name="sec_immersive_cling_help_text_step_two">Bạn có thể sử dụng phím Trang chính ngay cả khi nó bị ẩn. Để đi đến Màn hình chờ, hãy nhấn mạnh vùng màn hình nơi phím Trang chính thường xuất hiện.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Dù bạn cầm điện thoại như thế nào, các phím vẫn luôn nằm bên cạnh cổng sạc. Khi điện thoại của bạn xoay ngược chiều đồng hồ, hãy vuốt sang trái từ cạnh màn hình theo như mũi tên.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Dù bạn cầm điện thoại như thế nào, các phím vẫn luôn nằm bên cạnh cổng sạc. Khi điện thoại của bạn xoay theo chiều đồng hồ, hãy vuốt sang phải từ cạnh màn hình theo như mũi tên.</string>
     <string name="done_label">H.tất</string>
     <string name="hour_picker_description">Bộ chọn giờ analogue</string>
     <string name="minute_picker_description">Bộ chọn phút analogue</string>
@@ -1329,7 +1331,9 @@ Hãy thử lại sau %2$d giây."</string>
     <string name="deleted_key">%s đã bị xóa.</string>
     <string name="managed_profile_label_badge">%1$s làm việc</string>
     <string name="lock_to_app_toast">Để bỏ ghim ứng dụng, hãy nhấn và giữ đồng thời phím Gần đây và phím Trở về.</string>
+    <string name="lock_to_app_toast_for_navibar">Để bỏ ghim ứng dụng, hãy chạm và giữ đồng thời phím Gần đây và phím Trở về.</string>
     <string name="lock_to_app_toast_accessible">Để bỏ ghim ứng dụng, hãy nhấn và giữ phím gần đây.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Chế độ khóa vào ứng dụng đã được bật.</string>
     <string name="lock_to_app_start">Ứng dụng đã được ghim.</string>
     <string name="lock_to_app_exit">Ứng dụng đã được bỏ ghim.</string>
@@ -1435,9 +1439,9 @@ Trình tiết kiệm pin tự động tắt khi thiết bị của bạn đang s
     <string name="tw_clipboard_save_tts">Lưu</string>
     <string name="tw_clipboard_button_tts">Phím</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Bộ nhớ tạm</string>
-    <string name="hdmi_connect">Đã kết nối cáp HDMI.</string>
+    <string name="hdmi_connect">Đã kết nối HDMI.</string>
     <string name="hdmi_connect_indirectly">Kết nối trực tiếp thiết bị của bạn với TV qua cáp HDMI.</string>
-    <string name="hdmi_disconnect">Đã ngắt kết nối cáp HDMI.</string>
+    <string name="hdmi_disconnect">Đã ngắt kết nối HDMI.</string>
     <string name="hdmi_recommend_charging_device">Bạn nên sạc thiết bị nếu thiết bị được kết nối với Bộ điều hợp HDTV trong thời gian dài. Hãy kết nối bộ sạc với bộ điều hợp HDTV để sạc thiết bị của bạn.</string>
     <string name="hdmi_wfd_terminate">Đã kết nối HDMI. Kết nối Screen Mirroring đã kết thúc</string>
     <string name="disable">Tắt</string>
@@ -1857,6 +1861,7 @@ không chạm"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Thông báo</string>
     <string name="volumepanel_system">Hệ thống</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Không thể chụp màn hình khi ở chế độ Khẩn cấp.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Không thể chụp ảnh màn hình.</string>
     <string name="bluetooth_permission_request">Yêu cầu cấp phép Bluetooth</string>
@@ -1929,6 +1934,7 @@ không chạm"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Không thể bật %s khi đang bật Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Không có phản hồi từ nhà cung cấp dịch vụ.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Có lỗi khi gửi yêu cầu kích hoạt %s. Đang kết nối lại qua các mạng có sẵn…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Không thể bật %1$s. %2$s không khả dụng với gói internet của bạn hoặc không nhận được phản hồi từ server %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Không thể bật %s. Thiết bị đang quá nóng. Hãy chờ đến khi thiết bị hạ nhiệt và thử lại.</string>
     <string name="mptcp_message_operation_disabled_overheating">Đã tắt %s để thiết bị không bị quá nóng. Đang tải về qua mạng di động thay thế…</string>
     <string name="mptcp_message_data_usage_limit">Đã đạt giới hạn sử dụng dữ liệu. Để thay đổi giới hạn sử dụng dữ liệu, hãy đi đến Cài đặt.</string>
@@ -1993,7 +1999,7 @@ Bật chế độ Máy bay?"</string>
     <string name="permlab_sendSmsNoConfirmation">Gửi tin nhắn SMS mà không có xác nhận</string>
     <string name="permdesc_sendSmsNoConfirmation">Cho phép ứng dụng gửi tin nhắn SMS. Việc này có thể phát sinh phí không mong muốn. Các ứng dụng có hại có thể khiến bạn tốn tiền bằng cách gửi các tin nhắn mà không có xác nhận của bạn.</string>
     <string name="phoneTypeConference">Hội nghị</string>
-    <string name="more">KHÁC</string>
+    <string name="more">N.hơn</string>
     <string name="close">Đóng</string>
     <string name="clearDefaultHintMsgUI2013">Xóa cài đặt ứng dụng mặc định bằng cách đi đến Cài đặt > Cài đặt chung > Ứng dụng mặc định, rồi chạm Xóa.</string>
     <string name="mobile_data_isoff_alert_toast">Bây giờ dữ liệu di động đã tắt. Nếu bạn cần kết nối Internet, vui lòng bật từ thanh thông báo.</string>
@@ -2038,6 +2044,12 @@ Bật chế độ Máy bay?"</string>
     <string name="multisound_sound_via_usb_audio">Âm thanh %s đang phát qua thiết bị âm thanh USB. Chạm vào đây để tắt.</string>
     <string name="multisound_change_output_device">Đổi thiết bị xuất âm thanh</string>
     <string name="multisound_headup_contents">Thiết bị âm thanh bạn chọn cho ứng dụng này giống với thiết bị xuất âm thanh hiện tại của điện thoại. Để tách riêng âm thanh của ứng dụng này, hãy thay đổi thiết bị xuất âm thanh trong bảng cài đặt nhanh.</string>
+    <string name="multisound_hun_title">Thay đổi thiết bị xuất âm thanh chính?</string>
+    <string name="multisound_hun_contents">Thiết bị âm thanh bạn chọn cho ứng dụng này (%1$s) giống với thiết bị xuất âm thanh chính (%2$s). Để tách riêng âm thanh cho ứng dụng này, thiết bị xuất âm thanh chính cần được chuyển sang %3$s.</string>
+    <string name="multisound_hun_close">Đóng</string>
+    <string name="multisound_hun_change">Thay đổi</string>
+    <string name="my_device">Điện thoại của bạn</string>
+    <string name="headset">Tai nghe Bluetooth</string>
     <string name="bixby_edgecase_mpsm">Không thể dùng Bixby khi bật chế độ Tiết kiệm pin tối đa.</string>
     <string name="bixby_edgecase_emergencymode">Không thể dùng Bixby ở chế độ Khẩn cấp.</string>
     <string name="bixby_edgecase_kidsmode">Không thể dùng Bixby ở Chế độ Trẻ em.</string>
@@ -2045,9 +2057,11 @@ Bật chế độ Máy bay?"</string>
     <string name="bixby_edgecase_mirrorlink">Không thể dùng Bixby trong khi sử dụng MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Không thể sử dụng Bixby trong Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Không thể sử dụng Bixby trong khi kết nối với DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Bạn có thể xem ứng dụng này toàn màn hình bằng cách chạm biểu tượng Mở rộng trên màn hình Ứng dụng gần đây.</string>
+    <string name="bixby_edgecase_cantusenow">Không thể dùng Bixby Voice ngay bây giờ.</string>
+    <string name="conventional_mode_recent_noti">Bạn có thể thay đổi tỉ lệ khung hình của ứng dụng trên màn hình Ứng dụng gần đây.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Để trở về tỉ lệ khung hình trước đó, hãy đi đến Cài đặt > Hiển thị > Ứng dụng toàn màn hình.</string>
     <string name="conventional_mode_tap_here_to_fill">Chạm vào đây để lấp đầy cả màn hình</string>
+    <string name="bixby_popup_unavailable_now">Bixby không khả dụng. Chỉ người chủ sở hữu điện thoại hoặc số điện thoại chính mới có thể sử dụng Bixby.</string>
     <string name="permlab_knoxCustomSetting">Quản lý cài đặt thiết bị</string>
     <string name="permdesc_knoxCustomSetting">Cấu hình các cài đặt thiết bị như Bluetooth, Vị trí, Wi-Fi, Dữ liệu di động và cài đặt Android.</string>
     <string name="permlab_knoxCustomSystem">Quản lý cài đặt hệ thống</string>
@@ -2423,6 +2437,4 @@ Các chức năng USB có thể bị hạn chế khi bật chế độ Tiết ki
     <string name="charging_connected_via_usb">Đang sạc thiết bị được kết nối qua USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Giới hạn file hệ thống</string>
     <string name="lacking_filenode_internal_storage_view_text">Quá nhiều file đã được tạo trên điện thoại của bạn. Ứng dụng có thể không hoạt động đúng và điện thoại của bạn có thể không khởi động được nữa. Hãy sao lưu tất cả dữ liệu quan trọng và khôi phục điện thoại của bạn về cài đặt gốc.</string>
-    <string name="lock_to_app_toast_for_navibar">Để bỏ ghim ứng dụng, hãy chạm và giữ đồng thời phím Gần đây và phím Trở về.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

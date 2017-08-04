@@ -911,9 +911,9 @@
     <string name="dlg_ok">సరే</string>
     <string name="usb_charging_notification_title">ఈ పరికరం USB మోడ్‌లో ఛార్జ్ అవుతోంది</string>
     <string name="usb_supplying_notification_title">జోడించిన పరికరానికి USB ద్వారా పవర్ సరఫరా అవుతోంది</string>
-    <string name="usb_mtp_notification_title">USB మీడియా ఫైల్‌లను బదిలీ చేస్తోంది</string>
-    <string name="usb_ptp_notification_title">USB బదిలీ చిత్రాలు</string>
-    <string name="usb_midi_notification_title">MIDI పరికరానికి USB కనెక్ట్ చేయబడింది</string>
+    <string name="usb_mtp_notification_title">ఫైల్ బదిలీ కోసం USB</string>
+    <string name="usb_ptp_notification_title">చిత్రం బదిలీ కోసం USB</string>
+    <string name="usb_midi_notification_title">MIDI కోసం USB</string>
     <string name="usb_accessory_notification_title">USB ఉపసాధనం కు కనెక్టయింది</string>
     <string name="usb_notification_message">ఇతర USB ఎంపికల కోసం నొక్కండి.</string>
     <string name="adb_active_notification_title">USB డీబగ్గింగ్ కనెక్ట్ చేయబడింది.</string>
@@ -1314,6 +1314,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">మీరు బటన్‌లు సాధారణంగా కనిపించే దగ్గర స్క్రీన్ అంచు నుండి మధ్యకి స్వైప్ చేయడం ద్వారా మళ్లీ బటన్‌లను చూపవచ్చు.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">కొద్ది సేపటి తర్వాత, బటన్‌లు మళ్లీ కనిపించవు.</string>
     <string name="sec_immersive_cling_help_text_step_two">హోమ్ బటన్‌ దాచబడి ఉన్నప్పుడు కూడా మీరు దాన్ని ఉపయోగించవచ్చు. హోమ్ స్క్రీన్‌కు వెళ్లడానికి, స్క్రీన్‌లో హోమ్ బటన్ సాధారణంగా కనిపించే దగ్గర గట్టిగా నొక్కండి.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">అయితే మీరు మీ ఫోన్‌ని పట్టుకుని ఉన్నప్పుడు, బటన్‌లు ఎల్లప్పుడు ఛార్జింగ్ పోర్ట్‌కు పక్కనే ఉంటాయి. మీ ఫోన్ అపసవ్య దిశలో తిరుగుతున్నప్పుడు, బాణం చూపిన విధంగా స్క్రీన్ అంచు నుండి ఎడమకు స్వైప్ చేయండి.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">అయితే మీరు మీ ఫోన్‌ని పట్టుకుని ఉన్నప్పుడు, బటన్‌లు ఎల్లప్పుడు ఛార్జింగ్ పోర్ట్‌కు పక్కనే ఉంటాయి. మీ ఫోన్ సవ్యదిశలో తిరుగుతున్నప్పుడు, బాణం చూపిన విధంగా స్క్రీన్ అంచు నుండి కుడికి స్వైప్ చేయండి.</string>
     <string name="done_label">పూర్తి</string>
     <string name="hour_picker_description">అనలాగ్ గంట ఎంపిక</string>
     <string name="minute_picker_description">అనలాగ్ నిమిషం ఎంపిక</string>
@@ -1324,7 +1326,9 @@
     <string name="deleted_key">%s తొలగించబడింది.</string>
     <string name="managed_profile_label_badge">కార్యాలయం %1$s</string>
     <string name="lock_to_app_toast">అప్లికేషన్‌ను అన్‌పిన్ చేయడానికి, ఇటీవలి మరియు వెనుకకు కీలను ఒకేసారి నొక్కి, పట్టుకోండి.</string>
+    <string name="lock_to_app_toast_for_navibar">అప్లికేషన్‌ను అన్‌పిన్ చేయడానికి, ఇటీవలి మరియు వెనుకకు బటన్‌లను ఒకేసారి తాకి, పట్టుకోండి.</string>
     <string name="lock_to_app_toast_accessible">అప్లికేషన్‌ను అన్‌పిన్ చేసేందుకు ఇటీవలి అంశాల కీని నొక్కి పట్టుకోండి.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">అప్లికేషన్-కు-లాక్ మోడ్ ప్రారంభించబడింది.</string>
     <string name="lock_to_app_start">అప్లికేషన్ పిన్ చేయబడింది.</string>
     <string name="lock_to_app_exit">అప్లికేషన్ అన్‌పిన్ చేయబడింది.</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">సేవ్ చేయి</string>
     <string name="tw_clipboard_button_tts">బటన్</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">క్లిప్‌బోర్డ్</string>
-    <string name="hdmi_connect">HDMI కేబుల్ కనెక్ట్ చేయబడింది.</string>
+    <string name="hdmi_connect">HDMI కనెక్ట్ చేయబడింది.</string>
     <string name="hdmi_connect_indirectly">HDMI కేబుల్ ద్వారా TVకి మీ పరికరాన్ని నేరుగా కనెక్ట్ చేయండి.</string>
-    <string name="hdmi_disconnect">HDMI కేబుల్ డిస్కనెక్ట్ చేయబడింది.</string>
+    <string name="hdmi_disconnect">HDMI డిస్‌కనెక్ట్ చేయబడింది.</string>
     <string name="hdmi_recommend_charging_device">మీ పరికరం సుదీర్ఘ సమయం పాటు HDTV అడాప్టర్‌కు కనెక్ట్ చేయబడి ఉంటే దాన్ని ఛార్జింగ్ చేయమని మేము మీకు సిఫార్సు చేస్తున్నాము. మీ పరికరాన్ని ఛార్జ్ చేయడానికి HDTV అడాప్టర్‌కు ఛార్జర్‌ను కనెక్ట్ చేయండి.</string>
     <string name="hdmi_wfd_terminate">HDMI అనుసంధానించబడింది. Screen Mirroring అనుసంధానం ముగిసింది.</string>
     <string name="disable">నిలిపివేయి</string>
@@ -1851,6 +1855,7 @@
     <string name="volumepanel_media">మీడియా</string>
     <string name="volumepanel_notification">నోటిఫికేషన్లు</string>
     <string name="volumepanel_system">సిస్టమ్</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">అత్యవసర మోడ్‌లో స్క్రీన్ సంగ్రహించలేరు.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">స్క్రీన్‌షాట్ తీయడం కుదరలేదు.</string>
     <string name="bluetooth_permission_request">బ్లూటూత్ అనుమతి అభ్యర్థన</string>
@@ -1923,6 +1928,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ప్రారంభించబడినప్పుడు %sను ప్రారంభించడం సాధ్యం కాదు.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">సేవా ప్రదాత ప్రతిస్పందించడం లేదు.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s యాక్టివేషన్ అభ్యర్థనను పంపడం విఫలమైంది. అందుబాటులో ఉన్న నెట్‌వర్క్‌ల ద్వారా డిస్‌కనెక్ట్ చేయబడుతోంది…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$sని ప్రారంభించడం సాధ్యం కాదు. మీ ఇంటర్నెట్ ప్యాకేజీతో %2$s అందుబాటులో లేదు లేదా %3$s సర్వర్ నుండి ఎటువంటి ప్రతిస్పందన రాలేదు.</string>
     <string name="mptcp_message_setting_disabled_overheating">%sను ప్రారంభించడం సాధ్యం కాదు. పరికరం ఎక్కువ వేడెక్కింది. పరికరం చల్లబడే వరకు వేచి ఉండి, మళ్లీ ప్రయత్నించండి.</string>
     <string name="mptcp_message_operation_disabled_overheating">పరికరం వేడెక్కడాన్ని తగ్గించడానికి %s నిలిపివేయబడింది. బదులుగా మొబైల్ నెట్‌వర్క్ ద్వారా డౌన్‌లోడ్ అవుతోంది…</string>
     <string name="mptcp_message_data_usage_limit">డేటా ఉపయోగ పరిమితిని చేరుకున్నారు. డేటా ఉపయోగ పరిమితిని మార్చడం కోసం, సెట్టింగ్‌లకు వెళ్లండి.</string>
@@ -2030,6 +2036,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s ధ్వని మీ USB ఆడియో పరికరంలో ప్లే చేయబడుతోంది. దీన్ని ఆఫ్ చేయడానికి ఇక్కడ ట్యాప్ చేయండి.</string>
     <string name="multisound_change_output_device">ఆడియో అవుట్‌పుట్ పరికరాన్ని మార్చండి</string>
     <string name="multisound_headup_contents">ఈ అప్లికేషన్ కోసం మీరు ఎంచుకున్న ఆడియో పరికరం మీ ఫోన్‌లో ప్రస్తుతం ఉన్న ఆడియో అవుట్‌పుట్ పరికరం వలె ఉంది. ఈ అప్లికేషన్ కోసం ధ్వనిని వేరు చేయడానికి, త్వరిత సెట్టింగ్‌ల ప్యానెల్‌లో మీ ఆడియో అవుట్ పరికరాన్ని మార్చండి.</string>
+    <string name="multisound_hun_title">ప్రధాన ఆడియో అవుట్‌పుట్ పరికరాన్ని మార్చాలా?</string>
+    <string name="multisound_hun_contents">ఈ అప్లికేషన్ (%1$s) కోసం మీరు ఎంచుకున్న ఆడియో పరికరం ప్రధాన ఆడియో అవుట్‌పుట్ పరికరం (%2$s) వలె ఉంది. ఈ అప్లికేషన్‌లో ధ్వనిని వేరు చేయడానికి, ప్రధాన ఆడియో అవుట్‌పుట్ పరికరం %3$sకు మారాలి.</string>
+    <string name="multisound_hun_close">మూసివేయి</string>
+    <string name="multisound_hun_change">మార్చు</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">హెడ్సెట్</string>
     <string name="bixby_edgecase_mpsm">గరిష్ట శక్తి ఆదా మోడ్ ఆన్ చేయబడినప్పుడు Bixby మోడ్‌ని ఉపయోగించలేరు.</string>
     <string name="bixby_edgecase_emergencymode">అత్యవసర మోడ్‌లో Bixbyని ఉపయోగించలేరు.</string>
     <string name="bixby_edgecase_kidsmode">Bixbyని పిల్లల మోడ్‌లో ఉపయోగించలేరు.</string>
@@ -2037,9 +2049,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLinkని ఉపయోగిస్తున్నప్పుడు Bixbyని ఉపయోగించలేరు.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeXలో Bixbyని ఉపయోగించలేరు.</string>
     <string name="bixby_edgecase_dexstation">DeX స్టేషన్‌కు కనెక్ట్ చేయబడి ఉనప్పుడు Bixbyని ఉపయోగించలేరు.</string>
-    <string name="conventional_mode_recent_noti">మీరు ఇటీవల అప్లికేషన్‌ల స్క్రీన్‌లో విస్తరించు చిహ్నాన్ని నొక్కడం ద్వారా పూర్తి స్క్రీన్‌లో ఈ అప్లికేషన్‌ను వీక్షించవచ్చు.</string>
+    <string name="bixby_edgecase_cantusenow">ప్రస్తుతం Bixby Voiceని ఉపయోగించలేరు.</string>
+    <string name="conventional_mode_recent_noti">మీరు ఇటీవల అప్లికేషన్‌ల స్క్రీన్‌లో అప్లికేషన్ కారక నిష్పత్తిని మార్చవచ్చు.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">మునుపటి కారక నిష్పత్తికి తిరిగి వెళ్లడానికి, సెట్టింగ్‌లు > ప్రదర్శన > పూర్తి స్క్రీన్ అప్లికేషన్‌లకు వెళ్లండి.</string>
     <string name="conventional_mode_tap_here_to_fill">పూర్తి స్క్రీన్‌ని నింపడానికి ఇక్కడ నొక్కండి</string>
+    <string name="bixby_popup_unavailable_now">Bixby అందుబాటులో లేదు. ఫోన్ యజమాని లేదా ప్రధాన ఫోన్ నంబర్ మాత్రమే Bixbyని ఉపయోగించగలరు.</string>
     <string name="permlab_knoxCustomSetting">పరికర సెట్టింగ్‌లను నిర్వహించండి</string>
     <string name="permdesc_knoxCustomSetting">బ్లూటూత్, స్థానం, Wi-Fi, మొబైల్ డేటా మరియు ఆండ్రాయిడ్ సెట్టింగుల వంటి పరికర సెట్టింగ్‌లను కాన్ఫిగర్ చేయండి.</string>
     <string name="permlab_knoxCustomSystem">సిస్టమ్ సెట్టింగ్‌లను నిర్వహించండి</string>
@@ -2384,6 +2398,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB ద్వారా కనెక్ట్ చేయబడ్డ పరికరం ఛార్జ్ చేయబడుతోంది…</string>
     <string name="lacking_filenode_internal_storage_view_title">ఫైల్ సిస్టమ్ పరిమితి</string>
     <string name="lacking_filenode_internal_storage_view_text">మీ ఫోన్‌లో చాలా ఫైల్‌లు సృష్టించబడ్డాయి. అప్లికేషన్‌లు సరిగ్గా పని చేయకపోవచ్చు మరియు మీ ఫోన్‌ని ప్రారంభించలేకపోవచ్చు. ముఖ్యమైన డేటాను బ్యాకప్ చేయండి మరియు మీ ఫోన్‌ని ఫ్యాక్టరీ రీసెట్ చేయండి.</string>
-    <string name="lock_to_app_toast_for_navibar">అప్లికేషన్‌ను అన్‌పిన్ చేయడానికి, ఇటీవలి మరియు వెనుకకు బటన్‌లను ఒకేసారి తాకి, పట్టుకోండి.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

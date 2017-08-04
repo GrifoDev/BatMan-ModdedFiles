@@ -461,7 +461,7 @@
     <string name="policylab_disableKeyguardFeatures">Isključivanje funkcija na zaslonu za zaključavanje</string>
     <string name="policydesc_disableKeyguardFeatures">Spriječite upotrebu nekih funkcija dok ste na zaslonu za zaključavanje.</string>
     <string name="phoneTypeCustom">Prilagođeno</string>
-    <string name="phoneTypeHome">Počet.</string>
+    <string name="phoneTypeHome">Kuća</string>
     <string name="phoneTypeMobile">Mobitel</string>
     <string name="phoneTypeWork">Posao</string>
     <string name="phoneTypeFaxWork">Posao Fax</string>
@@ -770,7 +770,7 @@ Jeste li sigurni da želite napustiti ovu stranicu?"</string>
     <string name="aerr_process">Proces %1$s greška.</string>
     <string name="aerr_application_repeated">Aplikacija %1$s neprekidno se ruši</string>
     <string name="aerr_process_repeated">Postupak %1$s neprekidno se ruši</string>
-    <string name="aerr_restart">Pon. pokreni</string>
+    <string name="aerr_restart">Ponovno pokreni aplikaciju</string>
     <string name="aerr_reset">Vrati aplikaciju na zadano i pokreni ponovo</string>
     <string name="aerr_report">Pošalji povratne informacije</string>
     <string name="aerr_close">Zatvori</string>
@@ -915,9 +915,9 @@ Jeste li sigurni da želite napustiti ovu stranicu?"</string>
     <string name="dlg_ok">U redu</string>
     <string name="usb_charging_notification_title">Punjenje uređaja USB-om</string>
     <string name="usb_supplying_notification_title">Napajanje priključenog uređaja USB-om</string>
-    <string name="usb_mtp_notification_title">USB prenosi medijske datoteke</string>
-    <string name="usb_ptp_notification_title">Prijenos slika putem USB-a</string>
-    <string name="usb_midi_notification_title">USB je povezan na uređaj MIDI</string>
+    <string name="usb_mtp_notification_title">USB za prijenos datoteka</string>
+    <string name="usb_ptp_notification_title">USB za prijenos slika</string>
+    <string name="usb_midi_notification_title">USB za MIDI</string>
     <string name="usb_accessory_notification_title">Spojen na USB priključak</string>
     <string name="usb_notification_message">Dodirnite za druge USB opcije.</string>
     <string name="adb_active_notification_title">USB ispravljanje grešaka spojeno.</string>
@@ -1319,6 +1319,8 @@ Ponovite nakon %2$d sekundi."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Možete ponovno prikazati gumbe tako da prijeđete prstom od ruba zaslona gdje se gumbi obično nalaze prema sredini.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Gumbi će ponovno nestati nakon nekog vremena.</string>
     <string name="sec_immersive_cling_help_text_step_two">Možete upotrebljavati početni gumb čak i kada je skriven. Za odlazak na početni zaslon snažno pritisnite područje ekrana gdje se početni gumb obično pojavljuje.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Kako god držali telefon, gumbi će se uvijek nalaziti pokraj priključka za punjenje. Kada je telefon zakrenut u smjeru suprotnom od kazaljke na satu, prijeđite prstom ulijevo od ruba zaslona kako je prikazano strelicom.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Kako god držali telefon, gumbi će se uvijek nalaziti pokraj priključka za punjenje. Kada je telefon zakrenut u smjeru kazaljke na satu, prijeđite prstom udesno od ruba zaslona kako je prikazano strelicom.</string>
     <string name="done_label">OK</string>
     <string name="hour_picker_description">Odabir analognog prikaza sata</string>
     <string name="minute_picker_description">Odabir analognog prikaza minuta</string>
@@ -1329,7 +1331,9 @@ Ponovite nakon %2$d sekundi."</string>
     <string name="deleted_key">%s izbrisan.</string>
     <string name="managed_profile_label_badge">%1$s za posao</string>
     <string name="lock_to_app_toast">Da biste otkvačili aplikaciju, istovremeno pritisnite i držite tipku Nedavno i tipku Natrag.</string>
+    <string name="lock_to_app_toast_for_navibar">Da biste otkvačili aplikaciju, istovremeno dodirnite i držite gumb Nedavno i Natrag.</string>
     <string name="lock_to_app_toast_accessible">Kako biste otkvačili aplikaciju, pritisnite i držite nedavnu tipku.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Uključen je način Zaključaj aplikaciju.</string>
     <string name="lock_to_app_start">Aplikacija prikvačena.</string>
     <string name="lock_to_app_exit">Aplikacija otkvačena.</string>
@@ -1435,9 +1439,9 @@ Ušteda baterije isključuje se automatski dok se uređaj puni."</string>
     <string name="tw_clipboard_save_tts">Spremi</string>
     <string name="tw_clipboard_button_tts">Tipka</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Međuspremnik</string>
-    <string name="hdmi_connect">HDMI kabel spojen.</string>
+    <string name="hdmi_connect">HDMI spojen.</string>
     <string name="hdmi_connect_indirectly">Spojite uređaj izravno na TV pomoću HDMI kabela.</string>
-    <string name="hdmi_disconnect">HDMI kabel odspojen.</string>
+    <string name="hdmi_disconnect">HDMI odspojen.</string>
     <string name="hdmi_recommend_charging_device">Preporučujemo da napunite uređaj ako je spojen na HDTV adapter duže vrijeme. Spojite punjač HDTV adaptera kako biste napunili uređaj.</string>
     <string name="hdmi_wfd_terminate">HDMI spojen. Veza Screen Mirroringa se prekinula</string>
     <string name="disable">Isključeno</string>
@@ -1857,6 +1861,7 @@ naredba"</string>
     <string name="volumepanel_media">Mediji</string>
     <string name="volumepanel_notification">Obavijesti</string>
     <string name="volumepanel_system">Sustav</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Nemoguće snimiti zaslon dok ste u Hitnom načinu.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Nemoguće snimiti snimku zaslona.</string>
     <string name="bluetooth_permission_request">Zahtjev za Bluetooth odobrenje</string>
@@ -1929,6 +1934,7 @@ Da biste otkvačili aplikaciju, pritisnite i držite tipku izbornika."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Nije moguće uključiti %s dok je uključen Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Davatelj usluga ne reagira.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Slanje zahtjeva za aktivaciju usluge %s nije uspjelo. Ponovno povezivanje putem dostupnih mreža…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nije moguće uključiti funkciju %1$s. Funkcija %2$s nije dostupna u vašem internetskom paketu ili nema odgovora od poslužitelja za funkciju %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nije moguće uključiti uslugu %s. Uređaj se pregrijava. Pričekajte da se ohladi i pokušajte ponovno.</string>
     <string name="mptcp_message_operation_disabled_overheating">Usluga %s isključena je da bi se spriječilo pregrijavanje uređaja. Preuzimanje putem mobilne mreže…</string>
     <string name="mptcp_message_data_usage_limit">Dosegnuto je ograničenje uporabe podataka. Da biste promijenili ograničenje uporabe podataka, idite na Postavke.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Zvuk aplikacije %s reproducira se kroz USB audiouređaj. Dodirnite ovdje da biste to isključili.</string>
     <string name="multisound_change_output_device">Promjena izlaznog audiouređaja</string>
     <string name="multisound_headup_contents">Audiouređaj koji ste odabrali za ovu aplikaciju jednak je trenutačnom izlaznom audiouređaju vašeg telefona. Da biste odvojili zvuk za ovu aplikaciju, promijenite izlazni audiouređaj na ploči za brze postavke.</string>
+    <string name="multisound_hun_title">Promijeniti glavni izlazni audiouređaj?</string>
+    <string name="multisound_hun_contents">Audiouređaj koji ste odabrali za ovu aplikaciju (%1$s) jednak je glavnom izlaznom audiouređaju (%2$s). Da biste odvojili zvuk za ovu aplikaciju, postavite %3$s kao glavni izlazni audiouređaj.</string>
+    <string name="multisound_hun_close">Prekid</string>
+    <string name="multisound_hun_change">Promijeni</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Slušalice</string>
     <string name="bixby_edgecase_mpsm">Nije moguće upotrebljavati Bixby dok je uključena Maksimalna štednja baterije.</string>
     <string name="bixby_edgecase_emergencymode">Nije moguće upotrebljavati Bixby u Hitnom načinu.</string>
     <string name="bixby_edgecase_kidsmode">Nije moguće upotrebljavati Bixby u Načinu rada za djecu.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Nije moguće upotrebljavati Bixby tijekom upotrebe MirrorLinka.</string>
     <string name="bixby_edgecase_dexmode">Nije moguće upotrebljavati Bixby u usluzi Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Nije moguće upotrebljavati Bixby dok ste povezani na Stanicu DeX.</string>
-    <string name="conventional_mode_recent_noti">Možete prikazati ovu aplikaciju preko cijelog zaslona dodirom na ikonu Proširi na Zaslonu s nedavnim aplikacijama.</string>
+    <string name="bixby_edgecase_cantusenow">Trenutačno nije moguće upotrebljavati Bixby Voice.</string>
+    <string name="conventional_mode_recent_noti">Možete promijeniti omjer aplikacije na zaslonu s nedavnim aplikacijama.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Da biste vratili prethodni omjer, idite na Postavke > Prikaz > Aplikacije na cijelom zaslonu.</string>
     <string name="conventional_mode_tap_here_to_fill">Dodirnite ovdje da biste ispunili cijeli zaslon</string>
+    <string name="bixby_popup_unavailable_now">Aplikacija Bixby nije dostupna. Samo vlasnik telefona ili glavni broj telefona može upotrebljavati aplikaciju Bixby.</string>
     <string name="permlab_knoxCustomSetting">Upravljajte postavkama uređaja</string>
     <string name="permdesc_knoxCustomSetting">Konfigurirajte postavke uređaja, poput postavki Bluetootha, Lokacije, Wi-Fi mreže, Mobilnih podataka i Androida.</string>
     <string name="permlab_knoxCustomSystem">Upravljajte postavkama sustava</string>
@@ -2423,6 +2437,4 @@ Funkcije USB-a bit će ograničene dok je uključena Maksimalna štednja baterij
     <string name="charging_connected_via_usb">Punjenje povezanog uređaja putem USB-a…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ograničenje sustava datoteka</string>
     <string name="lacking_filenode_internal_storage_view_text">Stvorilo se previše datoteka na telefonu. Aplikacije možda prestanu raditi ispravno i telefon se možda više neće pokrenuti. Sigurnosno kopirajte sve važne podatke i vratite tvorničke postavke telefona.</string>
-    <string name="lock_to_app_toast_for_navibar">Da biste otkvačili aplikaciju, istovremeno dodirnite i držite gumb Nedavno i Natrag.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

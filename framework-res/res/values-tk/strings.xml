@@ -472,9 +472,9 @@
     <string name="perms_description_app">%s tarapyndan üpjün edildi</string>
     <string name="no_permissions">Rugsat soralanok.</string>
     <string name="dlg_ok">OK</string>
-    <string name="usb_mtp_notification_title">Multim. faýllar USB-li geçirmek</string>
-    <string name="usb_ptp_notification_title">USB suratlary geçirýär</string>
-    <string name="usb_midi_notification_title">USB MIDI enjamyna birikdi</string>
+    <string name="usb_mtp_notification_title">Faýl geçirimi üçin USB</string>
+    <string name="usb_ptp_notification_title">Surat geçirimi üçin USB</string>
+    <string name="usb_midi_notification_title">MIDI üçin USB</string>
     <string name="usb_accessory_notification_title">USB goşunda baglandy</string>
     <string name="usb_notification_message">Başga USB opsiýalary üçin bas.</string>
     <string name="adb_active_notification_title">USB sazlamasy baglanyşdy.</string>
@@ -683,6 +683,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Köplenç düwmeleriň görünýän ýerinde, ekranyň gyrasyndan içerik syryp, düwmeleri gaýtadan görkezip bilersiňiz.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Biraz wagtdan düwmeler ýene ýiter.</string>
     <string name="sec_immersive_cling_help_text_step_two">Gizlenilgi bolsa-da, Öý ekrany ulanyp bilersiňiz. Öý ekrana baryp, onda Öý düwmäniň adaty görünýän ýerine gaty basyň.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Ýöne, telefonyňyzy tutup dursuňyz, düwmeler hemişe zarýad berilýän portuň ýanynda bolar. Telefonyňyzy sagadyň tersine aýlasaňyz, okda görkezilişi ýaly, ekranyň gyrasyndan çepe syryň.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Ýöne, telefonyňyzy tutup dursuňyz, düwmeler hemişe zarýad berilýän portuň ýanynda bolar. Telefonyňyzy sagadyň ugruna aýlasaňyz, okda görkezilişi ýaly, ekranyň gyrasyndan saga syryň.</string>
     <string name="done_label">Tamam</string>
     <string name="hour_picker_description">Analog sagat saýlaýjy</string>
     <string name="minute_picker_description">Analog minut saýlaýjy</string>
@@ -692,7 +694,9 @@
     <string name="select_year">Ýyl saýlaň.</string>
     <string name="deleted_key">%s öçürildi.</string>
     <string name="lock_to_app_toast">Goýma berkitmeden aýyrmak üçin, Soňkular we Yza düwmelerini bilelikde basyp saklaň.</string>
+    <string name="lock_to_app_toast_for_navibar">Goýma berkitmeden aýyrmak üçin, Soňkular we Yza düwmelerini bilelikde degip saklaň.</string>
     <string name="lock_to_app_toast_accessible">Goýmany aýyrmak üçin, soňkular düwmesini basyp saklaň.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Goýma-gulp tertibi işledildi.</string>
     <string name="lock_to_app_start">Goýma berkidildi.</string>
     <string name="lock_to_app_exit">Goýma aýryldy.</string>
@@ -733,9 +737,9 @@
     <string name="tw_clipboard_save_tts">Ýatda sakla</string>
     <string name="tw_clipboard_button_tts">Düwme</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Alyş-çalyş buferi</string>
-    <string name="hdmi_connect">HDMI kabel seplenen</string>
+    <string name="hdmi_connect">HDMI birikdi.</string>
     <string name="hdmi_connect_indirectly">Enjamyňyzy Telewizora HDMI kabeli üsti bilen göni baglanyşdyryň.</string>
-    <string name="hdmi_disconnect">HDMI kabeliň arasy üzülen.</string>
+    <string name="hdmi_disconnect">HDMI aýryldy.</string>
     <string name="hdmi_recommend_charging_device">HDTV adaptere uzak wagtlap dakylan bolsa, enjamyňyza zarýad bermegi maslahat berýäris. Enjamyňyza zarýad bermek üçin zarýadnigi HDTV adaptere dakyň.</string>
     <string name="hdmi_wfd_terminate">HDMI birikdirilendir. Ekranyň Serpikdirmesiniň birikmesi tamamlandy.</string>
     <string name="disable">Öçür</string>
@@ -1154,6 +1158,7 @@ buýruk"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Duýduryşlar</string>
     <string name="volumepanel_system">Sistema</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Heläkçilik tertibinde mahaly ekranyň suradyny çekmegi aç.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Skrinşoty surata alypbolanok.</string>
     <string name="bluetooth_permission_request">Blütuza rugsat haýyşy</string>
@@ -1226,6 +1231,7 @@ Goýmanyň berkitmesini aýyrmak üçin, menýu düwmesine basyp saklaň."</stri
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct açyk durka, %s işledip bolmaýar.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Hyzmat üpjün edijiňizden jogap ýok.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s işjeňleşdiriş haýyşyny iberip bolmady. Elýeterli torlar arkaly täzeden birigilýär…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s işledip bolmaýar. Internet paketiňizde %2$s elýeterli däl ýa-da %3$s serwerinden jogap alynmady.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s işledip bolmaýar. Enjam gaty gyzýar. Enjam sowaýança garaşyp, täzeden synanyşyň.</string>
     <string name="mptcp_message_operation_disabled_overheating">Enjam gaty gyzmaz ýaly, %s ýapyldy. Mobil tor arkaly göçürilip alynýar…</string>
     <string name="mptcp_message_data_usage_limit">Maglumat ulanyş çägine ýetildi. Maglumat ulanyş çägini üýtgetmek üçin, Sazlamalara baryň.</string>
@@ -1333,6 +1339,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s sesi USB audio enjamyňyzda gidip dur. Ony ýapmak üçin, şu ýere basyň.</string>
     <string name="multisound_change_output_device">Audio çykyş enjamyny üýtget</string>
     <string name="multisound_headup_contents">Bu goýma üçin saýlan audio enjamyňyz telefonyňyzyň häzirki audio çykyş enjamy bilen şol bir zat. Bu goýma üçin sesi aýratyn etmek üçin, çalt sazlamalar panelinde audio çykyş enjamyňyzy üýtgediň.</string>
+    <string name="multisound_hun_title">Esasy audio çykyş enjamyny üýtgetmelimi?</string>
+    <string name="multisound_hun_contents">Bu goýma üçin saýlan audio enjamyňyz (%1$s) esasy audio çykyş enjamy (%2$s) bilen şol bir zat. Bu goýma üçin sesi aýratynlamak üçin, esasy audio çykyş enjamyny %3$s edip üýtgetmeli.</string>
+    <string name="multisound_hun_close">Ýap</string>
+    <string name="multisound_hun_change">Üýtgetmek</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Gulaklyklar</string>
     <string name="bixby_edgecase_mpsm">Maksimum güýç tygşytlaýjy tertip açyk wagty, Bixby ulanyp bolmaýar.</string>
     <string name="bixby_edgecase_emergencymode">Gyssagly tertipde Bixby ulanyp bolmaýar.</string>
     <string name="bixby_edgecase_kidsmode">Çagalar tertibinde Bixby ulanyp bolmaýar.</string>
@@ -1340,9 +1352,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink ulanylýarka, Bixby ulanyp bolmaýar.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX-de Bixby ulanyp bolmaýar.</string>
     <string name="bixby_edgecase_dexstation">DeX Stansiýasyna birigilende, Bixby ulanyp bolmaýar.</string>
-    <string name="conventional_mode_recent_noti">Soňky goýmalar ekranynda Giňelt şekiljigine basyp, bu goýmany doly ekranda görüp bilersiňiz.</string>
+    <string name="bixby_edgecase_cantusenow">Şu wagt Bixby Voice ulanyp bolmaýar.</string>
+    <string name="conventional_mode_recent_noti">Soňky goýmalar ekranynda goýmanyň ölçeg gatnaşygyny üýtgedip bilersiňiz.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Öňki ölçeg gatnaşygyna dolanmak üçin, Sazlamalar > Displeý > Doly ekran goýmalary-na baryň.</string>
     <string name="conventional_mode_tap_here_to_fill">Tutuş ekrany doldurmak üçin, şu ýere bas</string>
+    <string name="bixby_popup_unavailable_now">Bixby elýetersiz. Diňe telefonyň eýesi ýa-da esasy telefon belgisi Bixby-ni ulanyp bilýär.</string>
     <string name="permlab_knoxCustomSetting">Enjam sazlamalaryny dolandyr</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Ýerleşiş, Wi-Fi, Mobil maglumat ýaly enjam sazlamalaryny we Android sazlamalaryny düzüň.</string>
     <string name="permlab_knoxCustomSystem">Ulgam sazlamalaryny dolandyr</string>
@@ -1711,6 +1725,4 @@ Maksimum güýç tygşytlaýjy tertip açyk wagty, USB funksiýalaryň çäklend
     <string name="charging_connected_via_usb">Birigen enjama USB arkaly zarýad berilýär…</string>
     <string name="lacking_filenode_internal_storage_view_title">Faýl ulgam çägi</string>
     <string name="lacking_filenode_internal_storage_view_text">Telefonyňyzda gaty köp faýl döredildi. Goýmalar dogry işlemegi duruzyp bilner we telefonyňyz soň açylman biler. Islendik möhüm maglumaty ätiýaçlaň we telefony aslyny nol ediň.</string>
-    <string name="lock_to_app_toast_for_navibar">Goýma berkitmeden aýyrmak üçin, Soňkular we Yza düwmelerini bilelikde degip saklaň.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

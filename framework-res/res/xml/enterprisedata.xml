@@ -33,7 +33,7 @@
                 <replace name="com.sec.android.widgetapp.diotek.smemo" value="c1, d2, melius, jflte, ja3g, jalte, jactivelte, jflterefresh, jftdd, jfvolte, jfvelte, serrano, ks01lte, wilcox, m3" />
                 <replace name="com.sec.android.app.memo" value="lt02ltetmo" />
                 <replace name="com.samsung.android.app.memo" value="jfltevzwpp" />
-                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SGH-N417, j7y17lte, j7popelte" />
+                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, j3poplte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SC-04J, j7y17lte, j7popelte, greatlte, greatqlte, j5y17lte, gracerlte, j7maxlte, j3y17lte, a7y17lte, gtanotexllte, cruiserlte, j5y17lte" />
             </application>
             <application name="com.sec.spp.push" allow="systemAppOnly" />
             <application name="com.samsung.android.calendar" allow="systemAppOnly" />
@@ -148,6 +148,11 @@
             <application name="com.samsung.android.authservice" />
             <application name="com.samsung.android.samsungpass" />
             <application name="com.samsung.android.server.iris" />
+            <application name="com.samsung.android.spdfnote" />
+            <application name="com.samsung.android.app.smartcapture" />
+            <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.skms.android.agent" />
+            <application name="org.simalliance.openmobileapi.service" />
         </column>
         <column name="ProtectedPkgList">
             <protectedPkg name="com.sec.knox.setup" />
@@ -259,7 +264,7 @@
                 <replace name="com.sec.android.widgetapp.diotek.smemo" value="c1, d2, melius, jflte, ja3g, jalte, jactivelte, jflterefresh, jftdd, jfvolte, jfvelte, serrano, ks01lte, wilcox, m3" />
                 <replace name="com.sec.android.app.memo" value="lt02ltetmo" />
                 <replace name="com.samsung.android.app.memo" value="jfltevzwpp" />
-                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SGH-N417, j7y17lte, j7popelte" />
+                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, j3poplte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SC-04J, j7y17lte, j7popelte, greatlte, greatqlte, j5y17lte, gracerlte, j7maxlte, j3y17lte, a7y17lte, gtanotexllte, cruiserlte, j5y17lte" />
             </application>
             <application name="com.sec.spp.push" allow="systemAppOnly" />
             <application name="com.samsung.android.calendar" allow="systemAppOnly" />
@@ -372,6 +377,11 @@
             <application name="com.samsung.android.authservice" />
             <application name="com.samsung.android.samsungpass" />
             <application name="com.samsung.android.server.iris" />
+            <application name="com.samsung.android.spdfnote" />
+            <application name="com.samsung.android.app.smartcapture" />
+            <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.skms.android.agent" />
+            <application name="org.simalliance.openmobileapi.service" />
         </column>
         <column name="ProtectedPkgList">
             <protectedPkg name="com.sec.knox.setup" />
@@ -481,7 +491,7 @@
                 <replace name="com.sec.android.widgetapp.diotek.smemo" value="c1, d2, melius, jflte, ja3g, jalte, jactivelte, jflterefresh, jftdd, jfvolte, jfvelte, serrano, ks01lte, wilcox, m3" />
                 <replace name="com.sec.android.app.memo" value="lt02ltetmo" />
                 <replace name="com.samsung.android.app.memo" value="jfltevzwpp" />
-                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SGH-N417, j7y17lte, j7popelte" />
+                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, j3poplte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SC-04J, j7y17lte, j7popelte, greatlte, greatqlte, j5y17lte, gracerlte, j7maxlte, j3y17lte, a7y17lte, gtanotexllte, cruiserlte, j5y17lte" />
             </application>
             <application name="com.sec.spp.push" allow="systemAppOnly" />
             <application name="com.samsung.android.calendar" allow="systemAppOnly" />
@@ -578,6 +588,9 @@
             <application name="com.samsung.android.authservice" />
             <application name="com.samsung.android.samsungpass" />
             <application name="com.samsung.android.server.iris" />
+            <application name="com.samsung.android.spdfnote" />
+            <application name="com.samsung.android.app.smartcapture" />
+            <application name="com.samsung.android.service.livedrawing" />
         </column>
         <column name="FOTADisableAppsPkgList">
             <fotadisablePkg name="com.samsung.android.fingerprint.service" />
@@ -680,7 +693,6 @@
             <application name="com.android.browser.provider" />
             <application name="com.google.android.marvin.talkback" />
             <application name="com.google.android.googlequicksearchbox" />
-            <application name="com.samsung.android.svoiceime" allow="systemAppOnly" />
             <application name="com.sec.android.app.chromecustomizations" />
             <application name="com.google.android.gms" />
             <application name="com.google.android.gsf" />
@@ -726,6 +738,9 @@
             <application name="com.samsung.android.authservice" />
             <application name="com.samsung.android.samsungpass" />
             <application name="com.samsung.android.server.iris" />
+            <application name="com.samsung.android.spdfnote" />
+            <application name="com.samsung.android.app.smartcapture" />
+            <application name="com.samsung.android.service.livedrawing" />
         </column>
         <column name="FOTADisableAppsPkgList">
             <fotadisablePkg name="com.samsung.android.fingerprint.service" />
@@ -825,7 +840,7 @@
                 <replace name="com.sec.android.widgetapp.diotek.smemo" value="c1, d2, melius, jflte, ja3g, jalte, jactivelte, jflterefresh, jftdd, jfvolte, jfvelte, serrano, ks01lte, wilcox, m3" />
                 <replace name="com.sec.android.app.memo" value="lt02ltetmo" />
                 <replace name="com.samsung.android.app.memo" value="jfltevzwpp" />
-                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SGH-N417, j7y17lte, j7popelte" />
+                <replace name="com.samsung.android.app.notes" value="gracelte, graceqlte, j7poplte, dreamlte, dream2lte, dreamqlte, dream2qlte, gts3llte, gts3lwifi, j3popelte, j3poplte, xcover4lte, SC-02J, SC-03J, SCV35, SCV36, SC-04J, j7y17lte, j7popelte, greatlte, greatqlte, j5y17lte, gracerlte, j7maxlte, j3y17lte, a7y17lte, gtanotexllte, cruiserlte, j5y17lte" />
             </application>
             <application name="com.sec.spp.push" allow="systemAppOnly" />
             <application name="com.samsung.android.calendar" allow="systemAppOnly" />
@@ -942,6 +957,11 @@
             <application name="com.samsung.android.samsungpass" />
             <application name="com.samsung.android.server.iris" />
             <application name="com.sec.android.app.servicemodeapp" />
+            <application name="com.samsung.android.spdfnote" />
+            <application name="com.samsung.android.app.smartcapture" />
+            <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.skms.android.agent" />
+            <application name="org.simalliance.openmobileapi.service" />
         </column>
         <column name="ProtectedPkgList">
             <protectedPkg name="com.sec.knox.setup" />
@@ -1100,6 +1120,11 @@
             <application name="com.samsung.android.authservice" />
             <application name="com.samsung.android.samsungpass" />
             <application name="com.samsung.android.server.iris" />
+            <application name="com.samsung.android.spdfnote" />
+            <application name="com.samsung.android.app.smartcapture" />
+            <application name="com.samsung.android.service.livedrawing" />
+            <application name="com.skms.android.agent" />
+            <application name="org.simalliance.openmobileapi.service" />
         </column>
         <column name="ProtectedPkgList">
             <protectedPkg name="com.sec.knox.setup" />
@@ -1234,6 +1259,9 @@
             <application name="com.samsung.android.authservice" />
             <application name="com.samsung.android.samsungpass" />
             <application name="com.samsung.android.server.iris" />
+            <application name="com.samsung.android.spdfnote" />
+            <application name="com.samsung.android.app.smartcapture" />
+            <application name="com.samsung.android.service.livedrawing" />
         </column>
         <column name="RCPDataSettings">
             <provider name="Contacts">

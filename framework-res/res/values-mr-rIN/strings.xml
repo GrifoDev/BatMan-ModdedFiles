@@ -911,9 +911,9 @@
     <string name="dlg_ok">ठीक</string>
     <string name="usb_charging_notification_title">USB हे डिव्हाइस चार्ज करीत आहे</string>
     <string name="usb_supplying_notification_title">USB संलग्न केलेल्या डिव्हाइसला पॉवरचा पुरवठा करीत आहे</string>
-    <string name="usb_mtp_notification_title">मीडिया फाइल्‍स USB स्‍थानांतरित करत आहे</string>
-    <string name="usb_ptp_notification_title">USB प्रतिमा स्थानांतरित करत आहे</string>
-    <string name="usb_midi_notification_title">USB MIDI उपकरणाशी कनेक्ट झाले</string>
+    <string name="usb_mtp_notification_title">फाइल स्थानांतरा साठी USB</string>
+    <string name="usb_ptp_notification_title">प्रतिमा स्थानांतरा साठी USB</string>
+    <string name="usb_midi_notification_title">MIDI साठी USB</string>
     <string name="usb_accessory_notification_title">USB उपसाधनेला कनेक्ट केले.</string>
     <string name="usb_notification_message">इतर USB पर्यांयांसाठी टॅप करा.</string>
     <string name="adb_active_notification_title">USB डीबगिंग कनेक्ट केले.</string>
@@ -1314,6 +1314,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">जेथे सामान्य पणे बटणे दिसतात तेथील स्क्रीनच्या edge पासून आत मध्ये स्वाइप करून आपण पुन्हा बटणे दर्शवू शकता.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">काही वेळा नंतर, पुन्हा बटण्स दिसणार नाहीत.</string>
     <string name="sec_immersive_cling_help_text_step_two">ते लपवलेले असताना आपण होम बटण वापरू शकता. होम स्क्रीन वर जाण्या साठी, जेथे होम बटण सामान्य पणे दिसते ते स्क्रीन वरील क्षेत्र जोरात दाबा.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">आपण आपला फोन कसाही धरला तरी, बटणे नेहमी चार्जिंग पोर्टच्या पुढे स्थित असतील. जेव्हा आपला फोन घड्याळाच्या काट्याच्या विरुद्ध दिशेने फिरतो, तेव्हा बाणाने दर्शवल्या प्रमाणे स्क्रीनच्या edge पासून डावी कडे स्वाइप करा.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">आपण आपला फोन कसाही धरला तरी, बटणे नेहमी चार्जिंग पोर्टच्या पुढे स्थित असतील. जेव्हा आपला फोन घड्याळाच्या काट्याच्या दिशेने फिरतो, तेव्हा बाणाने दर्शवल्या प्रमाणे स्क्रीनच्या edge पासून उजवी कडे स्वाइप करा.</string>
     <string name="done_label">झाले</string>
     <string name="hour_picker_description">अॅनालॉग तास पिकर</string>
     <string name="minute_picker_description">अनालॉग मिनिट पिकर</string>
@@ -1324,7 +1326,9 @@
     <string name="deleted_key">%s हटवला.</string>
     <string name="managed_profile_label_badge">कार्य %1$s</string>
     <string name="lock_to_app_toast">अनुप्रयोग अनपिन करण्‍या साठी, अलीकडील आणि बॅक कीस एकाच वेळी दाबा आणि होल्‍ड करा.</string>
+    <string name="lock_to_app_toast_for_navibar">अनुप्रयोग अनपिन करण्‍या साठी, अलीकडील आणि बॅक कीस एकाच वेळी स्‍पर्श आणि होल्‍ड करा.</string>
     <string name="lock_to_app_toast_accessible">अनुप्रयोग अनपिन करण्‍यासाठी, अलीकडील की दाबा आणि होल्‍ड करा.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">लॉक-ते-अनुप्रयोग मोड सक्षम करण्‍यात आले आहे.</string>
     <string name="lock_to_app_start">अनुप्रयोग पिन केला.</string>
     <string name="lock_to_app_exit">अनुप्रयोग अनपिन केला.</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">जतन करा</string>
     <string name="tw_clipboard_button_tts">बटण</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">क्लिपबोर्ड</string>
-    <string name="hdmi_connect">HDMI केबल जोडली.</string>
+    <string name="hdmi_connect">HDMI कनेक्ट आहे.</string>
     <string name="hdmi_connect_indirectly">HDMI केबलद्वारे आपला उपकरण थेट TV शी कनेक्‍ट करा.</string>
-    <string name="hdmi_disconnect">HDMI केबल खंडित केली.</string>
+    <string name="hdmi_disconnect">HDMI डिस्कनेक्ट केले.</string>
     <string name="hdmi_recommend_charging_device">जास्‍त वेळ उपकरण HDTV अडॅप्‍टरशी कनेक्‍ट असल्‍यास आम्‍ही आपले उपकरण चार्ज करण्‍याची शिफारस करतो. आपले उपकरण चार्ज करण्‍यासाठी चार्जर HDTV अडॅप्‍टरशी कनेक्‍ट करा.</string>
     <string name="hdmi_wfd_terminate">HDMI जोडलेले आहे. Screen Mirroring जोडणी समाप्त झाली आहे.</string>
     <string name="disable">अक्षम करा</string>
@@ -1851,6 +1855,7 @@
     <string name="volumepanel_media">मीडिया</string>
     <string name="volumepanel_notification">अधिसूचना</string>
     <string name="volumepanel_system">सिस्टिम</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">आपात्कालीन मोडमध्ये असताना स्क्रीन कॅप्‍चर करण्यात अक्षम.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">स्क्रीनशॉट घेण्यास अक्षम.</string>
     <string name="bluetooth_permission_request">ब्लुटूथ परवानगी विनंती.</string>
@@ -1923,6 +1928,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct सक्षम केलेले असताना %s सक्षम करण्यात अक्षम.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">सेवा प्रदात्‍याकडून कोणताही प्रतिसाद नाही.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s सक्रीयकरण विनंती पाठवण्यात अयशस्‍वी झाले. उपलब्ध नेटवर्क्‍सद्वारे पुन्हा कनेक्ट करत आहे…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s सक्षम करण्यात अक्षम. %2$s आपल्या इंटरनेट पॅकेज सह उपलब्‍ध नाही किंवा %3$s सर्व्हर वरून कोणताही प्रतिसाद प्राप्‍त झाला नाही.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s सक्षम करण्यात अक्षम. उपकरण अति तापत आहे. उपकरण थंड होईपर्यंत प्रतीक्षा करा आणि पुन्‍हा प्रयत्‍न करा.</string>
     <string name="mptcp_message_operation_disabled_overheating">उपकरण अतितापण्यापासून प्रतिबंधित करण्यासाठी %s अक्षम केले. त्याऐवजी मोबाईल नेटवर्कद्वारे डाउनलोड करत आहे…</string>
     <string name="mptcp_message_data_usage_limit">डेटा वापर मर्यादा गाठली. डेटा वापर मर्यादा बदलण्यासाठी, सेटिंग्सवर जा.</string>
@@ -2030,6 +2036,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">USB ऑडिओ उपकरणा द्वारे %s ध्वनी प्ले होत आहे. हे बंद करण्या साठी येथे टॅप करा.</string>
     <string name="multisound_change_output_device">ऑडिओ आउटपुट उपकरण बदला</string>
     <string name="multisound_headup_contents">आपण ह्या अनुप्रयोगा साठी निवडलेले ऑडिओ उपकरण आपल्या फोन साठीच्या वर्तमान ऑडिओ आउटपुट उपकरणाच्या समान आहे. ह्या अनुप्रयोगा साठीचा ध्वनी वेगळा करण्या साठी, त्वरित सेटिंग्स पॅनेल मध्ये आपले ऑडिओ आउटपुट उपकरण बदला.</string>
+    <string name="multisound_hun_title">मुख्य ऑडिओ आउटपुट उपकरण बदलायचे?</string>
+    <string name="multisound_hun_contents">आपण ह्या अनुप्रयोगा साठी निवडलेले ऑडिओ उपकरण (%1$s) आपल्या फोन साठीच्या मुख्य ऑडिओ आउटपुट उपकरणाच्या (%2$s) समान आहे. ह्या अनुप्रयोगा साठीचा ध्वनी वेगळा करण्या साठी, मुख्य ऑडिओ आउटपुट उपकरण %3$s मध्ये बदलण्याची गरज आहे.</string>
+    <string name="multisound_hun_close">बंद करा</string>
+    <string name="multisound_hun_change">बदला</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">हेडसेट</string>
     <string name="bixby_edgecase_mpsm">कमाल पॉवर सेव्हिंग मोड चालू असताना Bixby वापरू शकत नाही.</string>
     <string name="bixby_edgecase_emergencymode">आपात्‍कालीन मोड मध्‍ये Bixby वापरू शकत नाही.</string>
     <string name="bixby_edgecase_kidsmode">किड्स मोड मध्‍ये Bixby वापरू शकत नाही.</string>
@@ -2037,9 +2049,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink वापरत असताना Bixby वापरू शकत नाही.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX मध्ये Bixby वापरू शकत नाही.</string>
     <string name="bixby_edgecase_dexstation">DeX स्टेशनशी कनेक्ट केले असताना Bixby वापरू शकत नाही.</string>
-    <string name="conventional_mode_recent_noti">आपण अलीकडील अनुप्रयोग स्क्रीन वर विस्तार करा आयकॉन टॅप करून हा अनुप्रयोग संपूर्ण स्क्रीन मध्ये पाहू शकता.</string>
+    <string name="bixby_edgecase_cantusenow">आत्ता Bixby Voice वापरू शकत नाही.</string>
+    <string name="conventional_mode_recent_noti">आपण अलीकडील अनुप्रयोग स्क्रीनवर अनुप्रयोग स्थिती अनुपात बदलू शकता.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">मागील स्थिती अनुपातवर जाण्या साठी, सेटिंग्स > प्रदर्शन > संपूर्ण स्‍क्रीन अनुप्रयोग वर जा.</string>
     <string name="conventional_mode_tap_here_to_fill">संपूर्ण स्क्रीन भरण्या साठी येथे टॅप करा</string>
+    <string name="bixby_popup_unavailable_now">Bixby अनुपलब्‍ध. केवळ फोन मालक किंवा मुख्य फोन नंबर Bixby वापरू शकतो.</string>
     <string name="permlab_knoxCustomSetting">उपकरण सेटिंग्स व्यवस्थापित करा</string>
     <string name="permdesc_knoxCustomSetting">उपकरण सेटिंग्स कॉन्फिगर करा, जसे की ब्लुटूथ, स्थान, Wi-Fi, मोबाईल डेटा आणि एनड्रॉइड सेटिंग्स.</string>
     <string name="permlab_knoxCustomSystem">सिस्टम सेटिंग्स व्यवस्थापित करा</string>
@@ -2384,6 +2398,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB द्वारे कनेक्ट केलेले उपकरण चार्ज करत आहे…</string>
     <string name="lacking_filenode_internal_storage_view_title">फाइल सिस्टम मर्यादा</string>
     <string name="lacking_filenode_internal_storage_view_text">आपल्या फोन वर खूप अधिक फाइल्स तयार केल्या गेल्या आहेत. अनुप्रयोग योग्य प्रकारे काम करणे कदाचित थांबवतील आणि आपला फोन यापुढे कदाचित सुरू होणार नाही. कोणत्याही महत्त्वाच्या डेटाचा बॅक अप घ्या आणि आपल्या फोनची फॅक्टरी पुन्हा मांडणी करा.</string>
-    <string name="lock_to_app_toast_for_navibar">अनुप्रयोग अनपिन करण्‍या साठी, अलीकडील आणि बॅक कीस एकाच वेळी स्‍पर्श आणि होल्‍ड करा.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -770,7 +770,7 @@ Tikrai norite išeiti iš šio puslapio?"</string>
     <string name="aerr_process">Procesas %1$s sustabdytas.</string>
     <string name="aerr_application_repeated">„%1$s“ vis sustabdoma</string>
     <string name="aerr_process_repeated">Procesas „%1$s“ vis sustabdomas</string>
-    <string name="aerr_restart">Perl. prog.</string>
+    <string name="aerr_restart">Paleisti programą iš naujo</string>
     <string name="aerr_reset">Nustatyti ir paleisti programą iš naujo</string>
     <string name="aerr_report">Siųsti atsiliepimą</string>
     <string name="aerr_close">Uždaryti</string>
@@ -915,9 +915,9 @@ Ar norite jį uždaryti?"</string>
     <string name="dlg_ok">Gerai</string>
     <string name="usb_charging_notification_title">Įrenginys įkraunamas naudojant USB</string>
     <string name="usb_supplying_notification_title">Maitinimas prijungtam įrenginiui tiekiamas naudojant USB</string>
-    <string name="usb_mtp_notification_title">USB medijos failų perkėlimas</string>
-    <string name="usb_ptp_notification_title">USB vaizdų perkėlimas</string>
-    <string name="usb_midi_notification_title">USB prijungta prie MIDI įreng.</string>
+    <string name="usb_mtp_notification_title">USB failų perdavimui</string>
+    <string name="usb_ptp_notification_title">USB vaizdų perdavimui</string>
+    <string name="usb_midi_notification_title">USB skirtas MIDI</string>
     <string name="usb_accessory_notification_title">Prisijungta prie USB priedo</string>
     <string name="usb_notification_message">Bakstelėkite, jei reikia kitų USB parinkčių.</string>
     <string name="adb_active_notification_title">USB derinimas prijungtas.</string>
@@ -1319,6 +1319,8 @@ Po %2$d sek. bandykite dar kartą."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Mygtukai gali būti parodyti vėl braukiant į vidų nuo ekrano krašto, kuriame mygtukai paprastai rodomi.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Po kurio laiko mygtukai vėl išnyks.</string>
     <string name="sec_immersive_cling_help_text_step_two">Pradžios mygtuką galite naudoti, net kai jis paslėptas. Eikite į pradžios ekraną ir paspauskite ekrano sritį, kurioje paprastai rodomas pradžios mygtukas.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Kad ir kaip laikytumėte telefoną, mygtukai visada bus prie įkrovimo lizdo. Kai telefonas pasuktas prieš laikrodžio rodyklę, braukite į kairę nuo ekrano krašto rodyklės nurodyta kryptimi.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Kad ir kaip laikytumėte telefoną, mygtukai visada bus prie įkrovimo lizdo. Kai telefonas pasuktas pagal laikrodžio rodyklę, braukite į dešinę nuo ekrano krašto rodyklės nurodyta kryptimi.</string>
     <string name="done_label">Atlikta</string>
     <string name="hour_picker_description">Analoginis valandų parinkiklis</string>
     <string name="minute_picker_description">Analoginis minučių parinkiklis</string>
@@ -1329,7 +1331,9 @@ Po %2$d sek. bandykite dar kartą."</string>
     <string name="deleted_key">%s ištrinta.</string>
     <string name="managed_profile_label_badge">Darbo %1$s</string>
     <string name="lock_to_app_toast">Jei programą norite atsegti, vienu metu nuspauskite ir palaikykite mygtukus „Vėliausi“ ir atgal.</string>
+    <string name="lock_to_app_toast_for_navibar">Jei programą norite atsegti, vienu metu palieskite ir palaikykite mygtukus „Vėliausi“ ir atgal.</string>
     <string name="lock_to_app_toast_accessible">Norėdami atsegti šią programą, paspauskite ir palaikykite vėliausiai naudotų mygtuką.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Programos užrakinimo režimas įjungtas.</string>
     <string name="lock_to_app_start">Programa prisegta.</string>
     <string name="lock_to_app_exit">Programa atsegta.</string>
@@ -1435,9 +1439,9 @@ Akumuliatoriaus tausojimo priemonė automatiškai išjungiama, kai įrenginys į
     <string name="tw_clipboard_save_tts">Išsaugoti</string>
     <string name="tw_clipboard_button_tts">Mygtukas</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Iškarpinė</string>
-    <string name="hdmi_connect">HDMI laidas prijungtas.</string>
+    <string name="hdmi_connect">HDMI prijungtas.</string>
     <string name="hdmi_connect_indirectly">Prijunkite įrenginį tiesiogiai prie televizoriaus HDMI laidu.</string>
-    <string name="hdmi_disconnect">HDMI laidas atjungtas.</string>
+    <string name="hdmi_disconnect">HDMI atjungtas.</string>
     <string name="hdmi_recommend_charging_device">Jei įrenginys ilgą laiką yra prijungtas prie HDTV adapterio, rekomenduojama jį įkrauti. Prijunkite kroviklį prie HDTV adapterio ir įkraukite savo įrenginį.</string>
     <string name="hdmi_wfd_terminate">HDMI prijungtas. Ryšys su „Screen Mirroring“ buvo nutrauktas</string>
     <string name="disable">Išjungti</string>
@@ -1857,6 +1861,7 @@ vizoriuje („Smart View“)"</string>
     <string name="volumepanel_media">Daugialypė terpė</string>
     <string name="volumepanel_notification">Pranešimai</string>
     <string name="volumepanel_system">Sistema</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Neįmanoma užfiksuoti ekrano pavojaus režimu.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Neįmanoma užfiksuoti ekrano nuotraukos.</string>
     <string name="bluetooth_permission_request">Prašymas leisti „Bluetooth“</string>
@@ -1929,6 +1934,7 @@ Norėdami atsegti šią programą, paspauskite ir palaikykite meniu mygtuką."</
     <string name="mptcp_message_mptcp_capability_WifiDirect">Kai įjungta „Wi-Fi Direct“, negalima įjungti %s.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nėra atsakymo iš paslaugų teikėjo.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nepavyko išsiųsti %s aktyvinimo užklausos. Jungiamasi iš naujo per pasiekiamus tinklus…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Neįmanoma įjungti %1$s. %2$s neveikia su jūsų interneto duomenų paketu arba negaunamas atsakymas iš %3$s serverio.</string>
     <string name="mptcp_message_setting_disabled_overheating">Negalima įjungti %s. Įrenginys kaista. Palaukite, kol įrenginys atvės, ir bandykite dar kartą.</string>
     <string name="mptcp_message_operation_disabled_overheating">Siekiant apsaugoti įrenginį nuo perkaitimo %s išjungta. Vietoje to atsisiunčiama per mobilųjį tinklą…</string>
     <string name="mptcp_message_data_usage_limit">Pasiekta duomenų naudojimo riba. Jei norite keisti duomenų naudojimo apribojimą, eikite į nustatymus.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s garsas leidžiamas per USB garso įrenginį. Bakstelėkite čia ir išjunkite.</string>
     <string name="multisound_change_output_device">Keisti garso išvesties įrenginį</string>
     <string name="multisound_headup_contents">Šiai programai jūsų pasirinktas garso įrenginys yra toks pat, kaip esamas jūsų telefono garso išvesties įrenginys. Norėdami atskirti garsą šiai programai, pakeiskite savo garso išvesties įrenginį sparčiųjų nustatymų pulte.</string>
+    <string name="multisound_hun_title">Keist pagrindinį garso išvesties įrenginį?</string>
+    <string name="multisound_hun_contents">Šiai programai (%1$s) pasirinktas garso įrenginys sutampa su pagrindiniu garso išvesties įrenginiu (%2$s). Jei norite atskirti šios programos garsą, pagrindinį garso išvesties įrenginį reikia pakeisti į %3$s.</string>
+    <string name="multisound_hun_close">Uždaryti</string>
+    <string name="multisound_hun_change">Keisti</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Ausinės</string>
     <string name="bixby_edgecase_mpsm">Veikiant itin taupiam energijos vartojimo režimui negalima naudoti „Bixby“.</string>
     <string name="bixby_edgecase_emergencymode">Veikiant pavojaus režimui negalima naudoti „Bixby“.</string>
     <string name="bixby_edgecase_kidsmode">Veikiant vaikų režimui negalima naudoti „Bixby“.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Naudojant „MirrorLink“ negalima naudoti „Bixby“.</string>
     <string name="bixby_edgecase_dexmode">„Samsung DeX“ negalima naudotis „Bixby“.</string>
     <string name="bixby_edgecase_dexstation">Prisijungus prie „DeX“ stoties negalima naudotis „Bixby“.</string>
-    <string name="conventional_mode_recent_noti">Vėliausiai naudotų programų ekrane bakstelėkite išplėtimo piktogramą ir peržiūrėkite šią programą visame ekrane.</string>
+    <string name="bixby_edgecase_cantusenow">Šiuo metu negalima naudotis „Bixby Voice“.</string>
+    <string name="conventional_mode_recent_noti">Programos vaizdo formatą galite pakeisti vėliausiai naudotų programų ekrane.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Jei norite grąžinti ankstesnį vaizdo formatą, eikite į Nustatymai > Ekranas > Viso ekrano programos.</string>
     <string name="conventional_mode_tap_here_to_fill">Bakstelėkite čia ir užpildykite visą ekraną</string>
+    <string name="bixby_popup_unavailable_now">„Bixby“ nepasiekiama. „Bixby“ gali naudoti tik telefono savininkas arba pagrindinis telefono numeris.</string>
     <string name="permlab_knoxCustomSetting">Tvarkyti įrenginio nustatymus</string>
     <string name="permdesc_knoxCustomSetting">Sukonfigūruokite įrenginio nustatymus, pvz., „Bluetooth“, vietos, „Wi-Fi“, mobiliųjų duomenų ir „Android“ nustatymus.</string>
     <string name="permlab_knoxCustomSystem">Tvarkyti sistemos nustatymus</string>
@@ -2423,6 +2437,4 @@ USB funkcijos gali būti apribotos, kol įjungtas itin taupus energijos vartojim
     <string name="charging_connected_via_usb">Prijungtas įrenginys įkraunamas per USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Failų sistemos apribojimas</string>
     <string name="lacking_filenode_internal_storage_view_text">Jūsų telefone sukurta per daug failų. Programos gali tinkamai nebeveikti, o jūsų telefonas gali nebepasileisti. Padaryti svarbių duomenų atsargines kopijas ir nustatykite telefono gamyklinius nustatymus.</string>
-    <string name="lock_to_app_toast_for_navibar">Jei programą norite atsegti, vienu metu palieskite ir palaikykite mygtukus „Vėliausi“ ir atgal.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

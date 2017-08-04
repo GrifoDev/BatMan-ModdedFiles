@@ -136,8 +136,10 @@
             <trigger_packages>
                 <package name="com.google.android.apps.maps" />
                 <package name="com.skt.skaf.l001mtm091" />
+                <package name="com.skt.tmap.ku" />
                 <package name="kt.navi" />
                 <package name="com.mnsoft.lgunavi" />
+                <package name="com.lguplus.navi" />
                 <package name="com.locnall.KimGiSa" />
                 <package name="kr.mappers.AtlanSmart" />
                 <package name="com.mnsoft.mappyobn" />
@@ -151,14 +153,25 @@
                 <package name="com.baidu.BaiduMap" />
             </trigger_packages>
 
+            <limiter name="CPUFreqMax" type="STS">
+                <sts_item trigger="450" release="410" min="1056000" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="STS">
+                <sts_item trigger="450" release="410" min="342000000" />
+            </limiter>
             <limiter name="Charging" type="number">
                 <table_item temp="450" value="30" />
+            </limiter>
+            <limiter name="LCDBrightness" type="number">
+                <table_item temp="430" value="-1" />
+                <table_item temp="450" value="250" />
+                <table_item temp="510" value="224" />
             </limiter>
         </scenario>
 
         <scenario name="DayDreamAndSustained" priority="2">
             <limiter name="CPUFreqMax" type="number">
-                <table_item temp="560" value="1267200" />
+                <table_item temp="560" value="979200" />
                 <table_item temp="590" value="912000" />
                 <table_item temp="600" value="739200" />
             </limiter>
@@ -170,19 +183,19 @@
 
         <scenario name="DayDream" priority="2">
             <limiter name="CPUFreqMax" type="number">
-                <table_item temp="560" value="1420800" />
+                <table_item temp="560" value="1190400" />
                 <table_item temp="590" value="912000" />
                 <table_item temp="600" value="739200" />
             </limiter>
             <limiter name="GPUFreqMax" type="number">
-                <table_item temp="560" value="515000000" />
+                <table_item temp="560" value="414000000" />
                 <table_item temp="590" value="257000000" />
             </limiter>
         </scenario>
 
         <scenario name="SustainedPerformance" priority="2">
             <limiter name="CPUFreqMax" type="number">
-                <table_item temp="560" value="1267200" />
+                <table_item temp="560" value="979200" />
                 <table_item temp="590" value="912000" />
                 <table_item temp="600" value="739200" />
             </limiter>

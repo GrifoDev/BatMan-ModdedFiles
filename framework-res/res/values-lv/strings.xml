@@ -770,7 +770,7 @@ Vai tiešām vēlaties pamest šo lapu?"</string>
     <string name="aerr_process">Process %1$s ir apturēts.</string>
     <string name="aerr_application_repeated">%1$s atkārtoti pārtrauc darboties</string>
     <string name="aerr_process_repeated">%1$s atkārtoti pārtrauc darboties</string>
-    <string name="aerr_restart">Restar. pr.</string>
+    <string name="aerr_restart">Restartēt programmu</string>
     <string name="aerr_reset">Atiestatīt un restartēt lietotni</string>
     <string name="aerr_report">Sūtīt atsauksmes</string>
     <string name="aerr_close">Aizvērt</string>
@@ -915,9 +915,9 @@ Vai vēlaties to aizvērt?"</string>
     <string name="dlg_ok">Labi</string>
     <string name="usb_charging_notification_title">USB savienojums tiek izmantots šīs ierīces uzlādei</string>
     <string name="usb_supplying_notification_title">USB savienojums tiek izmantots pievienotās ierīces barošanai</string>
-    <string name="usb_mtp_notification_title">USB pārsūta multivides failus</string>
-    <string name="usb_ptp_notification_title">USB pārsūta attēlus</string>
-    <string name="usb_midi_notification_title">USB ir savienots ar MIDI ierīci</string>
+    <string name="usb_mtp_notification_title">USB failu pārsūtīšanai</string>
+    <string name="usb_ptp_notification_title">USB attēlu pārsūtīšanai</string>
+    <string name="usb_midi_notification_title">USB MIDI ierīcēm</string>
     <string name="usb_accessory_notification_title">Izveidots savienojums ar USB piederumu</string>
     <string name="usb_notification_message">Pieskarieties, lai piekļūtu citām USB iespējām.</string>
     <string name="adb_active_notification_title">USB atkļūdošana pievienota.</string>
@@ -1319,6 +1319,8 @@ Mēģiniet vēlreiz pēc %3$d sekundēm."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Lai atkal parādītu pogas, pavelciet uz centru no ekrāna malas, kur parasti ir redzamas pogas.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Pēc brīža pogas atkal pazudīs.</string>
     <string name="sec_immersive_cling_help_text_step_two">Sākuma pogu var izmantot arī tad, ja tā ir paslēpta. Lai atvērtu sākuma ekrānu, nospiediet un turiet apgabalu ekrānā, kur parasti tiek parādīta sākuma poga.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Neatkarīgi no tā, kā turēsit tālruni, pogas vienmēr būs izvietotas blakus uzlādes portam. Kad tālrunis ir pagriezts pretēji pulksteņrādītāju kustības virzienam, pavelciet pa kreisi no ekrāna malas, kā norāda bultiņa.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Neatkarīgi no tā, kā turēsit tālruni, pogas vienmēr būs izvietotas blakus uzlādes portam. Kad tālrunis ir pagriezts pulksteņrādītāju kustības virzienā, pavelciet pa labi no ekrāna malas, kā norāda bultiņa.</string>
     <string name="done_label">Gatavs</string>
     <string name="hour_picker_description">Analogo stundu izvēle</string>
     <string name="minute_picker_description">Analogo minūšu izvēle</string>
@@ -1329,7 +1331,9 @@ Mēģiniet vēlreiz pēc %3$d sekundēm."</string>
     <string name="deleted_key">%s ir izdzēsts.</string>
     <string name="managed_profile_label_badge">Darbā: %1$s</string>
     <string name="lock_to_app_toast">Lai atspraustu programmu, vienlaikus nospiediet pēdējo lietoto programmu taustiņu un turiet un taustiņu Atpakaļ.</string>
+    <string name="lock_to_app_toast_for_navibar">Lai atspraustu programmu, vienlaikus nospiediet pēdējo lietoto programmu taustiņu un turiet un taustiņu Atpakaļ.</string>
     <string name="lock_to_app_toast_accessible">Lai atspraustu programmu, nospiediet un turiet pēdējo lietoto programmu taustiņu.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Ir aktivizēts režīms Bloķēt programmā.</string>
     <string name="lock_to_app_start">Programma ir piesprausta.</string>
     <string name="lock_to_app_exit">Programma ir atsprausta.</string>
@@ -1435,9 +1439,9 @@ Tiklīdz tiek sākta ierīces uzlāde, akumulatora jaudas taupīšanas režīms 
     <string name="tw_clipboard_save_tts">Saglabāt</string>
     <string name="tw_clipboard_button_tts">Poga</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Starpliktuve</string>
-    <string name="hdmi_connect">Pievienots HDMI kabelis.</string>
+    <string name="hdmi_connect">Izveidots savienojums ar HDMI.</string>
     <string name="hdmi_connect_indirectly">Pievienojiet ierīci televizoram, izmantojot HDMI kabeli.</string>
-    <string name="hdmi_disconnect">HDMI kabelis ir atvienots.</string>
+    <string name="hdmi_disconnect">Pārtraukts savienojums ar HDMI.</string>
     <string name="hdmi_recommend_charging_device">Mēs iesakām uzlādēt ierīci, ja tā ir pievienota HDTV adapterim ilgāku laika periodu. Lai uzlādētu ierīci, pievienojiet lādētāju HDTV adapterim.</string>
     <string name="hdmi_wfd_terminate">Izveidots savienojums ar HDMI. Screen Mirroring savienojums ir pārtraukts</string>
     <string name="disable">Atspējot</string>
@@ -1859,6 +1863,7 @@ skaņas"</string>
     <string name="volumepanel_media">Multivide</string>
     <string name="volumepanel_notification">Paziņojumi</string>
     <string name="volumepanel_system">Sistēma</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Nevar tvert ekrānu, atrodoties ārkārtas režīmā.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Nevar veikt ekrānuzņēmumu.</string>
     <string name="bluetooth_permission_request">Bluetooth atļaujas pieprasījums</string>
@@ -1931,6 +1936,7 @@ Lai atspraustu programmu, nospiediet un turiet izvēlnes taustiņu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Nevar aktivizēt %s, kamēr ir aktivizēta funkcija Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nav atbildes no pakalpojumu sniedzēja.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Neizdevās nosūtīt %s aktivizācijas pieprasījumu. Veido atkārtotu savienojumu, izmantojot pieejamos tīklus…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nevar aktivizēt %1$s. Jūsu interneta komplektam nav pieejams %2$s vai netika saņemta atbilde no %3$s servera.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nevar aktivizēt %s. Ierīce sāk pārkarst. Uzgaidiet, līdz ierīce ir atdzisusi, un mēģiniet vēlreiz.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s ir deaktivizēts, lai novērstu ierīces pārkaršanu. Tā vietā tiek veikta lejupielāde, izmantojot mobilo tīklu…</string>
     <string name="mptcp_message_data_usage_limit">Sasniegts datu lietojuma ierobežojums. Lai mainītu datu lietojuma ierobežojumu, atveriet sadaļu Iestatījumi.</string>
@@ -2040,6 +2046,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Programmas %s skaņa tiek atskaņota USB audio ierīcē. Pieskarieties šeit, lai to izslēgtu.</string>
     <string name="multisound_change_output_device">Mainīt audio izvades ierīci</string>
     <string name="multisound_headup_contents">Šai programmai izvēlētā audio ierīce ir jūsu tālruņa pašreizējā audio izvades ierīce. Lai nošķirtu šīs programmas skaņu, ātro iestatījumu panelī nomainiet audio izvades ierīci.</string>
+    <string name="multisound_hun_title">Vai mainīt galveno audio izvades ierīci?</string>
+    <string name="multisound_hun_contents">Šai programmai (%1$s) izvēlētā audio ierīce ir tā pati, kas ir galvenā audio izvades ierīce (%2$s). Lai nošķirtu šīs programmas skaņu, galvenā audio izvades ierīce ir jāmaina uz %3$s.</string>
+    <string name="multisound_hun_close">Aizvērt</string>
+    <string name="multisound_hun_change">Mainīt</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Austiņas</string>
     <string name="bixby_edgecase_mpsm">Bixby nevar izmantot, kamēr ir ieslēgts Maksimālais enerģijas taupīšanas režīms.</string>
     <string name="bixby_edgecase_emergencymode">Bixby nevar izmantot ārkārtas režīmā.</string>
     <string name="bixby_edgecase_kidsmode">Bixby nevar izmantot bērnu režīmā.</string>
@@ -2047,9 +2059,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Bixby nevar izmantot, kamēr tiek lietota funkcija MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Režīmā Samsung DeX nevar izmantot programmu Bixby.</string>
     <string name="bixby_edgecase_dexstation">Programmu Bixby nevar izmantot, kad ir izveidots savienojums ar DeX staciju.</string>
-    <string name="conventional_mode_recent_noti">Lai šo programmu skatītu pilnekrāna režīmā, nesen lietoto programmu ekrānā pieskarieties ikonai Izvērst.</string>
+    <string name="bixby_edgecase_cantusenow">Bixby Voice šobrīd nevar izmantot.</string>
+    <string name="conventional_mode_recent_noti">Programmas attēla formātu varat mainīt nesen lietoto programmu ekrānā.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Lai pārslēgtos uz iepriekšējo ekrāna formātu, izvēlieties Iestatījumi > Displejs > Pilnekrāna programmas.</string>
     <string name="conventional_mode_tap_here_to_fill">Pieskarieties šeit, lai aizpildītu visu ekrānu</string>
+    <string name="bixby_popup_unavailable_now">Funkcija Bixby nav pieejama. Tikai tālruņa īpašnieks vai galvenais tālruņa numurs var izmantot Bixby.</string>
     <string name="permlab_knoxCustomSetting">Ierīces iestatījumu pārvaldība</string>
     <string name="permdesc_knoxCustomSetting">Konfigurējiet ierīces iestatījumus, piemēram, Bluetooth, atrašanās vietas, Wi-Fi, mobilo datu un Android iestatījumus.</string>
     <string name="permlab_knoxCustomSystem">Sistēmas iestatījumu pārvaldība</string>
@@ -2425,6 +2439,4 @@ USB funkcijas var nebūt pieejamas, kamēr ir ieslēgts maksimālais enerģijas 
     <string name="charging_connected_via_usb">Uzlādē pievienoto ierīci, izmantojot USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Failu sistēmas ierobežojums</string>
     <string name="lacking_filenode_internal_storage_view_text">Tālrunī ir izveidots pārāk daudz failu. Programmas var sākt nedarboties pareizi, un tālruni var nebūt iespējams startēt. Dublējiet svarīgos datus un atjaunojiet tālrunī rūpnīcas iestatījumus.</string>
-    <string name="lock_to_app_toast_for_navibar">Lai atspraustu programmu, vienlaikus nospiediet pēdējo lietoto programmu taustiņu un turiet un taustiņu Atpakaļ.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

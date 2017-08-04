@@ -911,9 +911,9 @@
     <string name="dlg_ok">ശരി</string>
     <string name="usb_charging_notification_title">ഈ ഉപകരണം USB ചാർജുചെയ്യുന്നു</string>
     <string name="usb_supplying_notification_title">ഘടിപ്പിച്ചിട്ടുള്ള ഉപകരണത്തിന് USB വൈദ്യുതി നൽകുന്നു</string>
-    <string name="usb_mtp_notification_title">USB മീഡിയ ഫയലുകൾ കൈമാറുന്നു</string>
-    <string name="usb_ptp_notification_title">ചിത്രങ്ങളെ USB കൈമാറുന്നു</string>
-    <string name="usb_midi_notification_title">MIDI ഉപകരണത്തിലേക്ക് USB ബന്ധിപ്പിച്ചു</string>
+    <string name="usb_mtp_notification_title">ഫയൽ കൈമാറ്റത്തിനുള്ള USB</string>
+    <string name="usb_ptp_notification_title">ചിത്ര കൈമാറ്റത്തിനുള്ള USB</string>
+    <string name="usb_midi_notification_title">MIDI-യ്ക്കുള്ള USB</string>
     <string name="usb_accessory_notification_title">ഒരു USB ആക്സസ്സറിയിലേക്ക് കണക്ട് ചെയ്തിരിക്കുന്നു</string>
     <string name="usb_notification_message">മറ്റ് USB ഓപ്ഷനുകള്‍ക്കായി ടാപ്പുചെയ്യുക.</string>
     <string name="adb_active_notification_title">USB ഡീബഗ്ഗിംഗ് ബന്ധിപ്പിച്ചു.</string>
@@ -1314,6 +1314,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">ബട്ടണുകൾ സാധാരണ ദൃശ്യമാകുന്ന സ്ക്രീനിന്‍റെ അരുകിൽ നിന്ന് ഉൾഭാഗത്തേക്ക് സ്വൈപ് ചെയ്ത് നിങ്ങൾക്ക് ബട്ടണുകൾ വീണ്ടും കാണിക്കാവുന്നതാണ്.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">അൽപ്പം കഴിഞ്ഞ്, ബട്ടണുകൾ വീണ്ടും അപ്രത്യക്ഷമാവും.</string>
     <string name="sec_immersive_cling_help_text_step_two">ഹോം ബട്ടൺ അത് മറയ്ക്കപ്പെട്ടിരിക്കുന്ന സമയത്ത് പോലും നിങ്ങൾക്ക് ഉപയോഗിക്കാം. ഹോം സ്ക്രീനിലേക്ക് പോവുന്നതിന്, സ്ക്രീനിൽ ഹോം ബട്ടൺ സാധാരണ ദൃശ്യമാകുന്ന ഭാഗത്ത് ദൃഢമായി സ്പർശിക്കുക.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">എന്നിരുന്നാലും, നിങ്ങൾ ഫോൺ പിടിക്കുമ്പോൾ ബട്ടണുകൾ എപ്പോഴും ചാർജ്ജിംഗ് പോർട്ടിന്‍റെ തൊട്ടടുത്തായി കാണപ്പെടും. അപ്രദക്ഷിണ ദിശയിൽ ഫോൺ തിരിക്കുമ്പോൾ, അസ്ത്രചിഹ്നം സൂചിപ്പിക്കുന്നതുപോലെ സ്ക്രീനിന്‍റെ അരുകിൽ നിന്ന് ഇടത്തോട്ട് സ്വൈപ് ചെയ്യുക.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">എന്നിരുന്നാലും, നിങ്ങൾ ഫോൺ പിടിക്കുമ്പോൾ ബട്ടണുകൾ എപ്പോഴും ചാർജ്ജിംഗ് പോർട്ടിന്‍റെ തൊട്ടടുത്തായി കാണപ്പെടും. പ്രദക്ഷിണ ദിശയിൽ ഫോൺ തിരിക്കുമ്പോൾ, അസ്ത്രചിഹ്നം സൂചിപ്പിക്കുന്നതുപോലെ സ്ക്രീനിന്‍റെ അരുകിൽ നിന്ന് വലത്തോട്ട് സ്വൈപ് ചെയ്യുക.</string>
     <string name="done_label">ചെയ്തു</string>
     <string name="hour_picker_description">അനലോഗ് മണിക്കൂർ പിക്കർ</string>
     <string name="minute_picker_description">അനലോഗ് മിനിറ്റ് പിക്കർ</string>
@@ -1324,7 +1326,9 @@
     <string name="deleted_key">%s ഇല്ലാതാക്കി.</string>
     <string name="managed_profile_label_badge">ഔദ്യോഗികം %1$s</string>
     <string name="lock_to_app_toast">ആപ്ലിക്കേഷന്‍ പിന്‍ ചെയ്തതു നീക്കം ചെയ്യുന്നതിന്, സമീപകാല, ബാക്ക് കീകൾ ഒരേ സമയം അമർത്തിപ്പിടിക്കുക.</string>
+    <string name="lock_to_app_toast_for_navibar">ആപ്ലിക്കേഷന്‍ പിന്‍ ചെയ്തതു നീക്കം ചെയ്യുന്നതിന്, സമീപകാല, ബാക്ക് കീകൾ ഒരേ സമയം സ്പർശിച്ചുപിടിക്കുക.</string>
     <string name="lock_to_app_toast_accessible">ആപ്ലിക്കേഷന്‍ പിന്‍ ചെയ്തതു നീക്കം ചെയ്യുന്നതിന്, സമീപകാല കീ അമർത്തിപ്പിടിക്കുക.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">ലോക്ക്-ടു-ആപ്ലിക്കേഷൻ മോഡ് പ്രാപ്തമാക്കപ്പെട്ടു.</string>
     <string name="lock_to_app_start">ആപ്ലിക്കേഷൻ പിൻ ചെയ്തു.</string>
     <string name="lock_to_app_exit">ആപ്ലിക്കേഷൻ പിന്‍ ചെയ്തതു നീക്കം ചെയ്തു.</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">സംരക്ഷിക്കുക</string>
     <string name="tw_clipboard_button_tts">ബട്ടണ്‍</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">ക്ലിപ്ബോര്‍ഡ്</string>
-    <string name="hdmi_connect">HDMI കേബിള്‍ കണക്ട് ചെയ്‌തു.</string>
+    <string name="hdmi_connect">HDMI ബന്ധിപ്പിച്ചു.</string>
     <string name="hdmi_connect_indirectly">HDMI കേബിള്‍ വഴി നേരിട്ട് TV-ലേക്ക് നിങ്ങളുടെ ഉപകരണം ബന്ധിപ്പിക്കുക.</string>
-    <string name="hdmi_disconnect">HDMI കേബിള്‍ വിച്ഛേദിച്ചു.</string>
+    <string name="hdmi_disconnect">HDMI വിച്ഛേദിക്കപ്പെട്ടു.</string>
     <string name="hdmi_recommend_charging_device">നിങ്ങളുടെ ഉപകരണം ഒരു HDTV അഡാപ്റ്ററിലേക്ക് ദീർഘ നേരമായി ബന്ധിപ്പിച്ചിരിക്കുകയാണെങ്കിൽ അത് ചാർജ്ജ് ചെയ്യാൻ ഞങ്ങൾ ശുപാർശ ചെയ്യുകയാണ്. നിങ്ങളുടെ ഉപകരണം ചാർജ്ജ് ചെയ്യുന്നതിന് HDTV അഡാപ്റ്ററിലേക്ക് ചാർജ്ജർ ബന്ധിപ്പിക്കുക.</string>
     <string name="hdmi_wfd_terminate">HDMI ബന്ധിപ്പിച്ചു. Screen Mirroring കണക്ഷന്‍ അവസാനിച്ചു</string>
     <string name="disable">അപ്രാപ്‌തമാക്കുക</string>
@@ -1851,6 +1855,7 @@
     <string name="volumepanel_media">മീഡിയ</string>
     <string name="volumepanel_notification">അറിയിപ്പുകള്‍</string>
     <string name="volumepanel_system">സിസ്റ്റം</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">എമര്‍ജന്‍സി മോഡിലായിരിക്കുന്ന സമയത്ത് സ്ക്രീനിന്‍റെ ചിത്രമെടുക്കാനാവില്ല.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">സ്ക്രീന്‍ഷോട്ട് പിടിച്ചെടുക്കാനാകുന്നില്ല.</string>
     <string name="bluetooth_permission_request">ബ്ലുടൂത്ത്‌ അനുമതി അഭ്യര്‍ത്ഥന</string>
@@ -1923,6 +1928,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct പ്രാപ്തമാക്കിയ സമയത്ത് %s പ്രാപ്തമാക്കാനാവില്ല.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">സേവന ദാതാവിൽ നിന്നും പ്രതികരണമില്ല.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s സജീവമാക്കൽ അഭ്യർത്ഥന അയയ്ക്കുന്നത് പരാജയപ്പെട്ടു. ലഭ്യമായ നെറ്റ്‌വർക്കുകൾ വഴി വീണ്ടും ബന്ധിപ്പിക്കുന്നു…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s പ്രാപ്തമാക്കാനാവില്ല. നിങ്ങളുടെ ആന്തരിക പാക്കേജിനോടൊപ്പം %2$s ലഭ്യമല്ല അല്ലെങ്കിൽ %3$s സെർവറിൽ നിന്ന് പ്രതികരണമൊന്നും ലഭിച്ചില്ല.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s പ്രാപ്തമാക്കാനാവില്ല. ഉപകരണം അമിതമായി ചൂടാവുന്നുണ്ട്. ഉപകരണം തണുക്കുന്നതുവരെ കാത്ത് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="mptcp_message_operation_disabled_overheating">ഉപകരണം അമിതമായി ചൂടാകുന്നത് തടയാൻ %s അപ്രാപ്തമാക്കി. പകരം മൊബൈൽ നെറ്റ്‌വർക്ക് വഴി ഡൗൺലോഡ് ചെയ്യുന്നു…</string>
     <string name="mptcp_message_data_usage_limit">ഡാറ്റാ ഉപയോഗ പരിധിയിൽ എത്തി. ഡാറ്റാ ഉപയോഗ പരിധി മാറ്റുന്നതിന്, ക്രമീകരണങ്ങളിലേക്ക് പോവുക.</string>
@@ -2030,6 +2036,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s ശബ്ദം നിങ്ങളുടെ USB ഓഡിയോ ഉപകരണം മുഖേന പ്ലേ ചെയ്യുകയാണ്. ഇത് ഓഫ് ചെയ്യുന്നതിന് ഇവിടെ സ്പർശിക്കുക.</string>
     <string name="multisound_change_output_device">ഓഡിയോ ഔട്ട്പുട്ട് ഉപകരണം മാറ്റുക</string>
     <string name="multisound_headup_contents">ഈ ആപ്ലിക്കേഷന് വേണ്ടി നിങ്ങൾ തിരഞ്ഞെടുത്ത ഓഡിയോ ഉപകരണം നിങ്ങളുടെ ഫോണിലെ നിലവിലെ ഓഡിയോ ഔട്ട്പുട്ട് ഉപകരണത്തിന് സമാനമാണ്. ഈ ആപ്ലിക്കേഷന്‍റെ ശബ്ദം വേറിട്ടതാക്കുന്നതിന്, ദ്രുത ക്രമീകരണ പാനലിൽ നിങ്ങളുടെ ഓഡിയോ ഔട്ട്പുട്ട് ഉപകരണം മാറ്റുക.</string>
+    <string name="multisound_hun_title">പ്രധാന ഓഡിയോ ഔട്ട്പുട്ട് ഉപകരണം മാറ്റണോ?</string>
+    <string name="multisound_hun_contents">ഈ ആപ്ലിക്കേഷന് (%1$s) വേണ്ടി നിങ്ങൾ തിരഞ്ഞെടുത്ത ഓഡിയോ ഉപകരണം പ്രധാന ഓഡിയോ ഔട്ട്പുട്ട് ഉപകരണത്തിന് (%2$s) സമാനമാണ്. ഈ ആപ്ലിക്കേഷന്‍റെ ശബ്ദം വേറിട്ടതാക്കുന്നതിന്, പ്രധാന ഓഡിയോ ഔട്ട്പുട്ട് ഉപകരണം %3$s-ലേക്ക് മാറ്റേണ്ടതാവശ്യമാണ്.</string>
+    <string name="multisound_hun_close">അടയ്ക്കുക</string>
+    <string name="multisound_hun_change">മാറ്റു</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">ഹെഡ്‌സെറ്റ്‌</string>
     <string name="bixby_edgecase_mpsm">മാക്സിമം പവർ സേവിംഗ് മോഡ് ഓൺ ചെയ്തിരിക്കുന്ന സമയത്ത് Bixby ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="bixby_edgecase_emergencymode">എമർജൻസി മോഡിൽ Bixby ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="bixby_edgecase_kidsmode">കിഡ്സ് മോഡിൽ Bixby ഉപയോഗിക്കാനാവില്ല.</string>
@@ -2037,9 +2049,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink ഉപയോഗിക്കുന്ന സമയത്ത് Bixby ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX-ൽ Bixby ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="bixby_edgecase_dexstation">DeX സ്റ്റേഷനിൽ ബന്ധിപ്പിച്ച സമയത്ത് Bixby ഉപയോഗിക്കാനാവില്ല.</string>
-    <string name="conventional_mode_recent_noti">സമീപകാല ആപ്ലിക്കേഷൻ സ്ക്രീനിലെ വിപുലീകരിക്കുക ഐക്കണിൽ സ്പർശിച്ച് ഈ ആപ്ലിക്കേഷനെ നിങ്ങൾക്ക് പൂർണ്ണ സ്ക്രീനിൽ കാണാവുന്നതാണ്.</string>
+    <string name="bixby_edgecase_cantusenow">ഈ സമയത്ത് Bixby Voice ഉപയോഗിക്കാനാവില്ല.</string>
+    <string name="conventional_mode_recent_noti">സമീപകാല ആപ്ലിക്കേഷനുകളുടെ സ്ക്രീനിൽ ആപ്ലിക്കേഷന്‍റെ വീക്ഷണ അനുപാതം നിങ്ങൾക്ക് മാറ്റാവുന്നതാണ്.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">മുമ്പത്തെ വീക്ഷണ അനുപാതത്തിലേക്ക് മടങ്ങുന്നതിന്, ക്രമീകരണങ്ങൾ > ഡിസ്പ്ലേ > പൂർണ്ണ സ്ക്രീൻ ആപ്ലിക്കേഷനുകൾ എന്നിവയിലേക്ക് പോവുക.</string>
     <string name="conventional_mode_tap_here_to_fill">മുഴുവൻ സ്ക്രീനും ഫിൽ ചെയ്യാൻ ഇവിടെ സ്പർശിക്കുക</string>
+    <string name="bixby_popup_unavailable_now">Bixby ലഭ്യമല്ല. ഫോൺ ഉടമയ്ക്കോ പ്രധാന ഫോൺ നമ്പറിനോ മാത്രമാണ് Bixby ഉപയോഗിക്കാനാവുക.</string>
     <string name="permlab_knoxCustomSetting">ഉപകരണ ക്രമീകരണങ്ങൾ മാനേജ് ചെയ്യുക</string>
     <string name="permdesc_knoxCustomSetting">ബ്ലൂടൂത്ത്, ലൊക്കേഷൻ, Wi-Fi, മൊബൈൽ ഡാറ്റ, ആൻഡ്രോയ്ഡ് ക്രമീകരണങ്ങൾ തുടങ്ങിയ ഉപകരണ ക്രമീകരണങ്ങൾ കോൺഫിഗർ ചെയ്യുക.</string>
     <string name="permlab_knoxCustomSystem">സിസ്റ്റം ക്രമീകരണങ്ങൾ മാനേജ് ചെയ്യുക</string>
@@ -2384,6 +2398,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">ബന്ധിപ്പിച്ച ഉപകരണം USB വഴി ചാർജ്ജ് ചെയ്യുന്നു…</string>
     <string name="lacking_filenode_internal_storage_view_title">ഫയൽ സിസ്റ്റം പരിധി</string>
     <string name="lacking_filenode_internal_storage_view_text">നിങ്ങളുടെ ഫോണിൽ വളരെയേറെ ഫയലുകൾ സൃഷ്ടിക്കപ്പെട്ടു. ആപ്ലിക്കേഷനുകൾ ശരിയായി പ്രവർത്തിക്കുന്നത് നിർത്തിയേക്കാം, മാത്രമല്ല നിങ്ങളുടെ ഫോൺ ഇനി ആരംഭിച്ചില്ലെന്നുംവരാം. സുപ്രധാന ഡാറ്റ ഏതെങ്കിലുമുണ്ടെങ്കിൽ ബാക്കപ്പ് ചെയ്ത് നിങ്ങളുടെ ഫോണിൽ ഫാക്ടറി പുനഃക്രമീകരണം നിർവഹിക്കുക.</string>
-    <string name="lock_to_app_toast_for_navibar">ആപ്ലിക്കേഷന്‍ പിന്‍ ചെയ്തതു നീക്കം ചെയ്യുന്നതിന്, സമീപകാല, ബാക്ക് കീകൾ ഒരേ സമയം സ്പർശിച്ചുപിടിക്കുക.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

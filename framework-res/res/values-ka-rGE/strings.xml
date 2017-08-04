@@ -766,7 +766,7 @@
     <string name="aerr_process">%1$s პროცესი გაჩერდა.</string>
     <string name="aerr_application_repeated">%1$s განუწყვეტლივ ჩერდება</string>
     <string name="aerr_process_repeated">%1$s განუწყვეტლივ წყდება</string>
-    <string name="aerr_restart">აპის ჩართვა</string>
+    <string name="aerr_restart">აპლიკაციის თავიდან ჩართვა</string>
     <string name="aerr_reset">გადაყენება და აპის გადატვირთვა</string>
     <string name="aerr_report">გამოხმაურება</string>
     <string name="aerr_close">დახურვა</string>
@@ -911,9 +911,9 @@
     <string name="dlg_ok">კი</string>
     <string name="usb_charging_notification_title">მოწყობილობა USB-ის მეშვეობით იტენება</string>
     <string name="usb_supplying_notification_title">მიერთებულ მოწყობილობას ელკვებას USB აწვდის</string>
-    <string name="usb_mtp_notification_title">მედია ფაილების გადაცემა USB-თი</string>
-    <string name="usb_ptp_notification_title">სურათების გადაცემა USB-თი</string>
-    <string name="usb_midi_notification_title">USB დაკავშირდა MIDI მოწყობ.-თან</string>
+    <string name="usb_mtp_notification_title">ფაილის გადასაცემი USB</string>
+    <string name="usb_ptp_notification_title">სურათის გადასაცემი USB</string>
+    <string name="usb_midi_notification_title">MIDI-ს USB</string>
     <string name="usb_accessory_notification_title">დაკავშირებულია USB აქსესუართან</string>
     <string name="usb_notification_message">დააკაკუნეთ სხვა USB ოფციებისთვის.</string>
     <string name="adb_active_notification_title">USB შეცდომების გასწორება დაკავშირებულია.</string>
@@ -1315,6 +1315,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">ღილაკები ისევ შეგიძლიათ გამოაჩინოთ, რისთვისაც უნდა გადაუსვათ თითი ეკრანის კიდიდან შიგნითკენ, სანაც ღილაკები ჩვეულებრივ ჩანს.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">გარკვეული ხნის შემდეგ ღილაკები ისევ გაქრება.</string>
     <string name="sec_immersive_cling_help_text_step_two">„საწყის გვერდზე გადასვლის ღილაკის“ გამოყენება მაშინაც შეგიძლიათ, როცა ის დამალულია. „საწყის ეკრანზე“ გადასასვლელად, დააჭირეთ ეკრანის რომელიმე ადგილს, სადაც ჩვეულებრივ ჩანს „საწყის გვერდზე გადასვლის ღილაკი“.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">ამასთან, როდესაც ტელეფონი გიჭირავთ, ღილაკები ყოველთვის მოთავსებულია დამტენის პორტის გვერდით. როდესაც ტელეფონს მოაბრუნებთ საათის ისრის საწინააღმდეგო მიმართულებით, გადაუსვით ეკრანს თითი მარცხენა კიდიდან, როგორც ეს ნაჩვენებია ისრით.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">ამასთან, როდესაც ტელეფონი გიჭირავთ, ღილაკები ყოველთვის მოთავსებულია დამტენის პორტის გვერდით. როდესაც ტელეფონს მოაბრუნებთ საათის ისრის მიმართულებით, გადაუსვით ეკრანს თითი მარჯვენა კიდიდან, როგორც ეს ნაჩვენებია ისრით.</string>
     <string name="done_label">შესრულდა</string>
     <string name="hour_picker_description">ანალოგური საათის დამყენებელი</string>
     <string name="minute_picker_description">ანალოგური წუთის დამყენებელი</string>
@@ -1325,7 +1327,9 @@
     <string name="deleted_key">%s წაიშალა.</string>
     <string name="managed_profile_label_badge">სამსახური %1$s</string>
     <string name="lock_to_app_toast">ჩამაგრებული აპლიკაციის მოსახსნელად, ერთდროულად ხანგრძლივად დააჭირეთ კლავიშებს „ბოლოდროინდელები“ და „უკან“.</string>
+    <string name="lock_to_app_toast_for_navibar">ჩამაგრებული აპლიკაციის მოსახსნელად, ერთდროულად ხანგრძლივად შეეხეთ ღილაკებს „ბოლოდროინდელები“ და „უკან“.</string>
     <string name="lock_to_app_toast_accessible">ჩამაგრებული აპლიკაციის მოსახსნელად, ხანგრძლივად დააჭირეთ ბოლოდროინდელთა ღილაკს.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">აპლიკაციის ეკრანზე მიმაგრების რეჟიმი ჩაირთო.</string>
     <string name="lock_to_app_start">აპლიკაცია ჩამაგრდა.</string>
     <string name="lock_to_app_exit">აპლიკაციის ჩამაგრება მოიხსნა.</string>
@@ -1431,9 +1435,9 @@
     <string name="tw_clipboard_save_tts">შენახვა</string>
     <string name="tw_clipboard_button_tts">ღილაკი</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">ბუფერული მეხს.</string>
-    <string name="hdmi_connect">HDMI სადენი მიერთებულია.</string>
+    <string name="hdmi_connect">HDMI დაკავშირებულია.</string>
     <string name="hdmi_connect_indirectly">დააკავშირეთ მოწყობილობა ტელევიზორთან პირდაპირ HDMI კაბელით.</string>
-    <string name="hdmi_disconnect">HDMI სადენი გამორთულია.</string>
+    <string name="hdmi_disconnect">HDMI გამორთულია.</string>
     <string name="hdmi_recommend_charging_device">გირჩევთ, დამუხტოთ აპარატი, თუ ის დიდი ხანია, რაც დაკავშირებულია HDTV ადაპტერთან. აპარატის დასამუხტად მიუერთეთ დამტენი HDTV ადაპტერს.</string>
     <string name="hdmi_wfd_terminate">HDMI დაკავშირებულია. Screen Mirroring-ით დაკავშირება დასრულდა</string>
     <string name="disable">გამორთვა</string>
@@ -1852,6 +1856,7 @@
     <string name="volumepanel_media">მედია</string>
     <string name="volumepanel_notification">შეტყობინებები</string>
     <string name="volumepanel_system">სისტემა</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">ეკრანის ანაბეჭდის გადაღება შეუძლებელია გადაუდებელ რეჟიმში.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">ეკრანის სურათის გადაღება შეუძლებელია.</string>
     <string name="bluetooth_permission_request">Bluetooth–ის უფლების მოთხოვნა</string>
@@ -1924,6 +1929,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">%s ვერ ჩაირთვება, სანამ ჩართულია Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">მომსახურების მომწოდებლისგან პასუხი არ არის.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s-ის აქტივაციის მოთხოვნა ვერ გაიგზავნა. თავიდან მყარდება კავშირი მისაწვდომ ქსელებთან…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ვერ ჩაირთვება. %2$s მიუწვდომელია თქვენი ინტერნეტ-პაკეტით, ან %3$s სერვერიდან პასუხი არ არის მიღებული.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ვერ ჩაირთვება. მოწყობილობის გადახურების პირასაა. დაელოდეთ მოწყობილობის გაგრილებას და ისევ სცადეთ.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s გამოირთო, მოწყობილობის გადახურების ასარიდებლად. სანაცვლოდ, იტვირთება მობილური ქსელით…</string>
     <string name="mptcp_message_data_usage_limit">მიღწეულია მონაცემთა ლიმიტი. მონაცემთა გამოყენების ლიმიტის შესაცვლელად, გადადით პარამეტრებში.</string>
@@ -2033,6 +2039,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s-ის ხმა ისმის USB აუდიო მოწყობილობაში. შეეხეთ აქ, მის გამოსართავად.</string>
     <string name="multisound_change_output_device">აუდიო გამოსავლის მოწყობილობის შეცვლა</string>
     <string name="multisound_headup_contents">ამ აპლიკაციისთვის თქვენ მიერ შერჩეული აუდიო მოწყობილობა იგივეა, რაც ტელეფონში ამჟამად შერჩეული გამომავალი აუდიო მოწყობილობა. ამ აპლიკაციის ხმა რომ განცალკევდეს, სწრაფი პარამეტრების დაფაზე შეცვალეთ გამომავალი აუდიო მოწყობილობა.</string>
+    <string name="multisound_hun_title">შეცვლით ძირითად აუდიო მოწყობილობას?</string>
+    <string name="multisound_hun_contents">ამ აპლიკაციისთვის (%1$s) თქვენ მიერ შერჩეული აუდიო მოწყობილობა იგივეა, რაც ძირითადი გამომავალი აუდიო მოწყობილობა (%2$s). ამ აპლიკაციის ხმის განცალკევებისთვის, ძირითადი გამომავალი აუდიო მოწყობილობა უნდა შეიცვალოს და გახდეს %3$s.</string>
+    <string name="multisound_hun_close">დახურვა</string>
+    <string name="multisound_hun_change">შეცვლა</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">გარნიტურა</string>
     <string name="bixby_edgecase_mpsm">Bixby-ის გამოყენება შეუძლებელია, როდესაც ჩართულია „ენერგიის მაქსიმალური დაზოგვის რეჟიმი“.</string>
     <string name="bixby_edgecase_emergencymode">Bixby-ის გამოყენება „საგანგებო რეჟიმში“ შეუძლებელია.</string>
     <string name="bixby_edgecase_kidsmode">Bixby-ის გამოყენება „საბავშვო რეჟიმში“ შეუძლებელია.</string>
@@ -2040,9 +2052,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Bixby-ის გამოყენება შეუძლებელია, როდესაც გამოყენებულია MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Bixby-ს გამოყენება შეუძლებელია Samsung DeX-ში.</string>
     <string name="bixby_edgecase_dexstation">Bixby-ს გამოყენება შეუძლებელია, როდესაც კავშირი დამყარებულია DeX სადგურთან.</string>
-    <string name="conventional_mode_recent_noti">ამ აპლიკაციის სრულ ეკრანზე სანახავად, შეეხეთ „გაშლის“ ნიშანს „ბოლოდროინდელი აპლიკაციების“ ეკრანზე.</string>
+    <string name="bixby_edgecase_cantusenow">ამ მომენტისთვის Bixby Voice-ის გამოყენება შეუძლებელია.</string>
+    <string name="conventional_mode_recent_noti">აპლიკაციის გამოსახულების გვერდების ფარდობა შეგიძლიათ შეცვალოთ „ბოლოდროინდელი აპლიკაციების“ ეკრანზე.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">გვერდების ფარდობის წინა მნიშვნელობის დასაბრუნებლად, გახსენით „პარამეტრები“ > „ჩვენება“ > „აპლიკაციები სრულ ეკრანზე“.</string>
     <string name="conventional_mode_tap_here_to_fill">მთელ ეკრანზე გასაშლელად, შეეხეთ აქ</string>
+    <string name="bixby_popup_unavailable_now">Bixby მიუწვდომელია. მხოლოდ ტელეფონის მფლობელს შეუძლია ან ძირითად ტელეფონის ნომრითაა შესაძლებელი Bixby-ს გამოყენება.</string>
     <string name="permlab_knoxCustomSetting">მოწყობილობის პარამეტრების მართვა</string>
     <string name="permdesc_knoxCustomSetting">შეარჩიეთ მოწყობილობის პარამეტრები, როგორიცაა Bluetooth, „ლოკაცია“, Wi-Fi, „მობილური მონაცემები“ და Android-ის პარამეტრები.</string>
     <string name="permlab_knoxCustomSystem">სისტემის პარამეტრების მართვა</string>
@@ -2387,6 +2401,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">დაკავშირებული მოწყობილობა იმუხტება USB-თი…</string>
     <string name="lacking_filenode_internal_storage_view_title">ფაილთა სისტემის ლიმიტი</string>
     <string name="lacking_filenode_internal_storage_view_text">ტელეფონში შექმნილია ძალიან ბევრი ფაილი. შეიძლება აპლიკაციების მუშაობა შეფერხდეს და ტელეფონი ვეღარ ჩაირთოს. დაამარქაფეთ მნიშვნელოვანი მონაცემები და ტელეფონში დააბრუნეთ ქარხნული პარამეტრები.</string>
-    <string name="lock_to_app_toast_for_navibar">ჩამაგრებული აპლიკაციის მოსახსნელად, ერთდროულად ხანგრძლივად შეეხეთ ღილაკებს „ბოლოდროინდელები“ და „უკან“.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

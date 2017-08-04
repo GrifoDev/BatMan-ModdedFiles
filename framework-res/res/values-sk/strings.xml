@@ -770,7 +770,7 @@ Naozaj chcete túto stránku opustiť?"</string>
     <string name="aerr_process">Proces %1$s sa zastavil.</string>
     <string name="aerr_application_repeated">%1$s sa opakovane zastavuje</string>
     <string name="aerr_process_repeated">%1$s sa opakovane zastavuje</string>
-    <string name="aerr_restart">Reštartovať</string>
+    <string name="aerr_restart">Reštartovať aplikáciu</string>
     <string name="aerr_reset">Resetovať a reštartovať aplikáciu</string>
     <string name="aerr_report">Odoslať spätnú väzbu</string>
     <string name="aerr_close">Zavrieť</string>
@@ -915,9 +915,9 @@ Chcete ju zavrieť?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Prebieha nabíjanie tohto zariadenia pomocou USB</string>
     <string name="usb_supplying_notification_title">Prebieha nabíjanie pripojeného zariadenia pomocou USB</string>
-    <string name="usb_mtp_notification_title">Prenos multimed. súborov cez USB</string>
-    <string name="usb_ptp_notification_title">Prenos fotografií cez USB</string>
-    <string name="usb_midi_notification_title">Pripojené cez USB k zariad. MIDI</string>
+    <string name="usb_mtp_notification_title">USB na prenos súborov</string>
+    <string name="usb_ptp_notification_title">USB na prenos fotografií</string>
+    <string name="usb_midi_notification_title">USB pre MIDI</string>
     <string name="usb_accessory_notification_title">Pripojené k príslušenstvu USB</string>
     <string name="usb_notification_message">Ťuknutím zobrazíte ďalšie možnosti rozhrania USB.</string>
     <string name="adb_active_notification_title">Ladenie USB pripojené.</string>
@@ -1319,6 +1319,8 @@ Skúste to znova po uplynutí %2$d sekúnd."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Tlačidlá môžete zobraziť znova potiahnutím smerom dovnútra od okraja obrazovky v mieste, kde sa tlačidlá obvykle zobrazujú.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Tlačidlá po chvíli znova zmiznú.</string>
     <string name="sec_immersive_cling_help_text_step_two">Môžete použiť tlačidlo Domov, dokonca aj keď je skryté. Na domovskú obrazovku môžete prejsť silným stlačením oblasti obrazovky, kde sa obvykle zobrazuje tlačidlo Domov.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Bez ohľadu na to, ako držíte telefón, tlačidlá sa vždy nachádzajú vedľa nabíjacieho portu. Keď je telefón otočený proti smeru hodinových ručičiek, vykonajte potiahnutie doľava od okraja obrazovky, ako to znázorňuje šípka.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Bez ohľadu na to, ako držíte telefón, tlačidlá sa vždy nachádzajú vedľa nabíjacieho portu. Keď je telefón otočený v smere hodinových ručičiek, vykonajte potiahnutie doprava od okraja obrazovky, ako to znázorňuje šípka.</string>
     <string name="done_label">Hotovo</string>
     <string name="hour_picker_description">Analógový volič hodín</string>
     <string name="minute_picker_description">Analógový volič minút</string>
@@ -1329,7 +1331,9 @@ Skúste to znova po uplynutí %2$d sekúnd."</string>
     <string name="deleted_key">Odstránené: %s.</string>
     <string name="managed_profile_label_badge">Práca – %1$s</string>
     <string name="lock_to_app_toast">Príslušnú aplikáciu môžete odopnúť súčasným stlačením a podržaním tlačidiel Nedávne a Späť.</string>
+    <string name="lock_to_app_toast_for_navibar">Príslušnú aplikáciu môžete odopnúť súčasným dotykom a podržaním tlačidiel Nedávne a Späť.</string>
     <string name="lock_to_app_toast_accessible">Ak chcete príslušnú aplikáciu odopnúť, stlačte a podržte tlačidlo naposledy použitých aplikácií.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Zapol sa režim zamknutia k aplikácii.</string>
     <string name="lock_to_app_start">Aplikácia sa pripla.</string>
     <string name="lock_to_app_exit">Aplikácia sa odopla.</string>
@@ -1435,9 +1439,9 @@ Pri nabíjaní zariadenia sa šetrič batérie automaticky vypne."</string>
     <string name="tw_clipboard_save_tts">Uložiť</string>
     <string name="tw_clipboard_button_tts">Tlačidlo</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Schránka</string>
-    <string name="hdmi_connect">Kábel HDMI je pripojený.</string>
+    <string name="hdmi_connect">HDMI je pripojené.</string>
     <string name="hdmi_connect_indirectly">Pripojte vaše zariadenie k televízoru priamo pomocou kábla HDMI.</string>
-    <string name="hdmi_disconnect">Kábel HDMI je odpojený.</string>
+    <string name="hdmi_disconnect">HDMI je odpojené.</string>
     <string name="hdmi_recommend_charging_device">Ak je zariadenie po dlhú dobu pripojené k adaptéru HDTV, odporúčame ho nabíjať. Zariadenie nabíjajte pripojením nabíjačky k adaptéru HDTV.</string>
     <string name="hdmi_wfd_terminate">HDMI je pripojené. Pripojenie cez Screen Mirroring sa ukončilo</string>
     <string name="disable">Vypnúť</string>
@@ -1857,6 +1861,7 @@ televízore (Smart View)"</string>
     <string name="volumepanel_media">Médium</string>
     <string name="volumepanel_notification">Oznámenia</string>
     <string name="volumepanel_system">Systém</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">V tiesňovom režime sa nedá snímať obrazovka.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Nedá sa nasnímať obrazovka.</string>
     <string name="bluetooth_permission_request">Požiadavka na povolenie spojenia Bluetooth</string>
@@ -1929,6 +1934,7 @@ Ak chcete príslušnú aplikáciu odopnúť, stlačte a podržte tlačidlo menu.
     <string name="mptcp_message_mptcp_capability_WifiDirect">%s sa nedá zapnúť, kým je zapnutá funkcia Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Operátor neodpovedá.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nepodarilo sa odoslať žiadosť o aktiváciu služby %s. Pripája sa znova cez dostupné siete…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Funkcia %1$s sa nedá zapnúť. %2$s nie je k dispozícii s vaším internetovým balíkom alebo nebola prijatá žiadna odpoveď od servera %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Funkcia %s sa nedá zapnúť. Zariadenie sa prehrieva. Počkajte, kým sa zariadenie ochladí, a potom to skúste znova.</string>
     <string name="mptcp_message_operation_disabled_overheating">Funkcia %s sa vypla, aby sa zabránilo prehriatiu zariadenia. Sťahuje sa namiesto toho cez mobilnú sieť…</string>
     <string name="mptcp_message_data_usage_limit">Dosiahol sa limit prenesených dát. Ak chcete zmeniť limit spotreby dát, prejdite do menu Nastavenia.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Zvuk aplikácie %s sa prehráva cez zvukové zariadenie USB. Ťuknutím sem to môžete vypnúť.</string>
     <string name="multisound_change_output_device">Zmena výstupného zvukového zariadenia</string>
     <string name="multisound_headup_contents">Zvukové zariadenie, ktoré ste vybrali pre túto aplikáciu, je rovnaké ako aktuálne výstupné zvukové zariadenie pre telefón. Ak chcete oddeliť zvuk tejto aplikácie, zmeňte výstupné zvukové zariadenie na paneli rýchlych nastavení.</string>
+    <string name="multisound_hun_title">Zmeniť hlavné výstupné zvukové zariadenie?</string>
+    <string name="multisound_hun_contents">Zvukové zariadenie, ktoré ste vybrali pre túto aplikáciu (%1$s), je rovnaké ako hlavné výstupné zvukové zariadenie (%2$s). Ak chcete oddeliť zvuk tejto aplikácie, hlavné výstupné zvukové zariadenie sa musí zmeniť na %3$s.</string>
+    <string name="multisound_hun_close">Zavrieť</string>
+    <string name="multisound_hun_change">Zmeniť</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Náhlavná súprava</string>
     <string name="bixby_edgecase_mpsm">Bixby sa nedá použiť, kým je zapnutý režim maximálneho šetrenia energie.</string>
     <string name="bixby_edgecase_emergencymode">Tiesňový režim nepodporuje funkciu Bixby.</string>
     <string name="bixby_edgecase_kidsmode">Detský režim nepodporuje funkciu Bixby.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Bixby sa nedá použiť počas používania funkcie MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Bixby sa nedá používať v režime Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Bixby sa nedá používať počas pripojenia k stanici DeX.</string>
-    <string name="conventional_mode_recent_noti">Ťuknutím na ikonu Rozbaliť na obrazovke Nedávne aplikácie môžete zobraziť túto aplikáciu na celej obrazovke.</string>
+    <string name="bixby_edgecase_cantusenow">Bixby Voice sa momentálne nedá použiť.</string>
+    <string name="conventional_mode_recent_noti">Pomer strán aplikácie môžete zmeniť na obrazovke Nedávne aplikácie.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Predchádzajúci pomer strán môžete obnoviť v menu Nastavenia > Zobrazenie > Aplikácie na celej obrazovke.</string>
     <string name="conventional_mode_tap_here_to_fill">Ťuknutím sem sa vyplní celá obrazovka</string>
+    <string name="bixby_popup_unavailable_now">Bixby nie je k dispozícii. Bixbyho môže používať iba vlastník telefónu alebo hlavné telefónne číslo.</string>
     <string name="permlab_knoxCustomSetting">Spravovať nastavenia zariadenia</string>
     <string name="permdesc_knoxCustomSetting">Slúži na konfiguráciu nastavení zariadenia, ako sú napríklad nastavenia pripojenia Bluetooth, lokalizácie, Wi-Fi, mobilného dátového pripojenia a systému Android.</string>
     <string name="permlab_knoxCustomSystem">Spravovať systémové nastavenia</string>
@@ -2423,6 +2437,4 @@ Kým je zapnutá funkcia Režim maximálneho šetrenia energie, funkcie rozhrani
     <string name="charging_connected_via_usb">Pripojené zariadenie sa nabíja cez USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limit systému súborov</string>
     <string name="lacking_filenode_internal_storage_view_text">V telefóne je vytvorených príliš veľa súborov. Aplikácie môžu prestať pracovať správne a telefón sa už nemusí spustiť. Zálohujte všetky dôležité údaje a resetujte telefón s obnovením predvolených nastavení od výrobcu.</string>
-    <string name="lock_to_app_toast_for_navibar">Príslušnú aplikáciu môžete odopnúť súčasným dotykom a podržaním tlačidiel Nedávne a Späť.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

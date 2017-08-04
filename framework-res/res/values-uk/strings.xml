@@ -769,7 +769,7 @@
     <string name="aerr_process">Виконання процесу %1$s припинено.</string>
     <string name="aerr_application_repeated">Додаток %1$s періодично перестає працювати</string>
     <string name="aerr_process_repeated">Процес \"%1$s\" періодично перестає працювати</string>
-    <string name="aerr_restart">Перезапустити</string>
+    <string name="aerr_restart">Перезапустити програму</string>
     <string name="aerr_reset">Скинути та перезапустити додаток</string>
     <string name="aerr_report">Надіслати відгук</string>
     <string name="aerr_close">Закрити</string>
@@ -911,9 +911,9 @@
     <string name="dlg_ok">ОК</string>
     <string name="usb_charging_notification_title">USB-кабель, через який заряджається цей пристрій</string>
     <string name="usb_supplying_notification_title">USB-кабель, через який живиться під’єднаний пристрій</string>
-    <string name="usb_mtp_notification_title">Передав. медіафайлів через USB</string>
-    <string name="usb_ptp_notification_title">Передача зображень через USB</string>
-    <string name="usb_midi_notification_title">USB-кабель підкл. до пристрою MIDI</string>
+    <string name="usb_mtp_notification_title">USB для передачі файлів</string>
+    <string name="usb_ptp_notification_title">USB для передачі зображень</string>
+    <string name="usb_midi_notification_title">USB для MIDI</string>
     <string name="usb_accessory_notification_title">Підключено до USB-пристрою</string>
     <string name="usb_notification_message">Торкніться, щоб налаштувати USB.</string>
     <string name="adb_active_notification_title">Налагодження USB підключено.</string>
@@ -1315,6 +1315,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Щоб знову показати кнопки, проведіть пальцем до центра екрана від того краю, де зазвичай відображуються кнопки.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Через деякий час кнопки знову зникнуть.</string>
     <string name="sec_immersive_cling_help_text_step_two">Кнопку «Домашній» можна використовувати, навіть якщо її приховано. Щоб перейти на головний екран, сильно натисніть на ту ділянку екрана, де зазвичай відображається кнопка «Домашній».</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Незалежно від того, як ви тримаєте телефон, кнопки завжди розташовано з найближчого до зарядного порту боку екрана. Якщо екран повернуто проти годинникової стрілки, проведіть ліворуч від краю екрана таким чином, як показано стрілкою.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Незалежно від того, як ви тримаєте телефон, кнопки завжди розташовано з найближчого до зарядного порту боку екрана. Якщо екран повернуто за годинниковою стрілкою, проведіть праворуч від краю екрана таким чином, як показано стрілкою.</string>
     <string name="done_label">Готово</string>
     <string name="hour_picker_description">Аналогова програма для визначення годин</string>
     <string name="minute_picker_description">Аналогова програма для визначення хвилин</string>
@@ -1325,7 +1327,9 @@
     <string name="deleted_key">%s видалено.</string>
     <string name="managed_profile_label_badge">Робоча %1$s</string>
     <string name="lock_to_app_toast">Щоб відкріпити програму, одночасно натисніть та утримуйте клавіші «Останні» та «Назад».</string>
+    <string name="lock_to_app_toast_for_navibar">Щоб відкріпити програму, одночасно торкніться та утримуйте клавіші «Останні» та «Назад».</string>
     <string name="lock_to_app_toast_accessible">Щоб скасувати закріплення програми, торкніться та утримуйте клавішу «Останні програми».</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Увімкнено режим блокування програм.</string>
     <string name="lock_to_app_start">Програму закріплено.</string>
     <string name="lock_to_app_exit">Програму відкріплено.</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">Зберегти</string>
     <string name="tw_clipboard_button_tts">Кнопка</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Буфер обміну</string>
-    <string name="hdmi_connect">Кабель HDMI підключено.</string>
+    <string name="hdmi_connect">HDMI підключено.</string>
     <string name="hdmi_connect_indirectly">Підключіть пристрій безпосередньо до телевізора за допомогою кабелю HDMI.</string>
-    <string name="hdmi_disconnect">Кабель HDMI відключено.</string>
+    <string name="hdmi_disconnect">HDMI відключено.</string>
     <string name="hdmi_recommend_charging_device">Рекомендується зарядити пристрій, якщо він залишається підключеним до адаптера HDTV протягом тривалого проміжку часу. Щоб зарядити пристрій, підключіть зарядний пристрій до адаптера HDTV.</string>
     <string name="hdmi_wfd_terminate">Підключено HDMI. Підключення Дублювання екрану завершено</string>
     <string name="disable">Вимкнути</string>
@@ -1846,6 +1850,7 @@
     <string name="volumepanel_media">Медіадані</string>
     <string name="volumepanel_notification">Сповіщення</string>
     <string name="volumepanel_system">Система</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Неможливо зробити знімок екрана в екстреному режимі.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Неможливо зробити знімок екрана.</string>
     <string name="bluetooth_permission_request">Запит дозволу на пошук Bluetooth</string>
@@ -1918,6 +1923,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Неможливо увімкнути %s, увімкнено Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Віл оператора зв’язку відповіді не надійшло.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Не вдалося надіслати запит на активацію %s. Повторне підключення через доступні мережі…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Неможливо ввімкнути %1$s. Ваш інтернет-пакет не підтримує послугу %2$s, або не отримано відповідь від сервера %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Неможливо ввімкнути %s. Пристрій перегрівся. Зачекайте, доки пристрій не охолоне, та спробуйте ще раз.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s вимкнено, щоб запобігти перегріванню пристрою. Завантаження через мобільну мережу…</string>
     <string name="mptcp_message_data_usage_limit">Досягнуто ліміту використання даних. Щоб змінити цей ліміт, перейдіть у меню «Налаштування».</string>
@@ -2025,6 +2031,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Звук з %s відтворюється на USB-аудіопристрої. Торкніться тут, щоб вимкнути його.</string>
     <string name="multisound_change_output_device">Зміна пристрою виведення звуку</string>
     <string name="multisound_headup_contents">Звуковий пристрій, вибраний для цієї програми, збігається з поточним пристроєм виведення звуку на телефоні. Щоб відтворювати звук цієї програми окремо, змініть пристрій виведення звуку на панелі швидких налаштувань.</string>
+    <string name="multisound_hun_title">Change main audio output device?</string>
+    <string name="multisound_hun_contents">The audio device you selected for this app (%1$s) is the same as the main audio output device (%2$s). To separate sound for this app, the main audio output device needs to be changed to %3$s.</string>
+    <string name="multisound_hun_close">Закрити</string>
+    <string name="multisound_hun_change">Змінити</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Гарнітура</string>
     <string name="bixby_edgecase_mpsm">Неможливо використовувати Bixby в режимі максимального енергозбереження.</string>
     <string name="bixby_edgecase_emergencymode">Неможливо використовувати Bixby в екстреному режимі.</string>
     <string name="bixby_edgecase_kidsmode">Неможливо використовувати Bixby в дитячому режимі.</string>
@@ -2032,9 +2044,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Неможливо використовувати Bixby, коли працює MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Неможливо використовувати Bixby в Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Неможливо використати Bixby під час підключення до станції DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Щоб користуватися цією програмою в повноекранному режимі, торкніться значка розгортання на екрані останніх програм.</string>
+    <string name="bixby_edgecase_cantusenow">Зараз неможливо використати Bixby Voice.</string>
+    <string name="conventional_mode_recent_noti">На екрані останніх відкритих програм можна змінювати співвідношення їхніх сторін.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Щоб повернути попередні налаштування співвідношення розмірів, перейдіть до меню «Налаштування» > «Дисплей» > «Програми в повноекранному режимі».</string>
     <string name="conventional_mode_tap_here_to_fill">Торкніться тут, щоб заповнити екран</string>
+    <string name="bixby_popup_unavailable_now">Bixby недоступний. Bixby доступний до використання лише власником телефону або за допомогою основного номера телефону.</string>
     <string name="permlab_knoxCustomSetting">Керування налаштуваннями пристрою</string>
     <string name="permdesc_knoxCustomSetting">Встановлення налаштувань пристрою, у тому числі налаштувань Bluetooth, розташування, Wi-Fi, мобільних даних та Android.</string>
     <string name="permlab_knoxCustomSystem">Керування налаштуваннями системи</string>
@@ -2410,6 +2424,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Заряджання підключеного пристрою через USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Обмеження файлової системи</string>
     <string name="lacking_filenode_internal_storage_view_text">На телефоні створено забагато файлів. Програми можуть працювати неправильно, а телефон може не запускатися. Створіть резервні копії важливих даних і скиньте налаштування телефону до заводських значень.</string>
-    <string name="lock_to_app_toast_for_navibar">Щоб відкріпити програму, одночасно торкніться та утримуйте клавіші «Останні» та «Назад».</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

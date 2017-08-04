@@ -770,7 +770,7 @@ Bu sayfadan ayrılmak istediğinizden emin misiniz?"</string>
     <string name="aerr_process">%1$s işlemi durduruldu.</string>
     <string name="aerr_application_repeated">%1$s sürekli olarak duruyor</string>
     <string name="aerr_process_repeated">%1$s sürekli olarak duruyor</string>
-    <string name="aerr_restart">Uyg yn bşlt</string>
+    <string name="aerr_restart">Uygulamayı yeniden başlat</string>
     <string name="aerr_reset">Uygulamayı sıfırla ve yeniden başlat</string>
     <string name="aerr_report">Geri bildirim gönder</string>
     <string name="aerr_close">Kapat</string>
@@ -915,9 +915,9 @@ Kapatmak ister misiniz?"</string>
     <string name="dlg_ok">Tamam</string>
     <string name="usb_charging_notification_title">"Bu cihaz USB'den şarj oluyor"</string>
     <string name="usb_supplying_notification_title">USB, bağlı cihaza güç sağlıyor</string>
-    <string name="usb_mtp_notification_title">USB, medya dosyaları aktarıyor</string>
-    <string name="usb_ptp_notification_title">USB, görüntüleri aktarıyor</string>
-    <string name="usb_midi_notification_title">USB, MIDI cihazına bağlandı</string>
+    <string name="usb_mtp_notification_title">Dosya aktarımı için USB</string>
+    <string name="usb_ptp_notification_title">Görüntü aktarımı için USB</string>
+    <string name="usb_midi_notification_title">MIDI için USB</string>
     <string name="usb_accessory_notification_title">Bir USB aksesuarına bağlandı</string>
     <string name="usb_notification_message">Diğer USB seçenekleri için dokunun.</string>
     <string name="adb_active_notification_title">USB hata ayıklama bağlandı.</string>
@@ -1319,6 +1319,8 @@ izin talep edildi"</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Ekranın kenarında tuşların normalde göründüğü yerden içe doğru kaydırarak tuşları tekrar gösterebilirsiniz.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Bir süre sonra tuşlar tekrar kaybolur.</string>
     <string name="sec_immersive_cling_help_text_step_two">Gizli olsa dahi Ana sayfa tuşunu kullanabilirsiniz. Ana sayfa ekranına dönmek için Ana sayfa tuşunun normalde görüntülendiği ekran alanına uzun süreyle basın.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Telefonunuzu nasıl tutarsanız tutun, tuşlar her zaman şarj bağlantı noktasının yanında bulunur. Telefonunuz saat yönünün tersine döndürülmüş haldeyken okla gösterildiği gibi ekranın kenarından sola kaydırın.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Telefonunuzu nasıl tutarsanız tutun, tuşlar her zaman şarj bağlantı noktasının yanında bulunur. Telefonunuz saat yönünde döndürülmüş haldeyken okla gösterildiği gibi ekranın kenarından sağa kaydırın.</string>
     <string name="done_label">Tamam</string>
     <string name="hour_picker_description">Analog saat seçici</string>
     <string name="minute_picker_description">Analog dakika seçici</string>
@@ -1329,7 +1331,9 @@ izin talep edildi"</string>
     <string name="deleted_key">%s silindi.</string>
     <string name="managed_profile_label_badge">%1$s (İş)</string>
     <string name="lock_to_app_toast">Uygulamayı serbest bırakmak için Donanım ve Geri tuşlarını aynı anda basılı tutun.</string>
+    <string name="lock_to_app_toast_for_navibar">Uygulamayı serbest bırakmak için Donanım ve Geri tuşlarına aynı anda dokunup basılı tutun.</string>
     <string name="lock_to_app_toast_accessible">Uygulamayı serbest bırakmak için donanım tuşunu basılı tutun.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Uygulamaya kilitle modu etkinleştirildi.</string>
     <string name="lock_to_app_start">Uygulama sabitlendi.</string>
     <string name="lock_to_app_exit">Uygulama serbest bırakıldı.</string>
@@ -1435,9 +1439,9 @@ Cihazınız şarj olurken pil tasarrufu otomatik olarak kapatılır."</string>
     <string name="tw_clipboard_save_tts">Kaydet</string>
     <string name="tw_clipboard_button_tts">Düğme</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Pano</string>
-    <string name="hdmi_connect">HDMI kablosu takılı.</string>
+    <string name="hdmi_connect">HDMI bağlandı.</string>
     <string name="hdmi_connect_indirectly">"Cihazınızı TV'ye doğrudan HDMI kablosuyla bağlayın"</string>
-    <string name="hdmi_disconnect">HDMI kablosu takılı değil.</string>
+    <string name="hdmi_disconnect">HDMI bağlantısı kesildi.</string>
     <string name="hdmi_recommend_charging_device">Cihazınız uzun bir süre boyunca HDTV Adaptöre bağlıysa cihazınızı şarj etmenizi öneririz. Cihazınızı şarj etmek için şarj cihazını HDTV adaptöre bağlayın.</string>
     <string name="hdmi_wfd_terminate">HDMI bağlandı. Screen Mirroring bağlantısı sonlandırılacak</string>
     <string name="disable">Devre dışı bırak</string>
@@ -1856,6 +1860,7 @@ komut"</string>
     <string name="volumepanel_media">Medya</string>
     <string name="volumepanel_notification">Bildirimler</string>
     <string name="volumepanel_system">Sistem</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Acil durum modunda ekran görüntüsü yakalanamıyor.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Ekran resmi yakalanamıyor.</string>
     <string name="bluetooth_permission_request">Bluetooth izin isteği</string>
@@ -1928,6 +1933,7 @@ Bir uygulamayı serbest bırakmak için menü tuşunu basılı tutun."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct etkinken %s etkinleştirilemez.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Servis sağlayıcıdan yanıt yok.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s etkinleştirme isteği gönderilemedi. Mevcut ağlar üzerinden yeniden bağlanılıyor…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s etkinleştirilemiyor. %2$s İnternet paketinizle kullanılamıyor veya %3$s sunucusundan yanıt alınmadı.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s etkinleştirilemiyor. Cihaz aşırı ısınıyor. Cihaz soğuyana kadar bekleyip tekrar deneyin.</string>
     <string name="mptcp_message_operation_disabled_overheating">Cihazın aşırı ısınmasını engellemek için %s devre dışı bırakıldı. Bunun yerine mobil ağ yoluyla indiriliyor…</string>
     <string name="mptcp_message_data_usage_limit">"Veri kullanımı sınırına ulaşıldı. Veri kullanımı sınırını değiştirmek için Ayarlar'a gidin."</string>
@@ -2035,6 +2041,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s sesi, USB ses cihazınız yoluyla oynatılıyor. Kapatmak için buraya dokunun.</string>
     <string name="multisound_change_output_device">Ses çıkışı cihazını değiştir</string>
     <string name="multisound_headup_contents">Bu uygulama için seçtiğiniz ses cihazı, telefonunuzun geçerli ses çıkış cihazıyla aynı. Bu uygulama için sesi ayırmak amacıyla hızlı ayarlar panelinde ses çıkış cihazınızı değiştirin.</string>
+    <string name="multisound_hun_title">Ana ses çıkış cihazı değiştirilsin mi?</string>
+    <string name="multisound_hun_contents">Bu uygulama (%1$s) için seçtiğiniz ses cihazı, ana ses çıkış cihazıyla (%2$s) aynı. Bu uygulama için sesi ayırmak amacıyla ana ses çıkış cihazının %3$s olarak değiştirilmesi gerekir.</string>
+    <string name="multisound_hun_close">Kapat</string>
+    <string name="multisound_hun_change">Değiştir</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Kulaklık</string>
     <string name="bixby_edgecase_mpsm">Maksimum güç tasarrufu modu açıkken Bixby kullanılamaz.</string>
     <string name="bixby_edgecase_emergencymode">Acil durum modunda Bixby kullanılamaz.</string>
     <string name="bixby_edgecase_kidsmode">"Çocuk Modu'nda Bixby kullanılamaz."</string>
@@ -2042,9 +2054,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink kullanılırken Bixby kullanılamaz.</string>
     <string name="bixby_edgecase_dexmode">"Samsung DeX'te Bixby kullanılamaz."</string>
     <string name="bixby_edgecase_dexstation">"DeX Station'a bağlıyken Bixby kullanılamaz."</string>
-    <string name="conventional_mode_recent_noti">Son uygulamalar ekranında Genişlet simgesine dokunarak bu uygulamayı tam ekranda görüntüleyebilirsiniz.</string>
+    <string name="bixby_edgecase_cantusenow">Bixby Voice şu anda kullanılamıyor.</string>
+    <string name="conventional_mode_recent_noti">Uygulamanın en-boy oranını Son uygulamalar ekranında değiştirebilirsiniz.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Önceki en-boy oranına geri dönmek için Ayarlar > Ekran > Tam ekran uygulamalar bölümüne gidin.</string>
     <string name="conventional_mode_tap_here_to_fill">Tüm ekranı doldurmak için buraya dokunun</string>
+    <string name="bixby_popup_unavailable_now">"Bixby kullanılamıyor. Sadece telefonun veya ana telefon numarasının sahibi Bixby'yi kullanabilir."</string>
     <string name="permlab_knoxCustomSetting">Cihaz ayarlarını yönet</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Konum, Wi-Fi, Mobil veri ve Android ayarları gibi cihaz ayarlarını yapılandırın.</string>
     <string name="permlab_knoxCustomSystem">Sistem ayarlarını yönet</string>
@@ -2420,6 +2434,4 @@ Maksimum güç tasarrufu modu açıkken USB işlevleri kısıtlanabilir."</strin
     <string name="charging_connected_via_usb">Bağlı cihaz USB ile şarj ediliyor…</string>
     <string name="lacking_filenode_internal_storage_view_title">Dosya sistemi sınırı</string>
     <string name="lacking_filenode_internal_storage_view_text">Telefonunuzda çok fazla dosya oluşturuldu. Uygulamalar düzgün çalışmayı bırakabilir ve telefonunuz artık başlatılmayabilir. Tüm önemli verileri yedekleyip telefonunuzu fabrika ayarlarına sıfırlayın.</string>
-    <string name="lock_to_app_toast_for_navibar">Uygulamayı serbest bırakmak için Donanım ve Geri tuşlarına aynı anda dokunup basılı tutun.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

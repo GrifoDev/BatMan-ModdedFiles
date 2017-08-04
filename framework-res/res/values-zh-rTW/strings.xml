@@ -915,9 +915,9 @@
     <string name="dlg_ok">確定</string>
     <string name="usb_charging_notification_title">正在透過 USB 為這個裝置充電</string>
     <string name="usb_supplying_notification_title">正在透過 USB 為連接的裝置供電</string>
-    <string name="usb_mtp_notification_title">正在使用 USB 傳輸媒體檔案</string>
-    <string name="usb_ptp_notification_title">USB 正在傳輸圖像</string>
-    <string name="usb_midi_notification_title">USB 已連接到 MIDI 裝置</string>
+    <string name="usb_mtp_notification_title">使用 USB 傳輸檔案</string>
+    <string name="usb_ptp_notification_title">使用 USB 傳輸圖像</string>
+    <string name="usb_midi_notification_title">使用 USB 連接 MIDI</string>
     <string name="usb_accessory_notification_title">已連接至 USB 配件</string>
     <string name="usb_notification_message">輕觸 USB 選項。</string>
     <string name="adb_active_notification_title">USB偵錯已連結。</string>
@@ -1319,6 +1319,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">您可從一般顯示按鈕的螢幕邊緣處向內滑動來重新顯示按鈕。</string>
     <string name="sec_immersive_cling_help_text_step_one_three">過一段時間後，按鈕將再次消失。</string>
     <string name="sec_immersive_cling_help_text_step_two">即使首頁按鈕隱藏時，您仍可繼續使用。請按下畫面上平常顯示首頁按鈕的區域來前往主螢幕。</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">無論您以何種方式握持手機，按鈕將一律顯示於充電埠旁。如手機以逆時針方向旋轉，請依箭頭指示從螢幕邊緣向左滑動。</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">無論您以何種方式握持手機，按鈕將一律顯示於充電埠旁。如手機以順時針方向旋轉，請依箭頭指示從螢幕邊緣向右滑動。</string>
     <string name="done_label">完成</string>
     <string name="hour_picker_description">指針式小時選擇器</string>
     <string name="minute_picker_description">指針式分鐘選擇器</string>
@@ -1329,7 +1331,9 @@
     <string name="deleted_key">已刪除 %s。</string>
     <string name="managed_profile_label_badge">公司%1$s</string>
     <string name="lock_to_app_toast">若要取消釘選應用程式，請同時長按最近使用的按鍵與返回鍵。</string>
+    <string name="lock_to_app_toast_for_navibar">若要取消釘選應用程式，請同時碰觸並按住最近使用的按鈕與返回鍵。</string>
     <string name="lock_to_app_toast_accessible">若要取消應用程式釘選，請按下並按住最近使用的按鍵。</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">若要取消釘選應用程式，請觸碰並按住最近使用的按鈕。</string>
     <string name="lock_to_app_toast_locked">已啟用鎖定單一應用程式模式。</string>
     <string name="lock_to_app_start">應用程式已釘選。</string>
     <string name="lock_to_app_exit">應用程式已取消釘選。</string>
@@ -1435,9 +1439,9 @@
     <string name="tw_clipboard_save_tts">儲存</string>
     <string name="tw_clipboard_button_tts">按鍵</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">剪貼簿</string>
-    <string name="hdmi_connect">HDMI已連接。</string>
+    <string name="hdmi_connect">已連接 HDMI。</string>
     <string name="hdmi_connect_indirectly">透過 HDMI 傳輸線直接將裝置與電視連接。</string>
-    <string name="hdmi_disconnect">HDMI中斷連接。</string>
+    <string name="hdmi_disconnect">已中斷連接 HDMI。</string>
     <string name="hdmi_recommend_charging_device">若裝置長時間連接至 HDTV 轉接器時我們建議您為裝置充電。將充電器連接至 HDTV 轉接器來為您的裝置充電。</string>
     <string name="hdmi_wfd_terminate">HDMI 已連接。Screen Mirroring 連接已結束</string>
     <string name="disable">停用</string>
@@ -1856,6 +1860,7 @@ Memo"</string>
     <string name="volumepanel_media">媒體</string>
     <string name="volumepanel_notification">通知</string>
     <string name="volumepanel_system">系統</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">緊急模式中無法擷取螢幕。</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">無法擷取螢幕截圖。</string>
     <string name="bluetooth_permission_request">藍牙許可要求</string>
@@ -1928,6 +1933,7 @@ Memo"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct 啟用時無法啟用%s。</string>
     <string name="mptcp_message_mptcp_capability_noresponse">沒有來自系統業者的回應。</string>
     <string name="mptcp_message_mptcp_capability_sendfail">無法傳送%s啟動要求。正在透過可用網路重新連接…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">無法啟用 %1$s。您的網際網路方案不支援 %2$s 或未從 %3$s 伺服器收到回應。</string>
     <string name="mptcp_message_setting_disabled_overheating">無法啟用 %s。裝置過熱。請等到裝置降溫再重試。</string>
     <string name="mptcp_message_operation_disabled_overheating">為了避免裝置過熱，已停用%s。正在改由行動網路下載…</string>
     <string name="mptcp_message_data_usage_limit">已達數據用量上限。若要變更數據用量上限，請前往設定。</string>
@@ -2037,6 +2043,12 @@ Memo"</string>
     <string name="multisound_sound_via_usb_audio">正在透過 USB 音訊裝置播放 %s 音效。請輕觸此處來關閉。</string>
     <string name="multisound_change_output_device">變更音訊輸出裝置</string>
     <string name="multisound_headup_contents">您為此應用程式所選的音訊裝置與目前手機的音訊輸出裝置相同。若要單獨播放此應用程式的音效，請於快速設定面板中變更您的音訊輸出裝置。</string>
+    <string name="multisound_hun_title">變更主要音訊輸出裝置嗎？</string>
+    <string name="multisound_hun_contents">您為此應用程式 (%1$s) 所選的音訊裝置與主要音訊輸出裝置 (%2$s) 相同。若要獨立播放此應用程式的音效，主要音訊輸出裝置須變更為 %3$s。</string>
+    <string name="multisound_hun_close">關閉</string>
+    <string name="multisound_hun_change">變更</string>
+    <string name="my_device">我的手機</string>
+    <string name="headset">耳機</string>
     <string name="bixby_edgecase_mpsm">超省電模式開啟時無法使用 Bixby。</string>
     <string name="bixby_edgecase_emergencymode">無法於緊急模式中使用 Bixby。</string>
     <string name="bixby_edgecase_kidsmode">無法於兒童模式中使用 Bixby。</string>
@@ -2044,9 +2056,11 @@ Memo"</string>
     <string name="bixby_edgecase_mirrorlink">執行 MirrorLink 時無法使用 Bixby。</string>
     <string name="bixby_edgecase_dexmode">無法在 Samsung DeX 中使用 Bixby。</string>
     <string name="bixby_edgecase_dexstation">連接至 DeX Station 時無法使用 Bixby。</string>
-    <string name="conventional_mode_recent_noti">您可輕觸最近使用的應用程式螢幕上的展開圖示來以全螢幕檢視此應用程式。</string>
+    <string name="bixby_edgecase_cantusenow">目前無法使用 Bixby Voice。</string>
+    <string name="conventional_mode_recent_noti">您可於最近使用的應用程式畫面上變更應用程式長寬比。</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">若要返回先前的長寬比，請前往 [設定] > [顯示] > [全螢幕應用程式]。</string>
     <string name="conventional_mode_tap_here_to_fill">輕觸此處來填滿整個螢幕</string>
+    <string name="bixby_popup_unavailable_now">Bixby 無法使用。僅手機擁有者或主要電話號碼可使用 Bixby。</string>
     <string name="permlab_knoxCustomSetting">管理裝置設定</string>
     <string name="permdesc_knoxCustomSetting">配置如藍牙、定位、Wi-Fi、行動數據與 Android 設定等設定內容。</string>
     <string name="permlab_knoxCustomSystem">管理系統設定</string>
@@ -2422,6 +2436,4 @@ Memo"</string>
     <string name="charging_connected_via_usb">正在透過 USB 為連接裝置充電…</string>
     <string name="lacking_filenode_internal_storage_view_title">檔案系統上限</string>
     <string name="lacking_filenode_internal_storage_view_text">您已在手機上建立太多檔案。應用程式可能無法正確運作且將無法再啟動手機。請備份所有重要資料並將手機重設為原廠設定。</string>
-    <string name="lock_to_app_toast_for_navibar">若要取消釘選應用程式，請同時碰觸並按住最近使用的按鈕與返回鍵。</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">若要取消釘選應用程式，請觸碰並按住最近使用的按鈕。</string>
 </resources>

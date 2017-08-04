@@ -335,7 +335,7 @@
     <string name="searchview_description_submit">Poślij zapytaniy</string>
     <string name="searchview_description_voice">Szukaniy głosym</string>
     <string name="beforeOneMonthDurationPast">Piyrwyj niż 1 miesiōnc tymu</string>
-    <string name="last_month">Ostatni miesiąc</string>
+    <string name="last_month">Ôstatni miesiōnc</string>
     <string name="older">Starsze</string>
     <string name="preposition_for_date">Na %s</string>
     <string name="preposition_for_time">na %s</string>
@@ -381,7 +381,7 @@
     <string name="noApplications">Wszyjske aplikacyje pożyniōne z tym dziōłaniym ôstały wyłōnczōne abo blokniynte abo niy ôstały ône zainsztalowane.</string>
     <string name="aerr_application">Aplikacyjŏ %1$s ôstała sztopniyntŏ.</string>
     <string name="aerr_process">Proces %1$s ôstōł sztopniynty.</string>
-    <string name="aerr_restart">Rest. apl.</string>
+    <string name="aerr_restart">Uruchom ponownie aplikację</string>
     <string name="force_close">OK</string>
     <string name="wait">Czekaj</string>
     <string name="launch_warning_title">Aplikacjŏ przekerowuje</string>
@@ -472,9 +472,9 @@
     <string name="perms_description_app">Dostarczone przez %s</string>
     <string name="no_permissions">Niy sōm wymŏgone żodne uprŏwniynia.</string>
     <string name="dlg_ok">OK</string>
-    <string name="usb_mtp_notification_title">Posyłanie plikōw multimedialnych bez USB.</string>
-    <string name="usb_ptp_notification_title">USB przesyła obrazy</string>
-    <string name="usb_midi_notification_title">USB połączono z urządzen. MIDI</string>
+    <string name="usb_mtp_notification_title">USB do przesyłania plików</string>
+    <string name="usb_ptp_notification_title">USB do przesyłania obrazów</string>
+    <string name="usb_midi_notification_title">USB do komunikacji MIDI</string>
     <string name="usb_accessory_notification_title">Podłōnczōno do dingsa USB</string>
     <string name="usb_notification_message">Tyknij, coby pokŏzać inksze ôpcje USB</string>
     <string name="adb_active_notification_title">Debugowaniy USB załōnczone</string>
@@ -678,11 +678,13 @@ Sprōbuj jeszcze rŏz za %2$d s."</string>
     <string name="restr_pin_try_later">Sprōbuj niyskorzij.</string>
     <string name="sec_next_button_label">Dalej</string>
     <string name="sec_immersive_cling_step_one">Szibnij palcym ze spodka mobilniŏka, coby pokŏzać knefle Ekran sztartowy, Nazŏd i Niydŏwne.</string>
-    <string name="sec_immersive_cling_step_two">Przycisku ekranu startowego możesz używać nawet, gdy jest ukryty. Naciśnij mocno w środku dolnej części ekranu telefonu, aby przejść do ekranu startowego.</string>
+    <string name="sec_immersive_cling_step_two">Knefla ekranu sztartowego idzie używać i kej je skryty. Naciś fest na strzodek spodnij tajli ekranu, coby przelyźć do ekranu bazowego.</string>
     <string name="sec_immersive_cling_help_text_step_one_one">Używŏsz trybu fol ekranu. Knefle ekranu sztartowego, Nazŏd i Niydŏwne sōm skryte, coby dać na minimum dingsy wizualne kere zawŏdzajōm i coby niy było leda kerego zawarcia aplikacyji.</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Mogesz pokŏzać tnefle zajś bez przejechanie palcem do strzodka ôd rantu ekranu tam, kaj knefle sōm zaôbycz widziane.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Po chwili przyciski ponownie znikną.</string>
     <string name="sec_immersive_cling_help_text_step_two">Knefla ekranu sztartowego poradzisz używać tak tyż, kej je skryty. Coby przelyź do ekranu sztartowego, tyknij fest plac ekranu, w kerym normalnie widziany je knefel ekranu sztartowego.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Krōm tego jak trzimiesz mobilniŏk, knefle bydōm zŏwdy wele portu folowanio. Kej sie trefi zwyrtniyńcie mobilniŏka na lewo szibnij palcym na lewo ôd rantu ekranu podug pokŏzanio kursora.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Krōm tego jak trzimiesz mobilniŏk, knefle bydōm zŏwdy wele portu folowanio. Kej sie trefi zwyrtniyńcie mobilniŏka na prawo szibnij palcym na prawo ôd rantu ekranu podug pokŏzanio kursora.</string>
     <string name="done_label">Fertich</string>
     <string name="hour_picker_description">Ôbranie analogowyj godziny</string>
     <string name="minute_picker_description">Ôbranie analogowyj minuty</string>
@@ -692,7 +694,9 @@ Sprōbuj jeszcze rŏz za %2$d s."</string>
     <string name="select_year">Ôbier rok.</string>
     <string name="deleted_key">Usunięto %s.</string>
     <string name="lock_to_app_toast">Coby ôdepnōńć aplikacyjŏ, naciś i trzimej wrŏz knefle Niydŏwne i Nazŏd.</string>
+    <string name="lock_to_app_toast_for_navibar">Coby ôdepnōńć aplikacyjŏ, tyknij narŏz knefli Niydŏwne i Nazŏd, a potym trzimej je.</string>
     <string name="lock_to_app_toast_accessible">Coby ôdepnōńć aplikacyjŏ, naciś i trzimej knefel z niydŏwnymi.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Tryb zawarte-z-aplikacyjōm je załōnczōny.</string>
     <string name="lock_to_app_start">Przipniynto aplikacyjo.</string>
     <string name="lock_to_app_exit">Ôdepniynto aplikacyjo.</string>
@@ -733,9 +737,9 @@ Sprōbuj jeszcze rŏz za %2$d s."</string>
     <string name="tw_clipboard_save_tts">Zachowej</string>
     <string name="tw_clipboard_button_tts">Knefel</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Kamerlik</string>
-    <string name="hdmi_connect">Kabel HDMI podłōnczony.</string>
+    <string name="hdmi_connect">Połączono z HDMI.</string>
     <string name="hdmi_connect_indirectly">Podłōncz maszina do telewizora bezpośrednio przi pōmocy kabla HDMI.</string>
-    <string name="hdmi_disconnect">Kabel HDMI ôdłōnczony.</string>
+    <string name="hdmi_disconnect">Rozłączono z HDMI.</string>
     <string name="hdmi_recommend_charging_device">Dorŏdzōmy dugo folować maszina, jak je przipniyntŏ do Adaptera HDTV. Przipnij folowarka do adaptera HDTV, coby nafolować swoja maszina.</string>
     <string name="hdmi_wfd_terminate">Nawiōnzano połōnczynie HDMI. połōnczenie fōnkcje Screen Mirroring było zakōńczōne</string>
     <string name="disable">Wyłōncz</string>
@@ -887,6 +891,11 @@ bez tyk."</string>
     <string name="batt_cooldown_mode_attention">Aplikacyjŏ zawarto</string>
     <string name="batt_cooldown_mode_attentions">Aplikacyje zawarte</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Przegrzanie telefonu</string>
+    <string name="overheat_limit_warning">Telefon przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %s zostanie zamknięta automatycznie za 1 minutę, a dowolne niezapisane dane zostaną utracone.</string>
+    <string name="overheat_limit_closed_title">Aplikacyjŏ zawarto</string>
+    <string name="overheat_limit_closed">Aplikacja %1$s została zamknięta. Telefon się przegrzewa. Spróbuj ponownie użyć aplikacji %2$s po ostygnięciu telefonu.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Maszina bydzie resztartowanŏ.</string>
     <string name="tw_reboot_safemode_title_vzw">Załōncz nazŏd w Trybie Bezpiecznym.</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1149,6 +1158,7 @@ bez tyk."</string>
     <string name="volumepanel_media">Mydia</string>
     <string name="volumepanel_notification">Nowiny</string>
     <string name="volumepanel_system">System</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Niy idzie chycić ekranu w trybie awaryjnym</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Chycyniy screenshota niy je myjglich.</string>
     <string name="bluetooth_permission_request">Gŏdŏsz „ja” na połōnczynie Bluetooth</string>
@@ -1221,6 +1231,7 @@ Coby ôdpiōńć aplikacyjŏ tyknij i trzimej knefel Menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Niy idzie załōnczyć fōnkcyji %s kej załōnczōnŏ je fōnkcyjŏ Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Żŏdnego ôdpedzyniŏ ôd ôperatōra.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Feler posyłaniŏ prośby aktywacji usugi %s. Druge pożyniynie bez dostympne nece…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nie można włączyć funkcji %1$s. Funkcja %2$s jest niedostępna w Twoim pakiecie internetowym lub nie otrzymano odpowiedzi z serwera funkcji %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Niy idzie załōnczyć %s. Przegrzŏnie masziny. Badnij drugi rŏz po ôchōdniyńciu masziny.</string>
     <string name="mptcp_message_operation_disabled_overheating">Wyłōnczono %s, coby niy dać przegrzoć masziny. Za to, zebiyranie bez nec mobilny…</string>
     <string name="mptcp_message_data_usage_limit">Mŏsz już limit spotrzebowaniŏ danych. Coby zmiynić tyn limit, przelyź do Sztalowaniŏ.</string>
@@ -1328,6 +1339,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Dźwięk aplikacji %s jest odtwarzany przez urządzenie audio USB. Dotknij tutaj, aby go wyłączyć.</string>
     <string name="multisound_change_output_device">Zmiana wyjściowego urządzenia audio</string>
     <string name="multisound_headup_contents">Urządzenie audio wybrane dla tej aplikacji jest identyczne jak aktualne wyjściowe urządzenie audio dla telefonu. Aby oddzielić dźwięk dla tej aplikacji, zmień wyjściowe urządzenie audio w panelu szybkich ustawień.</string>
+    <string name="multisound_hun_title">Pomiynić bazowo wyjściowo maszina audio?</string>
+    <string name="multisound_hun_contents">Maszina audio ôbrano dlo tyj aplikacyji (%1$s) je jednako co bazowo wyjściowo maszina audio (%2$s). Coby ôddzielić klang dlo tyj aplikacyji, trza pōmiynić bazowo wyjściowo maszina audio na %3$s.</string>
+    <string name="multisound_hun_close">Zawrzij</string>
+    <string name="multisound_hun_change">Zmiyń</string>
+    <string name="my_device">Mōj telefōn</string>
+    <string name="headset">Zestŏw suchawkowy</string>
     <string name="bixby_edgecase_mpsm">Niy idzie używać aplikacyji Bixby przi załōnczōnym Trybie maksimum szporowanio ynergji.</string>
     <string name="bixby_edgecase_emergencymode">Niy idzie używać aplikacyji Bixby w Trybie awaryjnym.</string>
     <string name="bixby_edgecase_kidsmode">Niy idzie używać aplikacyji Bixby w Trybie bajtel.</string>
@@ -1335,9 +1352,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Niy idzie używać aplikacyji Bixby bez czas używanio MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Nie można używać Bixby w trybie Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Nie można używać Bixby podczas połączenia ze Stacją DeX.</string>
-    <string name="conventional_mode_recent_noti">Aby wyświetlić tę aplikację na pełnym ekranie, możesz dotknąć ikony Rozwiń na ekranie Ostatnie aplikacje.</string>
+    <string name="bixby_edgecase_cantusenow">Teraz nie można używać Bixby Voice.</string>
+    <string name="conventional_mode_recent_noti">Poradzisz pōmiynić proporcje ôbrŏzka aplikacyji na ekranie Niydŏwne aplikacyje.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Aby wrócić do poprzednich proporcji, przejdź do menu Ustawienia > Wyświetlacz > Aplikacje na pełnym ekranie.</string>
     <string name="conventional_mode_tap_here_to_fill">Tyknij tukej coby nafolować cołki ekran</string>
+    <string name="bixby_popup_unavailable_now">Aplikacja Bixby niedostępna. Aplikacja Bixby może być używana tylko przez właściciela telefonu lub na głównym numerze telefonu.</string>
     <string name="permlab_knoxCustomSetting">Reskyruj sztalowaniami masziny</string>
     <string name="permdesc_knoxCustomSetting">Narychtuj sztalowania, take co Bluetooth, Lokalizacyjo, Wi-Fi, Dane mobilne i Android.</string>
     <string name="permlab_knoxCustomSystem">Reskyruj sztalowaniami systymu</string>
@@ -1701,6 +1720,4 @@ Fōnkcyje USB poradzōm być ôgraniczōne przi załōnczōnym Trybie maksimum s
     <string name="charging_connected_via_usb">Ładowanie połączonego urządzenia przez USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limit systemu plików</string>
     <string name="lacking_filenode_internal_storage_view_text">W telefonie utworzono zbyt dużo plików. Aplikacje mogą przestać działać prawidłowo i nie można będzie już uruchomić telefonu. Utwórz backup wszystkich ważnych danych i zresetuj telefon do ustawień fabrycznych.</string>
-    <string name="lock_to_app_toast_for_navibar">Coby ôdepnōńć aplikacyjŏ, tyknij narŏz knefli Niydŏwne i Nazŏd, a potym trzimej je.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

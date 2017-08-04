@@ -766,7 +766,7 @@
     <string name="aerr_process">%1$s иштөөсү токтотулду</string>
     <string name="aerr_application_repeated">%1$s колдонмосу иштебей калып жатат</string>
     <string name="aerr_process_repeated">%1$s колдонмосу иштебей калып жатат</string>
-    <string name="aerr_restart">Колд. кай. күй.</string>
+    <string name="aerr_restart">Колдонмону кайра күйгүзүү</string>
     <string name="aerr_reset">Колдонмону баштапкы абалга келтирип, кайра жүргүзүү</string>
     <string name="aerr_report">Жооп пикир жөнөтүү</string>
     <string name="aerr_close">Жабуу</string>
@@ -911,9 +911,9 @@
     <string name="dlg_ok">ОК</string>
     <string name="usb_charging_notification_title">Бул түзмөк USB менен кубатталууда</string>
     <string name="usb_supplying_notification_title">Тиркелген түзмөк USB менен кубатталууда</string>
-    <string name="usb_mtp_notification_title">Медиа файл. USB арк. өткөрүү</string>
-    <string name="usb_ptp_notification_title">USB өткөрүлүүчү сүрөттөр</string>
-    <string name="usb_midi_notification_title">USB MIDI түзмөгүнө туташылган</string>
+    <string name="usb_mtp_notification_title">Файл өткөрүү үчун USB</string>
+    <string name="usb_ptp_notification_title">Сүрөт өткөрүү үчүн USB</string>
+    <string name="usb_midi_notification_title">MIDI үчүн USB</string>
     <string name="usb_accessory_notification_title">USB жабдуусуна туташты</string>
     <string name="usb_notification_message">Башка USB тандоолору үчүн басыңыз</string>
     <string name="adb_active_notification_title">USB катадан арылтуу туташты</string>
@@ -1314,6 +1314,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Баскычтар нормалдуу көрүнгөн жерде экрандын кырынан ичине көздөй жылдыруу аркылуу баскычтарды кайра көрсөтсөңүз болот.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Бир аз убакыттан кийин, баскычтар кайра жок болот.</string>
     <string name="sec_immersive_cling_help_text_step_two">Сиз Башкы баскычты, жашырылган болсо деле колдоно аласыз. Башкы баскычка барып, Башкы экран демейде пайда болгон жерди басып коюнуз.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Кантсе да, сиз телефонуңузду кармап турасыз, баскычтар ар дайым заряддоо уюгунун жанында болот. Телефонуңуз сааттын жебесине каршы айлантылганда, жебе көрсөткөндөй экрандын кырынан сүрүңүз.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Кантсе да, сиз телефонуңузду кармап турасыз, баскычтар ар дайым заряддоо уюгунун жанында болот. Телефонуңуз сааттын жебесинде айлантылганда, жебе көрсөткөндөй экрандын кырынан сүрүңүз.</string>
     <string name="done_label">Бүттү</string>
     <string name="hour_picker_description">Аналогдук саат тандагыч</string>
     <string name="minute_picker_description">Аналогдук мүнөт тандагыч</string>
@@ -1324,7 +1326,9 @@
     <string name="deleted_key">%s жок кылынды.</string>
     <string name="managed_profile_label_badge">Жумуш %1$s</string>
     <string name="lock_to_app_toast">Колдонмону тиркөөдөн алып салуу үчүн Жакынкылар жана Артка баскычтарын бир убакта басып, кармап туруңуз.</string>
+    <string name="lock_to_app_toast_for_navibar">Колдонмону тиркөөдөн алып салуу үчүн Жакынкылар жана Артка баскычтарын бир убакта басып, кармап туруңуз.</string>
     <string name="lock_to_app_toast_accessible">Колдонмону тиркөөдөн алып салуу үчүн жакынкыларды басып, кармап туруңуз.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Колдонмого-кулпулоо режими иштетилди.</string>
     <string name="lock_to_app_start">Колдонмо кадалды.</string>
     <string name="lock_to_app_exit">Колдонмо кадоодон алынды.</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">Сактоо</string>
     <string name="tw_clipboard_button_tts">Баскыч</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Буфер</string>
-    <string name="hdmi_connect">HDMI кабели туташкан</string>
+    <string name="hdmi_connect">HDMI туташкан.</string>
     <string name="hdmi_connect_indirectly">"Түзмөгүңүздү TV'га, HDMI кабели аркылуу түз туташтырыңыз."</string>
-    <string name="hdmi_disconnect">HDMI кабели ажыратылган</string>
+    <string name="hdmi_disconnect">HDMI ажыратылды.</string>
     <string name="hdmi_recommend_charging_device">Эгерде түзмөгүңүз HDTV Адаптерине көп убакыт боюу туташтырылып турган болсо, биз аны дүрмөттөөнү сунуштайбыз. Түзмөгүңүздү дүрмөттөө үчүн дүрмөттөгүчтү HDTV адаптерине туташтырыңыз.</string>
     <string name="hdmi_wfd_terminate">"HDMI туташты. Screen Mirroring'ге байланышуу үзүлдү."</string>
     <string name="disable">Иштен чыгаруу</string>
@@ -1851,6 +1855,7 @@ booker"</string>
     <string name="volumepanel_media">Медиа</string>
     <string name="volumepanel_notification">Эскертүүлөр</string>
     <string name="volumepanel_system">Система</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Капыстан кырсык режиминде экранды кармоого болбойт.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Экран кесиндисин кармоо мүмкүн эмес</string>
     <string name="bluetooth_permission_request">Bluetooth уруксат талабы</string>
@@ -1923,6 +1928,7 @@ booker"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct иштетилип турган учурда, %s иштетүү мүмкүн эмес.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Кызмат тейлөөчүсүнөн жооп жок.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s активдештирүү суроосун жөнөтүү кыйрады. Байкалган тармактар аркылуу кайра туташууда…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s иштетүү мүмкүн эмес. %2$s интернет пакетиңиз менен байкалбайт же %3$s серверинен эч кандай жооп кабыл алынган жок.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s иштетүү мүмкүн эмес. Түзмөк ысып кетти. Түзмөгүңүз муздаганга чейин күтүңүз да, дагы аракеттениңиз.</string>
     <string name="mptcp_message_operation_disabled_overheating">Түзмөктүн ашыкча ысып кетүүсүн алдын алууга, %s иштен чыгарылат. Анын ордуна мобилдик тармак аркылуу жүктөөдө…</string>
     <string name="mptcp_message_data_usage_limit">Маалымат колдонуу чегине жетти. Маалымат колдонуу чегин өзгөртүү үчүн, Орнотууларга барыңыз.</string>
@@ -2030,6 +2036,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s үнү USB аудио түзмөгүңүздөн ойнотулууда. Муну өчүрүү үчүн, бул жерди басыңыз.</string>
     <string name="multisound_change_output_device">Аудио чыгуу тузмөгүн өзгөртүңүз</string>
     <string name="multisound_headup_contents">Бул колдонмого сиз тандаган аудио түзмөк телефонуңуз үчүн учурдагы аудио чыгуучу түзмөк менен бирдей. Бул колдонмого үндү бөлүү үчүн, аудио чыгуучу түзмөгүңүздү тез орнотуулар панелин өзгөртүңүз.</string>
+    <string name="multisound_hun_title">Негизги аудио чыгаруу түзм. өзгөртүлсүнбү?</string>
+    <string name="multisound_hun_contents">Бул колдонмого тандалган аудио түзмөгү (%1$s) негизги аудионун чыгаруу түзмөгү менен бирдей экен (%2$s). Бул колдонмонун үнүн бөлүп чыгаруу үчүн, негизги аудио чыгуу түзмөгүнүн %3$s өзгөртүлүүсү керек.</string>
+    <string name="multisound_hun_close">Жабуу</string>
+    <string name="multisound_hun_change">Өзгөртүү</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Гарнитура</string>
     <string name="bixby_edgecase_mpsm">Максималдык кубат үнөмдөө режиминде Bixby колдонулбайт.</string>
     <string name="bixby_edgecase_emergencymode">Шашылыш кырдаал режиминде Bixby колдонулбайт.</string>
     <string name="bixby_edgecase_kidsmode">Балдар режиминде Bixby колдонулбайт.</string>
@@ -2037,9 +2049,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink колдонулуп жатканда Bixby колдонулбайт.</string>
     <string name="bixby_edgecase_dexmode">"Bixby'ни Samsung DeX'те колдонууга мүмкүн эмес."</string>
     <string name="bixby_edgecase_dexstation">"DeX Station'ге туташылган учурда Bixby'ни колдонууга болбойт."</string>
-    <string name="conventional_mode_recent_noti">Сиз бул колдонмону толук экранда, Акыркы колдонмолор экранына Сүрөтчөнү жайууну басып, көрсөңүз болот.</string>
+    <string name="bixby_edgecase_cantusenow">"Азыр Bixby Voice'ту колдоно албайсыз."</string>
+    <string name="conventional_mode_recent_noti">Сиз колдонмонун экран капталдарынын ара катышын Акыркы колдонмолор экранынан өзгөртө аласыз.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Мурунку экран капталдарынын ара катышына кайтуу үчүн, Орнотууларга барыңыз > Дисплей > Толук экрандагы колдонмолор.</string>
     <string name="conventional_mode_tap_here_to_fill">Бүт экранга толуктоо үчүн бул жерди басыңыз</string>
+    <string name="bixby_popup_unavailable_now">"Bixby байкалбайт. Телефон ээси же негизги телефон номери гана Bixby'ни колдоно алат."</string>
     <string name="permlab_knoxCustomSetting">Түзмөк орнотууларын башкаруу</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Жайгашуу, Wi-Fi, Mобилдик маалыматтар, жана Android орнотуулары сыяктуу түзмөк орнотууларын конфигурациялоо.</string>
     <string name="permlab_knoxCustomSystem">Система орнотууларын башкаруу</string>
@@ -2382,6 +2396,4 @@ USB функциялары, Максималдык кубатты үнөмдөө
     <string name="charging_connected_via_usb">USB аркылуу туташкан түзмөктү заряддоодо…</string>
     <string name="lacking_filenode_internal_storage_view_title">Файл системасынын чеги</string>
     <string name="lacking_filenode_internal_storage_view_text">Телефонуңузда өтө көп файл түзүлгөн. Телефонуңуздагы колдонмолор туура иштөөсүн токтотушу мүмкүн жана ал күйгүзүлбөй калышы мүмкүн. Бардык маанилүү маалыматтарыңызды калыбына келтирип, телдефонуңузду заводдук орнотууларына кайра коюңуз.</string>
-    <string name="lock_to_app_toast_for_navibar">Колдонмону тиркөөдөн алып салуу үчүн Жакынкылар жана Артка баскычтарын бир убакта басып, кармап туруңуз.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

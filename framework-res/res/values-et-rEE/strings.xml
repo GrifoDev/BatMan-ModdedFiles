@@ -766,7 +766,7 @@ Kas soovite kindlasti sellelt lehelt lahkuda?"</string>
     <string name="aerr_process">Protsess %1$s on peatatud.</string>
     <string name="aerr_application_repeated">Rakendus %1$s lõpetab pidevalt töö</string>
     <string name="aerr_process_repeated">Rakendus %1$s lõpetab pidevalt töö</string>
-    <string name="aerr_restart">Taask. rak.</string>
+    <string name="aerr_restart">Taaskäivita rakendus</string>
     <string name="aerr_reset">Lähtesta ja taaskäivita rakendus</string>
     <string name="aerr_report">Saada tagasiside</string>
     <string name="aerr_close">Sule</string>
@@ -911,9 +911,9 @@ Kas soovite selle sulgeda?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Laadimiseks ühendage USB</string>
     <string name="usb_supplying_notification_title">Ühendatud seade saab toidet USB kaudu</string>
-    <string name="usb_mtp_notification_title">Meediumifailide USB-edastamine</string>
-    <string name="usb_ptp_notification_title">USB edastab pilte</string>
-    <string name="usb_midi_notification_title">USB on ühendatud MIDI-seadmega</string>
+    <string name="usb_mtp_notification_title">USB failiedastuse jaoks</string>
+    <string name="usb_ptp_notification_title">USB pildiedastuse jaoks</string>
+    <string name="usb_midi_notification_title">USB MIDI jaoks</string>
     <string name="usb_accessory_notification_title">Ühendatud USB-tarvikuga</string>
     <string name="usb_notification_message">Toksake, et vaadata teisi USB valikuid.</string>
     <string name="adb_active_notification_title">USB-silumine on ühendatud.</string>
@@ -1315,6 +1315,8 @@ Proovige uuesti %2$d sekundi pärast."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Saate nuppe taas kuvada, kui libistate ekraani servalt nuppude tavalisest asukohast sissepoole.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Mõne aja möödudes nupud kaovad taas.</string>
     <string name="sec_immersive_cling_help_text_step_two">Saate kasutada avaekraani klahvi isegi siis, kui see on peidetud. Avaekraani avamiseks vajutage tugevalt seda ekraani ala, kus tavaliselt asub avaekraani nupp.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Kuidas te ka telefoni ei hoiaks, nupud asuvad alati laadimispordi kõrval. Kui telefon on pööratud vastupäeva, libistage ekraani servast vasakule, nagu on noolega näidatud.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Kuidas te ka telefoni ei hoiaks, nupud asuvad alati laadimispordi kõrval. Kui telefon on pööratud päripäeva, libistage ekraani servast paremale, nagu on noolega näidatud.</string>
     <string name="done_label">Valmis</string>
     <string name="hour_picker_description">Analoogtunni valija</string>
     <string name="minute_picker_description">Analoogminuti valija</string>
@@ -1325,7 +1327,9 @@ Proovige uuesti %2$d sekundi pärast."</string>
     <string name="deleted_key">%s on kustutatud.</string>
     <string name="managed_profile_label_badge">Töö %1$s</string>
     <string name="lock_to_app_toast">Rakenduse eemaldamiseks vajutage korraga pikalt hiljutiste ja tagasiliikumise klahvi.</string>
+    <string name="lock_to_app_toast_for_navibar">Rakenduse eemaldamiseks puudutage korraga pikalt hiljutiste ja tagasiliikumise nuppu.</string>
     <string name="lock_to_app_toast_accessible">Rakenduse eemaldamiseks vajutage ja hoidke klahvi Tagasiliikumine.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Rakenduse lukustamise režiim on aktiveeritud.</string>
     <string name="lock_to_app_start">Rakendus kinnitatud.</string>
     <string name="lock_to_app_exit">Rakendus eemaldatud.</string>
@@ -1431,9 +1435,9 @@ Akusäästja lülitatakse seadme laadimise ajal automaatselt välja."</string>
     <string name="tw_clipboard_save_tts">Salvesta</string>
     <string name="tw_clipboard_button_tts">Nupp</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Lõikelaud</string>
-    <string name="hdmi_connect">HDMI-kaabel ühendatud.</string>
+    <string name="hdmi_connect">HDMI on ühendatud.</string>
     <string name="hdmi_connect_indirectly">Uhendage oma seade teleriga otse HDMI-kaabli kaudu.</string>
-    <string name="hdmi_disconnect">HDMI-kaabel lahti ühendatud.</string>
+    <string name="hdmi_disconnect">HDMI on lahutatud.</string>
     <string name="hdmi_recommend_charging_device">Soovitame laadida seadet, kui see on pikema aja jooksul ühendatud HDTV-adapteriga. Seadme laadimiseks ühendage laadija HDTV-adapteriga.</string>
     <string name="hdmi_wfd_terminate">HDMI on ühendatud. Rakenduse Screen Mirroring ühendus on lõppenud</string>
     <string name="disable">Keela</string>
@@ -1853,6 +1857,7 @@ käsklus"</string>
     <string name="volumepanel_media">Meedia (Telefon)</string>
     <string name="volumepanel_notification">Teavitused</string>
     <string name="volumepanel_system">Süsteem</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Hädaabirežiimis ei saa ekraani jäädvustada.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Ekraanipilti ei saa jäädvustada.</string>
     <string name="bluetooth_permission_request">Bluetooth-ühenduse loa taotlus</string>
@@ -1925,6 +1930,7 @@ Rakenduse eemaldamiseks vajutage ja hoidke menüüklahvi."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Ei saa aktiveerida funktsiooni %s, kui Wi-Fi Direct on aktiveeritud.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Teenusepakkuja ei vasta.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s aktiveerimise taotluse saatmine nurjus. Ühenduse taasloomine saadaolevate võrkude kaudu…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Funktsiooni %1$s ei saa aktiveerida. %2$s ei ole saadaval teie internetipaketiga või ei saadud vastust teenuse %3$s serverist.</string>
     <string name="mptcp_message_setting_disabled_overheating">Mobiilsidestandardit %s ei saa aktiveerida. Seade on üle kuumenemas. Oodake, kuni seade jahtub, seejärel proovige uuesti.</string>
     <string name="mptcp_message_operation_disabled_overheating">Mobiilsidestandard %s inaktiveeriti, et seadme ülekuumenemist ära hoida. Laaditakse alla hoopis mobiilsidevõrgu kaudu…</string>
     <string name="mptcp_message_data_usage_limit">Andmekasutuse piirang on saavutatud. Avage andmekasutuse piirangu muutmiseks menüü Seaded.</string>
@@ -2034,6 +2040,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Rakenduse %s heli esitatakse läbi teie USB-heliseadme. Toksake siia, et see välja lülitada.</string>
     <string name="multisound_change_output_device">Muutke heliväljundi seadet</string>
     <string name="multisound_headup_contents">Selle rakenduse jaoks valitud heliseade on sama, mis teie telefoni praegune heliväljundi seade. Selleks, et eraldada heli selle rakenduse jaoks, muutke oma heliväljundi seadet kiirseadete paneelil.</string>
+    <string name="multisound_hun_title">Kas muuta peamist heliväljundi seadet?</string>
+    <string name="multisound_hun_contents">Selle rakenduse (%1$s) jaoks valitud heliseade on sama, nagu peamine heliväljundi seade (%2$s). Selle rakenduse heli eraldamiseks tuleb heliväljundi seadmeks valida %3$s.</string>
+    <string name="multisound_hun_close">Sulge</string>
+    <string name="multisound_hun_change">Muuda</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Peakomplekt</string>
     <string name="bixby_edgecase_mpsm">Bixbyt ei saa kasutada, kui maksimaalne energiasäästurežiim on sisse lülitatud.</string>
     <string name="bixby_edgecase_emergencymode">Bixbyt ei saa kasutada hädaabirežiimis.</string>
     <string name="bixby_edgecase_kidsmode">Bixbyt ei saa kasutada lasterežiimis.</string>
@@ -2041,9 +2053,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Bixbyt ei saa kasutada MirrorLinki kasutamise ajal.</string>
     <string name="bixby_edgecase_dexmode">Rakendust Bixby ei saa kasutada Samsung DeX-is.</string>
     <string name="bixby_edgecase_dexstation">Rakendust Bixby ei saa kasutada, kui olete ühendatud DeX-i jaamaga.</string>
-    <string name="conventional_mode_recent_noti">Seda rakendust saate kuvada täisekraanil, kui toksate hiljutiste rakenduste ekraanil laiendamise ikooni.</string>
+    <string name="bixby_edgecase_cantusenow">Rakendust Bixby Voice ei saa praegu kasutada.</string>
+    <string name="conventional_mode_recent_noti">Saate muuta rakenduse kuvasuhet hiljutiste rakenduste ekraanil.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Eelmise kuvasuhte taastamiseks avage menüü Seaded > Ekraan > Täisekraani rakendused.</string>
     <string name="conventional_mode_tap_here_to_fill">Toksake siia, et täita kogu ekraan</string>
+    <string name="bixby_popup_unavailable_now">Bixby pole saadaval. Ainult telefoni omanik või peamine telefoninumber saab kasutada Bixbyt.</string>
     <string name="permlab_knoxCustomSetting">Seadme seadete haldamine</string>
     <string name="permdesc_knoxCustomSetting">Saate konfigureerida seadme seadeid, nagu Bluetooth, asukoht, Wi-Fi, mobiilne andmeside ja Androidi seaded.</string>
     <string name="permlab_knoxCustomSystem">Süsteemi seadete haldamine</string>
@@ -2388,6 +2402,4 @@ USB-funktsioonid võivad olla piiratud, kui maksimaalne energiasäästurežiim o
     <string name="charging_connected_via_usb">Ühendatud seadet laaditakse USB-kaudu…</string>
     <string name="lacking_filenode_internal_storage_view_title">Failisüsteemi piir</string>
     <string name="lacking_filenode_internal_storage_view_text">Teie telefonis on loodud liiga palju faile. Rakendused ei pruugi enam korralikult töötada ja teie telefon ei pruugi enam käivituda. Varundage kõik olulised andmed ja lähtestage telefon tehase vaikeseadetele.</string>
-    <string name="lock_to_app_toast_for_navibar">Rakenduse eemaldamiseks puudutage korraga pikalt hiljutiste ja tagasiliikumise nuppu.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

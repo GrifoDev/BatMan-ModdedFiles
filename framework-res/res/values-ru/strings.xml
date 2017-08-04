@@ -770,7 +770,7 @@
     <string name="aerr_process">Процесс %1$s остановлен.</string>
     <string name="aerr_application_repeated">В приложении \"%1$s\" снова произошел сбой</string>
     <string name="aerr_process_repeated">В приложении \"%1$s\" снова произошел сбой</string>
-    <string name="aerr_restart">Перезапуск</string>
+    <string name="aerr_restart">Перезапустить приложение</string>
     <string name="aerr_reset">Сбросить и перезапустить</string>
     <string name="aerr_report">Отправить отзыв</string>
     <string name="aerr_close">Закрыть</string>
@@ -915,9 +915,9 @@
     <string name="dlg_ok">ОК</string>
     <string name="usb_charging_notification_title">Зарядка через USB</string>
     <string name="usb_supplying_notification_title">Подача питания на подключенное устройство через USB</string>
-    <string name="usb_mtp_notification_title">Передача медиафайлов по USB</string>
-    <string name="usb_ptp_notification_title">Передача изображений по USB</string>
-    <string name="usb_midi_notification_title">USB-кабель подкл. к уст-ву MIDI</string>
+    <string name="usb_mtp_notification_title">USB для передачи файлов</string>
+    <string name="usb_ptp_notification_title">USB для передачи изображений</string>
+    <string name="usb_midi_notification_title">USB для MIDI</string>
     <string name="usb_accessory_notification_title">Подключено к USB-аксессуару</string>
     <string name="usb_notification_message">Нажмите для настройки USB подключения.</string>
     <string name="adb_active_notification_title">Отладка USB подключена.</string>
@@ -1319,6 +1319,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Чтобы снова показать кнопки, проведите пальцем к центру экрана от того края, где обычно отображаются кнопки.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Через некоторое время кнопки снова исчезнут.</string>
     <string name="sec_immersive_cling_help_text_step_two">Вы можете использовать кнопку “Домой”, даже когда она скрыта. Чтобы перейти на главный экран, сильно нажмите на область экрана, в которой обычно находится кнопка “Домой”.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Вне зависимости от того, как вы держите телефон, кнопки всегда будут расположены рядом с разъемом для зарядки. Если телефон повернут против часовой стрелки, проведите пальцем влево от края экрана, как показано стрелкой.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Вне зависимости от того, как вы держите телефон, кнопки всегда будут расположены рядом с разъемом для зарядки. Если телефон повернут по часовой стрелке, проведите пальцем вправо от края экрана, как показано стрелкой.</string>
     <string name="done_label">Готово</string>
     <string name="hour_picker_description">Аналоговый выбор часа</string>
     <string name="minute_picker_description">Аналоговый выбор минут</string>
@@ -1329,7 +1331,9 @@
     <string name="deleted_key">Удалено: %s.</string>
     <string name="managed_profile_label_badge">Рабочий %1$s</string>
     <string name="lock_to_app_toast">Чтобы открепить приложение, одновременно нажмите и удерживайте клавиши “Последние” и “Назад”.</string>
+    <string name="lock_to_app_toast_for_navibar">Чтобы открепить приложение, одновременно коснитесь и удерживайте кнопки “Последние” и “Назад”.</string>
     <string name="lock_to_app_toast_accessible">Чтобы открепить приложение, нажмите и удерживайте клавишу “Последние”.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Включен режим блокировки на приложении.</string>
     <string name="lock_to_app_start">Приложение закреплено.</string>
     <string name="lock_to_app_exit">Приложение откреплено.</string>
@@ -1435,9 +1439,9 @@
     <string name="tw_clipboard_save_tts">Сохранить</string>
     <string name="tw_clipboard_button_tts">Кнопка</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Буфер обмена</string>
-    <string name="hdmi_connect">Кабель HDMI подключен.</string>
+    <string name="hdmi_connect">HDMI подключен.</string>
     <string name="hdmi_connect_indirectly">Подключите устройство к телевизору с помощью кабеля HDMI напрямую.</string>
-    <string name="hdmi_disconnect">Кабель HDMI отключен.</string>
+    <string name="hdmi_disconnect">HDMI отключен.</string>
     <string name="hdmi_recommend_charging_device">Рекомендуем заряжать устройство, если оно будет подключено к адаптеру HDTV в течение длительного времени. Чтобы подзарядить устройство, подсоедините зарядное устройство к адаптеру HDTV.</string>
     <string name="hdmi_wfd_terminate">Используется HDMI. Подключение Screen Mirroring разорвано</string>
     <string name="disable">Выключить</string>
@@ -1613,7 +1617,7 @@
 на ТВ (Smart View)"</string>
     <string name="tw_resolver_afw_title">Отпр. с рабочего профиля</string>
     <string name="tw_resolver_afw_personal_title">Отправить из личного профиля</string>
-    <string name="chooser_direct_share_panel_title">Коснитесь значка ниже, чтобы поделиться содержанием напрямую.</string>
+    <string name="chooser_direct_share_panel_title">Коснитесь значка, чтобы поделиться содержанием</string>
     <string name="share_link_title">Поделиться ссылкой</string>
     <string name="share_link_description">Чтобы отправлять большие файлы в исходном качестве, коснитесь здесь.</string>
     <string name="share_link_tips_description">Советы %s</string>
@@ -1856,6 +1860,7 @@
     <string name="volumepanel_media">Медиа</string>
     <string name="volumepanel_notification">Уведомления</string>
     <string name="volumepanel_system">Система</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Невозможно сделать снимок экрана в экстренном режиме.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Не удалось сделать снимок экрана.</string>
     <string name="bluetooth_permission_request">Запрос на разрешение подключения Bluetooth</string>
@@ -1929,6 +1934,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Невозможно включить %s, когда включен Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Нет ответа от поставщика услуг.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Не удалось отправить запрос на активацию %s. Повторное подключение через доступные сети…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Невозможно включить %1$s. Ваш интернет-пакет не поддерживает услугу %2$s, или не получен ответ от сервера %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Невозможно включить %s. Перегрев устройства. Подождите, пока устройство охладится, и попробуйте снова.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s отключено из-за перегрева устройства. Загрузка через мобильную сеть…</string>
     <string name="mptcp_message_data_usage_limit">Достигнут лимит использования трафика. Чтобы изменить лимит использования трафика, перейдите в “Настройки”.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Звук из %s воспроизводится на аудиоустройстве USB. Коснитесь здесь, чтобы отключить его.</string>
     <string name="multisound_change_output_device">Измените устройство вывода звука</string>
     <string name="multisound_headup_contents">Звуковое устройство, выбранное для этого приложения, совпадает с текущим устройством вывода звука на телефоне. Чтобы воспроизводить звук этого приложения отдельно, измените устройство вывода звука на панели быстрых настроек.</string>
+    <string name="multisound_hun_title">Изменить главное устройство вывода звука?</string>
+    <string name="multisound_hun_contents">Аудиоустройство, которое вы выбрали для этого приложения (%1$s), также является основным устройством вывода звука (%2$s). Чтобы отделить звук из этого приложения, установите %3$s в качестве основного устройства вывода звука.</string>
+    <string name="multisound_hun_close">Закрыть</string>
+    <string name="multisound_hun_change">Изменить</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Гарнитура</string>
     <string name="bixby_edgecase_mpsm">Невозможно использовать Bixby в режиме максимального энергосбережения.</string>
     <string name="bixby_edgecase_emergencymode">Невозможно использовать Bixby в экстренном режиме.</string>
     <string name="bixby_edgecase_kidsmode">Невозможно использовать Bixby в детском режиме.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Невозможно использовать Bixby, когда работает MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Невозможно использовать Bixby в Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Невозможно использовать Bixby во время подключения к станции DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Вы можете открыть это приложение в полноэкранном режиме, нажав на значок “Развернуть” на экране “Недавние приложения”.</string>
+    <string name="bixby_edgecase_cantusenow">Невозможно использовать Bixby Voice в данный момент.</string>
+    <string name="conventional_mode_recent_noti">На экране последних открытых приложений можно изменять их пропорции.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Чтобы вернуть прежние пропорции, перейдите в меню “Настройки” > “Экран” > “Полноэкранные приложения”.</string>
-    <string name="conventional_mode_tap_here_to_fill">Коснитесь здесь, чтобы перейти в полноэкранный режим</string>
+    <string name="conventional_mode_tap_here_to_fill">Коснитесь, чтобы перейти в полноэкранный режим</string>
+    <string name="bixby_popup_unavailable_now">Bixby недоступен. Bixby доступен к использованию только владельцем телефона или с помощью основного номера телефона.</string>
     <string name="permlab_knoxCustomSetting">Управление настройками устройства</string>
     <string name="permdesc_knoxCustomSetting">Установка настроек устройства, в том числе настроек Bluetooth, местоположения, Wi-Fi, мобильных данных и Android.</string>
     <string name="permlab_knoxCustomSystem">Управление настройками системы</string>
@@ -2423,6 +2437,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Зарядка подключенного устройства через USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Лимит файловой системы</string>
     <string name="lacking_filenode_internal_storage_view_text">На телефоне создано слишком много файлов. Приложения могут работать неправильно, а телефон может не запускаться. Создайте резервные копии важных данных и выполните сброс настроек телефона.</string>
-    <string name="lock_to_app_toast_for_navibar">Чтобы открепить приложение, одновременно коснитесь и удерживайте кнопки “Последние” и “Назад”.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

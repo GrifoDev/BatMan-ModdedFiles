@@ -770,7 +770,7 @@
     <string name="aerr_process">Proces %1$s je zaustavljen.</string>
     <string name="aerr_application_repeated">%1$s се стално зауставља</string>
     <string name="aerr_process_repeated">Процес %1$s се стално зауставља</string>
-    <string name="aerr_restart">Rest. apl.</string>
+    <string name="aerr_restart">Restartuj aplikaciju</string>
     <string name="aerr_reset">Ресетуј и поново покрени апликацију</string>
     <string name="aerr_report">Пошаљите повратне информације</string>
     <string name="aerr_close">Затвори</string>
@@ -915,9 +915,9 @@
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">USB пуни овај уређај</string>
     <string name="usb_supplying_notification_title">USB снабдева енергијом прикључени уређај</string>
-    <string name="usb_mtp_notification_title">USB prenosi medijske fajlove</string>
-    <string name="usb_ptp_notification_title">USB prenosi slike</string>
-    <string name="usb_midi_notification_title">USB je povezan na MIDI uređaj</string>
+    <string name="usb_mtp_notification_title">USB za prenos fajla</string>
+    <string name="usb_ptp_notification_title">USB za prenos slike</string>
+    <string name="usb_midi_notification_title">USB za MIDI</string>
     <string name="usb_accessory_notification_title">Povezan na USB pribor</string>
     <string name="usb_notification_message">Kucni za ostale opcije USB-a.</string>
     <string name="adb_active_notification_title">Uključeno otkrivanje grešaka putem USB-a.</string>
@@ -1319,6 +1319,8 @@ Pokušaj ponovo za %2$d sekundi."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Možete ponovo da prikažete dugmad tako što ćete prevući prstom ka unutra sa ivice ekrana gde se dugmad obično pojavljuju.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Posle nekog vremena dugmad će ponovo nestati.</string>
     <string name="sec_immersive_cling_help_text_step_two">Možete da koristite dugme Početak čak i dok je skriveno. Da biste otišli na Početni ekran, jako pritisnite oblast ekrana gde se dugme Početak obično pojavljuje.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Na ma koji način da držite telefon, dugmad će se uvek nalaziti pored porta za punjenje. Kada se telefon rotira u smeru nalevo, prevucite prstom nalevo sa ivice ekrana kao što prikazuje strelica.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Na ma koji način da držite telefon, dugmad će se uvek nalaziti pored porta za punjenje. Kada se telefon rotira u smeru nadesno, prevucite prstom nadesno sa ivice ekrana kao što prikazuje strelica.</string>
     <string name="done_label">Gotovo</string>
     <string name="hour_picker_description">Analogni birač sati</string>
     <string name="minute_picker_description">Analogni birač minuta</string>
@@ -1329,7 +1331,9 @@ Pokušaj ponovo za %2$d sekundi."</string>
     <string name="deleted_key">%s je izbrisan.</string>
     <string name="managed_profile_label_badge">%1$s на послу</string>
     <string name="lock_to_app_toast">Da biste otkačili aplikaciju, istovremeno pritisnite i zadržite tastere Nedavno i Nazad.</string>
+    <string name="lock_to_app_toast_for_navibar">Da biste otkačili aplikaciju, istovremeno dodirnite i zadržite dugmad Nedavno i Nazad.</string>
     <string name="lock_to_app_toast_accessible">Da bi otkačio/la aplikaciju, pritisni i zadrži nedavno korišćene tastere.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Režim zadržavanja aplikacije je omogućen.</string>
     <string name="lock_to_app_start">Aplikacija je zakačena.</string>
     <string name="lock_to_app_exit">Aplikacija je otkačena.</string>
@@ -1435,9 +1439,9 @@ Pokušaj ponovo za %2$d sekundi."</string>
     <string name="tw_clipboard_save_tts">Sačuvaj</string>
     <string name="tw_clipboard_button_tts">Taster</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Privremena memorija</string>
-    <string name="hdmi_connect">HDMI kabl priključen.</string>
+    <string name="hdmi_connect">HDMI je priključen.</string>
     <string name="hdmi_connect_indirectly">Poveži uređaj direktno na televizor putem HDMI kabla.</string>
-    <string name="hdmi_disconnect">HDMI kabl otkačen.</string>
+    <string name="hdmi_disconnect">HDMI je isključen.</string>
     <string name="hdmi_recommend_charging_device">Preporučujemo da napuniš uređaj ako je povezan na HDTV adapter duži vremenski period. Poveži punjač na HDTV adapter da bi napunio/la uređaj.</string>
     <string name="hdmi_wfd_terminate">HDMI je povezan. Screen Mirroring veza je prekinuta</string>
     <string name="disable">Onemogući</string>
@@ -1856,6 +1860,7 @@ vazduhu"</string>
     <string name="volumepanel_media">Mediji</string>
     <string name="volumepanel_notification">Obaveštenja</string>
     <string name="volumepanel_system">Sistem</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Nije moguće snimanje ekrana u režimu Opasnost.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Nije moguće napraviti snimak ekrana.</string>
     <string name="bluetooth_permission_request">Zahtev za dozvolu Bluetooth-a</string>
@@ -1928,6 +1933,7 @@ Da bi otkačio/la aplikaciju, pritisni i zadrži taster menija."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Nije moguće omogućiti %s dok je omogućen Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nema odgovora od provajdera.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Slanje zahteva da se aktivira %s nije uspelo. Ponovo se uspostavlja veza putem dostupnih mreža…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nije moguće omogućiti funkciju %1$s. Funkcija %2$s nije dostupna sa vašim internet paketom ili nije primljen odgovor sa servera za funkciju %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nije moguće omogućiti %s. Uređaj se pregreva. Sačekajte da se uređaj ohladi i pokušajte ponovo.</string>
     <string name="mptcp_message_operation_disabled_overheating">Mreža %s je onemogućena kako bi se sprečilo pregrevanje uređaja. Umesto toga, preuzimanje se vrši putem mobilne mreže…</string>
     <string name="mptcp_message_data_usage_limit">Dostignuto je ograničenje za upotrebu podataka. Da biste promenili ograničenje za upotrebu podataka, idite na Podešavanja.</string>
@@ -2037,6 +2043,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Zvuk aplikacije %s se reprodukuje putem USB audio uređaja. Kucnite ovde da biste isključili ovo.</string>
     <string name="multisound_change_output_device">Promenite uređaj za audio izlaz</string>
     <string name="multisound_headup_contents">Audio uređaj koji ste izabrali za ovu aplikaciju je isti kao i trenutni uređaj za audio izlaz za telefon. Da biste odvojili zvuk za ovu aplikaciju, promenite uređaj za audio izlaz u panelu za brza podešavanja.</string>
+    <string name="multisound_hun_title">Promeniti glavni uređaj za audio izlaz?</string>
+    <string name="multisound_hun_contents">Audio uređaj koji ste izabrali za ovu aplikaciju (%1$s) je isti kao i glavni uređaj za audio izlaz (%2$s). Da biste odvojili zvuk za ovu aplikaciju, glavni uređaj za audio izlaz mora da se promeni na %3$s.</string>
+    <string name="multisound_hun_close">Zatvori</string>
+    <string name="multisound_hun_change">Promeni</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Slušalice</string>
     <string name="bixby_edgecase_mpsm">Ne može da se koristi aplikacija Bixby dok je uključen režim Maksimalna ušteda energije.</string>
     <string name="bixby_edgecase_emergencymode">Ne može da se koristi aplikacija Bixby u režimu Opasnost.</string>
     <string name="bixby_edgecase_kidsmode">Ne može da se koristi aplikacija Bixby u Režimu za decu.</string>
@@ -2044,9 +2056,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Ne može da se koristi aplikacija Bixby dok se koristi MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Ne možete da koriste Bixby u aplikaciji Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Ne možete da koriste aplikaciju Bixby dok ste povezani na DeX stanicu.</string>
-    <string name="conventional_mode_recent_noti">Možete da prikažete ovu aplikaciju preko celog ekrana tako što ćete kucnuti na ikonu Proširi na ekranu Nedavne aplikacije.</string>
+    <string name="bixby_edgecase_cantusenow">Trenutno ne može da se koristi funkcija Bixby Voice.</string>
+    <string name="conventional_mode_recent_noti">Možete da promenite razmeru aplikacije na ekranu Nedavne aplikacije.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Da biste se vratili na prethodnu razmeru, idite na Podešavanja > Prikaz > Aplikacije na celom ekranu.</string>
     <string name="conventional_mode_tap_here_to_fill">Kucnite ovde da biste ispunili ceo ekran</string>
+    <string name="bixby_popup_unavailable_now">Aplikacija Bixby nije dostupna. Samo vlasnik telefona ili glavni broj telefona mogu da koriste Bixby.</string>
     <string name="permlab_knoxCustomSetting">Podesi podešavanja uređaja</string>
     <string name="permdesc_knoxCustomSetting">Konfigurišite podešavanja uređaja kao što su Bluetooth, Lokacija, Wi-Fi, Mobilni podaci i podešavanja za Android.</string>
     <string name="permlab_knoxCustomSystem">Podesi podešavanja sistema</string>
@@ -2422,6 +2436,4 @@ USB funkcije će možda biti ograničene dok je uključen režim Maksimalna ušt
     <string name="charging_connected_via_usb">Puni se povezani uređaj putem USB-a…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ograničenje sistema fajlova</string>
     <string name="lacking_filenode_internal_storage_view_text">Previše fajlova je kreirano na telefonu. Aplikacije mogu da prestanu ispravno da rade i telefon se možda više neće pokretati. Bekapujte sve važne podatke i resetujte telefon na fabrička podešavanja.</string>
-    <string name="lock_to_app_toast_for_navibar">Da biste otkačili aplikaciju, istovremeno dodirnite i zadržite dugmad Nedavno i Nazad.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

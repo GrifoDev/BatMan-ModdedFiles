@@ -770,7 +770,7 @@
     <string name="aerr_process">Η διαδικασία %1$s διακόπηκε.</string>
     <string name="aerr_application_repeated">Η εφαρμογή %1$s διακόπτεται επανειλημμένα</string>
     <string name="aerr_process_repeated">Η διαδικασία %1$s διακόπτεται επανειλημμένα</string>
-    <string name="aerr_restart">Επαν. εφαρ.</string>
+    <string name="aerr_restart">Επανεκκίνηση εφαρμογής</string>
     <string name="aerr_reset">Επαναφορά και επανεκκίνηση εφαρμογής</string>
     <string name="aerr_report">Αποστολή σχολίων</string>
     <string name="aerr_close">Κλείσιμο</string>
@@ -915,9 +915,9 @@
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Αυτή η συσκευή φορτίζεται μέσω USB</string>
     <string name="usb_supplying_notification_title">Η συνδεδεμένη συσκευή τροφοδοτείται μέσω USB</string>
-    <string name="usb_mtp_notification_title">Μεταφ. αρχείων πολυμ. μέσω USB</string>
-    <string name="usb_ptp_notification_title">Το USB μεταφέρει εικόνες</string>
-    <string name="usb_midi_notification_title">Το USB συνδέθ. σε συσκευή MIDI</string>
+    <string name="usb_mtp_notification_title">USB για μεταφορά αρχείων</string>
+    <string name="usb_ptp_notification_title">USB για μεταφορά εικόνων</string>
+    <string name="usb_midi_notification_title">USB για MIDI</string>
     <string name="usb_accessory_notification_title">Συνδέθηκε σε αξεσουάρ αποθήκευσης USB</string>
     <string name="usb_notification_message">Πατήστε για την εμφάνιση άλλων επιλογών USB.</string>
     <string name="adb_active_notification_title">Εντοπισμός σφαλμάτων USB.</string>
@@ -1319,6 +1319,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Μπορείτε να εμφανίσετε ξανά τα κουμπιά, κάνοντας σάρωση προς τα μέσα από την άκρη της οθόνης όπου εμφανίζονται κανονικά τα κουμπιά.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Μετά από λίγο, τα κουμπιά θα εξαφανιστούν ξανά.</string>
     <string name="sec_immersive_cling_help_text_step_two">Μπορείτε να χρησιμοποιήσετε το κεντρικό κουμπί ακόμα και όταν δεν εμφανίζεται. Για να μεταβείτε στην Αρχική οθόνη, πιέστε δυνατά την περιοχή της οθόνης στην οποία εμφανίζεται συνήθως το Κεντρικό πλήκτρο.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Όπως και αν κρατάτε το τηλέφωνό σας, τα κουμπιά θα βρίσκονται πάντα δίπλα στη θύρα φόρτισης. Όταν στρέφετε το τηλέφωνο αριστερά, σαρώστε προς τα αριστερά από το άκρο της οθόνης, όπως δείχνει το βέλος.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Όπως και αν κρατάτε το τηλέφωνό σας, τα κουμπιά θα βρίσκονται πάντα δίπλα στη θύρα φόρτισης. Όταν στρέφετε το τηλέφωνο δεξιά, σαρώστε προς τα δεξιά από το άκρο της οθόνης, όπως δείχνει το βέλος.</string>
     <string name="done_label">Τέλος</string>
     <string name="hour_picker_description">Αναλογικός επιλογέας ώρας</string>
     <string name="minute_picker_description">Αναλογικός επιλογέας λεπτών</string>
@@ -1329,7 +1331,9 @@
     <string name="deleted_key">Διαγράφηκε το %s.</string>
     <string name="managed_profile_label_badge">Εργασία %1$s</string>
     <string name="lock_to_app_toast">Για να ξεκαρφιτσώσετε μια εφαρμογή, πιέστε παρατεταμένα τα πλήκτρα «Πρόσφατα» και «Πίσω» ταυτόχρονα.</string>
+    <string name="lock_to_app_toast_for_navibar">Για να ξεκαρφιτσώσετε μια εφαρμογή, πατήστε παρατεταμένα τα κουμπιά «Πρόσφατα» και «Πίσω» ταυτόχρονα.</string>
     <string name="lock_to_app_toast_accessible">Για να ξεκαρφιτσώσετε την εφαρμογή, πιέστε παρατεταμένα το πλήκτρο πρόσφατων.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Ενεργοποιήθηκε η λειτουργία κλειδώματος σε εφαρμογή.</string>
     <string name="lock_to_app_start">Η εφαρμογή καρφιτσώθηκε.</string>
     <string name="lock_to_app_exit">Η εφαρμογή ξεκαρφιτσώθηκε.</string>
@@ -1435,9 +1439,9 @@
     <string name="tw_clipboard_save_tts">Αποθήκ.</string>
     <string name="tw_clipboard_button_tts">Κουμπί</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Πρόχειρο</string>
-    <string name="hdmi_connect">Συνδέθηκε καλώδιο HDMI.</string>
+    <string name="hdmi_connect">Το HDMI συνδέθηκε.</string>
     <string name="hdmi_connect_indirectly">Συνδέστε τη συσκευή στην τηλεόραση απευθείας, μέσω του καλωδίου HDMI.</string>
-    <string name="hdmi_disconnect">Το καλώδιο HDMI αποσυνδέθηκε.</string>
+    <string name="hdmi_disconnect">Το HDMI αποσυνδέθηκε.</string>
     <string name="hdmi_recommend_charging_device">Συνιστάται η φόρτιση της συσκευής σας σε περίπτωση που είναι συνδεδεμένη σε προσαρμογέα HDTV για μεγάλο χρονικό διάστημα. Συνδέστε το φορτιστή στον προσαρμογέα HDTV, για να φορτίσετε τη συσκευή σας.</string>
     <string name="hdmi_wfd_terminate">Συνδέθηκε HDMI. Η σύνδεση της λειτουργίας Screen Mirroring τερματίστηκε</string>
     <string name="disable">Ανενεργό</string>
@@ -1857,6 +1861,7 @@
     <string name="volumepanel_media">Μέσα</string>
     <string name="volumepanel_notification">Ειδοποιήσεις</string>
     <string name="volumepanel_system">Σύστημα</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Δεν είναι δυνατή η αποτύπωση της οθόνης κατά τη λειτουργία έκτακτης ανάγκης.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Δεν είναι δυνατή η λήψη στιγμιοτύπου.</string>
     <string name="bluetooth_permission_request">Αίτημα άδειας Bluetooth</string>
@@ -1929,6 +1934,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Δεν είναι δυνατή η ενεργοποίηση του %s όσο είναι ενεργό το Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Ο παροχέας υπηρεσιών δεν αποκρίνεται.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Η αποστολή αιτήματος ενεργοποίησης %s απέτυχε. Επανασύνδεση μέσω διαθέσιμων δικτύων…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Δεν είναι δυνατή η ενεργοποίηση της λειτουργίας %1$s. Η λειτουργία %2$s δεν είναι διαθέσιμη στο πακέτο Internet που διαθέτετε ή δεν λήφθηκε απάντηση από το διακομιστή %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Δεν είναι δυνατή η ενεργοποίηση του δικτύου %s. Η συσκευή υπερθερμαίνεται. Περιμένετε να πέσει η θερμοκρασία της συσκευής και δοκιμάστε ξανά.</string>
     <string name="mptcp_message_operation_disabled_overheating">Η σύνδεση %s απενεργοποιήθηκε για να αποφευχθεί η υπερθέρμανση της συσκευής. Γίνεται λήψη μέσω δικτύου κινητής τηλεφωνίας…</string>
     <string name="mptcp_message_data_usage_limit">Συμπληρώθηκε το όριο χρήσης δεδομένων. Για να αλλάξετε το όριο χρήσης δεδομένων, μεταβείτε στις Ρυθμίσεις.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Ο ήχος της εφαρμογής %s ακούγεται μέσω της συσκευής ήχου USB. Πατήστε εδώ για να τον απενεργοποιήσετε.</string>
     <string name="multisound_change_output_device">Αλλαγή συσκευής εξόδου ήχου</string>
     <string name="multisound_headup_contents">Η συσκευή ήχου που επιλέξατε για αυτήν την εφαρμογή είναι ίδια με την τρέχουσα συσκευή εξόδου ήχου για το τηλέφωνό σας. Για να διαχωρίσετε τον ήχο για αυτήν την εφαρμογή αλλάξτε τη συσκευή εξόδου ήχου από τον πίνακα γρήγορων ρυθμίσεων.</string>
+    <string name="multisound_hun_title">Αλλαγή κύριας συσκευής εξόδου ήχου;</string>
+    <string name="multisound_hun_contents">Η συσκευή ήχου που επιλέξατε για αυτήν την εφαρμογή (%1$s) είναι ίδια με την κύρια συσκευή εξόδου ήχου (%2$s). Για να διαχωρίσετε τον ήχο για αυτήν την εφαρμογή, θα πρέπει να αλλάξετε την κύρια συσκευή εξόδου ήχου σε %3$s.</string>
+    <string name="multisound_hun_close">Κλείσιμο</string>
+    <string name="multisound_hun_change">Αλλαγή</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Σετ ακουστικών</string>
     <string name="bixby_edgecase_mpsm">Δεν είναι δυνατή η χρήση του Bixby όσο είναι ενεργή η λειτουργία μέγιστης εξοικονόμησης ενέργειας.</string>
     <string name="bixby_edgecase_emergencymode">Δεν είναι δυνατή η χρήση του Bixby στη Λειτουργία έκτακτης ανάγκης.</string>
     <string name="bixby_edgecase_kidsmode">Δεν είναι δυνατή η χρήση του Bixby στη Λειτουργία για παιδιά.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Δεν είναι δυνατή η χρήση του Bixby κατά τη χρήση του MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Δεν είναι δυνατή η χρήση του Bixby στο Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Δεν είναι δυνατή η χρήση του Bixby όσο είστε συνδεδεμένοι στο DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Μπορείτε να δείτε αυτήν την εφαρμογή σε πλήρη οθόνη, αν πατήσετε το εικονίδιο επέκτασης στην οθόνη πρόσφατων εφαρμογών.</string>
+    <string name="bixby_edgecase_cantusenow">Δεν είναι δυνατή η χρήση του Bixby Voice αυτήν τη στιγμή.</string>
+    <string name="conventional_mode_recent_noti">Μπορείτε να αλλάξετε την αναλογία οθόνης της εφαρμογής από την οθόνη πρόσφατων εφαρμογών.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Για να επιστρέψετε στην προηγούμενη αναλογία οθόνης, μεταβείτε στο μενού Ρυθμίσεις > Οθόνη > Εφαρμογές πλήρους οθόνης.</string>
     <string name="conventional_mode_tap_here_to_fill">Πατήστε εδώ για προβολή σε όλη την οθόνη</string>
+    <string name="bixby_popup_unavailable_now">Το Bixby δεν είναι διαθέσιμο. Μόνο ο κάτοχος του τηλεφώνου ή ο κύριος αριθμός τηλεφώνου μπορούν να χρησιμοποιήσουν το Bixby.</string>
     <string name="permlab_knoxCustomSetting">Διαχείριση ρυθμίσεων συσκευής</string>
     <string name="permdesc_knoxCustomSetting">Διαμορφώστε ρυθμίσεις συσκευής, όπως είναι το Bluetooth, η Τοποθεσία, το Wi-Fi, τα δεδομένα κινητής τηλεφωνίας και οι ρυθμίσεις Android.</string>
     <string name="permlab_knoxCustomSystem">Διαχείριση ρυθμίσεων συστήματος</string>
@@ -2423,6 +2437,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Φόρτιση συνδεδεμένης συσκευής μέσω USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Όριο συστήματος αρχείων</string>
     <string name="lacking_filenode_internal_storage_view_text">Δημιουργήθηκαν υπερβολικά αρχεία στο τηλέφωνό σας. Οι εφαρμογές μπορεί να σταματήσουν να λειτουργούν σωστά και το τηλέφωνό σας ενδέχεται να μην μπορεί πλέον να εκκινηθεί. Δημιουργήστε αντίγραφα ασφαλείας για τα σημαντικά δεδομένα σας και κάντε επαναφορά εργοστασιακών ρυθμίσεων στο τηλέφωνό σας.</string>
-    <string name="lock_to_app_toast_for_navibar">Για να ξεκαρφιτσώσετε μια εφαρμογή, πατήστε παρατεταμένα τα κουμπιά «Πρόσφατα» και «Πίσω» ταυτόχρονα.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

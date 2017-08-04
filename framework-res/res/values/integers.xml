@@ -79,6 +79,7 @@
     <integer name="config_shortPressOnPowerBehavior">1</integer>
     <integer name="config_doublePressOnPowerBehavior">103</integer>
     <integer name="config_triplePressOnPowerBehavior">102</integer>
+    <integer name="config_fifthPressOnPowerBehavior">105</integer>
     <integer name="config_shortPressOnSleepBehavior">0</integer>
     <integer name="config_criticalBatteryWarningLevel">5</integer>
     <integer name="config_shutdownBatteryTemperature">680</integer>

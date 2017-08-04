@@ -911,9 +911,9 @@ Adakah anda mahu menutupnya?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Mengecas peranti ini melalui USB</string>
     <string name="usb_supplying_notification_title">Membekalkan kuasa kepada peranti tersambung melalui USB</string>
-    <string name="usb_mtp_notification_title">Pindah fail media melalui USB</string>
-    <string name="usb_ptp_notification_title">USB sedang memindahkan imej</string>
-    <string name="usb_midi_notification_title">USB disambung ke peranti MIDI</string>
+    <string name="usb_mtp_notification_title">USB untuk pemindahan fail</string>
+    <string name="usb_ptp_notification_title">USB untuk pemindahan imej</string>
+    <string name="usb_midi_notification_title">USB untuk MIDI</string>
     <string name="usb_accessory_notification_title">Disambungkan ke aksesori USB</string>
     <string name="usb_notification_message">Ketik untuk mendapatkan pilihan USB yang lain.</string>
     <string name="adb_active_notification_title">Penyahpepijatan USB disambungkan.</string>
@@ -1315,6 +1315,8 @@ Cuba lagi dalam masa %2$d saat."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Anda boleh menunjukkan butang sekali lagi dengan meleret ke dalam dari sisi skrin, iaitu tempat butang biasanya muncul.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Selepas seketika, butang akan hilang lagi.</string>
     <string name="sec_immersive_cling_help_text_step_two">Anda boleh menggunakan butang Utama walaupun butang ini tersembunyi. Untuk menuju ke Skrin utama, tekan kuat pada bahagian skrin yang biasanya menunjukkan butang Utama.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Tidak kira cara anda memegang telefon anda, butang sentiasa terletak di sebelah port pengecasan. Apabila telefon anda diputarkan mengikut arah lawan sapu ke kanan dari sisi skrin seperti yang ditunjukkan oleh anak panah.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Tidak kira cara anda memegang telefon anda, butang sentiasa terletak di sebelah port pengecasan. Apabila telefon anda diputarkan mengikut arah jam, sapu ke kanan dari sisi skrin seperti yang ditunjukkan oleh anak panah.</string>
     <string name="done_label">Selesai</string>
     <string name="hour_picker_description">Pemilih jam analog</string>
     <string name="minute_picker_description">Pemilih minit analog</string>
@@ -1325,7 +1327,9 @@ Cuba lagi dalam masa %2$d saat."</string>
     <string name="deleted_key">%s dipadam.</string>
     <string name="managed_profile_label_badge">Kerja %1$s</string>
     <string name="lock_to_app_toast">Untuk nyahpin aplikasi, tekan dan tahan kekunci Terkini dan Kembali pada masa yang sama.</string>
+    <string name="lock_to_app_toast_for_navibar">Untuk nyahpin aplikasi, sentuh dan tahan kekunci Terkini dan Kembali pada masa yang sama.</string>
     <string name="lock_to_app_toast_accessible">Untuk nyahpin aplikasi, tekan dan tahan kekunci terkini.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Mod kunci untuk aplikasi telah diaktifkan.</string>
     <string name="lock_to_app_start">Aplikasi dipin.</string>
     <string name="lock_to_app_exit">Aplikasi dinyahpin.</string>
@@ -1431,9 +1435,9 @@ Penjimat bateri dimatikan secara automatik semasa peranti anda sedang dicas."</s
     <string name="tw_clipboard_save_tts">Simpan</string>
     <string name="tw_clipboard_button_tts">Butang</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Papan klip</string>
-    <string name="hdmi_connect">Kable HDMI disambung.</string>
+    <string name="hdmi_connect">HDMI disambungkan.</string>
     <string name="hdmi_connect_indirectly">Sambungkan peranti anda ke TV secara terus melalui kabel HDMI.</string>
-    <string name="hdmi_disconnect">Kable HDMI diputus sambungan.</string>
+    <string name="hdmi_disconnect">HDMI dinyahsambungkan.</string>
     <string name="hdmi_recommend_charging_device">Kami mengesyorkan agar anda mengecas peranti jika ia disambungkan pada Penyesuai HDTV untuk jangka masa yang lama. Sambungkan pengecas pada penyesuai HDTV untuk mengecas peranti anda.</string>
     <string name="hdmi_wfd_terminate">HDMI disambungkan. Sambungan Screen Mirroring telah tamat</string>
     <string name="disable">Nyahaktif</string>
@@ -1853,6 +1857,7 @@ udara"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Pemberitahuan</string>
     <string name="volumepanel_system">Sistem</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Tidak dapat menangkap skrin semasa dalam Mod kecemasan.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Tidak dapat menangkap tangkapan skrin.</string>
     <string name="bluetooth_permission_request">Permintaan kebenaran Bluetooth</string>
@@ -1925,6 +1930,7 @@ Untuk nyahpin aplikasi, tekan dan tahan kekunci menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Gagal mengaktifkan %s ketika Wi-Fi Direct diaktifkan.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Tiada sambutan daripada pembekal perkhidmatan.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Gagal menghantar %s permintaan pengaktifan. Menyambung semula melalui rangkaian tersedia…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Tidak dapat mengaktifkan %1$s. %2$s tidak tersedia dengan pakej Internet anda atau tiada respons daripada pelayan %3$s diterima.</string>
     <string name="mptcp_message_setting_disabled_overheating">Tidak dapat mengaktifkan %s. Peranti terlampau panas. Tunggu sehingga peranti sejuk dan cuba lagi.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s dinyahaktifkan untuk mengelakkan peranti terlampau panas. Sebaliknya, memuat turun melalui rangkaian mudah alih…</string>
     <string name="mptcp_message_data_usage_limit">Had penggunaan data dicapai. Untuk menukar had penggunaan data, pergi ke Aturan.</string>
@@ -2034,6 +2040,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s bunyi sedang dimainkan menerusi peranti audio USB anda. Ketik di sini untuk mematikannya.</string>
     <string name="multisound_change_output_device">Ubah peranti output audio</string>
     <string name="multisound_headup_contents">Peranti audio yang anda pilih untuk aplikasi ini adalah sama dengan peranti output audio semasa untuk telefon anda. Untuk mengasingkan bunyi bagi aplikasi ini, ubah peranti output audio anda dalam panel aturan cepat.</string>
+    <string name="multisound_hun_title">Ubah peranti output audio utama?</string>
+    <string name="multisound_hun_contents">Peranti audio yang anda pilih untuk aplikasi ini (%1$s) adalah sama dengan peranti output audio utama (%2$s). Untuk mengasingkan bunyi bagi aplikasi ini, peranti output audio utama perlu diubah ke %3$s.</string>
+    <string name="multisound_hun_close">Tutup</string>
+    <string name="multisound_hun_change">Ubah</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Set kepala</string>
     <string name="bixby_edgecase_mpsm">Tidak dapat menggunakan Bixby semasa Mod penjimatan kuasa maksimum dihidupkan.</string>
     <string name="bixby_edgecase_emergencymode">Tidak dapat menggunakan Bixby dalam Mod kecemasan.</string>
     <string name="bixby_edgecase_kidsmode">Tidak dapat menggunakan Bixby dalam Mod Kanak-kanak.</string>
@@ -2041,9 +2053,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Tidak dapat menggunakan Bixby semasa menggunakan MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Tidak dapat menggunakan Bixby dalam Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Tidak dapat menggunakan Bixby semasa disambung kepada Stesen DeX.</string>
-    <string name="conventional_mode_recent_noti">Anda boleh melihat aplikasi ini dalam skrin penuh dengan mengetik ikon Kembangkan pada skrin Aplikasi terkini.</string>
+    <string name="bixby_edgecase_cantusenow">Tidak dapat menggunakan Bixby Voice sekarang.</string>
+    <string name="conventional_mode_recent_noti">Anda boleh menggunakan nisbah aspek aplikasi pada skrin Aplikasi terkini.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Untuk kembali ke nisbah aspek sebelumnya, pergi ke Aturan > Paparan > Aplikasi skrin penuh.</string>
     <string name="conventional_mode_tap_here_to_fill">Ketik di sini untuk mengisi seluruh skrin</string>
+    <string name="bixby_popup_unavailable_now">Bixby tidak tersedia. Hanya pemilik telefon atau nombor telefon utama boleh menggunakan Bixby.</string>
     <string name="permlab_knoxCustomSetting">Urus aturan peranti</string>
     <string name="permdesc_knoxCustomSetting">Tatarajah aturan peranti seperti Bluetooth, Lokasi, Wi-Fi, Data mudah alih dan aturan Android.</string>
     <string name="permlab_knoxCustomSystem">Urus aturan sistem</string>
@@ -2388,6 +2402,4 @@ Fungsi USB mungkin terhad apabila Mod penjimatan kuasa maksimum dihidupkan."</st
     <string name="charging_connected_via_usb">Mengecas peranti yang disambungkan melalui USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Had sistem fail</string>
     <string name="lacking_filenode_internal_storage_view_text">Terlalu banyak fail telah dicipta pada telefon anda. Aplikasi mungkin berhenti berfungsi dengan betul dan telefon anda mungkin tidak lagi dihidupkan. Sandarkan data penting dan tetapkan semula telefon anda kepada aturan kilang.</string>
-    <string name="lock_to_app_toast_for_navibar">Untuk nyahpin aplikasi, sentuh dan tahan kekunci Terkini dan Kembali pada masa yang sama.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

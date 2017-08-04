@@ -918,9 +918,9 @@
     <string name="dlg_ok">确定</string>
     <string name="usb_charging_notification_title">正在通过 USB 为此设备充电</string>
     <string name="usb_supplying_notification_title">正在通过 USB 为连接的设备充电</string>
-    <string name="usb_mtp_notification_title">USB 正在传输媒体文件</string>
-    <string name="usb_ptp_notification_title">USB 传输图片</string>
-    <string name="usb_midi_notification_title">已通过 USB 连接至 MIDI 设备</string>
+    <string name="usb_mtp_notification_title">使用 USB 传输文件</string>
+    <string name="usb_ptp_notification_title">使用 USB 传输图片</string>
+    <string name="usb_midi_notification_title">使用 USB 连接 MIDI</string>
     <string name="usb_accessory_notification_title">已连接至 USB 附件</string>
     <string name="usb_notification_message">点击获取其他 USB 选项</string>
     <string name="adb_active_notification_title">USB调试已连接。</string>
@@ -1319,9 +1319,11 @@
     <string name="sec_immersive_cling_step_one">滑动手机底部来显示主屏幕按钮、返回按钮和最近使用按钮。</string>
     <string name="sec_immersive_cling_step_two">主屏幕按钮即使在隐藏时也可以使用。用力按下手机底部的中心即可进入主屏幕。</string>
     <string name="sec_immersive_cling_help_text_step_one_one">您正在使用全屏模式。为了尽可能减少视觉干扰和防止您意外离开应用程序，主屏幕按钮、返回按钮和最近使用按钮已隐藏。</string>
-    <string name="sec_immersive_cling_help_text_step_one_two">您可以通过从通常显示按钮的屏幕边缘向内滑动来重新显示按钮。</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">您可以通过从屏幕底部向上滑动来重新显示按钮。</string>
     <string name="sec_immersive_cling_help_text_step_one_three">过一会按钮会再次消失。</string>
-    <string name="sec_immersive_cling_help_text_step_two">主屏幕按钮即使在隐藏时也可以使用。若要进入主屏幕，请用力按通常显示主屏幕按钮的屏幕区域。</string>
+    <string name="sec_immersive_cling_help_text_step_two">主屏幕按钮即使在隐藏时也可以使用。若要进入主屏幕，请用力按主屏幕按钮隐藏前所在的屏幕区域。</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">无论您怎样拿着手机，该按钮将始终位于充电端口旁边。在逆时针旋转手机时，请沿箭头所示方向从屏幕边缘向左滑动。</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">无论您怎样拿着手机，该按钮将始终位于充电端口旁边。在顺时针旋转手机时，请沿箭头所示方向从屏幕边缘向右滑动。</string>
     <string name="done_label">完成</string>
     <string name="hour_picker_description">模拟小时选择器</string>
     <string name="minute_picker_description">模拟分钟选择器</string>
@@ -1332,7 +1334,9 @@
     <string name="deleted_key">%s 已删除。</string>
     <string name="managed_profile_label_badge">工作%1$s</string>
     <string name="lock_to_app_toast">若要取消固定应用程序，请同时按住最近使用键和返回键。</string>
+    <string name="lock_to_app_toast_for_navibar">若要取消固定应用程序，请同时按住最近使用按钮和返回按钮。</string>
     <string name="lock_to_app_toast_accessible">若要取消固定应用程序，请按住最近键。</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">若要取消固定应用程序，请长按最近使用按钮。</string>
     <string name="lock_to_app_toast_locked">锁定至应用程序模式已启用。</string>
     <string name="lock_to_app_start">已固定应用程序</string>
     <string name="lock_to_app_exit">已取消固定应用程序</string>
@@ -1438,9 +1442,9 @@
     <string name="tw_clipboard_save_tts">保存</string>
     <string name="tw_clipboard_button_tts">按钮</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">剪贴板</string>
-    <string name="hdmi_connect">已连接HDMI数据线。</string>
+    <string name="hdmi_connect">HDMI 已连接</string>
     <string name="hdmi_connect_indirectly">通过 HDMI 电缆将设备直接连接至电视。</string>
-    <string name="hdmi_disconnect">已断开HDMI数据线。</string>
+    <string name="hdmi_disconnect">HDMI 已断开</string>
     <string name="hdmi_recommend_charging_device">如果长时间连接至高清电视适配器，建议您为设备充电。请将充电器连接至高清电视适配器以为设备充电。</string>
     <string name="hdmi_wfd_terminate">HDMI 已连接。屏幕共享连接已结束。</string>
     <string name="disable">禁用</string>
@@ -1859,6 +1863,7 @@
     <string name="volumepanel_media">媒体</string>
     <string name="volumepanel_notification">通知</string>
     <string name="volumepanel_system">系统</string>
+    <string name="volumepanel_bixby_voice">Bixby 语音</string>
     <string name="unable_to_capture_screen_emergencymode">在紧急模式下无法捕捉屏幕。</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">无法捕捉截屏</string>
     <string name="bluetooth_permission_request">蓝牙许可请求</string>
@@ -1931,6 +1936,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">在 Wi-Fi 直连启用期间无法启用%s</string>
     <string name="mptcp_message_mptcp_capability_noresponse">无来自服务运营商的响应</string>
     <string name="mptcp_message_mptcp_capability_sendfail">发送%s激活请求失败。正在通过可用网络重新连接…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">无法启用%1$s。您的上网套餐不提供%2$s，或者未收到%3$s服务器的响应。</string>
     <string name="mptcp_message_setting_disabled_overheating">设备过热，无法启用%s。请等待设备冷却后重试。</string>
     <string name="mptcp_message_operation_disabled_overheating">已禁用%s防止设备过热。正在通过移动网络下载…</string>
     <string name="mptcp_message_data_usage_limit">已达到流量使用量限制。若要更改流量使用量限制，请进入设置。</string>
@@ -2038,6 +2044,12 @@
     <string name="multisound_sound_via_usb_audio">%s的声音正在通过 USB 音频设备播放。点击此处可关闭。</string>
     <string name="multisound_change_output_device">更改音频输出设备</string>
     <string name="multisound_headup_contents">您为此应用程序选择的音频设备与手机的当前音频输出设备相同。若要单独播放此应用程序的声音，请在快捷设置面板更改您的音频输出设备。</string>
+    <string name="multisound_hun_title">是否更改主音频输出设备？</string>
+    <string name="multisound_hun_contents">您为此应用程序 (%1$s) 选择的音频设备与主音频输出设备 (%2$s) 相同。若要单独播放此应用程序的声音，主音频输出设备需要改为%3$s。</string>
+    <string name="multisound_hun_close">关闭</string>
+    <string name="multisound_hun_change">更改</string>
+    <string name="my_device">我的手机</string>
+    <string name="headset">耳机</string>
     <string name="bixby_edgecase_mpsm">在启用超级省电模式时无法使用 Bixby</string>
     <string name="bixby_edgecase_emergencymode">在紧急模式中无法使用 Bixby</string>
     <string name="bixby_edgecase_kidsmode">在儿童模式中无法使用 Bixby</string>
@@ -2045,9 +2057,11 @@
     <string name="bixby_edgecase_mirrorlink">在使用 MirrorLink 时无法使用 Bixby</string>
     <string name="bixby_edgecase_dexmode">无法在 Samsung DeX 中使用 Bixby</string>
     <string name="bixby_edgecase_dexstation">连接至 DeX 中心时无法使用 Bixby</string>
-    <string name="conventional_mode_recent_noti">通过点击最近使用应用程序屏幕中的【扩展】图标，您可以全屏查看此应用程序。</string>
+    <string name="bixby_edgecase_cantusenow">现在无法使用 Bixby 语音</string>
+    <string name="conventional_mode_recent_noti">您可以在最近使用应用程序屏幕更改应用程序的宽高比。</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">若要改回之前的宽高比，请进入【设置】>【显示】>【全屏应用程序】。</string>
     <string name="conventional_mode_tap_here_to_fill">点击此处填充整个屏幕</string>
+    <string name="bixby_popup_unavailable_now">Bixby 不可用。只有手机所有者和主要手机号码可以使用 Bixby。</string>
     <string name="permlab_knoxCustomSetting">管理设备设置</string>
     <string name="permdesc_knoxCustomSetting">配置设备设置，例如：蓝牙、定位服务、<cst>Wi-Fi</cst>、手机流量和 Android 设置。</string>
     <string name="permlab_knoxCustomSystem">管理系统设置</string>
@@ -2423,6 +2437,4 @@
     <string name="charging_connected_via_usb">正在通过 USB 给连接的设备充电…</string>
     <string name="lacking_filenode_internal_storage_view_title">文件系统限制</string>
     <string name="lacking_filenode_internal_storage_view_text">您手机中创建的文件过多。应用程序可能停止正常工作，且您的手机可能会无法启动。请备份所有重要的数据，然后将手机重置为出厂设置。</string>
-    <string name="lock_to_app_toast_for_navibar">若要取消固定应用程序，请同时按住最近使用按钮和返回按钮。</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">若要取消固定应用程序，请长按最近使用按钮。</string>
 </resources>

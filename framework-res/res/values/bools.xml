@@ -209,6 +209,7 @@
     <bool name="config_disable_custom_boot_progress">false</bool>
     <bool name="config_environment_adaptive_display_enabled">false</bool>
     <bool name="config_environment_display_enabled">false</bool>
+    <bool name="config_POC_enabled">true</bool>
     <bool name="config_dateformat">false</bool>
     <bool name="config_usb_data_unlock">false</bool>
     <bool name="lockscreen_isPortrait">true</bool>

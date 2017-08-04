@@ -473,9 +473,9 @@
     <string name="perms_description_app">%s ৰ দ্বাৰা প্রদানিত</string>
     <string name="no_permissions">অনুমতিৰ আৱশ্যক নাই৷</string>
     <string name="dlg_ok">ঠিক</string>
-    <string name="usb_mtp_notification_title">USB-এ মিডিয়া ফাইল স্থানান্তৰ কৰি আছে</string>
-    <string name="usb_ptp_notification_title">USB-এ প্ৰতিচ্ছবি স্থানান্তৰ কৰি আছে</string>
-    <string name="usb_midi_notification_title">USB MIDI ডিভাইচত সংযোগ হৈছে</string>
+    <string name="usb_mtp_notification_title">ফাইল স্থানান্তৰৰ বাবে USB</string>
+    <string name="usb_ptp_notification_title">প্ৰতিচ্ছবি স্থানান্তৰৰ বাবে USB</string>
+    <string name="usb_midi_notification_title">MIDI-ৰ বাবে USB</string>
     <string name="usb_accessory_notification_title">"USB একচেচ'ৰীলৈ সংযোগ কৰক"</string>
     <string name="usb_notification_message">অন্য USB বিকল্পৰ কাৰণে টিপক৷</string>
     <string name="adb_active_notification_title">USB দিবাগিং সংযোগ হৈছে৷</string>
@@ -684,6 +684,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">আপুনি বুটাম সাধাৰণভাৱে প্ৰকট হোৱা স্ক্ৰীণৰ কাষৰ পৰা ভিতৰলৈ ঘহাঁই বুটাম পুনঃ দেখুৱাব পাৰে।</string>
     <string name="sec_immersive_cling_help_text_step_one_three">"অলপ সময়ৰ পিছত, বুটাম পুনঃ অদৃশ্য হ'ব।"</string>
     <string name="sec_immersive_cling_help_text_step_two">আপুনি গৃহ বুটামটো লুকাই থাকিলেও তাক ব্যৱহাৰ কৰিব পাৰে। গৃহ স্ক্ৰীণলৈ যাবলৈ, গৃহ বুটাম সাধাৰণভাৱে প্ৰকট হোৱা স্ক্ৰীণৰ ক্ষেত্ৰত জোৰকৈ দবাওক।</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">"যিকিনহওক আপুনি আপোনাৰ ফোনটো ধৰি থাকিলে, বুটামসমূহ চাৰ্জিং পৰ্টৰ পৰৱৰ্তীত সদায় অৱস্থিত হ'ব। যেতিয়া আপোনাৰ ফোনটো ঘড়ীৰ কাটাৰ বিপৰীতে ঘূৰাই, তেতিয়া কাঁড়ৰ দ্বাৰা দেখুওৱাৰ ৰূপত স্ক্ৰীণৰ প্ৰান্তৰ পৰা বাঁওফাললৈ ঘহাঁওক।"</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">"যিকিনহওক আপুনি আপোনাৰ ফোনটো ধৰি থাকিলে, বুটামসমূহ চাৰ্জিং পৰ্টৰ পৰৱৰ্তীত সদায় অৱস্থিত হ'ব। যেতিয়া আপোনাৰ ফোনটো ঘড়ীৰ অনুসৰি ঘূৰাই, তেতিয়া কাঁড়ৰ দ্বাৰা দেখুওৱাৰ ৰূপত স্ক্ৰীণৰ প্ৰান্তৰ পৰা সোঁফাললৈ ঘহাঁওক।"</string>
     <string name="done_label">সম্পন্ন</string>
     <string name="hour_picker_description">এনালগ ঘণ্টা পিকাৰ</string>
     <string name="minute_picker_description">এনালগ মিনিট পিকাৰ</string>
@@ -693,7 +695,9 @@
     <string name="select_year">বছৰ চয়ন কৰক৷</string>
     <string name="deleted_key">%s বিলোপ হৈছে৷</string>
     <string name="lock_to_app_toast">এপ আনপিন কৰিবলৈ, একে সময়তে শেহতীয়া আৰু পিছলৈ কী দবাওক আৰু ধৰি থাকক।</string>
+    <string name="lock_to_app_toast_for_navibar">এপ আনপিন কৰিবলৈ, একে সময়তে শেহতীয়া আৰু পিছলৈ বুটাম টাচ্চ্‌ কৰক আৰু ধৰি থাকক।</string>
     <string name="lock_to_app_toast_accessible">এই এপ্লিকেশ্বনটো আনপিন কৰিবলৈ, শেহতীয়া কীটো দবাওক আৰু ধৰি ৰাখক৷</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">"লক-টু-এপ ম'ড সক্ষম হৈছে৷"</string>
     <string name="lock_to_app_start">এপ পিন হৈছে।</string>
     <string name="lock_to_app_exit">এপ আনপিন হৈছে।</string>
@@ -734,9 +738,9 @@
     <string name="tw_clipboard_save_tts">সংৰক্ষণ</string>
     <string name="tw_clipboard_button_tts">বুটাম</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">"ক্লিপব'ৰ্ড"</string>
-    <string name="hdmi_connect">"HDMI কেব'ল সংযোগ হৈছে৷"</string>
+    <string name="hdmi_connect">HDMI সংযোগ হৈছে।</string>
     <string name="hdmi_connect_indirectly">"HDMI কেব'লৰ দ্বাৰা পোনপটীয়াকৈ আপোনাৰ ডিভাইচ TV-ৰ লগত সংযোগ কৰক৷"</string>
-    <string name="hdmi_disconnect">"HDMI কেব'ল সংযোগহীন হৈছে৷"</string>
+    <string name="hdmi_disconnect">HDMI সংযোগহীন হৈছে।</string>
     <string name="hdmi_recommend_charging_device">যদি আপোনাৰ ডিভাইচটো এক দীৰ্ঘসময়ৰ বাবে এটা HDTV এডাপ্টাৰলৈ সংযোজিত হৈ আছে, তেতিয়া তাক চাৰ্জ কৰিবলৈ আমি অনুমোদন জনাও৷ আপোনাৰ ডিভাইচটো চাৰ্জ কৰিবলৈ চাৰ্জাৰটো HDTV এডাপ্টাৰলৈ সংযোগ কৰক৷</string>
     <string name="hdmi_wfd_terminate">HDMI সংযোগিত। Screen Mirroring সংযোগ সমাপ্ত হৈছে</string>
     <string name="disable">অক্ষম</string>
@@ -1155,6 +1159,7 @@
     <string name="volumepanel_media">মিডিয়া</string>
     <string name="volumepanel_notification">অধিসূচনাসমূহ</string>
     <string name="volumepanel_system">ছিষ্টেম</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">"জৰুৰী ম'ডত স্ক্ৰীণ কেপশ্বাৰ কৰিবলৈ অক্ষম৷"</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">"স্ক্ৰীণশ্ব'ট ধৰি ৰাখিবলৈ অক্ষম৷"</string>
     <string name="bluetooth_permission_request">ব্লুটুথৰ বাবে অনুমতিৰ অনুৰোধ</string>
@@ -1227,6 +1232,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct সক্ষম হৈ থকাৰ সময়ত %s সক্ষম কৰাত অক্ষম৷</string>
     <string name="mptcp_message_mptcp_capability_noresponse">সেৱা প্ৰদানকাৰীৰ পৰা কোনো উত্তৰ পোৱা নাই৷</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s সক্ৰিয়কৰণৰ অনুৰোধ প্ৰেৰণ কৰাত বিফল৷ উপলব্ধ নেটৱৰ্ক হৈ পুনঃসংযোগ কৰি আছে…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s সক্ষম কৰাত অক্ষম। %2$s আপোনাৰ ইণ্টাৰনেট পেকেজৰ সৈতে উপলব্ধ নহয় বা %3$s চাৰ্ভাৰৰ পৰা কোনো সঁহাৰি প্ৰাপ্ত কৰা নাই।</string>
     <string name="mptcp_message_setting_disabled_overheating">%s সক্ষম কৰাত অক্ষম। ডিভাইচ অধিক গৰম হৈছে। ডিভাইচ ঠাণ্ডা নোহোৱালৈকে অপেক্ষা কৰক আৰু পুনঃচেষ্টা কৰক।</string>
     <string name="mptcp_message_operation_disabled_overheating">"ডিভাইচৰ অধিক গৰম হোৱাটো প্ৰতিৰোধ কৰিবলৈ %s অক্ষম কৰা হৈছে। ইয়াৰ পৰিৱৰ্তে ম'বাইল নেটৱৰ্ক হৈ ডাউনলোড কৰি আছে…"</string>
     <string name="mptcp_message_data_usage_limit">ডাটাৰ ব্যৱহাৰ সীমাত উপনীত হৈছে৷ ডাটাৰ ব্যৱহাৰ সীমা পৰিৱৰ্তন কৰিবলৈ, ছেটিংছলৈ যাওক৷</string>
@@ -1334,6 +1340,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">"%s ধ্বনি আপোনাৰ USB অডিঅ' ডিভাইচৰ যোগেদি বজাই আছে। এইটো অফ কৰিবলৈ ইয়াত টিপক।"</string>
     <string name="multisound_change_output_device">"অডিঅ' আউটপুট ডিভাইচ পৰিৱৰ্তন কৰক"</string>
     <string name="multisound_headup_contents">"আপুনি এই এপৰ বাবে চয়ন কৰা অডিঅ' ডিভাইচটো আপোনাৰ ফোনৰ বাবে সাম্প্ৰতিক অডিঅ' আউটপুট ডিভাইচৰ দৰে একে। এই এপৰ বাবে ধ্বনি পৃথক কৰিবলৈ, ক্ষিপ্ৰ ছেটিংছ পেনেলত আপোনাৰ অডিঅ' আউটপুট ডিভাইচ পৰিৱৰ্তন কৰক।"</string>
+    <string name="multisound_hun_title">"মূল অডিঅ' আউটপুট ডিভাইচ পৰিৱৰ্তন কৰিবনে?"</string>
+    <string name="multisound_hun_contents">"আপুনি এই এপ (%1$s)ৰ বাবে চয়ন কৰা অডিঅ' ডিভাইচটো মূল অডিঅ' আউটপুট ডিভাইচ (%2$s)ৰ দৰে একে। এই এপৰ বাবে ধ্বনি পৃথক কৰিবলৈ, মূল অডিঅ' আউটপুট ডিভাইচক %3$s-লৈ পৰিৱৰ্তন কৰাৰ প্ৰয়োজন।"</string>
+    <string name="multisound_hun_close">বন্ধ কৰক</string>
+    <string name="multisound_hun_change">পৰিৱৰ্তন</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">হেডচেট</string>
     <string name="bixby_edgecase_mpsm">"সৰ্বাধিক পাৱাৰ সংৰক্ষণ ম'ড অন হৈ থাকোতে Bixby ব্যৱহাৰ কৰিব নোৱাৰে।"</string>
     <string name="bixby_edgecase_emergencymode">"জৰুৰীকালীন ম'ডত Bixby ব্যৱহাৰ কৰিব নোৱাৰে।"</string>
     <string name="bixby_edgecase_kidsmode">"শিশু ম'ডত Bixby ব্যৱহাৰ কৰিব নোৱাৰে।"</string>
@@ -1341,9 +1353,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink ব্যৱহাৰ কৰি থাকোতে Bixby ব্যৱহাৰ কৰিব নোৱাৰে।</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX-ত Bixby ব্যৱহাৰ কৰিব নোৱাৰে।</string>
     <string name="bixby_edgecase_dexstation">DeX ষ্টেচনত সংযোগ হৈ থাকোতে Bixby ব্যৱহাৰ কৰিব নোৱাৰে।</string>
-    <string name="conventional_mode_recent_noti">আপুনি শেহতীয়া এপ্প্‌চ স্ক্ৰীণত বিস্তাৰ আইকনটো টিপি এই এপটো সম্পূৰ্ণ স্ক্ৰীণত দৰ্শন কৰিব পাৰে।</string>
+    <string name="bixby_edgecase_cantusenow">এতিয়া Bixby Voice ব্যৱহাৰ কৰিব নোৱাৰে।</string>
+    <string name="conventional_mode_recent_noti">আপুনি শেহতীয়া এপ্প্‌চ স্ক্ৰীণত এপৰ প্ৰত্যাশিত অনুপাত পৰিৱৰ্তন কৰিব পাৰে।</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">পূৰ্বৱৰ্তী প্ৰত্যাশিত অনুপাতলৈ ঘূৰি যাবলৈ, ছেটিংছ > প্ৰদৰ্শন > সম্পূৰ্ণ স্ক্ৰীণ এপ্প্‌চলৈ যাওক।</string>
     <string name="conventional_mode_tap_here_to_fill">সমগ্ৰ স্ক্ৰীণ পূৰ্ণ কৰিবলৈ ইয়াত টিপক</string>
+    <string name="bixby_popup_unavailable_now">Bixby উপলব্ধ নহয়। কেৱল ফোনৰ গৰাকীয়ে বা মূল ফোনৰ নম্বৰে Bixby ব্যৱহাৰ কৰিব পাৰে।</string>
     <string name="permlab_knoxCustomSetting">ডিভাইচ ছেটিংছ পৰিচালনা কৰক</string>
     <string name="permdesc_knoxCustomSetting">"ব্লুটুথ, অৱস্থান, Wi-Fi, ম'বাইল ডাটা আৰু এণ্ড্ৰইড ছেটিংছৰ দৰে ডিভাইচ ছেটিংছ কনফিগাৰ কৰক।"</string>
     <string name="permlab_knoxCustomSystem">ছিষ্টেম ছেটিংছ পৰিচালনা কৰক</string>
@@ -1713,6 +1727,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB হৈ সংযোজিত ডিভাইচ চাৰ্জ কৰি আছে…</string>
     <string name="lacking_filenode_internal_storage_view_title">ফাইল ছিষ্টেমৰ সীমা</string>
     <string name="lacking_filenode_internal_storage_view_text">"আপোনাৰ ফোনত বহুত বেছি ফাইল সৃষ্টি হৈছে। এপ্প্‌চৰ সঠিকভাৱে কাম কৰাটো বন্ধ হ'ব পাৰে আৰু আপোনাৰ ফোন আগলৈ আৰু আৰম্ভ নহ'বও পাৰে। আপোনাৰ ফোনৰ যিকোনো গুৰুত্বপূৰ্ণ ডাটা আৰু ফেক্টৰী পুনঃছেট বেক আপ লওক।"</string>
-    <string name="lock_to_app_toast_for_navibar">এপ আনপিন কৰিবলৈ, একে সময়তে শেহতীয়া আৰু পিছলৈ বুটাম টাচ্চ্‌ কৰক আৰু ধৰি থাকক।</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

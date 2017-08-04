@@ -911,9 +911,9 @@
     <string name="dlg_ok">ٹھیک ہے</string>
     <string name="usb_charging_notification_title">‏USB اس آلے کو چارج کر رہی ہے</string>
     <string name="usb_supplying_notification_title">‏منسلکہ آلے کو USB پاور سپلائی کر رہی ہے</string>
-    <string name="usb_mtp_notification_title">‏USB میڈیا فائلز منتقل کر رہا ہے</string>
-    <string name="usb_ptp_notification_title">‏USB تصویریں منتقل کررہا ہے</string>
-    <string name="usb_midi_notification_title">‏USB جڑا ہوا ہے MIDI آلہ سے</string>
+    <string name="usb_mtp_notification_title">‏USB برائے فائل کی منتقلی</string>
+    <string name="usb_ptp_notification_title">‏USB برائے تصویر کی منتقلی</string>
+    <string name="usb_midi_notification_title">‏USB برائے MIDI</string>
     <string name="usb_accessory_notification_title">ایک USB لوازمہ سے جڑا ہوا</string>
     <string name="usb_notification_message">دیگر USB اختیارات کے لئے تھپتھپائیں</string>
     <string name="adb_active_notification_title">‏USB ڈی بگ کرنا جوڑاگیا۔</string>
@@ -1314,6 +1314,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">آپ اسکرین کے کنارے جہاں عام طورپر بٹنز ظاہر ہوتے ہیں سے اندر کی طرف سوائپ کرکے پھرسے بٹنز دکھا سکتے ہیں۔</string>
     <string name="sec_immersive_cling_help_text_step_one_three">تھوڑی دیر کے بعد، بٹنز دوبارہ غائب ہوجائے گا۔</string>
     <string name="sec_immersive_cling_help_text_step_two">پوشیدہ ہونے کے باوجود بھی آپ ہوم بٹن کا استعمال کرسکتے ہیں۔ ہوم اسکرین پر جانے کے لیے، ہوم بٹن عام طورپر جہاں ظاہر ہوتا ہے اسکرین کے اس حصہ کو زور سے دبائیں۔</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">تاہم، آپ اپنے فون کو ہولڈ پے رکھے ہوئے ہیں، تو بٹنز کو ہمیشہ چارجنگ پورٹ کے لیے آگے رکھ دیا جائے گا۔ جب آپ کا فون برعکس گھمایا جائے، تو تیر کے ذریعے دکھائے جانے کے طور پر اسکرین کے edge سے بائیں سوائپ کریں۔</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">تاہم، آپ اپنے فون کو ہولڈ پے رکھے ہوئے ہیں، تو بٹنز کو ہمیشہ چارجنگ پورٹ کے لیے آگے رکھ دیا جائے گا۔ جب آپ کا فون گھڑی وال گھمایا جائے، تو تیر کے ذریعے دکھائے جانے کے طور پر اسکرین کے edge سے دائیں سوائپ کریں۔</string>
     <string name="done_label">مکمل</string>
     <string name="hour_picker_description">اینالاگ گھنٹہ چنندہ</string>
     <string name="minute_picker_description">اینالاگ منٹ چنندہ</string>
@@ -1324,7 +1326,9 @@
     <string name="deleted_key">%s حذف کردیا گیا۔</string>
     <string name="managed_profile_label_badge">دفتر %1$s</string>
     <string name="lock_to_app_toast">ایپلیکیشن کو ان پن کرنے کے لیے، حالیہ اور پیچھے کی کلید کو ایک ہی ساتھ دبا کر ہولڈ کریں۔</string>
+    <string name="lock_to_app_toast_for_navibar">ایپلیکیشن کو ان پن کرنے کے لیے، حالیہ اور پیچھے کے بٹن کو ایک ہی ساتھ دبا کر ہولڈ کریں۔</string>
     <string name="lock_to_app_toast_accessible">اس ایپلیکیشن کو ان پن کرنے کے لیے، حالیہ کلید کو دبائیں اور ہولڈ کریں۔</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">ایپ پر مقفل موڈ فعال کر دیا گیا ہے۔</string>
     <string name="lock_to_app_start">ایپلیکیشن کو پن کیا گیا۔</string>
     <string name="lock_to_app_exit">ایپلیکیشن کو ان پن کیا گیا۔</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">محفوظ کریں</string>
     <string name="tw_clipboard_button_tts">بٹن</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">کلپ بورڈ</string>
-    <string name="hdmi_connect">‏HDMI کیبل جڑ گیا۔</string>
+    <string name="hdmi_connect">‏HDMI جڑ گیا۔</string>
     <string name="hdmi_connect_indirectly">اپنے آلہ کو TV سے براہ راست HDMI کیبل کے ذریعہ جوڑیں</string>
-    <string name="hdmi_disconnect">‏HDMI کیبل منقطع ہو گیا۔</string>
+    <string name="hdmi_disconnect">‏HDMI منقطع ہوگیا۔</string>
     <string name="hdmi_recommend_charging_device">ہم تجویز کرتے ہیں کہ اگر آپ کا آلہ لمبے وقت تک کسی HDTV اڈاپٹر سے جڑا ہوا ہے تو اسے چارج کر لیں۔ اپنا آلہ چارج کرنے کے لیے چارجر کو HDTV اڈاپٹر سے جوڑیں۔</string>
     <string name="hdmi_wfd_terminate">‏HDMI جڑگیا۔ Screen Mirroring کنکشن ختم ہو چکا ہے</string>
     <string name="disable">غیر فعال</string>
@@ -1851,6 +1855,7 @@
     <string name="volumepanel_media">میڈیا</string>
     <string name="volumepanel_notification">اعلانات</string>
     <string name="volumepanel_system">سسٹم</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">ہنگامی موڈ میں ہوتے ہوئے اسکرین کی تصویر لینے سے قاصر۔</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">اسکرین شاٹ کھینچنے سے قاصر۔</string>
     <string name="bluetooth_permission_request">‏Bluetooth اجازت کی درخواست</string>
@@ -1923,6 +1928,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">‏Wi-Fi Direct کے اہل ہونے پر %s اہل کرنے سے قاصر۔</string>
     <string name="mptcp_message_mptcp_capability_noresponse">خدمت فراہم کنندہ کے طرف سے کوئی جواب نہیں۔</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s فعالیت کی درخواست بھیجنے میں ناکام۔ دستیاب نیٹ ورکس سے دوبارہ جڑرہا ہے…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s اہل ہونے سے قاصر۔ %2$s آپ کے انٹرنیٹ پیکیج کے ساتھ دستیاب نہیں ہے یا %3$s سرور کی جانب سے کوئی رد عمل موصول نہیں ہوئے ہیں۔</string>
     <string name="mptcp_message_setting_disabled_overheating">%s کو اہل کرنے سے قاصر۔ آلہ حد سے زیادہ گرم ہو رہا ہے۔ آلہ کے ٹھنڈے ہونے تک انتظار کریں اور دوبارہ کوشش کریں۔</string>
     <string name="mptcp_message_operation_disabled_overheating">آلہ کو حد سے زیادہ گرم ہونے سے بچانے کے لیے %s نااہل کردیا گیا ہے۔ اس کے بجائے موبائل نیٹ ورک سے ڈاؤں لوڈ کر رہے ہیں…</string>
     <string name="mptcp_message_data_usage_limit">ڈیٹا استعمال کی حد آپہنچی۔ ڈیٹا کے استعمال کی حد تبدیل کرنے کے لیے، سیٹنگز پر جائیں۔</string>
@@ -1987,7 +1993,7 @@ Turn on Airplane mode?"</string>
     <string name="permlab_sendSmsNoConfirmation">بنا تصدیق SMS پیغامات بھیجیں</string>
     <string name="permdesc_sendSmsNoConfirmation">ایپلیکیشن کو SMS پیغامات بھیجنے کی اجازت دیتا ہے۔ اس کے نتیجہ میں غیرمتوقع اخراجات آسکتے ہیں۔ بدنیت ایپلیکیشنز آپ کی توثیق کے بغیر پیغامات بھیج کر آپ کے پیسے خرچ کرواسکتی ہیں۔</string>
     <string name="phoneTypeConference">کانفرنس</string>
-    <string name="more">اور</string>
+    <string name="more">مزید</string>
     <string name="close">بند کریں</string>
     <string name="clearDefaultHintMsgUI2013">سیٹنگز > عام > ڈیفالٹ اپلیکیشنز پر جاکر، ڈیفالٹ اپلیکیشن کی سیٹنگز صاف کریں اور پر [صاف کریں] پر تھپکی دیں۔</string>
     <string name="mobile_data_isoff_alert_toast">Now the mobile data is off. If you need to connect Internet, please enable it from notification bar.</string>
@@ -2030,6 +2036,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">آپ کے USB آڈیو آلہ کے ذریعے %s آواز پلے ہورہا ہے۔ اسے آف کرنے کے لیے یہاں پر تھپکی دیں۔</string>
     <string name="multisound_change_output_device">آڈیو آؤٹ پٹ آلہ کو تبدیل کریں</string>
     <string name="multisound_headup_contents">اس ایپلیکیشن کے لیے آپ کے منتخب شدہ آڈیو آلہ آپ کے فون کے لیے حالیہ آڈیو آؤٹ پٹ آلہ جیسا ہی ہے۔ اس ایپلیکیشن کی آواز علیحدہ کرنے کے لیے، فوری سیٹنگز پینل میں اپنا آڈیو آؤٹ پٹ آلہ تبدیل کریں۔</string>
+    <string name="multisound_hun_title">اصل آڈیو آؤٹ پٹ آلہ تبدیل کریں؟</string>
+    <string name="multisound_hun_contents">آپ نے جس آڈیو آلہ کو اس ایپلیکیشن کے لیے منتخب کیا ہے (%1$s) یہ اصل آڈیو آؤٹ پٹ آلہ کی طرح ہی ہے (%2$s)۔ اس ایپلیکیشن کے واسطے آواز علیحدہ کرنے کے لیے، اصل آڈیو آؤٹ پٹ آلہ کو %3$s میں تبدیل کرنے کی ضرورت ہے۔</string>
+    <string name="multisound_hun_close">بند کرنا</string>
+    <string name="multisound_hun_change">تبدیل</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">ہیڈسیٹ</string>
     <string name="bixby_edgecase_mpsm">زیادہ سے زیادہ پاور بچت موڈ کے آن ہونے پر Bixby استعمال نہیں کرسکتے۔</string>
     <string name="bixby_edgecase_emergencymode">ایمرجنسی موڈ میں Bixby استعمال نہیں کرسکتے۔</string>
     <string name="bixby_edgecase_kidsmode">کڈز موڈ میں Bixby استعمال نہیں کرسکتے۔</string>
@@ -2037,9 +2049,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">‏MirrorLink استعمال کرنے پر Bixby استعمال نہیں کرسکتے۔</string>
     <string name="bixby_edgecase_dexmode">‏Samsung DeX میں Bixby کا استعمال نہیں کرسکتے۔</string>
     <string name="bixby_edgecase_dexstation">‏DeX اسٹیشن سے مربوط ہونے پر Bixby استعمال نہیں کرسکتے۔</string>
-    <string name="conventional_mode_recent_noti">موجودہ ایپلیکیشنز کی اسکرین پر پھیلائیں والی شبیہ کو تھپکی دے کر مکمل اسکرین میں یہ ایپلیکیشن آپ دیکھ سکتے ہیں۔</string>
+    <string name="bixby_edgecase_cantusenow">ابھی فورا Bixby Voice کا استعمال نہیں کرسکتے۔</string>
+    <string name="conventional_mode_recent_noti">آپ موجودہ ایپلیکیشنز کے اسکرین پر ایپلیکیشن کے زاویہ کا تناسب تبدیل کرسکتے ہیں۔</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">گزشتہ پہلو کے تناسب پر واپسی کے لیے، سیٹنگز > ڈسپلے > مکمل اسکرین ایپلیکیشنز پر جائیں۔</string>
     <string name="conventional_mode_tap_here_to_fill">پوری اسکرین بھر نے کے لیے یہاں تھپکی دیں</string>
+    <string name="bixby_popup_unavailable_now">‏Bixby دستیاب نہیں ہے۔ صرف فون مالک یا اصل فون نمبر ہی Bixby کا استعمال کرسکتے ہیں۔</string>
     <string name="permlab_knoxCustomSetting">آلہ کی سیٹنگز کا نظم کریں</string>
     <string name="permdesc_knoxCustomSetting">بلیوٹوتھ، مقام، Wi-Fi، موبائل ڈیٹا، اور Android سیٹنگز کی طرح، آلہ سیٹنگز کو ترتیب دیں۔</string>
     <string name="permlab_knoxCustomSystem">سسٹم کی سیٹنگز کا نظم کریں</string>
@@ -2384,6 +2398,4 @@ USB فنکشنز زیادہ سے زیادہ پاور بچت موڈ کے آن ہ�
     <string name="charging_connected_via_usb">‏USB کے ذریعہ مربوط آلہ چارج ہورہا ہے…</string>
     <string name="lacking_filenode_internal_storage_view_title">فائل کے سسٹم کی حد</string>
     <string name="lacking_filenode_internal_storage_view_text">آپ کے فون میں بہت سی فائلیں بنائی گئيں ہیں۔ ممکن ہے کہ ایپلیکیشنز صحیح طورپر کام کرنا روک دے اور آپ کا فون اب مزید اسٹارٹ نہیں ہوگا۔ کوئی بھی اہم ڈیٹا اور اپنے فون کے فیکٹری ری سیٹ کا بیک اپ لیں۔</string>
-    <string name="lock_to_app_toast_for_navibar">ایپلیکیشن کو ان پن کرنے کے لیے، حالیہ اور پیچھے کے بٹن کو ایک ہی ساتھ دبا کر ہولڈ کریں۔</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

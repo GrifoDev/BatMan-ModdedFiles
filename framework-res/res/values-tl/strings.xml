@@ -915,9 +915,9 @@ Nais mo ba itong isara?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">China-charge sa USB ang device na ito</string>
     <string name="usb_supplying_notification_title">USB ang nagbibigay ng power sa nakakabit na device</string>
-    <string name="usb_mtp_notification_title">Naglilipat ang USB ng mga media file</string>
-    <string name="usb_ptp_notification_title">Naglilipat ng mga larawan ang USB</string>
-    <string name="usb_midi_notification_title">Nakakonekta ang USB sa MIDI device</string>
+    <string name="usb_mtp_notification_title">USB para sa paglipat ng file</string>
+    <string name="usb_ptp_notification_title">USB para sa paglipat ng larawan</string>
+    <string name="usb_midi_notification_title">USB para sa MIDI</string>
     <string name="usb_accessory_notification_title">Nakakonekta bilang USB accessory</string>
     <string name="usb_notification_message">I-tap para sa iba pang mga pagpipilian sa USB.</string>
     <string name="adb_active_notification_title">Nakakonekta ang pag-debug ng USB.</string>
@@ -1319,6 +1319,8 @@ Subukang muli pagkatapos ng %2$d segundo."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Maipapakita mo muli ang mga button sa pamamagitan ng pag-swipe papasok mula sa gilid ng screen kung saan karaniwang lumilitaw ang mga button.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Pagkaraan ng ilang sandali, muling mawawala ang mga button.</string>
     <string name="sec_immersive_cling_help_text_step_two">Magagamit mo ang Home button kahit na nakatago ito. Para pumunta sa Home screen, pindutin nang mariin ang lugar kung saan karaniwang lumilitaw ang Home button.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Kahit paano mo pa hinahawakan ang telepono mo, laging matatagpuan ang mga button sa tabi ng charging port. Kapag ipinihit ang telepono mo nang pakaliwa, mag-swipe pakaliwa mula sa gilid ng screen gaya ng ipinapakita ng arrow.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Kahit paano mo pa hinahawakan ang telepono mo, laging matatagpuan ang mga button sa tabi ng charging port. Kapag ipinihit ang telepono mo nang pakanan, mag-swipe pakanan mula sa gilid ng screen gaya ng ipinapakita ng arrow.</string>
     <string name="done_label">Tapos na</string>
     <string name="hour_picker_description">Tagapili ng analog na oras</string>
     <string name="minute_picker_description">Tagapili ng analog na minuto</string>
@@ -1329,7 +1331,9 @@ Subukang muli pagkatapos ng %2$d segundo."</string>
     <string name="deleted_key">%s tinanggal.</string>
     <string name="managed_profile_label_badge">%1$s sa Trabaho</string>
     <string name="lock_to_app_toast">Para i-unpin ang app, i-press at i-hold ang Recents at Back key nang sabay.</string>
+    <string name="lock_to_app_toast_for_navibar">Para i-unpin ang app, i-touch at i-hold ang Recents at Back button nang sabay.</string>
     <string name="lock_to_app_toast_accessible">Para mag-unpin ng application, pindutin at i-hold ang mga recent key.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Pinagana na ang mode na lock-to-app.</string>
     <string name="lock_to_app_start">Naka-pin ang app</string>
     <string name="lock_to_app_exit">Naka-unpin ang app</string>
@@ -1435,9 +1439,9 @@ Awtomatikong nag-o-off ang pangtipid ng baterya kapag nagcha-charge ang iyong de
     <string name="tw_clipboard_save_tts">I-save</string>
     <string name="tw_clipboard_button_tts">Button</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Clipboard</string>
-    <string name="hdmi_connect">Nagkonekta ng HDMI cable.</string>
+    <string name="hdmi_connect">Nakakonekta ang HDMI.</string>
     <string name="hdmi_connect_indirectly">Ikonekta nang direkta sa TV ang iyong device sa pamamagitan ng HDMI na kable.</string>
-    <string name="hdmi_disconnect">HDMI cable disconnected.</string>
+    <string name="hdmi_disconnect">Nakadiskonekta ang HDMI.</string>
     <string name="hdmi_recommend_charging_device">Inirerekomenda namin ang pag-charge sa iyong device kung nakakonekta ito sa isang HDTV Adapter nang matagal. Ikonekta ang charger sa HDTV adapter upang i-charge ang iyong device.</string>
     <string name="hdmi_wfd_terminate">Nakakonekta ang HDMI. Natapos na ang koneksyon ng Screen Mirroring</string>
     <string name="disable">Huwag paganahin</string>
@@ -1857,6 +1861,7 @@ command"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Mga Notification</string>
     <string name="volumepanel_system">System</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Hindi makunan ang screen habang nasa Emergency mode.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Unable to capture screenshot.</string>
     <string name="bluetooth_permission_request">Kahilingan sa pahintulot sa bluetooth</string>
@@ -1929,6 +1934,7 @@ Para mag-unpin ng application, pindutin at i-hold ang menu key."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Hindi mapagana ang %s habang gumagana ang Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Walang tugon mula sa service provider.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nabigong ipadala ang %s na hiling na mai-activate. Muling kumokonekta gamit ang magagamit na network…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Hindi mapagana ang %1$s. Hindi magagamit ang %2$s sa internet package mo o walang natanggap na tugon mula sa %3$s server.</string>
     <string name="mptcp_message_setting_disabled_overheating">Hindi mapagana ang %s. Nag-o-overheat ang device. Hintayin na lumamig ang device at subukang muli.</string>
     <string name="mptcp_message_operation_disabled_overheating">Hindi pinagana ang %s para pigilan ang pag-overheat ng device. Sa halip ay nagda-download gamit ang mobile network…</string>
     <string name="mptcp_message_data_usage_limit">Naabot na ang limit sa data. Para baguhin ang limit sa paggamit ng data, pumunta sa Settings.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Nagpi-play ang tunog ng %s sa USB audio device mo. I-tap dito para i-off ito.</string>
     <string name="multisound_change_output_device">Baguhin ang audio output device</string>
     <string name="multisound_headup_contents">Ang pinili mong audio device para sa app na ito ay pareho ng kasalukuyang audio output device para sa telepono mo. Para ihiwalay ang tunog para sa app na ito, baguhin ang audio output device mo sa quick settings panel.</string>
+    <string name="multisound_hun_title">Baguhin ang pangunahing audio output device?</string>
+    <string name="multisound_hun_contents">Ang pinili mong audio device para sa app na ito (%1$s) ay pareho ng main audio output device (%2$s). Para ihiwalay ang tunog para sa app na ito, kailangang baguhin ang main audio output device at gawing %3$s.</string>
+    <string name="multisound_hun_close">Isara</string>
+    <string name="multisound_hun_change">Baguhin</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Headset</string>
     <string name="bixby_edgecase_mpsm">Hindi magagamit ang Bixby habang naka-on ang Maximum power saving mode.</string>
     <string name="bixby_edgecase_emergencymode">Hindi magagamit ang Bixby sa Emergency mode.</string>
     <string name="bixby_edgecase_kidsmode">Hindi magagamit ang Bixby sa Kids Mode.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Hindi magagamit ang Bixby habang ginagamit ang MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Hindi magagamit ang Bixby sa Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Hindi magagamit ang Bixby habang nakakonekta sa DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Matitingnan mo ang app na ito nang full screen sa pag-tap ng Expand icon sa Recent apps screen.</string>
+    <string name="bixby_edgecase_cantusenow">Hindi magagamit ang Bixby Voice ngayon.</string>
+    <string name="conventional_mode_recent_noti">Mababago mo ang aspect ratio ng app sa Recent apps screen.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Para ibalik ang naunang aspect ratio, pumunta sa Settings > Display > Full screen apps.</string>
     <string name="conventional_mode_tap_here_to_fill">I-tap dito para punan ang buong screen</string>
+    <string name="bixby_popup_unavailable_now">Hindi magagamit ang Bixby. Ang may-ari lang ng telepono o pangunahing numero ng telepono ang makakagamit ng Bixby.</string>
     <string name="permlab_knoxCustomSetting">Pamahalaan ang mga setting ng device</string>
     <string name="permdesc_knoxCustomSetting">I-configure ang mga setting ng device, gaya ng Bluetooth, Location, Wi-Fi, Mobile data at mga setting ng Android.</string>
     <string name="permlab_knoxCustomSystem">Pamahalaan ang mga setting ng system</string>
@@ -2423,6 +2437,4 @@ Maaaring pagbawalan ang mga function ng USB habang naka-on ang Maximum power sav
     <string name="charging_connected_via_usb">China-charge ang nakakonektang device gamit ang USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limit ng file system</string>
     <string name="lacking_filenode_internal_storage_view_text">Napakaraming file ang nalikha sa telepono mo. Maaaring huminto sa paggana nang wasto ang mga app at maaaring hindi na mag-start up ang telepono mo. I-back up ang anumang importanteng data at i-factory reset ang telepono mo.</string>
-    <string name="lock_to_app_toast_for_navibar">Para i-unpin ang app, i-touch at i-hold ang Recents at Back button nang sabay.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

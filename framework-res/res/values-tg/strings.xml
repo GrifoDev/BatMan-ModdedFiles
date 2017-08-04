@@ -472,9 +472,9 @@
     <string name="perms_description_app">Таҳвил аз %s</string>
     <string name="no_permissions">Ягон иҷозат лозим нест</string>
     <string name="dlg_ok">OK</string>
-    <string name="usb_mtp_notification_title">USB ф-ҳои медиа интиқол медиҳад</string>
-    <string name="usb_ptp_notification_title">USB тасвир интиқол медиҳад</string>
-    <string name="usb_midi_notification_title">USB ба дстгҳи MIDI пайваст шуд</string>
+    <string name="usb_mtp_notification_title">USB барои интиқоли файлҳо</string>
+    <string name="usb_ptp_notification_title">USB барои интиқоли тасвирҳо</string>
+    <string name="usb_midi_notification_title">USB барои MIDI</string>
     <string name="usb_accessory_notification_title">Таҷҳизоти USB пайваст карда шуд.</string>
     <string name="usb_notification_message">Барои дидани имконоти пештари USB, зарба занед.</string>
     <string name="adb_active_notification_title">Реҷаи тахткунӣ ба воситаи USB пайваст карда шуд.</string>
@@ -683,6 +683,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Шумо метавонед аз канори экран, яъне ҷои одатии нишон дода шудани тугмаҳо, ба дохил молида, тугмаҳоро такроран нишон диҳед.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Андак пас, тугмаҳо боз нест мешаванд.</string>
     <string name="sec_immersive_cling_help_text_step_two">Шумо метавонед тугмаи Асосиро ҳатто ҳангоми пинҳон буданаш истифода баред. Барои ба экрани Асосӣ гузаштан, ҷои одатии нишон дода шудани тугмаи Асосиро дар рӯи экран сахт пахш кунед.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Новобаста аз тарзи доштани телефон, тугмаҳо ҳамеша дар назди порти барқдиҳӣ нишон дода мешаванд. Вақте ки телефонро ба чап тоб медиҳед, аз канори экран тарзе, ки бо тирча нишон дода шудааст, ба чап бимолед.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Новобаста аз тарзи доштани телефон, тугмаҳо ҳамеша дар назди порти барқдиҳӣ нишон дода мешаванд. Вақте ки телефонро ба рост тоб медиҳед, аз канори экран тарзе, ки бо тирча нишон дода шудааст, ба рост бимолед.</string>
     <string name="done_label">Иҷро шуд</string>
     <string name="hour_picker_description">Мунтахаби соати аналогӣ</string>
     <string name="minute_picker_description">Мунтахаби дақиқаи аналогӣ</string>
@@ -692,7 +694,9 @@
     <string name="select_year">Интихоби сол.</string>
     <string name="deleted_key">%s нест карда шуд.</string>
     <string name="lock_to_app_toast">Барои барномаро кандан, тугмаҳои Охиринҳо ва Қафоро якҷоя пахш карда нигоҳ доред.</string>
+    <string name="lock_to_app_toast_for_navibar">Барои барномаро кандан, тугмаҳои Охиринҳо ва Қафоро якҷоя зарба зада нигоҳ доред.</string>
     <string name="lock_to_app_toast_accessible">Барои ҷудо кардани васли барнома, тугмаи охиринҳоро пахш карда нигоҳ доред.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Реҷаи банд ба барнома фаъол шуд.</string>
     <string name="lock_to_app_start">Барнома часпонда шуд.</string>
     <string name="lock_to_app_exit">Барнома канда шуд.</string>
@@ -733,9 +737,9 @@
     <string name="tw_clipboard_save_tts">Захира кардан</string>
     <string name="tw_clipboard_button_tts">Тугма</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Планшет</string>
-    <string name="hdmi_connect">Сими HDMI пайваст шуд.</string>
+    <string name="hdmi_connect">HDMI пайваст карда шуд.</string>
     <string name="hdmi_connect_indirectly">Дастгоҳи худро бевосита ба ТВ ба воситаи сими HDMI пайваст кунед.</string>
-    <string name="hdmi_disconnect">Сими HDMI ҷудо шуд.</string>
+    <string name="hdmi_disconnect">HDMI ҷудо карда шуд.</string>
     <string name="hdmi_recommend_charging_device">Мо тавсия медиҳем, ки шумо дастгоҳи худро барқ диҳед, агар он дурудароз ба Адаптери HDTV пайваст бошад. Барои барқ додани дастгоҳи худ барқдиҳандаро ба адаптери HDTV пайваст кунед.</string>
     <string name="hdmi_wfd_terminate">HDMI пайваст шуд. Пайвастагии Screen Mirroring хотима ёфт.</string>
     <string name="disable">Ғайрифаъол</string>
@@ -1155,6 +1159,7 @@
     <string name="volumepanel_media">Мултимедиа</string>
     <string name="volumepanel_notification">Огоҳиҳо</string>
     <string name="volumepanel_system">Система</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Гирифтани акси экран дар Реҷаи фавқулода ғайриимкон аст.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Скриншот гирифта наметавонад.</string>
     <string name="bluetooth_permission_request">Дархости иҷозати Bluetooth</string>
@@ -1227,6 +1232,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Фаъол кардани %s ҳангоми фаъол будани Wi-Fi Direct ғайриимкон аст.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Ягон посух аз таҳвилгари хидматрасонӣ нест.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Фиристодани дархости фаъолсозии %s барор наёфт. Тавассути шабакаҳои дастрас аз нав пайваст мешавем…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s-ро фаъол карда наметавонад. %2$s бо бастаи интернети шумо дастрас нест ё аз сервери %3$s ягон посух гирифта нашуд.</string>
     <string name="mptcp_message_setting_disabled_overheating">Фаъол кардани %s ғайриимкон аст. Дастгоҳ аз ҳад зиёд гарм мешавад. Интизор шавед, то дастгоҳатон хунук шавад, ва аз нав кӯшиш кунед.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s барои пешгирии аз ҳад зиёд гарм шудани дастгоҳ ғайрифаъол карда шуд. Ба ҷои он, боргирӣ тавассути шабакаи мобилӣ иҷро мешавад…</string>
     <string name="mptcp_message_data_usage_limit">Ҳудуди истифодаи иттилоот истифода шуд. Барои тағйир додани ҳудуди истифодаи иттилоот, ба Танзимот гузаред.</string>
@@ -1336,6 +1342,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Садои %s тавассути дастгоҳи аудиоии USB пахш карда мешавад. Барои онро хомӯш кардан, инҷо зарба занед.</string>
     <string name="multisound_change_output_device">Ивази дастгоҳи бароварди аудио</string>
     <string name="multisound_headup_contents">Дастгоҳи аудиоии барои ин барнома интихоб кардаатон дастгоҳи ҷории бароварди аудиои телефонатон мебошад. Барои садои ин барномаро ҷудо кардан, дар панели танзимоти зуд дастгоҳи бароварди аудиоро иваз кунед.</string>
+    <string name="multisound_hun_title">Дастгоҳи асосии бароварди аудиоро иваз к?</string>
+    <string name="multisound_hun_contents">Дастгоҳи аудиоии барои ин барнома интихоб кардаатон (%1$s) дастгоҳи асосии бароварди аудио (%2$s) мебошад. Барои садои ин барномаро ҷудо кардан, дастгоҳи асосии бароварди аудио бояд ба %3$s иваз карда шавад.</string>
+    <string name="multisound_hun_close">Пӯшидан</string>
+    <string name="multisound_hun_change">Иваз кардан</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Гарнитура</string>
     <string name="bixby_edgecase_mpsm">Ҳангоми фурӯзон будани реҷаи Сарфаи ҳадди аксари барқ истифодаи Bixby ғайриимкон аст.</string>
     <string name="bixby_edgecase_emergencymode">Истифодаи Bixby дар реҷаи Фавқулода ғайриимкон аст.</string>
     <string name="bixby_edgecase_kidsmode">Истифодаи Bixby дар реҷаи Кӯдакона ғайриимкон аст.</string>
@@ -1343,9 +1355,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Истифодаи Bixby ҳангоми истифода бурдани MirrorLink ғайриимкон аст.</string>
     <string name="bixby_edgecase_dexmode">Истифодаи Bixby дар Samsung DeX ғайриимкон аст.</string>
     <string name="bixby_edgecase_dexstation">Истифодаи Bixby ҳангоми ба Шабакаи DeX пайваст будан ғайриимкон аст.</string>
-    <string name="conventional_mode_recent_noti">Шумо метавонед дар экрани Барномаҳои охирин нишонаи Паҳн карданро зарба зада, ин барномаро дар экрани пурра намоиш диҳед.</string>
+    <string name="bixby_edgecase_cantusenow">Айни ҳол истифодаи Bixby Voice ғайриимкон аст.</string>
+    <string name="conventional_mode_recent_noti">Шумо метавонед дар экрани Барномаҳои охирин таносуби тарафҳои барномаҳоро тағйир диҳед.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Барои ба таносуби қаблии тарафҳо баргаштан, ба Танзимот > Дисплей > Барномаҳои экрани пурра гузаред.</string>
     <string name="conventional_mode_tap_here_to_fill">Барои тамоми экранро пур кардан, инҷо зарба занед</string>
+    <string name="bixby_popup_unavailable_now">Bixby дастнорас аст. Танҳо соҳиби телефон ё рақами асосии телефон метавонад Bixby-ро истифода барад.</string>
     <string name="permlab_knoxCustomSetting">Идоракунии танзимоти дастгоҳ</string>
     <string name="permdesc_knoxCustomSetting">Тағйир додани танзимот, ба мисли Bluetooth, Макон, Wi-Fi, Иттилооти мобилӣ ва танзимоти Android.</string>
     <string name="permlab_knoxCustomSystem">Идоракунии танзимоти система</string>
@@ -1714,6 +1728,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Дастгоҳи пайвастшуда тавассути USB барқ дода мешавад…</string>
     <string name="lacking_filenode_internal_storage_view_title">Маҳдудияти система файлӣ</string>
     <string name="lacking_filenode_internal_storage_view_text">Дар телефони шумо шумораи бениҳоят зиёди файлҳо эҷод карда шудааст. Барномаҳо метавонанд аз кор монанд ва телефон метавонад дигар ба кор надарояд. Ҳамаи иттилооти муҳимро нусхаи эҳтиётӣ гирифта, телефонро ба танзимоти пешфарзи коргоҳ барқарор кунед.</string>
-    <string name="lock_to_app_toast_for_navibar">Барои барномаро кандан, тугмаҳои Охиринҳо ва Қафоро якҷоя зарба зада нигоҳ доред.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

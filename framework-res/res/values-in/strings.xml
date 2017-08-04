@@ -461,7 +461,7 @@
     <string name="policylab_disableKeyguardFeatures">Nonaktifkan fungsi di layar kunci</string>
     <string name="policydesc_disableKeyguardFeatures">Cegah penggunaan beberapa fungsi saat ada di layar kunci.</string>
     <string name="phoneTypeCustom">Kustom</string>
-    <string name="phoneTypeHome">Depan</string>
+    <string name="phoneTypeHome">Rumah</string>
     <string name="phoneTypeMobile">Ponsel</string>
     <string name="phoneTypeWork">Kantor</string>
     <string name="phoneTypeFaxWork">Faks Kerja</string>
@@ -770,7 +770,7 @@ Yakin ingin beranjak dari laman ini?"</string>
     <string name="aerr_process">Proses %1$s terhenti.</string>
     <string name="aerr_application_repeated">%1$s terus berhenti</string>
     <string name="aerr_process_repeated">%1$s terus berhenti</string>
-    <string name="aerr_restart">Mli ulg apl</string>
+    <string name="aerr_restart">Mulai ulang aplikasi</string>
     <string name="aerr_reset">Setel ulang dan mulai ulang aplikasi</string>
     <string name="aerr_report">Kirim masukan</string>
     <string name="aerr_close">Tutup</string>
@@ -915,9 +915,9 @@ Apakah Anda ingin menutupnya?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Isi daya perangkat ini melalui USB</string>
     <string name="usb_supplying_notification_title">Suplai daya melalui USB ke perangkat yang terpasang</string>
-    <string name="usb_mtp_notification_title">USB menransfer file media</string>
-    <string name="usb_ptp_notification_title">USB menransfer gambar</string>
-    <string name="usb_midi_notification_title">USB tersambung ke prangkat MIDI</string>
+    <string name="usb_mtp_notification_title">USB untuk transfer file</string>
+    <string name="usb_ptp_notification_title">USB untuk transfer gambar</string>
+    <string name="usb_midi_notification_title">USB untuk MIDI</string>
     <string name="usb_accessory_notification_title">Terhubung ke aksesori USB</string>
     <string name="usb_notification_message">Ketuk untuk opsi USB lainnya.</string>
     <string name="adb_active_notification_title">Mendebug USB tersambung.</string>
@@ -1319,6 +1319,8 @@ Coba lagi dalam %3$d detik."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Anda dapat menampilkan kembali tombol dengan mengusap ke arah dalam dari ujung layar di mana tombol biasanya ditampilkan.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Setelah beberapa saat, tombol akan hilang lagi.</string>
     <string name="sec_immersive_cling_help_text_step_two">Anda dapat menggunakan Tombol depan meskipun tombol disembunyikan. Untuk membuka Layar depan, tekan keras area layar tempat Tombol depan biasanya muncul.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Bagaimanapun cara Anda memegang ponsel, tombol akan selalu berada di samping port pengisian daya. Saat ponsel diputar berlawanan arah jarum jam, usap ke kiri dari tepi layar seperti yang ditunjukkan tanda panah.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Bagaimanapun cara Anda memegang ponsel, tombol akan selalu berada di samping port pengisian daya. Saat ponsel diputar searah jarum jam, usap ke kanan dari tepi layar seperti yang ditunjukkan tanda panah.</string>
     <string name="done_label">Selesai</string>
     <string name="hour_picker_description">Penentu jam analog</string>
     <string name="minute_picker_description">Penentu menit analog</string>
@@ -1329,7 +1331,9 @@ Coba lagi dalam %3$d detik."</string>
     <string name="deleted_key">%s dihapus.</string>
     <string name="managed_profile_label_badge">Kantor %1$s</string>
     <string name="lock_to_app_toast">Untuk melepas sematan aplikasi, tekan dan tahan tombol Terbaru dan Kembali secara bersamaan.</string>
+    <string name="lock_to_app_toast_for_navibar">Untuk melepas sematan aplikasi, tekan dan tahan tombol Terbaru dan Kembali secara bersamaan.</string>
     <string name="lock_to_app_toast_accessible">Untuk melepas sematan aplikasi, tekan dan tahan tombol terbaru.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Mode Kunci-ke-aplikasi sudah diaktifkan.</string>
     <string name="lock_to_app_start">Aplikasi disematkan.</string>
     <string name="lock_to_app_exit">Sematan aplikasi dicabut.</string>
@@ -1435,9 +1439,9 @@ Penghemat baterai otomatis nonaktif jika perangkat diisi dayanya."</string>
     <string name="tw_clipboard_save_tts">Simpan</string>
     <string name="tw_clipboard_button_tts">Tombol</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Papan klip</string>
-    <string name="hdmi_connect">Kabel HDMI tersambung.</string>
+    <string name="hdmi_connect">HDMI tersambung.</string>
     <string name="hdmi_connect_indirectly">Sambung perangkat Anda ke TV secara langsung menggunakan kabel HDMI.</string>
-    <string name="hdmi_disconnect">Kabel HDMI terputus.</string>
+    <string name="hdmi_disconnect">HDMI terputus.</string>
     <string name="hdmi_recommend_charging_device">Kami sarankan untuk mengisi daya perangkat Anda jika tersambung ke Adaptor HDTV dalam waktu yang lama. Hubungkan pengisi daya ke adaptor HDTV untuk mengisi daya perangkat Anda.</string>
     <string name="hdmi_wfd_terminate">HDMI tersambung. Koneksi Screen Mirroring berakhir</string>
     <string name="disable">Tdk memungkinkan</string>
@@ -1857,6 +1861,7 @@ udara"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Notifikasi</string>
     <string name="volumepanel_system">Sistem</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Tidak dapat menangkap layar selama mode Darurat.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Tidak dapat mengambil screenshot.</string>
     <string name="bluetooth_permission_request">Permintaan izin Bluetooth</string>
@@ -1929,6 +1934,7 @@ Untuk melepas sematan aplikasi, tekan dan tahan tombol menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Tak dapat mengaktifkan %s saat Wi-Fi Direct aktif.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Tak ada respons dari penyedia layanan.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Gagal mengirim permintaan aktivasi %s. Menyambung ulang lewat jaringan yang tersedia…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Tidak dapat mengaktifkan %1$s. %2$s tidak tersedia dengan paket internet Anda atau tidak ada respons dari server %3$s yang diterima.</string>
     <string name="mptcp_message_setting_disabled_overheating">Tidak dapat mengaktifkan %s. Perangkat terlalu panas. Tunggu hingga perangkat mendingin dan coba lagi.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s dinonaktifkan untuk mencegah perangkat terlalu panas. Pengunduhan akan dilakukan lewat jaringan seluler…</string>
     <string name="mptcp_message_data_usage_limit">Batas penggunaan data tercapai. Untuk mengubah batas penggunaan data, buka Pengaturan.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Suara %s diputar melalui perangkat audio USB. Ketuk di sini untuk menonaktifkan ini.</string>
     <string name="multisound_change_output_device">Ubah perangkat output audio</string>
     <string name="multisound_headup_contents">Perangkat audio yang Anda pilih untuk aplikasi ini sama dengan perangkat output audio ponsel saat ini. Untuk memisahkan suara aplikasi, ubah perangkat output audio di panel pengaturan cepat.</string>
+    <string name="multisound_hun_title">Ubah perangkat output audio utama?</string>
+    <string name="multisound_hun_contents">Perangkat audio yang Anda pilih untuk aplikasi ini (%1$s) sama dengan perangkat output audio utama (%2$s). Untuk memisahkan suara aplikasi ini, perangkat output audio utama harus diubah ke %3$s.</string>
+    <string name="multisound_hun_close">Tutup</string>
+    <string name="multisound_hun_change">Mengubah</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Headset</string>
     <string name="bixby_edgecase_mpsm">Tidak dapat menggunakan Bixby saat Mode hemat daya maksimum aktif.</string>
     <string name="bixby_edgecase_emergencymode">Tidak dapat menggunakan Bixby dalam Mode darurat.</string>
     <string name="bixby_edgecase_kidsmode">Tidak dapat menggunakan Bixby di Mode Anak.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Tidak dapat menggunakan Bixby saat menggunakan MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Tidak dapat menggunakan Bixby di Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Bixby tidak dapat digunakan saat tersambung ke DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Anda dapat melihat aplikasi dalam layar penuh dengan mengetuk ikon Perluas di layar Aplikasi terbaru.</string>
+    <string name="bixby_edgecase_cantusenow">Saat ini Bixby Voice tidak dapat digunakan.</string>
+    <string name="conventional_mode_recent_noti">Anda dapat mengubah rasio aspek aplikasi di layar Aplikasi terbaru.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Untuk kembali ke rasio aspek sebelumnya, buka Pengaturan > Tampilan > Aplikasi layar penuh.</string>
     <string name="conventional_mode_tap_here_to_fill">Ketuk di sini untuk mengisi seluruh layar</string>
+    <string name="bixby_popup_unavailable_now">Bixby tidak tersedia. Hanya pemilik ponsel atau nomor ponsel utama yang dapat menggunakan Bixby.</string>
     <string name="permlab_knoxCustomSetting">Mengelola pengaturan perangkat</string>
     <string name="permdesc_knoxCustomSetting">Konfigurasikan pengaturan perangkat, misalnya Bluetooth, Lokasi, Wi-Fi, Data seluler, dan pengaturan Android.</string>
     <string name="permlab_knoxCustomSystem">Mengelola pengaturan sistem</string>
@@ -2424,6 +2438,4 @@ Fungsi USB mungkin dibatasi saat Mode hemat daya maksimum aktif."</string>
     <string name="charging_connected_via_usb">Mengisi ulang daya perangkat yang tersambung lewat USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Batas sistem file</string>
     <string name="lacking_filenode_internal_storage_view_text">Anda terlalu banyak membuat file di ponsel. Aplikasi mungkin tidak dapat berfungsi dengan benar dan ponsel mungkin tidak dapat dimulai. Cadangkan data yang penting dan reset ponsel ke pengaturan pabrik.</string>
-    <string name="lock_to_app_toast_for_navibar">Untuk melepas sematan aplikasi, tekan dan tahan tombol Terbaru dan Kembali secara bersamaan.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

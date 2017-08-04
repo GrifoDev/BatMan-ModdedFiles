@@ -541,7 +541,7 @@
     <string name="keyguard_password_wrong_pin_code">Feilaktig PIN-kode.</string>
     <string name="keyguard_label_text">For å låse opp trykker du på Meny og 0.</string>
     <string name="emergency_call_dialog_number_for_display">Nødnummer</string>
-    <string name="lockscreen_carrier_default">Ingen nettverksforbind.</string>
+    <string name="lockscreen_carrier_default">Ingen dekning</string>
     <string name="lockscreen_screen_locked">Skjerm låst.</string>
     <string name="lockscreen_instructions_when_pattern_enabled">Trykk på Meny for å låse opp eller ringe nødnummer.</string>
     <string name="lockscreen_instructions_when_pattern_disabled">Trykk på Meny for å låse opp.</string>
@@ -770,7 +770,7 @@ Er du sikker på at du vil navigere bort fra denne siden?"</string>
     <string name="aerr_process">Prosessen %1$s har stoppet.</string>
     <string name="aerr_application_repeated">%1$s stopper gjentatte ganger</string>
     <string name="aerr_process_repeated">%1$s stopper gjentatte ganger</string>
-    <string name="aerr_restart">Restart app</string>
+    <string name="aerr_restart">Start app på nytt</string>
     <string name="aerr_reset">Tilbakestill appen, og start den på nytt</string>
     <string name="aerr_report">Send tilbakemelding</string>
     <string name="aerr_close">Lukk</string>
@@ -915,9 +915,9 @@ Vil du lukke den?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Enheten lades via USB</string>
     <string name="usb_supplying_notification_title">Den tilkoblede enheten får strøm via USB</string>
-    <string name="usb_mtp_notification_title">USB-overføring av mediefiler</string>
-    <string name="usb_ptp_notification_title">USB overfører bilder</string>
-    <string name="usb_midi_notification_title">USB tilkoblet til MIDI-enhet</string>
+    <string name="usb_mtp_notification_title">USB for filoverføring</string>
+    <string name="usb_ptp_notification_title">USB for bildeoverføring</string>
+    <string name="usb_midi_notification_title">USB for MIDI</string>
     <string name="usb_accessory_notification_title">Koblet til et USB-tilbehør</string>
     <string name="usb_notification_message">Trykk for andre USB-alternativer.</string>
     <string name="adb_active_notification_title">USB-feilsøking tilkoblet.</string>
@@ -1319,6 +1319,8 @@ Prøv på nytt om %2$d sekunder."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Du kan vise knappene igjen ved å stryke innover fra kanten av skjermen der knappene vanligvis vises.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Etter en stund forsvinner knappene igjen.</string>
     <string name="sec_immersive_cling_help_text_step_two">Du kan bruke Hjem-knappen selv om den er skjult. For å gå til startskjermbildet trykker du hardt på det området av skjermen der Hjem-knappen vanligvis vises.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Uansett hvordan du holder telefonen, vil knappene alltid være plassert ved siden av ladeporten. Når telefonen roteres mot klokken, stryker du mot venstre fra kanten på skjermen som vist med pilen.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Uansett hvordan du holder telefonen, vil knappene alltid være plassert ved siden av ladeporten. Når telefonen roteres med klokken, stryker du mot høyre fra kanten på skjermen som vist med pilen.</string>
     <string name="done_label">OK</string>
     <string name="hour_picker_description">Analog timevelger</string>
     <string name="minute_picker_description">Analog minuttvelger</string>
@@ -1329,7 +1331,9 @@ Prøv på nytt om %2$d sekunder."</string>
     <string name="deleted_key">%s er slettet.</string>
     <string name="managed_profile_label_badge">Jobb-%1$s</string>
     <string name="lock_to_app_toast">For å løsne appen trykker du på og holder inne nylig- og tilbaketastene samtidig.</string>
+    <string name="lock_to_app_toast_for_navibar">For å løsne appen trykker du på og holder inne nylig- og tilbakeknappene samtidig.</string>
     <string name="lock_to_app_toast_accessible">For å løsne appen trykker du på og holder inne nyligtasten.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Lås til app-modus er blitt aktivert.</string>
     <string name="lock_to_app_start">Appen er festet.</string>
     <string name="lock_to_app_exit">Appen er løsnet.</string>
@@ -1435,9 +1439,9 @@ Batterisparing slås av automatisk når enheten lader."</string>
     <string name="tw_clipboard_save_tts">Lagre</string>
     <string name="tw_clipboard_button_tts">Knapp</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Utklippstavle</string>
-    <string name="hdmi_connect">HDMI-kabelen tilkoblet.</string>
+    <string name="hdmi_connect">HDMI tilkoblet.</string>
     <string name="hdmi_connect_indirectly">Koble enheten til TV-en direkte ved å bruke HDMI-kabelen.</string>
-    <string name="hdmi_disconnect">HDMI-kabelen frakoblet.</string>
+    <string name="hdmi_disconnect">HDMI ble koblet fra.</string>
     <string name="hdmi_recommend_charging_device">Vi anbefaler at du lader enheten hvis den er koblet til en HDTV-adapter over lengre tid. Koble laderen til HDTV-adapteren for å lade enheten.</string>
     <string name="hdmi_wfd_terminate">HDMI tilkoblet. Screen Mirroring-tilkoblingen har blitt avsluttet</string>
     <string name="disable">Deaktiver</string>
@@ -1857,6 +1861,7 @@ komm."</string>
     <string name="volumepanel_media">Medier</string>
     <string name="volumepanel_notification">Varsler</string>
     <string name="volumepanel_system">System</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Kan ikke ta bilde av skjermen i Nødmodus.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Kan ikke ta bilde av skjermen.</string>
     <string name="bluetooth_permission_request">Bluetooth-tillatelsesforespørsel</string>
@@ -1929,6 +1934,7 @@ For å løsne en app trykker du på og holder inne menytasten."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Kan ikke aktivere %s når Wi-Fi Direct er aktivert.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Ingen respons fra tjenesteleverandør.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Kunne ikke sende %s-aktiveringsforespørsel. Kobler til på nytt via tilgjengelige nettverk…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Kan ikke aktivere %1$s. %2$s er ikke tilgjengelig med Internett-pakken, eller det er ikke mottatt svar fra %3$s-serveren.</string>
     <string name="mptcp_message_setting_disabled_overheating">Kan ikke aktivere %s. Enheten er overopphetet. Vent til enheten har kjølt seg ned, og prøv igjen.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s er deaktivert for å hindre at enheten overopphetes. Laster ned via mobilnett i stedet…</string>
     <string name="mptcp_message_data_usage_limit">Databruksgrensen er nådd. Gå til Innstillinger for å endre databruksgrensen.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s-lyd spilles av gjennom USB-lydenheten. Trykk her for å slå dette av.</string>
     <string name="multisound_change_output_device">Endre lydutgangsenhet</string>
     <string name="multisound_headup_contents">Lydenheten du valgte for denne appen, er den samme som gjeldende lydutgangsenhet for telefonen. For å separere lyden for denne appen må du endre lydutgangsenheten i hurtigvalgpanelet.</string>
+    <string name="multisound_hun_title">Vil du endre hovedenheten for lydutgang?</string>
+    <string name="multisound_hun_contents">Lydenheten du valgte for denne appen (%1$s), er den samme som hovedenheten for lydutgang (%2$s). For å separere lyden for denne appen må du endre hovedenheten for lydutgang til %3$s.</string>
+    <string name="multisound_hun_close">Lukk</string>
+    <string name="multisound_hun_change">Endre</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Hodesett</string>
     <string name="bixby_edgecase_mpsm">Kan ikke bruke Bixby mens Maksimal strømsparingsmodus er på.</string>
     <string name="bixby_edgecase_emergencymode">Kan ikke bruke Bixby i Nødmodus.</string>
     <string name="bixby_edgecase_kidsmode">Kan ikke bruke Bixby i Barnemodus.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Kan ikke bruke Bixby mens du bruker MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Kan ikke bruke Bixby i Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Kan ikke bruke Bixby mens du er koblet til DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Du kan vise denne appen i fullskjermvisning ved å trykke på utvidelsesikonet på Nylige apper-skjermbildet.</string>
+    <string name="bixby_edgecase_cantusenow">Kan ikke bruke Bixby Voice akkurat nå.</string>
+    <string name="conventional_mode_recent_noti">Du kan endre sideforholdet for appen på Nylige apper-skjermbildet.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">For å gå tilbake til forrige sideforhold går du til Innstillinger > Visning > Fullskjermapper.</string>
     <string name="conventional_mode_tap_here_to_fill">Trykk her for å fylle hele skjermen</string>
+    <string name="bixby_popup_unavailable_now">Bixby er ikke tilgjengelig. Bare telefoneieren eller hovedtelefonnummeret kan bruke Bixby.</string>
     <string name="permlab_knoxCustomSetting">Administrer enhetsinnstillinger</string>
     <string name="permdesc_knoxCustomSetting">Konfigurer enhetsinnstillinger, som Bluetooth, Posisjon, Wi-Fi, Mobildata og Android-innstillinger.</string>
     <string name="permlab_knoxCustomSystem">Administrer systeminnstillinger</string>
@@ -2423,6 +2437,4 @@ USB-funksjoner kan være begrenset mens Maksimal strømsparingsmodus er på."</s
     <string name="charging_connected_via_usb">Lader den tilkoblede enheten via USB …</string>
     <string name="lacking_filenode_internal_storage_view_title">Filsystemgrense</string>
     <string name="lacking_filenode_internal_storage_view_text">For mange filer har blitt opprettet på telefonen. Det kan hende at apper slutter å fungere som de skal, og det kan hende at telefonen ikke starter lenger. Sikkerhetskopier alle viktige data, og utfør en full nullstilling av telefonen.</string>
-    <string name="lock_to_app_toast_for_navibar">For å løsne appen trykker du på og holder inne nylig- og tilbakeknappene samtidig.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

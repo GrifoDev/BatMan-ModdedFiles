@@ -1496,6 +1496,8 @@ Listening at high volume for long periods may damage your hearing."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">You can show the buttons again by swiping inward from the edge of the screen where the buttons normally appear.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">After a while, the buttons will disappear again.</string>
     <string name="sec_immersive_cling_help_text_step_two">"You can use the Home button even while it's hidden. To go to the Home screen, hard press the area of the screen where the Home button normally appears."</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">"However you're holding your phone, the buttons will always be located next to the charging port. When your phone is rotated counterclockwise, swipe left from the edge of the screen as shown by the arrow."</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">"However you're holding your phone, the buttons will always be located next to the charging port. When your phone is rotated clockwise, swipe right from the edge of the screen as shown by the arrow."</string>
     <string name="done_label">Done</string>
     <string name="hour_picker_description">Hours circular slider</string>
     <string name="minute_picker_description">Minutes circular slider</string>
@@ -1512,7 +1514,9 @@ Listening at high volume for long periods may damage your hearing."</string>
     <string name="date_picker_day_of_week_typeface">sans-serif-medium</string>
     <string name="date_picker_day_typeface">sans-serif-medium</string>
     <string name="lock_to_app_toast">To unpin application, press and hold the recents and back keys at the same time.</string>
+    <string name="lock_to_app_toast_for_navibar">To unpin app, touch and hold Recents and Back buttons at the same time.</string>
     <string name="lock_to_app_toast_accessible">To unpin application, press and hold the recents key.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">"App is pinned: Unpinning isn't allowed on this device."</string>
     <string name="lock_to_app_start">Screen pinned</string>
     <string name="lock_to_app_exit">Screen unpinned</string>
@@ -1624,10 +1628,10 @@ Battery saver turns off automatically when your device is charging."</string>
     <string name="tw_clipboard_button_tts">Button</string>
     <string name="tw_clipboard_multiple_files">Multiple files</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Clipboard</string>
-    <string name="hdmi_connect">HDMI Cable connected.</string>
+    <string name="hdmi_connect">HDMI connected.</string>
     <string name="hdmi_connect_charger">Connect charger</string>
     <string name="hdmi_connect_indirectly">Connect your device to the TV directly via the HDMI cable</string>
-    <string name="hdmi_disconnect">HDMI Cable disconnected.</string>
+    <string name="hdmi_disconnect">HDMI disconnected.</string>
     <string name="hdmi_recommend_charging_device">We recommend charging your device if it is connected to an HDTV Adapter for a long period of time. Connect the charger to the HDTV adapter to charge your device.</string>
     <string name="hdmi_wfd_terminate">HDMI connected. The Screen Mirroring connection has ended</string>
     <string name="disable">Disable</string>
@@ -2145,6 +2149,7 @@ After exiting this mode, your widgets placed in Home screen may not display prop
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Notifications</string>
     <string name="volumepanel_system">System</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Unable to capture screen while in Emergency mode.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Unable to capture screenshot.</string>
     <string name="unable_to_capture_screen_drm_proteced_image">Unable to capture screen. DRM protected image.</string>
@@ -2227,6 +2232,8 @@ To unpin an application, press and hold the menu key."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Unable to enable %s while Wi-Fi Direct enabled.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">No response from service provider.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Failed to send %s activation request. Reconnecting via available network...</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Unable to enable %1$s. %2$s not available with your internet package or no response from %3$s server received.</string>
+    <string name="mptcp_message_mptcp_capability_WiFiAPCompatible">Please connect WiFi network by AIS before using %s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Unable to enable %s. Device overheating. Wait until device cools down and try again.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s is disabled to prevent device overheating. Downloading via mobile network instead...</string>
     <string name="mptcp_message_data_usage_limit">Data usage limit reached. To change data usage limit, go to Settings.</string>
@@ -2375,6 +2382,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s sound is playing through your USB audio device. Tap here to turn this off.</string>
     <string name="multisound_change_output_device">Change audio output device</string>
     <string name="multisound_headup_contents">The audio device you selected for this app is the same as the current audio output device for your phone. To separate the sound for this app, change your audio output device in the quick settings panel.</string>
+    <string name="multisound_hun_title">Change main audio output device?</string>
+    <string name="multisound_hun_contents">The audio device you selected for this app (%1$s) is the same as the main audio output device (%2$s). To separate sound for this app, the main audio output device needs to be changed to %3$s.</string>
+    <string name="multisound_hun_close">Close</string>
+    <string name="multisound_hun_change">Change</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Headset</string>
     <string name="bixby_edgecase_mpsm">"Can't use Bixby while Maximum power saving mode is on."</string>
     <string name="bixby_edgecase_emergencymode">"Can't use Bixby in Emergency mode."</string>
     <string name="bixby_edgecase_kidsmode">"Can't use Bixby in Kids Mode."</string>
@@ -2382,9 +2395,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">"Can't use Bixby while using MirrorLink."</string>
     <string name="bixby_edgecase_dexmode">"Can't use Bixby while using MirrorLink."</string>
     <string name="bixby_edgecase_dexstation">"Can't use Bixby while connected to DeX station."</string>
-    <string name="conventional_mode_recent_noti">You can view this app in full screen by tapping the Expand icon on the Recent apps screen.</string>
+    <string name="bixby_edgecase_cantusenow">"Can't use Bixby Voice right now."</string>
+    <string name="conventional_mode_recent_noti">You can change app aspect ratio on the Recent apps screen.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">To return to previous aspect ratio, go to Settings > Display > Full screen apps.</string>
     <string name="conventional_mode_tap_here_to_fill">Tap here to fill entire screen</string>
+    <string name="bixby_popup_unavailable_now">Bixby unavailable. Only phone owner or main phone number can use Bixby.</string>
     <string name="permlab_knoxCustomSetting">Manage device settings</string>
     <string name="permdesc_knoxCustomSetting">Configure device settings, such as Bluetooth, Location, Wi-Fi, Mobile data, and Android settings.</string>
     <string name="permlab_knoxCustomSystem">Manage system settings</string>
@@ -2739,7 +2754,7 @@ RETURN TO"</string>
     <string name="dlg_confirm_kill_storage_users_title">Turn on USB storage</string>
     <string name="dlg_confirm_kill_storage_users_text">"If you turn on USB storage, some apps you're using will stop and may be unavailable until you turn off USB storage."</string>
     <string name="dlg_error_title">USB operation unsuccessful</string>
-    <string name="usb_cd_installer_notification_title">Software Installation</string>
+    <string name="usb_cd_installer_notification_title">System update</string>
     <string name="usb_30_mtp_notification_title">Transferring media files via USB 3.0</string>
     <string name="usb_30_ptp_notification_title">Transferring images via USB 3.0</string>
     <string name="usb_vzw_mtp_notification_title">File Transfer</string>

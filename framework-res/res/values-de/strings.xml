@@ -222,7 +222,7 @@
     <string name="permgrouplab_sms">SMS</string>
     <string name="permgroupdesc_sms">SMS senden und abrufen</string>
     <string name="permgrouplab_storage">Speicher</string>
-    <string name="permgroupdesc_storage">auf Fotos, Medien und Dateien auf Ihrem Gerät zuzugreifen</string>
+    <string name="permgroupdesc_storage">auf Fotos, Medien und Dateien auf Ihrem Gerät zugreifen</string>
     <string name="permgrouplab_microphone">Mikrofon</string>
     <string name="permgroupdesc_microphone">Audio aufnehmen</string>
     <string name="permgrouplab_camera">Kamera</string>
@@ -770,7 +770,7 @@ Möchtest du diese Seite wirklich verlassen?"</string>
     <string name="aerr_process">Der Vorgang %1$s wurde angehalten.</string>
     <string name="aerr_application_repeated">%1$s wird wiederholt beendet</string>
     <string name="aerr_process_repeated">%1$s wird wiederholt beendet</string>
-    <string name="aerr_restart">App-Neustart</string>
+    <string name="aerr_restart">App neu starten</string>
     <string name="aerr_reset">App zurücksetzen und neu starten</string>
     <string name="aerr_report">Feedback geben</string>
     <string name="aerr_close">Schließen</string>
@@ -915,9 +915,9 @@ Möchtest du die Seite schließen?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Gerät wird über USB aufgeladen</string>
     <string name="usb_supplying_notification_title">Angeschlossenes Gerät wird über USB aufgeladen</string>
-    <string name="usb_mtp_notification_title">USB-Übertrag. von Mediendateien</string>
-    <string name="usb_ptp_notification_title">Bilder übertragen über USB</string>
-    <string name="usb_midi_notification_title">USB mit MIDI-Gerät verbunden</string>
+    <string name="usb_mtp_notification_title">USB zur Dateiübertragung</string>
+    <string name="usb_ptp_notification_title">USB zur Bildübertragung</string>
+    <string name="usb_midi_notification_title">USB für MIDI</string>
     <string name="usb_accessory_notification_title">Mit USB-Gerät verbunden</string>
     <string name="usb_notification_message">Weitere USB-Optionen</string>
     <string name="adb_active_notification_title">USB-Debugging verbunden</string>
@@ -1319,6 +1319,8 @@ Versuchen Sie es in %2$d Sekunden erneut."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Sie können die Schaltflächen erneut anzeigen, indem Sie von der Bildschirmkante, wo die Schaltflächen normalerweise angezeigt werden, nach innen streichen.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Die Schaltflächen werden nach einer Weile wieder ausgeblendet.</string>
     <string name="sec_immersive_cling_help_text_step_two">Sie können die Home-Schaltfläche auch verwenden, wenn sie ausgeblendet ist. Um den Startbildschirm aufzurufen, drücken Sie hart auf den Bildschirmbereich, an dem die Home-Schaltfläche normalerweise angezeigt wird.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Egal, wie Sie Ihr Telefon halten, die Schaltflächen befinden sich immer neben dem Ladeanschluss. Wenn Sie Ihr Telefon nach links drehen, streichen Sie dem Pfeil folgend vom Bildschirmrand nach links.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Egal, wie Sie Ihr Telefon halten, die Schaltflächen befinden sich immer neben dem Ladeanschluss. Wenn Sie Ihr Telefon nach rechts drehen, streichen Sie dem Pfeil folgend vom Bildschirmrand nach rechts.</string>
     <string name="done_label">Fertig</string>
     <string name="hour_picker_description">Analoge Stundenauswahl</string>
     <string name="minute_picker_description">Analoge Minutenauswahl</string>
@@ -1329,7 +1331,9 @@ Versuchen Sie es in %2$d Sekunden erneut."</string>
     <string name="deleted_key">%s gelöscht.</string>
     <string name="managed_profile_label_badge">%1$s (geschäftlich)</string>
     <string name="lock_to_app_toast">Um eine App zu lösen, drücken und halten Sie gleichzeitig die Tasten „Aktuelle Anwendungen“ und „Zurück“.</string>
+    <string name="lock_to_app_toast_for_navibar">Um eine App zu lösen, berühren und halten Sie gleichzeitig die Schaltflächen „Aktuelle Anwendungen“ und „Zurück“ gedrückt.</string>
     <string name="lock_to_app_toast_accessible">Um das Anheften der Anwendung aufzuheben, halten Sie die Taste „Aktuelle Anwendungen“ gedrückt.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Der Modus „Auf App sperren“ wurde aktiviert.</string>
     <string name="lock_to_app_start">App angeheftet.</string>
     <string name="lock_to_app_exit">App gelöst.</string>
@@ -1435,9 +1439,9 @@ Der Energiesparmodus wird automatisch deaktiviert, wenn dein Gerät aufgeladen w
     <string name="tw_clipboard_save_tts">Speichern</string>
     <string name="tw_clipboard_button_tts">Taste</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Zwischenablage</string>
-    <string name="hdmi_connect">HDMI-Kabel verbunden</string>
+    <string name="hdmi_connect">HDMI verbunden.</string>
     <string name="hdmi_connect_indirectly">Schließen Sie das Gerät über das HDMI-Kabel direkt an den TV an.</string>
-    <string name="hdmi_disconnect">HDMI-Kabel getrennt</string>
+    <string name="hdmi_disconnect">HDMI getrennt.</string>
     <string name="hdmi_recommend_charging_device">Es wird empfohlen, das Gerät zu laden, wenn es längere Zeit an einen HDTV-Adapter angeschlossen ist. Schließen Sie das Ladegerät an den HDTV-Adapter an, um das Gerät zu laden.</string>
     <string name="hdmi_wfd_terminate">HDMI angeschlossen. Die aktuelle Screen Mirroring-Verbindung wird beendet.</string>
     <string name="disable">Deaktivieren</string>
@@ -1856,6 +1860,7 @@ Befehl"</string>
     <string name="volumepanel_media">Medien</string>
     <string name="volumepanel_notification">Benachrichtigungen</string>
     <string name="volumepanel_system">System</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Bildschirm kann im Notfallmodus nicht aufgenommen werden.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Aufnehmen des Screenshot nicht möglich.</string>
     <string name="bluetooth_permission_request">Bluetooth-Berechtigungsanfrage</string>
@@ -1928,6 +1933,7 @@ Um das Anheften einer Anwendung aufzuheben, halten Sie die Menü-Taste gedrückt
     <string name="mptcp_message_mptcp_capability_WifiDirect">%s kann nicht aktiviert werden, solange Wi-Fi Direct aktiviert ist.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Keine Antwort vom Dienstanbieter.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Die Aktivierungsanfrage für %s konnte nicht gesendet werden. Verbindung über verfügbare Netzwerke wird erneut hergestellt…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s kann nicht aktiviert werden. %2$s in Ihrem Internetpaket nicht verfügbar oder keine Reaktion vom %3$s-Server.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s kann nicht aktiviert werden. Gerät überhitzt. Warten Sie, bis das Gerät abkühlt und versuchen Sie es erneut.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s deaktiviert, um eine Überhitzung des Geräts zu verhindern. Der Download wird stattdessen über ein mobiles Netz durchgeführt…</string>
     <string name="mptcp_message_data_usage_limit">Maximale Datennutzung erreicht. Sie können die maximale Datennutzung unter „Einstellungen“ ändern.</string>
@@ -2035,6 +2041,12 @@ Offline-Modus einschalten?"</string>
     <string name="multisound_sound_via_usb_audio">%s-Ton wird auf Ihrem USB-Audiogerät wiedergegeben. Hier tippen, um dies auszuschalten.</string>
     <string name="multisound_change_output_device">Ändern des Audio-Output-Geräts</string>
     <string name="multisound_headup_contents">Das ausgewählte Audiogerät für diese App entspricht dem aktuellen Audioausgabegerät für Ihr Telefon. Wenn Sie den Ton für diese App getrennt ausgeben möchten, ändern Sie das Audioausgabegerät in den Schnelleinstellungen.</string>
+    <string name="multisound_hun_title">Audio-Hauptausgabegerät ändern?</string>
+    <string name="multisound_hun_contents">Das ausgewählte Audiogerät für diese App (%1$s) entspricht dem Haupt-Audioausgabegerät (%2$s). Wenn Sie den Ton für diese App getrennt ausgeben möchten, ändern Sie das Haupt-Audioausgabegerät zu %3$s.</string>
+    <string name="multisound_hun_close">Schließen</string>
+    <string name="multisound_hun_change">Ändern</string>
+    <string name="my_device">Eigenes Telefon</string>
+    <string name="headset">Headset</string>
     <string name="bixby_edgecase_mpsm">Bixby kann nicht verwendet werden, solange der maximale Energiesparmodus eingeschaltet ist.</string>
     <string name="bixby_edgecase_emergencymode">Bixby kann im Notfallmodus nicht verwendet werden.</string>
     <string name="bixby_edgecase_kidsmode">Bixby kann im Kindermodus nicht verwendet werden.</string>
@@ -2042,9 +2054,11 @@ Offline-Modus einschalten?"</string>
     <string name="bixby_edgecase_mirrorlink">Bixby kann nicht verwendet werden, wenn MirrorLink genutzt wird.</string>
     <string name="bixby_edgecase_dexmode">Bixby kann in Samsung DeX nicht verwendet werden.</string>
     <string name="bixby_edgecase_dexstation">Bixby kann bei Verbindung mit DeX-Station nicht verwendet werden.</string>
-    <string name="conventional_mode_recent_noti">Sie können diese App in Vollbild anzeigen, indem Sie auf das Erweitern-Symbol auf dem Bildschirm „Aktuelle Anwendungen“ tippen.</string>
+    <string name="bixby_edgecase_cantusenow">Bixby Voice kann jetzt nicht verwendet werden.</string>
+    <string name="conventional_mode_recent_noti">Sie können das App-Seitenformat auf dem Bildschirm „Aktuelle Anwendungen“ ändern.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Sie können unter „Einstellungen > Anzeige > Vollbild-Apps“ zum vorherigen Bildschirmformat zurückkehren.</string>
     <string name="conventional_mode_tap_here_to_fill">Für Vollbild hier tippen.</string>
+    <string name="bixby_popup_unavailable_now">Bixby nicht verfügbar. Bixby kann nur vom Telefonbesitzer oder über die Haupttelefonnummer verwendet werden.</string>
     <string name="permlab_knoxCustomSetting">Geräteeinstellungen verwalten</string>
     <string name="permdesc_knoxCustomSetting">Geräteeinstellungen, wie z. B. die Einstellungen für Bluetooth, Standort, WLAN, mobile Daten und Android, konfigurieren.</string>
     <string name="permlab_knoxCustomSystem">Systemeinstellungen verwalten</string>
@@ -2420,6 +2434,4 @@ USB-Funktionen sind möglicherweise eingeschränkt, wenn der maximale Energiespa
     <string name="charging_connected_via_usb">Verbundenes Gerät wird über USB aufgeladen…</string>
     <string name="lacking_filenode_internal_storage_view_title">Dateisystembeschränkung</string>
     <string name="lacking_filenode_internal_storage_view_text">Auf Ihrem Telefon wurden zu viele Dateien erstellt. Apps funktionieren möglicherweise nicht richtig und Ihr Telefon startet gegebenenfalls nicht mehr. Alle wichtigen Daten sichern und Ihr Telefon auf die Werkseinstellungen zurücksetzen.</string>
-    <string name="lock_to_app_toast_for_navibar">Um eine App zu lösen, berühren und halten Sie gleichzeitig die Schaltflächen „Aktuelle Anwendungen“ und „Zurück“ gedrückt.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

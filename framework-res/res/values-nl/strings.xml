@@ -770,7 +770,7 @@ Weet u zeker dat u deze pagina wilt verlaten?"</string>
     <string name="aerr_process">Het proces %1$s is gestopt.</string>
     <string name="aerr_application_repeated">%1$s stopt steeds</string>
     <string name="aerr_process_repeated">%1$s stopt steeds</string>
-    <string name="aerr_restart">Opn. starten</string>
+    <string name="aerr_restart">Opnieuw starten</string>
     <string name="aerr_reset">App resetten en opnieuw starten</string>
     <string name="aerr_report">Feedback verzenden</string>
     <string name="aerr_close">Sluiten</string>
@@ -915,9 +915,9 @@ Wilt u de pagina sluiten?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Dit apparaat wordt opgeladen via USB</string>
     <string name="usb_supplying_notification_title">Het aangesloten apparaat wordt via USB van voeding voorzien</string>
-    <string name="usb_mtp_notification_title">Mediabest. overzetten met USB</string>
-    <string name="usb_ptp_notification_title">Afbeeldingen overzetten via USB</string>
-    <string name="usb_midi_notification_title">USB aangesl. op MIDI-apparaat</string>
+    <string name="usb_mtp_notification_title">USB voor bestanden overzetten</string>
+    <string name="usb_ptp_notification_title">USB voor afbeeldingen overzetten</string>
+    <string name="usb_midi_notification_title">USB voor MIDI</string>
     <string name="usb_accessory_notification_title">Verbonden met een USB-accessoire</string>
     <string name="usb_notification_message">Tik voor overige USB-opties.</string>
     <string name="adb_active_notification_title">USB-foutopsporing aangesloten.</string>
@@ -1319,6 +1319,8 @@ Probeer het opnieuw over %2$d seconden."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Geef de knoppen opnieuw weer door naar binnen te vegen vanaf de rand van het scherm waar de knoppen normaal worden weergegeven.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Na een tijdje verdwijnen de knoppen weer.</string>
     <string name="sec_immersive_cling_help_text_step_two">U kunt de knop Start gebruiken, zelfs als deze wordt verborgen. Druk hard middenonder op uw telefoon waar de knop Start zich gewoonlijk bevindt, om naar het Startscherm te gaan.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">De knoppen bevinden zich altijd naast de opladerpoort, hoe u uw telefoon ook vasthoudt. Als uw telefoon naar links is gedraaid, veegt u naar links vanaf de rand van het scherm zoals aangegeven door de pijl.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">De knoppen bevinden zich altijd naast de opladerpoort, hoe u uw telefoon ook vasthoudt. Als uw telefoon naar rechts is gedraaid, veegt u naar rechts vanaf de rand van het scherm zoals aangegeven door de pijl.</string>
     <string name="done_label">Gereed</string>
     <string name="hour_picker_description">Analoge urenkiezer</string>
     <string name="minute_picker_description">Analoge minutenkiezer</string>
@@ -1329,7 +1331,9 @@ Probeer het opnieuw over %2$d seconden."</string>
     <string name="deleted_key">%s verwijderd.</string>
     <string name="managed_profile_label_badge">Werk %1$s</string>
     <string name="lock_to_app_toast">Houd toetsen Recent en Terug tegelijk ingedrukt om app los te maken.</string>
+    <string name="lock_to_app_toast_for_navibar">Tik tegelijk op de knoppen Recent en Terug en houd vast om app los te maken.</string>
     <string name="lock_to_app_toast_accessible">Houd de toets Recent ingedrukt om de applicatie los te maken.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Appvergrendelstand is ingeschakeld.</string>
     <string name="lock_to_app_start">App vastgemaakt.</string>
     <string name="lock_to_app_exit">App losgemaakt.</string>
@@ -1435,9 +1439,9 @@ Accubesparing wordt automatisch uitgeschakeld terwijl je apparaat wordt opgelade
     <string name="tw_clipboard_save_tts">Opslaan</string>
     <string name="tw_clipboard_button_tts">Knop</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Klembord</string>
-    <string name="hdmi_connect">HDMI-kabel aangesloten.</string>
+    <string name="hdmi_connect">HDMI verbonden.</string>
     <string name="hdmi_connect_indirectly">Sluit uw apparaat rechtstreeks aan op de tv via de HDMI-kabel.</string>
-    <string name="hdmi_disconnect">HDMI-kabel niet aangesloten.</string>
+    <string name="hdmi_disconnect">HDMI-verbinding verbroken.</string>
     <string name="hdmi_recommend_charging_device">Wij raden aan uw apparaat op te laden als dit voor een lange periode is aangesloten op een HDTV-adapter. Sluit een oplader aan op de HDTV-adapter om uw apparaat op te laden.</string>
     <string name="hdmi_wfd_terminate">HDMI verbonden. De huidige verbinding voor Screen Mirroring is beëindigd</string>
     <string name="disable">Uitzetten</string>
@@ -1859,6 +1863,7 @@ boek"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Meldingen</string>
     <string name="volumepanel_system">Systeem</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Kan het scherm niet vastleggen in Alarmstand.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Kan schermafbeelding niet vastleggen.</string>
     <string name="bluetooth_permission_request">Verzoek Bluetooth-machtiging</string>
@@ -1931,6 +1936,7 @@ Als u een applicatie wilt losmaken, houdt u de menutoets ingedrukt."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Kan %s niet inschakelen terwijl Wi-Fi Direct is ingeschakeld.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Geen reactie van serviceprovider.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Kan activeringsverzoek voor %s niet verzenden. Opnieuw verbinden via beschikbare netwerken…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Kan %1$s niet inschakelen. %2$s is niet beschikbaar met uw internetpakket of er is geen antwoord van server %3$s ontvangen.</string>
     <string name="mptcp_message_setting_disabled_overheating">Kan %s niet inschakelen. Het apparaat raakt oververhit. Wacht tot het apparaat is afgekoeld en probeer het opnieuw.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s uitgeschakeld om oververhitting van apparaat te voorkomen. In plaats daarvan downloaden via mobiel netwerk…</string>
     <string name="mptcp_message_data_usage_limit">Limiet gegevensgebruik bereikt. Ga naar Instellingen om de limiet voor het gegevensgebruik te wijzigen.</string>
@@ -2040,6 +2046,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Geluid van %s wordt afgespeeld via het USB-audioapparaat. Tik hier om dit uit te schakelen.</string>
     <string name="multisound_change_output_device">Audio-uitvoerapparaat wijzigen</string>
     <string name="multisound_headup_contents">Het audioapparaat dat u voor deze app hebt geselecteerd, is hetzelfde als het huidige audio-uitvoerapparaat voor uw telefoon. Als u het geluid voor deze app apart wilt houden, wijzigt u uw audio-uitvoerapparaat in het venster Snelle instellingen.</string>
+    <string name="multisound_hun_title">Primair audio-uitvoerapparaat wijzigen?</string>
+    <string name="multisound_hun_contents">Het audioapparaat dat u voor deze app (%1$s) hebt geselecteerd, is hetzelfde als het primaire uitvoerapparaat voor audio (%2$s). Als u het geluid voor deze app apart wilt houden, moet u het primaire uitvoerapparaat voor audio wijzigen in %3$s.</string>
+    <string name="multisound_hun_close">Sluiten</string>
+    <string name="multisound_hun_change">Wijzigen</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Headset</string>
     <string name="bixby_edgecase_mpsm">Kan Bixby niet gebruiken terwijl Maximale spaarstand is ingeschakeld.</string>
     <string name="bixby_edgecase_emergencymode">Kan Bixby niet gebruiken in Alarmstand.</string>
     <string name="bixby_edgecase_kidsmode">Kan Bixby niet gebruiken in Kids-stand.</string>
@@ -2047,9 +2059,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Kan Bixby niet gebruiken terwijl u MirrorLink gebruikt.</string>
     <string name="bixby_edgecase_dexmode">Kan Bixby niet gebruiken in Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Kan Bixby niet gebruiken tijdens verbinding met DeX Station.</string>
-    <string name="conventional_mode_recent_noti">U kunt deze app weergeven op volledig scherm door te tikken op het pictogram Uitvouwen in het scherm Recente apps.</string>
+    <string name="bixby_edgecase_cantusenow">Kan Bixby Voice nu niet gebruiken.</string>
+    <string name="conventional_mode_recent_noti">U kunt de app-verhouding wijzigen in het scherm Recente apps.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Als u terug wilt gaan naar de vorige verhouding, gaat u naar Instellingen > Weergave > Apps op volledig scherm.</string>
     <string name="conventional_mode_tap_here_to_fill">Hier tikken om het hele scherm te vullen</string>
+    <string name="bixby_popup_unavailable_now">Bixby niet beschikbaar. Alleen de telefooneigenaar of het hoofdnummer kan Bixby gebruiken.</string>
     <string name="permlab_knoxCustomSetting">Apparaatinstellingen beheren</string>
     <string name="permdesc_knoxCustomSetting">Configureer apparaatinstellingen, zoals Bluetooth, Locatie, Wi-Fi, Mobiele gegevens en Android-instellingen.</string>
     <string name="permlab_knoxCustomSystem">Systeeminstellingen beheren</string>
@@ -2425,6 +2439,4 @@ USB-functies kunnen beperkt zijn als Maximale spaarstand is ingeschakeld."</stri
     <string name="charging_connected_via_usb">Aangesloten apparaat opladen via USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limiet bestandssysteem</string>
     <string name="lacking_filenode_internal_storage_view_text">Er zijn te veel bestanden gemaakt op uw telefoon. Apps werken mogelijk niet juist meer en uw telefoon start mogelijk niet meer op. Maak een back-up van belangrijke gegevens en reset uw telefoon naar de fabriekinstellingen.</string>
-    <string name="lock_to_app_toast_for_navibar">Tik tegelijk op de knoppen Recent en Terug en houd vast om app los te maken.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

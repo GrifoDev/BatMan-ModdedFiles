@@ -219,7 +219,23 @@
     <dimen name="immersive_mode_animation_start_pos">68.0dip</dimen>
     <dimen name="knox_app_icon_width">52.0dip</dimen>
     <dimen name="knox_app_icon_height">52.0dip</dimen>
-    <item type="dimen" name="APKTOOL_DUMMY_dd">false</item>
+    <dimen name="hun_body_layout_min_height">95.0dip</dimen>
+    <dimen name="hun_body_layout_max_height">205.0dip</dimen>
+    <dimen name="hun_content_layout_padding_top">4.0dip</dimen>
+    <dimen name="hun_content_layout_padding_bottom">0.0dip</dimen>
+    <dimen name="hun_content_layout_padding_left_right">24.0dip</dimen>
+    <dimen name="hun_icon_layout_margin_right">6.0dip</dimen>
+    <dimen name="hun_description_layout_max_height">82.0dip</dimen>
+    <dimen name="hun_button_set_layout_height">40.0dip</dimen>
+    <dimen name="hun_button_set_layout_margin_left_right">18.0dip</dimen>
+    <dimen name="hun_button_set_layout_padding_right">10.0dip</dimen>
+    <dimen name="hun_button_margin_left">30.0dip</dimen>
+    <dimen name="hun_button_ripple_padding">3.0dip</dimen>
+    <dimen name="hun_caller_text_size">12.0sp</dimen>
+    <dimen name="hun_title_text_size">15.0sp</dimen>
+    <dimen name="hun_description_text_size">13.0sp</dimen>
+    <dimen name="hun_button_text_size">15.0sp</dimen>
+    <item type="dimen" name="APKTOOL_DUMMY_ed">false</item>
     <dimen name="sem_resolver_max_collapsed_height">290.0dip</dimen>
     <dimen name="timepicker_text_inset_inner">58.0dip</dimen>
     <dimen name="timepicker_radial_picker_dimen">296.0dip</dimen>

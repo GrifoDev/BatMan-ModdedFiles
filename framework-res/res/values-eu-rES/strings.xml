@@ -766,7 +766,7 @@ Ziur orritik irten nahi duzula?"</string>
     <string name="aerr_process">%1$s prozesua eten da</string>
     <string name="aerr_application_repeated">Behin eta berriz gelditzen ari da %1$s</string>
     <string name="aerr_process_repeated">Behin eta berriz gelditzen ari da %1$s</string>
-    <string name="aerr_restart">Berr. apl.</string>
+    <string name="aerr_restart">Berrabiarazi aplikazioa</string>
     <string name="aerr_reset">Berrezarri eta berrabiarazi aplikazioa</string>
     <string name="aerr_report">Bidali iritzia</string>
     <string name="aerr_close">Itxi</string>
@@ -911,9 +911,9 @@ Itxi egin nahi duzu?"</string>
     <string name="dlg_ok">Ados</string>
     <string name="usb_charging_notification_title">Gailua USB bidez ari da kargatzen</string>
     <string name="usb_supplying_notification_title">Konektatutako gailua USB bidez jasotzen ari da energia</string>
-    <string name="usb_mtp_notification_title">USB multim. fitx. transferitzen</string>
-    <string name="usb_ptp_notification_title">USB bidez irudiak transferitzen</string>
-    <string name="usb_midi_notification_title">MIDI gailura konektatu da USB</string>
+    <string name="usb_mtp_notification_title">Fitx. transferentziarako USB</string>
+    <string name="usb_ptp_notification_title">Irudi transferentziarako USB</string>
+    <string name="usb_midi_notification_title">MIDIrako USB</string>
     <string name="usb_accessory_notification_title">Konektatu USB osagarri batera</string>
     <string name="usb_notification_message">Ukitu beste USB aukera batzuk izateko</string>
     <string name="adb_active_notification_title">USB arazketa konektatuta</string>
@@ -1314,6 +1314,8 @@ Probatu berriz %2$d segundo barru."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Botoiak agerrarazteko, irristatu pantailaren ertzetik (botoiak agertu ohi diren tokitik) barrura.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Denbora apur bat igaro ostean, botoiak desagertu egin dira.</string>
     <string name="sec_immersive_cling_help_text_step_two">Ezkutatuta dagoenean ere erabil dezakezu Botoi nagusia. Pantaila nagusira joateko, sakatu luze Botoi nagusia agertu ohi den pantailaren eremua.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Telefonoari eusten diozunean, kargatzeko atakaren ondoan egongo dira botoiak beti. Telefonoa ezkerrera biratzean, irristatu pantailaren ertzetik ezkerrera, geziak erakusten duen bezala.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Telefonoari eusten diozunean, kargatzeko atakaren ondoan egongo dira botoiak beti. Telefonoa eskuinera biratzean, irristatu pantailaren ertzetik eskuinera, geziak erakusten duen bezala.</string>
     <string name="done_label">Egina</string>
     <string name="hour_picker_description">Ordu hartzaile analogoa</string>
     <string name="minute_picker_description">Minutu hartzaile analogoa</string>
@@ -1324,7 +1326,9 @@ Probatu berriz %2$d segundo barru."</string>
     <string name="deleted_key">%s ezabatu da.</string>
     <string name="managed_profile_label_badge">Laneko %1$s</string>
     <string name="lock_to_app_toast">Aplikazioa desainguratzeko, sakatu eta eutsi Azkenak eta Atzera teklei aldi berean.</string>
+    <string name="lock_to_app_toast_for_navibar">Aplikazioa desainguratzeko, ukitu eta eutsi Azkenak eta Atzera botoiei aldi berean.</string>
     <string name="lock_to_app_toast_accessible">Aplikazio hau kentzeko, sakatu eta eutsi berriki erabilitakoen tekla.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Lotu aplikazioa modua gaituta dago.</string>
     <string name="lock_to_app_start">Ainguratu da aplikazioa.</string>
     <string name="lock_to_app_exit">Aingura kendu zaio aplikazioari.</string>
@@ -1430,9 +1434,9 @@ Gailua kargatzen ezarri orduko desaktibatzen da bateria-aurrezlea."</string>
     <string name="tw_clipboard_save_tts">Gorde</string>
     <string name="tw_clipboard_button_tts">Botoia</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Arbela</string>
-    <string name="hdmi_connect">HDMI kablea konektatuta</string>
+    <string name="hdmi_connect">HDMI konektatuta.</string>
     <string name="hdmi_connect_indirectly">Konektatu zure gailua TBra zuzenean HDMI kablearen bidez</string>
-    <string name="hdmi_disconnect">HDMI kablea deskonektatuta</string>
+    <string name="hdmi_disconnect">HDMI deskonektatuta.</string>
     <string name="hdmi_recommend_charging_device">Gailua HDTV egokigailu batera denbora luzez konektatuta baduzu, kargatzea gomendatzen dizugu. Konektatu kargadorea HDTV egokigailura, gailua kargatzeko.</string>
     <string name="hdmi_wfd_terminate">HDMI konektatuta. Partekatu Pantaila konexioa amaitu da</string>
     <string name="disable">Ezgaitu</string>
@@ -1852,6 +1856,7 @@ command"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Jakinarazpenak</string>
     <string name="volumepanel_system">Sistema</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Ezin da pantaila kapturatu Larrialdi moduan bazaude.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Ezin izan da pantaila kapturatu</string>
     <string name="bluetooth_permission_request">Bluetooth baimen eskaera</string>
@@ -1924,6 +1929,7 @@ Aplikazioa desainguratzeko, sakatu eta eutsi menu tekla."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Ezin da %s gaitu Wi-Fi Direct gaituta badago.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Ez dago zerbitzu hornitzailearen erantzunik.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Ezin izan da bidali %s aktibatzeko eskaera. Erabilgarri dauden sareen bidez berriro konektatzen…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Ezin da gaitu %1$s. %2$s ez dago erabilgarri zure Interneteko tarifan edo ez da erantzunik jaso %3$s zerbitzaritik.</string>
     <string name="mptcp_message_setting_disabled_overheating">Ezin da gaitu %s. Gailua gehiegi berotzen ari da. Itxaron gailua hozten den arte eta saiatu berriz.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s desgaitu da gailua gehiegi berotu ez dadin. Horren ordez, sare mugikor bidez deskargatzen…</string>
     <string name="mptcp_message_data_usage_limit">Datu erabileraren muga gainditu da. Datu erabileraren muga aldatzeko, zoaz Ezarpenak atalera.</string>
@@ -2033,6 +2039,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s soinua USB audio gailuaren bidez erreproduzitzen ari da. Ukitu hau desaktibatzeko.</string>
     <string name="multisound_change_output_device">Aldatu audioa irteteko gailua</string>
     <string name="multisound_headup_contents">Aplikaziorako hautatu duzun audioaren gailua une honetan telefonoaren audioa irteteko gailuaren bera da. Aplikazioaren soinuarekin bereizteko, aldatu audioa irteteko gailua ezarpen azkarren panelean.</string>
+    <string name="multisound_hun_title">Audio irteerako gailu nagusia aldatu?</string>
+    <string name="multisound_hun_contents">Aplikaziorako hautatu duzun audio gailua (%1$s) eta audio irteeraren gailua (%2$s) berdinak dira. Aplikazioaren soinua bereizteko, aldatu audio irteeraren gailu nagusia eta ezarri %3$s.</string>
+    <string name="multisound_hun_close">Itxi</string>
+    <string name="multisound_hun_change">Aldatu</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Entzungailua</string>
     <string name="bixby_edgecase_mpsm">Ezin da erabili Bixby Bateria aurrezteko gehienezko modua aktibatuta badago.</string>
     <string name="bixby_edgecase_emergencymode">Ezin da erabili Bixby Larrialdi moduan.</string>
     <string name="bixby_edgecase_kidsmode">Ezin da erabili Bixby Ume moduan.</string>
@@ -2040,9 +2052,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Ezin da erabili Bixby MirrorLink erabiltzean.</string>
     <string name="bixby_edgecase_dexmode">Ezin da erabili Bixby Samsung DeX-en.</string>
     <string name="bixby_edgecase_dexstation">Ezin da erabili Bixby DeX Station gailura konektatuta dagoenean.</string>
-    <string name="conventional_mode_recent_noti">Aplikazio hau pantaila osoan ikusteko, ukitu Azken aplikazioak pantailako Zabaldu ikonoa.</string>
+    <string name="bixby_edgecase_cantusenow">Ezin da erabili Bixby Voice orain.</string>
+    <string name="conventional_mode_recent_noti">Aplikazioaren aspektu erlazioa aldatzeko, zoaz Azken aplikazioak pantailara.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Aurreko aspektu erlazioa ezartzeko, zoaz Ezarpenak > Bistaratzea > Pantaila osoko aplikazioak atalera.</string>
     <string name="conventional_mode_tap_here_to_fill">Pantaila osoa betetzeko, ukitu hau</string>
+    <string name="bixby_popup_unavailable_now">Bixby ez dago erabilgarri. Telefonoaren jabea edo telefono zenbaki nagusiak soilik erabil dezake Bixby.</string>
     <string name="permlab_knoxCustomSetting">Kudeatu gailuaren ezarpenak</string>
     <string name="permdesc_knoxCustomSetting">Konfiguratu gailuaren ezarpenak, hala nola Bluetooth, Kokapena, Wi-Fi, Datu mugikorrak eta Android ezarpenak.</string>
     <string name="permlab_knoxCustomSystem">Kudeatu sistemaren ezarpenak</string>
@@ -2387,6 +2401,4 @@ Baliteke USB funtzioak mugatuta egotea Bateria aurrezteko gehienezko modua aktib
     <string name="charging_connected_via_usb">Konektatutako gailua USB bidez kargatzen…</string>
     <string name="lacking_filenode_internal_storage_view_title">Fitxategi sistemaren muga</string>
     <string name="lacking_filenode_internal_storage_view_text">Fitxategi gehiegi sortu dira telefonoan. Baliteke aplikazioek behar bezala ez funtzionatzea eta baliteke telefonoa berriro ez abiaraztea. Egin datu garrantzitsuen babeskopia eta berrezarri fabrikako ezarpenak telefonoan.</string>
-    <string name="lock_to_app_toast_for_navibar">Aplikazioa desainguratzeko, ukitu eta eutsi Azkenak eta Atzera botoiei aldi berean.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

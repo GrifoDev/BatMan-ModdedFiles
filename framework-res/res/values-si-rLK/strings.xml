@@ -384,9 +384,9 @@
     <string name="permlab_readSyncStats">සමමුහුර්ත කිරීමේ සංඛ්‍යාන කියවීම</string>
     <string name="permdesc_readSyncStats">සමමුහුර්ත කිරීමේ සිදුවීම් ඉතිහාසය සහ කෙතරම් දත්ත සමමුහුර්ත වී ඇතිදැයි ඇතුලත් ගිණුම සඳහා සමමුහුර්ත කිරීමේ සංඛ්‍යාන කියවීමට යෙදුමට අවසර දෙන්න.</string>
     <string name="permlab_sdcardRead">ඔබගේ SD කාඩ් පතෙහි අන්තර්ගතය කියවන්න</string>
-    <string name="permdesc_sdcardRead">යෙදුමට ඔබගේ SD කාඩ් පතින් අන්තර්ගත කියවීමට අවසර දෙන්න.</string>
+    <string name="permdesc_sdcardRead">SD කාඩ්පත පිළිබඳ තොරතුරු ලබා ගැනීමට යෙදුමට ඉඩ දෙන්න.</string>
     <string name="permlab_sdcardWrite">ඔබගේ SD පතේ අන්තර්ගත වෙනස් කිරීම හෝ මැකීම</string>
-    <string name="permdesc_sdcardWrite">SD පත වෙත ලිවීමට යෙදුමට අවසර දෙන්න.</string>
+    <string name="permdesc_sdcardWrite">SD කාඩ්පතට ලිවීමට යෙදුමකට ඉඩ දෙන්න.</string>
     <string name="permlab_use_sip">SIP ඇමතුම් සිදුකිරීමට/ලබාගැනීමට</string>
     <string name="permdesc_use_sip">SIP ඇමතුම් සිදුකිරීමට සහ ලබාගැනීමට යෙදුමට ඉඩ දෙන්න.</string>
     <string name="permlab_register_sim_subscription">අලුත් විදුලි සංදේශ SIM සම්බන්ධතාවක් ලියාපදිංචි කරන්න</string>
@@ -537,7 +537,7 @@
     <string name="keyguard_password_wrong_pin_code">වැරදි PIN කේතයකි.</string>
     <string name="keyguard_label_text">අගුළු ඇරීමට, මෙනුව ඔබා පසුව 0 ද ඔබන්න.</string>
     <string name="emergency_call_dialog_number_for_display">හදිසි ඇමතුම් අංකය</string>
-    <string name="lockscreen_carrier_default">සේවාව නැත</string>
+    <string name="lockscreen_carrier_default">ජාල සබැඳුමක් නැත</string>
     <string name="lockscreen_screen_locked">තිරය අගුළු දමා ඇත.</string>
     <string name="lockscreen_instructions_when_pattern_enabled">අගුළු හැරීමට මෙනුව ඔබන්න හෝ හදිසි ඇමතුම ලබාගන්න.</string>
     <string name="lockscreen_instructions_when_pattern_disabled">අගුළු හැරීමට මෙනු ඔබන්න.</string>
@@ -767,7 +767,7 @@
     <string name="aerr_process">%1$s ක්‍රියාවලිය නැවතී ඇත.</string>
     <string name="aerr_application_repeated">%1$s නැවතෙමින් ඇත</string>
     <string name="aerr_process_repeated">%1$s නැවතෙමින් ඇත</string>
-    <string name="aerr_restart">යෙ. යළි අ.</string>
+    <string name="aerr_restart">යෙදුම යළි අරඹන්න</string>
     <string name="aerr_report">ප්‍රතිපෝෂණය යවන්න</string>
     <string name="aerr_close">වසන්න</string>
     <string name="aerr_mute">උපාංගය නැවත ආරම්භ වන තෙක් නිහඬ කරන්න</string>
@@ -910,9 +910,9 @@
     <string name="dlg_ok">හරි</string>
     <string name="usb_charging_notification_title">මෙම උපාංගය USB වෙතින් ආරෝපණය</string>
     <string name="usb_supplying_notification_title">අමුණා ඇති උපාංගයට USB මඟින් බලය සපයමින්</string>
-    <string name="usb_mtp_notification_title">මාධ්‍ය ගොනු USB මාරුව</string>
-    <string name="usb_ptp_notification_title">USB අනුරූ හුවමාරු කරයි</string>
-    <string name="usb_midi_notification_title">MIDI උපාංගයට USB සම්බන්ධිතයි</string>
+    <string name="usb_mtp_notification_title">ගොනු හුවමාරුව සඳහා USB</string>
+    <string name="usb_ptp_notification_title">අනුරූ හුවමාරුව සඳහා USB</string>
+    <string name="usb_midi_notification_title">MIDI සඳහා USB</string>
     <string name="usb_accessory_notification_title">USB මෙවලමකට සම්බන්ධිතයි</string>
     <string name="usb_notification_message">අනෙක් USB විකල්ප සඳහා තට්ටු කරන්න.</string>
     <string name="adb_active_notification_title">USB නිදොස්කරණය සම්බන්ධිතයි</string>
@@ -1315,6 +1315,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">ඔබට බොත්තම් සාමාන්‍යයෙන් දිස් වන තිරයේ කෙළවරේ සිට ඇතුල් දෙසට ස්වයිප් කිරීමෙන් නැවත බොත්තම් පෙන්විය හැක.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">ටික වේලාවකට පසුව, බොත්තම් නැවත අතුරුදහන් වනු ඇත.</string>
     <string name="sec_immersive_cling_help_text_step_two">ඔබට සඟවා ඇති අතරේ පවා මුල් බොත්තම භාවිතා කළ හැක. මුල් තිරයට යාමට, මුල් බොත්තම සාමාන්‍යයෙන් දිස් වන තිරයේ ප්‍රදේශය දැඩිව ඔබන්න.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">ඔබ ඔබේ දුරකථනය කෙසේ අල්ලාගෙන සිටියත්, බොත්තම් සෑම විටම චාර්ජ් කිරීමේ කවුළුවට යාබදව පිහිටා තිබෙනු ඇත. ඔබේ දුරකථනය වාමාවර්තව කරකැවෙන විට, ඊතලයෙන් පෙන්වා ඇති පරිදි තිරයේ කෙළවර සිට වමට ස්වයිප් කරන්න.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">ඔබ ඔබේ දුරකථනය කෙසේ අල්ලාගෙන සිටියත්, බොත්තම් සෑම විටම චාර්ජ් කිරීමේ කවුළුවට යාබදව පිහිටා තිබෙනු ඇත. ඔබේ දුරකථනය දක්ෂිණාවර්තව කරකැවෙන විට, ඊතලයෙන් පෙන්වා ඇති පරිදි තිරයේ කෙළවර සිට දකුණට ස්වයිප් කරන්න.</string>
     <string name="done_label">නිමයි</string>
     <string name="hour_picker_description">ඇනලොග් පැය තෝරකය</string>
     <string name="minute_picker_description">ඇනලොග් විනාඩි තෝරකය</string>
@@ -1325,6 +1327,8 @@
     <string name="deleted_key">%1$s මකා දමන ලදි</string>
     <string name="managed_profile_label_badge">වැඩ %1$s</string>
     <string name="lock_to_app_toast">මෙම තිරය ඇමුණුම් ඉවත් කිරීමට, ස්පර්ශ කර අල්ලා ගෙන සිටින්න.</string>
+    <string name="lock_to_app_toast_for_navibar">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු බොත්තම් එකවර ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">යෙදුමට-අගුල ප්‍රකාරය සක්‍රිය කර ඇත.</string>
     <string name="lock_to_app_start">තිරය අගුළු දමා ඇත</string>
     <string name="lock_to_app_exit">තිරයේ අගුළු ඇර ඇත</string>
@@ -1402,6 +1406,8 @@
     <string name="suspended_widget_accessibility">අබල කළ %1$s</string>
     <string name="clipboard_exceed_text_size">පිටපත් කළ නොහැක. පෙළ ඉතා දිගයි.</string>
     <string name="clipboard_restrict">ආරක්ෂණ ප්‍රතිපත්තිය මගින් ක්ලිප්බෝඩ භාවිතය සීමා කර ඇත.</string>
+    <string name="hdmi_connect">HDMI සම්බන්ධිතයි.</string>
+    <string name="hdmi_disconnect">HDMI විසන්ධි කෙරිණි.</string>
     <string name="dex_launcher_mode_change">Samsung DeX වෙත මාරු වීමට %s වැසිණි.</string>
     <string name="language_picker_section_suggested_sec">සැම්සුං යෝජිත</string>
     <string name="language_picker_section_suggested_sec_jpn">Galaxy suggested</string>
@@ -1447,10 +1453,13 @@
     <string name="wifi_notification_sns_poor_network_title">ස්මාට් ජාල ස්විචය</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">ස්වයං ජාල මාරුව</string>
     <string name="wifi_notification_sns_poor_network_detail">%s වෙතින් විසන්ධි විය.</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="can_not_install_app">යෙදුම ස්ථාපනය කළ නොහැක. යෙදුම %s සමග භාවිතා කිරීම සඳහා ප්‍රශස්ත කර නැත.</string>
     <string name="clearDefaultHintMsg_knox">ඔබ මෙම ක්‍රියාව සිදු කරන සෑම අවස්ථාවකදීම %1$s පෙරනිමියෙන් භාවිතා කරනු ඇත. ඔබට %2$s සැකසුම් > යෙදුම් > වැඩිදුර විකල්ප බොත්තම > පෙරනිමි යෙදුම් තුළ ඔබේ පෙරනිමි යෙදුම වෙනස් කළ හැක.</string>
     <string name="booster_notification_mbps">Mbps</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s සක්‍රිය කළ නොහැකිය. %2$s ඔබේ අන්තර්ජාල පැකේජය සමග නොමැති හෝ %3$s සර්වරයෙන් කිසිදු ප්‍රතිචාරයක් ලැබී නැත.</string>
     <string name="usb_charing_only_notification_title">USB චාර්ජ් වීම</string>
+    <string name="more">තවත්</string>
     <string name="smart_glow_m_application_name">ස්මාර්ට් දීප්තිය</string>
     <string name="device_storage_low_htap_here_to_view_related_settings_m_status">උපාංග ගබඩාව අඩුයි (අදාළ සැකසුම් බැලීමට මෙතැන තට්ටු කරන්න)</string>
     <string name="smartglow_low_battery_notification_text">බැටරි බලය අඩුයි ( “බල සුරැකුම් ප්‍රකාරය” සක්‍රිය කිරීමට මෙතැන තට්ටු කරන්න)</string>
@@ -1482,6 +1491,12 @@
     <string name="multisound_sound_via_usb_audio">%s හඬ ඔබේ USB ශ්‍රව්‍ය උපාංගය හරහා වාදනය වේ. මෙය ක්‍රියා විරහිත කිරීමට මෙතැන තට්ටු කරන්න.</string>
     <string name="multisound_change_output_device">ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය වෙනස් කිරීම</string>
     <string name="multisound_headup_contents">ඔබ මෙම යෙදුම සඳහා තේරූ ශ්‍රව්‍ය උපාංගය ඔබේ දුරකථනය සඳහා පවත්නා ශ්‍රව්‍ය ප්‍රතිදාන උපාංගයට සමාන වේ. මෙම යෙදුම සඳහා හඬ වෙන් කිරීම සඳහා, යුහු සැකසුම් පුවරුව තුළ ඔබේ ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය වෙනස් කරන්න.</string>
+    <string name="multisound_hun_title">ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය වෙ. ක.ද?</string>
+    <string name="multisound_hun_contents">ඔබ මෙම යෙදුම (%1$s) සඳහා තේරූ ශ්‍රව්‍ය උපාංගය ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගයට (%2$s) සමාන වේ. මෙම යෙදුම සඳහා හඬ වෙන් කිරීමට, ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය %3$s වෙත වෙනස් කිරීමට අවශ්‍ය වේ.</string>
+    <string name="multisound_hun_close">වසන්න</string>
+    <string name="multisound_hun_change">වෙනස් කරන්න</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">හෙඩ්සෙටය</string>
     <string name="bixby_edgecase_mpsm">උපරිම බල සුරැකුම් ප්‍රකාරය ක්‍රියාත්මක අතරේ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_emergencymode">හදිසි ප්‍රකාරය තුළ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_kidsmode">ළමා ප්‍රකාරය තුළ Bixby භාවිතා කළ නොහැක.</string>
@@ -1489,9 +1504,11 @@
     <string name="bixby_edgecase_mirrorlink">MirrorLink භාවිතා කරන අතරේ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX තුළ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_dexstation">DeX ස්ථානයට සම්බන්ධිත අතරේ Bixby භාවිතා කළ නොහැක.</string>
-    <string name="conventional_mode_recent_noti">ඔබට මෑත යෙදුම් තිරය මත දිග හැරීමේ අයිකනය තට්ටු කිරීමෙන් පූර්ණ තිරයේ මෙම යෙදුම බැලිය හැක.</string>
+    <string name="bixby_edgecase_cantusenow">දැන් Bixby Voice භාවිතා කළ නොහැක.</string>
+    <string name="conventional_mode_recent_noti">ඔබට මෑත යෙදුම් තිරය මත යෙදුමේ දර්ශන අනුපාතය වෙනස් කළ හැක.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">පෙර දර්ශන අනුපාතයට නැවත පැමිණීමට, සැකසුම් > සංදර්ශකය > පූර්ණ තිර යෙදුම් වෙත යන්න.</string>
     <string name="conventional_mode_tap_here_to_fill">මුළු තිරයම පිරවීමට මෙතැන තට්ටු කරන්න</string>
+    <string name="bixby_popup_unavailable_now">Bixby නොමැත. දුරකථනයේ හිමිකරුට හෝ ප්‍රධාන දුරකථන අංකයට පමණක් Bixby භාවිතා කළ හැකිය.</string>
     <string name="permlab_knoxCustomSetting">උපාංග සැකසුම් කළමණාකරණය</string>
     <string name="permdesc_knoxCustomSetting">බ්ලූටූත්, පිහිටීම, Wi-Fi, ජංගම දත්ත, සහ ඇන්ඩ්‍රොයිඩ් සැකසුම් වැනි උපාංග සැකසුම් වින්‍යාස කරන්න.</string>
     <string name="permlab_knoxCustomSystem">පද්ධති සැකසුම් කළමනාකරණය</string>
@@ -1815,6 +1832,4 @@
     <string name="storage_sd_card_title">SD පත</string>
     <string name="lacking_filenode_internal_storage_view_title">ගොනු පද්ධතියේ සීමාව</string>
     <string name="lacking_filenode_internal_storage_view_text">ඔබේ දුරකථනයේ බොහෝ ගොනු නිර්මාණය කර තිබේ. යෙදුම් නිවැරදිව වැඩ කිරීම නතර විය හැකි අතර ඔබේ දුරකථනය තවදුරටත් ආරම්භ නොවිය හැක. ඕනෑම වැදගත් දත්තයක් උපස්ථ කර ඔබේ දුරකථනය කම්හල් යළි පිහිටුවන්න.</string>
-    <string name="lock_to_app_toast_for_navibar">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු බොත්තම් එකවර ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

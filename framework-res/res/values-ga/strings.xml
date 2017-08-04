@@ -381,7 +381,7 @@
     <string name="noApplications">Tá gach feidhmchlár a bhaineann leis an ngníomh seo díchumasaithe, bactha, nó níl siad suiteáilte.</string>
     <string name="aerr_application">Tá %1$s stoptha</string>
     <string name="aerr_process">Tá an próiseas %1$s stoptha</string>
-    <string name="aerr_restart">Atos. f.chlár</string>
+    <string name="aerr_restart">Atosaigh an feidhmchlár</string>
     <string name="force_close">OK</string>
     <string name="wait">Fan</string>
     <string name="launch_warning_title">Feidhmchlár atreoraithe</string>
@@ -472,9 +472,9 @@
     <string name="perms_description_app">Arna sholáthar ag %s</string>
     <string name="no_permissions">Níl ceadanna de dhíth.</string>
     <string name="dlg_ok">OK</string>
-    <string name="usb_mtp_notification_title">Comhaid meán á n-aistriú le USB</string>
-    <string name="usb_ptp_notification_title">Íomhánna á n-aistriú trí USB</string>
-    <string name="usb_midi_notification_title">USB nasctha le gléas MIDI</string>
+    <string name="usb_mtp_notification_title">"USB d'aistriú comhad"</string>
+    <string name="usb_ptp_notification_title">"USB d'aistriú íomhánna"</string>
+    <string name="usb_midi_notification_title">USB do MIDI</string>
     <string name="usb_accessory_notification_title">Nasctha le hoiriúint USB</string>
     <string name="usb_notification_message">Tapáil le haghaidh roghanna eile USB</string>
     <string name="adb_active_notification_title">Dífhabhtú USB casta air.</string>
@@ -683,6 +683,8 @@ Triail arís i gceann %2$d soicind."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Is féidir leat na cnaipí a thaispeáint arís trí svaidhpeáil isteach ó imeall an scáileáin, áit a dtaispeántar na cnaipí de ghnáth.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Tar éis tamaill, folófar na cnaipí arís.</string>
     <string name="sec_immersive_cling_help_text_step_two">Is féidir leat an cnaipe Baile a úsáid fiú nuair atá sé folaithe. Le gabháil chuig an Scáileán baile, brúigh go láidir an áit den scáileán a dtaispeántar an cnaipe Baile de ghnáth.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">"Cibé bealach a bhfuil d'fhón i do lámh agat, beidh na cnaipí in aice leis an bport luchtaithe i gcónaí. Agus d'fhón rothlaithe ar tuathal, svaidhpeáil ar chlé ó imeall an scáileáin mar atá léirithe ag an tsaighead."</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">"Cibé bealach a bhfuil d'fhón i do lámh agat, beidh na cnaipí in aice leis an bport luchtaithe i gcónaí. Agus d'fhón rothlaithe ar deiseal, svaidhpeáil ar dheis ó imeall an scáileáin mar atá léirithe ag an tsaighead."</string>
     <string name="done_label">Déanta</string>
     <string name="hour_picker_description">Roghnóir uaireanta analógacha</string>
     <string name="minute_picker_description">Roghnóir nóiméad analógach</string>
@@ -692,7 +694,9 @@ Triail arís i gceann %2$d soicind."</string>
     <string name="select_year">Roghnaigh bliain.</string>
     <string name="deleted_key">%s scriosta.</string>
     <string name="lock_to_app_toast">Le feidhmchlár a dhíphionnáil, brúigh agus coinnigh na heochracha Le déanaí agus Siar ag an am céanna.</string>
+    <string name="lock_to_app_toast_for_navibar">Le feidhmchlár a dhíphionnáil, tadhaill agus coinnigh na cnaipí Le déanaí agus Siar ag an am céanna.</string>
     <string name="lock_to_app_toast_accessible">Le feidhmchlár a dhíphionnáil, brúigh agus coinnigh an eochair Le déanaí.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Mód glasála le feidhmchlár cumasaithe.</string>
     <string name="lock_to_app_start">Feidhmchlár pionnáilte.</string>
     <string name="lock_to_app_exit">Feidhmchlár díphionnáilte.</string>
@@ -733,9 +737,9 @@ Triail arís i gceann %2$d soicind."</string>
     <string name="tw_clipboard_save_tts">Sábháil</string>
     <string name="tw_clipboard_button_tts">Cnaipe</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Gearrthaisce</string>
-    <string name="hdmi_connect">Cábla HDMI ceangailte.</string>
+    <string name="hdmi_connect">HDMI nasctha.</string>
     <string name="hdmi_connect_indirectly">Nasc do ghléas leis an teilifís díreach tríd an gcábla HDMI</string>
-    <string name="hdmi_disconnect">Cábla HDMI dícheangailte.</string>
+    <string name="hdmi_disconnect">HDMI dínasctha.</string>
     <string name="hdmi_recommend_charging_device">Molaimid duit do ghléas a luchtú má bhíonn sé ceangailte le cuibheoir HDTV ar feadh tréimhse fhada. Ceangail an luchtaire leis an gcuibheoir HDTV chun do ghléas a luchtú.</string>
     <string name="hdmi_wfd_terminate">HDMI nasctha. Tá nasc trí Screen Mirroring scortha</string>
     <string name="disable">Díchumasaigh</string>
@@ -1154,6 +1158,7 @@ TV (Smart View)"</string>
     <string name="volumepanel_media">Meáin</string>
     <string name="volumepanel_notification">Fógraí</string>
     <string name="volumepanel_system">Córas</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Ní féidir an scáileán a ghabháil i Mód éigeandála.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Ní féidir seat den scáileán a ghabháil.</string>
     <string name="bluetooth_permission_request">Iarratas ar chead Bluetooth</string>
@@ -1226,6 +1231,7 @@ Le feidhmchlár a dhíphionnáil, brúigh agus coinnigh an eochair Roghchlár."<
     <string name="mptcp_message_mptcp_capability_WifiDirect">Ní féidir %s a chumasú agus Wi-Fi Direct cumasaithe.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Níl freagairt ann ón soláthraí seirbhíse.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Theip ar sheoladh an iarratais ar ghníomhachtú %s. Athnascadh trí na líonraí atá ar fáil…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Ní féidir %1$s a chumasú. Níl %2$s ar fáil le do phacáiste Idirlín nó ní bhfuarthas aon fhreagra ón bhfreastalaí %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Ní féidir %s a chumasú. Tá an gléas róthe. Fan go bhfuaraítear an gléas agus triail arís.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s díchumasaithe le róthéamh an ghléis a chosc. Á íoslódáil trí líonra móibíleach ina ionad sin…</string>
     <string name="mptcp_message_data_usage_limit">Teorainn ar úsáid sonraí bainte amach. Leis an teorainn ar úsáid sonraí a athrú, gabh chuig Socruithe.</string>
@@ -1335,6 +1341,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Tá fuaim %s á seinm trí ghléas fuaime USB. Tapáil anseo leis seo a chasadh as.</string>
     <string name="multisound_change_output_device">Athraigh an gléas aschuir fuaime</string>
     <string name="multisound_headup_contents">"Is ionann an gléas fuaime a roghnaigh tú le haghaidh an fheidhmchláir seo agus an gléas aschuir fuaime reatha le haghaidh d'fhóin. Leis an bhfuaim le haghaidh an fheidhmchláir seo a scaradh, athraigh do ghléas aschuir fuaime sa phainéal mearshocruithe."</string>
+    <string name="multisound_hun_title">Athraigh an príomhghléas aschuir fuaime?</string>
+    <string name="multisound_hun_contents">Is ionann an gléas fuaime a roghnaigh tú le haghaidh an fheidhmchláir seo (%1$s) agus an príomhghléas aschuir fuaime (%2$s). Leis an bhfuaim le haghaidh an fheidhmchláir seo a scaradh, ní foláir an príomhghléas aschuir fuaime a athrú chuig %3$s.</string>
+    <string name="multisound_hun_close">Dún</string>
+    <string name="multisound_hun_change">Athraigh</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Gléas cinn</string>
     <string name="bixby_edgecase_mpsm">Ní féidir Bixby a úsáid agus Uasmhód coigilte cumhachta casta air.</string>
     <string name="bixby_edgecase_emergencymode">Ní féidir Bixby a úsáid i Mód éigeandála.</string>
     <string name="bixby_edgecase_kidsmode">Ní féidir Bixby a úsáid i Mód Leanaí.</string>
@@ -1342,9 +1354,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Ní féidir Bixby a úsáid agus MirrorLink á úsáid.</string>
     <string name="bixby_edgecase_dexmode">Ní féidir Bixby a úsáid in Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Ní féidir Bixby a úsáid nuair atáthar nasctha le stáisiún DeX.</string>
-    <string name="conventional_mode_recent_noti">Is féidir leat amharc ar an bhfeidhmchlár seo i lánscáileán trí thapáil ar an íocón Fairsingigh ar an scáileán Feidhmchláir le déanaí.</string>
+    <string name="bixby_edgecase_cantusenow">Ní féidir Bixby Voice a úsáid díreach anois.</string>
+    <string name="conventional_mode_recent_noti">Is féidir leat cóimheas treoíochta feidhmchlár a athrú ar Scáileán na bhfeidhmchlár le déanaí.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Le filleadh ar an gcóimheas treoíochta roimhe, gabh chuig Socruithe > Taispeáint > Feidhmchláir lánscáileáin.</string>
     <string name="conventional_mode_tap_here_to_fill">Tapáil anseo leis an scáileán iomlán a líonadh</string>
+    <string name="bixby_popup_unavailable_now">Níl Bixby ar fáil. Ní féidir ach le húinéir an fhóin nó leis an bpríomhuimhir fóin Bixby a úsáid.</string>
     <string name="permlab_knoxCustomSetting">Bainistigh socruithe gléis</string>
     <string name="permdesc_knoxCustomSetting">Cumraigh socruithe gléis, amhail Bluetooth, Suíomh, Wi-Fi, Sonraí móibíleacha, agus socruithe Android.</string>
     <string name="permlab_knoxCustomSystem">Bainistigh socruithe córais</string>
@@ -1713,6 +1727,4 @@ Is féidir go gcuirfear srian le feidhmeanna USB agus Uasmhód coigilte cumhacht
     <string name="charging_connected_via_usb">Gléas atá ceangailte trí USB á luchtú…</string>
     <string name="lacking_filenode_internal_storage_view_title">Teorainn córais comhad</string>
     <string name="lacking_filenode_internal_storage_view_text">"Cruthaíodh an iomarca comhad ar d'fhón. Is féidir nach n-oibreoidh feidhmchláir i gceart agus nach dtosóidh d'fhón a thuilleadh. Cúltacaigh aon sonraí tábhachtacha agus fill d'fhón ar a réamhshocraithe monarchan."</string>
-    <string name="lock_to_app_toast_for_navibar">Le feidhmchlár a dhíphionnáil, tadhaill agus coinnigh na cnaipí Le déanaí agus Siar ag an am céanna.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

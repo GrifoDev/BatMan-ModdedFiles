@@ -770,7 +770,7 @@ Estàs segur que vols sortir d'aquesta pàgina?"</string>
     <string name="aerr_process">"El procés %1$s s'ha aturat"</string>
     <string name="aerr_application_repeated">"L'aplicació %1$s s'atura contínuament"</string>
     <string name="aerr_process_repeated">"El procés %1$s s'atura contínuament"</string>
-    <string name="aerr_restart">Reinic. app</string>
+    <string name="aerr_restart">"Reiniciar l'aplicació"</string>
     <string name="aerr_reset">"Restableix i reinicia l'aplicació"</string>
     <string name="aerr_report">Envia suggeriments</string>
     <string name="aerr_close">Tanca</string>
@@ -915,9 +915,9 @@ Vols tancar-la?"</string>
     <string name="dlg_ok">Acceptar</string>
     <string name="usb_charging_notification_title">"L'USB està carregant el dispositiu"</string>
     <string name="usb_supplying_notification_title">"L'USB subministra energia al dispositiu connectat"</string>
-    <string name="usb_mtp_notification_title">Transfer fitxers multimèdia USB</string>
-    <string name="usb_ptp_notification_title">USB està transferint imatges</string>
-    <string name="usb_midi_notification_title">USB connectat a dispositiu MIDI</string>
+    <string name="usb_mtp_notification_title">USB per a transferència fitxers</string>
+    <string name="usb_ptp_notification_title">USB per a transferència imatges</string>
+    <string name="usb_midi_notification_title">USB per a MIDI</string>
     <string name="usb_accessory_notification_title">Connectat a un accessori USB</string>
     <string name="usb_notification_message">Toqui per a altres opcions USB</string>
     <string name="adb_active_notification_title">Depuració USB connectada</string>
@@ -1319,6 +1319,8 @@ Torni-ho a intentar en %2$d segons."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">"Pot tornar a mostrar els botons desplaçant cap a dins des de l'extrem de la pantalla on normalment apareixen els botons."</string>
     <string name="sec_immersive_cling_help_text_step_one_three">"Al cap d'una estona, els botons tornaran a desaparèixer."</string>
     <string name="sec_immersive_cling_help_text_step_two">"Pot utilitzar el botó Inici fins i tot quan estigui ocult. Per anar a la pantalla d'Inici, premi durant una estona l'àrea al voltant de la pantalla on se sol trobar el botó Inici."</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">"Independentment de com estiguis agafant el telèfon, els botons sempre estaran ubicats al costat del port de càrrega. Quan el telèfon es giri a l'esquerra, desplaça cap a l'esquerra des de l'extrem de la pantalla tal com indica la fletxa."</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">"Independentment de com estiguis agafant el telèfon, els botons sempre estaran ubicats al costat del port de càrrega. Quan el telèfon es giri a la dreta, desplaça cap a la dreta des de l'extrem de la pantalla tal com indica la fletxa."</string>
     <string name="done_label">Fet</string>
     <string name="hour_picker_description">"Selector d'hora analògic"</string>
     <string name="minute_picker_description">Selector de minut analògic</string>
@@ -1329,7 +1331,9 @@ Torni-ho a intentar en %2$d segons."</string>
     <string name="deleted_key">%s esborrat.</string>
     <string name="managed_profile_label_badge">%1$s de la feina</string>
     <string name="lock_to_app_toast">"Per desenganxar l'aplicació, mantingui premudes les tecles Recents i Tornar simultàniament."</string>
+    <string name="lock_to_app_toast_for_navibar">"Per desenganxar l'aplicació, mantingui tocats els botons Recents i Tornar simultàniament."</string>
     <string name="lock_to_app_toast_accessible">"Per desenganxar l'aplicació, mantingui premuda la tecla recents."</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">"S'ha habilitat el mode Bloquejar a aplicació."</string>
     <string name="lock_to_app_start">App enganxada.</string>
     <string name="lock_to_app_exit">App desenganxada.</string>
@@ -1435,9 +1439,9 @@ L'estalvi de bateria es desactiva automàticament mentre el dispositiu s'està c
     <string name="tw_clipboard_save_tts">Desar</string>
     <string name="tw_clipboard_button_tts">Botó</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Porta-retalls</string>
-    <string name="hdmi_connect">Cable HDMI no connectat</string>
+    <string name="hdmi_connect">HDMI connectada.</string>
     <string name="hdmi_connect_indirectly">Connecti el dispositiu a la TV directament amb el cable HDMI</string>
-    <string name="hdmi_disconnect">Cable HDMI desconnectat</string>
+    <string name="hdmi_disconnect">HDMI desconnectada.</string>
     <string name="hdmi_recommend_charging_device">"Li recomanem carregar el dispositiu si està connectat a un adaptador HDTV per un llarg període de temps. Connecti el carregador a l'adaptador HDTV per carregar el dispositiu."</string>
     <string name="hdmi_wfd_terminate">HDMI connectat. Ha finalitzat la connexió de Screen Mirroring actual</string>
     <string name="disable">Desactivar</string>
@@ -1857,6 +1861,7 @@ command"</string>
     <string name="volumepanel_media">Multimèdia</string>
     <string name="volumepanel_notification">Notificacions</string>
     <string name="volumepanel_system">Sistema</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">No es pot capturar la pantalla mentre és al mode Emergència.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">No es pot realitzar la captura de pantalla</string>
     <string name="bluetooth_permission_request">Sol·licitud de permís Bluetooth</string>
@@ -1929,6 +1934,7 @@ Per desenganxar-la, mantingui premuda la tecla de menú."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">No es pot activar %s mentre Wi-Fi Direct està activat.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">No hi ha resposta del proveïdor de servei.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">"S'ha produït un error en enviar la sol·licitud d'activació de %s. S'està tornant a connectar mitjançant les xarxes disponibles…"</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">"No es pot activar %1$s. %2$s no està disponible amb el paquet d'Internet o no s'ha rebut cap resposta del servidor %3$s."</string>
     <string name="mptcp_message_setting_disabled_overheating">"No es pot activar %s. El dispositiu s'està sobreescalfant. Esperi fins que es refredi i torni-ho a intentar."</string>
     <string name="mptcp_message_operation_disabled_overheating">"S'ha desactivat %s per evitar el sobreescalfament del dispositiu. S'està descarregant mitjançant la xarxa mòbil…"</string>
     <string name="mptcp_message_data_usage_limit">"S'ha assolit el límit d'ús de dades. Per canviar el límit d'ús, vagi a Ajustaments."</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">"El so de %s s'està reproduint a través del dispositiu d'àudio USB. Toqui aquí per desactivar-lo."</string>
     <string name="multisound_change_output_device">"Canviar el dispositiu de sortida d'àudio"</string>
     <string name="multisound_headup_contents">"El dispositiu d'àudio que ha seleccionat per a aquesta aplicació és el mateix que el dispositiu de sortida d'àudio actual del telèfon. Perquè l'aplicació tingui un so independent, canviï el dispositiu de sortida d'àudio al tauler d'ajustaments ràpids."</string>
+    <string name="multisound_hun_title">Canviar dispositiu sortid àudio principal?</string>
+    <string name="multisound_hun_contents">"El dispositiu d'àudio que ha seleccionat per a aquesta aplicació (%1$s) és el mateix que el dispositiu de sortida d'àudio principal (%2$s). Perquè l'aplicació tingui un so independent, cal que el dispositiu de sortida d'àudio principal es canviï a %3$s."</string>
+    <string name="multisound_hun_close">Tancar</string>
+    <string name="multisound_hun_change">Canviar</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Auricular</string>
     <string name="bixby_edgecase_mpsm">"No es pot utilitzar Bixby mentre el mode Estalvi d'energia màxim estigui activat."</string>
     <string name="bixby_edgecase_emergencymode">No es pot utilitzar Bixby en el mode Emergència.</string>
     <string name="bixby_edgecase_kidsmode">No es pot utilitzar Bixby en el mode Nens.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">"No es pot utilitzar Bixby mentre s'estigui utilitzant MirrorLink."</string>
     <string name="bixby_edgecase_dexmode">No es pot utilitzar Bixby a Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">"No es pot utilitzar Bixby mentre estigui connectat a l'Emissora DeX."</string>
-    <string name="conventional_mode_recent_noti">"Pot veure aquesta aplicació en pantalla completa tocant la icona Expandir a la pantalla d'aplicacions recents."</string>
+    <string name="bixby_edgecase_cantusenow">No es pot utilitzar Bixby Voice ara mateix.</string>
+    <string name="conventional_mode_recent_noti">"Pot canviar la relació d'aspecte de l'aplicació a la pantalla d'aplicacions recents."</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">"Per tornar a la relació d'aspecte anterior, vagi a Ajustaments > Pantalla > Aplicacions en pantalla completa."</string>
     <string name="conventional_mode_tap_here_to_fill">Tocar aquí per emplenar tota la pantalla</string>
+    <string name="bixby_popup_unavailable_now">Bixby no està disponible. Només el propietari del telèfon pot utilitzar Bixby o bé qui disposi del número de telèfon principal.</string>
     <string name="permlab_knoxCustomSetting">Gestionar ajustaments del dispositiu</string>
     <string name="permdesc_knoxCustomSetting">"Configuri els ajustaments del dispositiu, com ara Bluetooth, Ubicació, Wi-Fi, Dades mòbils i Ajustaments d'Android."</string>
     <string name="permlab_knoxCustomSystem">Gestionar ajustaments del sistema</string>
@@ -2423,6 +2437,4 @@ TORNI'L A"</string>
     <string name="charging_connected_via_usb">"S'està carregant el dispositiu connectat mitjançant USB…"</string>
     <string name="lacking_filenode_internal_storage_view_title">Límit del sistema de fitxers</string>
     <string name="lacking_filenode_internal_storage_view_text">"S'han creat massa fitxers al telèfon. És possible que les aplicacions deixin de funcionar correctament i que el telèfon ja no es posi en marxa. Faci una còpia de seguretat de les dades importants i restableixi el telèfon als valors de fàbrica."</string>
-    <string name="lock_to_app_toast_for_navibar">"Per desenganxar l'aplicació, mantingui tocats els botons Recents i Tornar simultàniament."</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -639,6 +639,9 @@
         <data_info interface="I" type1="" type2="" type3="" >
             <key_info keyname="ESES" min="0" max="0" desc1="Check whether eSE state is restricted" desc2="" desc3="" desc4="" type1="1" type2="0" />
         </data_info>
+        <enc_sysfs_node type="S" key="CPLC" value="/data/sem/hwparam_cplc" clear="0" >
+            <key_info keyname="CPLC" min="" max="" desc1="CPLC value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </enc_sysfs_node>
     </hwparam_info>
 
      <hwparam_info compID="NFC" feature="POSF" hitType="ph" compVer="0.0" compManufacture="sec" order_compID="16" order_feature ="2">

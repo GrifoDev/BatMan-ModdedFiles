@@ -1490,7 +1490,7 @@ Turn on Airplane mode?"</string>
     <string name="dlg_confirm_kill_storage_users_title">Злучыць сховішча з ПК</string>
     <string name="dlg_confirm_kill_storage_users_text">Падлучэнне USB-сховішча спыніць працу некаторых праграм. Яны могуць быць недаступныя, пакуль вы не адлучыце USB-сховішча.</string>
     <string name="dlg_error_title">Памылка працы USB</string>
-    <string name="usb_cd_installer_notification_title">Software Installation</string>
+    <string name="usb_cd_installer_notification_title">System update</string>
     <string name="usb_vzw_mtp_notification_title">File Transfer</string>
     <string name="usb_vzw_ptp_notification_title">Photo Transfer</string>
     <string name="usb_vzw_midi_notification_title">MIDI</string>

@@ -770,7 +770,7 @@
     <string name="aerr_process">Процесът %1$s спря.</string>
     <string name="aerr_application_repeated">%1$s спира многократно</string>
     <string name="aerr_process_repeated">%1$s спира многократно</string>
-    <string name="aerr_restart">Рест. прил.</string>
+    <string name="aerr_restart">Рестартиране на приложение</string>
     <string name="aerr_reset">Нулиране и рестартиране на приложението</string>
     <string name="aerr_report">Изпращане на отзиви</string>
     <string name="aerr_close">Затваряне</string>
@@ -915,9 +915,9 @@
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">През USB се зарежда това устройство</string>
     <string name="usb_supplying_notification_title">През USB се зарежда свързаното устройство</string>
-    <string name="usb_mtp_notification_title">Прехв. мултим. файлове чрез USB</string>
-    <string name="usb_ptp_notification_title">Прехвър. изображения чрез USB</string>
-    <string name="usb_midi_notification_title">Свърз. чрез USB с MIDI устр.</string>
+    <string name="usb_mtp_notification_title">USB за прехвърляне на файлове</string>
+    <string name="usb_ptp_notification_title">USB за прехвърляне изображения</string>
+    <string name="usb_midi_notification_title">USB за MIDI</string>
     <string name="usb_accessory_notification_title">Свързан с USB аксесоар</string>
     <string name="usb_notification_message">Чукнете за други USB опции.</string>
     <string name="adb_active_notification_title">USB поправките са свързани.</string>
@@ -1319,6 +1319,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Може да покажете бутоните отново, като плъзнете навътре от края на екрана, където обикновено се показват бутоните.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">След малко бутоните ще изчезнат отново.</string>
     <string name="sec_immersive_cling_help_text_step_two">Може да използвате бутона за начало дори когато е скрит. За да отидете на началния екран, натиснете силно областта на екрана, където обикновено се показва бутонът за начало.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Както и да държите телефона, бутоните винаги ще са разположени до порта за зареждане. Когато телефонът е завъртян обратно на часовниковата стрелка, плъзнете наляво от края на екрана, както е показано от стрелката.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Както и да държите телефона, бутоните винаги ще са разположени до порта за зареждане. Когато телефонът е завъртян по посока на часовниковата стрелка, плъзнете надясно от края на екрана, както е показано от стрелката.</string>
     <string name="done_label">Готово</string>
     <string name="hour_picker_description">Избирач на аналогов час</string>
     <string name="minute_picker_description">Избирач на аналогова минута</string>
@@ -1329,7 +1331,9 @@
     <string name="deleted_key">%s изтрито.</string>
     <string name="managed_profile_label_badge">%1$s за работа</string>
     <string name="lock_to_app_toast">За да откачите приложение, натиснете и задръжте клавишите за скорошни и назад едновременно.</string>
+    <string name="lock_to_app_toast_for_navibar">За да откачите приложение, докоснете и задръжте бутоните за скорошни и назад едновременно.</string>
     <string name="lock_to_app_toast_accessible">За да откачите приложението, натиснете и задръжте клавиша за скорошни.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Режимът на заключване към приложение е активиран.</string>
     <string name="lock_to_app_start">Приложението е закачено.</string>
     <string name="lock_to_app_exit">Приложението е откачено.</string>
@@ -1435,9 +1439,9 @@
     <string name="tw_clipboard_save_tts">Запази</string>
     <string name="tw_clipboard_button_tts">Бутон</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Системен буфер</string>
-    <string name="hdmi_connect">HDMI кабелът е включен.</string>
+    <string name="hdmi_connect">HDMI е свързан.</string>
     <string name="hdmi_connect_indirectly">свържете устройството към телевизора директно през HDMI кабела.</string>
-    <string name="hdmi_disconnect">HDMI кабелът е изключен.</string>
+    <string name="hdmi_disconnect">HDMI е изключен.</string>
     <string name="hdmi_recommend_charging_device">Препоръчваме да зареждате устройството, ако е свързано към HDTV адаптер за дълъг период от време. Свържете зарядното към HDTV адаптера, за да заредите устройството.</string>
     <string name="hdmi_wfd_terminate">HDMI е свързан. Връзката към Screen Mirroring е прекратена</string>
     <string name="disable">Забрана</string>
@@ -1857,6 +1861,7 @@
     <string name="volumepanel_media">Медии</string>
     <string name="volumepanel_notification">Уведомления</string>
     <string name="volumepanel_system">Система</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Екранът не може да се заснеме, когато Спешен режим е активен.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Неуспешно заснемане на екрана.</string>
     <string name="bluetooth_permission_request">Искане за разрешение за Bluetooth</string>
@@ -1929,6 +1934,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Не може да се активира %s, докато Wi-Fi Direct е активирано.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Няма отговор от доставчик на услуги.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Неуспешно изпращане на искане за активиране на %s. Повторно свързване чрез налични мрежи…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Неуспешно активиране на %1$s. %2$s не е налично с вашия интернет пакет или не е получен отговор от сървъра на %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Не може да се активира %s. Устройството прегрява. Изчакайте, докато устройството се охлади, след което опитайте отново.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s е деактивирано, за да се предотврати прегряване на устройството. Изтегляне през мобилна мрежа вместо това…</string>
     <string name="mptcp_message_data_usage_limit">Лимитът за потребление на данни е достигнат. За да промените лимита за потребление на данни, отидете в „Настройки“.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Звукът на %s се възпроизвежда чрез USB аудио устройство. Докоснете тук, за да го изключите.</string>
     <string name="multisound_change_output_device">Промяна на изходното устройство за аудио</string>
     <string name="multisound_headup_contents">Аудио устройството, което сте избрали за това приложение, е същото като текущото изходно аудио устройство. За да отделите звука за това приложение, променете изходното аудио устройство в панела за бързи настройки.</string>
+    <string name="multisound_hun_title">Промяна главно изходно аудио устройство?</string>
+    <string name="multisound_hun_contents">Аудио устройството, което сте избрали за това приложение (%1$s), е същото като главното изходно аудио устройство (%2$s). За да отделите звука за това приложение, трябва да промените главното изходно аудио устройство на %3$s.</string>
+    <string name="multisound_hun_close">Затваряне</string>
+    <string name="multisound_hun_change">Промяна</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Слушалки</string>
     <string name="bixby_edgecase_mpsm">Не може да се използва Bixby, докато Режим на максимално пестене на енергия е включен.</string>
     <string name="bixby_edgecase_emergencymode">Не може да се използва Bixby в Спешен режим.</string>
     <string name="bixby_edgecase_kidsmode">Не може да се използва Bixby в Режим деца.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Не може да се използва Bixby по време на използване на MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Не може да се използва Bixby в Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Не може да се използва Bixby, докато има връзка с DeX станция.</string>
-    <string name="conventional_mode_recent_noti">Може да прегледате това приложение на цял екран, като докоснете иконата за разгъване на екрана за скорошни приложения.</string>
+    <string name="bixby_edgecase_cantusenow">Не може да се използва Bixby Voice в момента.</string>
+    <string name="conventional_mode_recent_noti">Може да промените съотношението на приложението на екрана на „Скорошни приложения“.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">За да се върнете на предишното съотношение, отидете в Настройки > Дисплей > Приложения на цял екран.</string>
     <string name="conventional_mode_tap_here_to_fill">Докоснете тук, за да запълните целия екран</string>
+    <string name="bixby_popup_unavailable_now">Bixby е недостъпно. Само собственикът на телефона или основния телефонен номер може да използва Bixby.</string>
     <string name="permlab_knoxCustomSetting">Управление на настройките на устр.</string>
     <string name="permdesc_knoxCustomSetting">Конфигурирайте настройки на устройството, като Bluetooth, местоположение, Wi-Fi, мобилни данни и настройки на Android.</string>
     <string name="permlab_knoxCustomSystem">Управление на системните настройки</string>
@@ -2423,6 +2437,4 @@ USB функциите може да са ограничени, докато Р�
     <string name="charging_connected_via_usb">Заредете свързаното устройство чрез USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ограничение на файлова система</string>
     <string name="lacking_filenode_internal_storage_view_text">Създадени са твърде много файлове на телефона. Приложенията може да спрат да работят правилно и телефонът може да не се стартира повече. Архивирайте всички важни данни и извършете нулиране на телефона до фабричните настройки.</string>
-    <string name="lock_to_app_toast_for_navibar">За да откачите приложение, докоснете и задръжте бутоните за скорошни и назад едновременно.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

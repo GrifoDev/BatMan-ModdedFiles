@@ -766,7 +766,7 @@ Ushbu sahifani rostdan tark etmoqchimisiz?"</string>
     <string name="aerr_process">%1$s jarayoni to‘xtatildi.</string>
     <string name="aerr_application_repeated">%1$s yana ishdan chiqdi</string>
     <string name="aerr_process_repeated">%1$s yana ishdan chiqdi</string>
-    <string name="aerr_restart">Ilv qay/yuk</string>
+    <string name="aerr_restart">Ilovani qayta ishga tushirish</string>
     <string name="aerr_reset">Ilovani qayta tiklash va qayta ishga tushirish</string>
     <string name="aerr_report">Fikr-mulohaza yuborish</string>
     <string name="aerr_close">Yopish</string>
@@ -911,9 +911,9 @@ Uni yopishni xohlaysizmi?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">USB orqali quvvatlash</string>
     <string name="usb_supplying_notification_title">USB orqali ulangan qurilma quvvatlanmoqda</string>
-    <string name="usb_mtp_notification_title">USB media fayllarini uzatmoqda</string>
-    <string name="usb_ptp_notification_title">USB tasvirlarni uzatmoqda</string>
-    <string name="usb_midi_notification_title">USB MIDI qurilmaga ulangan</string>
+    <string name="usb_mtp_notification_title">Fayl uzatish uchun USB</string>
+    <string name="usb_ptp_notification_title">Tasvir uzatish uchun USB</string>
+    <string name="usb_midi_notification_title">MIDI uchun USB</string>
     <string name="usb_accessory_notification_title">USB aksessuariga ulandi</string>
     <string name="usb_notification_message">USB opsiyalari uchun teging.</string>
     <string name="adb_active_notification_title">USB vositalari ulandi.</string>
@@ -1314,6 +1314,8 @@ Uni yopishni xohlaysizmi?"</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Ekran chetida ichkariga,odatda tugmalar ko‘rsatiladigan joyga, surish orqali tugmalarni yana ko‘rsatishingiz mumkin.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Bir ozdan so‘ng, tugmalar yana yo‘qoladi.</string>
     <string name="sec_immersive_cling_help_text_step_two">Asosiy tugma yashirilganda ham Asosiy tugmadan foydalanishingiz mumkin. Asosiy ekranga o‘tish uchun ekranning Asosiy tugma odatiy ravishda ko‘rsatiladigan sohasini qattiq bosing.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Telefoningizni ushlab turganingizga qaramasdan, tugmalar har doim zaryadlash porti yonida bo‘ladi. Telefoningiz soat mili yo‘nalishiga qarama-qarshi aylantirilganda, mil orqali ko‘rsatilgandek ekranni chetdan o‘ngga suring.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Telefoningizni ushlab turganingizga qaramasdan, tugmalar har doim zaryadlash porti yonida bo‘ladi. Telefoningiz soat mili yo‘nalishida aylantirilganda, mil orqali ko‘rsatilgandek ekranni chetdan o‘ngga suring.</string>
     <string name="done_label">OK</string>
     <string name="hour_picker_description">Analogli soat tanlovchisi</string>
     <string name="minute_picker_description">Analogli daqiqa tanlovchisi</string>
@@ -1324,7 +1326,9 @@ Uni yopishni xohlaysizmi?"</string>
     <string name="deleted_key">%s yo‘q qilindi.</string>
     <string name="managed_profile_label_badge">Ish %1$s</string>
     <string name="lock_to_app_toast">Ilovani olib tashlash uchun Oxirgilar va Orqaga tugmalarini bir vaqtda bosib turing.</string>
+    <string name="lock_to_app_toast_for_navibar">Ilovani olib tashlash uchun Oxirgilar va Orqaga tugmalariga bir vaqtda tegib turing.</string>
     <string name="lock_to_app_toast_accessible">Ilovani olib tashlash uchun oxirgilar tugmasini bosib turing.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Ilovaga mahkamlash rejimi yoqilgan.</string>
     <string name="lock_to_app_start">Ilova qo‘shildi.</string>
     <string name="lock_to_app_exit">Ilova olib tashlandi.</string>
@@ -1430,9 +1434,9 @@ Qurilma quvvat olayotganda quvvat tejash funksiyasi avtomatik tarzda o‘chadi."
     <string name="tw_clipboard_save_tts">Saqlash</string>
     <string name="tw_clipboard_button_tts">Tugma</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Bufer</string>
-    <string name="hdmi_connect">HDMI kabel ulangan.</string>
+    <string name="hdmi_connect">HDMI ulandi.</string>
     <string name="hdmi_connect_indirectly">Qurilmangizni TVga HDMI kabel yordamida ulang.</string>
-    <string name="hdmi_disconnect">HDMI kabel uzilgan.</string>
+    <string name="hdmi_disconnect">HDMI uzilgan.</string>
     <string name="hdmi_recommend_charging_device">Agar qurilmangiz HDTV adapteriga uzoq vaqt davomida ulangan holda tursa, qurilmangizni zaryadlashni tavsiya etamiz. Qurilmangizni zaryadlash uchun zaryadlash qurilmasini HDTV adapteriga ulang.</string>
     <string name="hdmi_wfd_terminate">HDMI ulandi. Screen Mirroring ulanishi tugatildi</string>
     <string name="disable">O‘chirish</string>
@@ -1852,6 +1856,7 @@ buyruq"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">"Ma'lumotnomalar"</string>
     <string name="volumepanel_system">Tizim</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Favqulodda rejimda ekranni rasmga olib bo‘lmaydi.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Ekranni suratga olib bo‘lmaydi.</string>
     <string name="bluetooth_permission_request">Bluetooth ruxsatnomasi so‘rovi</string>
@@ -1924,6 +1929,7 @@ Ilovani olib tashlash uchun menyu tugmasini bosib turing."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct yoqilgan vaqtda %s’ni yoqib bo‘lmaydi.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Xizmat ta’minotchisidan javob yo‘q.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s faollashtirish so‘rovini yuborib bo‘lmadi. Mavjud tarmoqlar orqali ulanmoqda…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s’ni yoqib bo‘lmaydi. %2$s’dan internet paketingiz bilan foydalana olmaysiz yoki %3$s serveridan javob olinmadi.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s’ni yoqib bo‘lmaydi. Qurilma qizib ketmoqda. Qurilma soviguniga qadar kutib turing va qayta urinib ko‘ring.</string>
     <string name="mptcp_message_operation_disabled_overheating">Qurilma qizib ketmasligi uchun %s o‘chirilgan. Uning o‘rniga mobil tarmoq orqali yuklab olinmoqda…</string>
     <string name="mptcp_message_data_usage_limit">Trafik chekloviga yetildi. Trafik sarfi cheklovini o‘zgartirish uchun Parametrlarga o‘ting.</string>
@@ -2033,6 +2039,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s ovozi USB audio qurilmangiz orqali eshittirilmoqda. Buni o‘chirish uchun bu yerga teging.</string>
     <string name="multisound_change_output_device">Audio chiqish qurilmasini o‘zgartirish</string>
     <string name="multisound_headup_contents">Bu ilova uchun tanlagan audio qurilmangiz telefoningizning joriy audio chiqarish qurilmasi bilan bir xil. Bu ilova ovozini ajratish uchun tezkor parametrlar panelida audio chiqarish qurilmasini o‘zgartiring.</string>
+    <string name="multisound_hun_title">As. audio chiq. qurilma o‘zgartirilsinmi?</string>
+    <string name="multisound_hun_contents">Bu ilova uchun tanlangan audio qurilma (%1$s) asosiy audio chiqish qurilmasi (%2$s) bilan bir xil. Bu ilova ovozini ajratish uchun asosiy audio chiqarish qurilmasi %3$s’ga o‘zgartirilishi lozim.</string>
+    <string name="multisound_hun_close">Yopish</string>
+    <string name="multisound_hun_change">O‘zgartirish</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Quloqlik</string>
     <string name="bixby_edgecase_mpsm">Maksimal quvvat tejash rejimi yoqilganda Bixby’dan foydalanib bo‘lmaydi.</string>
     <string name="bixby_edgecase_emergencymode">Favqulodda rejimda Bixby’dan foydalanib bo‘lmaydi.</string>
     <string name="bixby_edgecase_kidsmode">Bolalar rejimida Bixby’dan foydalanib bo‘lmaydi.</string>
@@ -2040,9 +2052,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink ishlatilayotganda Bixby’dan foydalanib bo‘lmaydi.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX’da Bixby’dan foydalanib bo‘lmaydi.</string>
     <string name="bixby_edgecase_dexstation">DeX Stansiyasiga ulangan vaqtda Bixby’dan foydalanib bo‘lmaydi.</string>
-    <string name="conventional_mode_recent_noti">Oxirgi ilovalar ekranidagi Kengaytirish ikonachasiga tegish orqlai ushbu ilovani to‘liq ekranga ko‘rishingiz mumkin.</string>
+    <string name="bixby_edgecase_cantusenow">Ayni vaqtida Bixby Voice’dan foydalanib bo‘lmaydi.</string>
+    <string name="conventional_mode_recent_noti">Oxirgi ilovalar ekranida ilova nisbatini o‘zgartirishingiz mumkin.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Avvalgi nisbatga qaytish uchun Parametrlar > Displey > Toliq ekran ilovalariga o‘ting.</string>
     <string name="conventional_mode_tap_here_to_fill">Butun ekranni to‘ldirish uchun bu yerga teging</string>
+    <string name="bixby_popup_unavailable_now">Bixby’dan foydalanib bo‘lmaydi. Faqat telfon egasi yoki asosiy telefon raqami Bixby’dan foydalanishi mumkin.</string>
     <string name="permlab_knoxCustomSetting">Qurilma parametrlarini boshqarish</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Joylashuv, Wi-Fi, Mobil internet va Android parametrlari kabi qurilma parametrlarini sozlang.</string>
     <string name="permlab_knoxCustomSystem">Tizim parametrlarini boshqarish</string>
@@ -2387,6 +2401,4 @@ Maksimal quvvat tejash rejimi yoqilgan vaqtda USB funksiyalari cheklanishi mumki
     <string name="charging_connected_via_usb">Ulangan qurilma USB orqali zaryadlanmoqda…</string>
     <string name="lacking_filenode_internal_storage_view_title">Fayl tizimi cheklovi</string>
     <string name="lacking_filenode_internal_storage_view_text">Telefoningizda juda ko‘p fayllar yaratilgan. Ilovalar to‘g‘ri ishlamasligi va telefoningiz qayta ishga tushirilmasligi mumkin. Muhim ma’lumotlarni arxivlang va telefoningizni ishlab chiqaruvchi parametrlariga tashlang.</string>
-    <string name="lock_to_app_toast_for_navibar">Ilovani olib tashlash uchun Oxirgilar va Orqaga tugmalariga bir vaqtda tegib turing.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

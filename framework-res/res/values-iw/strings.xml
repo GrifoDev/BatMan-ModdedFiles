@@ -770,7 +770,7 @@
     <string name="aerr_process">התהליך %1$s עצר.</string>
     <string name="aerr_application_repeated">האפליקציה %1$s נעצרת שוב ושוב</string>
     <string name="aerr_process_repeated">האפליקציה %1$s נעצרת שוב ושוב</string>
-    <string name="aerr_restart">הפעל יישום</string>
+    <string name="aerr_restart">הפעל את היישום מחדש</string>
     <string name="aerr_reset">אפס והפעל מחדש את האפליקציה</string>
     <string name="aerr_report">שלח משוב</string>
     <string name="aerr_close">סגור</string>
@@ -915,9 +915,9 @@
     <string name="dlg_ok">אישור</string>
     <string name="usb_charging_notification_title">‏USB טוען את המכשיר הזה</string>
     <string name="usb_supplying_notification_title">‏USB מספק מתח למכשיר המצורף</string>
-    <string name="usb_mtp_notification_title">מתבצעת העברת קובצי מדיה ב-USB</string>
-    <string name="usb_ptp_notification_title">‏USB מעביר קבצים</string>
-    <string name="usb_midi_notification_title">‏USB מחובר למכשיר MIDI</string>
+    <string name="usb_mtp_notification_title">‏USB להעברת קבצים</string>
+    <string name="usb_ptp_notification_title">‏USB להעברת תמונות</string>
+    <string name="usb_midi_notification_title">‏USB ל-MIDI</string>
     <string name="usb_accessory_notification_title">מחובר לאביזר USB</string>
     <string name="usb_notification_message">גע לאופציות נוספות של USB.</string>
     <string name="adb_active_notification_title">איתור באגים של USB מחובר.</string>
@@ -1319,6 +1319,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">תוכל להציג את הלחצנים מחדש על ידי החלקה משולי המסך כלפי פנים במקום שבו הלחצנים מופיעים בדרך כלל.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">לאחר זמן מה, הלחצנים ייעלמו שוב.</string>
     <string name="sec_immersive_cling_help_text_step_two">תוכל להשתמש בלחצן הבית גם כאשר הוא מוסתר. כדי לעבור אל מסך הבית, לחץ לחיצה ארוכה על האזור במסך שבו לחצן הבית מופיע בדרך כלל.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">לא משנה איך תאחז בטלפון, הלחצנים תמיד יוצגו סמוך לכניסת הטעינה. כאשר הטלפון מסובב נגד כיוון השעון, החלק לשמאל משולי המסך, בכיוון החץ.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">לא משנה איך תאחז בטלפון, הלחצנים תמיד יוצגו סמוך לכניסת הטעינה. כאשר הטלפון מסובב בכיוון השעון, החלק ימינה משולי המסך, בכיוון החץ.</string>
     <string name="done_label">סיום</string>
     <string name="hour_picker_description">בורר שעות אנלוגי</string>
     <string name="minute_picker_description">בורר דקות אנלוגי</string>
@@ -1329,7 +1331,9 @@
     <string name="deleted_key">%s נמחק.</string>
     <string name="managed_profile_label_badge">עבודה %1$s</string>
     <string name="lock_to_app_toast">"כדי לבטל את ההצמדה, לחץ בו-זמנית לחיצה ארוכה על מקש 'אחרונים' ומקש החזרה."</string>
+    <string name="lock_to_app_toast_for_navibar">"כדי לבטל את הצמדת היישום, לחץ בו-זמנית לחיצה ארוכה על מקש 'אחרונים' ומקש החזרה."</string>
     <string name="lock_to_app_toast_accessible">כדי לבטל את הצמדת היישום, לחץ לחיצה ארוכה על מקש הפריטים האחרונים.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">"מצב 'נעילה ליישום' הופעל."</string>
     <string name="lock_to_app_start">היישום הוצמד.</string>
     <string name="lock_to_app_exit">בוטלה הצמדת היישום.</string>
@@ -1435,9 +1439,9 @@
     <string name="tw_clipboard_save_tts">שמור</string>
     <string name="tw_clipboard_button_tts">לחצן</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">לוח</string>
-    <string name="hdmi_connect">כבל HDMI מחובר.</string>
+    <string name="hdmi_connect">‏HDMI מחובר.</string>
     <string name="hdmi_connect_indirectly">חבר את המכשיר שלך לטלוויזיה ישירות באמצעות כבל ה-HDMI</string>
-    <string name="hdmi_disconnect">כבל HDMI מנותק.</string>
+    <string name="hdmi_disconnect">‏HDMI מנותק.</string>
     <string name="hdmi_recommend_charging_device">מומלץ לטעון את המכשיר אם הוא מחובר למתאם HDTV פרק זמן ממושך. חבר את המטען אל מתאם ה-HDTV כדי לטעון את המכשיר.</string>
     <string name="hdmi_wfd_terminate">‏HDMI מחובר. חיבור Screen Mirroring הסתיים</string>
     <string name="disable">השבת</string>
@@ -1857,6 +1861,7 @@
     <string name="volumepanel_media">מדיה</string>
     <string name="volumepanel_notification">התראות</string>
     <string name="volumepanel_system">מערכת</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">לא ניתן לצלם את המסך במצב חירום.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">לא ניתן ללכוד צילום מסך.</string>
     <string name="bluetooth_permission_request">בקשת הרשאה של Bluetooth</string>
@@ -1929,6 +1934,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">לא ניתן להפעיל את %s כל עוד Wi-Fi Direct מופעל.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">אין תשובה מספק השירות.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">נכשלה שליחת הבקשה להפעלת %s. מתחבר מחדש דרך הרשתות הזמינות…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">לא ניתן להפעיל את %1$s. %2$s אינו זמין עם חבילת האינטרנט שלך או שאין תגובה משרת %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">לא ניתן להפעיל את %s. התחממות יתר במכשיר. המתן עד שהמכשיר יתקרר ונסה שוב.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s הושבת כדי למנוע התחממות יתר של המכשיר. מוריד באמצעות רשת סלולרית…</string>
     <string name="mptcp_message_data_usage_limit">"הגעת לגבול העליון של שימוש בנתונים. כדי לשנות את תקרת השימוש בנתונים, עבור אל 'הגדרות'."</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">צלילי %s מושמעים באמצעות התקן שמע USB. הקש כאן כדי לכבות פריט זה.</string>
     <string name="multisound_change_output_device">שנה מכשיר פלט שמע</string>
     <string name="multisound_headup_contents">מכשיר השמע שבחרת עבור יישום זה זהה למכשיר פלט השמע הנוכחי עבור הטלפון שלך. כדי להפריד את הצליל עבור יישום זה, שנה את מכשיר פלט השמע בחלונית ההגדרות המהירות.</string>
+    <string name="multisound_hun_title">האם להחליף התקן פלט שמע ראשי?</string>
+    <string name="multisound_hun_contents">התקן השמע שבחרת עבור יישום זה (%1$s) זהה להתקן פלט השמע הנוכחי (%2$s). כדי להפריד צליל עבור יישום זה, עליך להחליף את ההתקן הראשי לפלט שמע ל-%3$s.</string>
+    <string name="multisound_hun_close">סגירה</string>
+    <string name="multisound_hun_change">שנה</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">אוזנייה</string>
     <string name="bixby_edgecase_mpsm">"לא ניתן להשתמש ב-Bixby כאשר מצב 'חיסכון מרבי בחשמל' מופעל."</string>
     <string name="bixby_edgecase_emergencymode">"לא ניתן להשתמש ב-Bixby במצב 'חירום'."</string>
     <string name="bixby_edgecase_kidsmode">"לא ניתן להשתמש ב-Bixby במצב 'ילדים'."</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">לא ניתן להשתמש ב-Bixby תוך שימוש ב-MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">לא ניתן להשתמש ב-Bixby ב-Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">לא ניתן להשתמש ב-Bixby כאשר יש חיבור פעיל ל-DeX Station.</string>
-    <string name="conventional_mode_recent_noti">"תוכל להציג יישום זה במסך מלא על ידי הקשה על סמל 'הרחב' במסך 'יישומים אחרונים'."</string>
+    <string name="bixby_edgecase_cantusenow">לא ניתן להשתמש ב-Bixby Voice כרגע.</string>
+    <string name="conventional_mode_recent_noti">"ניתן לשנות יחס תצוגה ביישום דרך מסך 'יישומים אחרונים'."</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">"כדי לחזור ליחס התצוגה הקודם, עבור אל 'הגדרות' > 'תצוגה' > 'יישומי מסך מלא'."</string>
-    <string name="conventional_mode_tap_here_to_fill">הקש כאן כדי למלא את המסך כולו</string>
+    <string name="conventional_mode_tap_here_to_fill">הקש כאן כדי לצפות במסך מלא</string>
+    <string name="bixby_popup_unavailable_now">‏Bixby לא זמין. רק בעל הטלפון או מספר הטלפון הראשי מורשה להשתמש ב-Bixby.</string>
     <string name="permlab_knoxCustomSetting">נהל הגדרות מכשיר</string>
     <string name="permdesc_knoxCustomSetting">"קבע הגדרות במכשיר, כמו למשל הגדרות Bluetooth, 'מיקום', Wi-Fi, 'נתונים ניידים' ו-Android."</string>
     <string name="permlab_knoxCustomSystem">נהל הגדרות מערכת</string>
@@ -2423,6 +2437,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">טוען את המכשיר המחובר באמצעות USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">מגבלת מספר קבצים</string>
     <string name="lacking_filenode_internal_storage_view_text">יותר מדי קבצים נוצרו בטלפון שלך. ייתכנו שיבושים בפעולה של יישומים וייתכן שהטלפון לא יופעל. גבה נתונים חשובים ובצע בטלפון שלך איפוס להגדרות היצרן.</string>
-    <string name="lock_to_app_toast_for_navibar">"כדי לבטל את הצמדת היישום, לחץ בו-זמנית לחיצה ארוכה על מקש 'אחרונים' ומקש החזרה."</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

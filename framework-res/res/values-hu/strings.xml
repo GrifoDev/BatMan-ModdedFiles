@@ -770,7 +770,7 @@ Biztosan szeretné elhagyni az oldalt?"</string>
     <string name="aerr_process">A(z) %1$s folyamat leállt.</string>
     <string name="aerr_application_repeated">A(z) %1$s alkalmazás állandóan leáll</string>
     <string name="aerr_process_repeated">A(z) %1$s folyamat állandóan leáll</string>
-    <string name="aerr_restart">Alk. újrain.</string>
+    <string name="aerr_restart">Alkalmazás újraindítása</string>
     <string name="aerr_reset">Alkalmazás alaphelyzetbe állítása és újraindítása</string>
     <string name="aerr_report">Visszajelzés küldése</string>
     <string name="aerr_close">Bezárás</string>
@@ -915,9 +915,9 @@ Szeretné bezárni?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Az eszköz USB-s töltése</string>
     <string name="usb_supplying_notification_title">A csatlakoztatott eszköz USB-n keresztül való töltése</string>
-    <string name="usb_mtp_notification_title">Médiafájlok átvitele USB-n</string>
-    <string name="usb_ptp_notification_title">Képek átvitele USB-n keresztül</string>
-    <string name="usb_midi_notification_title">A MIDI-eszköz USB-n csatlakozik</string>
+    <string name="usb_mtp_notification_title">USB a fájlátvitelhez</string>
+    <string name="usb_ptp_notification_title">USB a képátvitelhez</string>
+    <string name="usb_midi_notification_title">USB a MIDI-hez</string>
     <string name="usb_accessory_notification_title">USB-tartozékhoz kapcsolódva</string>
     <string name="usb_notification_message">Érintse meg az egyéb USB-opciók megjelenítéséhez.</string>
     <string name="adb_active_notification_title">USB-hibakeresés csatlakoztatva.</string>
@@ -1319,6 +1319,8 @@ Próbálja újra %2$d másodperc múlva."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">A gombok újbóli megjelenítéséhez húzza az ujját a képernyőre arról a széléről, ahol a gombok meg szoktak jelenni.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Egy idő után a gombok ismét eltűnnek.</string>
     <string name="sec_immersive_cling_help_text_step_two">Akkor is használhatja a Kezdőlap gombot, ha az el van rejtve. A kezdőképernyő megnyitásához nyomja meg erősen a Kezdőlap gomb helyét a képernyőn.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Bárhogyan is tartja a telefont, a gombok mindig a töltőcsatlakozó mellett lesznek. Amikor a telefont balra fordítja, húzza balra a képernyő szélét, ahogyan a nyíl mutatja.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Bárhogyan is tartja a telefont, a gombok mindig a töltőcsatlakozó mellett lesznek. Amikor a telefont jobbra fordítja, húzza jobbra a képernyő szélét, ahogyan a nyíl mutatja.</string>
     <string name="done_label">Kész</string>
     <string name="hour_picker_description">Analóg óraválasztó</string>
     <string name="minute_picker_description">Analóg percválasztó</string>
@@ -1329,7 +1331,9 @@ Próbálja újra %2$d másodperc múlva."</string>
     <string name="deleted_key">%s törölve.</string>
     <string name="managed_profile_label_badge">Munkahelyi %1$s</string>
     <string name="lock_to_app_toast">Az alkalmazás rögzítésének feloldásához tartsa nyomva egyszerre a Legutóbbi és a Vissza gombot.</string>
+    <string name="lock_to_app_toast_for_navibar">Az alkalmazás rögzítésének feloldásához tartsa ujjait egyszerre a Legutóbbi és a Vissza gombot.</string>
     <string name="lock_to_app_toast_accessible">Az alkalmazás rögzítésének feloldásához tartsa nyomva a Legutóbbi gombot.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Bekapcsolt a Zárolás alkalmazással üzemmód.</string>
     <string name="lock_to_app_start">Rögzítette az alkalmazást.</string>
     <string name="lock_to_app_exit">Feloldotta az alkalmazás rögzítését.</string>
@@ -1435,9 +1439,9 @@ Az energiatakarékos mód automatikusan kikapcsol, ha eszköze töltőn van."</s
     <string name="tw_clipboard_save_tts">Mentés</string>
     <string name="tw_clipboard_button_tts">Gomb</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Vágólap</string>
-    <string name="hdmi_connect">HDMI-kábel csatlakoztatva.</string>
+    <string name="hdmi_connect">HDMI csatlakoztatva.</string>
     <string name="hdmi_connect_indirectly">Csatlakoztassa az eszközt közvetlenül a TV-hez a HDMI-kábellel.</string>
-    <string name="hdmi_disconnect">HDMI-kábel leválasztva.</string>
+    <string name="hdmi_disconnect">Megszakadt a HDMI-kapcsolat.</string>
     <string name="hdmi_recommend_charging_device">Ha az eszközt hosszú időre egy HDTV-adapterhez csatlakoztatta, akkor javasoljuk a feltöltését. Az eszköz töltéséhez a HDTV-adapterhez kell csatlakoztatni a töltőt.</string>
     <string name="hdmi_wfd_terminate">HDMI csatlakoztatva. A Screen Mirroring-kapcsolat megszakadt</string>
     <string name="disable">Letiltás</string>
@@ -1855,6 +1859,7 @@ funkc."</string>
     <string name="volumepanel_media">Média</string>
     <string name="volumepanel_notification">Értesítések</string>
     <string name="volumepanel_system">Rendszer</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Vészhelyzet üzemmódban nem lehet képernyőfelvételt készíteni.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Nem lehet képernyőfotót készíteni.</string>
     <string name="bluetooth_permission_request">Bluetooth-engedély kérése</string>
@@ -1927,6 +1932,7 @@ Az alkalmazás rögzítésének feloldásához tartsa nyomva a Menü gombot."</s
     <string name="mptcp_message_mptcp_capability_WifiDirect">Bekapcsolt Wi-Fi Direct mellett nem kapcsolható be a(z) %s.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">A szolgáltató nem válaszol.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nem sikerült elküldeni a(z) %s aktiválására vonatkozó kérést. Újrakapcsolódás egy rendelkezésre álló hálózaton keresztül…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nem kapcsolható be a(z) %1$s. A(z) %2$s nem áll rendelkezésre az ön internetcsomagjához, vagy a(z) %3$s-szervertől nem érkezett válasz.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nem lehet bekapcsolni a %s funkciót, mert túlmelegedett az eszköz. Hagyja lehűlni, és próbálja újra.</string>
     <string name="mptcp_message_operation_disabled_overheating">Az eszköz túlmelegedésének elkerülése érdekében a rendszer kikapcsolta a %s-kapcsolatot. Letöltés a mobilhálózaton keresztül…</string>
     <string name="mptcp_message_data_usage_limit">Elérte az adathasználat korlátját. A korlátot a Beállításokban módosíthatja.</string>
@@ -2034,6 +2040,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">A(z) %s hangja az USB-hangeszközből szól. Ennek kikapcsolásához érintse meg itt.</string>
     <string name="multisound_change_output_device">Hangkimeneti eszköz módosítása</string>
     <string name="multisound_headup_contents">Az alkalmazáshoz azt a hangeszközt választotta ki, amelyik jelenleg a telefon kimeneti hangeszköze. Az alkalmazás hangjának elkülönített lejátszásához válasszon másik hangkimeneti eszközt a gyorsbeállító panelen.</string>
+    <string name="multisound_hun_title">Módosítja a fő hangkimeneti eszközt?</string>
+    <string name="multisound_hun_contents">Az alkalmazáshoz (%1$s) kiválasztott hangeszköz a telefon elsődleges hangkimeneti eszköze (%2$s). Az alkalmazás hangjának elkülönített lejátszására csak a(z) %3$s elsődleges hangkimeneti eszközként történő beállítása után van lehetőség.</string>
+    <string name="multisound_hun_close">Bezárás</string>
+    <string name="multisound_hun_change">Módosít</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Mikrofonos fülhallgató</string>
     <string name="bixby_edgecase_mpsm">Maximálisan energiatakarékos módban nem használható a Bixby.</string>
     <string name="bixby_edgecase_emergencymode">Vészhelyzet üzemmódban nem használható a Bixby.</string>
     <string name="bixby_edgecase_kidsmode">Gyermek üzemmódban nem használható a Bixby.</string>
@@ -2041,9 +2053,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">A MirrorLinkkel együtt nem használható a Bixby.</string>
     <string name="bixby_edgecase_dexmode">A Samsung DeX-ben nem használható a Bixby.</string>
     <string name="bixby_edgecase_dexstation">Amíg a DeX Állomáshoz kapcsolódik, a Bixby nem használható.</string>
-    <string name="conventional_mode_recent_noti">Az alkalmazást úgy tekintheti meg teljes képernyős nézetben, hogy a Legutóbbi alkalmazások képernyőn megérinti a Kibontás ikont.</string>
+    <string name="bixby_edgecase_cantusenow">Most nem használható a Bixby Voice.</string>
+    <string name="conventional_mode_recent_noti">Az alkalmazás oldalarányát a Legutóbbi alkalmazások képernyőn módosíthatja.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">A korábban használt képarányra a Beállítások > Kijelző > Teljes képernyős alkalmazások menüpontban válthat vissza.</string>
     <string name="conventional_mode_tap_here_to_fill">Érintse meg itt a teljes képernyő kitöltéséhez</string>
+    <string name="bixby_popup_unavailable_now">A Bixby nem használható. Csak a telefon tulajdonosa vagy a fő telefonszám használhatja.</string>
     <string name="permlab_knoxCustomSetting">Eszközbeállítások kezelése</string>
     <string name="permdesc_knoxCustomSetting">Az eszközbeállítások – például a Bluetooth, a helymeghatározás, a Wi-Fi, a mobilinternet és az Android rendszer beállításainak – konfigurálása.</string>
     <string name="permlab_knoxCustomSystem">Rendszerbeállítások kezelése</string>
@@ -2419,6 +2433,4 @@ Maximálisan energiatakarékos módban az USB-funkciók korlátozottak lehetnek.
     <string name="charging_connected_via_usb">A csatlakoztatott eszköz töltése USB-n keresztül…</string>
     <string name="lacking_filenode_internal_storage_view_title">Fájlrendszerkorlát</string>
     <string name="lacking_filenode_internal_storage_view_text">Túl sok fájl jött létre a telefonon. Az alkalmazások helytelenül működhetnek, és az is előfordulhat, hogy a telefon nem fog elindulni. Készítsen biztonsági mentést a fontos adatokról, és állítsa vissza a telefon gyári beállításait.</string>
-    <string name="lock_to_app_toast_for_navibar">Az alkalmazás rögzítésének feloldásához tartsa ujjait egyszerre a Legutóbbi és a Vissza gombot.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

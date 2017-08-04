@@ -766,7 +766,7 @@ Ertu viss um að þú viljir fara af þessari síðu?"</string>
     <string name="aerr_process">Ferlið %1$s hefur stöðvast.</string>
     <string name="aerr_application_repeated">%1$s stöðvast ítrekað</string>
     <string name="aerr_process_repeated">%1$s stöðvast ítrekað</string>
-    <string name="aerr_restart">Endr. forr.</string>
+    <string name="aerr_restart">Endurræsa forrit</string>
     <string name="aerr_reset">Endurstilla og endurræsa forritið</string>
     <string name="aerr_report">Senda ábendingu</string>
     <string name="aerr_close">Loka</string>
@@ -911,9 +911,9 @@ Viltu loka henni?"</string>
     <string name="dlg_ok">Í lagi</string>
     <string name="usb_charging_notification_title">Þetta tæki er í USB-hleðslu</string>
     <string name="usb_supplying_notification_title">Tengt tæki er í USB-hleðslu</string>
-    <string name="usb_mtp_notification_title">Efnisskrár fluttar um USB</string>
-    <string name="usb_ptp_notification_title">Myndir fluttar með USB</string>
-    <string name="usb_midi_notification_title">USB-tenging við MIDI-tæki</string>
+    <string name="usb_mtp_notification_title">USB fyrir skráaflutning</string>
+    <string name="usb_ptp_notification_title">USB fyrir myndaflutning</string>
+    <string name="usb_midi_notification_title">USB fyrir MIDI</string>
     <string name="usb_accessory_notification_title">Tengt við USB-aðgang</string>
     <string name="usb_notification_message">Pikkaðu til að fá aðra USB valkosti.</string>
     <string name="adb_active_notification_title">USB-kembing tengd.</string>
@@ -1314,6 +1314,8 @@ Reyndu aftur eftir %2$d sekúndur."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Þú getur sýnt hnappana aftur með því að strjúka frá brún skjásins inn að miðju hans þar sem hnapparnir birtast oftast.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Hnapparnir munu hverfa aftur eftir stutta stund.</string>
     <string name="sec_immersive_cling_help_text_step_two">Þú getur notað heimahnappinn, jafnvel þegar hann er falinn. Ýttu neðst á svæði skjásins þar sem heimahnappurinn birtist vanalega til að opna heimaskjáinn.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Hnapparnir eru alltaf staðsettir við hleðslutengið, hvernig sem þú heldur á símanum. Þegar þú snýrð símanum rangsælis skaltu strjúka til vinstri frá brún skjásins eins og örin sýnir.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Hnapparnir eru alltaf staðsettir við hleðslutengið, hvernig sem þú heldur á símanum. Þegar þú snýrð símanum réttsælis skaltu strjúka til hægri frá brún skjásins eins og örin sýnir.</string>
     <string name="done_label">Lokið</string>
     <string name="hour_picker_description">Klukkustundavísir</string>
     <string name="minute_picker_description">Mínútuvísir</string>
@@ -1324,7 +1326,9 @@ Reyndu aftur eftir %2$d sekúndur."</string>
     <string name="deleted_key">%s valið.</string>
     <string name="managed_profile_label_badge">%1$s í vinnu</string>
     <string name="lock_to_app_toast">Til að losa forrit skaltu halda takkanum fyrir nýlegt og bakktakkanum inni á sama tíma.</string>
+    <string name="lock_to_app_toast_for_navibar">Til að losa forrit skaltu halda fingri á takkanum fyrir nýlegt og bakktakkanum á sama tíma.</string>
     <string name="lock_to_app_toast_accessible">Til að losa forrit skaltu halda takkanum fyrir nýlegt inni.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Kveikt hefur verið á forritslæsingu.</string>
     <string name="lock_to_app_start">Forrit fest.</string>
     <string name="lock_to_app_exit">Forrit losað.</string>
@@ -1430,9 +1434,9 @@ Sjálfkrafa er slökkt á orkusparnaði þegar tækið er í hleðslu."</string>
     <string name="tw_clipboard_save_tts">Vista</string>
     <string name="tw_clipboard_button_tts">Hnappur</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Klippiborð</string>
-    <string name="hdmi_connect">HDMI-snúra er tengd.</string>
+    <string name="hdmi_connect">HDMI er tengt.</string>
     <string name="hdmi_connect_indirectly">Tengdu tækið beint við sjónvarpið með HDMI-snúrunni.</string>
-    <string name="hdmi_disconnect">HDMI-snúran er ótengd.</string>
+    <string name="hdmi_disconnect">HDMI er aftengt.</string>
     <string name="hdmi_recommend_charging_device">Mælt er með að þú hlaðir tækið ef það er tengt við millistykki fyrir háskerpusjónvarp í langan tíma. Tengdu hleðslutækið við millistykkið fyrir háskerpusjónvarpið til að hlaða tækið.</string>
     <string name="hdmi_wfd_terminate">HDMI tengt. Screen Mirroring tengingunni var slitið</string>
     <string name="disable">Gera óvirkt</string>
@@ -1852,6 +1856,7 @@ skipun"</string>
     <string name="volumepanel_media">Margmiðlunarefni</string>
     <string name="volumepanel_notification">Tilkynningar</string>
     <string name="volumepanel_system">Kerfi</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Ekki er hægt að taka mynd af skjánum þegar neyðarstilling er virk.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Mistókst að taka skjámynd.</string>
     <string name="bluetooth_permission_request">Bluetooth-leyfisbeiðni</string>
@@ -1924,6 +1929,7 @@ Til að losa forrit skaltu halda valmyndartakkanum inni."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Ekki er hægt að kveikja á %s þegar kveikt er á Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Símafyrirtækið svarar ekki.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Mistókst að senda %s virkjunarbeiðni. Tengi aftur í gegnum tiltæk net…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Ekki er hægt að kveikja á %1$s. %2$s er ekki í boði í netpakkanum þínum eða ekkert svar barst frá netþjóni %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Ekki er hægt að kveikja á %s. Tækið er of heitt. Bíddu þar til tækið hefur kólnað og reyndu svo aftur.</string>
     <string name="mptcp_message_operation_disabled_overheating">Slökkt var á %s til að tækið ofhitni ekki. Sæki í gegnum farsímakerfi í staðinn…</string>
     <string name="mptcp_message_data_usage_limit">Hámarki gagnanotkunar hefur verið náð. Farðu í „Stillingar“ til að breyta hámarki gagnanotkunar.</string>
@@ -2033,6 +2039,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Hljóð úr „%s“ er spilað í USB-hljóðtækinu. Pikkað er hér til að slökkva á þessu.</string>
     <string name="multisound_change_output_device">Skipta um hljóðspilunartæki</string>
     <string name="multisound_headup_contents">Hljóðtækið sem þú valdir fyrir þetta forrit er það sama og núverandi hljóðspilunartæki fyrir símann. Skiptu um hljóðspilunartæki á flýtistillingaskjánum til að aðskilja hljóðið fyrir þetta forrit.</string>
+    <string name="multisound_hun_title">Viltu skipta um aðalhljóðtæki?</string>
+    <string name="multisound_hun_contents">Hljóðtækið sem þú valdir fyrir þetta forrit (%1$s) er það sama og aðalhljóðtækið (%2$s). Skipta þarf aðalhljóðtækinu yfir í %3$s til að aðskilja hljóðið fyrir þetta forrit.</string>
+    <string name="multisound_hun_close">Loka</string>
+    <string name="multisound_hun_change">Breyta</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Höfuðtól</string>
     <string name="bixby_edgecase_mpsm">Ekki er hægt að nota Bixby þegar kveikt er á hámarksofursparnaðarstillingu.</string>
     <string name="bixby_edgecase_emergencymode">Ekki er hægt að nota Bixby í neyðarstillingu.</string>
     <string name="bixby_edgecase_kidsmode">Ekki er hægt að nota Bixby í barnaútgáfu.</string>
@@ -2040,9 +2052,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Ekki er hægt að nota Bixby og MirrorLink á sama tíma.</string>
     <string name="bixby_edgecase_dexmode">Ekki er hægt að nota Bixby í Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Ekki er hægt að nota Bixby ef tækið er tengt við DeX-stöð.</string>
-    <string name="conventional_mode_recent_noti">Hægt er að skoða þetta forrit á öllum skjánum með því að pikka á táknið „Stækka“ á skjánum fyrir nýleg forrit.</string>
+    <string name="bixby_edgecase_cantusenow">Ekki er hægt að nota Bixby Voice í augnablikinu.</string>
+    <string name="conventional_mode_recent_noti">Hægt er að breyta myndhlutfalli forrits á skjá nýlegra forrita.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Opnaðu „Stillingar > Skjár > Forrit á öllum skjánum“ til að skipta aftur í fyrra myndhlutfall.</string>
     <string name="conventional_mode_tap_here_to_fill">Pikkaðu hér til að fylla allan skjáinn</string>
+    <string name="bixby_popup_unavailable_now">Bixby er ekki í boði. Eingöngu eigandi símans eða aðalnúmer hans getur notað Bixby.</string>
     <string name="permlab_knoxCustomSetting">Stjórna tækjastillingum</string>
     <string name="permdesc_knoxCustomSetting">Stilltu tækjastillingar, t.d. stillingar fyrir Bluetooth, staðsetningu, Wi-Fi, farsímagögn og Android.</string>
     <string name="permlab_knoxCustomSystem">Stjórna kerfisstillingum</string>
@@ -2387,6 +2401,4 @@ USB-eiginleikar kunna að vera takmarkaðir á meðan kveikt er á hámarksorkus
     <string name="charging_connected_via_usb">Hleð tengt tæki um USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Kerfistakmörk skráar</string>
     <string name="lacking_filenode_internal_storage_view_text">Of margar skrár hafa verið búnar til í símanum. Forrit kunna að hætta að virka rétt og hugsanlega ræsir síminn sig ekki lengur. Taktu afrit af öllum mikilvægum gögnum og núllstilltu símann.</string>
-    <string name="lock_to_app_toast_for_navibar">Til að losa forrit skaltu halda fingri á takkanum fyrir nýlegt og bakktakkanum á sama tíma.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

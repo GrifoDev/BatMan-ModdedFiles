@@ -228,6 +228,15 @@
     <item type="id" name="deny_button">false</item>
     <item type="id" name="allow_button">false</item>
     <item type="id" name="actions">false</item>
+    <item type="id" name="multisound_content">false</item>
+    <item type="id" name="multisound_content_header">false</item>
+    <item type="id" name="multisound_icon">false</item>
+    <item type="id" name="multisound_caller">false</item>
+    <item type="id" name="multisound_title">false</item>
+    <item type="id" name="multisound_text">false</item>
+    <item type="id" name="multisound_buttonSet">false</item>
+    <item type="id" name="multisound_button1">false</item>
+    <item type="id" name="multisound_button2">false</item>
     <item type="id" name="switch_old">false</item>
     <item type="id" name="old_app_icon">false</item>
     <item type="id" name="old_app_action">false</item>

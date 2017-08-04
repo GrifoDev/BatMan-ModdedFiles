@@ -911,9 +911,9 @@ Dëshiron ta mbyllësh?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Kjo pajisje ngarkohet me USB</string>
     <string name="usb_supplying_notification_title">Pajisja e lidhur furnizohet me enrgji me USB</string>
-    <string name="usb_mtp_notification_title">Po transferohen media me USB</string>
-    <string name="usb_ptp_notification_title">USB po transferon imazhe</string>
-    <string name="usb_midi_notification_title">USB u lidh me pajisjen MIDI</string>
+    <string name="usb_mtp_notification_title">USB për transferim skedarësh</string>
+    <string name="usb_ptp_notification_title">USB për transferim imazhesh</string>
+    <string name="usb_midi_notification_title">USB për MIDI</string>
     <string name="usb_accessory_notification_title">U lidh me një aksesor USB</string>
     <string name="usb_notification_message">Trokit për opsione të tjera USB.</string>
     <string name="adb_active_notification_title">Debug i USB-së u lidh.</string>
@@ -1314,6 +1314,8 @@ Provo sërish pas %2$d sekondash."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Mund t’i shfaqësh butonat sërish duke rrëshqitur për brenda që nga buza e ekranit, ku dalin zakonisht butonat.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Pas një farë kohe, butonat do të zhduken sërish.</string>
     <string name="sec_immersive_cling_help_text_step_two">Mund ta përdorësh Butonin Bazë edhe kur është i fshehur. Për të shkuar tek Ekrani bazë, shtyp mbi atë zonë të ekranit ku del zakonisht Butoni Bazë.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Sido që ta mbash telefonin, butonat gjithnjë do të gjenden afër portës së karikimit. Kur telefoni rrotullohet në drejtim kundërorar, rrëshqit majtas nga buza e ekranit, siç tregohet nga shigjeta.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Sido që ta mbash telefonin, butonat gjithnjë do të gjenden afër portës së karikimit. Kur telefoni rrotullohet në drejtim orar, rrëshqit djathtas nga buza e ekranit, siç tregohet nga shigjeta.</string>
     <string name="done_label">Kryer</string>
     <string name="hour_picker_description">Zgjedhësi i orës analoge</string>
     <string name="minute_picker_description">Zgjedhësi i minutës analoge</string>
@@ -1324,7 +1326,9 @@ Provo sërish pas %2$d sekondash."</string>
     <string name="deleted_key">%s u hoq.</string>
     <string name="managed_profile_label_badge">Puna %1$s</string>
     <string name="lock_to_app_toast">Për ta çngulitur app-in, shtyp dhe mbaj tastet Së fundi dhe Prapa njëkohësisht.</string>
+    <string name="lock_to_app_toast_for_navibar">Për ta çngulitur app-in, prek dhe mbaj butonat Së fundi dhe Prapa njëkohësisht.</string>
     <string name="lock_to_app_toast_accessible">Për ta çngulitur aplikacionin, shtyp dhe mbaj tastin së fundi.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Regjimi kyç-në-app është aftësuar.</string>
     <string name="lock_to_app_start">App-i u ngulit.</string>
     <string name="lock_to_app_exit">App-i u çngulit.</string>
@@ -1430,9 +1434,9 @@ Kursimi i baterisë çaktivizohet automatikisht kur pajisja vihet në ngarkim."<
     <string name="tw_clipboard_save_tts">Ruaj</string>
     <string name="tw_clipboard_button_tts">Buton</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Kujt. e fragm.</string>
-    <string name="hdmi_connect">Kablloja HDMI u lidh.</string>
+    <string name="hdmi_connect">HDMI është lidhur.</string>
     <string name="hdmi_connect_indirectly">Lidh pajisjen me TV drejtpërdrejt, nëpërmjet kabllos HDMI.</string>
-    <string name="hdmi_disconnect">Kablloja HDMI u shkëput.</string>
+    <string name="hdmi_disconnect">HDMI është shkëputur.</string>
     <string name="hdmi_recommend_charging_device">Rekomandojmë që ta karikosh pajisjen në qoftë se ajo lidhet me një përshtatës HDTV për një kohë të gjatë. Lidh karikuesin me përshtatësin HDTV, për ta ngarkuar pajisjen.</string>
     <string name="hdmi_wfd_terminate">HDMI u lidh. Lidhja Screen Mirroring u shkëput</string>
     <string name="disable">Çaktivizo</string>
@@ -1851,6 +1855,7 @@ ajrore"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Njoftimet</string>
     <string name="volumepanel_system">Sistemi</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Nuk mund të kap ekranin kur jam në Regjimin urgjencë.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Nuk mund ta kap pamjen e çastit.</string>
     <string name="bluetooth_permission_request">Kërkesë leje për Bluetooth</string>
@@ -1923,6 +1928,7 @@ Për ta çngulitur një aplikacion, shtyp dhe mbaj tastin meny."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Nuk mund të aftësoj %s kur është aftësuar Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nuk ka përgjigje nga ofruesi i shërbimit.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Dështova të dërgoj kërkesën e aktivizimit për %s. Po rilidhem përmes rrjeteve në dispozicion…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nuk mund të aftësoj %1$s. %2$s nuk mund të përdoret me paketën tënde të Internetit ose nuk u mor ndonjë përgjigje nga serveri %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nuk mund të aftësoj %s. Pajisja po mbinxehet. Prit derisa të ftohet pajisja dhe provo sërish.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s është paaftësuar për të mos lejuar mbinxehjen e pajisjes. Duke shkarkuar përmes rrjetit celular…</string>
     <string name="mptcp_message_data_usage_limit">U arrit caku i përdorimit të së dhënave. Për ta ndryshuar cakun e përdorimit të së dhënave, shko te Cilësimet.</string>
@@ -2032,6 +2038,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Tingulli %s po luhet përmes pajisjes audio USB. Trokit këtu për ta fikur këtë.</string>
     <string name="multisound_change_output_device">Ndrysho pajisjen e daljes audio</string>
     <string name="multisound_headup_contents">Pajisja audio që ke përzgjedhur për këtë app është e njëjtë me pajisjen e tanishme për dalje audio në telefon. Për ta ndarë tingullin për këtë app, ndryshoje pajisjen e daljes audio në panelin e cilësimeve të shpejta.</string>
+    <string name="multisound_hun_title">Ndrysho pajisjen kryesore të daljes audio?</string>
+    <string name="multisound_hun_contents">Pajisja audio që ke përzgjedhur për këtë app (%1$s) është e njëjtë me pajisjen kryesore për dalje audio në telefon (%2$s). Për ta ndarë tingullin për këtë app, pajisja kryesore për daljen audio duhet të ndryshohet në %3$s.</string>
+    <string name="multisound_hun_close">Mbyll</string>
+    <string name="multisound_hun_change">Ndrysho</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Kufja</string>
     <string name="bixby_edgecase_mpsm">S’mund të përdorësh Bixby kur është ndezur regjimi Kursim energjie maksimal.</string>
     <string name="bixby_edgecase_emergencymode">S’mund të përdorësh Bixby në Regjimin urgjencë.</string>
     <string name="bixby_edgecase_kidsmode">S’mund të përdorësh Bixby në Regjimin Fëmijë.</string>
@@ -2039,9 +2051,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">S’mund të përdorësh Bixby kur po përdoret MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">S’mund të përdorësh Bixby-n në Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">S’mund të përdorësh Bixby kur je lidhur me Stacionin DeX.</string>
-    <string name="conventional_mode_recent_noti">Mund ta shohësh këtë app në gjithë ekranin duke trokitur mbi ikonën Zgjero në ekranin App-et së fundi.</string>
+    <string name="bixby_edgecase_cantusenow">S’mund të përdorësh Bixby Voice në këtë moment.</string>
+    <string name="conventional_mode_recent_noti">Mund ta ndërrosh përpjesëtimin e kuadrit për app-et që nga ekrani App-et së fundi.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Për t’u kthyer te përpjesëtimi i mëparshëm, shko te Cilësimet > Afishimi > App-et në gjithë ekranin.</string>
     <string name="conventional_mode_tap_here_to_fill">Trokit këtu për të shfaqur në gjithë ekranin</string>
+    <string name="bixby_popup_unavailable_now">Bixby nuk mund të përdoret. Vetëm pronari i telefonit ose numri kryesor i telefonit mund të përdorin Bixby-n.</string>
     <string name="permlab_knoxCustomSetting">Menaxho cilësimet e pajisjes</string>
     <string name="permdesc_knoxCustomSetting">Konfiguro cilësimet e pajisjes, të tilla si Bluetooth, Vendndodhja, Wi-Fi, Të dhënat celulare dhe cilësimet Android.</string>
     <string name="permlab_knoxCustomSystem">Menaxho cilësimet e sistemit</string>
@@ -2410,6 +2424,4 @@ Funksionet USB nuk do të përdoren dot, kur është ndezur Regjimi kursim energ
     <string name="charging_connected_via_usb">Duke karikuar pajisjen e lidhur me USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Caku për skedarë i sistemit</string>
     <string name="lacking_filenode_internal_storage_view_text">Janë krijuar shumë skedarë në telefon. App-et mund të mos punojnë më si duhet dhe telefoni yt mund të mos niset më. Rezervo të dhënat e rëndësishme dhe resetoje telefonin në parazgjedhjet e fabrikës.</string>
-    <string name="lock_to_app_toast_for_navibar">Për ta çngulitur app-in, prek dhe mbaj butonat Së fundi dhe Prapa njëkohësisht.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -770,7 +770,7 @@
     <string name="aerr_process">پردازش ‏%1$s متوقف شده است.</string>
     <string name="aerr_application_repeated">%1$s مرتب متوقف می‌شود</string>
     <string name="aerr_process_repeated">%1$s مرتب متوقف می‌شود</string>
-    <string name="aerr_restart">شروع مجدد</string>
+    <string name="aerr_restart">شروع مجدد برنامه</string>
     <string name="aerr_reset">بازنشانی و راه‌اندازی مجدد برنامه</string>
     <string name="aerr_report">ارسال بازخورد</string>
     <string name="aerr_close">بستن</string>
@@ -915,9 +915,9 @@
     <string name="dlg_ok">تأیید</string>
     <string name="usb_charging_notification_title">‏شارژ کردن این دستگاه از طریق USB</string>
     <string name="usb_supplying_notification_title">‏شارژ دستگاه متصل از طریق USB</string>
-    <string name="usb_mtp_notification_title">انتقال فایل‌های رسانه‌ای با USB</string>
-    <string name="usb_ptp_notification_title">‏USB درحال انتقال تصاویر است</string>
-    <string name="usb_midi_notification_title">‏USB به دستگاه MIDI متصل شد</string>
+    <string name="usb_mtp_notification_title">‏USB برای انتقال فایل</string>
+    <string name="usb_ptp_notification_title">‏USB برای انتقال تصویر</string>
+    <string name="usb_midi_notification_title">‏USB برای MIDI</string>
     <string name="usb_accessory_notification_title">به یک لوازم جانبی USB وصل شده است</string>
     <string name="usb_notification_message">برای دسترسی به سایر گزینه‌های USB، ضربه بزنید.</string>
     <string name="adb_active_notification_title">اشکال زدایی USB وصل شد.</string>
@@ -1319,6 +1319,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">برای نشان داده شدن دوباره دکمه‌ها می‌توانید انگشت را از لبه صفحه به داخل جایی که دکمه‌ها معمولاً نشان داده می‌شوند بکشید.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">پس از مدتی، دکمه دوباره ناپدید می‌شود.</string>
     <string name="sec_immersive_cling_help_text_step_two">می‌توانید از دکمه صفحه اصلی حتی وقتی پنهان است استفاده کنید. برای رفتن به صفحه اصلی، روی قسمت‌هایی از صفحه که دکمه صفحه اصلی معمولاً نشان داده می‌شود محکم فشار دهید.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">به هر صورتی که تلفن را در دست گرفته‌اید، دکمه‌ها همیشه در کنار درگاه شارژ قرار دارند. وقتی تلفن به صورت پادساعتگرد چرخیده است، انگشتتان را از لبه صفحه به صورتی که با پیکان نشان داده شده به چپ بکشید.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">به هر صورتی که تلفن را در دست گرفته‌اید، دکمه‌ها همیشه در کنار درگاه شارژ قرار دارند. وقتی تلفن به صورت ساعتگرد چرخیده است، انگشتتان را از لبه صفحه به صورتی که با پیکان نشان داده شده به راست بکشید.</string>
     <string name="done_label">انجام شد</string>
     <string name="hour_picker_description">انتخابگر ساعت آنالوگ</string>
     <string name="minute_picker_description">انتخابگر دقیقه آنالوگ</string>
@@ -1329,7 +1331,9 @@
     <string name="deleted_key">‎%s‎ حذف شد.</string>
     <string name="managed_profile_label_badge">%1$s محل کار</string>
     <string name="lock_to_app_toast">برای برداشتن اتصال برنامه، کلیدهای موارد اخیر و برگشت را همزمان فشار داده و نگهدارید.</string>
+    <string name="lock_to_app_toast_for_navibar">برای برداشتن اتصال برنامه، دکمه‌های موارد اخیر و برگشت را همزمان لمس کرده و نگهدارید.</string>
     <string name="lock_to_app_toast_accessible">برای برداشتن اتصال برنامه، کلید موارد اخیر را فشار داده و نگهدارید.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">حالت برنامه در صفحه قفل فعال شد.</string>
     <string name="lock_to_app_start">برنامه متصل شد.</string>
     <string name="lock_to_app_exit">اتصال برنامه برداشته شد.</string>
@@ -1435,9 +1439,9 @@
     <string name="tw_clipboard_save_tts">ذخیره</string>
     <string name="tw_clipboard_button_tts">دکمه</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">کلیپ بورد</string>
-    <string name="hdmi_connect">سیم HDMI وصل است.</string>
+    <string name="hdmi_connect">‏HDMI وصل شد.</string>
     <string name="hdmi_connect_indirectly">دستگاه خود را بطور مستقیم از طریق کابل HDMI به تلویزیون وصل کنید</string>
-    <string name="hdmi_disconnect">سیم HDMI جدا شده است.</string>
+    <string name="hdmi_disconnect">‏HDMI قطع شد.</string>
     <string name="hdmi_recommend_charging_device">پیشنهاد می‌کنیم اگر دستگاهتان برای مدت طولانی به آداپتور HDTV متصل بوده است، آن را شارژ کنید. برای شارژ دستگاه، شارژر را به آداپتور HDTV متصل کنید.</string>
     <string name="hdmi_wfd_terminate">‏HDMI متصل شد. اتصال Screen Mirroring فعال شده است</string>
     <string name="disable">غير فعال</string>
@@ -1857,6 +1861,7 @@
     <string name="volumepanel_media">رسانه</string>
     <string name="volumepanel_notification">اعلانها</string>
     <string name="volumepanel_system">سیستم</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">در حالت اضطراری گرفتن عکس از صفحه ممکن نیست.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">تصویر از صفحه گرفته نمی‌شود.</string>
     <string name="bluetooth_permission_request">درخواست اجازه بلوتوث</string>
@@ -1929,6 +1934,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">در حالی که Wi-Fi Direct فعال است، %s فعال نمی‌شود.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">پاسخی از ارائه دهنده سرویس دریافت نشد.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">ارسال درخواست فعال‌سازی %s ناموفق بود. در حال اتصال مجدد از طریق شبکه‌های در دسترس…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">فعال کردن %1$s ممکن نیست. %2$s با بسته اینترنت شما همراه نیست یا پاسخی از سرور %3$s دریافت نشد.</string>
     <string name="mptcp_message_setting_disabled_overheating">فعال کردن %s ممکن نیست. دستگاه بیش از حد داغ است. صبر کنید تا دستگاه خنک شود و دوباره امتحان کنید.</string>
     <string name="mptcp_message_operation_disabled_overheating">برای جلوگیری از داغ شدن بیش از حد دستگاه، %s غیرفعال شد. در حال دانلود از طریق شبکه تلفن همراه…</string>
     <string name="mptcp_message_data_usage_limit">مصرف داده به حد مجاز رسید. برای تغییر محدوده مصرف داده، به تنظیمات بروید.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">صدای %s درحال پخش از طریق دستگاه صوتی USB است. برای خاموش کردن آن اینجا ضربه بزنید.</string>
     <string name="multisound_change_output_device">تغییر دستگاه خروجی صوت</string>
     <string name="multisound_headup_contents">دستگاه صوتی که برای این برنامه انتخاب کرده‌اید با خروجی صوتی کنونی تلفن شما یکی است. برای جدا کردن صدا برای این برنامه، دستگاه خروجی صوتی خود را در پنل تنظیمات سریع تغییر دهید.</string>
+    <string name="multisound_hun_title">دستگاه خروجی صوتی اصلی تغییر کند؟</string>
+    <string name="multisound_hun_contents">دستگاه صوتی که برای این برنامه انتخاب کرده‌اید (%1$s) با دستگاه خروجی صوتی اصلی (%2$s) یکی است. برای جداکردن صدای این برنامه، دستگاه خروجی صوتی اصلی باید به %3$s تغییر کند.</string>
+    <string name="multisound_hun_close">بسته</string>
+    <string name="multisound_hun_change">تعويض</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">هدست</string>
     <string name="bixby_edgecase_mpsm">وقتی حالت ذخیره نیروی حداکثر روشن است، استفاده از Bixby ممکن نیست.</string>
     <string name="bixby_edgecase_emergencymode">استفاده از Bixby در حالت اضطراری ممکن نیست.</string>
     <string name="bixby_edgecase_kidsmode">استفاده از Bixby در حالت کودک ممکن نیست.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">هنگام استفاده از MirrorLink، نمی‌توان از Bixby استفاده کرد.</string>
     <string name="bixby_edgecase_dexmode">استفاده از Bixby در Samsung DeX ممکن نیست.</string>
     <string name="bixby_edgecase_dexstation">استفاده از Bixby هنگام اتصال به DeX Station ممکن نیست.</string>
-    <string name="conventional_mode_recent_noti">می‌توانید با ضربه زدن روی نماد &lt;باز کردن> در صفحه برنامه‌های اخیر، این برنامه را به صورت تمام‌صفحه مشاهده کنید.</string>
+    <string name="bixby_edgecase_cantusenow">درحال حاضر استفاده از Bixby Voice ممکن نیست.</string>
+    <string name="conventional_mode_recent_noti">می‌توانید نسبت ابعادی برنامه را در صفحه برنامه‌های اخیر تغییر دهید.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">برای بازگشت به نسبت صفحه قبل، به تنظیمات > صفحه نمایش > برنامه‌های تمام‌صفحه بروید.</string>
     <string name="conventional_mode_tap_here_to_fill">برای پرکردن کل صفحه اینجا ضربه بزنید</string>
+    <string name="bixby_popup_unavailable_now">‏Bixby در دسترس نیست. فقط مالک تلفن یا شماره تلفن اصلی می‌تواند از Bixby استفاده کند.</string>
     <string name="permlab_knoxCustomSetting">مدیریت تنظیمات دستگاه</string>
     <string name="permdesc_knoxCustomSetting">تنظیمات دستگاه از جمله تنظیمات بلوتوث، مکان، Wi-Fi، داده تلفن همراه و Android را پیکربندی کنید.</string>
     <string name="permlab_knoxCustomSystem">مدیریت تنظیمات سیستم</string>
@@ -2423,6 +2437,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">در حال شارژ کردن دستگاه متصل با USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">محدودیت سیستم فایل</string>
     <string name="lacking_filenode_internal_storage_view_text">تعداد بسیار زیادی فایل در تلفن شما ایجاد شده است. برنامه‌ها ممکن است درست کار نکنند و تلفن ممکن است دیگر شروع به کار نکند. از همه اطلاعات مهم پشتیبان‌گیری کنید و تلفنتان را به تنظیمات کارخانه بازنشانی کنید.</string>
-    <string name="lock_to_app_toast_for_navibar">برای برداشتن اتصال برنامه، دکمه‌های موارد اخیر و برگشت را همزمان لمس کرده و نگهدارید.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

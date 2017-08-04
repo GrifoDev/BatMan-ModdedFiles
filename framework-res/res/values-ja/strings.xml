@@ -770,7 +770,7 @@
     <string name="aerr_process">プロセス%1$sは停止しました。</string>
     <string name="aerr_application_repeated">「%1$s」が繰り返し停止しています</string>
     <string name="aerr_process_repeated">「%1$s」が繰り返し停止しています</string>
-    <string name="aerr_restart">ｱﾌﾟﾘ再起動</string>
+    <string name="aerr_restart">アプリを再起動</string>
     <string name="aerr_reset">アプリをリセットして再起動</string>
     <string name="aerr_report">フィードバックを送信</string>
     <string name="aerr_close">閉じる</string>
@@ -915,9 +915,9 @@
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">この端末を USB で充電</string>
     <string name="usb_supplying_notification_title">接続した端末に USB で給電</string>
-    <string name="usb_mtp_notification_title">メディアファイルをUSB転送</string>
-    <string name="usb_ptp_notification_title">USBで画像を転送中</string>
-    <string name="usb_midi_notification_title">USBをMIDI機器に接続</string>
+    <string name="usb_mtp_notification_title">USBをファイル転送に使用</string>
+    <string name="usb_ptp_notification_title">画像転送用USB</string>
+    <string name="usb_midi_notification_title">MIDI用USB</string>
     <string name="usb_accessory_notification_title">USBアクセサリに接続</string>
     <string name="usb_notification_message">ｵﾌﾟｼｮﾝを選択するにはﾀｯﾌﾟしてください。</string>
     <string name="adb_active_notification_title">USBデバッグが接続されました。</string>
@@ -1320,6 +1320,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">普段ボタンが表示される画面の端から内側にスワイプすると、再度ボタンを表示することができます。</string>
     <string name="sec_immersive_cling_help_text_step_one_three">しばらくすると、再度ボタンが表示されなくなります。</string>
     <string name="sec_immersive_cling_help_text_step_two">ホームボタンは、表示されていないときも使用することができます。ホーム画面に移動するには、普段ホームボタンが表示されるところを押し込みます。</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">端末を持つ向きにかかわらず、ボタンは常に充電ポートの横に配置されます。端末を反時計回りに回転させた場合、矢印で示すように画面の端から左にスワイプしてください。</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">端末を持つ向きにかかわらず、ボタンは常に充電ポートの横に配置されます。端末を時計回りに回転させた場合、矢印で示すように画面の端から右にスワイプしてください。</string>
     <string name="done_label">完了</string>
     <string name="hour_picker_description">アナログ時ピッカー</string>
     <string name="minute_picker_description">アナログ分ピッカー</string>
@@ -1330,7 +1332,9 @@
     <string name="deleted_key">%sを削除しました。</string>
     <string name="managed_profile_label_badge">仕事の%1$s</string>
     <string name="lock_to_app_toast">アプリの固定を解除するには、履歴キーと戻るキーを同時に長押ししてください。</string>
+    <string name="lock_to_app_toast_for_navibar">アプリの固定を解除するには、履歴ボタンと戻るボタンを同時に長押ししてください。</string>
     <string name="lock_to_app_toast_accessible">アプリケーションの固定を解除するには、履歴キーを長押ししてください。</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">アプリの固定を解除するには、履歴ボタンを長押ししてください。</string>
     <string name="lock_to_app_toast_locked">アプリロックモードを有効にしました。</string>
     <string name="lock_to_app_start">アプリを固定しました。</string>
     <string name="lock_to_app_exit">アプリの固定を解除しました。</string>
@@ -1436,9 +1440,9 @@
     <string name="tw_clipboard_save_tts">保存</string>
     <string name="tw_clipboard_button_tts">ボタン</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">クリップボード</string>
-    <string name="hdmi_connect">HDMIケーブルが接続されました。</string>
+    <string name="hdmi_connect">HDMIが接続されました。</string>
     <string name="hdmi_connect_indirectly">HDMIケーブルで端末をテレビに直接接続してください。</string>
-    <string name="hdmi_disconnect">HDMIケーブルが接続されていません。</string>
+    <string name="hdmi_disconnect">HDMIの接続が解除されました。</string>
     <string name="hdmi_recommend_charging_device">端末をHDTVアダプタに長時間接続する場合、端末を充電することをおすすめします。充電器をHDTVアダプタに接続して端末を充電してください。</string>
     <string name="hdmi_wfd_terminate">HDMIが接続されました。Screen Mirroring接続が終了しました。</string>
     <string name="disable">無効</string>
@@ -1590,6 +1594,11 @@
     <string name="batt_cooldown_mode_attention">アプリを終了</string>
     <string name="batt_cooldown_mode_attentions">アプリを終了</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">端末の過熱</string>
+    <string name="overheat_limit_warning">端末が過熱しています。直ちにこのアプリを終了してください。%sは1分後に自動的に終了し、未保存のデータは失われます。</string>
+    <string name="overheat_limit_closed_title">アプリを終了</string>
+    <string name="overheat_limit_closed">端末が過熱しているため、%1$sを終了しました。%2$sは端末の温度が下がってから使用してください。</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">端末を再起動します。</string>
     <string name="tw_reboot_safemode_title_vzw">セーフモードで再起動</string>
     <string name="tw_reboot_safemode_confirm_vzw">端末をセーフモードで再起動しますか？セーフモードの間は、端末に付属していないアプリは、端末のトラブルシューティングをしやすくするため、一時的に無効になります。次回端末を再起動したときに、セーフモードはOFFになり、アプリは再度使用できるようになります。</string>
@@ -1852,6 +1861,7 @@
     <string name="volumepanel_media">メディア</string>
     <string name="volumepanel_notification">通知</string>
     <string name="volumepanel_system">システム</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">緊急時長持ちモード設定中は画面をキャプチャできません。</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">画面をキャプチャできません。</string>
     <string name="bluetooth_permission_request">Bluetoothアクセス権限の要求</string>
@@ -1924,6 +1934,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Directが有効な間は、%sを有効にできません。</string>
     <string name="mptcp_message_mptcp_capability_noresponse">サービスプロバイダから応答がありません。</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%sの有効化要求の送信に失敗しました。利用可能なネットワークで再接続しています…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$sを有効にできません。%2$sはインターネットパッケージで利用できないか、受信した%3$sサーバーから応答がありません。</string>
     <string name="mptcp_message_setting_disabled_overheating">端末が過熱しているため、%sを有効にできません。端末の温度が下がってから再度実行してください。</string>
     <string name="mptcp_message_operation_disabled_overheating">端末の過熱を防止するため、%sを無効にしました。代わりにモバイルネットワークでダウンロード中…</string>
     <string name="mptcp_message_data_usage_limit">データ使用制限に達しました。データ使用制限を変更するには、[設定]に移動してください。</string>
@@ -2031,6 +2042,12 @@
     <string name="multisound_sound_via_usb_audio">%sの音声をUSBオーディオデバイスで再生しています。これをOFFにするには、ここをタップしてください。</string>
     <string name="multisound_change_output_device">オーディオ出力モード</string>
     <string name="multisound_headup_contents">このアプリで選択したオーディオデバイスは、端末の現在のオーディオ出力デバイスと同じです。このアプリの音声を別にするには、クイック設定パネルでオーディオ出力デバイスを変更してください。</string>
+    <string name="multisound_hun_title">ﾒｲﾝｵｰﾃﾞｨｵ出力ﾃﾞﾊﾞｲｽを変更しますか？</string>
+    <string name="multisound_hun_contents">このアプリ(%1$s)で選択したオーディオデバイスは、メインオーディオ出力デバイス(%2$s)と同じです。このアプリのサウンドを別のデバイスで再生するには、メインオーディオ出力デバイスを%3$sに変更する必要があります。</string>
+    <string name="multisound_hun_close">閉じる</string>
+    <string name="multisound_hun_change">変更</string>
+    <string name="my_device">自分の端末</string>
+    <string name="headset">ヘッドセット</string>
     <string name="bixby_edgecase_mpsm">最大省電力モードがONの間は、Bixbyを使用できません。</string>
     <string name="bixby_edgecase_emergencymode">緊急時長持ちモードでは、Bixbyを使用できません。</string>
     <string name="bixby_edgecase_kidsmode">キッズモードでは、Bixbyを使用できません。</string>
@@ -2038,9 +2055,11 @@
     <string name="bixby_edgecase_mirrorlink">MirrorLinkを使用中に、Bixbyを使用できません。</string>
     <string name="bixby_edgecase_dexmode">Samsung DeXではBixbyを使用できません。</string>
     <string name="bixby_edgecase_dexstation">DeX Stationへ接続中は、Bixbyを使用できません。</string>
-    <string name="conventional_mode_recent_noti">最近使用したアプリ画面で展開アイコンをタップすることで、このアプリを全画面で表示することができます。</string>
+    <string name="bixby_edgecase_cantusenow">現在、Bixby Voiceを使用できません。</string>
+    <string name="conventional_mode_recent_noti">最近使用したアプリ画面でアプリの縦横比を変更できます。</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">前の縦横比に戻すには、[設定] > [ディスプレイ] > [全画面アプリ]に移動してください。</string>
     <string name="conventional_mode_tap_here_to_fill">画面全体に表示するには、ここをタップしてください</string>
+    <string name="bixby_popup_unavailable_now">Bixbyは使用できません。端末所有者またはメイン電話番号のみがBixbyを使用できます。</string>
     <string name="permlab_knoxCustomSetting">端末設定を管理</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth、位置情報、Wi-Fi、モバイルデータ、Android設定などの端末設定を行います。</string>
     <string name="permlab_knoxCustomSystem">システム設定を管理</string>
@@ -2127,7 +2146,7 @@
     <string name="permlab_mdmEnterpriseSSO">KnoxモードでエンタープライズSSOを設定</string>
     <string name="permdesc_mdmEnterpriseSSO">KnoxモードでエンタープライズSSO設定を設定し、SSOトークンを削除することをアプリケーションに許可します。</string>
     <string name="permlab_mdmEnterpriseContainer">Knox Workspaceを設定</string>
-    <string name="permdesc_mdmEnterpriseContainer">Knox Workspaceと関連付けられたユーザーアカウントを作成、編集および削除</string>
+    <string name="permdesc_mdmEnterpriseContainer">Knox Workspaceと関連付けられたユーザーアカウントを作成、編集および削除します。</string>
     <string name="permlab_mdmEnterpriseISL">整合性サービスポリシー</string>
     <string name="permdesc_mdmEnterpriseISL">整合性管理の実行を管理者に許可します。</string>
     <string name="permdesc_mountUnmountEncryptfsStorage">暗号化ストレージAPIを接続および切断</string>
@@ -2191,9 +2210,9 @@
     <string name="permlab_mdmLSO">ロック画面のカスタマイズ</string>
     <string name="permdesc_mdmLSO">ロック画面、壁紙および緊急通報の設定をカスタマイズします。</string>
     <string name="permdesc_mdmLSOPropertyInfo">このデバイスの所有者</string>
-    <string name="permdesc_mdmLSOUnauthorizedAccess">不正な使用は禁止されています</string>
-    <string name="permdesc_mdmLSOFoundInfo">"見つけたときの
-返却先"</string>
+    <string name="permdesc_mdmLSOUnauthorizedAccess">不正利用厳禁</string>
+    <string name="permdesc_mdmLSOFoundInfo">"拾得時の
+返送先"</string>
     <string name="permdesc_mdmLSOEmergencyPhone">IT管理者に電話</string>
     <string name="permlab_mdmRefreshUI">セキュリティ証明書を更新</string>
     <string name="permlab_mdmDLP">KnoxモードでエンタープライズDLPを設定</string>
@@ -2416,6 +2435,4 @@
     <string name="charging_connected_via_usb">USBで接続したデバイスに給電中…</string>
     <string name="lacking_filenode_internal_storage_view_title">ファイルシステムの制限</string>
     <string name="lacking_filenode_internal_storage_view_text">端末で作成したファイルが多すぎます。アプリが正常に機能しなくなり、端末が起動しなくなる場合があります。重要なデータをバックアップして、端末を工場出荷状態にリセットしてください。</string>
-    <string name="lock_to_app_toast_for_navibar">アプリの固定を解除するには、履歴ボタンと戻るボタンを同時に長押ししてください。</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">アプリの固定を解除するには、履歴ボタンを長押ししてください。</string>
 </resources>

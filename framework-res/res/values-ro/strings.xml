@@ -770,7 +770,7 @@ Sigur doriți să părăsiți această pagină?"</string>
     <string name="aerr_process">Procesul %1$s s-a oprit.</string>
     <string name="aerr_application_repeated">%1$s se oprește încontinuu</string>
     <string name="aerr_process_repeated">%1$s se oprește încontinuu</string>
-    <string name="aerr_restart">Repornire ap.</string>
+    <string name="aerr_restart">Repornire aplicație</string>
     <string name="aerr_reset">Resetați și reporniți aplicația</string>
     <string name="aerr_report">Trimiteți feedback</string>
     <string name="aerr_close">Închideți</string>
@@ -915,9 +915,9 @@ Doriți să o închideți?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Dispozitivul se încarcă prin USB</string>
     <string name="usb_supplying_notification_title">Dispozitivul atașat se încarcă prin USB</string>
-    <string name="usb_mtp_notification_title">Transfer fișiere media prin USB</string>
-    <string name="usb_ptp_notification_title">Transfer de imagini prin USB</string>
-    <string name="usb_midi_notification_title">USB conectat la disp. MIDI</string>
+    <string name="usb_mtp_notification_title">USB pentru transfer de fișiere</string>
+    <string name="usb_ptp_notification_title">USB pentru transfer de imagini</string>
+    <string name="usb_midi_notification_title">USB pentru MIDI</string>
     <string name="usb_accessory_notification_title">Conectat la un accesoriu USB</string>
     <string name="usb_notification_message">Atingeți pentru alte opțiuni USB.</string>
     <string name="adb_active_notification_title">Depanare USB conectată</string>
@@ -1319,6 +1319,8 @@ Accesați "<b>google.com/accounts/recovery</b>.</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Puteți să afișați in nou butoanele glisând spre interior din marginea ecranului, acolo unde apar butoanele în mod normal.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">După o perioadă, butoanele vor dispărea din nou.</string>
     <string name="sec_immersive_cling_help_text_step_two">Puteți utiliza butonul Acasă chiar dacă acesta este ascuns. Pentru a accesa ecranul Acasă, atingeți puternic zona ecranului în care apare butonul Acasă în mod normal.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Indiferent cum țineți telefonul, butoanele se vor afla întotdeauna lângă portul de încărcare. Atunci când telefonul este rotit spre stânga, glisați spre stânga din marginea ecranului, după cum este indicat de săgeată.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Indiferent cum țineți telefonul, butoanele se vor afla întotdeauna lângă portul de încărcare. Atunci când telefonul este rotit spre dreapta, glisați spre dreapta din marginea ecranului, după cum este indicat de săgeată.</string>
     <string name="done_label">Efectuat</string>
     <string name="hour_picker_description">Selector de oră analogic</string>
     <string name="minute_picker_description">Selector de minute analogic</string>
@@ -1329,7 +1331,9 @@ Accesați "<b>google.com/accounts/recovery</b>.</string>
     <string name="deleted_key">%s şters.</string>
     <string name="managed_profile_label_badge">%1$s de serviciu</string>
     <string name="lock_to_app_toast">Pentru a anula fixarea unei aplicații, mențineți apăsate simultan tastele Aplicații recente și Înapoi.</string>
+    <string name="lock_to_app_toast_for_navibar">Pentru a anula fixarea unei aplicații, mențineți apăsate simultan butoanele Aplicații recente și Înapoi.</string>
     <string name="lock_to_app_toast_accessible">Pentru a anula fixarea aplicației, mențineți apăsată tasta Aplicații recente.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Modul Blocare pe aplicație a fost activat.</string>
     <string name="lock_to_app_start">Aplicație fixată.</string>
     <string name="lock_to_app_exit">Fixare aplicație anulată.</string>
@@ -1435,9 +1439,9 @@ Funcția de economisire a energiei se dezactivează automat când dispozitivul s
     <string name="tw_clipboard_save_tts">Salvare</string>
     <string name="tw_clipboard_button_tts">Buton</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Clipboard</string>
-    <string name="hdmi_connect">Cablu HDMI conectat</string>
+    <string name="hdmi_connect">HDMI conectat.</string>
     <string name="hdmi_connect_indirectly">Conectați dispozitivul la televizor direct prin cablul HDMI.</string>
-    <string name="hdmi_disconnect">Cablu HDMI deconectat</string>
+    <string name="hdmi_disconnect">HDMI deconectat.</string>
     <string name="hdmi_recommend_charging_device">Vă recomandăm să vă încărcați dispozitivul dacă este conectat la un adaptor HDTV pentru o perioadă lungă de timp. Pentru a încărca dispozitivul, conectați încărcătorul la adaptorul HDTV.</string>
     <string name="hdmi_wfd_terminate">HDMI conectat. Conexiunea Screen Mirroring a încetat</string>
     <string name="disable">Dezactivare</string>
@@ -1856,6 +1860,7 @@ pe TV (Smart View)"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Notificări</string>
     <string name="volumepanel_system">Sistem</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Ecranul nu poate fi capturat în modul Urgență.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Nu se poate efectua captura de ecran.</string>
     <string name="bluetooth_permission_request">Solicitare de permisiune Bluetooth</string>
@@ -1928,6 +1933,7 @@ Pentru a anula fixarea unei aplicații, mențineți apăsată tasta Meniu."</str
     <string name="mptcp_message_mptcp_capability_WifiDirect">Funcția %s nu se poate activa atunci când conexiunea Wi-Fi Direct este pornită.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Furnizorul serviciului nu răspunde.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Solicitarea de activare pentru %s nu a putut fi trimisă. Se realizează reconectarea prin rețelele disponibile…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nu se poate activa %1$s. %2$s nu este disponibil în cadrul pachetului dvs. de internet sau nu s-a primit niciun răspuns de la serverul %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s nu poate fi activat. Dispozitivul se supraîncălzește. Așteptați până la răcirea acestuia și încercați din nou.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s este dezactivat, pentru a preveni supraîncălzirea dispozitivului. Se descarcă, în schimb, prin rețeaua mobilă…</string>
     <string name="mptcp_message_data_usage_limit">Limita de utilizare a datelor a fost atinsă. Pentru a schimba limita de utilizare a datelor, accesați meniul Setări.</string>
@@ -2037,6 +2043,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Sunetul %s este redat prin intermediul dispozitivului audio USB. Atingeți aici pentru a închide.</string>
     <string name="multisound_change_output_device">Schimbare dispozitiv de ieșire audio</string>
     <string name="multisound_headup_contents">Dispozitivul audio selectat pentru această aplicație coincide cu dispozitivul audio de ieșire actual pentru telefon. Pentru a separa sunetul de la această aplicație, schimbați dispozitivul de ieșire audio din panoul de setări rapide.</string>
+    <string name="multisound_hun_title">Schimbați disp. principal de ieșire audio?</string>
+    <string name="multisound_hun_contents">Dispozitivul audio selectat pentru această aplicație (%1$s) coincide cu dispozitivul principal de ieșire audio (%2$s). Pentru a separa sunetul de la această aplicație, dispozitivul principal de ieșire audio trebuie schimbat la %3$s.</string>
+    <string name="multisound_hun_close">Închidere</string>
+    <string name="multisound_hun_change">Schimbare</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Cască</string>
     <string name="bixby_edgecase_mpsm">Nu se poate utiliza serviciul Bixby în timp ce Modul Economisire maximă energie este pornit.</string>
     <string name="bixby_edgecase_emergencymode">Nu se poate utiliza serviciul Bixby în Modul Urgență.</string>
     <string name="bixby_edgecase_kidsmode">Nu se poate utiliza serviciul Bixby în Modul Copii.</string>
@@ -2044,9 +2056,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Nu se poate utiliza serviciul Bixby în timp ce se folosește MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Nu se poate utiliza serviciul Bixby în Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Nu se poate utiliza serviciul Bixby în timp ce este conectat la Suportul DeX.</string>
-    <string name="conventional_mode_recent_noti">Puteți vizualiza această aplicație pe ecran complet atingând pictograma Extindere de pe ecranul Aplicații recente.</string>
+    <string name="bixby_edgecase_cantusenow">Momentan, nu se poate utiliza serviciul Bixby Voice.</string>
+    <string name="conventional_mode_recent_noti">Puteți modifica formatul de afișare al aplicației din ecranul Aplicații recente.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Pentru a reveni la raportul de aspect anterior, accesați meniul Setări > Afișaje > Aplicații pe ecran complet.</string>
     <string name="conventional_mode_tap_here_to_fill">Atingeți aici pentru a umple întregul ecran</string>
+    <string name="bixby_popup_unavailable_now">Asistent Bixby indisponibil. Doar deținătorul telefonului sau al numărului de telefon principal poate utiliza asistentul Bixby.</string>
     <string name="permlab_knoxCustomSetting">Gestionare setări dispozitiv</string>
     <string name="permdesc_knoxCustomSetting">Configurați setările dispozitivului, cum ar fi cele pentru Bluetooth, Locație, Wi-Fi, Date mobile și cele pentru Android.</string>
     <string name="permlab_knoxCustomSystem">Gestionare setări de sistem</string>
@@ -2422,6 +2436,4 @@ Este posibil ca funcțiile USB să fie restricționate atunci când este pornit 
     <string name="charging_connected_via_usb">Dispozitivul conectat se încarcă prin USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limită sistem fișiere</string>
     <string name="lacking_filenode_internal_storage_view_text">Au fost create prea multe fișiere pe telefonul dvs. Este posibil ca aplicațiile să nu mai funcționeze corect și telefonul să nu mai pornească. Faceți backup tuturor datelor importante și resetați telefonul la valorile din fabrică.</string>
-    <string name="lock_to_app_toast_for_navibar">Pentru a anula fixarea unei aplicații, mențineți apăsate simultan butoanele Aplicații recente și Înapoi.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -766,7 +766,7 @@
     <string name="aerr_process">%1$s պրոցեսը կանգնեցվել է:</string>
     <string name="aerr_application_repeated">%1$s հավելվածի աշխատանքը շարունակաբար ընդհատվում է</string>
     <string name="aerr_process_repeated">%1$s գործընթացը շարունակաբար ընդհատվում է</string>
-    <string name="aerr_restart">Վերգրծ. ծր.</string>
+    <string name="aerr_restart">Վերագործարկել ծրագիրը</string>
     <string name="aerr_reset">Վերակայել և վերագործարկել հավելվածը</string>
     <string name="aerr_report">Ուղարկել կարծիք</string>
     <string name="aerr_close">Փակել</string>
@@ -911,9 +911,9 @@
     <string name="dlg_ok">Ընդունել</string>
     <string name="usb_charging_notification_title">Սարքի լիցքավորում USB լարի միջոցով</string>
     <string name="usb_supplying_notification_title">Հոսանքի մատակարարում կցված սարքերին USB լարի միջոցով</string>
-    <string name="usb_mtp_notification_title">USB-ն մեդիա ֆայլեր է փոխանցում</string>
-    <string name="usb_ptp_notification_title">USB-ն պատկերներ է փոխանցում</string>
-    <string name="usb_midi_notification_title">USB-ն կապակցված է MIDI սարքին</string>
+    <string name="usb_mtp_notification_title">USB՝ ֆայլի փոխանցման համար</string>
+    <string name="usb_ptp_notification_title">USB՝ պատկերի փոխանցման համար</string>
+    <string name="usb_midi_notification_title">USB՝ MIDI-ի համար</string>
     <string name="usb_accessory_notification_title">Միացել է USB լրասարքին</string>
     <string name="usb_notification_message">Թակեք այլ USB ընտրանքների համար:</string>
     <string name="adb_active_notification_title">USB վրիպազերծումը միացված է:</string>
@@ -1315,6 +1315,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Կարող եք կրկին ցույց տալ կոճակները՝ մատը էկրանի եզրից, որտեղ սովորաբար լինում են կոճակները, սահեցնելով դեպի ներս:</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Որոշ ժամանակ անց, կոճակները կրկին կանհետանան:</string>
     <string name="sec_immersive_cling_help_text_step_two">Կարող եք օգտագործել Սկզբի կոճակը, նույնիսկ երբ այն թաքցված լինի: Հիմնական էկրան գնալու համար ուժեղ սեղմեք էկրանի այն մասը, որտեղ սովորաբար հայտնվում է Սկզբի կոճակը:</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Ինչպես էլ պահեք հեռախոսը, կոճակները միշտ կգտնվեն լիցքավորման միացքի կողքին: Հեռախոսը ժամացույցի սլաքի հակառակ ուղղությամբ պտտելու ժամանակ մատը սահեցրեք էկրանի եզրից դեպի ձախ, ինչպես ցույց է տալիս սլաքը:</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Ինչպես էլ պահեք հեռախոսը, կոճակները միշտ կգտնվեն լիցքավորման միացքի կողքին: Հեռախոսը ժամացույցի սլաքի ուղղությամբ պտտելու ժամանակ մատը սահեցրեք էկրանի եզրից դեպի աջ, ինչպես ցույց է տալիս սլաքը:</string>
     <string name="done_label">Արված է</string>
     <string name="hour_picker_description">Ժամի անալոգային ընտրիչ</string>
     <string name="minute_picker_description">Րոպեի անալոգային ընտրիչ</string>
@@ -1325,7 +1327,9 @@
     <string name="deleted_key">Վերացվել է %s:</string>
     <string name="managed_profile_label_badge">Աշխատանքային %1$s</string>
     <string name="lock_to_app_toast">Ծրագրի ամրակցումը հանելու համար միաժամանակ սեղմեք և պահեք Վերջին օգտագործումների ու Վերադարձի ստեղները:</string>
+    <string name="lock_to_app_toast_for_navibar">Ծրագրի ամրակցումը հանելու համար միաժամանակ հպեք և պահեք Վերջին օգտագործումների ու Վերադարձի կոճակները:</string>
     <string name="lock_to_app_toast_accessible">Ծրագրի ամրակցումը հանելու համար սեղմեք և պահեք վերջին օգտագործումների ստեղնը:</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">«Սևեռել ծրագրին» ռեժիմն ընձեռվել է:</string>
     <string name="lock_to_app_start">Ծրագիրն ամրակցվեց:</string>
     <string name="lock_to_app_exit">Ծրագրի ամրակցումը հանվեց:</string>
@@ -1431,9 +1435,9 @@
     <string name="tw_clipboard_save_tts">Պահպանել</string>
     <string name="tw_clipboard_button_tts">Կոճակ</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Գզրոց</string>
-    <string name="hdmi_connect">HDMI կաբելը միացված է:</string>
+    <string name="hdmi_connect">HDMI-ը միացված է:</string>
     <string name="hdmi_connect_indirectly">Ձեր սարքը HDMI հաղորդալարով ուղղակիորեն միացրեք հեռուստացույցին:</string>
-    <string name="hdmi_disconnect">HDMI կաբելն անջատված է:</string>
+    <string name="hdmi_disconnect">HDMI-ն անջատված է:</string>
     <string name="hdmi_recommend_charging_device">Խորհուրդ ենք տալիս լիցքավորել ձեր սարքը, եթե այն երկար ժամանակ միացած HDTV հարմարիչին: Միացրեք լիցքավորիչը HDTV հարմարիչին` ձեր սարքը լիցքավորելու համար:</string>
     <string name="hdmi_wfd_terminate">HDMI-ը միացված է: Screen Mirroring-ի միացումն ավարտվել է</string>
     <string name="disable">Անջատել</string>
@@ -1853,6 +1857,7 @@
     <string name="volumepanel_media">Մեդիա</string>
     <string name="volumepanel_notification">Ծանուցումներ</string>
     <string name="volumepanel_system">Համակարգ</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Անհնար է Արտակարգ իրավիճակի ռեժիմում սևեռել էկրանը:</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Անհնար է Էկրանի պատկերը սևեռել:</string>
     <string name="bluetooth_permission_request">Bluetooth թույլատրության հարցում</string>
@@ -1925,6 +1930,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Անհնար է ընձեռել %s, քանի դեռ Wi-Fi Direct-ն ընձեռված է:</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Ծառայության մատակարարից պատասխան չկա:</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Չհաջողվեց ուղարկել %s-ի ակտիվացման հարցում: Նորից է միանում հասանելի ցանցերի միջոցով…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Անհնար է ընձեռել %1$s: %2$s-ը մատչելի չէ Ձեր ինտերնետային փաթեթով, կամ %3$s սերվերից պատասխան չի ստացվել:</string>
     <string name="mptcp_message_setting_disabled_overheating">Անհնար է ընձեռել %s: Սարքը գերտաքանում է: Սպասեք, մինչև սարքը հովանա, և նորից փորձեք:</string>
     <string name="mptcp_message_operation_disabled_overheating">%s-ը կասեցվել է՝ սարքի գերտաքացումը կանխելու համար: Փոխարենը՝ ներբեռնվում է շարժական կապի ցանցի միջոցով…</string>
     <string name="mptcp_message_data_usage_limit">Հասել է տվյալների օգտագործման սահմանաչափին: Տվյալների օգտագործման սահմանաչափը փոխելու համար գնացեք Դրվածքներ:</string>
@@ -2034,6 +2040,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s-ի ձայնը հնչում է USB ձայնասարքով: Թակեք այստեղ՝ այն անջատելու համար:</string>
     <string name="multisound_change_output_device">Փոխել ձայնային ելքի սարքը</string>
     <string name="multisound_headup_contents">Ձայնասարքը, որն ընտրել եք այս ծրագրի համար, նույնն է, ինչ ընթացիկ ձայնային ելքի սարքը Ձեր հեռախոսի համար: Որպեսզի առանձնացնեք ձայնն այս ծրագրի համար, արագ դրվածքների վահանակում փոխեք ձայնային ելքի սարքը:</string>
+    <string name="multisound_hun_title">Փոխե՞լ գլխավոր ձայնային ելքի սարքը:</string>
+    <string name="multisound_hun_contents">Ձայնասարքը, որն ընտրել եք այս ծրագրի համար (%1$s), նույնն է, ինչ գլխավոր ձայնային ելքի սարքը (%2$s): Որպեսզի ձայնն առանձնացնեք այս ծրագրի համար, անհրաժեշտ է գլխավոր ձայնային ելքի սարքը փոխել %3$s-ի:</string>
+    <string name="multisound_hun_close">Փակել</string>
+    <string name="multisound_hun_change">Փոփոխել</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Գլխային հեռախոս</string>
     <string name="bixby_edgecase_mpsm">Հնարավոր չէ օգտագործել Bixby, քանի դեռ Էներգիայի առավելագույն խնայման ռեժիմը միացված է:</string>
     <string name="bixby_edgecase_emergencymode">Հնարավոր չէ Bixby-ն օգտագործել Արտակարգ իրավիճակի ռեժիմում:</string>
     <string name="bixby_edgecase_kidsmode">Հնարավոր չէ Bixby-ն օգտագործել Երեխաների Ռեժիմում:</string>
@@ -2041,9 +2053,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Հնարավոր չէ օգտագործել Bixby, քանի դեռ MirrorLink-ն օգտագործվում է:</string>
     <string name="bixby_edgecase_dexmode">Հնարավոր չէ Bixby օգտագործել Samsung DeX-ում:</string>
     <string name="bixby_edgecase_dexstation">Հնարավոր չէ Bixby օգտագործել DeX Կայանին միացված ժամանակ:</string>
-    <string name="conventional_mode_recent_noti">Կարող եք այս ծրագիրը դիտել լրիվ էկրանով՝ Վերջերս օգտագործված ծրագրերի էկրանի վրա թակելով Ընդարձակման պատկերակը:</string>
+    <string name="bixby_edgecase_cantusenow">Այս պահին հնարավոր չէ Bixby Voice օգտագործել:</string>
+    <string name="conventional_mode_recent_noti">Կարող եք ծրագրի չափերի հարաբերակցությունը փոխել Վերջերս օգտագործված ծրագրերի էկրանում:</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Նախորդ չափերի հարաբերակցությանը վերադառնալու համար գնացեք Դրվածքներ > Ցուցադրել > Լիաէկրան ռեժիմում գործող ծրագրեր:</string>
     <string name="conventional_mode_tap_here_to_fill">Թակեք այստեղ՝ ամբողջ էկրանը լրացնելու համար</string>
+    <string name="bixby_popup_unavailable_now">Bixby-ն անմատչելի է: Միայն հեռախոսի տերը կամ գլխավոր հեռախոսահամարը կարող է Bixby օգտագործել:</string>
     <string name="permlab_knoxCustomSetting">Կառավարել սարքի դրվածքները</string>
     <string name="permdesc_knoxCustomSetting">Կազմաձևել սարքի դրվածքները, օրինակ՝ Bluetooth-ի, Տեղի, Wi-Fi-ի, Շարժական տվյալների և Android-ի դրվածքները:</string>
     <string name="permlab_knoxCustomSystem">Կառավարել համակարգի դրվածքները</string>
@@ -2388,6 +2402,4 @@ USB-ի գործառույթները կարող են սահմանափակված �
     <string name="charging_connected_via_usb">Կապակցված սարքի լիցքավորում USB-ով…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ֆայլային համակարգի սահմանաչափ</string>
     <string name="lacking_filenode_internal_storage_view_text">Չափազանց շատ ֆայլեր են ստեղծվել Ձեր հեռախոսում: Հնարավոր է՝ ծրագրերը դադարեն ճիշտ աշխատել, իսկ հեռախոսը կարող է այլևս չգործել: Կրկնօրինակեք կարևոր տվյալներն ու հեռախոսը հետադարձեք գործարանային դրվածքներին:</string>
-    <string name="lock_to_app_toast_for_navibar">Ծրագրի ամրակցումը հանելու համար միաժամանակ հպեք և պահեք Վերջին օգտագործումների ու Վերադարձի կոճակները:</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

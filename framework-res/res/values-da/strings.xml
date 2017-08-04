@@ -770,7 +770,7 @@ Er du sikker på, at du vil navigere væk fra denne side?"</string>
     <string name="aerr_process">Processen %1$s er stoppet.</string>
     <string name="aerr_application_repeated">%1$s bliver ved med at stoppe</string>
     <string name="aerr_process_repeated">%1$s bliver ved med at stoppe</string>
-    <string name="aerr_restart">Genst. app</string>
+    <string name="aerr_restart">Genstart app</string>
     <string name="aerr_reset">Nulstil og genstart appen</string>
     <string name="aerr_report">Send feedback</string>
     <string name="aerr_close">Luk</string>
@@ -915,9 +915,9 @@ Vil du lukke den?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">USB, der oplader denne enhed</string>
     <string name="usb_supplying_notification_title">USB, der leverer strøm til den tilsluttede enhed</string>
-    <string name="usb_mtp_notification_title">USB-overførsel af mediefiler</string>
-    <string name="usb_ptp_notification_title">USB overfører billeder</string>
-    <string name="usb_midi_notification_title">USB er tilsluttet MIDI-enhed</string>
+    <string name="usb_mtp_notification_title">USB til filoverførsel</string>
+    <string name="usb_ptp_notification_title">USB til billedoverførsel</string>
+    <string name="usb_midi_notification_title">USB til MIDI</string>
     <string name="usb_accessory_notification_title">Tilsluttet til USB-tilbehør</string>
     <string name="usb_notification_message">Tryk for andre USB-indstillinger.</string>
     <string name="adb_active_notification_title">USB-fejlsøgning tilsluttet.</string>
@@ -1319,6 +1319,8 @@ Prøv igen om %2$d sekunder."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Du kan få vist knapperne igen ved at stryge indad fra kanten af skærmen, hvor knapperne normalt vises.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Efter et stykke tid forsvinder knapperne igen.</string>
     <string name="sec_immersive_cling_help_text_step_two">Du kan bruge startknappen, selvom den er skjult. Tryk hårdt på det område af skærmen, hvor startknappen normalt vises, for at gå til startskærmen.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Uanset hvordan du holder din telefon, vil knapperne altid sidde ved siden af opladerporten. Når telefonen drejes mod uret, skal du stryge til venstre fra skærmens kant som vist med pilen.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Uanset hvordan du holder din telefon, vil knapperne altid sidde ved siden af opladerporten. Når telefonen drejes med uret, skal du stryge til højre fra skærmens kant som vist med pilen.</string>
     <string name="done_label">Udført</string>
     <string name="hour_picker_description">Analog timevælger</string>
     <string name="minute_picker_description">Analog minutvælger</string>
@@ -1329,7 +1331,9 @@ Prøv igen om %2$d sekunder."</string>
     <string name="deleted_key">%s er blevet slettet.</string>
     <string name="managed_profile_label_badge">%1$s – arbejde</string>
     <string name="lock_to_app_toast">Du kan frigøre appen ved at trykke og holde på tasten seneste og tilbagetasten på samme tid.</string>
+    <string name="lock_to_app_toast_for_navibar">Du kan frigøre appen ved at trykke og holde på knappen seneste og tilbageknappen på samme tid.</string>
     <string name="lock_to_app_toast_accessible">Du kan frigøre applikationen ved at trykke og holde på tasten seneste.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Lås-til-app-tilstand er blevet aktiveret.</string>
     <string name="lock_to_app_start">App fastgjort.</string>
     <string name="lock_to_app_exit">App frigjort.</string>
@@ -1435,9 +1439,9 @@ Batterisparefunktionen slukker automatisk, når enheden oplader."</string>
     <string name="tw_clipboard_save_tts">Gem</string>
     <string name="tw_clipboard_button_tts">Tast</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Udklipsholder</string>
-    <string name="hdmi_connect">HDMI-kabel tilsluttet.</string>
+    <string name="hdmi_connect">HDMI tilsluttet.</string>
     <string name="hdmi_connect_indirectly">Slut din enhed til tv direkte via HDMI-kablet.</string>
-    <string name="hdmi_disconnect">HDMI-kabel frakoblet.</string>
+    <string name="hdmi_disconnect">Forbindelsen til HDMI er blevet afbrudt.</string>
     <string name="hdmi_recommend_charging_device">Vi anbefaler, at du oplader din enhed, hvis den har forbindelse til en HDTV-adapter i længere tid. Slut opladeren til HDTV-adapteren for at oplade din enhed.</string>
     <string name="hdmi_wfd_terminate">HDMI tilsluttet. Screen Mirroring-forbindelsen er afsluttet</string>
     <string name="disable">Deaktiver</string>
@@ -1857,6 +1861,7 @@ command"</string>
     <string name="volumepanel_media">Medie</string>
     <string name="volumepanel_notification">Meddelelser</string>
     <string name="volumepanel_system">System</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Kan ikke tage skærmbillede, når du er i Nødsituation.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Kan ikke optage skærmbillede.</string>
     <string name="bluetooth_permission_request">Anmodning om Bluetooth-tilladelse</string>
@@ -1929,6 +1934,7 @@ Du kan frigøre en applikation ved at trykke og holde nede på menutasten."</str
     <string name="mptcp_message_mptcp_capability_WifiDirect">Kan ikke aktivere %s, mens Wi-Fi Direct er aktiveret.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Intet svar fra tjenesteudbyder.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Kunne ikke sende anmodning om aktivering af %s. Opretter forbindelse igen via tilgængelige netværk …</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Kan ikke aktivere %1$s. %2$s er ikke tilgængelig med din internetpakke, eller der er ikke modtaget et svar fra %3$s-serveren.</string>
     <string name="mptcp_message_setting_disabled_overheating">Kan ikke aktivere %s. Enheden er ved at blive overophedet. Vent, til din enhed er kølet af, og prøv igen.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s er deaktiveret for at forhindre enheden i at overophede. Downloader via mobile netværk i stedet …</string>
     <string name="mptcp_message_data_usage_limit">Databrugsgrænsen er nået. Gå til Indstillinger for at ændre grænsen for databrug.</string>
@@ -2038,6 +2044,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Lyd fra %s afspilles gennem din USB-lydenhed. Tryk her for at deaktivere dette.</string>
     <string name="multisound_change_output_device">Skift lydoutputenhed</string>
     <string name="multisound_headup_contents">Den lydenhed, du har valgt til denne app, er ikke den samme som den aktuelle lydoutputenhed til din telefon. Du kan adskille lyden for denne app ved at ændre din lydoutputenhed i hurtigindstillingspanelet.</string>
+    <string name="multisound_hun_title">Vil du skifte primær lydoutputenhed?</string>
+    <string name="multisound_hun_contents">Den lydenhed, du har valgt til denne app (%1$s), er den samme som den aktuelle primære lydoutputenhed (%2$s). Du kan adskille lyden for denne app ved at ændre din primære lydoutputenhed til %3$s.</string>
+    <string name="multisound_hun_close">Luk</string>
+    <string name="multisound_hun_change">Skift</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Headset</string>
     <string name="bixby_edgecase_mpsm">Det er ikke muligt at bruge Bixby, når Maksimalt niveau for strømbesparende tilstand er aktiveret.</string>
     <string name="bixby_edgecase_emergencymode">Det er ikke muligt at bruge Bixby i Nødsituation.</string>
     <string name="bixby_edgecase_kidsmode">Det er ikke muligt at bruge Bixby i Børnetilstand.</string>
@@ -2045,9 +2057,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Det er ikke muligt at bruge Bixby, når der bruges MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Det er ikke muligt at bruge Bixby i Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Det er ikke muligt at bruge Bixby, når der er oprettet forbindelse til DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Du kan se denne app på fuld skærm ved at trykke på ikonet Udvid på skærmbilledet Seneste apps.</string>
+    <string name="bixby_edgecase_cantusenow">Kan ikke bruge Bixby Voice lige nu.</string>
+    <string name="conventional_mode_recent_noti">Du kan ændre appens højde-bredde-forhold på skærmbilledet Seneste apps.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Gå til Indstillinger > Skærm > Fuldskærmsapps for at vende tilbage til det tidligere højde-bredde-forhold.</string>
     <string name="conventional_mode_tap_here_to_fill">Tryk her for at fylde hele skærmen</string>
+    <string name="bixby_popup_unavailable_now">Bixby er ikke tilgængelig. Kun telefonens ejer eller det primære telefonnummer kan bruge Bixby.</string>
     <string name="permlab_knoxCustomSetting">Administrer enhedsindstillinger</string>
     <string name="permdesc_knoxCustomSetting">Konfigurer enhedsindstillinger som Bluetooth, Placering, Wi-Fi, Mobile data og Android-indstillinger.</string>
     <string name="permlab_knoxCustomSystem">Administrer systemindstillinger</string>
@@ -2423,6 +2437,4 @@ USB-funktioner kan være begrænsede, når Maksimalt niveau for strømbesparende
     <string name="charging_connected_via_usb">Oplader den tilsluttede enhed via USB …</string>
     <string name="lacking_filenode_internal_storage_view_title">Filsystemgrænse</string>
     <string name="lacking_filenode_internal_storage_view_text">Der er oprettet for mange filer på din telefon. Apps kan holde op med at fungere korrekt, og din telefon starter muligvis ikke længere. Sikkerhedskopier vigtige data, og nulstil telefonen til fabriksindstillingerne.</string>
-    <string name="lock_to_app_toast_for_navibar">Du kan frigøre appen ved at trykke og holde på knappen seneste og tilbageknappen på samme tid.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

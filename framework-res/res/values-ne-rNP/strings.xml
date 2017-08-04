@@ -384,9 +384,9 @@
     <string name="permlab_readSyncStats">सिंक तथ्याङ्कहरू पढ्नुहोस्</string>
     <string name="permdesc_readSyncStats">"अनुप्रयोगलाई खाताको लागि समीकरणको आँकडा समीकरण घटनाहरूको  इतिहास र समीकरण गरिएको डेटाको मापन समेत, पढ्न अनुमति दिन्छ।"</string>
     <string name="permlab_sdcardRead">आफ्नो SD कार्डको सामग्रीहरूहरु पढ्नुहोस्</string>
-    <string name="permdesc_sdcardRead">अनुप्रयोगलाई तपाईंको SD कार्डको सामग्री पढ्न अनुमति दिन्छ।</string>
+    <string name="permdesc_sdcardRead">अनुप्रयोगलाई SD कार्ड बारे जानकारी प्राप्त गर्ने अनुमति दिन्छ।</string>
     <string name="permlab_sdcardWrite">तपाईँको SD कार्डको विषयसूची परिमार्जन गर्ने मेट्ने</string>
-    <string name="permdesc_sdcardWrite">अनुप्रयोगलाई SD कार्डमा लेख्न अनुमति दिन्छ।</string>
+    <string name="permdesc_sdcardWrite">अनुप्रयोगलाई SD कार्डमा लेख्ने अनुमति दिन्छ।</string>
     <string name="permlab_use_sip">SIP कलहरू प्राप्त/बनाउन</string>
     <string name="permdesc_use_sip">SIP कलहरू बनाउन र प्राप्त गर्न अनुप्रयोगलाई अनुमति दिन्छ।</string>
     <string name="permlab_register_sim_subscription">नयाँ दूरसंचार सिम जडानहरू दर्ता गर्नुहोस्</string>
@@ -537,7 +537,7 @@
     <string name="keyguard_password_wrong_pin_code">गलत PIN संकेत।</string>
     <string name="keyguard_label_text">अनलक गर्न मेनु थिच्नुहोस् र त्यसपछि ० थिच्नुहोस्।</string>
     <string name="emergency_call_dialog_number_for_display">आपतकालीन नम्बर</string>
-    <string name="lockscreen_carrier_default">कुनै सेवा छैन</string>
+    <string name="lockscreen_carrier_default">कुनै नेटवर्क जडान छैन</string>
     <string name="lockscreen_screen_locked">स्क्रिन लक गरिएको।</string>
     <string name="lockscreen_instructions_when_pattern_enabled">अनलक वा आपतकालीन कल गर्न मेनु थिच्नुहोस्।</string>
     <string name="lockscreen_instructions_when_pattern_disabled">अनलक गर्न मेनु थिच्नुहोस्।</string>
@@ -765,7 +765,7 @@
     <string name="aerr_process">%1$s प्रक्रिया बन्द भयो।</string>
     <string name="aerr_application_repeated">%1$s रोकिरहन्छ</string>
     <string name="aerr_process_repeated">%1$s रोकिरहन्छ</string>
-    <string name="aerr_restart">एप पुनःसुरु गर्नु</string>
+    <string name="aerr_restart">एपलाई पुनःसुरु गर्नुहोस्</string>
     <string name="aerr_report">प्रतिक्रिया पठाउनुहोस्</string>
     <string name="aerr_close">बन्द गर्नुहोस्</string>
     <string name="aerr_mute">यन्त्र पुनः सुरु नभएसम्म म्यूट गर्नुहोस्</string>
@@ -908,9 +908,9 @@
     <string name="dlg_ok">ठीक छ</string>
     <string name="usb_charging_notification_title">यस यन्त्रलाई USB मार्फत चार्ज गर्दै</string>
     <string name="usb_supplying_notification_title">संलग्न गरिएको यन्त्रमा USB मार्फत पावर आपूर्ति गरिँदै</string>
-    <string name="usb_mtp_notification_title">USB ले मिडिया फाइलहरू स्थानान्तरण गर्दै</string>
-    <string name="usb_ptp_notification_title">USB ले छविहरू स्थानान्तरण गर्दैछ</string>
-    <string name="usb_midi_notification_title">USB लाई MIDI यन्त्रमा जडान गरियो</string>
+    <string name="usb_mtp_notification_title">फाइल स्थानान्तरणका लागि USB</string>
+    <string name="usb_ptp_notification_title">छवि स्थानान्तरणका लागि USB</string>
+    <string name="usb_midi_notification_title">MIDI का लागि USB</string>
     <string name="usb_accessory_notification_title">USB सहायकमा जोडिएको छ</string>
     <string name="usb_notification_message">अन्य USB विकल्पहरुको लागि ट्याप गर्नुहोस्।</string>
     <string name="adb_active_notification_title">USB डिबग गर्ने जडित छ</string>
@@ -1313,6 +1313,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">तपाई स्क्रीनका बटनहरू सामान्य रूपमा देखा पर्ने छेउबाट भित्रतिर स्वाइप गरेर बटनहरू फेरि देखाउन सक्नुहुन्छ।</string>
     <string name="sec_immersive_cling_help_text_step_one_three">केही बेर पछि बटनहरू फेरि बिलाउने छन्।</string>
     <string name="sec_immersive_cling_help_text_step_two">तपाई लुकाइएको बेला पनि होम बटन प्रयोग गर्न सक्नुहुन्छ। होम स्क्रीनमा जान स्क्रीनको होम बटन सामान्यतया देखा पर्ने क्षेत्रमा अलि बेसरी थिच्नुहोस्।</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">तपाईले आफ्नो फोन जसरी समात्नुभए पनि बटनहरू सधैं चार्जिङ पोर्टको अगाडि स्थित हुनेछन्। तपाईको फोनलाई घडीको विपरीत दिशामा घुमाइँदा तीरले देखाए अनुसार स्क्रीनको किनाराबाट बायाँतिर स्वाइप गर्नुहोस्।</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">तपाईले आफ्नो फोन जसरी समात्नुभए पनि बटनहरू सधैं चार्जिङ पोर्टको अगाडि स्थित हुनेछन्। तपाईको फोनलाई घडीको दिशामा घुमाइँदा तीरले देखाए अनुसार स्क्रीनको किनाराबाट दायाँतिर स्वाइप गर्नुहोस्।</string>
     <string name="done_label">भयो</string>
     <string name="hour_picker_description">एनालग आवर पिकर</string>
     <string name="minute_picker_description">एनालग मिनट पिकर</string>
@@ -1323,6 +1325,8 @@
     <string name="deleted_key">%1$s हटाइयो</string>
     <string name="managed_profile_label_badge">कार्य %1$s</string>
     <string name="lock_to_app_toast">यस स्क्रिनलाई अनपिन गर्न पछाडि बटनलाई छोइराख्नुहोस्।</string>
+    <string name="lock_to_app_toast_for_navibar">एपलाई अनपिन गर्न एकै समयमा हालैको र पछाडि कुञ्जी टच गरी होल्ड गर्नुहोस्।</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">लक-टु-एप मोड सक्षम गरिएको छ।</string>
     <string name="lock_to_app_start">स्क्रिन पिन गरियो</string>
     <string name="lock_to_app_exit">स्क्रिन अनपिन गरियो</string>
@@ -1400,6 +1404,8 @@
     <string name="suspended_widget_accessibility">%1$s लाई असक्षम गरियो</string>
     <string name="clipboard_exceed_text_size">प्रतिलिपि बनाउन सकिँदैन। पाठ अत्यन्त लामो छ।</string>
     <string name="clipboard_restrict">सुरक्षा नितिले क्लिपबोर्डको प्रयोग माथि रोक लगाउँछ।</string>
+    <string name="hdmi_connect">HDMI जडान भयो।</string>
+    <string name="hdmi_disconnect">HDMI विच्छेद भयो।</string>
     <string name="dex_launcher_mode_change">Samsung DeX मा स्विच गर्न %s लाई बन्द गरियो।</string>
     <string name="language_picker_section_suggested_sec">सैमसंगद्वारा सुझाव दिइको</string>
     <string name="language_picker_section_suggested_sec_jpn">Galaxy suggested</string>
@@ -1445,10 +1451,13 @@
     <string name="wifi_notification_sns_poor_network_title">स्मार्ट नेटवर्क स्विच</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">स्वत: नेटवर्क स्विच</string>
     <string name="wifi_notification_sns_poor_network_detail">%s बाट विच्छेद भयो।</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="can_not_install_app">एप स्थापना गर्न सकिँदैन। एपलाई %s सँग प्रयोगका लागि अनुकूल बनाइएको छैन।</string>
     <string name="clearDefaultHintMsg_knox">तपाईले जहिले पनि यो कार्य गर्दा %1$s लाई पूर्वनिर्धारित रूपमा प्रयोग गरिनेछ। तपाई %2$s का सेटिङहरू > एप्स > थप विकल्पहरूको बटन > पूर्वनिर्धारित एप्समा गई आफ्नो पूर्वनिर्धारित एप परिवर्तन गर्न सक्नुहुन्छ।</string>
     <string name="booster_notification_mbps">Mbps</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s लाई सक्षम गर्न सकिएन। तपाईको इन्टरनेट प्याकेज मार्फत %2$s उपलब्ध छैन वा %3$s सर्भरबाट कुनै प्रतिक्रिया प्राप्त भएन।</string>
     <string name="usb_charing_only_notification_title">USB मार्फत चार्ज गर्दै</string>
+    <string name="more">थप</string>
     <string name="smart_glow_m_application_name">स्मार्ट ग्लो</string>
     <string name="device_storage_low_htap_here_to_view_related_settings_m_status">यन्त्र भण्डारण कम छ (सम्बन्धित सेटिङहरू हेर्न यहाँ ट्याप गर्नुहोस्)</string>
     <string name="smartglow_low_battery_notification_text">बैटरी पावर कम छ (“पावर बचत मोड” लाई सक्षम गर्नका लागि यहाँ ट्याप गर्नुहोस्)</string>
@@ -1480,6 +1489,12 @@
     <string name="multisound_sound_via_usb_audio">%s को ध्वनि तपाईको USB अडियो यन्त्र मार्फत प्ले गरिँदै छ। यसलाई अफ गर्न यहाँ ट्याप गर्नुहोस्।</string>
     <string name="multisound_change_output_device">अडियो आउटपुट यन्त्र परिवर्तन गर्नुहोस्</string>
     <string name="multisound_headup_contents">तपाईले यस एपका लागि चयन गर्नुभएको अडियो यन्त्र र तपाईको फोनको हालको अडियो आउटपुट यन्त्र एउटै छ। यस एपको ध्वनि अलग बजाउन द्रुत सेटिङ प्यानल मार्फत आफ्नो अडियो आउटपुट यन्त्र परिवर्तन गर्नुहोस्।</string>
+    <string name="multisound_hun_title">मुख्य अडियो आउटपुट यन्त्र परिवर्तन गर्ने हो?</string>
+    <string name="multisound_hun_contents">तपाईले यस एप (%1$s) का लागि चयन गर्नुभएको अडियो यन्त्र र मुख्य अडियो आउटपुट यन्त्र (%2$s) एउटै छ। यस एपको अडियो छुट्टै बजाउन मुख्य अडियो आउटपुट यन्त्रलाई %3$s मा परिवर्तन गर्नुपर्छ।</string>
+    <string name="multisound_hun_close">बन्द गर्नुहोस्</string>
+    <string name="multisound_hun_change">फेर्नु</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">हेड्सेट</string>
     <string name="bixby_edgecase_mpsm">अधिकतम पावर बचत मोड अन भएको बेला Bixby प्रयोग गर्न सकिँदैन।</string>
     <string name="bixby_edgecase_emergencymode">आपतकालीन मोडमा Bixby प्रयोग गर्न सकिँदैन।</string>
     <string name="bixby_edgecase_kidsmode">किड्स मोडमा Bixby प्रयोग गर्न सकिँदैन।</string>
@@ -1487,9 +1502,11 @@
     <string name="bixby_edgecase_mirrorlink">MirrorLink प्रयोग गरिरहेको बेला Bixby प्रयोग गर्न सकिँदैन।</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX मा Bixby प्रयोग गर्न सकिँदैन।</string>
     <string name="bixby_edgecase_dexstation">DeX स्टेशनमा जडान गरिएको बेला Bixby प्रयोग गर्न सकिँदैन।</string>
-    <string name="conventional_mode_recent_noti">तपाई हालैका एप्सको स्क्रीनमा रहेको विस्तृत गर्ने प्रतिमामा ट्याप गरी यो एप पूर्ण स्क्रीनमा हेर्न सक्नुहुन्छ।</string>
+    <string name="bixby_edgecase_cantusenow">अहिले Bixby Voice प्रयोग गर्न सकिँदैन।</string>
+    <string name="conventional_mode_recent_noti">तपाई हालका एप्सको स्क्रीनमा गई एपको पक्ष अनुपात परिवर्तन गर्न सक्नुहुन्छ।</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">अघिल्लो पक्ष अनुपातमा फर्किन सेटिङहरू > प्रदर्शन > पूर्ण स्क्रीनका एप्समा जानुहोस्।</string>
     <string name="conventional_mode_tap_here_to_fill">सम्पूर्ण स्क्रीन भर्न यहाँ ट्याप गर्नुहोस्</string>
+    <string name="bixby_popup_unavailable_now">Bixby उपलब्ध छैन। फोनको मालिकले वा मुख्य फोन नम्बरले मात्र Bixby प्रयोग गर्न सक्छ।</string>
     <string name="permlab_knoxCustomSetting">यन्त्र सेटिङहरू व्यवस्थित गर्नुहोस्</string>
     <string name="permdesc_knoxCustomSetting">यन्त्र सेटिङहरू कन्फिगर गर्नुहोस्, जस्तै ब्लुटूथ, स्थान, Wi-Fi, मोबाइल डाटा, र एन्ड्रोइड सेटिङहरू।</string>
     <string name="permlab_knoxCustomSystem">प्रणाली सेटिङहरू व्यवस्थित गर्नुहोस्</string>
@@ -1813,6 +1830,4 @@
     <string name="storage_sd_card_title">SD कार्ड</string>
     <string name="lacking_filenode_internal_storage_view_title">फाइल प्रणालीको सीमा</string>
     <string name="lacking_filenode_internal_storage_view_text">तपाईको फोनमा अत्यन्त धेरै फाइलहरू सिर्जना गरिएका छन्। एप्सले सही तरिकाले काम गर्न छाड्न सक्छन् र तपाईको फोन उप्रान्त सुरु नहुन सक्छ। कुनै पनि महत्वपूर्ण डाटा ब्याकअप गरी आफ्नो फोनलाई फ्याक्ट्री रिसेट गर्नुहोस्।</string>
-    <string name="lock_to_app_toast_for_navibar">एपलाई अनपिन गर्न एकै समयमा हालैको र पछाडि कुञ्जी टच गरी होल्ड गर्नुहोस्।</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -911,9 +911,9 @@
     <string name="dlg_ok">ಓಕೆ</string>
     <string name="usb_charging_notification_title">ಈ ಸಾಧನಕ್ಕೆ USB ಅನ್ನು ಚಾರ್ಜ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
     <string name="usb_supplying_notification_title">USB, ಲಗತ್ತಿಸಲಾದ ಸಾಧನಕ್ಕೆ ಪವರ್‌ ಪೂರೈಸುತ್ತಿದೆ</string>
-    <string name="usb_mtp_notification_title">USB ಮೀಡಿಯಾ ಫೈಲ್‌ಗಳ ವರ್ಗಾವಣೆ ಮಾಡುತ್ತಿದೆ</string>
-    <string name="usb_ptp_notification_title">ಚಿತ್ರಗಳನ್ನು USB ವರ್ಗಾಯಿಸುತ್ತಿದೆ</string>
-    <string name="usb_midi_notification_title">MIDI ಸಾಧನಕ್ಕೆ USB ಸಂಪರ್ಕಿಸಲಾಗಿದೆ</string>
+    <string name="usb_mtp_notification_title">ಫೈಲ್ ವರ್ಗಾವಣೆಗೆ USB</string>
+    <string name="usb_ptp_notification_title">ಚಿತ್ರ ವರ್ಗಾವಣೆಗೆ USB</string>
+    <string name="usb_midi_notification_title">MIDIಗೆ USB</string>
     <string name="usb_accessory_notification_title">ಒಂದು USB ಉಪಕರಣಕ್ಕೆ ಸಂಪರ್ಕಿಸಿದೆ</string>
     <string name="usb_notification_message">ಬೇರೆ USB ಆಯ್ಕೆಗಳಿಗಾಗಿ ತಟ್ಟಿರಿ.</string>
     <string name="adb_active_notification_title">USB ಡಿಬಗ್ಗಿಂಗ್ ಸಂಪರ್ಕಿತವಾಗಿದೆ.</string>
@@ -1314,6 +1314,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">ನೀವು ಸಾಮಾನ್ಯವಾಗಿ ಸ್ಕ್ರೀನಿನ ಅಂಚಿನಲ್ಲಿ ಬಟನ್‍ಗಳು ಕಾಣಿಸಕೊಳ್ಳುವ ಪ್ರದೇಶದಿಂದ ಒಳಗಡೆ ಸ್ವೈಪ್ ಮಾಡುವ ಮೂಲಕ ಮತ್ತೊಮ್ಮೆ ಬಟನ್‍ಗಳನ್ನು ತೋರಿಸಬಹುದು.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ, ಬಟನ್‍ಗಳು ಮತ್ತೆ ಇಲ್ಲಿ ಕಾಣಿಸಕೊಳ್ಳುತ್ತವೆ.</string>
     <string name="sec_immersive_cling_help_text_step_two">ಅದನ್ನು ಅಡಗಿಸಿದಾಗಲೂ ನೀವು ಹೋಮ್ ಬಟನ್ ಬಳಸಬಹುದು. ಹೋಮ್ ಸ್ಕ್ರೀನ್‍ಗೆ ಹೋಗಲು, ಸಾಮಾನ್ಯವಾಗಿ ಹೋಮ್ ಬಟನ್ ಕಾಣಿಸಿಕೊಳ್ಳುವಲ್ಲಿ ಸ್ಕ್ರೀನ್ ಪ್ರದೇಶದ ಮೇಲೆ ಬಲವಾಗಿ ಒತ್ತಿ.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">ಆದಾಗ್ಯೂ ನೀವು ನಿಮ್ಮ ಫೋನ್‍ ಹಿಡಿದಿರುವಿರಿ, ಯಾವಾಗಲೂ ಚಾರ್ಜಿಂಗ್ ಪಾಯಿಂಟ್ ಬಳಿಯಲ್ಲಿ ಬಟನ್‍ಗಳು ಕಾಣಸಿಗುತ್ತವೆ. ನಿಮ್ಮ ಫೋನ್ ಗಡಿಯಾರ ವಿರುದ್ಧ ದಿಕ್ಕಿನೆಡೆಗೆ ತಿರುಗುತ್ತಿರುವಾಗ, ಬಾಣದ ಮೂಲಕ ತೋರಿಸಿದಂತೆ ಸ್ಕ್ರೀನಿನ ಅಂಚಿನಿಂದ ಎಡಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">ಆದಾಗ್ಯೂ ನೀವು ನಿಮ್ಮ ಫೋನ್‍ ಹಿಡಿದಿರುವಿರಿ, ಯಾವಾಗಲೂ ಚಾರ್ಜಿಂಗ್ ಪಾಯಿಂಟ್ ಬಳಿಯಲ್ಲಿ ಬಟನ್‍ಗಳು ಕಾಣಸಿಗುತ್ತವೆ. ನಿಮ್ಮ ಫೋನ್ ಗಡಿಯಾರ ರೀತಿಯಲ್ಲಿ ತಿರುಗುವಾಗ, ಬಾಣದ ಮೂಲಕ ತೋರಿಸಿದಂತೆ ಸ್ಕ್ರೀನಿನ ಅಂಚಿನಿಂದ ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.</string>
     <string name="done_label">ಮಾಡಿದೆ</string>
     <string name="hour_picker_description">ಅನಲಾಗ್ ಗಂಟೆಯ ಪಿಕ್ಕರ್</string>
     <string name="minute_picker_description">ಅನಲಾಗ್ ನಿಮಿಷದ ಪಿಕ್ಕರ್</string>
@@ -1324,7 +1326,9 @@
     <string name="deleted_key">%s ಅಳಿಸಲಾಗಿದೆ.</string>
     <string name="managed_profile_label_badge">ಕೆಲಸ %1$s</string>
     <string name="lock_to_app_toast">ಅನ್ವಯಿಸುವಿಕೆ ಅನ್‌ಪಿನ್ ಮಾಡಲು, ಇತ್ತೀಚಿನವುಗಳು ಮತ್ತು ಬ್ಯಾಕ್ ಕೀಗಳನ್ನು ಒಂದೇ ಸಮಯಕ್ಕೆ ಒತ್ತಿ ಹಿಡಿಯಿರಿ.</string>
+    <string name="lock_to_app_toast_for_navibar">ಅನ್ವಯಿಸುವಿಕೆ ಅನ್‌ಪಿನ್ ಮಾಡಲು, ಇತ್ತೀಚಿನವುಗಳು ಮತ್ತು ಬ್ಯಾಕ್ ಬಟನ್‍ಗಳನ್ನು ಒಂದೇ ಸಮಯಕ್ಕೆ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
     <string name="lock_to_app_toast_accessible">ಈ ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಅನ್‌ಪಿನ್ ಮಾಡಲು, ಇತ್ತೀಚಿನವುಗಳ ಕೀಯನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">ಅನ್ವಯಿಸುವಿಕೆಗೆ-ಲಾಕ್ ಮಾಡಿ ಮೋಡ್ ಶಕ್ತಗೊಳಿಸಲಾಗಿದೆ.</string>
     <string name="lock_to_app_start">ಅನ್ವಯಿಸುವಿಕೆ ಪಿನ್ ಮಾಡಲಾಗಿದೆ.</string>
     <string name="lock_to_app_exit">ಅನ್ವಯಿಸುವಿಕೆ ಅನ್‍ಪಿನ್ ಮಾಡಲಾಗಿದೆ.</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">ಉಳಿಸಿ</string>
     <string name="tw_clipboard_button_tts">ಬಟನ್</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">ಕ್ಲಿಪ್‌ಬೋರ್ಡ್</string>
-    <string name="hdmi_connect">HDMI ಕೇಬಲ್ ಸಂಪರ್ಕಗೊಂಡಿದೆ.</string>
+    <string name="hdmi_connect">HDMI ಸಂಪರ್ಕಗೊಂಡಿದೆ.</string>
     <string name="hdmi_connect_indirectly">HDMI ಕೇಬಲ್ ಮೂಲಕ ನೇರವಾಗಿ ನಿಮ್ಮ ಸಾಧನವನ್ನು TVಗೆ ಸಂಪರ್ಕಿಸಿ.</string>
-    <string name="hdmi_disconnect">HDMI ಕೇಬಲ್ ಸಂಪರ್ಕ ಕಡಿದಿದೆ.</string>
+    <string name="hdmi_disconnect">HDMI ಸಂಪರ್ಕ ಕಡಿತಗೊಂಡಿದೆ.</string>
     <string name="hdmi_recommend_charging_device">ನಿಮ್ಮ ಸಾಧನವನ್ನು ದೀರ್ಘ ಸಮಯದವರೆಗೆ HDTV ಅಡಾಪ್ಟರ್‌ಗೆ ಸಂಪರ್ಕಿಸಿದಲ್ಲಿ ಅದನ್ನು ಚಾರ್ಜಿಂಗ್ ಮಾಡುವಂತೆ ನಾವು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ. ನಿಮ್ಮ ಸಾಧನವನ್ನು ಚಾರ್ಜ್ ಮಾಡಲು HDTV ಅಡಾಪ್ಟರ್‌ಗೆ ಚಾರ್ಜರ್ ಸಂಪರ್ಕಿಸಿ.</string>
     <string name="hdmi_wfd_terminate">HDMI ಸಂಪರ್ಕಗೊಂಡಿದೆ. Screen Mirroring ಸಂಪರ್ಕವು ಮುಕ್ತಾಯವಾಗಿದೆ.</string>
     <string name="disable">ನಿಶಕ್ತಗೊಳಿಸಿ</string>
@@ -1851,6 +1855,7 @@
     <string name="volumepanel_media">ಮೀಡಿಯಾ</string>
     <string name="volumepanel_notification">ಪ್ರಕಟಣೆಗಳು</string>
     <string name="volumepanel_system">ಸಿಸ್ಟಮ್</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">ತುರ್ತು ಮೋಡ್‌ನಲ್ಲಿದ್ದಾಗ ಸ್ಕ್ರೀನ್ ಸೆರೆಹಿಡಿಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ಸೆರೆಹಿಡಿಯಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
     <string name="bluetooth_permission_request">ಬ್ಲೂಟೂತ್ ಅನುಮತಿ ಕೋರಿಕೆ</string>
@@ -1923,6 +1928,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ಶಕ್ತಗೊಂಡಿರುವಾಗ %s ಶಕ್ತಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ಸೇವಾ ಪೂರೈಕೆದಾರರಿಂದ ಯಾವುದೇ ಪ್ರತಿಕ್ರಿಯೆ ಇಲ್ಲ.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s ಸಕ್ರಿಯಗೊಳಿಸುವಿಕೆ ವಿನಂತಿಯನ್ನು ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ. ಲಭ್ಯ ನೆಟ್‌ವರ್ಕ್‌ಗಳ ಮೂಲಕ ಮರುಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ಶಕ್ತಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಪ್ಯಾಕೇಜ್‍ನೊಂದಿಗೆ %2$s ಲಭ್ಯವಿಲ್ಲ ಅಥವಾ %3$s ಸರ್ವರ್‌ನಿಂದ ಯಾವುದೇ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಸ್ವೀಕರಿಸಿಲ್ಲ.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ಶಕ್ತಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಸಾಧನ ತುಂಬಾ ಬಿಸಿಯಾಗುತ್ತಿದೆ. ಸಾಧನ ತಣ್ಣಗಾಗುವವರೆಗೂ ಕಾಯಿರಿ ಹಾಗೂ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="mptcp_message_operation_disabled_overheating">ಸಾಧನ ಬಿಸಿಯಾಗದಂತೆ ತಡೆಯಲು %s ನಿಶಕ್ತಗೊಳಿಸಲಾಗಿದೆ. ಬದಲಿಗೆ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಮೂಲಕ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತಿದೆ…</string>
     <string name="mptcp_message_data_usage_limit">ಡೇಟಾ ಬಳಕೆಯ ಮಿತಿ ತಲುಪಿದೆ. ಡೇಟಾ ಬಳಕೆಯ ಮಿತಿಯನ್ನು ಬದಲಿಸಲು, ಸಂಯೋಜನೆಗಳಿಗೆ ಹೋಗಿ.</string>
@@ -2030,6 +2036,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">ನಿಮ್ಮ USB ಆಡಿಯೋ ಸಾಧನದಲ್ಲಿ %s ದ್ವನಿ ಪ್ಲೇ ಆಗುತ್ತಿದೆ. ಅದನ್ನು ಆಫ್ ಮಾಡಲು ಇಲ್ಲಿ ತಟ್ಟಿ.</string>
     <string name="multisound_change_output_device">ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ಸಾಧನ ಬದಲಿಸಿ</string>
     <string name="multisound_headup_contents">ನೀವು ಈ ಅನ್ವಯಿಸುವಿಕೆಗೆ ಆಯ್ಕೆಮಾಡಿರುವ ಆಡಿಯೊ ಸಾಧನವು ನಿಮ್ಮ ಫೋನ್‍ಗಾಗಿ ಸದ್ಯಕ್ಕೆ ನಿಗದಿಪಡಿಸಿದ ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ಸಾಧನವು ಒಂದೇ ಆಗಿದೆ. ಈ ಅನ್ವಯಿಸುವಿಕೆಗೆ ದ್ವನಿಯನ್ನು ಪ್ರತ್ಯೇಖಿಸಲು, ತ್ವರಿತ ಸಂಯೋಜನೆಗಳು ಪ್ಯಾನಲ್‍ನಲ್ಲಿ ನಿಮ್ಮ ದ್ವನಿ ಔಟ್‍ಪುಟ್ ಸಾಧನವನ್ನು ಬದಲಿಸಿ.</string>
+    <string name="multisound_hun_title">ಮುಖ್ಯ ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ಸಾಧನ ಬದಲಿಸುವುದೇ?</string>
+    <string name="multisound_hun_contents">ನೀವು ಈ ಅನ್ವಯಿಸುವಿಕೆಗೆ (%1$s) ಆಯ್ಕೆಮಾಡಿದ ಆಡಿಯೋ ಸಾಧನ ಹಾಗೂ ಮುಖ್ಯ ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ಸಾಧನವು (%2$s) ಒಂದೇ ಆಗಿದೆ. ಈ ಅನ್ವಯಿಸುವಿಕೆಗಾಗಿ ಶಬ್ಧವನ್ನು ಪ್ರತ್ಯೇಖಿಸಲು, ಮುಖ್ಯ ಆಡಿಯೊ ಔಟ್‍ಪುಟ್ ಸಾಧನವು %3$sಗೆ ಬದಲಿಸಬೇಕಿದೆ.</string>
+    <string name="multisound_hun_close">ಮುಚ್ಚಿ</string>
+    <string name="multisound_hun_change">ಬದಲಾಯಿಸಿ</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">ಹೆಡ್‍ಸೆಟ್</string>
     <string name="bixby_edgecase_mpsm">ಗರಿಷ್ಠ ಪವರ್ ಉಳಿತಾಯ ಮೋಡ್ ಆನ್ ಆಗಿರುವಾಗ Bixby ಬಳಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ.</string>
     <string name="bixby_edgecase_emergencymode">ತುರ್ತುಸ್ಥಿತಿ ಮೋಡ್‌ನಲ್ಲಿ Bixby ಬಳಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ.</string>
     <string name="bixby_edgecase_kidsmode">ಕಿಡ್ಸ್ ಮೋಡ್‌ನಲ್ಲಿ Bixby ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
@@ -2037,9 +2049,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink ಬಳಸುವಾಗ Bixby ಬಳಸಲು ಆಗುವುದಿಲ್ಲ.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeXನಲ್ಲಿ Bixby ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
     <string name="bixby_edgecase_dexstation">DeX ಸ್ಟೇಶನ್‍‍ಗೆ ಸಂಪರ್ಕಗೊಳಿಸಿರುವಾಗ Bixby ಬಳಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ.</string>
-    <string name="conventional_mode_recent_noti">ನೀವು ಇತ್ತೀಚಿನ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ವಿಸ್ತರಿಸು ಐಕಾನ್ ತಟ್ಟುವುದರ ಮೂಲಕ ಪೂರ್ಣ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಈ ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಬಹುದು.</string>
+    <string name="bixby_edgecase_cantusenow">ಸದ್ಯಕ್ಕೆ Bixby Voice ಬಳಕೆ ಸಾಧ್ಯವಿಲ್ಲ.</string>
+    <string name="conventional_mode_recent_noti">ನೀವು ಇತ್ತೀಚಿನ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಸ್ಕ್ರೀನ್‍ನಲ್ಲಿ ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಬದಲಿಸಬಹುದು.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">ಹಿಂದಿನ ದೃಶ್ಯಾನುಪಾತಕ್ಕೆ ಹಿಂತಿರುಗಲು, ಸಂಯೋಜನೆಗಳು > ಡಿಸ್‍ಪ್ಲೇ > ಪೂರ್ಣ ಸ್ಕ್ರೀನ್ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಎಂಬಲ್ಲಿಗೆ ಹೋಗಿ.</string>
     <string name="conventional_mode_tap_here_to_fill">ಸಂಪೂರ್ಣ ಸ್ಕ್ರೀನ್ ಭರ್ತಿ ಮಾಡಲು ಇಲ್ಲಿ ತಟ್ಟಿ</string>
+    <string name="bixby_popup_unavailable_now">Bixby ಲಭ್ಯವಿಲ್ಲ. ಫೋನ್ ಮಾಲಿಕರು ಅಥವಾ ಮುಖ್ಯ ಫೋನ್ ಸಂಖ್ಯೆ ಮಾತ್ರವೇ Bixby ಬಳಸಬಹುದು.</string>
     <string name="permlab_knoxCustomSetting">ಸಾಧನ ಸಂಯೋಜನೆಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
     <string name="permdesc_knoxCustomSetting">ಬ್ಲೂಟೂತ್, ಸ್ಥಳ, Wi-Fi, ಮೊಬೈಲ್ ಡೇಟಾ ಮತ್ತು ಆಂಡ್ರಾಯ್ಡ್ ಸಂಯೋಜನೆಗಳ ರೀತಿಯ ಸಾಧನ ಸಂಯೋಜನೆಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ.</string>
     <string name="permlab_knoxCustomSystem">ಸಿಸ್ಟಂ ಸಂಯೋಜನೆಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
@@ -2384,6 +2398,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB ಮೂಲಕ ಸಂಪರ್ಕಿಸಲಾದ ಸಾಧನವನ್ನು ಚಾರ್ಜ್ ಮಾಡಲಾಗುತ್ತಿದೆ…</string>
     <string name="lacking_filenode_internal_storage_view_title">ಫೈಲ್ ಸಿಸ್ಟಮ್ ಮಿತಿ</string>
     <string name="lacking_filenode_internal_storage_view_text">ನಿಮ್ಮ ಫೋನ್‍ನಲ್ಲಿ ಅನೇಕ ಫೈಲ್‍ಗಳನ್ನು ರಚಿಸಲಾಗಿದೆ. ಅನ್ವಯಿಸುವಿಕೆಗಳು ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಬಹುದು ಹಾಗೂ ನಿಮ್ಮ ಫೋನ್ ಇನ್ನು ಮುಂದೆ ಪ್ರಾರಂಭವಾಗದಿರಬಹುದು. ಯಾವುದೇ ಮುಖ್ಯವಾಗಿರುವ ಡೇಟಾವನ್ನು ಬ್ಯಾಕಪ್ ಮಾಡಿಕೊಳ್ಳಿ ಹಾಗೂ ನಿಮ್ಮ ಫೋನ್ ಫ್ಯಾಕ್ಟರಿಯನ್ನು ಮರುಹೊಂದಿಸಿ.</string>
-    <string name="lock_to_app_toast_for_navibar">ಅನ್ವಯಿಸುವಿಕೆ ಅನ್‌ಪಿನ್ ಮಾಡಲು, ಇತ್ತೀಚಿನವುಗಳು ಮತ್ತು ಬ್ಯಾಕ್ ಬಟನ್‍ಗಳನ್ನು ಒಂದೇ ಸಮಯಕ್ಕೆ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

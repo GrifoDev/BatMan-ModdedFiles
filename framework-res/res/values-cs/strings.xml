@@ -770,7 +770,7 @@ Opravdu tuto stránku chcete opustit?"</string>
     <string name="aerr_process">Proces %1$s se zastavil.</string>
     <string name="aerr_application_repeated">Aplikace %1$s pravidelně přestává fungovat</string>
     <string name="aerr_process_repeated">Aplikace %1$s pravidelně přestává fungovat</string>
-    <string name="aerr_restart">Restartovat</string>
+    <string name="aerr_restart">Restartovat aplikaci</string>
     <string name="aerr_reset">Obnovit a restartovat aplikaci</string>
     <string name="aerr_report">Odeslat zpětnou vazbu</string>
     <string name="aerr_close">Zavřít</string>
@@ -915,9 +915,9 @@ Chcete ji zavřít?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Nabíjení zařízení přes USB</string>
     <string name="usb_supplying_notification_title">Připojené zařízení se nabíjí přes USB</string>
-    <string name="usb_mtp_notification_title">Přenos souborů médií přes USB</string>
-    <string name="usb_ptp_notification_title">USB přenáší obrázky</string>
-    <string name="usb_midi_notification_title">USB připojeno k zařízení MIDI</string>
+    <string name="usb_mtp_notification_title">USB pro přenos souborů</string>
+    <string name="usb_ptp_notification_title">USB pro přenos obrázků</string>
+    <string name="usb_midi_notification_title">USB pro MIDI</string>
     <string name="usb_accessory_notification_title">Připojeno k příslušenství USB</string>
     <string name="usb_notification_message">Klepnutím zobrazíte další možnosti USB.</string>
     <string name="adb_active_notification_title">Ladění USB bylo připojeno.</string>
@@ -1319,6 +1319,8 @@ Zkuste to znovu za %2$d sekund."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Tlačítka znovu zobrazíte potažením směrem dovnitř od okraje obrazovky v místě, kde jsou tlačítka normálně zobrazená.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Za chvíli se tlačítka znovu zobrazí.</string>
     <string name="sec_immersive_cling_help_text_step_two">Tlačítko Domů můžete používat i když je skryté. Chcete-li přejít na Domovskou obrazovku, silně stiskněte oblast obrazovky, kde se normálně nachází tlačítko Domů.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Ať držíte telefon jakkoli, tlačítka budou vždy umístěna u nabíjecího portu. Když otočíte telefon doleva, potáhněte doleva od okraje obrazovky jak ukazuje šipka.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Ať držíte telefon jakkoli, tlačítka budou vždy umístěna u nabíjecího portu. Když otočíte telefon doprava, potáhněte doprava od okraje obrazovky jak ukazuje šipka.</string>
     <string name="done_label">Hot.</string>
     <string name="hour_picker_description">Analogový výběr hodin</string>
     <string name="minute_picker_description">Analogový výběr minut</string>
@@ -1329,7 +1331,9 @@ Zkuste to znovu za %2$d sekund."</string>
     <string name="deleted_key">Odstraněno %s.</string>
     <string name="managed_profile_label_badge">Pracovní %1$s</string>
     <string name="lock_to_app_toast">Chcete-li aplikaci odepnout, současně stiskněte a přidržte tlačítka Poslední a Zpět.</string>
+    <string name="lock_to_app_toast_for_navibar">Chcete-li aplikaci odepnout, současně se dotkněte tlačítek Poslední a Zpět a přidržte je.</string>
     <string name="lock_to_app_toast_accessible">Chcete-li aplikaci odepnout, stiskněte a přidržte tlačítko Poslední.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Byl zapnut režim Zamknutí s aplikací.</string>
     <string name="lock_to_app_start">Aplikace byla připnuta.</string>
     <string name="lock_to_app_exit">Aplikace byla odepnuta.</string>
@@ -1435,9 +1439,9 @@ Při nabíjení zařízení se spořič baterie automaticky vypne."</string>
     <string name="tw_clipboard_save_tts">Uložit</string>
     <string name="tw_clipboard_button_tts">Tlačítko</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Schránka</string>
-    <string name="hdmi_connect">Kabel HDMI připojen.</string>
+    <string name="hdmi_connect">HDMI bylo připojeno.</string>
     <string name="hdmi_connect_indirectly">Připojte zařízení přímo k TV pomocí kabelu HDMI.</string>
-    <string name="hdmi_disconnect">Kabel HDMI odpojen.</string>
+    <string name="hdmi_disconnect">HDMI bylo odpojeno.</string>
     <string name="hdmi_recommend_charging_device">Doporučujeme nabíjet zařízení připojené k adaptéru HDTV dlouho. Připojte nabíječku k adaptéru HDTV a nabijte zařízení.</string>
     <string name="hdmi_wfd_terminate">HDMI připojeno. Připojení Screen Mirroring bylo ukončeno</string>
     <string name="disable">Zakázat</string>
@@ -1856,6 +1860,7 @@ příkaz"</string>
     <string name="volumepanel_media">Média</string>
     <string name="volumepanel_notification">Oznámení</string>
     <string name="volumepanel_system">Systém</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">V Tísňovém režimu není možné vytvořit kopii obrazovky.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Kopii displeje se nepodařilo uložit.</string>
     <string name="bluetooth_permission_request">Požadavek na oprávnění Bluetooth</string>
@@ -1928,6 +1933,7 @@ Chcete-li aplikaci odepnout, stiskněte a přidržte tlačítko menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Když je zapnuté Wi-Fi Direct, nelze zapnout %s.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Poskytovatel služeb neodpovídá.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nepodařilo se odeslat požadavek na aktivaci %s. Probíhá připojování prostřednictvím dostupných sítí…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Funkci %1$s nelze zapnout. Funkce %2$s není v internetovém balíčku dostupná nebo nebyla přijata žádná odpověď ze serveru %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s nelze zapnout. Zařízení se přehřívá. Počkejte až zařízení vychladne a opakujte akci.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s byla vypnuta, aby se zabránilo přehřátí zařízení. Probíhá stahování prostřednictvím mobilní sítě…</string>
     <string name="mptcp_message_data_usage_limit">Bylo dosaženo limitu využití dat. Chcete-li změnit limit využití dat, přejděte na Nastavení.</string>
@@ -2037,6 +2043,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Zvuk %s je přehráván pomocí zvukového zařízení USB. Klepnutím sem přehrávání vypnete.</string>
     <string name="multisound_change_output_device">Změnit zařízení zvukového výstupu</string>
     <string name="multisound_headup_contents">Zvukové zařízení, které jste vybrali pro tuto aplikaci, je stejné jako aktuální výstupní zvukové zařízení pro telefon. Pokud chcete oddělit zvuk této aplikace, změňte výstupní zvukové zařízení na panelu rychlých nastavení.</string>
+    <string name="multisound_hun_title">Změnit hlavní zařízení zvukového výstupu?</string>
+    <string name="multisound_hun_contents">Zvukové zařízení, které jste vybrali pro tuto aplikaci (%1$s), je stejné jako hlavní výstupní zvukové zařízení (%2$s). Pokud chcete oddělit zvuk této aplikace, změňte hlavní výstupní zvukové zařízení na %3$s.</string>
+    <string name="multisound_hun_close">Zavřít</string>
+    <string name="multisound_hun_change">Změnit</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Náhlavní souprava</string>
     <string name="bixby_edgecase_mpsm">Když je zapnutý Maximální úsporný režim, nelze použít Bixby.</string>
     <string name="bixby_edgecase_emergencymode">V Tísňovém režimu nelze použít Bixby.</string>
     <string name="bixby_edgecase_kidsmode">V režimu Děti nelze použít Bixby.</string>
@@ -2044,9 +2056,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Během používání MirrorLink nelze použít Bixby.</string>
     <string name="bixby_edgecase_dexmode">V Samsung DeX nelze použít Bixby.</string>
     <string name="bixby_edgecase_dexstation">Během připojení ke Stanici DeX nelze použít Bixby.</string>
-    <string name="conventional_mode_recent_noti">Aplikaci zobrazíte na celé obrazovce klepnutím na ikonu Rozbalit na obrazovce Poslední aplikace.</string>
+    <string name="bixby_edgecase_cantusenow">Nyní nelze použít Bixby Voice.</string>
+    <string name="conventional_mode_recent_noti">Poměr stran obrazovky aplikace můžete změnit na obrazovce Poslední aplikace.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Pro obnovení předchozího poměru stran použijte Nastavení > Displej > Aplikace na celou obrazovku.</string>
     <string name="conventional_mode_tap_here_to_fill">Klepnutím sem vyplníte celou obrazovku</string>
+    <string name="bixby_popup_unavailable_now">Bixby není k dispozici. Bixby může používat pouze vlastník telefonu nebo hlavní telefonní číslo.</string>
     <string name="permlab_knoxCustomSetting">Správa nastavení zařízení</string>
     <string name="permdesc_knoxCustomSetting">Umožňuje nakonfigurovat nastavení zařízení, například nastavení Bluetooth, Poloha, Wi-Fi, Mobilní data a Android.</string>
     <string name="permlab_knoxCustomSystem">Správa nastavení systému</string>
@@ -2422,6 +2436,4 @@ Když je zapnutý Maximální úsporný režim, funkce USB mohou být omezené."
     <string name="charging_connected_via_usb">Nabíjení připojeného zařízení prostřednictvím USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Limit systému souborů</string>
     <string name="lacking_filenode_internal_storage_view_text">V telefonu bylo vytvořeno příliš mnoho souborů. Aplikace mohou přestat správně fungovat a telefon se již nemusí spustit. Zálohujte všechna důležitá data a obnovte výrobní nastavení telefonu.</string>
-    <string name="lock_to_app_toast_for_navibar">Chcete-li aplikaci odepnout, současně se dotkněte tlačítek Poslední a Zpět a přidržte je.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

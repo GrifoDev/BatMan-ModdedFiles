@@ -911,9 +911,9 @@
     <string name="dlg_ok">အိုကေ</string>
     <string name="usb_charging_notification_title">USB ဖြင့်ဤစက်ပစ္စည်းကို အားသွင်းနေသည်</string>
     <string name="usb_supplying_notification_title">ချိတ်ဆက်ထားသည့် စက်ပစ္စည်းကို USB မှတစ်ဆင့် အားသွင်းနေသည်</string>
-    <string name="usb_mtp_notification_title">USB ဖြင့် မီဒီယာဖိုင်များ လွှဲပြောင်းနေသည်</string>
-    <string name="usb_ptp_notification_title">USB လွှဲပြောင်းရုပ်ပုံများ</string>
-    <string name="usb_midi_notification_title">USB ကို MIDI စက်သို့ချိတ်ဆက်ထားပါသည်</string>
+    <string name="usb_mtp_notification_title">ဖိုင်လွှဲပြောင်းရန် USB</string>
+    <string name="usb_ptp_notification_title">ပုံလွှဲပြောင်းရန် USB</string>
+    <string name="usb_midi_notification_title">MIDI အတွက် USB</string>
     <string name="usb_accessory_notification_title">USB တွဲဖက်ပစ္စည်း တစ်ခုသို့ ချိတ်ဆက်ထားသည်</string>
     <string name="usb_notification_message">အခြား USB ရွေးချယ်ရန်များအတွက် နှိပ်ပါ။</string>
     <string name="adb_active_notification_title">USB မှ ချွတ်ယွင်းချက်များ ရှာဖွေးမယ်ရှားမှုနှင့် ချိပ်ဆက်ပြီးပါပြီ။</string>
@@ -1314,6 +1314,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">ခလုတ်များကို ပုံမှန်မြင်တွေ့ရသည့် ဖန်သားပြင်၏ အစွန်းမှ အတွင်းဘက်သို့ ပွတ်ဆွဲခြင်းဖြင့် ခလုတ်များကို ထပ်ပြနိုင်သည်။</string>
     <string name="sec_immersive_cling_help_text_step_one_three">ခဏကြာပြီးလျှင် ခလုတ်များသည် ပြန်ပျောက်သွားပါမည်။</string>
     <string name="sec_immersive_cling_help_text_step_two">ပင်မဖန်သားပြင်ကို ဝှက်ထားလျှင်တောင်မှ ၎င်းကို သုံးနိုင်သည်။ ပင်မဖန်သားပြင်သို့ သွားရန်၊ ပင်မဖန်သားပြင် ပုံမှန်ပေါ်သော နေရာတွင် ဖန်သားပြင်၏ဧရိယာကို ခပ်ပြင်းပြင်းနှိပ်ပါ။</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">သင့်ဖုန်းကို မည်သည့်အနေအထားဖင့် ကိုင်ထားသည်ဖြစ်စေ ခလုတ်များသည် အားသွင်းသည့်အပေါက်၏ ဘေးတွင်သာ အမြဲ ရှိပါမည်။ သင့်ဖုန်းကို လက်ဝဲရစ်လှည့်လိုက်သည့်အခါ မြားဖြင့် ပြထားသည့်အတိုင်း ဖန်သားပြင်၏ အစွန်းမှ ဘယ်သို့ ပွတ်ဆွဲပါ။</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">သင့်ဖုန်းကို မည်သည့်အနေအထားဖင့် ကိုင်ထားသည်ဖြစ်စေ ခလုတ်များသည် အားသွင်းသည့်အပေါက်၏ ဘေးတွင်သာ အမြဲ ရှိပါမည်။ သင့်ဖုန်းကို လက်ယာရစ်လှည့်လိုက်သည့်အခါ မြားဖြင့် ပြထားသည့်အတိုင်း ဖန်သားပြင်၏ အစွန်းမှ ညာသို့ ပွတ်ဆွဲပါ။</string>
     <string name="done_label">ပြီးပါပြီ</string>
     <string name="hour_picker_description">အန်နာလော့ နာရီ အချိန်ရွေးကိရိယာ</string>
     <string name="minute_picker_description">အန်နာလော့ မိနစ် အချိန်ရွေးကိရိယာ</string>
@@ -1324,7 +1326,9 @@
     <string name="deleted_key">%s deleted.</string>
     <string name="managed_profile_label_badge">အလုပ် %1$s</string>
     <string name="lock_to_app_toast">အက်ပ်ကို ပင်ဖြုတ်ရန် လတ်တလောများနှင့် နောက်သို့ ကီးများကို တစ်ပြိုင်တည်း ဖိ၍ နှိပ်ထားပါ။</string>
+    <string name="lock_to_app_toast_for_navibar">အက်ပ်ကို ပင်ဖြုတ်ရန် လတ်တလောများနှင့် နောက်သို့ ခလုတ်များကို တစ်ပြိုင်တည်း ဖိ၍ နှိပ်ထားပါ။</string>
     <string name="lock_to_app_toast_accessible">အပလီကေးရှင်းကို ပြန်ဖြုတ်ရန်၊ မကြာမီက ကီးကို နှိပ်ပြီး ကိုင်ထားပါ။</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">အက်ပ်-သော့-ပိတ်ခြင်း အနေအထားကို ဖွင့်ထားခဲ့ပြီးပြီ။</string>
     <string name="lock_to_app_start">အက်ပ်ကို ပင်ထိုးထားသည်။</string>
     <string name="lock_to_app_exit">အက်ပ်ကို ပင်ဖြုတ်ထားသည်။</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">သိမ်းဆည်းပါ</string>
     <string name="tw_clipboard_button_tts">ခလုတ်</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">ကလစ်ဘုတ်</string>
-    <string name="hdmi_connect">HDMI ကြိုး ဆက်ပြီးပြီ။</string>
+    <string name="hdmi_connect">HDMI ချိတ်ဆက်ထားသည်။</string>
     <string name="hdmi_connect_indirectly">သင့်ကိရိယာကိုHDMI ကြိုးမှတဆင့် TV သို့ တိုက်ရိုက်ချိတ်ဆက်ပါ။</string>
-    <string name="hdmi_disconnect">HDMI ကြိုး ဖြုတ်ပြီးပြီ။</string>
+    <string name="hdmi_disconnect">HDMI ကို ချိတ်ဆက်မှုဖြုတ်ထားသည်။</string>
     <string name="hdmi_recommend_charging_device">သင့်ကိရိယာသည် HDTV အဒက်တာနှင့် အချိန်ကြာမြင့်စွာ ချိတ်ဆက်ထားလျှင် ၄င်းကို အားသွင်းရန် အကြံပြုပါသည်။ သင့်ကိရိယာကို အားသွင်းရန် HDTV အဒက်တာထံ အားသွင်းကိရိယာကို ချိတ်ဆက်ပါ။</string>
     <string name="hdmi_wfd_terminate">HDMI ချိတ်ဆက်ထားသည်။ Screen Mirroring ချိတ်ဆက်မှု ပြီးဆုံးသွားပြီ</string>
     <string name="disable">ပိတ်ထားပါ</string>
@@ -1850,6 +1854,7 @@ command"</string>
     <string name="volumepanel_media">မီဒီယာ</string>
     <string name="volumepanel_notification">အကြောင်းကြားချက်များ</string>
     <string name="volumepanel_system">ဖွဲ့စည်းပုံ</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">အရေးပေါ် အနေအထားတွင် ဖန်သားပြင် ဖမ်းယူ၍မရနိုင်ပါ။</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">ဖန်သားပြင်ပုံကို ဖမ်းယူ၍ မရပါ။</string>
     <string name="bluetooth_permission_request">ဘလူးတုသ် ခွင့်ပြုရန် မေတ္တာရပ်ခံချက်</string>
@@ -1922,6 +1927,7 @@ command"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ဖွင့်ထားစဉ် %s ကိုဖွင့်၍မရနိုင်ပါ။</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ဝန်ဆောင်မှုပေးသူမှ တုန့်ပြန်မှုမရှိပါ။</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s သင်ဝင်စေမှုတောင်းဆိုချက်ပို့ရန် မအောင်မြင်ပါ။ ရနိုင်သည့်ကွန်ယက်များမှတဆင့် ပြန်လည်ချိတ်ဆက်နေဆဲ…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ကိုဖွင့်၍ မရနိုင်ပါ။ %2$s ကို သင့်အင်တာနက် ပက်ကေ့ချ်ဖြင့် သုံး၍ မရနိုင်ပါ (သို့) %3$s ဆာဗာမှ မည်သည့်တုံ့ပြန်ချက်မှ လက်ခံမရရှိထားပါ။</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ကိုဖွင့်၍မရနိုင်ပါ။ ကိရိယာ အလွန်ပူနေသည်။ ကိရိယာအေးသွားစေရန် စောင့်ပြီး ထပ်မံကြိုးစားပါ။</string>
     <string name="mptcp_message_operation_disabled_overheating">ကိရိယာ အလွန်ပူခြင်းကို တားဆီးရန် %s ကိုပိတ်ထားသည်။ မိုဘိုင်းကွန်ယက်မှတဆင့် အစားထိုးဒေါင်းလုတ်လုပ်နေဆဲ…</string>
     <string name="mptcp_message_data_usage_limit">ဒေတာအသုံးပြုမှုအကန့်အသတ်သို့ ရောက်ရှိထားသည်။ ဒေတာအသုံးပြုမှုအကန့်အသတ်ကိုပြောင်းရန်၊ သတ်မှတ်ချက်များသို့သွားပါ။</string>
@@ -2029,6 +2035,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s အသံကို သင့် USB အော်ဒီယိုစက်မှတဆင့် ဖွင့်ထားပါသည်။ ၎င်းကို ပိတ်ရန် ဤနေရာမှာ နှိပ်ပါ။</string>
     <string name="multisound_change_output_device">အော်ဒီယို အသံထုတ်လွှင့်စက်ကို ပြောင်းပါ</string>
     <string name="multisound_headup_contents">ဤအက်ပ်အတွက် သင်ရွေးချယ်ထားသည့် အော်ဒီယိုစက်သည် သင့်ဖုန်းအတွက် လက်ရှိအသံ ထုတ်လွှင့်စက်နှင့် တူညီနေပါသည်။ ဤအက်ပ်အတွက် အသံကို ခွဲထုတ်ရန် အမြန်သတ်မှတ်ချက်များ ပန်နယ်တွင် သင်၏ အော်ဒီယိုအသံထုတ်လွှင့်စက်ကို ပြောင်းပါ။</string>
+    <string name="multisound_hun_title">ပင်မ အသံထုတ်လွှင့်စက်ကို ပြောင်းမလား?</string>
+    <string name="multisound_hun_contents">ဤအက်ပ် (%1$s) အတွက် သင်ရွေးချယ်ထားသည့် အော်ဒီယိုစက် (%2$s) သည် အသံထွက်ပေါ်သည့် အဓိက စက်နှင့် တူညီသည်။ ဤအက်ပ်အတွက် အသံကို သီးခြားခွဲထုတ်ရန် အသံထွက်ပေါ်သည့် အဓိကစက်ကို %3$s သို့ ပြောင်းရန် လိုသည်။</string>
+    <string name="multisound_hun_close">ပိတ်ပါ</string>
+    <string name="multisound_hun_change">ပြောင်းပါ</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">နားကြပ်</string>
     <string name="bixby_edgecase_mpsm">အများဆုံး ပါဝါချွေတာရေးအနေအထားကို ဖွင့်ထားစဉ်အတွင်း Bixby ကို သုံး၍မရပါ။</string>
     <string name="bixby_edgecase_emergencymode">အရေးပေါ် အနေအထားတွင် Bixby ကို အသုံးမပြုနိုင်ပါ။</string>
     <string name="bixby_edgecase_kidsmode">ကလေး အနေအထားတွင် Bixby ကို အသုံးမပြုနိုင်ပါ။</string>
@@ -2036,9 +2048,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink ကိုအသုံးပြုစဉ် Bixby ကို အသုံးမပြုနိုင်ပါ။</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX တွင် Bixby ကို သုံး၍မရနိုင်ပါ။</string>
     <string name="bixby_edgecase_dexstation">DeX Station နှင့်ချိတ်ဆက်ထားစဉ် Bixby ကို သုံး၍ မရပါ။</string>
-    <string name="conventional_mode_recent_noti">လတ်တလော အက်ပ်ဖန်သားပြင်ပေါ်ရှိ ချဲ့ အိုင်ကွန်ကို နှိပ်ခြင်းဖြင့် ဤအက်ပ်ကို ဖန်သားပြင်အပြည့်တွင် ကြည့်နိုင်ပါသည်။</string>
+    <string name="bixby_edgecase_cantusenow">Bixby Voice ကို လောလောဆယ် သုံး၍ မရပါ။</string>
+    <string name="conventional_mode_recent_noti">လတ်တလော အက်ပ် ဖန်သားပြင်ပေါ်တွင် အက်ပ် အချိုးအဆကို ပြောင်းနိုင်ပါသည်။</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">ယခင်အချိုးအဆသို့ ပြန်သွားရန် သတ်မှတ်ချက်များ > ပြသချက် > ဖန်သားပြင်အပြည့် အက်ပ်များသို့ သွားပါ။</string>
     <string name="conventional_mode_tap_here_to_fill">ဖန်သားပြင်တစ်ခုလုံး ပြည့်နေစေရန် ဤနေရာကို နှိပ်ပါ</string>
+    <string name="bixby_popup_unavailable_now">Bixby ကိုမရနိုင်ပါ။ ဖုန်းပိုင်ဆိုင်သူ သို့မဟုတ် အဓိကဖုန်းနံပါတ်သာ Bixby အသုံးပြုနိုင်သည်။</string>
     <string name="permlab_knoxCustomSetting">ကိရိယာ သတ်မှတ်ချက်များ စီမံပါ</string>
     <string name="permdesc_knoxCustomSetting">ဘလူးတုသ်၊ တည်နေရာ၊ Wi-Fi၊ မိုဘိုင်းဒေတာနှင့် အန်းဒရွိုက်သတ်မှတ်ချက်များကဲ့သို့ ကိရိယာသတ်မှတ်ချက်ကို သီးခြားစီစဉ်ပါ။</string>
     <string name="permlab_knoxCustomSystem">စနစ် သတ်မှတ်ချက်များ စီမံပါ</string>
@@ -2409,6 +2423,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">ချိတ်ဆက်ထားသည့် ကိရိယာကို USB မှတဆင့် အားသွင်းနေဆဲ…</string>
     <string name="lacking_filenode_internal_storage_view_title">ဖိုင်စနစ် ကန့်သတ်ချက်</string>
     <string name="lacking_filenode_internal_storage_view_text">သင့်ဖုန်းတွင် ဖိုင်ပေါင်းများစွာကို ဖန်တီးထားသည်။ မှန်ကန်စွာ အလုပ်လုပ်နေသည့် အက်ပ်များ ရပ်သွားနိုင်ပြီး သင့်ဖုန်းက စပွင့်လာတော့မည် မဟုတ်ပါ။ အရေးကြီး ဒေတာများကို အရံသိမ်းပြီး သင့်ဖုန်းကို စက်ရုံထုတ် အခြေအနေအတိုင်း ပြန်သတ်မှတ်ပါ။</string>
-    <string name="lock_to_app_toast_for_navibar">အက်ပ်ကို ပင်ဖြုတ်ရန် လတ်တလောများနှင့် နောက်သို့ ခလုတ်များကို တစ်ပြိုင်တည်း ဖိ၍ နှိပ်ထားပါ။</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

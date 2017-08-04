@@ -766,7 +766,7 @@
     <string name="aerr_process">Процесот %1$s сопре.</string>
     <string name="aerr_application_repeated">%1$s постојано запира</string>
     <string name="aerr_process_repeated">%1$s постојано запира</string>
-    <string name="aerr_restart">Рест. апл.</string>
+    <string name="aerr_restart">Рестартирај апликација</string>
     <string name="aerr_reset">Ресетирај ја и рестартирај ја апликацијата</string>
     <string name="aerr_report">Испрати повратни информации</string>
     <string name="aerr_close">Затвори</string>
@@ -911,9 +911,9 @@
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Уредов се полни преку USB</string>
     <string name="usb_supplying_notification_title">Прикачениот уред се напојува преку USB</string>
-    <string name="usb_mtp_notification_title">Пренесување мед. датотеки USB</string>
-    <string name="usb_ptp_notification_title">USB префрла слики</string>
-    <string name="usb_midi_notification_title">USB-то е поврзано со MIDI уред</string>
+    <string name="usb_mtp_notification_title">USB за пренесување датотеки</string>
+    <string name="usb_ptp_notification_title">USB за пренесување слики</string>
+    <string name="usb_midi_notification_title">USB за MIDI</string>
     <string name="usb_accessory_notification_title">Поврзано со USB-додаток</string>
     <string name="usb_notification_message">Допрете за други опции за USB.</string>
     <string name="adb_active_notification_title">Дебагирањето на USB е поврзано.</string>
@@ -1313,6 +1313,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">Можете да ги прикажете копчињата повторно поминувајќи навнатре од работ на екранот таму каде што копчињата вообичаено се појавуваат.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">По некое време, копчињата повторно ќе исчезнат.</string>
     <string name="sec_immersive_cling_help_text_step_two">Можете да ги користите копчето Дома дури и кога е скриено. За да одите во екранот Дома, цврсто притиснете на областа на екранот каде што копчето Дома обично се појавува.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Како и да го држите телефонот, копчињата секогаш ќе бидат лоцирани до приклучокот за полнење. Кога телефонот се ротира налево, поминете налево од работ на екранот, како што е прикажано со стрелката.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Како и да го држите телефонот, копчињата секогаш ќе бидат лоцирани до приклучокот за полнење. Кога телефонот се ротира надесно, поминете надесно од работ на екранот, како што е прикажано со стрелката.</string>
     <string name="done_label">Готово</string>
     <string name="hour_picker_description">Аналоген одбирач на часови</string>
     <string name="minute_picker_description">Аналоген одбирач на минути</string>
@@ -1323,7 +1325,9 @@
     <string name="deleted_key">%s е избришан.</string>
     <string name="managed_profile_label_badge">Работа %1$s</string>
     <string name="lock_to_app_toast">За да откачите апликација, притиснете и држете ги копчињата Последни и Назад истовремено.</string>
+    <string name="lock_to_app_toast_for_navibar">За да откачите апликација, допрете и држете ги копчињата Последни и Назад истовремено.</string>
     <string name="lock_to_app_toast_accessible">За да откачите апликација, притиснете го и држете го копчето последни.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Вклучен е режимот за заклучување во апликација.</string>
     <string name="lock_to_app_start">Апликацијата е закачена.</string>
     <string name="lock_to_app_exit">Апликацијата е откачена.</string>
@@ -1429,9 +1433,9 @@
     <string name="tw_clipboard_save_tts">Сочувај</string>
     <string name="tw_clipboard_button_tts">Копче</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Посредна меморија</string>
-    <string name="hdmi_connect">Поврзан е кабел HDMI.</string>
+    <string name="hdmi_connect">Поврзано на HDMI.</string>
     <string name="hdmi_connect_indirectly">Поврзете го уредот со телевизор директно преку кабел HDMI.</string>
-    <string name="hdmi_disconnect">Кабелот HDMI е откачен.</string>
+    <string name="hdmi_disconnect">Исклучено од HDMI.</string>
     <string name="hdmi_recommend_charging_device">Препорачуваме да го полните уредот ако е поврзан со адаптер HDTV подолго време. Поврзете го полначот со адаптер HDTV за да го наполните уредот.</string>
     <string name="hdmi_wfd_terminate">Поврзано е HDMI. Поврзувањето Screen Mirroring е завршено</string>
     <string name="disable">Исклучи</string>
@@ -1850,6 +1854,7 @@
     <string name="volumepanel_media">Медиум</string>
     <string name="volumepanel_notification">Известувања</string>
     <string name="volumepanel_system">Системски</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Не може да се слика екранот во Итниот режим.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Не може да се долови екранска снимка.</string>
     <string name="bluetooth_permission_request">Барање за дозвола Bluetooth</string>
@@ -1922,6 +1927,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Не може да се вклучи %s кога е вклучен Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Нема одговор од операторот.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Неуспешно испраќање на барањето за ативирање на %s. Се поврзува повторно преку достапните мрежи…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Не може да се овозможи %1$s. %2$s не е достапно со Вашиот интернет пакет или не е добиен одговор од серверот на %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Не може да се овозможи %s. Уредот се прегрева. Почекајте да се излади уредот и обидете се повторно.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s е оневозможено за да се спречи прегревање на уредот. Се презема преку мобилна мрежа…</string>
     <string name="mptcp_message_data_usage_limit">Постигнато е ограничувањето за користење податоци. За да го промените ограничувањето за користење податоци, одете во Подесувања.</string>
@@ -2031,6 +2037,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Звукот на %s се пушта преку Вашиот аудио уред USB. Допрете тука за да го исклучите ова.</string>
     <string name="multisound_change_output_device">Менување уред за аудио излез</string>
     <string name="multisound_headup_contents">Аудио уредот што сте го одбрале за оваа апликација е ист како тековниот уред за аудио излез за Вашиот телефон. За да го одделите звукот за оваа апликација, сменете го уредот за аудио излез во плочата за брзи поставувања.</string>
+    <string name="multisound_hun_title">Да се смени главниот уред за аудио излез?</string>
+    <string name="multisound_hun_contents">Аудио уредот што сте го одбрале за оваа апликација (%1$s) е ист како главниот уред за аудио излез (%2$s). За да го одделите звукот за оваа апликација, главниот уред за аудио излез треба да се смени на %3$s.</string>
+    <string name="multisound_hun_close">Затвори</string>
+    <string name="multisound_hun_change">Смени</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Слушалки</string>
     <string name="bixby_edgecase_mpsm">Не може да се користи Bixby додека е вклучен Режим за максимално штедење енергија.</string>
     <string name="bixby_edgecase_emergencymode">Не може да се користи Bixby во Итен режим.</string>
     <string name="bixby_edgecase_kidsmode">Не може да се користи Bixby во Детски режим.</string>
@@ -2038,9 +2050,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Не може да се користи Bixby додека се користи MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Не може да се користи Bixby во Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Не може да се користи Bixby додека е поврзан со Станица DeX.</string>
-    <string name="conventional_mode_recent_noti">Можете да ја видите оваа апликација на цел екран допирајќи на иконата за Проширување на екранот Последни апликации.</string>
+    <string name="bixby_edgecase_cantusenow">Не може да се користи Bixby Voice во моментов.</string>
+    <string name="conventional_mode_recent_noti">Можете да го смените размерот на апликацијата на екранот Последни апликации.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">За да се вратите на претходниот размер, одете во Поставувања > Екран > Апликации на цел екран.</string>
     <string name="conventional_mode_tap_here_to_fill">Допрете тука за да го пополните целиот екран</string>
+    <string name="bixby_popup_unavailable_now">Bixby е недостапно. Само сопственикот на телефонот или главниот телефонски број можат да користат Bixby.</string>
     <string name="permlab_knoxCustomSetting">Управувај со поставувањата на уредот</string>
     <string name="permdesc_knoxCustomSetting">Конфигурирај поставувања за уредот како што се Bluetooth, Локација, Wi-Fi, Мобилни податоци и Android поставувања.</string>
     <string name="permlab_knoxCustomSystem">Управувај со системските поставувања</string>
@@ -2385,6 +2399,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">Се полни поврзан уред преку USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Ограничување на датотеч. систем</string>
     <string name="lacking_filenode_internal_storage_view_text">Премногу датотеки се направени на Вашиот телефон. Апликациите може да престанат да работат правилно и Вашиот телефон може повеќе да не се активира. Архивирајте ги важните податоци и направете фабричко ресетирање на телефонот.</string>
-    <string name="lock_to_app_toast_for_navibar">За да откачите апликација, допрете и држете ги копчињата Последни и Назад истовремено.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

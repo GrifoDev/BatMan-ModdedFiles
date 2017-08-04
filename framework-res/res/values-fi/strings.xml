@@ -770,7 +770,7 @@ Haluatko varmasti siirtyä pois tältä sivulta?"</string>
     <string name="aerr_process">Prosessi %1$s on pysäytetty.</string>
     <string name="aerr_application_repeated">%1$s pysähtyy toistuvasti.</string>
     <string name="aerr_process_repeated">%1$s pysähtyy toistuvasti.</string>
-    <string name="aerr_restart">Käynn. uud.</string>
+    <string name="aerr_restart">Käynnistä sovellus uudelleen</string>
     <string name="aerr_reset">Nollaa sovellus ja käynnistä uudelleen</string>
     <string name="aerr_report">Lähetä palautetta</string>
     <string name="aerr_close">Sulje</string>
@@ -915,9 +915,9 @@ Haluatko sulkea sen?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Laitetta ladataan USB-yhteyden kautta</string>
     <string name="usb_supplying_notification_title">Liitetty laite saa virtaa USB-yhteyden kautta</string>
-    <string name="usb_mtp_notification_title">USB siirtää mediatiedostoja</string>
-    <string name="usb_ptp_notification_title">USB siirtää kuvia</string>
-    <string name="usb_midi_notification_title">USB yhdistetty MIDI-laitteeseen</string>
+    <string name="usb_mtp_notification_title">USB tiedostonsiirtoon</string>
+    <string name="usb_ptp_notification_title">USB kuvansiirtoon</string>
+    <string name="usb_midi_notification_title">USB MIDI-käyttöön</string>
     <string name="usb_accessory_notification_title">Liitetty USB-lisälaitteena</string>
     <string name="usb_notification_message">Avaa muut USB-asetukset napauttamalla.</string>
     <string name="adb_active_notification_title">USB-virheenkorjaus on yhdistetty.</string>
@@ -1319,6 +1319,8 @@ Yritä %2$d sekunnin kuluttua uudelleen."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Voit näyttää painikkeet uudelleen pyyhkäisemällä näytön reunasta, painikkeiden normaalista paikasta, sisäänpäin.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Painikkeet katoavat hetken kuluttua uudelleen.</string>
     <string name="sec_immersive_cling_help_text_step_two">Voit käyttää kotipainiketta myös silloin, kun se on piilotettu. Pääset alkunäyttöön painamalla voimakkaasti sitä näytön aluetta, jolla kotipainike normaalisti näkyy.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Piteletpä puhelinta miten tahansa, painikkeet ovat aina latausportin vieressä. Kun puhelinta kierretään vastapäivään, pyyhkäise näytön reunasta vasemmalle nuolen osoittamalla tavalla.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Piteletpä puhelinta miten tahansa, painikkeet ovat aina latausportin vieressä. Kun puhelinta kierretään myötäpäivään, pyyhkäise näytön reunasta oikealle nuolen osoittamalla tavalla.</string>
     <string name="done_label">Valmis</string>
     <string name="hour_picker_description">Analoginen tunnin valitsin</string>
     <string name="minute_picker_description">Analoginen minuutin valitsin</string>
@@ -1329,7 +1331,9 @@ Yritä %2$d sekunnin kuluttua uudelleen."</string>
     <string name="deleted_key">%s poistettu.</string>
     <string name="managed_profile_label_badge">%1$s (työ)</string>
     <string name="lock_to_app_toast">Voit poistaa sovelluksen kiinnityksen pitämällä viimeksi käytettyjen sovellusten näppäintä ja paluunäppäintä samanaikaisesti painettuina.</string>
+    <string name="lock_to_app_toast_for_navibar">Voit poistaa sovelluksen kiinnityksen pitämällä viimeksi käytettyjen sovellusten painiketta ja paluupainiketta samanaikaisesti painettuina.</string>
     <string name="lock_to_app_toast_accessible">Voit poistaa sovelluksen kiinnityksen pitämällä viimeksi käytettyjen sovellusten näppäintä painettuna.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Sovelluksen lukitustila on käytössä.</string>
     <string name="lock_to_app_start">Sovellus kiinnitetty.</string>
     <string name="lock_to_app_exit">Sovellus irrotettu.</string>
@@ -1435,9 +1439,9 @@ Virransäästö poistuu käytöstä automaattisesti, kun laitteesi latautuu."</s
     <string name="tw_clipboard_save_tts">Tallenna</string>
     <string name="tw_clipboard_button_tts">Painike</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Leikepöytä</string>
-    <string name="hdmi_connect">HDMI-kaapeli kytketty.</string>
+    <string name="hdmi_connect">HDMI-yhteys muodostettu.</string>
     <string name="hdmi_connect_indirectly">Yhdistä laite HDMI-kaapelilla suoraan TV:seen.</string>
-    <string name="hdmi_disconnect">HDMI-kaapeli irrotettu.</string>
+    <string name="hdmi_disconnect">HDMI-yhteys katkaistu.</string>
     <string name="hdmi_recommend_charging_device">Suosittelemme, että lataat laitteen, jos se on ollut yhdistettynä HDTV-sovittimeen pitkän aikaa. Kytke laturi HDTV-sovittimeen laitteen lataamista varten.</string>
     <string name="hdmi_wfd_terminate">HDMI yhdistetty. Screen Mirroring -yhteys on katkaistu</string>
     <string name="disable">Pois päältä</string>
@@ -1856,6 +1860,7 @@ komento"</string>
     <string name="volumepanel_media">Media</string>
     <string name="volumepanel_notification">Ilmoitukset</string>
     <string name="volumepanel_system">Järjestelmä</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Hätätilassa ei voi ottaa näyttökuvaa.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Ruudunkaappausta ei voi tallentaa.</string>
     <string name="bluetooth_permission_request">Bluetooth-lupapyyntö</string>
@@ -1928,6 +1933,7 @@ Voit poistaa sovelluksen kiinnityksen pitämällä valikkonäppäintä painettun
     <string name="mptcp_message_mptcp_capability_WifiDirect">Toimintoa %s ei voi ottaa käyttöön, kun Wi-Fi Direct on käytössä.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Palveluntarjoaja ei vastaa.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s -aktivointipyynnön lähettäminen epäonnistui. Yhteys muodostetaan uudelleen käytettävissä olevien verkkojen kautta…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Toimintoa %1$s ei voi ottaa käyttöön. %2$s ei ole käytettävissä Internet-pakettisi kanssa tai palvelin %3$s ei vastaa.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s -palvelua ei voi ottaa käyttöön. Laite ylikuumenee. Odota, kunnes laite on jäähtynyt, ja yritä uudelleen.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s on poistettu laitteen ylikuumenemisen estämiseksi käytöstä. Ladataan matkapuhelinverkon kautta…</string>
     <string name="mptcp_message_data_usage_limit">Datankäyttörajoitus saavutettu. Voit muuttaa datankäyttörajoitusta Asetukset-kohdassa.</string>
@@ -2037,6 +2043,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">Sovelluksen %s ääni toistetaan USB-äänilaitteesta. Voit poistaa toiminnon käytöstä napauttamalla tätä.</string>
     <string name="multisound_change_output_device">Vaihda äänilähtölaite</string>
     <string name="multisound_headup_contents">Tälle sovellukselle valitsemasi äänilaite on sama kuin puhelimesi nykyinen äänilähtölaite. Jos haluat erottaa tämän sovelluksen äänen, vaihda äänilaite pika-asetuspaneelissa.</string>
+    <string name="multisound_hun_title">Vaihdetaanko ensisijaista äänilähtölaitetta?</string>
+    <string name="multisound_hun_contents">Tälle sovellukselle valitsemasi äänilaite (%1$s) on sama kuin ensisijainen äänilähtölaite (%2$s). Jos haluat erottaa tämän sovelluksen äänen, ensisijaiseksi äänilähtölaitteeksi on vaihdettava %3$s.</string>
+    <string name="multisound_hun_close">Sulje</string>
+    <string name="multisound_hun_change">Vaihda</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Kuulokemikrofoni</string>
     <string name="bixby_edgecase_mpsm">Bixbyä ei voi käyttää, kun maksimivirransäästötila on käytössä.</string>
     <string name="bixby_edgecase_emergencymode">Bixbyä ei voi käyttää hätätilassa.</string>
     <string name="bixby_edgecase_kidsmode">Bixbyä ei voi käyttää Lasten tilassa.</string>
@@ -2044,9 +2056,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Bixbyä ei voi käyttää, kun MirrorLink on käytössä.</string>
     <string name="bixby_edgecase_dexmode">Bixbyä ei voi käyttää Samsung DeX:ssä.</string>
     <string name="bixby_edgecase_dexstation">Bixbyä ei voi käyttää, kun ollaan yhteydessä DeX Stationiin.</string>
-    <string name="conventional_mode_recent_noti">Voit näyttää tämän sovelluksen koko näytön tilassa napauttamalla Viimeksi käytetyt sovellukset -näytön Laajenna-kuvaketta.</string>
+    <string name="bixby_edgecase_cantusenow">Bixby Voicea ei voi käyttää juuri nyt.</string>
+    <string name="conventional_mode_recent_noti">Voit muuttaa sovelluksen kuvasuhdetta Viimeksi käytetyt sovellukset -näytössä.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Voit palata viimeksi käytettyyn kuvasuhteeseen valitsemalla Asetukset > Näyttö > Koko näytön sovellukset.</string>
     <string name="conventional_mode_tap_here_to_fill">Täytä koko näyttö napauttamalla tätä</string>
+    <string name="bixby_popup_unavailable_now">Bixby ei ole käytettävissä. Vain puhelimen omistaja tai pääpuhelinnumero voi käyttää Bixbyä.</string>
     <string name="permlab_knoxCustomSetting">Laitteen asetusten hallinta</string>
     <string name="permdesc_knoxCustomSetting">Määritä laitteen asetukset, kuten Bluetooth-, Sijainti-, Wi-Fi-, mobiilidata- ja Android-asetukset.</string>
     <string name="permlab_knoxCustomSystem">Järjestelmäasetusten hallinta</string>
@@ -2422,6 +2436,4 @@ USB-toimintojen käyttöä voidaan rajoittaa, kun maksimivirransäästötila on 
     <string name="charging_connected_via_usb">Liitettyä laitetta ladataan USB-liitännän kautta…</string>
     <string name="lacking_filenode_internal_storage_view_title">Tiedostojärjestelmän rajoitus</string>
     <string name="lacking_filenode_internal_storage_view_text">Puhelimessa on luotu liian monta tiedostoa. Sovellukset voivat lakata toimimasta oikein eikä puhelin ehkä enää käynnisty. Varmuuskopioi tärkeät tiedot ja suorita puhelimen tehdaspalautus.</string>
-    <string name="lock_to_app_toast_for_navibar">Voit poistaa sovelluksen kiinnityksen pitämällä viimeksi käytettyjen sovellusten painiketta ja paluupainiketta samanaikaisesti painettuina.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

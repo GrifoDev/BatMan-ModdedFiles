@@ -911,9 +911,9 @@
     <string name="dlg_ok">ព្រម</string>
     <string name="usb_charging_notification_title">USB កំពុងសាកឧបករណ៍នេះ</string>
     <string name="usb_supplying_notification_title">USB កំពុងផ្គត់ផ្គង់ថាមពលទៅឧបករណ៍ដែលបានភ្ជាប់</string>
-    <string name="usb_mtp_notification_title">កំពុង​ផ្ទេរ​ឯកសារ​មេឌៀ​តាម USB</string>
-    <string name="usb_ptp_notification_title">USB ផ្ទេរ​រូប</string>
-    <string name="usb_midi_notification_title">បាន​ភ្ជាប់ USB ទៅ​ឧបករណ៍ MIDI</string>
+    <string name="usb_mtp_notification_title">USB សម្រាប់​ការផ្ទេរ​ឯកសារ</string>
+    <string name="usb_ptp_notification_title">USB សម្រាប់​ការផ្ទេរ​រូប</string>
+    <string name="usb_midi_notification_title">USB សម្រាប់ MIDI</string>
     <string name="usb_accessory_notification_title">បាន​ភ្ជាប់​ទៅ​គ្រឿង​បន្សំ USB</string>
     <string name="usb_notification_message">ប៉ះ​សម្រាប់​ជម្រើស USB ផ្សេងទៀត។</string>
     <string name="adb_active_notification_title">បាន​ភ្ជាប់​ការបំបាត់​កំហុស USB។</string>
@@ -1315,6 +1315,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">អ្នក​អាច​បង្ហាញ​ប៊ូតុង​ម្ដងទៀត ដោយ​អូស​ចូល​ក្នុង​ពី​គែម​នៃ​អេក្រង់​ដែល​ប៊ូតុង​លេចឡើង​ធម្មតា។</string>
     <string name="sec_immersive_cling_help_text_step_one_three">បន្ទាប់​ពី​មួយ​រយៈ ប៊ូតុង​នេះ​នឹង​បាត់​រូប​ម្ដងទៀត។</string>
     <string name="sec_immersive_cling_help_text_step_two">អ្នក​អាច​ប្រើ​គេហប៊ូតុង សូម្បី​ខណៈពេល​វា​ត្រូវ​បាន​លាក់។ ដើម្បី​ចូលទៅ​គេហអេក្រង់ សូម​ចុច​ខ្លាំង​លើ​ផ្ទៃ​នៃ​អេក្រង់​ដែល​គេហប៊ូតុង​លេចឡើង​ធម្មតា។</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">ទោះជាយ៉ាងនេះក្ដី នៅពេល​អ្នក​កាន់​ទូរសព្ទ​របស់​អ្នក ប៊ូតុង​នេះ​នឹង​តែងតែ​ស្ថិត​នៅ​ជាប់​នឹង​រន្ធសាក​ជានិច្ច។ នៅពេល​ទូរសព្ទ​របស់​អ្នក​ត្រូវ​បាន​បង្វិល​ក្នុង​ទិស​បញ្ច្រាស់​ទ្រនិច​នាឡិកា សូម​អូស​មក​ឆ្វេង​ពី​គែម​នៃ​អេក្រង់​ដូច​បាន​បង្ហាញ​ដោយ​ព្រួញ។</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">ទោះជាយ៉ាងនេះក្ដី នៅពេល​អ្នក​កាន់​ទូរសព្ទ​របស់​អ្នក ប៊ូតុង​នេះ​នឹង​តែងតែ​ស្ថិត​នៅ​ជាប់​នឹង​រន្ធសាក​ជានិច្ច។ នៅពេល​ទូរសព្ទ​របស់​អ្នក​ត្រូវ​បាន​បង្វិល​ក្នុង​ទិស​នាឡិកា សូម​អូស​ទៅ​ស្ដាំ​ពី​គែម​នៃ​អេក្រង់​ដូច​បាន​បង្ហាញ​ដោយ​ព្រួញ។</string>
     <string name="done_label">រួចរាល់</string>
     <string name="hour_picker_description">ប្រដាប់រើស​ម៉ោង​ទ្រនិច</string>
     <string name="minute_picker_description">ប្រដាប់រើស​នាទី​ទ្រនិច</string>
@@ -1325,7 +1327,9 @@
     <string name="deleted_key">បាន​លុប %s។</string>
     <string name="managed_profile_label_badge">កន្លែង​ធ្វើការ %1$s</string>
     <string name="lock_to_app_toast">ដើម្បី​ឈប់ខ្ទាស់​កម្មវិធី សូម​ចុច​ឲ្យជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ​និង​គ្រាប់ចុច​ថយ​ក្នុង​ពេល​តែមួយ។</string>
+    <string name="lock_to_app_toast_for_navibar">ដើម្បី​ឈប់ខ្ទាស់​កម្មវិធី សូម​ប៉ះ​ឲ្យជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ​និង​គ្រាប់ចុច​ថយ​ក្នុង​ពេល​តែមួយ។</string>
     <string name="lock_to_app_toast_accessible">ដើម្បី​ឈប់​ខ្ទាស់​កម្មវិធី សូម​ចុច​ឲ្យ​ជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ។</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">បាន​បើកប្រើ​ទម្រង់​ចាក់សោ​ចំពោះ​កម្មវិធី។</string>
     <string name="lock_to_app_start">បាន​ខ្ទាស់​កម្មវិធី។</string>
     <string name="lock_to_app_exit">បាន​ឈប់​ខ្ទាស់​កម្មវិធី។</string>
@@ -1431,9 +1435,9 @@
     <string name="tw_clipboard_save_tts">រក្សា​ទុក</string>
     <string name="tw_clipboard_button_tts">ប៊ូតុង</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">ក្ដារ​តម្បៀតខ្ទាស់</string>
-    <string name="hdmi_connect">បាន​ភ្ជាប់​ខ្សែកាប HDMI។</string>
+    <string name="hdmi_connect">បាន​ភ្ជាប់ HDMI។</string>
     <string name="hdmi_connect_indirectly">ភ្ជាប់​ឧបករណ៍​របស់​អ្នក​ទៅ TV ដោយ​ផ្ទាល់ តាម​ខ្សែ HDMI។</string>
-    <string name="hdmi_disconnect">បាន​ផ្តាច់​ខ្សែកាប HDMI។</string>
+    <string name="hdmi_disconnect">បាន​ផ្ដាច់ HDMI។</string>
     <string name="hdmi_recommend_charging_device">យើង​ឲ្យ​យោបល់​សាក​ឧបករណ៍​របស់​អ្នក បើ​វា​បាន​ភ្ជាប់​ជាមួយ​អាដាប់ទ័រ HDTV ក្នុង​អំឡុងពេល​យូរ។ ភ្ជាប់​គ្រឿងសាក​ទៅ​អាដាប់ទ័រ HDTV ដើម្បី​សាក​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="hdmi_wfd_terminate">បាន​ភ្ជាប់ HDMI។ ការភ្ជាប់ Screen Mirroring បាន​បញ្ចប់</string>
     <string name="disable">បិទ</string>
@@ -1853,6 +1857,7 @@
     <string name="volumepanel_media">មេឌៀ</string>
     <string name="volumepanel_notification">ការជូន​ដំណឹង</string>
     <string name="volumepanel_system">ប្រព័ន្ធ</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">មិន​អាច​ថត​អេក្រង់ ខណៈពេល​ស្ថិត​ក្នុង​ទម្រង់​អាសន្ន។</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">មិន​អាច​ថត​រូប​អេក្រង់។</string>
     <string name="bluetooth_permission_request">សំណើ​ការអនុញ្ញាត Bluetooth</string>
@@ -1925,6 +1930,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">មិន​អាច​បើកប្រើ %s ខណៈពេល​បាន​បើកប្រើ Wi-Fi ផ្ទាល់។</string>
     <string name="mptcp_message_mptcp_capability_noresponse">គ្មាន​ការឆ្លើយតប​ពី​អ្នកផ្ដល់​សេវា។</string>
     <string name="mptcp_message_mptcp_capability_sendfail">បាន​បរាជ័យ​ក្នុង​ការ​ផ្ញើ​សំណើ​បើកដំណើរការ %s។ កំពុង​ភ្ជាប់​ឡើងវិញ​តាម​បណ្ដាញ​ដែល​អាច​ប្រើ​បាន…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">មិន​អាច​បើកប្រើ %1$s។ %2$s មិន​អាច​ប្រើ​បាន​ឡើយ​ជាមួយ​កញ្ចប់​អ៊ីនធើណិត​របស់​អ្នក ឬ​ក៏​មិន​បាន​ទទួល​ការឆ្លើយតប​ពី​សឺវើ %3$s។</string>
     <string name="mptcp_message_setting_disabled_overheating">មិន​អាច​បើកប្រើ %s។ ឧបករណ៍​កំពុង​ឡើង​កម្ដៅ​ជ្រុល។ រង់ចាំ​រហូត​ដល់​ឧបករណ៍​ចុះត្រជាក់ ហើយ​សាកល្បង​ម្ដងទៀត។</string>
     <string name="mptcp_message_operation_disabled_overheating">បាន​បិទ %s ដើម្បី​បង្ការ​ការឡើង​កម្ដៅ​ឧបករណ៍​ជ្រុល។ កំពុង​ទាញយក​តាម​បណ្ដាញ​ចល័ត​ជំនួស…</string>
     <string name="mptcp_message_data_usage_limit">បាន​ដល់​ដែនកំណត់​ប្រើប្រាស់​ទិន្នន័យ។ ដើម្បី​ប្ដូរ​ដែនកំណត់​នៃ​ការប្រើប្រាស់​ទិន្នន័យ សូម​ចូលទៅ ការកំណត់។</string>
@@ -2034,6 +2040,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">សំឡេង %s កំពុង​ចាក់​តាម​ឧបករណ៍​អូឌីយ៉ូ USB របស់​អ្នក។ ប៉ះ​ទីនេះ ដើម្បី​បិទ​វា។</string>
     <string name="multisound_change_output_device">ប្ដូរ​ឧបករណ៍​បញ្ចេញ​អូឌីយ៉ូ</string>
     <string name="multisound_headup_contents">ឧបករណ៍​អូឌីយ៉ូ​ដែល​អ្នក​បាន​ជ្រើស​សម្រាប់​កម្មវិធី​នេះ​គឺ​ដូចគ្នា​នឹង​ឧបករណ៍​បញ្ចេញ​អូឌីយ៉ូ​បច្ចុប្បន្ន​សម្រាប់​ទូរសព្ទ​របស់​អ្នក។ ដើម្បី​ញែក​សំឡេង​សម្រាប់​កម្មវិធី​នេះ សូម​ប្ដូរ​ឧបករណ៍​បញ្ចេញ​អូឌីយ៉ូ​របស់​អ្នក​ក្នុង​ផ្ទាំង​ការកំណត់​រហ័ស។</string>
+    <string name="multisound_hun_title">ប្ដូរ​ឧបករណ៍​បញ្ចេញ​អូឌីយ៉ូ​មេ?</string>
+    <string name="multisound_hun_contents">ឧបករណ៍​អូឌីយ៉ូ​ដែល​អ្នក​បាន​ជ្រើស​សម្រាប់​កម្មវិធី​នេះ (%1$s) គឺ​ដូចគ្នា​នឹង​ឧបករណ៍​បញ្ចេញ​អូឌីយ៉ូ​មេ (%2$s)។ ដើម្បី​ញែក​សំឡេង​សម្រាប់​កម្មវិធី​នេះ ឧបករណ៍​បញ្ចេញ​អូឌីយ៉ូ​មេ​ត្រូវការ​ប្ដូរ​ទៅ %3$s។</string>
+    <string name="multisound_hun_close">បិទ</string>
+    <string name="multisound_hun_change">ប្តូរ</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">កាស</string>
     <string name="bixby_edgecase_mpsm">មិន​អាច​ប្រើ Bixby ខណៈពេល​បាន​បើក​ទម្រង់​សំចៃ​ថាមពល​អតិបរមា។</string>
     <string name="bixby_edgecase_emergencymode">មិន​អាច​ប្រើ Bixby ក្នុង​ទម្រង់​អាសន្ន។</string>
     <string name="bixby_edgecase_kidsmode">មិន​អាច​ប្រើ Bixby ក្នុង Kids Mode។</string>
@@ -2041,9 +2053,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">មិន​អាច​ប្រើ Bixby ខណៈពេល​កំពុង​ប្រើ MirrorLink។</string>
     <string name="bixby_edgecase_dexmode">មិន​អាច​ប្រើ Bixby ក្នុង Samsung DeX។</string>
     <string name="bixby_edgecase_dexstation">មិន​អាច​ប្រើ Bixby ខណៈពេល​បាន​ភ្ជាប់​ទៅ DeX Station។</string>
-    <string name="conventional_mode_recent_noti">អ្នក​អាច​បង្ហាញ​កម្មវិធី​នេះ​ពេញ​អេក្រង់ ដោយ​ប៉ះ​អាយខុន​ពន្លា​លើ​អេក្រង់​កម្មវិធី​ថ្មីៗ។</string>
+    <string name="bixby_edgecase_cantusenow">មិន​អាច​ប្រើ Bixby Voice ឥឡូវ។</string>
+    <string name="conventional_mode_recent_noti">អ្នក​អាច​ប្ដូរ​អនុបាត​ទិដ្ឋភាព​កម្មវិធី​លើ​អេក្រង់​កម្មវិធី​ថ្មីៗ។</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">ដើម្បី​ត្រឡប់​ទៅ​អនុបាត​ទិដ្ឋភាព​ពីមុន សូម​ចូលទៅ ការកំណត់ > អេក្រង់ > កម្មវិធី​ពេញ​អេក្រង់។</string>
     <string name="conventional_mode_tap_here_to_fill">ប៉ះ​ទីនេះ ដើម្បី​បំពេញ​អេក្រង់​ទាំងមូល</string>
+    <string name="bixby_popup_unavailable_now">Bixby មិន​អាច​ប្រើ​បាន។ ម្ចាស់​ទូរសព្ទ ឬ លេខ​ទូរសព្ទ​ចម្បង​ប៉ុណ្ណោះ អាច​ប្រើ Bixby។</string>
     <string name="permlab_knoxCustomSetting">គ្រប់គ្រង​ការកំណត់​ឧបករណ៍</string>
     <string name="permdesc_knoxCustomSetting">ធ្វើ​ការកំណត់​រចនាសម្ពន្ធ​ឧបករណ៍ ដូចជា Bluetooth, ទីកន្លែង, Wi-Fi, ទិន្នន័យ​ចល័ត និង ការកំណត់ Android។</string>
     <string name="permlab_knoxCustomSystem">គ្រប់គ្រង​ការកំណត់​ប្រព័ន្ធ</string>
@@ -2388,6 +2402,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">កំពុង​សាក​ឧបករណ៍​ដែល​បាន​ភ្ជាប់​តាម USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">ដែនកំណត់​ប្រព័ន្ធ​ឯកសារ</string>
     <string name="lacking_filenode_internal_storage_view_text">ឯកសារ​ច្រើន​ពេក​ត្រូវ​បាន​បង្កើត​លើ​ទូរសព្ទ​របស់​អ្នក។ កម្មវិធី​អាច​ឈប់​ដំណើរការ​ត្រឹមត្រូវ ហើយ​ទូរសព្ទ​របស់​អ្នក​អាច​លែង​ចាប់ផ្ដើម​ទៀត​ហើយ។ ចម្លងទុក​ទិន្នន័យ​សំខាន់ៗ និង ធ្វើ​ការកំណត់​ទូរសព្ទ​របស់​អ្នក​ឡើងវិញ​ពី​រោងចក្រ។</string>
-    <string name="lock_to_app_toast_for_navibar">ដើម្បី​ឈប់ខ្ទាស់​កម្មវិធី សូម​ប៉ះ​ឲ្យជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ​និង​គ្រាប់ចុច​ថយ​ក្នុង​ពេល​តែមួយ។</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

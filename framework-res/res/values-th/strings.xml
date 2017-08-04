@@ -917,9 +917,9 @@
     <string name="dlg_ok">ตกลง</string>
     <string name="usb_charging_notification_title">กำลังชาร์จอุปกรณ์นี้ด้วย USB</string>
     <string name="usb_supplying_notification_title">กำลังจ่ายไฟให้อุปกรณ์ที่เชื่อมต่ออยู่ผ่าน USB</string>
-    <string name="usb_mtp_notification_title">การถ่ายโอนไฟล์มีเดียผ่าน USB</string>
-    <string name="usb_ptp_notification_title">การถ่ายโอนรูปภาพ USB</string>
-    <string name="usb_midi_notification_title">USB เชื่อมต่อกับอุปกรณ์ MIDI</string>
+    <string name="usb_mtp_notification_title">USB สำหรับถ่ายโอนไฟล์</string>
+    <string name="usb_ptp_notification_title">USB สำหรับถ่ายโอนรูปภาพ</string>
+    <string name="usb_midi_notification_title">USB สำหรับ MIDI</string>
     <string name="usb_accessory_notification_title">เชื่อม​ต่อ​กับ​อุปกรณ์​เสริม USB ​แล้ว</string>
     <string name="usb_notification_message">แตะเพื่อใช้ทางเลือก USB อื่นๆ</string>
     <string name="adb_active_notification_title">เชื่อม​ต่อ​การ​แก้ไข​ จุด​บกพร่อง USB ​แล้ว</string>
@@ -1321,6 +1321,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">คุณสามารถแสดงปุ่มอีกครั้งโดยการปัดจากขอบหน้าจอเข้าไปยังด้านในบริเวณที่ปุ่มปรากฏ</string>
     <string name="sec_immersive_cling_help_text_step_one_three">ปุ่มจะหายไปอีกครั้งหลังจากผ่านไปสักครู่</string>
     <string name="sec_immersive_cling_help_text_step_two">คุณสามารถใช้ปุ่มหน้าหลักได้แม้ขณะซ่อนอยู่ หากต้องการไปที่หน้าจอหลัก ให้กดหนักที่พื้นที่ของหน้าจอที่ปุ่มหน้าหลักมักจะปรากฏ</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">ไม่ว่าคุณจะถือโทรศัพท์ในลักษณะใด ปุ่มจะอยู่ข้างๆ พอร์ตสายชาร์จเสมอ เมื่อคุณหมุนโทรศัพท์ทวนเข็มนาฬิกา ให้ปัดหน้าจอไปทางซ้ายจากขอบหน้าจอตามที่ลูกศรชี้</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">ไม่ว่าคุณจะถือโทรศัพท์ในลักษณะใด ปุ่มจะอยู่ข้างๆ พอร์ตสายชาร์จเสมอ เมื่อคุณหมุนโทรศัพท์ตามเข็มนาฬิกา ให้ปัดหน้าจอไปทางขวาจากขอบหน้าจอตามที่ลูกศรชี้</string>
     <string name="done_label">เรียบร้อย</string>
     <string name="hour_picker_description">ตัวเลื่อนชั่วโมงแบบอนาล็อก</string>
     <string name="minute_picker_description">ตัวเลื่อนนาทีแบบอนาล็อก</string>
@@ -1331,7 +1333,9 @@
     <string name="deleted_key">ลบ %s แล้ว</string>
     <string name="managed_profile_label_badge">%1$sที่ทำงาน</string>
     <string name="lock_to_app_toast">หากต้องการยกเลิกการปักหมุดแอพ ให้กดค้างที่ปุ่มล่าสุดและปุ่มกลับพร้อมกัน</string>
+    <string name="lock_to_app_toast_for_navibar">หากต้องการยกเลิกการปักหมุดแอพ ให้แตะค้างที่ปุ่มล่าสุดและปุ่มกลับพร้อมกัน</string>
     <string name="lock_to_app_toast_accessible">ในการยกเลิกการปักหมุดแอพพลิเคชั่น ให้กดปุ่มล่าสุดค้างไว้</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">โหมด Lock-to-app ถูกเปิดใช้งานแล้ว</string>
     <string name="lock_to_app_start">ปักหมุดแอพแล้ว</string>
     <string name="lock_to_app_exit">ยกเลิกการปักหมุดแอพแล้ว</string>
@@ -1437,9 +1441,9 @@
     <string name="tw_clipboard_save_tts">บันทึก</string>
     <string name="tw_clipboard_button_tts">ปุ่ม</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">คลิ​ป​บอร์ด</string>
-    <string name="hdmi_connect">ต่อ​สาย HDMI ​แล้ว</string>
+    <string name="hdmi_connect">เชื่อมต่อ HDMI แล้ว</string>
     <string name="hdmi_connect_indirectly">เชื่อมต่ออุปกรณ์ของคุณกับทีวีโดยตรงผ่านสายพ่วง HDMI</string>
-    <string name="hdmi_disconnect">ถอด​สาย HDMI ​แล้ว</string>
+    <string name="hdmi_disconnect">หยุดเชื่อมต่อ HDMI แล้ว</string>
     <string name="hdmi_recommend_charging_device">เราแนะนำให้ชาร์จอุปกรณ์ของคุณ หากอุปกรณ์เชื่อมต่อกับอะแดปเตอร์ HDTV เป็นเวลานานแล้ว เชื่อมต่อเครื่องชาร์จกับอะแดปเตอร์ HDTV เพื่อชาร์จอุปกรณ์ของคุณ</string>
     <string name="hdmi_wfd_terminate">เชื่อมต่อ HDMI แล้ว การเชื่อมต่อ Screen Mirroring สิ้นสุดแล้ว</string>
     <string name="disable">ไม่​ทำ​งาน</string>
@@ -1859,6 +1863,7 @@ memo"</string>
     <string name="volumepanel_media">มี​เดีย</string>
     <string name="volumepanel_notification">การแจ้งเตือน</string>
     <string name="volumepanel_system">ระบบ</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">ไม่สามารถจับภาพหน้าจอ ขณะอยู่ในโหมดฉุกเฉิน</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">จับภาพหน้าจอไม่ได้</string>
     <string name="bluetooth_permission_request">คำ​ขอ​อนุญาต​เชื่อม​ต่อบลูทูธ</string>
@@ -1932,6 +1937,8 @@ memo"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">ไม่สามารถใช้งาน %s ได้ขณะเปิดใช้งาน Wi-Fi Direct</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ไม่มีคำตอบจากผู้ให้บริการ</string>
     <string name="mptcp_message_mptcp_capability_sendfail">การส่งคำร้องขอการเปิดใช้งาน %s ล้มเหลว กำลังเชื่อมต่อใหม่ด้วยเครือข่ายที่พร้อมใช้งาน…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">ไม่สามารถเปิดใช้งาน %1$s เนื่องจากคุณไม่มีแพ็กเกจ %2$s หรือไม่ได้รับการตอบสนองจากเซิร์ฟเวอร์ %3$s</string>
+    <string name="mptcp_message_mptcp_capability_WiFiAPCompatible">กรุณาเชื่อมต่อ WiFi ของ AIS เพื่อใช้บริการ %s</string>
     <string name="mptcp_message_setting_disabled_overheating">ไม่สามารถเปิดใช้งาน %s ได้ อุปกรณ์ร้อนเกินไป รอจนกว่าอุปกรณ์เย็นลงและลองอีกครั้ง</string>
     <string name="mptcp_message_operation_disabled_overheating">ปิดใช้งาน %s เพื่อป้องกันไม่ให้อุปกรณ์ร้อนเกินไป กำลังดาวน์โหลดผ่านเครือข่ายมือถือแทน…</string>
     <string name="mptcp_message_data_usage_limit">ถึงขีดจำกัดการใช้ข้อมูลแล้ว ในการเปลี่ยนขีดจำกัดการใช้ข้อมูล ให้ไปที่การตั้งค่า</string>
@@ -2039,6 +2046,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">เสียง %s กำลังเล่นผ่านอุปกรณ์เสียง Bluetooth ของคุณ แตะที่นี่เพื่อปิด</string>
     <string name="multisound_change_output_device">เปลี่ยนอุปกรณ์เอาต์พุตเสียง</string>
     <string name="multisound_headup_contents">อุปกรณ์เสียงที่คุณเลือกสำหรับแอพนี้เป็นอุปกรณ์เดียวกับอุปกรณ์เอาต์พุตเสียงปัจจุบันสำหรับโทรศัพท์ของคุณ หากต้องการแยกเสียงสำหรับแอพนี้ โปรดเปลี่ยนอุปกรณ์เอาต์พุตเสียงในแผงการตั้งค่าด่วน</string>
+    <string name="multisound_hun_title">เปลี่ยนอุปกรณ์เอาต์พุตเสียงหลักหรือไม่</string>
+    <string name="multisound_hun_contents">อุปกรณ์เสียงที่คุณเลือกสำหรับแอพนี้ (%1$s) นี้เป็นอุปกรณ์เดียวกับอุปกรณ์เอาต์พุตเสียงหลัก (%2$s) หากต้องการแยกเสียงสำหรับแอพนี้ ต้องเปลี่ยนอุปกรณ์เอาต์พุตเสียงหลักเป็น %3$s</string>
+    <string name="multisound_hun_close">ปิด</string>
+    <string name="multisound_hun_change">เปลี่ยน</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">เฮ​ดเซ็ท</string>
     <string name="bixby_edgecase_mpsm">ไม่สามารถใช้ Bixby ในขณะเปิดโหมดประหยัดพลังงานสูงสุดได้</string>
     <string name="bixby_edgecase_emergencymode">ไม่สามารถใช้ Bixby ในโหมดฉุกเฉิน</string>
     <string name="bixby_edgecase_kidsmode">ไม่สามารถใช้ Bixby ใน Kids Mode</string>
@@ -2046,9 +2059,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">ไม่สามารถใช้ Bixby ระหว่างใช้งาน MirrorLink ได้</string>
     <string name="bixby_edgecase_dexmode">ไม่สามารถใช้ Bixby ใน Samsung DeX</string>
     <string name="bixby_edgecase_dexstation">ไม่สามารถใช้ Bixby ขณะเชื่อมต่ออยู่กับสถานี DeX</string>
-    <string name="conventional_mode_recent_noti">คุณสามารถดูแอพนี้ในแบบเต็มหน้าจอโดยการแตะไอคอนขยายบนหน้าจอแอพล่าสุด</string>
+    <string name="bixby_edgecase_cantusenow">ไม่สามารถใช้ Bixby Voice ในขณะนี้</string>
+    <string name="conventional_mode_recent_noti">คุณสามารถเปลี่ยนสัดส่วนภาพของแอพได้ในหน้า แอพล่าสุด</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">หากต้องการกลับไปที่อสัดส่วนภาพก่อนหน้า ให้ไปที่ การตั้งค่า > การแสดงผล > แอพเต็มหน้าจอ</string>
     <string name="conventional_mode_tap_here_to_fill">แตะที่นี่เพื่อเติมให้เต็มทั้งหน้าจอ</string>
+    <string name="bixby_popup_unavailable_now">Bixby ไม่พร้อมใช้งาน เจ้าของโทรศัพท์หรือหมายเลขโทรศัพท์หลักเท่านั้นที่สามารถใช้งาน Bixby ได้</string>
     <string name="permlab_knoxCustomSetting">จัดการการตั้งค่าอุปกรณ์</string>
     <string name="permdesc_knoxCustomSetting">กำหนดการตั้งค่าอุปกรณ์ เช่น Bluetooth, ตำแหน่ง, Wi-Fi, ข้อมูลมือถือและการตั้งค่า Android</string>
     <string name="permlab_knoxCustomSystem">จัดการการตั้งค่าระบบ</string>
@@ -2425,6 +2440,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">กำลังชาร์จอุปกรณ์ที่เชื่อมต่อผ่าน USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">ขีดจำกัดระบบไฟล์</string>
     <string name="lacking_filenode_internal_storage_view_text">ไฟล์ที่ถูกสร้างบนโทรศัพท์ของคุณมีมากเกินไป แอพอาจทำงานไม่ถูกต้อง และโทรศัพท์ของคุณอาจใช้เวลาเปิดเครื่องนานขึ้น แบ็คอัพข้อมูลสำคัญ และรีเซ็ทโทรศัพท์ของคุณเป็นค่าเริ่มต้นจากโรงงาน</string>
-    <string name="lock_to_app_toast_for_navibar">หากต้องการยกเลิกการปักหมุดแอพ ให้แตะค้างที่ปุ่มล่าสุดและปุ่มกลับพร้อมกัน</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

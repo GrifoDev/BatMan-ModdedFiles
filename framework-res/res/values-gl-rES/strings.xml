@@ -766,7 +766,7 @@ Estás seguro de que queres saír desta páxina?"</string>
     <string name="aerr_process">O proceso %1$s detívose</string>
     <string name="aerr_application_repeated">%1$s segue deténdose</string>
     <string name="aerr_process_repeated">%1$s segue deténdose</string>
-    <string name="aerr_restart">Reiniciar app</string>
+    <string name="aerr_restart">Reiniciar aplicación</string>
     <string name="aerr_reset">Restablecer e reiniciar aplicación</string>
     <string name="aerr_report">Dános a túa opinión</string>
     <string name="aerr_close">Pechar</string>
@@ -911,9 +911,9 @@ Queres pechala?"</string>
     <string name="dlg_ok">Aceptar</string>
     <string name="usb_charging_notification_title">O USB está cargando este dispositivo</string>
     <string name="usb_supplying_notification_title">O USB está proporcionando enerxía ao dispositivo conectado</string>
-    <string name="usb_mtp_notification_title">USB transferindo arquivos multim.</string>
-    <string name="usb_ptp_notification_title">USB transferindo imaxes</string>
-    <string name="usb_midi_notification_title">USB conectado ao dispositivo MIDI</string>
+    <string name="usb_mtp_notification_title">USB para transferir arquivos</string>
+    <string name="usb_ptp_notification_title">USB para transferir imaxes</string>
+    <string name="usb_midi_notification_title">USB para MIDI</string>
     <string name="usb_accessory_notification_title">Conectado a un accesorio USB</string>
     <string name="usb_notification_message">Toca para obter outras opcións de USB</string>
     <string name="adb_active_notification_title">Eliminación de fallos do USB conectado</string>
@@ -1314,6 +1314,8 @@ Téntao de novo en %2$d segundos."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">Podes volver mostrar os botóns pasando o dedo cara a dentro desde o bordo da pantalla no que normalmente aparecen os botóns.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Despois duns intres, os botóns volverán desaparecer.</string>
     <string name="sec_immersive_cling_help_text_step_two">Podes utilizar o botón Inicio aínda que estea oculto. Para ir á pantalla Inicio, preme con forza a parte da pantalla na que se atopa normalmente o botón Inicio.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">Independentemente de como sosteñas o teléfono, os botóns estarán sempre situados xunto ao porto de carga. Cando o teléfono estea xirado no sentido oposto ao das agullas do reloxo, pasa o dedo á esquerda desde o bordo da pantalla como indica a frecha.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">Independentemente de como sosteñas o teléfono, os botóns estarán sempre situados xunto ao porto de carga. Cando o teléfono estea xirado no sentido das agullas do reloxo, pasa o dedo á dereita desde o bordo da pantalla como indica a frecha.</string>
     <string name="done_label">Feito</string>
     <string name="hour_picker_description">Selector de hora analóxico</string>
     <string name="minute_picker_description">Selector de minuto analóxico</string>
@@ -1324,7 +1326,9 @@ Téntao de novo en %2$d segundos."</string>
     <string name="deleted_key">%s eliminado.</string>
     <string name="managed_profile_label_badge">%1$s do traballo</string>
     <string name="lock_to_app_toast">Para quitar unha aplicación, mantén pulsados os botóns Recentes e Atrás ao mesmo tempo.</string>
+    <string name="lock_to_app_toast_for_navibar">Para quitar unha aplicación, mantén tocados os botóns Recentes e Atrás ao mesmo tempo.</string>
     <string name="lock_to_app_toast_accessible">Para quitar a aplicación, mantén pulsada a tecla Recentes.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">Activouse o modo Bloquear en aplicación.</string>
     <string name="lock_to_app_start">Aplicación fixada.</string>
     <string name="lock_to_app_exit">Aplicación quitada.</string>
@@ -1430,9 +1434,9 @@ A función aforro de batería desactívase automaticamente cando pos a cargar o 
     <string name="tw_clipboard_save_tts">Gardar</string>
     <string name="tw_clipboard_button_tts">Botón</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Portapapeis</string>
-    <string name="hdmi_connect">O cable de HDMI non está conectado</string>
+    <string name="hdmi_connect">HDMI conectado.</string>
     <string name="hdmi_connect_indirectly">Conecta o dispositivo ao televisor directamente mediante o cable HDMI</string>
-    <string name="hdmi_disconnect">O cable de HDMI está desconectado</string>
+    <string name="hdmi_disconnect">HDMI desconectado.</string>
     <string name="hdmi_recommend_charging_device">É recomendable cargar o dispositivo se está conectado a un adaptador HDTV durante un período prolongado de tempo. Conecta o cargador ao adaptador HDTV para cargar o dispositivo.</string>
     <string name="hdmi_wfd_terminate">Conectado a través de HDMI. A conexión de Screen Mirroring finalizou</string>
     <string name="disable">Desactivar</string>
@@ -1852,6 +1856,7 @@ command"</string>
     <string name="volumepanel_media">Multimedia</string>
     <string name="volumepanel_notification">Notificacións</string>
     <string name="volumepanel_system">Sistema</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">Non se pode capturar a pantalla mentres estás no modo Urxencia.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">Non se pode realizar a captura de pantalla</string>
     <string name="bluetooth_permission_request">Solicitude de permiso para Bluetooth</string>
@@ -1924,6 +1929,7 @@ Para quitar unha aplicación, mantén pulsada a tecla do menú."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Non se pode activar %s mentres Wi-Fi Direct está activado.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Non hai resposta do provedor de servizos.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Non se puido enviar a solicitude de activación de %s. Volvendo conectar a través de redes dispoñibles…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Non se pode activar %1$s. %2$s non está dispoñible co teu paquete de Internet ou non se recibiu ningunha resposta do servidor de %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Non se pode activar %s. O dispositivo está demasiado quente. Agarda a que se arrefríe o dispositivo e téntao outra vez.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s desactivado para evitar que o dispositivo se quente demasiado. Descargando a través da rede móbil no seu lugar…</string>
     <string name="mptcp_message_data_usage_limit">Alcanzouse o límite de uso de datos. Para cambiar o límite de uso de datos, vai a Axustes.</string>
@@ -2033,6 +2039,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">O son de %s está reproducíndose a través do dispositivo de audio USB. Toca aquí para desactivar esta opción.</string>
     <string name="multisound_change_output_device">Cambiar dispositivo de saída de audio</string>
     <string name="multisound_headup_contents">O dispositivo de audio que seleccionaches para esta aplicación é o mesmo que o dispositivo de saída de audio actual do teléfono. Para separar o son desta aplicación, cambia o dispositivo de saída de audio no panel de axustes rápidos.</string>
+    <string name="multisound_hun_title">Cambiar dispositivo saída audio principal?</string>
+    <string name="multisound_hun_contents">O dispositivo de audio que seleccionaches para esta aplicación (%1$s) é o mesmo que o dispositivo de saída de audio principal (%2$s). Para separar o son desta aplicación, é necesario cambiar o dispositivo de saída de audio principal a %3$s.</string>
+    <string name="multisound_hun_close">Pechar</string>
+    <string name="multisound_hun_change">Cambiar</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">Auriculares</string>
     <string name="bixby_edgecase_mpsm">Non se pode usar Bixby co modo Aforro de enerxía máximo activado.</string>
     <string name="bixby_edgecase_emergencymode">Non se pode usar Bixby no modo Urxencia.</string>
     <string name="bixby_edgecase_kidsmode">Non se pode usar Bixby no modo Nenos.</string>
@@ -2040,9 +2052,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">Non se pode usar Bixby mentres se utiliza MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">Non se pode usar Bixby en Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">Non se pode usar Bixby mentres estás conectado a DeX Station.</string>
-    <string name="conventional_mode_recent_noti">Podes ver esta aplicación en pantalla completa tocando a icona Expandir na pantalla Aplicacións recentes.</string>
+    <string name="bixby_edgecase_cantusenow">Non se pode usar Bixby Voice neste momento.</string>
+    <string name="conventional_mode_recent_noti">Podes cambiar a relación de aspecto da aplicación na pantalla Aplicacións recentes.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Para volver á relación de aspecto anterior, vai a Axustes > Pantalla > Aplicacións en pantalla completa.</string>
     <string name="conventional_mode_tap_here_to_fill">Toca aquí para encher a pantalla completa</string>
+    <string name="bixby_popup_unavailable_now">Bixby non está dispoñible. Bixby só o pode usar o propietario do teléfono ou o número de teléfono principal.</string>
     <string name="permlab_knoxCustomSetting">Xestionar axustes do dispositivo</string>
     <string name="permdesc_knoxCustomSetting">Configura os axustes do dispositivo, como o Bluetooth, Localización, Wi-Fi, Datos móbiles e Axustes de Android.</string>
     <string name="permlab_knoxCustomSystem">Xestionar axustes do sistema</string>
@@ -2196,7 +2210,7 @@ Turn on Airplane mode?"</string>
     <string name="permdesc_mdmLSOUnauthorizedAccess">USO NON AUTORIZADO PROHIBIDO</string>
     <string name="permdesc_mdmLSOFoundInfo">"SE SE ATOPA,
 VOLVE A"</string>
-    <string name="permdesc_mdmLSOEmergencyPhone">Chama ao administrador de TI</string>
+    <string name="permdesc_mdmLSOEmergencyPhone">Chama administrador de TI</string>
     <string name="permlab_mdmRefreshUI">Actualizar certificados de seguridade</string>
     <string name="permlab_mdmDLP">Configurar axustes de DLP de empresa no modo Knox</string>
     <string name="permdesc_mdmDLP">Permite á aplicación configurar axustes de DLP de empresa no modo Knox.</string>
@@ -2387,6 +2401,4 @@ VOLVE A"</string>
     <string name="charging_connected_via_usb">Cargando o dispositivo conectado a través de USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">Límite do sistema de arquivos</string>
     <string name="lacking_filenode_internal_storage_view_text">Creáronse demasiados arquivos no teléfono. É posible que as aplicacións deixen de funcionar correctamente e que o teléfono non se volva acender. Fai unha copia de seguridade dos datos importantes e restablece os axustes de fábrica do teléfono.</string>
-    <string name="lock_to_app_toast_for_navibar">Para quitar unha aplicación, mantén tocados os botóns Recentes e Atrás ao mesmo tempo.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

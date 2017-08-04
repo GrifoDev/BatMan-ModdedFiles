@@ -770,7 +770,7 @@
     <string name="aerr_process">प्रक्रिया %1$s रुक गई है</string>
     <string name="aerr_application_repeated">%1$s रुक रहा है</string>
     <string name="aerr_process_repeated">%1$s रुक रही है</string>
-    <string name="aerr_restart">एप पुनःचालू करें</string>
+    <string name="aerr_restart">एप पुनः चालू करें</string>
     <string name="aerr_reset">ऐप रीसेट करें और पुन: प्रारंभ करें</string>
     <string name="aerr_report">फ़ीडबैक भेजें</string>
     <string name="aerr_close">बंद करें</string>
@@ -915,9 +915,9 @@
     <string name="dlg_ok">ओके</string>
     <string name="usb_charging_notification_title">यह डिवाइस USB से चार्ज हो रहा है</string>
     <string name="usb_supplying_notification_title">अटैच किए गए डिवाइस को USB से पावर मिल रही है</string>
-    <string name="usb_mtp_notification_title">USB मीडिया फाइलें भेज रहा है</string>
-    <string name="usb_ptp_notification_title">USB छवियाँ भेज रहा है</string>
-    <string name="usb_midi_notification_title">USB, MIDI डिवाइस से कनेक्ट हुआ</string>
+    <string name="usb_mtp_notification_title">फाइल स्थानांतरण के लिए USB</string>
+    <string name="usb_ptp_notification_title">छवि स्थानांतरण के लिए USB</string>
+    <string name="usb_midi_notification_title">MIDI के लिए USB</string>
     <string name="usb_accessory_notification_title">USB उपसाधन से कनेक्ट किया गया</string>
     <string name="usb_notification_message">अन्य USB विकल्पों के लिए टैप करें</string>
     <string name="adb_active_notification_title">USB डिबगिंग जुड़ा हैं।</string>
@@ -1319,6 +1319,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">आप स्क्रीन के किनारे से अंदर की ओर स्वाइप करके जहाँ आमतौर पर बटंस प्रकट होते हैं, वहाँ फिर से बटंस दिखा सकते हैं।</string>
     <string name="sec_immersive_cling_help_text_step_one_three">कुछ समय बाद, बटंस फिर से गायब हो जाएँगे।</string>
     <string name="sec_immersive_cling_help_text_step_two">होम बटन छिपा हुआ होने पर भी आप उसका उपयोग कर सकते हैं। होम स्क्रीन पर जाने के लिए, स्क्रीन के उस क्षेत्र को जोर से दबाएँ जहाँ होम बटन सामान्यतः प्रकट होता है।</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">हालांकि आपने अपना फोन पकड़ा हुआ है, लेकिन बटंस हमेशा चार्जिंग पोर्ट के सामने स्थित होंगे। आपका फोन घड़ी की विपरीत दिशा में घुमाने पर, तीर द्वारा दिखाए गए अनुसार स्क्रीन के किनारे से बाईं ओर स्वाइप करें।</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">हालांकि आपने अपना फोन पकड़ा हुआ है, लेकिन बटंस हमेशा चार्जिंग पोर्ट के सामने स्थित होंगे। आपका फोन घड़ी की दिशा में घुमाने पर, तीर द्वारा दिखाए गए अनुसार स्क्रीन के किनारे से दाईं ओर स्वाइप करें।</string>
     <string name="done_label">पूर्ण</string>
     <string name="hour_picker_description">एनालॉग घंटा पिकर</string>
     <string name="minute_picker_description">एनालॉग मिनट पिकर</string>
@@ -1329,7 +1331,9 @@
     <string name="deleted_key">%s हटाया गया।</string>
     <string name="managed_profile_label_badge">कार्यस्थल का %1$s</string>
     <string name="lock_to_app_toast">कोई एप अनपिन करने के लिए, हाल ही की और वापस कुंजियों को एक साथ दबाकर रखें।</string>
+    <string name="lock_to_app_toast_for_navibar">कोई एप अनपिन करने के लिए, हाल ही के और वापस जाएँ बटंस को एक साथ टच और होल्ड करें।</string>
     <string name="lock_to_app_toast_accessible">एप्लीकेशन अनपिन करने के लिए हाल ही की कुंजी दबाकर रखें।</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">एप लॉक करें मोड सक्षम किया गया है।</string>
     <string name="lock_to_app_start">एप पिन किया गया।</string>
     <string name="lock_to_app_exit">एप अनपिन किया गया।</string>
@@ -1435,9 +1439,9 @@
     <string name="tw_clipboard_save_tts">सुरक्षित</string>
     <string name="tw_clipboard_button_tts">बटन</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">क्लिपबोर्ड</string>
-    <string name="hdmi_connect">HDMI केबल जुड़ी है।</string>
+    <string name="hdmi_connect">HDMI कनेक्ट हो गया है।</string>
     <string name="hdmi_connect_indirectly">HDMI केबल के माध्‍यम से अपने डिवाइस को सीधे TV से कनेक्ट करें।</string>
-    <string name="hdmi_disconnect">HDMI केबल डिस्कनेक्ट है।</string>
+    <string name="hdmi_disconnect">HDMI डिस्कनेक्ट हो गया है।</string>
     <string name="hdmi_recommend_charging_device">यदि आपका डिवाइस HDTV एडाप्टर से अधिक समय से कनेक्टेड है, तो हम इसे चार्ज करने की अनुशंसा करते हैं। अपने डिवाइस को चार्ज करने के लिए, चार्जर को HDTV एडाप्टर से कनेक्ट करें।</string>
     <string name="hdmi_wfd_terminate">HDMI कनेक्ट किया गया। Screen Mirroring कनेक्शन समाप्त हुआ।</string>
     <string name="disable">अक्षम करें</string>
@@ -1857,6 +1861,7 @@
     <string name="volumepanel_media">मीडिया</string>
     <string name="volumepanel_notification">सूचनाएँ</string>
     <string name="volumepanel_system">सिस्टम</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">आपातकालीन मोड में होने पर स्क्रीन कैप्चर करने में असमर्थ।</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">स्क्रीनशॉट कैप्चर करने में असमर्थ।</string>
     <string name="bluetooth_permission_request">ब्लूटूथ अनुमति अनुरोध</string>
@@ -1929,6 +1934,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct सक्षम होने पर %s को सक्षम करने में असमर्थ।</string>
     <string name="mptcp_message_mptcp_capability_noresponse">सेवा प्रदाता से कोई प्रतिक्रिया नहीं।</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s सक्रियण अनुरोध भेजने में विफल। उपलब्ध नेटवर्क्स के माध्यम से पुनः कनेक्ट कर रहा है…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s सक्षम करने में असमर्थ। %2$s आपके इंटरनेट पैकेज के साथ उपलब्ध नहीं है या %3$s सर्वर से कोई प्रतिक्रिया प्राप्त नहीं हुई है।</string>
     <string name="mptcp_message_setting_disabled_overheating">%s सक्षम करने में असमर्थ। डिवाइस जरूरत से ज्यादा गरम हो रहा है। डिवाइस के ठंडा होने तक प्रतीक्षा करें और फिर से प्रयास करें।</string>
     <string name="mptcp_message_operation_disabled_overheating">डिवाइस को जरूरत से ज्यादा गरम होने से रोकने के लिए %s अक्षम किया गया है। इसके बजाय मोबाइल नेटवर्क के माध्यम से डाउनलोड हो रहा है…</string>
     <string name="mptcp_message_data_usage_limit">डाटा उपयोग सीमा पूरी हो गई है। डाटा उपयोग सीमा बदलने के लिए, सेटिंग्स पर जाएँ।</string>
@@ -2036,6 +2042,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">आपके USB ऑडियो डिवाइस के माध्यम से %s ध्वनि चलाई जा रही है। इसे बंद करने के लिए यहां टैप करें।</string>
     <string name="multisound_change_output_device">ऑडियो आउटपुट डिवाइस बदलें</string>
     <string name="multisound_headup_contents">इस एप के लिए आपने जिस ऑडियो डिवाइस का चयन किया है, वह आपके फोन के लिए वर्तमान ऑडियो आउटपुट डिवाइस के समान है। इस एप के लिए ध्वनि को अलग करने के लिए, शीघ्र सेटिंग्स पैनल में अपना ऑडियो आउटपुट डिवाइस बदलें।</string>
+    <string name="multisound_hun_title">मुख्य ऑडियो आउटपुट डिवाइस बदलें?</string>
+    <string name="multisound_hun_contents">इस एप (%1$s) के लिए आपने जिस ऑडियो डिवाइस का चयन किया है, वह मुख्य ऑडियो आउटपुट डिवाइस (%2$s) के समान है। इस एप के लिए ध्वनि अलग करने के लिए, मुख्य ऑडियो आउटपुट डिवाइस को %3$s में बदलने की जरूरत है।</string>
+    <string name="multisound_hun_close">बंद करें</string>
+    <string name="multisound_hun_change">बदलें</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">हेडसेट</string>
     <string name="bixby_edgecase_mpsm">अधिकतम पॉवर बचत मोड चालू होने पर Bixby का उपयोग नहीं किया जा सकता है।</string>
     <string name="bixby_edgecase_emergencymode">आपातकालीन मोड में Bixby का उपयोग नहीं किया जा सकता है।</string>
     <string name="bixby_edgecase_kidsmode">किड्स मोड में Bixby का उपयोग नहीं किया जा सकता है।</string>
@@ -2043,9 +2055,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">मिररलिंक के उपयोग के दौरान Bixby का उपयोग नहीं किया जा सकता है।</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX में Bixby का उपयोग नहीं किया जा सकता है।</string>
     <string name="bixby_edgecase_dexstation">DeX स्टेशन से कनेक्ट होने के दौरान Bixby का उपयोग नहीं किया जा सकता है।</string>
-    <string name="conventional_mode_recent_noti">आप हाल ही के एप्स स्क्रीन पर विस्तृत करें चिह्न पर टैप करके इस एप को पूर्ण स्क्रीन में देख सकते हैं।</string>
+    <string name="bixby_edgecase_cantusenow">अभी Bixby Voice उपयोग नहीं किया जा सकता है।</string>
+    <string name="conventional_mode_recent_noti">आप हाल ही के एप्स स्क्रीन पर एप का पक्ष अनुपात बदल सकते हैं।</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">पिछले पक्ष अनुपात पर वापस जाने के लिए, सेटिंग्स > प्रदर्शन > पूर्ण स्क्रीन एप्स पर जाएँ।</string>
     <string name="conventional_mode_tap_here_to_fill">संपूर्ण स्क्रीन भरने के लिए यहां टैप करें</string>
+    <string name="bixby_popup_unavailable_now">Bixby उपलब्ध नहीं है। केवल फोन का स्वामी या मुख्य फोन नंबर ही Bixby का उपयोग कर सकता है।</string>
     <string name="permlab_knoxCustomSetting">डिवाइस सेटिंग्स प्रबंधित करें</string>
     <string name="permdesc_knoxCustomSetting">ब्लूटूथ, स्थान, Wi-Fi, मोबाइल डाटा और एंड्रॉइड सेटिंग्स जैसी डिवाइस सेटिंग्स कॉन्फिगर करें।</string>
     <string name="permlab_knoxCustomSystem">सिस्टम सेटिंग्स प्रबंधित करें</string>
@@ -2421,6 +2435,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB के माध्यम से कनेक्ट किया गया डिवाइस चार्ज हो रहा है…</string>
     <string name="lacking_filenode_internal_storage_view_title">फाइल सिस्टम सीमा</string>
     <string name="lacking_filenode_internal_storage_view_text">आपके फोन पर बहुत अधिक फाइलें बनाई जा चुकी हैं। हो सकता है कि एप्स सही ढंग से कार्य करना रोक दें और आपका फोन अब प्रारंभ न हो। किसी भी महत्वपूर्ण डाटा का बैकअप लें और अपने फोन को फैक्टरी रीसेट करें।</string>
-    <string name="lock_to_app_toast_for_navibar">कोई एप अनपिन करने के लिए, हाल ही के और वापस जाएँ बटंस को एक साथ टच और होल्ड करें।</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -916,9 +916,9 @@ google.com/accounts/recovery"</string>
     <string name="dlg_ok">확인</string>
     <string name="usb_charging_notification_title">이 기기를 USB로 충전</string>
     <string name="usb_supplying_notification_title">연결된 기기에 USB로 전력 공급</string>
-    <string name="usb_mtp_notification_title">USB로 미디어 파일 전송</string>
+    <string name="usb_mtp_notification_title">USB로 파일 전송</string>
     <string name="usb_ptp_notification_title">USB로 이미지 전송</string>
-    <string name="usb_midi_notification_title">USB로 MIDI 디바이스에 연결</string>
+    <string name="usb_midi_notification_title">USB로 MIDI에 연결</string>
     <string name="usb_accessory_notification_title">USB 액세서리에 연결됨</string>
     <string name="usb_notification_message">기타 USB 옵션을 보려면 누르세요.</string>
     <string name="adb_active_notification_title">USB 디버깅을 실행하였습니다.</string>
@@ -1316,9 +1316,11 @@ google.com/accounts/recovery"</string>
     <string name="sec_immersive_cling_step_one">홈, 뒤로가기, 최근 앱 버튼을 화면에 표시하려면 화면 하단 가장자리를 화면 안쪽으로 미세요.</string>
     <string name="sec_immersive_cling_step_two">홈 버튼이 표시되지 않는 동안에도 홈 버튼을 사용할 수 있습니다. 휴대전화의 하단 중간 부분을 세게 누르세요.</string>
     <string name="sec_immersive_cling_help_text_step_one_one">전체 화면 모드로 사용 중입니다. 화면을 볼 때 방해 받지 않고 의도치 않게 앱이 종료되지 않도록 홈, 뒤로가기, 최근 앱 버튼이 표시되지 않습니다.</string>
-    <string name="sec_immersive_cling_help_text_step_one_two">버튼이 있었던 부분의 화면 바깥쪽에서 안쪽으로 밀면 버튼이 다시 나타납니다.</string>
+    <string name="sec_immersive_cling_help_text_step_one_two">버튼이 있었던 부분을 바깥쪽에서 안쪽으로 밀면 버튼이 다시 나타납니다.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">잠시 후에 버튼이 다시 사라집니다.</string>
     <string name="sec_immersive_cling_help_text_step_two">화면에 홈 버튼이 표시되지 않아도 홈 화면으로 이동할 수 있습니다. 홈 버튼이 표시되었던 부분을 세게 누르세요.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">휴대전화를 손으로 들고 있을 때는 버튼이 항상 충전 포트 옆에 표시됩니다. 휴대전화를 반시계 방향으로 돌린 상태에서는 화살표 방향대로 화면 가장자리를 왼쪽으로 미세요.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">휴대전화를 손으로 들고 있을 때는 버튼이 항상 충전 포트 옆에 표시됩니다. 휴대전화를 시계 방향으로 돌린 상태에서는 화살표 방향대로 화면 가장자리를 오른쪽으로 미세요.</string>
     <string name="done_label">완료</string>
     <string name="hour_picker_description">아날로그 시간 피커</string>
     <string name="minute_picker_description">아날로그 분 피커</string>
@@ -1329,7 +1331,9 @@ google.com/accounts/recovery"</string>
     <string name="deleted_key">%s을(를) 삭제하였습니다.</string>
     <string name="managed_profile_label_badge">업무용 %1$s</string>
     <string name="lock_to_app_toast">앱 고정을 해제하려면 최근 앱 버튼과 뒤로가기 버튼을 동시에 길게 누르세요.</string>
+    <string name="lock_to_app_toast_for_navibar">앱 고정을 해제하려면 최근 앱 버튼과 뒤로가기 버튼을 동시에 길게 누르세요.</string>
     <string name="lock_to_app_toast_accessible">앱 고정을 해제하려면, 최근 앱 버튼을 길게 누르세요.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">앱 고정을 해제하려면 최근 앱 버튼을 길게 누르세요.</string>
     <string name="lock_to_app_toast_locked">앱 고정 모드를 실행했습니다.</string>
     <string name="lock_to_app_start">앱을 고정하였습니다.</string>
     <string name="lock_to_app_exit">앱 고정을 해제하였습니다.</string>
@@ -1435,9 +1439,9 @@ google.com/accounts/recovery"</string>
     <string name="tw_clipboard_save_tts">저장</string>
     <string name="tw_clipboard_button_tts">버튼</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">클립보드</string>
-    <string name="hdmi_connect">HDMI 케이블을 연결하였습니다.</string>
+    <string name="hdmi_connect">HDMI로 연결했습니다.</string>
     <string name="hdmi_connect_indirectly">HDMI 케이블로 디바이스를 바로 TV에 연결하세요.</string>
-    <string name="hdmi_disconnect">HDMI 케이블을 분리하였습니다.</string>
+    <string name="hdmi_disconnect">HDMI를 분리했습니다.</string>
     <string name="hdmi_recommend_charging_device">디바이스가 HDTV 어댑터에 오랜 시간 연결된 경우 디바이스를 충전할 것을 권장합니다. 디바이스를 충전하려면 충전기를 HDTV 어댑터에 연결하세요.</string>
     <string name="hdmi_wfd_terminate">HDMI에 연결되어 Screen Mirroring 연결을 종료했습니다.</string>
     <string name="disable">해제</string>
@@ -1589,6 +1593,11 @@ google.com/accounts/recovery"</string>
     <string name="batt_cooldown_mode_attention">앱 종료됨</string>
     <string name="batt_cooldown_mode_attentions">앱 종료됨</string>
     <string name="batt_cooldown_mode_ok">확인</string>
+    <string name="overheat_limit_warning_title">휴대전화 온도 상승</string>
+    <string name="overheat_limit_warning">휴대전화 온도가 높습니다. 이 앱을 지금 바로 종료하세요. 1분이 지나면 %s 앱이 자동으로 종료되며 저장하지 않은 데이터가 모두 삭제됩니다.</string>
+    <string name="overheat_limit_closed_title">앱 종료됨</string>
+    <string name="overheat_limit_closed">휴대전화 온도가 높아져 %1$s 앱을 종료했습니다. 휴대전화 온도가 내려간 후 %2$s 앱을 다시 사용할 수 있습니다.</string>
+    <string name="overheat_limit_ok">확인</string>
     <string name="restart_confirm">디바이스를 다시 시작합니다.</string>
     <string name="tw_reboot_safemode_title_vzw">안전 모드로 다시 시작</string>
     <string name="tw_reboot_safemode_confirm_vzw">디바이스를 안전 모드로 다시 시작할까요? 안전 모드에서는 디바이스의 문제를 확인하고 해결하기 위해 기본으로 설치되지 않은 앱을 일시 사용정지 상태로 전환합니다. 안전 모드는 디바이스를 다시 시작할 때 해제되며 모든 앱을 정상적으로 사용할 수 있습니다.</string>
@@ -1875,6 +1884,7 @@ google.com/accounts/recovery"</string>
     <string name="volumepanel_media">미디어</string>
     <string name="volumepanel_notification">알림</string>
     <string name="volumepanel_system">시스템</string>
+    <string name="volumepanel_bixby_voice">빅스비 보이스</string>
     <string name="unable_to_capture_screen_emergencymode">긴급 모드에서는 화면을 캡처할 수 없습니다.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">화면을 캡처할 수 없습니다.</string>
     <string name="bluetooth_permission_request">블루투스 승인 요청</string>
@@ -1947,6 +1957,7 @@ google.com/accounts/recovery"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi 다이렉트 실행 중에는 %s 서비스를 사용할 수 없습니다.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">서비스 공급자로부터 응답이 없습니다.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s 실행 요청을 보내지 못하였습니다. 가능한 네트워크로 다시 연결 중…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s 기능을 사용할 수 없습니다. %2$s 기능은 현재 인터넷 패키지에서 사용할 수 없거나 %3$s 서버에서 응답이 없는 상태입니다.</string>
     <string name="mptcp_message_setting_disabled_overheating">디바이스 온도가 높아져 %s를 시작할 수 없습니다. 잠시 후 다시 시도해 주세요.</string>
     <string name="mptcp_message_operation_disabled_overheating">디바이스 온도가 높아져 %s를 해제합니다. 모바일 네트워크로 다운로드 중…</string>
     <string name="mptcp_message_data_usage_limit">데이터 사용한도에 도달하였습니다. 데이터 사용한도를 변경하려면 [설정]으로 이동하세요.</string>
@@ -2056,6 +2067,12 @@ google.com/accounts/recovery"</string>
     <string name="multisound_sound_via_usb_audio">%s 앱의 소리를 USB 오디오 디바이스에서 재생 중입니다. 이 기능을 해제하려면 여기를 누르세요.</string>
     <string name="multisound_change_output_device">오디오 출력 디바이스 변경</string>
     <string name="multisound_headup_contents">이 앱에서 사용하도록 선택한 오디오 디바이스가 휴대전화에서 사용하도록 설정된 오디오 출력 디바이스와 동일합니다. 이 앱의 소리를 휴대전화와 구분하여 들으려면 빠른 설정창에서 오디오 출력 디바이스를 변경하세요.</string>
+    <string name="multisound_hun_title">주 오디오 출력 디바이스 변경</string>
+    <string name="multisound_hun_contents">%1$s 앱에서 사용하도록 선택한 오디오 디바이스가 주 오디오 출력 디바이스(%2$s)와 동일합니다. 이 앱의 소리를 분리하여 재생하려면 주 오디오 출력 디바이스를 %3$s 디바이스로 변경해야 합니다.</string>
+    <string name="multisound_hun_close">종료</string>
+    <string name="multisound_hun_change">변경</string>
+    <string name="my_device">내 휴대전화</string>
+    <string name="headset">헤드셋</string>
     <string name="bixby_edgecase_mpsm">초절전 모드 실행 중에는 Bixby를 사용할 수 없습니다.</string>
     <string name="bixby_edgecase_emergencymode">긴급 모드에서는 Bixby를 사용할 수 없습니다.</string>
     <string name="bixby_edgecase_kidsmode">키즈 모드에서는 Bixby를 사용할 수 없습니다.</string>
@@ -2063,9 +2080,11 @@ google.com/accounts/recovery"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink 기능 사용 중에는 Bixby를 사용할 수 없습니다.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX에서는 Bixby를 사용할 수 없습니다.</string>
     <string name="bixby_edgecase_dexstation">DeX Station에 연결된 상태에서는 Bixby를 사용할 수 없습니다.</string>
-    <string name="conventional_mode_recent_noti">최근 앱 화면에서 확장 아이콘을 누르면 이 앱을 전체 화면으로 볼 수 있습니다.</string>
+    <string name="bixby_edgecase_cantusenow">지금은 Bixby 보이스를 사용할 수 없습니다.</string>
+    <string name="conventional_mode_recent_noti">최근 앱 화면에서 앱 화면 비율을 변경할 수 있습니다.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">[설정 > 디스플레이 > 전체 화면 비율로 사용할 앱]에서 이전 화면 비율로 다시 변경할 수 있습니다.</string>
     <string name="conventional_mode_tap_here_to_fill">전체 화면으로 보려면 여기를 누르세요</string>
+    <string name="bixby_popup_unavailable_now">빅스비를 사용할 수 없습니다. 휴대전화 소유자 또는 대표 전화번호로만 사용할 수 있습니다.</string>
     <string name="permlab_knoxCustomSetting">디바이스 설정 관리</string>
     <string name="permdesc_knoxCustomSetting">블루투스, 위치, Wi-Fi, 모바일 데이터, 안드로이드 설정과 같은 디바이스 설정을 관리합니다.</string>
     <string name="permlab_knoxCustomSystem">디바이스 시스템 설정</string>
@@ -2441,6 +2460,4 @@ google.com/accounts/recovery"</string>
     <string name="charging_connected_via_usb">USB로 연결된 디바이스 충전 중…</string>
     <string name="lacking_filenode_internal_storage_view_title">파일 시스템 한도</string>
     <string name="lacking_filenode_internal_storage_view_text">휴대전화에 파일이 너무 많습니다. 앱이 제대로 동작하지 않을 수 있으며 휴대전화 시작이 느려질 수 있습니다. 중요한 데이터를 백업한 후 휴대전화를 초기화하세요.</string>
-    <string name="lock_to_app_toast_for_navibar">앱 고정을 해제하려면 최근 앱 버튼과 뒤로가기 버튼을 동시에 길게 누르세요.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">앱 고정을 해제하려면 최근 앱 버튼을 길게 누르세요.</string>
 </resources>

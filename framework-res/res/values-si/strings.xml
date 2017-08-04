@@ -382,7 +382,7 @@
     <string name="noApplications">මෙම ක්‍රියාව හා ආශ්‍රිත යෙදුම් සියල්ල අක්‍රිය, අවහිර, හෝ අස්ථාපනය කර ඇත.</string>
     <string name="aerr_application">%1$s නැවතී ඇත.</string>
     <string name="aerr_process">%1$s ක්‍රියාවලිය නැවතී ඇත.</string>
-    <string name="aerr_restart">යෙ. යළි අ.</string>
+    <string name="aerr_restart">යෙදුම යළි අරඹන්න</string>
     <string name="force_close">හරි</string>
     <string name="wait">මදක් ඉන්න</string>
     <string name="launch_warning_title">යෙදුම නැවත යොමු කෙරිණි</string>
@@ -473,9 +473,9 @@
     <string name="perms_description_app">%s වෙතින් සැපයෙයි</string>
     <string name="no_permissions">අවසර අවශ්‍ය නැත.</string>
     <string name="dlg_ok">හරි</string>
-    <string name="usb_mtp_notification_title">මාධ්‍ය ගොනු USB මාරුව</string>
-    <string name="usb_ptp_notification_title">USB අනුරූ හුවමාරු කරයි</string>
-    <string name="usb_midi_notification_title">MIDI උපාංගයට USB සම්බන්ධිතයි</string>
+    <string name="usb_mtp_notification_title">ගොනු හුවමාරුව සඳහා USB</string>
+    <string name="usb_ptp_notification_title">අනුරූ හුවමාරුව සඳහා USB</string>
+    <string name="usb_midi_notification_title">MIDI සඳහා USB</string>
     <string name="usb_accessory_notification_title">USB අමතර කොටස් වෙත සම්බන්ධ කෙරිණි</string>
     <string name="usb_notification_message">අනෙක් USB විකල්ප සඳහා තට්ටු කරන්න.</string>
     <string name="adb_active_notification_title">USB නිරාකරණය සම්බන්ධිතයි.</string>
@@ -684,6 +684,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">ඔබට බොත්තම් සාමාන්‍යයෙන් දිස් වන තිරයේ කෙළවරේ සිට ඇතුල් දෙසට ස්වයිප් කිරීමෙන් නැවත බොත්තම් පෙන්විය හැක.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">ටික වේලාවකට පසුව, බොත්තම් නැවත අතුරුදහන් වනු ඇත.</string>
     <string name="sec_immersive_cling_help_text_step_two">ඔබට සඟවා ඇති අතරේ පවා මුල් බොත්තම භාවිතා කළ හැක. මුල් තිරයට යාමට, මුල් බොත්තම සාමාන්‍යයෙන් දිස් වන තිරයේ ප්‍රදේශය දැඩිව ඔබන්න.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">ඔබ ඔබේ දුරකථනය කෙසේ අල්ලාගෙන සිටියත්, බොත්තම් සෑම විටම චාර්ජ් කිරීමේ කවුළුවට යාබදව පිහිටා තිබෙනු ඇත. ඔබේ දුරකථනය වාමාවර්තව කරකැවෙන විට, ඊතලයෙන් පෙන්වා ඇති පරිදි තිරයේ කෙළවර සිට වමට ස්වයිප් කරන්න.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">ඔබ ඔබේ දුරකථනය කෙසේ අල්ලාගෙන සිටියත්, බොත්තම් සෑම විටම චාර්ජ් කිරීමේ කවුළුවට යාබදව පිහිටා තිබෙනු ඇත. ඔබේ දුරකථනය දක්ෂිණාවර්තව කරකැවෙන විට, ඊතලයෙන් පෙන්වා ඇති පරිදි තිරයේ කෙළවර සිට දකුණට ස්වයිප් කරන්න.</string>
     <string name="done_label">නිමයි</string>
     <string name="hour_picker_description">ඇනලොග් පැය තෝරකය</string>
     <string name="minute_picker_description">ඇනලොග් විනාඩි තෝරකය</string>
@@ -693,7 +695,9 @@
     <string name="select_year">වර්ෂය තෝරන්න.</string>
     <string name="deleted_key">%s මැකිණි.</string>
     <string name="lock_to_app_toast">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු යතුරු එකවර ඔබාගෙන සිටින්න.</string>
+    <string name="lock_to_app_toast_for_navibar">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු බොත්තම් එකවර ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
     <string name="lock_to_app_toast_accessible">මෙම යෙදුම පින් කිරීමෙන් ඉවත් කිරීමට, මෑත යතුර ඔබාගෙන සිටින්න.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">යෙදුමට-අගුල ප්‍රකාරය සක්‍රිය කර ඇත.</string>
     <string name="lock_to_app_start">යෙදුම ඇමිනිණි.</string>
     <string name="lock_to_app_exit">යෙදුම ඇමිණීමෙන් ඉවත් කෙරිණි.</string>
@@ -734,9 +738,9 @@
     <string name="tw_clipboard_save_tts">සුරකින්න</string>
     <string name="tw_clipboard_button_tts">බොත්තම</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">ක්ලිප් පුවරුව</string>
-    <string name="hdmi_connect">HDMI රැහැන සම්බන්ධ විය.</string>
+    <string name="hdmi_connect">HDMI සම්බන්ධිතයි.</string>
     <string name="hdmi_connect_indirectly">HDMI කේබලය ඔස්සේ ඔබේ උපාංගය ඍජුවම TV යන්ත්‍රයට සම්බන්ධ කරන්න.</string>
-    <string name="hdmi_disconnect">HDMI රැහැන විසන්ධි විය.</string>
+    <string name="hdmi_disconnect">HDMI විසන්ධි කෙරිණි.</string>
     <string name="hdmi_recommend_charging_device">ඔබේ උපාංගය දිගු වේලාවක් තිස්සේ HDTV ඇඩප්ටරයකට සම්බන්ධ කර තිබේ නම් එය චාර්ජ් කිරීම යෝග්‍ය වේ. ඔබේ උපාංගය චාර්ජ් කිරීමට HDTV ඇඩප්ටරයට චාර්ජරය සම්බන්ධ කරන්න.</string>
     <string name="hdmi_wfd_terminate">HDMI සම්බන්ධ කෙරිණි. Screen Mirroring සම්බන්ධතාව අවසන් වී ඇත.</string>
     <string name="disable">අක්‍රියයි</string>
@@ -1155,6 +1159,7 @@
     <string name="volumepanel_media">මාධ්‍ය</string>
     <string name="volumepanel_notification">දැනුම්දීම්</string>
     <string name="volumepanel_system">පද්ධතිය</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">හදිසි ප්‍රකාරයේ දී තිරය ග්‍රහණය කළ නොහැක.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">තිරදසුනක් ග්‍රහණය කර ගත නොහැකි විය.</string>
     <string name="bluetooth_permission_request">බ්ලූටුත් බලතල ඉල්ලීම</string>
@@ -1227,6 +1232,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct සක්‍රිය අතරතුර %s සක්‍රිය කළ නොහැකිය.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">සේවා සැපයුම්කරුගෙන් කිසිදු ප්‍රතිචාරයක් නොමැත.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s සක්‍රියන ඉල්ලුම යැවීමට අසමත් විය. ඇති ජාල ඔස්සේ යළි සබැඳෙමින්…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s සක්‍රිය කළ නොහැකිය. %2$s ඔබේ අන්තර්ජාල පැකේජය සමග නොමැති හෝ %3$s සර්වරයෙන් කිසිදු ප්‍රතිචාරයක් ලැබී නැත.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s සක්‍රිය කළ නොහැකිය. උපාංගය අධිකව රත් වේ. උපාංගය සිසිල් වන තුරු රැඳී සිට නැවත උත්සාහ කරන්න.</string>
     <string name="mptcp_message_operation_disabled_overheating">උපාංගය අධිකව රත් වීම වැළැක්වීමට %s අක්‍රිය කෙරිණි. ඒ වෙනුවට ජංගම ජාලය ඔස්සේ බාගනිමින්…</string>
     <string name="mptcp_message_data_usage_limit">දත්ත පරිහරණ සීමාවට ළඟා විය. දත්ත පරිහරණ සීමාව වෙනස් කිරීමට, සැකසුම් වෙත යන්න.</string>
@@ -1334,6 +1340,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s හඬ ඔබේ USB ශ්‍රව්‍ය උපාංගය හරහා වාදනය වේ. මෙය ක්‍රියා විරහිත කිරීමට මෙතැන තට්ටු කරන්න.</string>
     <string name="multisound_change_output_device">ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය වෙනස් කිරීම</string>
     <string name="multisound_headup_contents">ඔබ මෙම යෙදුම සඳහා තේරූ ශ්‍රව්‍ය උපාංගය ඔබේ දුරකථනය සඳහා පවත්නා ශ්‍රව්‍ය ප්‍රතිදාන උපාංගයට සමාන වේ. මෙම යෙදුම සඳහා හඬ වෙන් කිරීම සඳහා, යුහු සැකසුම් පුවරුව තුළ ඔබේ ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය වෙනස් කරන්න.</string>
+    <string name="multisound_hun_title">ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය වෙ. ක.ද?</string>
+    <string name="multisound_hun_contents">ඔබ මෙම යෙදුම (%1$s) සඳහා තේරූ ශ්‍රව්‍ය උපාංගය ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගයට (%2$s) සමාන වේ. මෙම යෙදුම සඳහා හඬ වෙන් කිරීමට, ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය %3$s වෙත වෙනස් කිරීමට අවශ්‍ය වේ.</string>
+    <string name="multisound_hun_close">වසන්න</string>
+    <string name="multisound_hun_change">වෙනස් කරන්න</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">හෙඩ්සෙටය</string>
     <string name="bixby_edgecase_mpsm">උපරිම බල සුරැකුම් ප්‍රකාරය ක්‍රියාත්මක අතරේ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_emergencymode">හදිසි ප්‍රකාරය තුළ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_kidsmode">ළමා ප්‍රකාරය තුළ Bixby භාවිතා කළ නොහැක.</string>
@@ -1341,9 +1353,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink භාවිතා කරන අතරේ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX තුළ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_dexstation">DeX ස්ථානයට සම්බන්ධිත අතරේ Bixby භාවිතා කළ නොහැක.</string>
-    <string name="conventional_mode_recent_noti">ඔබට මෑත යෙදුම් තිරය මත දිග හැරීමේ අයිකනය තට්ටු කිරීමෙන් පූර්ණ තිරයේ මෙම යෙදුම බැලිය හැක.</string>
+    <string name="bixby_edgecase_cantusenow">දැන් Bixby Voice භාවිතා කළ නොහැක.</string>
+    <string name="conventional_mode_recent_noti">ඔබට මෑත යෙදුම් තිරය මත යෙදුමේ දර්ශන අනුපාතය වෙනස් කළ හැක.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">පෙර දර්ශන අනුපාතයට නැවත පැමිණීමට, සැකසුම් > සංදර්ශකය > පූර්ණ තිර යෙදුම් වෙත යන්න.</string>
     <string name="conventional_mode_tap_here_to_fill">මුළු තිරයම පිරවීමට මෙතැන තට්ටු කරන්න</string>
+    <string name="bixby_popup_unavailable_now">Bixby නොමැත. දුරකථනයේ හිමිකරුට හෝ ප්‍රධාන දුරකථන අංකයට පමණක් Bixby භාවිතා කළ හැකිය.</string>
     <string name="permlab_knoxCustomSetting">උපාංග සැකසුම් කළමණාකරණය</string>
     <string name="permdesc_knoxCustomSetting">බ්ලූටූත්, පිහිටීම, Wi-Fi, ජංගම දත්ත, සහ ඇන්ඩ්‍රොයිඩ් සැකසුම් වැනි උපාංග සැකසුම් වින්‍යාස කරන්න.</string>
     <string name="permlab_knoxCustomSystem">පද්ධති සැකසුම් කළමනාකරණය</string>
@@ -1718,6 +1732,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB ඔස්සේ සම්බන්ධිත උපාංගය චාර්ජ් කරමින්…</string>
     <string name="lacking_filenode_internal_storage_view_title">ගොනු පද්ධතියේ සීමාව</string>
     <string name="lacking_filenode_internal_storage_view_text">ඔබේ දුරකථනයේ බොහෝ ගොනු නිර්මාණය කර තිබේ. යෙදුම් නිවැරදිව වැඩ කිරීම නතර විය හැකි අතර ඔබේ දුරකථනය තවදුරටත් ආරම්භ නොවිය හැක. ඕනෑම වැදගත් දත්තයක් උපස්ථ කර ඔබේ දුරකථනය කම්හල් යළි පිහිටුවන්න.</string>
-    <string name="lock_to_app_toast_for_navibar">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු බොත්තම් එකවර ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

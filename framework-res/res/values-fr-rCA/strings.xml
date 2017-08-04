@@ -766,7 +766,7 @@ Voulez-vous vraiment quitter cette page?"</string>
     <string name="aerr_process">"Le processus %1$s s'est arrêté."</string>
     <string name="aerr_application_repeated">%1$s plante continuellement</string>
     <string name="aerr_process_repeated">%1$s plante continuellement</string>
-    <string name="aerr_restart">Redém. appli.</string>
+    <string name="aerr_restart">"Redémarrer l'application"</string>
     <string name="aerr_reset">"Réinitialiser et redémarrer l'application"</string>
     <string name="aerr_report">Envoyer des commentaires</string>
     <string name="aerr_close">Fermer</string>
@@ -911,9 +911,9 @@ Voulez-vous la fermer?"</string>
     <string name="dlg_ok">OK</string>
     <string name="usb_charging_notification_title">Cet appareil est en cours de charge par USB</string>
     <string name="usb_supplying_notification_title">Un connecteur USB alimente cet appareil</string>
-    <string name="usb_mtp_notification_title">Transfert fichiers média par USB</string>
-    <string name="usb_ptp_notification_title">"Transfert d'images par USB"</string>
-    <string name="usb_midi_notification_title">"Connexion USB à l'appareil MIDI"</string>
+    <string name="usb_mtp_notification_title">USB pour le transfert de fichiers</string>
+    <string name="usb_ptp_notification_title">"USB pour le transfert d'images"</string>
+    <string name="usb_midi_notification_title">USB pour les appareils MIDI</string>
     <string name="usb_accessory_notification_title">Connecté à un accessoire USB</string>
     <string name="usb_notification_message">"Touchez pour accéder à d'autres options USB."</string>
     <string name="adb_active_notification_title">Débogage USB connecté.</string>
@@ -1315,6 +1315,8 @@ Réessayez dans %2$d secondes."</string>
     <string name="sec_immersive_cling_help_text_step_one_two">"Vous pouvez afficher les touches en glissant un doigt vers l'intérieur depuis le côté de l'écran où les touches apparaissent normalement."</string>
     <string name="sec_immersive_cling_help_text_step_one_three">Après un instant, les boutons disparaitront à nouveau.</string>
     <string name="sec_immersive_cling_help_text_step_two">"Vous pouvez utiliser le bouton Accueil même s'il est masqué. Pour accéder à l'écran d'accueil, pressez la zone de l'écran où le bouton Accueil apparait normalement."</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">"Quelle que soit la manière dont vous tenez votre téléphone, les touches seront toujours situées à côté du port de chargement. Lorsque vous faites pivoter votre téléphone dans le sens antihoraire, glissez un doigt vers la gauche depuis le côté de l'écran, comme indiqué par la flèche."</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">"Quelle que soit la manière dont vous tenez votre téléphone, les touches seront toujours situées à côté du port de chargement. Lorsque vous faites pivoter votre téléphone dans le sens horaire, glissez un doigt vers la droite depuis le côté de l'écran, comme indiqué par la flèche."</string>
     <string name="done_label">OK</string>
     <string name="hour_picker_description">"Sélecteur d'heure analogique"</string>
     <string name="minute_picker_description">Sélecteur de minute analogique</string>
@@ -1325,7 +1327,9 @@ Réessayez dans %2$d secondes."</string>
     <string name="deleted_key">%s supprimé(s).</string>
     <string name="managed_profile_label_badge">%1$s (travail)</string>
     <string name="lock_to_app_toast">Pour décrocher une application, pressez longuement les touches Applications récentes et Retour.</string>
+    <string name="lock_to_app_toast_for_navibar">Pour décrocher une application, touchez longuement les touches Applications récentes et Retour simultanément.</string>
     <string name="lock_to_app_toast_accessible">"Pour décrocher l'application, touchez longuement la touche Applications récentes."</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">"Le mode Verrouillage d'application a été activé."</string>
     <string name="lock_to_app_start">"L'application a été épinglée."</string>
     <string name="lock_to_app_exit">"L'application a été décrochée."</string>
@@ -1431,9 +1435,9 @@ Réessayez dans %2$d secondes."</string>
     <string name="tw_clipboard_save_tts">Enreg.</string>
     <string name="tw_clipboard_button_tts">Bouton</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">Presse-papier</string>
-    <string name="hdmi_connect">Câble HDMI branché</string>
+    <string name="hdmi_connect">HDMI connecté.</string>
     <string name="hdmi_connect_indirectly">Connectez directement votre appareil au téléviseur via le câble HDMI.</string>
-    <string name="hdmi_disconnect">Câble HDMI débranché</string>
+    <string name="hdmi_disconnect">Le HDMI est déconnecté.</string>
     <string name="hdmi_recommend_charging_device">"Nous vous recommandons de charger votre appareil s'il est connecté à un adaptateur HDTV depuis longtemps. Connectez le chargeur à l'adaptateur HDTV pour charger votre appareil."</string>
     <string name="hdmi_wfd_terminate">"HDMI connecté. La connexion Réplication d'écran a été interrompue"</string>
     <string name="disable">Désactiver</string>
@@ -1850,6 +1854,7 @@ Command"</string>
     <string name="volumepanel_media">Média</string>
     <string name="volumepanel_notification">Notifications</string>
     <string name="volumepanel_system">Système</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">"Impossible de capturer l'écran en mode Urgence."</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">"Impossible de capturer l'écran."</string>
     <string name="bluetooth_permission_request">"Demande d'autorisation Bluetooth"</string>
@@ -1922,6 +1927,7 @@ Pour la décrocher, touchez longuement la touche Menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">"Impossible d'activer %s lorsque Wifi Direct est activé."</string>
     <string name="mptcp_message_mptcp_capability_noresponse">"Aucune réponse de l'opérateur."</string>
     <string name="mptcp_message_mptcp_capability_sendfail">"La demande d'activation du service %s a échoué. Reconnexion via les réseaux disponibles…"</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">"Impossible d'activer %1$s. La fonction %2$s n'est pas disponible avec votre service Internet, ou aucune réponse n'a été reçue du serveur %3$s."</string>
     <string name="mptcp_message_setting_disabled_overheating">"Impossible d'activer %s. L'appareil est en surchauffe. Attendez qu'il refroidisse et réessayez."</string>
     <string name="mptcp_message_operation_disabled_overheating">"Le service %s a été désactivé pour empêcher la surchauffe de l'appareil. Téléchargement via le réseau mobile…"</string>
     <string name="mptcp_message_data_usage_limit">"La limite d'utilisation des données a été atteinte. Pour modifier la limite d'utilisation des données, accédez à Paramètres."</string>
@@ -2029,6 +2035,12 @@ Activer le mode Hors ligne ?"</string>
     <string name="multisound_sound_via_usb_audio">"Le son de l'application %s est lu depuis le périphérique audio USB. Touchez ici pour le désactiver."</string>
     <string name="multisound_change_output_device">Modifier le périphérique de sortie audio</string>
     <string name="multisound_headup_contents">Le périphérique audio que vous avez sélectionné pour cette application correspond au périphérique de sortie audio actuellement défini pour votre téléphone. Pour isoler le son de cette application, changez de périphérique de sortie audio dans le panneau des notifications.</string>
+    <string name="multisound_hun_title">Modifier périph. sortie audio principal ?</string>
+    <string name="multisound_hun_contents">Le périphérique audio que vous avez sélectionné pour cette application (%1$s) est identique au périphérique de sortie audio principal (%2$s). Pour séparer le son de cette application, vous devez remplacer le périphérique de sortie audio principal par %3$s.</string>
+    <string name="multisound_hun_close">Fermer</string>
+    <string name="multisound_hun_change">Modifier</string>
+    <string name="my_device">Mon téléphone</string>
+    <string name="headset">"Casque d'écoute"</string>
     <string name="bixby_edgecase_mpsm">"Impossible d'utiliser Bixby lorsque le mode Économie d'énergie maximale est activé."</string>
     <string name="bixby_edgecase_emergencymode">"Impossible d'utiliser Bixby en mode Urgence."</string>
     <string name="bixby_edgecase_kidsmode">"Impossible d'utiliser Bixby en mode Enfant."</string>
@@ -2036,9 +2048,11 @@ Activer le mode Hors ligne ?"</string>
     <string name="bixby_edgecase_mirrorlink">"Impossible d'utiliser Bixby pendant l'utilisation de MirrorLink."</string>
     <string name="bixby_edgecase_dexmode">"Impossible d'utiliser Bixby dans Samsung DeX."</string>
     <string name="bixby_edgecase_dexstation">Vous ne pouvez pas utiliser Bixby lorsque vous êtes connecté à DeX Station.</string>
-    <string name="conventional_mode_recent_noti">"Vous pouvez afficher cette application en plein écran en touchant l'icône Agrandir de l'écran Applications récentes."</string>
+    <string name="bixby_edgecase_cantusenow">"Impossible d'utiliser Bixby Voice maintenant."</string>
+    <string name="conventional_mode_recent_noti">"Vous pouvez modifier le rapport hauteur/largeur de l'application sur l'écran Applications récentes."</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">Pour rétablir le rapport hauteur/largeur précédent, accédez à Paramètres > Affichage > Applications en plein écran.</string>
     <string name="conventional_mode_tap_here_to_fill">"Toucher ici pour remplir tout l'écran"</string>
+    <string name="bixby_popup_unavailable_now">"Bixby n'est pas disponible. Seul le propriétaire du téléphone ou le numéro de téléphone principal peut utiliser Bixby."</string>
     <string name="permlab_knoxCustomSetting">"Gestion des paramètres de l'appareil"</string>
     <string name="permdesc_knoxCustomSetting">"Configurez les paramètres de l'appareil, tels que le Bluetooth, la localisation, le Wifi, les données mobiles et les paramètres Android."</string>
     <string name="permlab_knoxCustomSystem">Gestion des paramètres système</string>
@@ -2414,6 +2428,4 @@ Les fonctions USB risquent d'être restreintes lorsque le mode Économie d'éner
     <string name="charging_connected_via_usb">"Chargement de l'appareil connecté via USB…"</string>
     <string name="lacking_filenode_internal_storage_view_title">Limite du système de fichiers</string>
     <string name="lacking_filenode_internal_storage_view_text">"Le nombre de fichiers créés sur votre téléphone est trop élevé. Les applications risquent de ne plus fonctionner correctement et votre téléphone pourrait ne plus démarrer. Sauvegardez les données importantes et rétablissez les données d'usine de votre téléphone."</string>
-    <string name="lock_to_app_toast_for_navibar">Pour décrocher une application, touchez longuement les touches Applications récentes et Retour simultanément.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

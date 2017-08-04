@@ -108,6 +108,12 @@
     <color name="resize_shadow_end_color">#00000000</color>
     <color name="light_navigation_bar_default_bg_color">#fff0f0f0</color>
     <color name="hdr_effect_hun_color">#ff7792a9</color>
+    <color name="hun_background_color">#fffafafa</color>
+    <color name="hun_icon_tint_color">#ff42afbf</color>
+    <color name="hun_caller_text_color">#ff42afbf</color>
+    <color name="hun_title_text_color">#ff252525</color>
+    <color name="hun_description_text_color">#ff515151</color>
+    <color name="hun_button_text_color">#ff499ebd</color>
     <color name="background_holo_dark">#ff000000</color>
     <color name="background_holo_light">#fff3f3f3</color>
     <color name="bright_foreground_holo_dark">@color/background_holo_light</color>

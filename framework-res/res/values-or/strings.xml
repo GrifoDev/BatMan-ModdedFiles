@@ -474,9 +474,9 @@
     <string name="perms_description_app">%s ଦ୍ଵାରା ପ୍ରଦାନ ହୋଇଛି।</string>
     <string name="no_permissions">କୌଣସି ଅନୁମତି ଆବଶ୍ୟକ ନାହିଁ।</string>
     <string name="dlg_ok">ଓକେ</string>
-    <string name="usb_mtp_notification_title">USB ମିଡିଆ ଫାଇଲଗୁଡିକ ସ୍ଥାନାନ୍ତରଣ</string>
-    <string name="usb_ptp_notification_title">USB ଫଟୋଗୁଡିକ ସ୍ଥାନାନ୍ତରଣ ହେଉଛି</string>
-    <string name="usb_midi_notification_title">MIDI ଡିଭାଇସକୁ USB ସଂଯୋଜିତ</string>
+    <string name="usb_mtp_notification_title">ଫାଇଲ୍ ସ୍ଥାନାନ୍ତର ପାଇଁ USB</string>
+    <string name="usb_ptp_notification_title">ଫଟୋ ସ୍ଥାନାନ୍ତର ପାଇଁ USB</string>
+    <string name="usb_midi_notification_title">MIDI ପାଇଁ USB</string>
     <string name="usb_accessory_notification_title">ଏକ USB ଆସୋସେରିଜରେ ସଂଯୋଜିତ</string>
     <string name="usb_notification_message">ଅନ୍ୟ USB ବିକଳ୍ପ ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="adb_active_notification_title">USB ଡିବଗିଂ ସଂଯୋଜିତ ହୋଇଛି।</string>
@@ -685,6 +685,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">ଆପଣ ସ୍କ୍ରିନର Edge ଯେଉଁଠାରେ ସାଧାରଣ ଭାବେ ବଟନଗୁଡିକ ଦୃଶ୍ୟମାନ ହୋଇଥିବାରୁ ଭିତରକୁ ସ୍ଵାଇପ୍ କରି ଆପଣ ପୁନଃ ବଟନ୍ ଦେଖାଇ ପାରିବେ।</string>
     <string name="sec_immersive_cling_help_text_step_one_three">କିଛି ସମୟ ପରେ, ବଟନ୍ ପୁନଃ ଅଦୃଶ୍ୟ ହେବ।</string>
     <string name="sec_immersive_cling_help_text_step_two">ହୋମ୍ ବଟନ୍ ଏପରିକି ଲୁକ୍କାୟିତ ଥିଲେ ମଧ୍ୟ ଆପଣ ଏହା ବ୍ୟବହାର କରିପାରିବେ। ହୋମ୍ ସ୍କ୍ରିନକୁ ଯାଇ, ସାଧାରଣ ଭାବେ ହୋମ୍ ବଟନ୍ ଦୃଶ୍ୟମାନ ହେଉଥିବା ଅଞ୍ଚଳ ଜୋରରେ ଦବାନ୍ତୁ।</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">ଯଦିଓ ଆପଣ ଆପଣଙ୍କ ଫୋନ୍ ଧରି ରଖିଛନ୍ତି, ବଟନଗୁଡିକ ସର୍ବଦା ଚାର୍ଜିଂ ପୋର୍ଟର ଆଗରେ ଅବସ୍ଥିତ ହୋଇଥାଏ। ଆପଣଙ୍କ ଫୋନ୍ ଦକ୍ଷିଣାବର୍ତ୍ତୀ ଘୁରିବା ସମୟରେ, ତୀର ଦ୍ୱାରା ଦେଖାଯାଇଥିବା ଭାବେ ସ୍କ୍ରିନ୍ କୋଣରୁ ବାମକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">ଯଦିଓ ଆପଣ ଆପଣଙ୍କ ଫୋନ୍ ଧରି ରଖିଛନ୍ତି, ବଟନଗୁଡିକ ସର୍ବଦା ଚାର୍ଜିଂ ପୋର୍ଟର ଆଗରେ ଅବସ୍ଥିତ ହୋଇଥାଏ। ଆପଣଙ୍କ ଫୋନ୍ ଦକ୍ଷିଣାବର୍ତ୍ତୀ ଘୁରିବା ସମୟରେ, ତୀର ଦ୍ୱାରା ଦେଖାଯାଇଥିବା ଭାବେ ସ୍କ୍ରିନ୍ କୋଣରୁ ଡାହାଣକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="done_label">ସମାପ୍ତ</string>
     <string name="hour_picker_description">ଆନାଲଗ୍ ଘଣ୍ଟା ପିକର୍</string>
     <string name="minute_picker_description">ଆନାଲଗ୍ ମିନିଟ୍ ପିକର୍</string>
@@ -694,7 +696,9 @@
     <string name="select_year">ବର୍ଷ ଚୟନ କରନ୍ତୁ।</string>
     <string name="deleted_key">%s ବିଲୋପ ହୋଇଛି।</string>
     <string name="lock_to_app_toast">ଆପ୍ଲିକେସନ୍ ଅନପିନ୍‌ କରିବାକୁ‌, ସମାନ ସମୟରେ ସମ୍ପ୍ରତି ଏବଂ ବ୍ୟାକ୍ କୀ ଦବାନ୍ତୁ ଏବଂ ଧରି ରଖନ୍ତୁ।</string>
+    <string name="lock_to_app_toast_for_navibar">ଆପ୍ଲିକେସନ୍ ଅନପିନ୍‌ କରିବାକୁ‌, ସମାନ ସମୟରେ ସମ୍ପ୍ରତି ଏବଂ ବ୍ୟାକ୍ ବଟନ ଦବାନ୍ତୁ ଏବଂ ଧରି ରଖନ୍ତୁ।</string>
     <string name="lock_to_app_toast_accessible">ଏହି ଆପ୍ଲିକେସନ୍‍ ଅନପିନ୍ କରିବାକୁ, ସମ୍ପ୍ରତି କୀ ଦବାଇ ଧରି ରଖନ୍ତୁ।</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">ଆପ୍ଲିକେସନ୍‌ ଲକ୍‌ ମୋଡ୍‍ ସକ୍ଷମ ହୋଇଛି।</string>
     <string name="lock_to_app_start">ପିନ୍‌ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍।</string>
     <string name="lock_to_app_exit">ଅଣପିନ୍‌ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍।</string>
@@ -735,9 +739,9 @@
     <string name="tw_clipboard_save_tts">ସଞ୍ଚୟ</string>
     <string name="tw_clipboard_button_tts">ବଟନ୍</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">କ୍ଲିପବୋର୍ଡ</string>
-    <string name="hdmi_connect">HDMI କେବୁଲ୍ ସଂଯୋଜିତ ହୋଇଛି।</string>
+    <string name="hdmi_connect">HDMI ସଂଯୋଜିତ।</string>
     <string name="hdmi_connect_indirectly">HDMI କେବଲ୍ ମାଧ୍ୟମରେ ଆପଣଙ୍କ ଡିଭାଇସକୁ TV ସହ ପ୍ରତ୍ୟେକ୍ଷ ଭାବେ ସଂଯୋଗ କରନ୍ତୁ।</string>
-    <string name="hdmi_disconnect">HDMI କେବୁଲ୍ ବିଛିନ୍ନ ହୋଇଛି।</string>
+    <string name="hdmi_disconnect">HDMI ବିଚ୍ଛିନ୍ନ ହୋଇଛି।</string>
     <string name="hdmi_recommend_charging_device">ଆପଣଙ୍କର ଡିଭାଇସ୍ ଯଦି ଦୀର୍ଘ ସମୟ ଧରି କୌଣସି HDTV ଆଡପ୍ଟର ସହିତ ସଂଯୋଗ ଥାଏ ତେବେ ଆମେ ଆପଣଙ୍କ ଡିଭାଇସକୁ ଚାର୍ଜ କରିବାକୁ ସୁପାରିଶ କରୁଛୁ। ଆପଣଙ୍କ ଡିଭାଇସ୍ ଚାର୍ଜ କରିବାକୁ HDTV ଆଡପ୍ଟରକୁ ଚାର୍ଜରରେ ସଂଯୋଗ କରନ୍ତୁ।</string>
     <string name="hdmi_wfd_terminate">HDMI ସଂଯୋଜିତ। Screen Mirroring ସଂଯୋଜନ ଶେଷ ହୋଇଛି।</string>
     <string name="disable">ଅକ୍ଷମ</string>
@@ -1156,6 +1160,7 @@
     <string name="volumepanel_media">ମିଡିଆ</string>
     <string name="volumepanel_notification">ବିଜ୍ଞପ୍ତିଗୁଡିକ</string>
     <string name="volumepanel_system">ସିଷ୍ଟମ୍‌</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">ଜରୁରୀକାଳୀନ ମୋଡରେ ରହିଥିବା ବେଳେ ସ୍କ୍ରିନ୍‌ କ୍ୟାପଚର୍ କରିବାକୁ ଅକ୍ଷମ।</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">ସ୍କ୍ରିନ୍‌ସଟ୍ କ୍ୟାପ୍‌ଚର୍ କରିବାକୁ ଅସମର୍ଥ।</string>
     <string name="bluetooth_permission_request">ବ୍ଲୁଟୁଥ୍ ଅନୁମତି ଅନୁରୋଧ</string>
@@ -1228,6 +1233,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ସକ୍ଷମ ହୋଇଥିବା ବେଳେ %s ସକ୍ଷମ କରିବାକୁ ଅସମର୍ଥ।</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ସେବା ପ୍ରଦାନକାରୀଙ୍କ ଠାରୁ କୌଣସି ପ୍ରତିକ୍ରିୟା ନାହିଁ।</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s ସକ୍ରିୟକରଣ ଅନୁରୋଧ ପ୍ରେରଣ କରିବାକୁ ବିଫଳ ହୋଇଛି। ଉପଲବ୍ଧ ନେଟୱାର୍କଗୁଡିକ ମାଧ୍ୟମରେ ପୁନଃସଂଯୋଗ ହେଉଛି…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ସକ୍ଷମ କରିବାକୁ ଅସମର୍ଥ। %2$s ଆପଣଙ୍କ ଇଣ୍ଟର୍ନେଟ୍ ପ୍ୟାକେଜ୍ ସହ ଉପଲବ୍ଧ ନାହିଁ କିମ୍ୱା %3$s ସର୍ଭରରୁ କୌଣସି ପ୍ରତିକ୍ରିୟା ପ୍ରାପ୍ତ ହୋଇନାହିଁ।</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ସକ୍ଷମ କରିବାକୁ ଅସମର୍ଥ। ଡିଭାଇସ୍ ଅତ୍ୟଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ଡିଭାଇସ୍ ଥଣ୍ତା ନହେବା ପର୍ଯ୍ୟନ୍ତ ଅପେକ୍ଷା କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="mptcp_message_operation_disabled_overheating">ଡିଭାଇସ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହେବା ପ୍ରତିରୋଧ କରିବାକୁ %s ଅକ୍ଷମ ହୋଇଛି। ବଦଳରେ ମୋବାଇଲ୍ ନେଟୱାର୍କ୍ ମାଧ୍ୟମରେ ଡାଉନଲୋଡ୍ ହେଉଛି…</string>
     <string name="mptcp_message_data_usage_limit">ଡାଟା ବ୍ୟବହାର ସୀମାରେ ପହଞ୍ଚିଛି। ଡାଟା ବ୍ୟବହାର ସୀମା ପରିବର୍ତ୍ତନ କରିବାକୁ, ସେଟିଂସକୁ ଯାଆନ୍ତୁ।</string>
@@ -1335,6 +1341,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">ଆପଣଙ୍କ USB ଅଡିଓ ଡିଭାଇସ୍ ମାଧ୍ୟମରେ %s ଧ୍ଵନି ଚାଳନ ହେଉଛି। ଏହା ଟର୍ନ୍ ଅଫ୍ କରିବାକୁ ଏଠାରେ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="multisound_change_output_device">ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସ୍ ପରିବର୍ତ୍ତନ</string>
     <string name="multisound_headup_contents">ଏହି ଆପ୍ଲିକେସନ୍ ପାଇଁ ଆପଣ ଚୟନ କରିଥିବା ଅଡିଓ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଫୋନ୍ ପାଇଁ ସମ୍ପ୍ରତି ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସ୍ ଭଳି ସମାନ ଅଟେ। ଏହି ଆପ୍ଲିକେସନ୍ ପାଇଁ ଧ୍ଵନି ପୃଥକ କରିବାକୁ‌, ଦ୍ରୁତ ସେଟିଂସ୍ ପ୍ୟାନେଲରେ ଆପଣଙ୍କ ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସ୍ ପରିବର୍ତ୍ତନ କରନ୍ତୁ।</string>
+    <string name="multisound_hun_title">ମୁଖ୍ୟ ଅଡିଓ ଆଉଟ. ଡିଭାଇସ୍ ପରିବର୍ତ୍ତନ କରିବେ?</string>
+    <string name="multisound_hun_contents">ଏହି ଆପ୍ଲିକେସନ୍ (%1$s) ପାଇଁ ଆପଣ ଚୟନ କରିଥିବା ଅଡିଓ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଫୋନ୍ ପାଇଁ ସମ୍ପ୍ରତି ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସ୍ (%2$s) ଭଳି ସମାନ ଅଟେ। ଏହି ଆପ୍ଲିକେସନ୍ ପାଇଁ ଧ୍ଵନି ପୃଥକ କରିବାକୁ, ମୂଖ୍ୟ ଅଡିଓ ଆଉଟ୍ ପୁଟ୍ ଡିଭାଇସକୁ %3$sକୁ ପରିବର୍ତ୍ତନ କରିବା ଆବଶ୍ୟକ।</string>
+    <string name="multisound_hun_close">ବନ୍ଦ</string>
+    <string name="multisound_hun_change">ପରିବର୍ତ୍ତନ</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">ହେଡସେଟ୍</string>
     <string name="bixby_edgecase_mpsm">ସର୍ବାଧିକ ପାୱାର୍ ସଞ୍ଚୟ ମୋଡ୍ ଅନ୍ ହୋଇଥିବା ସମୟରେ Bixby ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>
     <string name="bixby_edgecase_emergencymode">ଜରୁରୀକାଳୀନ ମୋଡରେ Bixby ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>
     <string name="bixby_edgecase_kidsmode">ଶିଶୁଙ୍କ ମୋଡରେ Bixby ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>
@@ -1342,9 +1354,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink ବ୍ୟବହାର କରୁଥିବା ସମୟରେ Bixby ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>
     <string name="bixby_edgecase_dexmode">Samsung DeXରେ Bixby ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ।</string>
     <string name="bixby_edgecase_dexstation">DeX ଷ୍ଟେସନକୁ ସଂଯୋଜିତ ଥିବା ସମୟରେ Bixby ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ।</string>
-    <string name="conventional_mode_recent_noti">ଆପଣ ସମ୍ପ୍ରତି ଆପ୍ଲିକେସନ୍ ସ୍କ୍ରିନରେ ଆଇକନ୍ ସମ୍ପ୍ରସାରଣ ଟ୍ୟାପ୍ କରି ଏହି ଆପ୍ଲିକେସନକୁ ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନରେ ଦର୍ଶନ କରିପାରିବେ।</string>
+    <string name="bixby_edgecase_cantusenow">ବର୍ତ୍ତମାନ Bixby Voice ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ।</string>
+    <string name="conventional_mode_recent_noti">ଆପଣ ସମ୍ପ୍ରତି ଆପସ୍ ସ୍କ୍ରିନରେ ଆପ୍ଲିକେସନ୍‌ ଆସପେକ୍ଟ ହାର ପରିବର୍ତ୍ତନ କରିପାରିବେ।</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">ପୂର୍ବବର୍ତ୍ତୀ ଆସପେକ୍ଟ ହାରକୁ ଫେରିବାକୁ, ସେଟିଂସ୍ > ପ୍ରଦର୍ଶନ > ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍ ଆପସକୁ ଯାଆନ୍ତୁ।</string>
     <string name="conventional_mode_tap_here_to_fill">ସମଗ୍ର ସ୍କ୍ରିନ୍ ପୂର୍ଣ୍ଣ କରିବାକୁ ଏଠାରେ ଟ୍ୟାପ୍</string>
+    <string name="bixby_popup_unavailable_now">Bixby ଅନୁପଲବ୍ଧ ଅଛି। କେବଳ ଫୋନ୍ ମାଲିକ କିମ୍ୱା ମୁଖ୍ୟ ଫୋନ୍ ନମ୍ଵର୍ Bixby ବ୍ୟବହାର କରିପାରିବେ।</string>
     <string name="permlab_knoxCustomSetting">ଡିଭାଇସ୍ ସେଟିଂସ୍ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="permdesc_knoxCustomSetting">ଡିଭାଇସ୍ ସେଟିଂସ୍, ଯେପରି ବ୍ଲୁଟୁଥ୍, ଅବସ୍ଥାନ, Wi-Fi, ମୋବାଇଲ୍ ଡାଟା, ଏବଂ ଆଣ୍ଡ୍ରୋଏଡ୍ ସେଟିଂସ୍ କନଫିଗର୍ କରନ୍ତୁ।</string>
     <string name="permlab_knoxCustomSystem">ସିଷ୍ଟମ୍ ସେଟିଂସ୍ ପରିଚାଳନା</string>
@@ -1714,6 +1728,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">USB ମାଧ୍ୟମରେ ସଂଯୋଜିତ ଡିଭାଇସ୍ ଚାର୍ଜିଂ ହେଉଛି…</string>
     <string name="lacking_filenode_internal_storage_view_title">ଫାଇଲ୍ ସିଷ୍ଟମ୍ ସୀମା</string>
     <string name="lacking_filenode_internal_storage_view_text">ଆପଣଙ୍କ ଫୋନରେ ବହୁତ ଅଧିକ ଫାଇଲ୍ ସୃଷ୍ଟି ହୋଇଛି। ଆପସ୍ ସଠିକ୍ ଭାବେ କାର୍ଯ୍ୟ କରିବା ସ୍ଥଗିତ କରିପାରେ ଏବଂ ଆପଣଙ୍କ ଫୋନ୍ ଆଉ ଅଧିକ ଆରମ୍ଭ ହେବ ନାହିଁ। ଯେକୌଣସି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ଡାଟା ବ୍ୟାକ୍ ଅପ୍ ନେଇ ଆପଣଙ୍କ ଫୋନର ଫ୍ୟାକ୍ଟୋରୀ ପୁନଃସେଟ୍ କରନ୍ତୁ।</string>
-    <string name="lock_to_app_toast_for_navibar">ଆପ୍ଲିକେସନ୍ ଅନପିନ୍‌ କରିବାକୁ‌, ସମାନ ସମୟରେ ସମ୍ପ୍ରତି ଏବଂ ବ୍ୟାକ୍ ବଟନ ଦବାନ୍ତୁ ଏବଂ ଧରି ରଖନ୍ତୁ।</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

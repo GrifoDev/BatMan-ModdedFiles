@@ -5447,6 +5447,58 @@
         <item name="layout_width">fill_parent</item>
         <item name="layout_height">wrap_content</item>
     </style>
+    <style name="HeadsUpNotificationContentLayoutStyle">
+        <item name="paddingTop">@dimen/hun_content_layout_padding_top</item>
+        <item name="paddingBottom">@dimen/hun_content_layout_padding_bottom</item>
+        <item name="paddingStart">@dimen/hun_content_layout_padding_left_right</item>
+        <item name="paddingEnd">@dimen/hun_content_layout_padding_left_right</item>
+    </style>
+    <style name="HeadsUpNotificationIconStyle">
+        <item name="tint">@color/hun_icon_tint_color</item>
+        <item name="layout_marginEnd">@dimen/hun_icon_layout_margin_right</item>
+    </style>
+    <style name="HeadsUpNotificationCallerStyle">
+        <item name="textSize">@dimen/hun_caller_text_size</item>
+        <item name="textColor">@color/hun_caller_text_color</item>
+        <item name="gravity">start|center</item>
+        <item name="singleLine">true</item>
+        <item name="fontFamily">sec-roboto-regular</item>
+    </style>
+    <style name="HeadsUpNotificationTitleStyle">
+        <item name="textSize">@dimen/hun_title_text_size</item>
+        <item name="textColor">@color/hun_title_text_color</item>
+        <item name="gravity">start|center</item>
+        <item name="layout_marginBottom">2.0dip</item>
+        <item name="singleLine">true</item>
+        <item name="fontFamily">sec-roboto-regular</item>
+    </style>
+    <style name="HeadsUpNotificationDescriptionStyle">
+        <item name="textSize">@dimen/hun_description_text_size</item>
+        <item name="textColor">@color/hun_description_text_color</item>
+        <item name="ellipsize">end</item>
+        <item name="gravity">start|center</item>
+        <item name="maxHeight">@dimen/hun_description_layout_max_height</item>
+        <item name="maxLines">6</item>
+        <item name="fontFamily">sec-roboto-regular</item>
+    </style>
+    <style name="HeadsUpNotificationButtonSetLayoutStyle">
+        <item name="gravity">end</item>
+        <item name="paddingEnd">@dimen/hun_button_set_layout_padding_right</item>
+        <item name="layout_marginStart">@dimen/hun_button_set_layout_margin_left_right</item>
+        <item name="layout_marginEnd">@dimen/hun_button_set_layout_margin_left_right</item>
+    </style>
+    <style name="HeadsUpNotificationTextButtonStyle">
+        <item name="textSize">@dimen/hun_button_text_size</item>
+        <item name="textStyle">normal</item>
+        <item name="textColor">@color/hun_button_text_color</item>
+        <item name="ellipsize">end</item>
+        <item name="gravity">center_vertical</item>
+        <item name="layout_gravity">center_vertical</item>
+        <item name="background">@drawable/notification_button_ripple</item>
+        <item name="textAllCaps">true</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="layout_marginStart">@dimen/hun_button_margin_left</item>
+    </style>
     <style name="Widget.DeviceDefault.AbsListView" parent="@style/Widget.Material.AbsListView" />
     <style name="Widget.DeviceDefault.Spinner.DropDown.ActionBar" parent="@style/Widget.Material.Spinner.DropDown.ActionBar" />
     <style name="Widget.DeviceDefault.PopupWindow.ActionMode" parent="@style/Widget.Material.PopupWindow.ActionMode" />
@@ -6188,7 +6240,7 @@
         <item name="paddingEnd">16.0dip</item>
     </style>
     <style name="TextAppearance.Material.TextSuggestionHighlight" parent="@style/TextAppearance.Material">
-        <item name="textColor">?colorPrimaryDark</item>
+        <item name="textColor">?textColorPrimary</item>
     </style>
     <style name="Widget.Material.SuggestionButton" parent="@style/Widget.Material">
         <item name="textAppearance">@style/TextAppearance.Material.Button</item>

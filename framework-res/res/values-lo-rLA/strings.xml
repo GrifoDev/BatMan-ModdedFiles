@@ -911,9 +911,9 @@
     <string name="dlg_ok">ຕົກລົງ</string>
     <string name="usb_charging_notification_title">ກຳລັງສາກໄຟ USB ອຸປະກອນນີ້</string>
     <string name="usb_supplying_notification_title">USB ກຳລັງສະໜອງໄຟໃຫ້ກັບອຸປະກອນທີ່ເຊື່ອມຕໍ່ກັນ</string>
-    <string name="usb_mtp_notification_title">ການໂອນໄຟລ໌ມີເດຍດ້ວຍ USB</string>
-    <string name="usb_ptp_notification_title">ຮູບທີ່ໂອນ​ຜ່ານ USB</string>
-    <string name="usb_midi_notification_title">ເຊື່ອມຕໍ່ USB ກັບອຸປະກອນ MIDI ແລ້ວ</string>
+    <string name="usb_mtp_notification_title">USB ສຳລັບການໂອນໄຟລ໌</string>
+    <string name="usb_ptp_notification_title">USB ການໂອນຮູບ</string>
+    <string name="usb_midi_notification_title">USB ສຳລັບ MIDI</string>
     <string name="usb_accessory_notification_title">ໄດ້ເຊື່ອມຕໍ່ກັບອຸປະກອນ USB</string>
     <string name="usb_notification_message">ແຕະສໍາລັບຕົວເລືອກ USB ອື່ນ.</string>
     <string name="adb_active_notification_title">ການແກ້ໄຂ USB ໄດ້ຖືກເຊື່ອມຕໍ່.</string>
@@ -1315,6 +1315,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">ທ່ານສາມາດສະແດງປຸ່ມຕ່າງໆອີກຄັ້ງໂດຍການຮູດເຂົ້າໃນຈາກຂອບໜ້າຈໍ ບ່ອນທີ່ປຸ່ມຕ່າງໆປະກົດຂຶ້ນຕາມປົກກະຕິ.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">ຫຼັງຈາກຄາວໜຶ່ງ, ປຸ່ມຈະຫາຍໄປອີກຄັ້ງ.</string>
     <string name="sec_immersive_cling_help_text_step_two">ທ່ານສາມາດໃຊ້ປຸ່ມໂຮມ ເຖິງແມ່ນວ່າໃນຂະນະທີ່ມັນຖືກເຊື່ອງ. ເພື່ອໄປທີ່ໜ້າຈໍຫຼັກ, ກົດພື້ນທີ່ຂອງໜ້າຈໍບ່ອນທີ່ປຸ່ມໂຮມປະກົດຂຶ້ນປົກກະຕິແຮງໆ.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">ເຖິງແມ່ນວ່າທ່ານກຳລັງຖືໂທລະສັບຂອງທ່ານຢູ່, ປຸ່ມມັກຈະຕັ້ງຢູ່ຖັດຈາກພອດບ່ອນສາກ. ເມື່ອໂທລະສັບຂອງທ່ານຖືກໝູນໄປຕາມທິດກົງກັນຂ້າມກັບເຂັມໂມງ, ຮູດໄປທາງຊ້າຍຈາກຂອບໜ້າຈໍທີ່ສະແດງຕາມລູກສອນ.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">ເຖິງແມ່ນວ່າທ່ານກຳລັງຖືໂທລະສັບຂອງທ່ານຢູ່, ປຸ່ມມັກຈະຕັ້ງຢູ່ຖັດຈາກພອດບ່ອນສາກ. ເມື່ອໂທລະສັບຂອງທ່ານຖືກໝູນໄປຕາມທິດເຂັມໂມງ, ຮູດໄປທາງຂວາຈາກຂອບໜ້າຈໍທີ່ສະແດງຕາມລູກສອນ.</string>
     <string name="done_label">ສໍາເລັດແລ້ວ</string>
     <string name="hour_picker_description">ຕົວເລືອກຊົ່ວໂມງອານາລັອກ</string>
     <string name="minute_picker_description">ຕົວເລືອກນາທີອານາລັອກ</string>
@@ -1325,7 +1327,9 @@
     <string name="deleted_key">ລຶບ %s ແລ້ວ.</string>
     <string name="managed_profile_label_badge">​ບ່ອນ​ເຮັດ​ວຽກ %1$s</string>
     <string name="lock_to_app_toast">ເພື່ອ​ຖອນ​ປັກ​ໝຸດ​ແອັບ, ກົດປຸ່ມຫຼ້າສຸດແລະປຸ່ມກັບຄືນຄ້າງໄວ້ໃນເວລາດຽວກັນ.</string>
+    <string name="lock_to_app_toast_for_navibar">ເພື່ອ​ຖອນ​ປັກ​ໝຸດ​ແອັບ, ສຳພັດປຸ່ມຫຼ້າສຸດແລະປຸ່ມກັບຄືນຄ້າງໄວ້ໃນເວລາດຽວກັນ.</string>
     <string name="lock_to_app_toast_accessible">ເພື່ອ​ຖອນ​ປັກ​ໝຸດ​ແອ​ພ​ພ​ລິ​ເຄ​ຊັນ​ນີ້, ກົດປຸ່ມບໍ່​ດົນ​ມາ​ນີ້ຄ້າງໄວ້.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">ໂໝດລັອກໃສ່ແອັບເປີດໃຊ້ງານແລ້ວ.</string>
     <string name="lock_to_app_start">ປັກໝຸດແອັບແລ້ວ.</string>
     <string name="lock_to_app_exit">ຖອນປັກໝຸດແອັບແລ້ວ.</string>
@@ -1431,9 +1435,9 @@
     <string name="tw_clipboard_save_tts">ບັນທຶກ</string>
     <string name="tw_clipboard_button_tts">ປຸ່ມ</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">ກະດານເກັບຄວາມຈໍາ</string>
-    <string name="hdmi_connect">ເຊື່ອມຕໍ່ສາຍເຄເບິ້ລ HDMI ແລ້ວ.</string>
+    <string name="hdmi_connect">ເຊື່ອມຕໍ່ HDMI ແລ້ວ.</string>
     <string name="hdmi_connect_indirectly">ເຊື່ອມຕໍ່ເຄື່ອງຂອງທ່ານໃສ່ TV ໂດຍກົງຜ່ານສາຍ HDMI.</string>
-    <string name="hdmi_disconnect">ປິດເຊື່ອມຕໍ່ສາຍເຄເບິ້ລ HDMI ແລ້ວ.</string>
+    <string name="hdmi_disconnect">ຕັດເຊື່ອມຕໍ່ HDMI ແລ້ວ.</string>
     <string name="hdmi_recommend_charging_device">ພວກເຮົາແນະນໍາໃຫ້ສາກອຸປະກອນຂອງທ່ານ ຖ້າມັນເຊື່ອມຕໍ່ກັບເຄື່ອງອະແດັບເຕີ HDTV ເປັນເວລາດົນນານແລ້ວ. ເຊື່ອມຕໍ່ເຄື່ອງສາກຂອງທ່ານກັບອະແດັບເຕີ HDTV ເພື່ອສາກອຸປະກອນຂອງທ່ານ.</string>
     <string name="hdmi_wfd_terminate">HDMI ເຊື່ອມຕໍ່ແລ້ວ. ການເຊື່ອມຕໍ່ Screen Mirroring ຈົບລົງແລ້ວ</string>
     <string name="disable">ປິດການໃຊ້ງານ</string>
@@ -1852,6 +1856,7 @@
     <string name="volumepanel_media">ສື່</string>
     <string name="volumepanel_notification">ແຈ້ງເຕືອນ</string>
     <string name="volumepanel_system">ລະບົບ</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">ບໍ່ສາມາດແຄັບເຈີ້ໜ້າຈໍໄດ້ ໃນຂະນະທີ່ຢູ່ໃນໂໝດສຸກເສີນ.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">ບໍ່ສາມາດແຄັບເຈີໜ້າຈໍໄດ້.</string>
     <string name="bluetooth_permission_request">ຂໍສິດຂອງບລູທູດ</string>
@@ -1924,6 +1929,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">ບໍ່ສາມາດເປີດໃຊ້ງານ %s ຂະນະທີ່ Wi-Fi Direct ເປີດໃຊ້ງານຢູ່.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ບໍ່ມີການຕອບກັບຈາກຜູ້ໃຫ້ການບໍລິການ.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">ສົ່ງຄຳຮ້ອງການເປີດໃຊ້ງານ %s ບໍ່ສຳເລັດ. ກຳລັງເຊື່ອມຕໍ່ຄືນໃໝ່ຜ່ານເຄືອຂ່າຍທີ່ມີຢູ່…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">ບໍ່ສາມາດເປີດໃຊ້ງານ %1$s. %2$s ບໍ່ມີຢູ່ກັບແພັກເກດອິນເຕີເນັດຂອງທ່ານ ຫຼື ບໍ່ມີການຕອບກັບຈາກເຊີບເວີ %3$s ທີ່ໄດ້ຮັບ.</string>
     <string name="mptcp_message_setting_disabled_overheating">ບໍ່ສາມາດເປີດໃຊ້ງານ %s ໄດ້. ອຸປະກອນຮ້ອນເກີນໄປ. ລໍ​ຖ້າ​ຈົນ​ກວ່າ​ອຸ​ປະ​ກອນ​ເຢັນ​ລົງ ແລະ​ລອງ​ໃໝ່​ອີກ.</string>
     <string name="mptcp_message_operation_disabled_overheating">ປິດໃຊ້ງານ %s ແລ້ວ ເພື່ອປ້ອງກັນອຸປະກອນທີ່ຮ້ອນເກີນໄປ. ກໍາລັງດາວໂຫຼດຜ່ານເຄືອຂ່າຍມືຖືແທນ…</string>
     <string name="mptcp_message_data_usage_limit">ຂີດຈໍາການນຳໃຊ້ຂໍ້ມູນຮອດແລ້ວ. ເພື່ອປ່ຽນແປງຂີດຈຳກັດການນຳໃຊ້ຂ້ໍມູນ, ໄປທີ່ການຕັ້ງຄ່າ.</string>
@@ -2031,6 +2037,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">ສຽງ %s ກຳລັງຫຼິ້ນຜ່ານອຸປະກອນສຽງ USB ຂອງທ່ານ. ແຕະທີ່ນີ້ເພື່ອປິດສິ່ງນີ້.</string>
     <string name="multisound_change_output_device">ປ່ຽນອຸປະກອນສຽງອອກ</string>
     <string name="multisound_headup_contents">ອຸປະກອນສຽງທີ່ທ່ານເລືອກໄວ້ສຳລັບແອັບນີ້ແມ່ນຄືກັນກັບອຸປະກອນສຽງອອກປະຈຸບັນສຳລັບໂທລະສັບຂອງທ່ານ. ເພື່ອແຍກສຽງອອກຕ່າງຫາກສຳລັບແອັບນີ້, ປ່ຽນອຸປະກອນສຽງອອກຂອງທ່ານໃນແຜງການຕັ້ງຄ່າດ່ວນ.</string>
+    <string name="multisound_hun_title">ປ່ຽນແປງອຸປະກອນສຽງອອກຫຼັກ​ບໍ?</string>
+    <string name="multisound_hun_contents">ອຸປະກອນສຽງທີ່ທ່ານເລືອກໄວ້ສຳລັບແອັບນີ້ (%1$s) ແມ່ນຄືກັນກັບອຸປະກອນສຽງອອກຫຼັກ (%2$s). ເພື່ອແຍກສຽງສຳລັບແອັບນີ້, ຈຳເປັນຕ້ອງໄດ້ປ່ຽນອຸປະກອນສຽງອອກຫຼັກເປັນ %3$s.</string>
+    <string name="multisound_hun_close">ປິດ</string>
+    <string name="multisound_hun_change">ປ່ຽນແປງ</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">ຊຸດຫູຟັງ</string>
     <string name="bixby_edgecase_mpsm">ບໍ່ສາມາດໃຊ້ Bixby ໃນຂະນະທີ່ໂໝດປະຢັດໄຟສູງສຸດເປີດຢູ່.</string>
     <string name="bixby_edgecase_emergencymode">ບໍ່ສາມາດໃຊ້ Bixby ໃນໂໝດສຸກເສີນໄດ້.</string>
     <string name="bixby_edgecase_kidsmode">ບໍ່ສາມາດໃຊ້ Bixby ໃນໂໝດເດັກນ້ອຍໄດ້.</string>
@@ -2038,9 +2050,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">ບໍ່ສາມາດໃຊ້ Bixby ໃນຂະນະທີ່ກຳລັງໃຊ້ MirrorLink.</string>
     <string name="bixby_edgecase_dexmode">ບໍ່ສາມາດໃຊ້ Bixby ໃນ Samsung DeX.</string>
     <string name="bixby_edgecase_dexstation">ບໍ່ສາມາດໃຊ້ Bixby ໃນຂະນະທີ່ຖືກເຊື່ອມຕໍ່ກັບ DeX Station.</string>
-    <string name="conventional_mode_recent_noti">ທ່ານສາມາດເບິ່ງແອັບນີ້ໃນໜ້າຈໍເຕັມໂດຍການແຕະໄອຄອນຂະຫຍາຍໃນໜ້າຈໍແອັບຫຼ້າສຸດ.</string>
+    <string name="bixby_edgecase_cantusenow">ບໍ່ສາມາດໃຊ້ Bixby Voice ໄດ້ໃນຕອນນີ້.</string>
+    <string name="conventional_mode_recent_noti">ທ່ານສາມາດປ່ຽນອັດຕາສ່ວນພາບຂອງແອັບໃນໜ້າຈໍແອັບຫຼ້າສຸດ.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">ເພື່ອກັບໄປຫາອັດຕາສ່ວນພາບກ່ອນໜ້າ, ໄປທີ່ການຕັ້ງຄ່າ > ສະແດງ > ແອັບໜ້າຈໍເຕັມ.</string>
     <string name="conventional_mode_tap_here_to_fill">ແຕະ​ທີ່​ນີ້​ເພື່ອ​ຕື່ມ​ສີ​ໜ້າ​ຈໍ​ທັງ​ໝົດ</string>
+    <string name="bixby_popup_unavailable_now">Bixby ບໍ່​ມີ​ຢູ່. ສະ​ເພາະ​ເຈົ້າ​ຂອງ​ໂທ​ລະ​ສັບ ຫຼື ເບີ​ໂທ​ລະ​ສັບຫຼັກ​ເທົ່າ​ນັ້ນ​ທີ່​ສາ​ມາດ​ໃຊ້ Bixby ໄດ້.</string>
     <string name="permlab_knoxCustomSetting">ຈັດການການຕັ້ງຄ່າອຸປະກອນ</string>
     <string name="permdesc_knoxCustomSetting">ກຳນົດຄ່າການຕັ້ງຄ່າອຸປະກອນ, ເຊັ່ນ ບລູທູດ, ຈຸດທີ່ຕັ້ງ, Wi-Fi, ຂໍ້ມູນມືຖື, ແລະການຕັ້ງຄ່າແອນດຣອຍ.</string>
     <string name="permlab_knoxCustomSystem">ຈັດການການຕັ້ງຄ່າລະບົບ</string>
@@ -2385,6 +2399,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">ກຳລັງສາກອຸປະກອນທີ່ເຊື່ອມຕໍ່ຜ່ານ USB…</string>
     <string name="lacking_filenode_internal_storage_view_title">ຂີດຈໍາກັດລະບົບໄຟລ໌</string>
     <string name="lacking_filenode_internal_storage_view_text">ໄດ້ສ້າງຫຼາຍໄຟລ໌ເກີນໄປແລ້ວໃນໂທລະສັບຂອງທ່ານ. ແອັບອາດຢຸດໃຊ້ງານຢ່າງຖືກຕ້ອງ ແລະໂທລະສັບຂອງທ່ານຂອງທ່ານອາດຈະເປີດບໍ່ຂຶ້ນອີກຕໍ່ໄປ. ແບັກອັບຂໍ້ມູນທີ່ສຳຄັນໃດໜຶ່ງ ແລະຕັ້ງຄ່າໂຮງງານໂທລະສັບຂອງທ່ານຄືນໃໝ່.</string>
-    <string name="lock_to_app_toast_for_navibar">ເພື່ອ​ຖອນ​ປັກ​ໝຸດ​ແອັບ, ສຳພັດປຸ່ມຫຼ້າສຸດແລະປຸ່ມກັບຄືນຄ້າງໄວ້ໃນເວລາດຽວກັນ.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>

@@ -911,9 +911,9 @@
     <string name="dlg_ok">சரி</string>
     <string name="usb_charging_notification_title">இந்தச் சாதனத்தை USB சார்ஜ் செய்கிறது</string>
     <string name="usb_supplying_notification_title">இணைத்துள்ள சாதனத்திற்கு USB சக்தி அளிக்கிறது</string>
-    <string name="usb_mtp_notification_title">USB ஊடகக் கோப்புகளை இடமாற்றுதல்</string>
-    <string name="usb_ptp_notification_title">USB இடமாற்றும் படிமங்கள்</string>
-    <string name="usb_midi_notification_title">MIDI சாதனத்துடன் USB இணைக்கப்பட்டது</string>
+    <string name="usb_mtp_notification_title">கோப்பை இடமாற்றுவதற்கான USB</string>
+    <string name="usb_ptp_notification_title">படிமத்தை இடமாற்றுவதற்கான USB</string>
+    <string name="usb_midi_notification_title">MIDI-க்கான USB</string>
     <string name="usb_accessory_notification_title">ஒரு USB துணைப்பொருளுக்கு இணைக்கப்பட்டது</string>
     <string name="usb_notification_message">மற்ற USB தெரிவுகளுக்கென டேப் செய்க.</string>
     <string name="adb_active_notification_title">USB பிழைத்திருத்தம் இணைக்கப்பட்டது.</string>
@@ -1314,6 +1314,8 @@
     <string name="sec_immersive_cling_help_text_step_one_two">பொத்தான்கள் வழக்கமாக இருக்கும் இடத்தில் திரையின் முனையில் இருந்து உள்நோக்கி ஸ்வைப் செய்வதன் மூலம் பொத்தான்களை மீண்டும் காட்டலாம்.</string>
     <string name="sec_immersive_cling_help_text_step_one_three">சிறிது நேரத்திற்குப் பிறகு பொத்தான்கள் மீண்டும் மறைந்துவிடும்.</string>
     <string name="sec_immersive_cling_help_text_step_two">முகப்புப் பொத்தான் மறைக்கப்பட்டுள்ள போதும் அதனைப் நீங்கள் பயன்படுத்தலாம். முகப்புத் திரைக்குச் செல்ல, முகப்புப் பொத்தனை பொதுவாக இருக்கும் இடத்தில் அந்தப் பகுதியை வலுவாக அழுத்தவும்.</string>
+    <string name="sec_immersive_cling_help_text_additional_land90">உங்கள் ஃபோனை நீங்கள் பிடித்திருக்கும் போதெல்லாம், பொத்தான்கள் எப்போதும் சார்ஜிங் போர்ட்டுக்கு அடுத்து அமைந்திருக்கும். உங்கள் ஃபோன் இடஞ்சுழியாக சுழற்றப்பட்டு இருக்கும் போது, அம்பில் காட்டியுள்ளவாறு திரையின் அடிப்பகுதியின் மூலையில் இருந்து இடதுபுறமாக ஸ்வைப் செய்யவும்.</string>
+    <string name="sec_immersive_cling_help_text_additional_land270">உங்கள் ஃபோனை நீங்கள் பிடித்திருக்கும் போதெல்லாம், பொத்தான்கள் எப்போதும் சார்ஜிங் போர்ட்டுக்கு அடுத்து அமைந்திருக்கும். உங்கள் ஃபோன் வலஞ்சுழியாக சுழற்றப்பட்டு இருக்கும் போது, அம்பில் காட்டியுள்ளவாறு திரையின் அடிப்பகுதியின் மூலையில் இருந்து வலதுபுறமாக ஸ்வைப் செய்யவும்.</string>
     <string name="done_label">முடிந்தது</string>
     <string name="hour_picker_description">அனலாக் மணிநேரம் தேர்வி</string>
     <string name="minute_picker_description">அனலாக் நிமிடம் தேர்வி</string>
@@ -1324,7 +1326,9 @@
     <string name="deleted_key">%s நீக்கப்பட்டுள்ளது.</string>
     <string name="managed_profile_label_badge">பணியிடம் %1$s</string>
     <string name="lock_to_app_toast">பயன்பாட்டை பின் நீக்க, சமீபத்தியவை மற்றும் பின் விசைகளை ஒரே நேரத்தில் அழுத்திப் பிடிக்கவும்.</string>
+    <string name="lock_to_app_toast_for_navibar">பயன்பாட்டை பின் நீக்க, சமீபத்தியவை மற்றும் பின் விசைகளை ஒரே நேரத்தில் தொட்டுப் பிடிக்கவும்.</string>
     <string name="lock_to_app_toast_accessible">இந்தப் பயன்பாட்டை பின் நீக்க, சமீபத்தியவை விசையை அழுத்திப் பிடிக்கவும்.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
     <string name="lock_to_app_toast_locked">லாக்-டு-ஆப் முறை செயல்படுத்தப்பட்டுள்ளது.</string>
     <string name="lock_to_app_start">பயன்பாடு பின் செய்யப்பட்டது.</string>
     <string name="lock_to_app_exit">பயன்பாட்டுப் பின் அகற்றப்பட்டது.</string>
@@ -1430,9 +1434,9 @@
     <string name="tw_clipboard_save_tts">சேமி</string>
     <string name="tw_clipboard_button_tts">பொத்தான்</string>
     <string name="zzzzz_tw_cursor_handle_clipboard">கிளிப்போர்டு</string>
-    <string name="hdmi_connect">HDMI கேபிள் இணைக்கப்பட்டது.</string>
+    <string name="hdmi_connect">HDMI இணைக்கப்பட்டது.</string>
     <string name="hdmi_connect_indirectly">HDMI கேபிள் வழியாக உங்கள் சாதனத்தை நேரடியாக TV யுடன் இணைக்கவும்.</string>
-    <string name="hdmi_disconnect">HDMI கேபிள் துண்டிக்கப்பட்டது.</string>
+    <string name="hdmi_disconnect">HDMI துண்டிக்கப்பட்டது.</string>
     <string name="hdmi_recommend_charging_device">உங்கள் சாதனம் நீண்ட நேரத்திற்கு ஒரு HDTV அடாப்டருடன் இணைக்கப்பட்டிருந்தால் அதை சார்ஜ் செய்யுமாறு பரிந்துரைக்கிறோம். உங்கள் சாதனத்தை சார்ஜ் செய்ய, சார்ஜரை HDTV அடாப்டருடன் இணைக்கவும்.</string>
     <string name="hdmi_wfd_terminate">HDMI இணைக்கப்பட்டது. Screen Mirroring இணைப்பு முடிந்துவிட்டது.</string>
     <string name="disable">செயல்நீக்கம்</string>
@@ -1851,6 +1855,7 @@
     <string name="volumepanel_media">ஊடகம்</string>
     <string name="volumepanel_notification">அறிவிப்புகள்</string>
     <string name="volumepanel_system">சிஸ்டம்</string>
+    <string name="volumepanel_bixby_voice">Bixby Voice</string>
     <string name="unable_to_capture_screen_emergencymode">அவசர முறையில் இருக்கையில் திரையைப் பிடிக்க இயலாது.</string>
     <string name="unable_to_capture_screen_ultrapowersaving_mode">ஸ்க்ரீன்ஷாட் எடுக்க இயலவில்லை.</string>
     <string name="bluetooth_permission_request">ப்ளூடூத் அனுமதியை கோருகிறது</string>
@@ -1923,6 +1928,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct செயல்படுத்தப்படும் போது %s-ஐ செயல்படுத்த இயலவில்லை.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">சேவை வழங்குநரிடமிருந்து பதில் எதுவும் இல்லை.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s செயற்படுத்தல் கோரிக்கையை அனுப்புவது தோல்வியுற்றது. கிடைக்கின்ற நெட்வொர்க்குகள் வழியே மீண்டும் இணைக்கிறது…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s-ஐச் செயல்படுத்த இயலவில்லை. உங்கள் இணையத் தொகுப்புடன் %2$s கிடைக்கவில்லை அல்லது %3$s வழங்கியிலிருந்து எந்த பதிலும் பெறவில்லை.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s-ஐச் செயல்படுத்த இயலவில்லை. சாதனம் அதிக சூடாகியுள்ளது. சாதனம் சூடு தணியும் வரை காத்திருந்து, மீண்டும் முயலவும்.</string>
     <string name="mptcp_message_operation_disabled_overheating">சாதனம் அதிகமாக வெப்பமாவதிலிருந்து தடுக்க %s செயல்நீக்கப்பட்டது. பதிலாக மொபைல் நெட்வொர்க் வழியாக பதிவிறக்குகிறது…</string>
     <string name="mptcp_message_data_usage_limit">தரவு பயன்பாடு வரம்பை அடைந்தது. தரவுப் பயன்பாட்டு வரம்பை மாற்ற, அமைவுகளுக்கு செல்லவும்.</string>
@@ -2030,6 +2036,12 @@ Turn on Airplane mode?"</string>
     <string name="multisound_sound_via_usb_audio">%s ஒலியானது உங்கள் USB கேட்பொலி சாதனத்தில் இயங்குகிறது. இதை அணைக்க இங்கு டேப் செய்க.</string>
     <string name="multisound_change_output_device">கேட்பொலி வெளியீட்டு சாதனத்தை மாற்றவும்</string>
     <string name="multisound_headup_contents">இந்தப் பயன்பாட்டிற்காக நீங்கள் தேர்வுசெய்த கேட்பொலி சாதனமும் உங்கள் ஃபோனின் நடப்பு கேட்பொலி வெளியீட்டுச் சாதனமும் ஒன்றுதான். இந்தப் பயன்பாட்டின் ஒலியைப் பிரிக்க, துரித அமைவுகள் பலகையில் உங்கள் கேட்பொலி வெளியீட்டு சாதனத்தை மாற்றவும்.</string>
+    <string name="multisound_hun_title">முதன்மை கேட்பொலி வெளியீட்டு சாதனத்தை மாற்றவா?</string>
+    <string name="multisound_hun_contents">இந்தப் பயன்பாட்டிற்காக (%1$s) நீங்கள் தேர்வுசெய்த கேட்பொலி சாதனமும் உங்கள் ஃபோனின் நடப்பு கேட்பொலி வெளியீட்டுச் சாதனமும் (%2$s) ஒன்றுதான். இந்தப் பயன்பாட்டின் ஒலியைப் பிரிக்க, முதன்மை கேட்பொலி அவுட்புட் சாதனம் %3$s-க்கு மாற்றப்பட வேண்டும்.</string>
+    <string name="multisound_hun_close">மூடவும்</string>
+    <string name="multisound_hun_change">மாற்றுக</string>
+    <string name="my_device">My phone</string>
+    <string name="headset">ஹெட்செட்</string>
     <string name="bixby_edgecase_mpsm">அதிகபட்ச பவர் சேமிப்பு முறை இயக்கப்பட்டிருக்கும் போது Bixby-ஐப் பயன்படுத்த இயலாது.</string>
     <string name="bixby_edgecase_emergencymode">அவசரநிலை முறையில் Bixby-ஐப் பயன்படுத்த இயலாது.</string>
     <string name="bixby_edgecase_kidsmode">குழந்தைகள் முறையில் Bixby-ஐப் பயன்படுத்த இயலாது.</string>
@@ -2037,9 +2049,11 @@ Turn on Airplane mode?"</string>
     <string name="bixby_edgecase_mirrorlink">MirrorLink பயன்படுத்தும் போது Bixby-ஐப் பயன்படுத்த இயலாது.</string>
     <string name="bixby_edgecase_dexmode">Samsung DeX-இல் Bixby-ஐப் பயன்படுத்த இயலாது.</string>
     <string name="bixby_edgecase_dexstation">Dex நிலையங்களில் இணைக்கப்பட்டிருக்கும் போது Bixby-ஐப் பயன்படுத்த இயலாது.</string>
-    <string name="conventional_mode_recent_noti">சமீபத்திய பயன்பாடுகள் திரையில் விரிவாக்கச் சின்னத்தை டேப் செய்வதன் மூலம் நீங்கள் இந்த பயன்பாட்டை முழுத் திரையில் பார்க்கலாம்.</string>
+    <string name="bixby_edgecase_cantusenow">தற்போது Bixby Voice-ஐப் பயன்படுத்த இயலாது.</string>
+    <string name="conventional_mode_recent_noti">நீங்கள் சமீபத்திய பயன்பாடுகள் திரையில், பயன்பாட்டு படிம விகிதத்தை மாற்றலாம்.</string>
     <string name="conventional_mode_previous_aspect_ratio_noti">முந்தைய படிம விகிதத்திற்கு திரும்ப, அமைவுகள் > காட்சி > முழுத்திரைப் பயன்பாடுகள் என்பதற்கு செல்லவும்.</string>
     <string name="conventional_mode_tap_here_to_fill">முழுத் திரையையும் நிரப்ப இங்கு டேப் செய்யவும்</string>
+    <string name="bixby_popup_unavailable_now">Bixby கிடைக்கவில்லை. ஃபோனின் உரிமையாளர் அல்லது முதன்மை ஃபோன் எண் மட்டுமே Bixby-ஐப் பயன்படுத்த இயலும்.</string>
     <string name="permlab_knoxCustomSetting">சாதன அமைவுகளை நிர்வகிக்கவும்</string>
     <string name="permdesc_knoxCustomSetting">ப்ளூடூத், இருப்பிடம், Wi-Fi, மொபைல் தரவு, மற்றும் ஆண்ட்ராய்டு அமைவுகள் போன்ற சாதன அமைவுகளை கட்டமைக்கவும்.</string>
     <string name="permlab_knoxCustomSystem">சிஸ்டம் அமைவுகளை நிர்வகிக்கவும்</string>
@@ -2384,6 +2398,4 @@ Turn on Airplane mode?"</string>
     <string name="charging_connected_via_usb">இணைக்கப்பட்ட சாதனத்தை USB வழியாக சார்ஜ் செய்கிறது…</string>
     <string name="lacking_filenode_internal_storage_view_title">கோப்பு சிஸ்டம் வரம்பு</string>
     <string name="lacking_filenode_internal_storage_view_text">உங்கள் ஃபோனில் பல கோப்புகள் உருவாக்கப்பட்டுள்ளன. பயன்பாடுகள் சரியாக வேலை செய்யாமல் போகலாம், உங்கள் ஃபோன் இனி துவங்காமல் போகலாம். முக்கியமான தரவைச் பின்சேமித்து, உங்கள் ஃபோனை ஃபேக்டரி ரீசெட் செய்யவும்.</string>
-    <string name="lock_to_app_toast_for_navibar">பயன்பாட்டை பின் நீக்க, சமீபத்தியவை மற்றும் பின் விசைகளை ஒரே நேரத்தில் தொட்டுப் பிடிக்கவும்.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
 </resources>
