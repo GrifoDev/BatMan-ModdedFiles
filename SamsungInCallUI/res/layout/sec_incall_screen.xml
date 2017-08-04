@@ -9,6 +9,7 @@
     <FrameLayout android:id="@id/videocall_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <FrameLayout android:id="@id/in_call_button_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <FrameLayout android:id="@id/in_call_card_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/agif_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <FrameLayout android:id="@id/conference_manager_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <FrameLayout android:id="@id/dialpad_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     <FrameLayout android:id="@id/answer_widget_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />

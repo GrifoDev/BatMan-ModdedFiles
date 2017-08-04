@@ -2,6 +2,7 @@
     <protected-broadcast android:name="com.android.phone.CALLER_NAME"/>
     <protected-broadcast android:name="com.android.phone.ACTION_HD_VOICE_CALL"/>
     <protected-broadcast android:name="com.sec.android.phone.action.ACTION_CALL_TIME"/>
+    <protected-broadcast android:name="com.samsung.android.communicationservice.ACTION_BACKGROUND_SEND"/>
     <permission android:label="UPDATE_MUTE_STATUS" android:name="com.sec.android.phone.permission.UPDATE_MUTE_STATUS" android:protectionLevel="signatureOrSystem"/>
     <uses-permission android:name="com.sec.android.phone.permission.UPDATE_MUTE_STATUS"/>
     <permission android:description="@string/permission_transporting_caller_name_description" android:label="@string/permission_transporting_caller_name_label" android:name="com.sec.android.phone.permission.TRANSPORTING_CALLER_NAME" android:protectionLevel="signatureOrSystem"/>
@@ -10,7 +11,10 @@
     <permission android:name="com.android.incallui.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
     <permission android:label="SEND_SA_LOGGING" android:name="com.samsung.android.incallui.SEND_SA_LOGGING" android:protectionLevel="signatureOrSystem"/>
     <permission android:label="MCID_SERVICE" android:name="com.android.incallui.service.MCIDService" android:protectionLevel="signature"/>
+    <permission android:description="@string/agif_read_permission_description" android:label="@string/agif_read_permission_label" android:name="com.samsung.android.provider.agifcallprovider.permission.READ_AGIFCALL_PROVIDER" android:protectionLevel="normal"/>
+    <permission android:description="@string/agif_write_permission_description" android:label="@string/agif_write_permission_label" android:name="com.samsung.android.provider.agifcallprovider.permission.WRITE_AGIFCALL_PROVIDER" android:protectionLevel="signatureOrSystem"/>
     <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="com.samsung.android.api.version.2403"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -85,6 +89,7 @@
     <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="sec.android.permission.READ_MSG_PREF"/>
     <uses-permission android:name="com.sec.android.providers.iwlansettings.permission.READ_IWLANSETTINGS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.SEND"/>
     <uses-permission android:name="com.android.incallui.permission.MAPS_RECEIVE"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="com.samsung.rcs.autoconfigurationprovider.READ_PERMISSION"/>
@@ -138,14 +143,26 @@
     <uses-permission android:name="android.permission.MANAGE_ACTIVITY_STACKS"/>
     <uses-permission android:name="com.samsung.android.permission.URGENT_CALL_KEY_RECOGNIZED"/>
     <uses-permission android:name="com.sec.android.app.yellowpage.permission.YELLOWPAGE_SERVICE"/>
+    <uses-permission android:name="com.samsung.android.provider.agifcallprovider.permission.READ_AGIFCALL_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.provider.agifcallprovider.permission.WRITE_AGIFCALL_PROVIDER"/>
+    <uses-permission android:name="com.samsung.android.communicationservice.permission.BACKGROUND_SEND"/>
+    <uses-permission android:name="com.android.contacts.permission.ACTION_AGIF_CALL_REGISTRATION"/>
+    <uses-permission android:name="com.sec.spp.permission.PUSH_SERVICE_PROVIDER"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="com.samsung.android.coreapps.permission.ENHANCED_FEATURES"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_phone" android:label="@string/phoneAppLabel" android:largeHeap="true" android:name="com.android.incallui.InCallApp" android:supportsRtl="true">
         <meta-data android:name="android.max_aspect" android:value="2.1"/>
         <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
         <meta-data android:name="com.samsung.android.sdk.multiwindow.enable" android:value="true"/>
         <meta-data android:name="android.nfc.disable_beam_default" android:value="true"/>
         <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyASBjbcfdaynCkkeZ8baVUpBzR7-Ydnfo8"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.samsung.android.sticker.type" android:value="call"/>
         <meta-data android:name="com.samsung.android.non_immersive" android:value="true"/>
-        <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:directBootAware="true" android:excludeFromRecents="true" android:exported="false" android:label="@string/inCallLabel_Sec" android:launchMode="singleInstance" android:name="com.android.incallui.InCallActivity" android:theme="@style/Theme.SecInCallScreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|mcc|mnc|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:directBootAware="true" android:excludeFromRecents="true" android:exported="false" android:label="@string/inCallLabel_Sec" android:launchMode="singleInstance" android:name="com.android.incallui.InCallActivity" android:theme="@style/Theme.SecInCallScreen"/>
         <activity android:configChanges="keyboard|keyboardHidden|mcc|mnc|orientation|screenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:label="@string/inCallLabel_Sec" android:launchMode="singleInstance" android:lockTaskMode="always" android:name="com.android.incallui.PinPanicDummyActivity" android:screenOrientation="nosensor" android:theme="@style/Theme.SecInCallScreen">
             <meta-data android:name="com.samsung.android.sdk.multiwindow.penwindow.enable" android:value="true"/>
         </activity>
@@ -171,6 +188,23 @@
                 <action android:name="android.telecom.InCallService"/>
             </intent-filter>
         </service>
+        <activity android:name="com.android.incallui.coreapps.Req2FAConfirmActivity" android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.android.incallui.coreapps.PermissionActivity" android:singleUser="true" android:theme="@style/Theme.DimBGTheme.Dialog"/>
+        <receiver android:name="com.android.incallui.coreapps.SppReceiver">
+            <intent-filter>
+                <action android:name="b2139ba90a15d17c"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.android.incallui.coreapps.GcmReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.android.incallui.coreapps.AgifReceiver" android:permission="com.android.contacts.permission.ACTION_AGIF_CALL_REGISTRATION">
+            <intent-filter>
+                <action android:name="com.android.contacts.action.ACTION_AGIF_CALL_REGISTRATION"/>
+            </intent-filter>
+        </receiver>
         <service android:directBootAware="true" android:name="com.android.incallui.service.SecInCallService" android:permission="android.permission.BIND_INCALL_SERVICE">
             <intent-filter>
                 <action android:name="com.samsung.incallui.SEC_IN_CALL_SERVICE"/>
@@ -184,12 +218,8 @@
         <service android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:directBootAware="true" android:enabled="true" android:exported="false" android:name="com.android.incallui.service.SecCallPopupService" android:theme="@style/SecCallPopupScreen"/>
         <service android:enabled="true" android:exported="false" android:name="com.android.incallui.service.LockScreenDuringCall"/>
         <service android:enabled="true" android:exported="false" android:name="com.android.incallui.service.SecVideoPopupService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.android.incallui.service.VideoPipService"/>
         <service android:enabled="true" android:exported="false" android:name="com.yulore.sdk.ivr.service.IvrCacheService"/>
-        <receiver android:enabled="false" android:exported="false" android:name="com.android.incallui.bike.BikeModeDTMFReceiver" android:permission="com.samsung.android.permission.URGENT_CALL_KEY_RECOGNIZED">
-            <intent-filter>
-                <action android:name="com.samsung.BikeMode.UrgentKeyRecognized"/>
-            </intent-filter>
-        </receiver>
         <receiver android:directBootAware="true" android:exported="false" android:name="com.android.incallui.InCallApp$NotificationBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.android.incallui.ACTION_HANG_UP_ONGOING_CALL"/>
@@ -241,6 +271,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="" android:name="com.android.incallui.OpenSourceLicenseActivity" android:theme="@style/Theme.OpenSourceLicenseActivity"/>
         <activity android:name="com.android.incallui.SelectSimActivity" android:theme="@style/SecErrorDialogTheme"/>
         <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="com.android.incallui.SelectPhoneSimAccountActivity" android:resizeableActivity="false" android:screenOrientation="portrait" android:theme="@style/SecErrorDialogTheme">
             <meta-data android:name="com.samsung.android.sdk.multiwindow.penwindow.enable" android:value="true"/>
@@ -273,6 +304,12 @@
             </intent-filter>
         </activity>
         <activity android:configChanges="orientation|screenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleInstance" android:name="com.android.incallui.TransferManager" android:theme="@style/SecErrorDialogTheme"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="com.android.incallui.carriermatching.CarrierMatchingSimAccountActivity" android:screenOrientation="portrait" android:theme="@style/SecErrorDialogTheme"/>
+        <activity android:configChanges="keyboardHidden|mcc|mnc|orientation|screenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleInstance" android:name="com.android.incallui.agif.AppUpdateDialog" android:theme="@style/SecErrorDialogTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
         <service android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:enabled="true" android:exported="false" android:name="com.android.incallui.remotecall.RemoteCallPopupService" android:theme="@style/SecCallPopupScreen"/>
         <service android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:enabled="true" android:exported="false" android:name="com.android.incallui.phonevoicerecorder.PhoneVoiceRecorderNotificationService"/>
         <service android:exported="true" android:label="@string/inCallLabel_Sec" android:name="com.android.incallui.remotecall.RemoteCallIntentService" android:permission="com.android.incallui.remotecall.RemoteCallIntentService"/>
@@ -288,7 +325,70 @@
         <uses-library android:name="com.sec.imslibrary" android:required="false"/>
         <uses-library android:name="TmoWfcUtils" android:required="false"/>
         <uses-library android:name="imsmanager" android:required="false"/>
-        <meta-data android:name="SPDE.build.signature" android:value="3961938/13436190/release/SamsungInCallUI-206000-2.0.87"/>
-        <meta-data android:name="SPDE.env.version" android:value="2.1.3/L24.2.16/24.2.10"/>
+        <provider android:authorities="com.samsung.android.provider.agifcallprovider" android:exported="true" android:grantUriPermissions="true" android:name="com.samsung.android.provider.agifcallprovider.AgifCallProvider" android:readPermission="com.samsung.android.provider.agifcallprovider.permission.READ_AGIFCALL_PROVIDER" android:writePermission="com.samsung.android.provider.agifcallprovider.permission.WRITE_AGIFCALL_PROVIDER"/>
+        <service android:enabled="true" android:exported="true" android:name="com.samsung.android.provider.agifcallprovider.AgifCallService" android:permission="com.samsung.android.provider.agifcallprovider.permission.WRITE_AGIFCALL_PROVIDER">
+            <intent-filter>
+                <action android:name="com.samsung.android.provider.agifcallprovider.action.ACTION_CHECK_AGIF_LIST"/>
+                <action android:name="com.samsung.android.provider.agifcallprovider.action.ACTION_SYNC_AGIF_LIST"/>
+                <action android:name="com.samsung.android.provider.agifcallprovider.action.ACTION_DATA_CLEARED"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.samsung.android.provider.agifcallprovider.AgifCallIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <data android:scheme="package" android:sspPrefix="com.samsung.android.incallui"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.internal.common.ui.PermissionActivity" android:singleUser="true" android:theme="@style/Theme.DimBGTheme.Dialog"/>
+        <activity android:name="com.samsung.android.sdk.enhancedfeatures.internal.common.ui.PermissionDialogActivity" android:theme="@style/Theme.DimBGTheme"/>
+        <service android:exported="false" android:name="com.samsung.android.sdk.enhancedfeatures.internal.common.transaction.SppAckService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.ui.AcsAuthenticatorActivity" android:singleUser="true" android:theme="@style/Theme.ICS_White" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.ui.SmsAuthenticatorActivity" android:singleUser="true" android:theme="@style/Theme.ICS_White" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.ui.CountryActivity" android:singleUser="true" android:theme="@style/Theme.ICS_White"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.ui.PlayServiceUpdateActivity" android:singleUser="true" android:theme="@style/Theme.DimTransparent"/>
+        <service android:exported="false" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.transaction.HeartBeatTransaction" android:singleUser="true"/>
+        <service android:exported="false" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.transaction.HeartBeatJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.transaction.GetPolicyTransaction" android:singleUser="true"/>
+        <service android:exported="false" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.transaction.GetPolicyJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.receiver.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.ACTION_HEART_BEAT"/>
+                <action android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.ACTION_GET_POLICY"/>
+                <action android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.ACTION_AUTO_MO_AUTH"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.receiver.CoreAppsReqReceiver" android:permission="com.samsung.android.coreapps.permission.ENHANCED_FEATURES">
+            <intent-filter>
+                <action android:name="com.samsung.android.coreapps.easysignup.ACTION_DEAUTH_RESULT"/>
+                <action android:name="com.samsung.android.coreapps.easysignup.ACTION_REQ_SERVICE_ON"/>
+                <action android:name="com.samsung.android.coreapps.easysignup.ACTION_REQ_SERVICE_OFF"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.receiver.NetworkStateListener">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.receiver.EmEventListener">
+            <intent-filter>
+                <action android:name="com.samsung.intent.action.EMERGENCY_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.samsung.android.incallui.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <meta-data android:name="SPDE.build.signature" android:value="4185720/14903427/release/SamsungInCallUI-214025-2.1.03"/>
+        <meta-data android:name="SPDE.env.version" android:value="2.2.3/L24.3.7/24.3.4"/>
     </application>
 </manifest>

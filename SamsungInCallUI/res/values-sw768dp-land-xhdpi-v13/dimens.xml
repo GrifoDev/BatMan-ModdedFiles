@@ -30,7 +30,7 @@
     <dimen name="sec_video_end_button_horizontal_margin">39.0dip</dimen>
     <dimen name="caller_info_card_height">98.0dip</dimen>
     <dimen name="sec_dialpad_keys_margin">280.0dip</dimen>
-    <dimen name="sec_video_qcif_incall_button_height">111.0dip</dimen>
+    <dimen name="sec_video_qcif_incall_button_height">125.0dip</dimen>
     <dimen name="sec_video_qcif_incall_button_inside_margin">205.0dip</dimen>
     <dimen name="sec_conference_panel_end_line_margin_top">375.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_margin">35.0dip</dimen>
@@ -38,4 +38,6 @@
     <dimen name="sec_call_state_layout_margin_top">13.0dip</dimen>
     <dimen name="sec_tablet_video_hideme_margin_top">-200.0dip</dimen>
     <dimen name="incoming_call_tab_circle_margin_delta_bottom_tablet">-25.0dip</dimen>
+    <dimen name="sec_dialpad_button_ripple_effect_height">47.0dip</dimen>
+    <dimen name="sec_dialpad_button_ripple_effect_width">47.0dip</dimen>
 </resources>

@@ -45,27 +45,12 @@
     <dimen name="sec_video_vga_video_position_y">0.0dip</dimen>
     <dimen name="sec_video_vga_video_width">548.0dip</dimen>
     <dimen name="caller_info_card_top_margin">330.0dip</dimen>
-    <dimen name="sec_dialpad_key_star_size">40.0dip</dimen>
     <dimen name="sec_video_incoming_hideme_height">338.0dip</dimen>
     <dimen name="sec_video_incoming_hideme_width">411.0dip</dimen>
     <dimen name="sec_dialpad_key_number_height">55.0dip</dimen>
-    <dimen name="sec_dialpad_key_numbers_size">45.0dip</dimen>
     <dimen name="sec_primary_incoming_call_photo_size">411.0dip</dimen>
     <dimen name="sec_call_buttons_horizontal_out_line_onehand">130.15dip</dimen>
     <dimen name="sec_call_buttons_padding_side_right_onehand">353.90625dip</dimen>
     <item type="dimen" name="sec_incall_layout_height_onehand">@dimen/sec_call_buttons_horizontal_out_line_onehand</item>
-    <dimen name="sec_video_vga_buttons_padding_side_left_onehand">110.0dip</dimen>
-    <dimen name="sec_video_vga_buttons_padding_side_right_onehand">262.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_button_height_onehand">54.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_button_width_onehand">118.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_digits_height_onehand">38.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_digits_text_size_onehand">25.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_digits_width_onehand">355.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_keys_height_onehand">217.0dip</dimen>
-    <dimen name="sec_video_vga_dialpad_keys_width_onehand">355.0dip</dimen>
-    <dimen name="sec_video_vga_end_button_horizontal_margin_onehand">11.419983dip</dimen>
-    <dimen name="sec_video_vga_incall_button_arrow_inside_margin_onehand">91.32999dip</dimen>
-    <dimen name="sec_video_vga_incall_button_arrow_outside_margin_onehand">34.25dip</dimen>
-    <dimen name="sec_video_vga_incall_button_width_onehand">548.0dip</dimen>
     <dimen name="sec_dialpad_sub_letter_padding_top">20.0dip</dimen>
 </resources>

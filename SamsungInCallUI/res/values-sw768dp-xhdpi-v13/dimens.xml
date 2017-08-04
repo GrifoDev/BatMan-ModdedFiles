@@ -46,6 +46,7 @@
     <dimen name="incoming_call_tab_circle_margin_delta">-60.0dip</dimen>
     <dimen name="incoming_call_tab_circle_margin_delta_bottom">-34.0dip</dimen>
     <dimen name="reject_call_with_message_divider_height">1.0px</dimen>
+    <dimen name="sec_below_btn_height">32.0dip</dimen>
     <dimen name="sec_below_btn_hold_margin_bottom">11.0dip</dimen>
     <dimen name="sec_below_btn_margin_bottom">-11.0dip</dimen>
     <dimen name="sec_call_banner_incoming_height">658.0dip</dimen>
@@ -64,6 +65,7 @@
     <dimen name="sec_incall_buttons_padding_three">163.0dip</dimen>
     <dimen name="sec_incall_buttons_padding_two">179.0dip</dimen>
     <dimen name="sec_incall_under_button_margin_top">218.0dip</dimen>
+    <dimen name="sec_incoming_call_popup_buttons_padding">60.0dip</dimen>
     <dimen name="sec_multiparty_call_info_height">184.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_top_margin">23.0dip</dimen>
     <dimen name="sec_primary_call_photo_margin_bottom">12.0dip</dimen>
@@ -88,7 +90,6 @@
     <dimen name="caller_info_card_height">50.0dip</dimen>
     <dimen name="caller_info_card_item_date_height">22.0dip</dimen>
     <dimen name="caller_info_card_item_height">44.0dip</dimen>
-    <dimen name="incoming_call_target_circle_size">240.0dip</dimen>
     <dimen name="reject_call_with_message_handle_text_size">15.0dip</dimen>
     <dimen name="reject_with_msg_item_text_padding_bottom">20.0dip</dimen>
     <dimen name="reject_with_msg_item_text_padding_right">32.0dip</dimen>
@@ -106,7 +107,6 @@
     <dimen name="sec_menu_button_text">15.0dip</dimen>
     <dimen name="sec_menu_button_view_margin_top">0.0dip</dimen>
     <dimen name="sec_menu_max_width">125.0dip</dimen>
-    <dimen name="sec_menu_right_margin_voice_call">0.0dip</dimen>
     <dimen name="sec_menu_side_padding">12.0dip</dimen>
     <dimen name="sec_multiparty_video_button_container_right_margin">40.0dip</dimen>
     <dimen name="sec_multiparty_video_call_button_text_size">13.0dip</dimen>
@@ -131,9 +131,8 @@
     <dimen name="caller_info_card_item_date_text_size">16.0dip</dimen>
     <dimen name="caller_info_card_item_icon_diameter">20.0dip</dimen>
     <dimen name="conference_call_manager_padding_bottom">13.0dip</dimen>
-    <dimen name="incoming_call_tab_circle_size">73.0dip</dimen>
     <dimen name="indicator_area_height">24.0dip</dimen>
-    <dimen name="reject_call_with_message_create_icon_margin_left">14.0dip</dimen>
+    <dimen name="reject_call_with_message_create_icon_margin_left">24.0dip</dimen>
     <dimen name="reject_call_with_message_handler_height">32.0dip</dimen>
     <dimen name="reject_call_with_message_handler_margin">192.0dip</dimen>
     <dimen name="reject_call_with_msg_create_text_size">18.0sp</dimen>
@@ -141,7 +140,6 @@
     <dimen name="reject_call_with_msg_list_item_text_size">18.0sp</dimen>
     <dimen name="reject_with_msg_item_text_padding_left">32.0dip</dimen>
     <dimen name="sec_below_btn_bg_radius">15.0dip</dimen>
-    <dimen name="sec_below_btn_height">32.0dip</dimen>
     <dimen name="sec_below_btn_margin">61.0dip</dimen>
     <dimen name="sec_below_btn_text_size">14.0dip</dimen>
     <dimen name="sec_call_contact_name_text_size">40.0dip</dimen>
@@ -149,7 +147,6 @@
     <dimen name="sec_dialpad_divider_size">1.0dip</dimen>
     <dimen name="sec_dialpad_keys_margin">144.0dip</dimen>
     <dimen name="sec_end_upper_button_margin_top">598.0dip</dimen>
-    <dimen name="sec_endcall_button_diameter">73.0dip</dimen>
     <dimen name="sec_incall_button_height">69.0dip</dimen>
     <dimen name="sec_incoming_call_Image_Widget_Bottom_margin">-5.5dip</dimen>
     <dimen name="sec_menu_button_side_padding">12.0dip</dimen>
@@ -165,7 +162,7 @@
     <dimen name="sec_video_nearend_qcif_video_height">137.0dip</dimen>
     <dimen name="sec_video_nearend_qcif_video_width">168.0dip</dimen>
     <dimen name="sec_video_qcif_incall_button_drawable_padding">-20.0dip</dimen>
-    <dimen name="sec_video_qcif_incall_button_height">126.0dip</dimen>
+    <dimen name="sec_video_qcif_incall_button_height">135.0dip</dimen>
     <dimen name="sec_video_qcif_incall_button_inside_margin">76.5dip</dimen>
     <dimen name="sec_video_qcif_incall_button_padding_top">20.0dip</dimen>
     <dimen name="sec_video_qcif_incoming_hideme_bottom_padding">24.0dip</dimen>
@@ -190,7 +187,6 @@
     <dimen name="tablet_volume_seekbar_margin_top">14.0dip</dimen>
     <dimen name="tablet_volume_seekbar_padding_top">10.0dip</dimen>
     <dimen name="tablet_volume_text_height">48.0dip</dimen>
-    <dimen name="tablet_volume_text_size">18.0dip</dimen>
     <dimen name="sec_incall_button_drawable_padding">8.0dip</dimen>
     <dimen name="sec_quick_panel_button_margin_end">9.0dip</dimen>
     <dimen name="sec_quick_panel_button_size">40.0dip</dimen>
@@ -201,6 +197,8 @@
     <dimen name="sec_quick_panel_primary_line_text_size">15.0dip</dimen>
     <dimen name="sec_quick_panel_secondary_line_text_size">13.0dip</dimen>
     <dimen name="incoming_call_tab_circle_margin_delta_bottom_tablet">26.0dip</dimen>
+    <dimen name="sec_dialpad_button_ripple_effect_height">65.0dip</dimen>
+    <dimen name="sec_dialpad_button_ripple_effect_width">65.0dip</dimen>
     <dimen name="sec_video_tablet_dialpad_digits_container_bottom_margin">0.0dip</dimen>
     <dimen name="sec_videocall_dialpad_digits_height">68.0dip</dimen>
     <dimen name="contact_browser_list_item_photo_size">44.0dip</dimen>
@@ -228,7 +226,8 @@
     <dimen name="tablet_volume_seekbar_padding_top_mw">9.0dip</dimen>
     <dimen name="tablet_volume_seekbar_width_mw">46.0dip</dimen>
     <dimen name="tablet_volume_text_height_mw">35.0dip</dimen>
+    <dimen name="tablet_volume_text_size">18.0dip</dimen>
     <dimen name="tablet_volume_text_size_mw">14.0dip</dimen>
-    <dimen name="vt_dtmf_qcif_twelve_key_dialer_view_height">441.0dip</dimen>
+    <dimen name="vt_dtmf_qcif_twelve_key_dialer_view_height">420.0dip</dimen>
     <dimen name="reminder_button_width">386.0dip</dimen>
 </resources>

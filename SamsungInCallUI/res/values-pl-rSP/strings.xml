@@ -94,10 +94,34 @@
     <string name="TS_ADD_REASON_BUTTON_ABB_VODA">Przidej prziczyna</string>
     <string name="TS_IMPORTANT_CALL_BODY_VODA">Wŏżnŏ gŏdka</string>
     <string name="TS_SHARING_INVITATION_DECLINED_TPOP_VODA">Poproszynie do pokŏzywanio ôdciepane.</string>
+    <string name="a_verification_code_will_be_sent">Na dalij pokŏzany nōmer bydzie posłany kod weryfikacyji.</string>
+    <string name="about_open_source_licenses">Licencjye Open source</string>
     <string name="accept">OK.</string>
     <string name="account_phone">Maszina</string>
+    <string name="acs">Gŏdka</string>
     <string name="active_calls">Aktywne połōnczynie</string>
     <string name="add_reminder">Przidej spōminŏcz</string>
+    <string name="agif_button_close_description">Zawrzij</string>
+    <string name="agif_decline_message">Niy poradza terŏzki gŏdać.</string>
+    <string name="agif_decline_sticker_header">Ôdciepywanie z przilepkōm</string>
+    <string name="agif_decline_text_header">Ôdciepywanie ze SMS-em</string>
+    <string name="agif_decline_toast">Posłano przilepka do użytkownika %s.</string>
+    <string name="agif_pickers_add_tab_description">Przidej</string>
+    <string name="agif_pickers_find_more">Wysznupej wiyncyj</string>
+    <string name="agif_pickers_item_usage_hints_description">Tyknij 2 razy coby ôbrać</string>
+    <string name="agif_pickers_sub_title">Rozwidnij gŏdka przilepkōm. %s ôbejrzy przilepka na ekranie gŏdki.</string>
+    <string name="agif_pickers_tab_not_select_description">Niyŏbrane</string>
+    <string name="agif_pickers_tab_select_description">Ôbrane</string>
+    <string name="agif_pickers_title">Sztart z przilepkōm</string>
+    <string name="agif_pickers_title_recommended">Rekōmandŏwane</string>
+    <string name="agif_read_permission_description">Zezwala aplikacji Telefon na odczytywanie zawartości AGIF.</string>
+    <string name="agif_read_permission_label">Odczytuj zawartość AGIF</string>
+    <string name="agif_receive_no_id">Niy idzie pokŏzać abcybildru. Zaktualizuj aplikacyjŏ %s po gŏdce.</string>
+    <string name="agif_receive_no_id_upsupport_update">Niy idzie pokŏzać abcybildru. Dŏlsze abcybildry bydōm podŏwane po dŏlszyj aktualizacyji systymu.</string>
+    <string name="agif_sent_fail_message">Niy idzie posłać animowanego pliku GIF. Wybadej drugi rŏz niyskorzij.</string>
+    <string name="agif_sent_toast">Posłano abcybilder.</string>
+    <string name="agif_write_permission_description">Zezwala aplikacji Telefon na modyfikowanie zawartości AGIF.</string>
+    <string name="agif_write_permission_label">Modyfikuj zawartość AGIF</string>
     <string name="agree">Uzdŏwōm</string>
     <string name="am_cover_toggle_string">Ôdymknij deklik coby przij.abo ôdciep.gŏdka.</string>
     <string name="am_device_memory_full_warning">Niy idzie użyć autōmatycznego ôdpedzyniŏ z wiadōmościōm. W pamiyńci masziny je za mało placu na zachowywanie wiadōmości głosowych. Wyciep pŏra dingsōw i nabadej zajś.</string>
@@ -105,6 +129,11 @@
     <string name="answering_memo_Playing_text">Puszczanie wiadōmości prziwitalnyj</string>
     <string name="answering_memo_Recording_text">Nagrywanie wiadōmości…</string>
     <string name="answering_memo_sliding_button_text">Wiadōmość powitalnŏ</string>
+    <string name="app_name">Rozszyrzōne fōnkcyje</string>
+    <string name="app_update_dialog_message">Do chycyniŏ je nowŏ wersyjŏ aplikacyji %s.</string>
+    <string name="app_update_dialog_negative">Niyskorzij</string>
+    <string name="app_update_dialog_positive">Aktualizuj</string>
+    <string name="app_update_dialog_title">Zaktualizować %s?</string>
     <string name="application_not_found">Niy znŏdłŏ aplikacyji</string>
     <string name="auto_update_database_via_wlan">Auto update database via WLAN</string>
     <string name="banner_calls_have_been_merged">Gŏdki ôstały pożyniōne do kōnferyncyje</string>
@@ -164,6 +193,20 @@
     <string name="card_title_dialing_for_quick_panel">Wybiyraniy nōmeru…</string>
     <string name="card_title_dialing_to_korea">Zwōniynie do Korei Połedniowyj</string>
     <string name="card_title_wifi_call_ended">Gŏdka Wi-Fi zakōńczōnŏ</string>
+    <string name="carrier_matching_call_made_via">Gŏdka zrychtowanŏ bez karta SIM %s.</string>
+    <string name="carrier_matching_dialog_content_1">Ôperatōr nōmeru, z kerym chcesz gŏdać, to %s.</string>
+    <string name="carrier_matching_dialog_content_1_cannot_find">To je piyrszy rŏz, kej gŏdŏsz z tym nōmerem. Ôbier karta SIM do użyciŏ.</string>
+    <string name="carrier_matching_dialog_content_1_cannot_find_operator">Żŏdnŏ z kart SIM niy je dlŏ tygo sōmygo ôperatōra.</string>
+    <string name="carrier_matching_dialog_content_1_default_sim">Rekōmandowanŏ je Twoja dōmyślnŏ karta SIM.</string>
+    <string name="carrier_matching_dialog_content_1_find_service_state">Jedna z kart SIM niy je aktywnŏ.</string>
+    <string name="carrier_matching_dialog_content_1_two_sim_no_service">Żŏdnŏ z kart SIM niy je aktywnŏ.</string>
+    <string name="carrier_matching_dialog_content_2">Rekōmandowanŏ je karta SIM %s.</string>
+    <string name="carrier_matching_dialog_content_2_find_history">Rekōmandowanŏ je wczaśnij ôbranŏ karta SIM.</string>
+    <string name="carrier_matching_dialog_content_2_find_service_state">Rekōmandowanŏ je aktywnŏ karta SIM.</string>
+    <string name="carrier_matching_dialog_content_2_two_sim_no_service">Ôbier karta SIM do użyciŏ.</string>
+    <string name="carrier_matching_dialog_title">Ôbier karty SIM</string>
+    <string name="carrier_matching_dialog_video_call">Ôbier karta SIM do użyciŏ do tyj wideo gŏdki.</string>
+    <string name="carrier_matching_switch_to_call_by_other_sim">Przeciep SIM</string>
     <string name="cdnip_service_prefix">Mōj nōmer</string>
     <string name="chat">Czat</string>
     <string name="chat_aim">Czat bez usuga AIM</string>
@@ -174,6 +217,9 @@
     <string name="chat_qq">Chat bez usuga QQ</string>
     <string name="chat_skype">Chat bez usuga Skype</string>
     <string name="chat_yahoo">Chat bez usuga Yahoo! Messenger</string>
+    <string name="check_your_connection">Badnij na sztatus neca i sprōbuj jeszcze rŏz.</string>
+    <string name="check_your_network_status">Badnij na sztatus neca i sprōbuj jeszcze rŏz.</string>
+    <string name="choose_verification_method">Ôbier preferowany knif weryfikacyji.</string>
     <string name="chunghwa_operator_name">Chunghwa</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">Mŏsz maksymalnŏ wielość uczestnikōw (%d).</string>
@@ -197,6 +243,7 @@ Ta videogŏdka używŏ terŏzki danych, a fōnkcyjŏ Dane mobilne ôstanie wył�
     <string name="data_usage_limit_dialog_message_tmo">Szafniynto limit danych nasztalowany na telefōnie i wyłōnczōno dane. Do wideo gŏdki trza pożyniyniŏ danych. Załōncz dane mobilne abo pożyń z leda kerym necem Wi-Fi.</string>
     <string name="date_day">Dziyń</string>
     <string name="decline">Ôdciep</string>
+    <string name="deregister">Wyregistrowanie nōmeru telefōnu</string>
     <string name="description_create_message">Stwōrz nowŏ wiadōmość</string>
     <string name="description_hidedial_button">Skryj tastatura</string>
     <string name="description_secOnscreenMessageText">Wiadōmość</string>
@@ -205,6 +252,8 @@ Ta videogŏdka używŏ terŏzki danych, a fōnkcyjŏ Dane mobilne ôstanie wył�
     <string name="device_info_not_available">Niydostympne</string>
     <string name="dial_warning">Niy idzie ôbrać.</string>
     <string name="dialling_video_call">Chtanie wideogŏdki</string>
+    <string name="dialog_permission_app_desc">Niy idzie ôdewrzić aplikacyji %s. Przelyź do menu SZTALOWANIE > Uprawniynia, a potym załōncz niżyj pokŏzane uprŏwniynia i wybadej drugi rŏz:</string>
+    <string name="dialog_permission_function_desc">Niy idzie używać fōnkcyji %s. Przelyź do menu SZTALOWANIE > Uprawniynia, a potym załōncz niżyj pokŏzane uprŏwniynia i wybadej drugi rŏz:</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
     <string name="dialpad_4_sub_letters">GHI</string>
@@ -223,6 +272,8 @@ Ta videogŏdka używŏ terŏzki danych, a fōnkcyjŏ Dane mobilne ôstanie wył�
     <string name="download_application_description">"Coby użyć ta fōnkycjŏ, trze zebrać aplikacjŏ:
 
 %s"</string>
+    <string name="downloading_via_wi_fi">Zebiyr pliki bez Wi-Fi</string>
+    <string name="downloading_via_wlan">Pobier. plików przez WLAN</string>
     <string name="effect_beauty">Up. Gymby</string>
     <string name="effect_mono">Skala szar.</string>
     <string name="effect_negative">Negatyw</string>
@@ -238,7 +289,12 @@ Ta videogŏdka używŏ terŏzki danych, a fōnkcyjŏ Dane mobilne ôstanie wył�
     <string name="end">Skōńcz</string>
     <string name="end_all_calls">Skōńcz wszyjske terŏźne gŏdki</string>
     <string name="endncall_select_sub_number">Ôbier nōmer</string>
+    <string name="enhanced_messaging">Rozsz. pos. wiadōmości</string>
+    <string name="enter_code">Wkludzanie kodu</string>
     <string name="enter_number">Podej cyfra.</string>
+    <string name="enter_phone_country_number">Podej kod kraju i nōmer tego telefōnu.</string>
+    <string name="enter_your_phone_number">Wkludź kod kraju i nōmer telefōnu.</string>
+    <string name="enter_your_verification_code">Podej kod weryfikacyji</string>
     <string name="eventLabelsGroup">Przitrefiyniy</string>
     <string name="extra_vol_off">Wyłōnczōno dodatkowŏ głośność</string>
     <string name="extra_vol_on">Załōnczōno dodatkowŏ głośność</string>
@@ -254,8 +310,10 @@ Ta videogŏdka używŏ terŏzki danych, a fōnkcyjŏ Dane mobilne ôstanie wył�
     <string name="held_calls">Hatlniyntŏ gŏda</string>
     <string name="help_text_more_info">Wiyncyj informacyji</string>
     <string name="high_quality_sound">HD</string>
+    <string name="if_your_registered_for_dnd_service">Jak użytkownik je zaregistrowany we usudze DND, trza użyć weryfikacyji głosowyj.</string>
     <string name="imLabelsGroup">Kōnto IM</string>
     <string name="inCallLabel_Sec">Połōnczynia</string>
+    <string name="in_progress">Leci…</string>
     <string name="incall_decline_emergency_wifi_not_allow">W tyj lokacyji alarmowe gŏdki bez Wi-Fi niy sōm przizwolōne.</string>
     <string name="incall_decline_other_secondary_device">Inkszŏ maszina dodatkowŏ je w użyciu.</string>
     <string name="incall_decline_service_not_allowed">Usuga tukej niydozwōlōnŏ</string>
@@ -280,6 +338,7 @@ Ta videogŏdka używŏ terŏzki danych, a fōnkcyjŏ Dane mobilne ôstanie wył�
     <string name="incoming_group_video_call">Grupowe wideo gŏdki do Cia</string>
     <string name="incoming_video_call">Wideo gŏdki do Cia</string>
     <string name="incoming_video_call_no_dot">Prziłażōnce gŏdki vide</string>
+    <string name="information">Info</string>
     <string name="interactive_tutorial_accept">Przeciōngnij palcem ôd lewyj do prawyj zajty ekranu, coby ôdebrać gŏdka.</string>
     <string name="interactive_tutorial_call_answer_reject_complete">Terŏzki już wiysz,jak ôdebiyrać i ôdciepywać gŏdki.</string>
     <string name="interactive_tutorial_drag_up">Przeciōng palcym na wiyrch, coby ôdciepnōńć gŏdka i posłać wiadōmość.</string>
@@ -439,10 +498,15 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="mcidshowme_unblock_toast_2nd">Pliki multimedialne posyłane bez tyn kōntakt bydōm przijynte przi ôkazyji dolszego zepniyńcio sie tego kōntaktu z Tobōm.</string>
     <string name="meetingWith">Tref ze %s</string>
     <string name="memory_full_msg">Niy ma tela pamiyńci</string>
+    <string name="message_content_without_auth_one_new">"Plik ôstōł udostympniōny bez Letke udostympnianie:
+%1$s (przedŏwniŏ: %2$s)"</string>
+    <string name="message_content_without_auth_other_new">"Pliki ôstały udostympniōne bez Letke udostympnianie:
+%1$s (przedŏwniŏ: %2$s)"</string>
     <string name="message_greeting">Powitanie</string>
     <string name="modify_to_video_start">Żōndanie przyńściŏ do gŏdki wideo…</string>
     <string name="modify_to_voice_start">Przełōnczōm na głosowŏ gŏdka…</string>
     <string name="msg_for_video_show_never_again">Niykere formaty plikōw niy sōm obsugiwane. W galeryji bydōm pokŏzane ino obsugiwane pliki.</string>
+    <string name="mt_dialog_progress">Autōmatyczno weryfikacyjo kodu SMS…</string>
     <string name="mt_vt_not_possible">Użytkownik %s niy poradzi terŏzki dostŏwać videogŏdkōw. Ôstanie napoczyntŏ gŏdka głosowŏ.</string>
     <string name="nameLabelsGroup">Miano</string>
     <string name="name_family">Nazwisko</string>
@@ -458,8 +522,11 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="name_suffix">Tytuł</string>
     <string name="network_message_no_answer">Niy ôdpowiadŏ</string>
     <string name="nicknameLabelsGroup">Nick</string>
+    <string name="no_results">Niy znŏdłŏ wynikōw.</string>
     <string name="not_enable_to_video">Gŏdki niy sōm dostympne, kej je załōnczōny tryb awaryjny.</string>
     <string name="not_enable_to_video_emergencymode">Niy idzie chytać ani przijmować wideogŏdek, kej załōnczōny je tryb awaryjny.</string>
+    <string name="noti_permission_desc">Coby używać fōnkcyji %s, przelyź do menu SZTALOWANIE > Uprawnienia, a potym załōncz niżyj pokŏzane uprŏwniynia:</string>
+    <string name="noti_permission_title">Niy idzie użyć fōnkcyji %s</string>
     <string name="notification_action_answer">Ôdbier</string>
     <string name="notification_of_sub_number_empty_body">Coby pokŏzać alternatywne nōmery, trza subskrybować usuga wiela nōmerōw na karcie SIM i wtynczŏs sprōbować jeszcze rŏz.</string>
     <string name="notification_of_sub_number_empty_title">Niy idzie znŏjś alternatywnych nōmerōw</string>
@@ -479,15 +546,21 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="outgoing_img_picture">Ôbrŏzy</string>
     <string name="outgoing_img_take_picture">Rōb zdjyńcie</string>
     <string name="outgoing_img_video">Filmy</string>
+    <string name="over_storage_only_wifi_download">Łōncznŏ wielgość plikōw przestōmpiiōła %1$d %2$s. Rekōmandujymy zebiyranie ino bez nec Wi-Fi coby niy bōło ekstra płatne.</string>
+    <string name="over_storage_only_wlan_download">Łączny rozmiar plików przekracza %1$d %2$s. Zalecamy pobieranie tylko przez sieć WLAN, aby uniknąć dodatkowych opłat.</string>
     <string name="overlay_warning_toast">Coby używać Mobilniŏka, trza Ci załōnczyć w sztalowaniu Mobilniŏka ôpcyjo Aplikacyje, kere poradzōm pokŏzać sie na wiyrchu.</string>
     <string name="payphone_sbm">Autōmat telefōniczny</string>
     <string name="phoneLabelsGroup">Telefōn</string>
+    <string name="phone_number_verification_failed">Feler weryfikacyji nōmeru telefōnu. Zweryfikuj ryncznie.</string>
     <string name="phone_voice_recording_failed_by_secure_call">Niy idzie nagrywać gŏdek zabezpieczōnych.</string>
     <string name="phonetype_additional">Dodatkowy nōmer</string>
     <string name="photoring_block_toast">Kōntakt mŏ zakōzane przisyłaniy Ci co bez PhotoRing.</string>
     <string name="photoring_toast_mobile_data_off">Możno fto inkszy posłoł co bez PhotoRing, a niy idzie tego zŏbŏczyć skiż zawartego dostympu do mobilnych danych.</string>
     <string name="photoring_unblock_toast">Kōntakt mŏ ôdblokowanŏ ôpcyjŏ posyłaniŏ Ci plikōw bez PhotoRing.</string>
     <string name="photoring_unblock_toast_2nd">Mydia posyłane bez tyn kōntakt bydōm zebrane przi nastympnyj gŏdce do sia ôd tego kōntaktu.</string>
+    <string name="please_wait">Badniyńcie za kodym weryfikacji. Doczkej…</string>
+    <string name="popup_download_large_wificheck">Zebiyrej ino bez Wi-Fi</string>
+    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
     <string name="popup_start_record_during_alerting">Nagrywanie napocznie sie po napoczyńciu gŏdki.</string>
     <string name="postalLabelsGroup">Adresa</string>
     <string name="postal_city">Miasto</string>
@@ -501,6 +574,7 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="previous_call_is_held_when_you_accept_call">Ôdebranie nowyj gŏdki złōnaczy chycyniy terŏźnyj</string>
     <string name="private_num_cdma">Ôgraniczōny</string>
     <string name="private_num_sbm">Nōmer chycōny</string>
+    <string name="profile_sharing">Udostympnianie profilu</string>
     <string name="quick_panel_title_video_call">Połōnczynie wideo</string>
     <string name="quick_panel_title_voice_call">Połōnczyniy głosowe</string>
     <string name="quick_panel_title_volte_call">Połōnczyniy VoLTE</string>
@@ -536,6 +610,7 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
+    <string name="regist_select_country_or_region_code">Land abo regijōn</string>
     <string name="reject">Ôdciep</string>
     <string name="reject_call_with_msg">Ôdciep połōnczynie z wiad.</string>
     <string name="reject_call_with_msg_content_description_close">Szibnij bez dwa palce na spodek, coby skryć wiadōmości gibkigo ôdciepywanio.</string>
@@ -545,11 +620,14 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="rejected_call_notification_action_reminder">Nasztaluj przipōmn.</string>
     <string name="rejected_call_notification_title">Połącz. odrzucone</string>
     <string name="relationLabelsGroup">Zwiōnzek</string>
+    <string name="request_explain_text">Kej niy wkudzisz kodu bez jedna minuta, dopōminej się nowego kodu.</string>
     <string name="requested_video_call">Ôsprowiŏcz chce przyńść do gŏdki wideo. Zaakceptować?</string>
+    <string name="resend">Pośl. zajś</string>
     <string name="returnToInCallScreen">Przeciep na pōłny ekrōn</string>
     <string name="rich_screen_save_fail">Zachowywanie ôbrŏzka/filmu kery poznowo gŏdajōncego niy podarziło sie.</string>
     <string name="rich_screen_save_success">Zachowano ôbrŏzek/film kery poznowo gŏdajōncego.</string>
     <string name="save_record_msg_myfiles">Nagranie zachōwano w Moich plikach.</string>
+    <string name="search">Sznupej</string>
     <string name="secConferenceCallDrop">Rozłącz</string>
     <string name="secConferenceCallLabel">Ze %d ludźmi</string>
     <string name="secConferenceCallLabel_vzw">Ôsōb: %d</string>
@@ -599,6 +677,7 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="secOnscreenMenuStartRecordText">Nagrej film</string>
     <string name="secOnscreenMenuStopRecordText">Sztop</string>
     <string name="secOnscreenMenuSwitchCameraText">Pomiyń fotoaparat</string>
+    <string name="secOnscreenMenuSwitchToAudioDeviceText">Przełącz na urz. audio</string>
     <string name="secOnscreenMenuSwitchToHeadsetText">Przełōncz na słuchawki</string>
     <string name="secOnscreenMenuSwitchToHeadsetText_vzw">Przeciep na Bluetooth</string>
     <string name="secOnscreenMenuSwitchToPhoneText">Przełōncz na mobilniŏk</string>
@@ -654,8 +733,11 @@ jednoker."</string>
     <string name="select_from_gallery">Wybier z Galeryji</string>
     <string name="select_sim">Ôbier karta SIM</string>
     <string name="select_sim_for_call">Ôbier karta SIM dlŏ zwōniyniŏ</string>
+    <string name="select_your_country">Wybór kraju</string>
     <string name="send_file_via_filetransfer">Udost. plik bez posył. plik.</string>
     <string name="send_msg">Poślij wiadōmość</string>
+    <string name="server_error_try_later">Feler serwera. Sprōbuj niyskorzij.</string>
+    <string name="settings">Sztalowanie</string>
     <string name="settings_defalut_glance_reply">Niy poradza ôdpedzieć terŏzki na ta gŏdka. Ôddzwōnia gibko do Cia.</string>
     <string name="settings_glance_reply">Gibke ôdpedzynie</string>
     <string name="settings_glance_reply_explain_text">Ôdciep gŏdka do sia i poślij do rozmōwcy przōdzij nastawiōnŏ wiadōmość, bez danie palca na synsōrze pulsu i przitrzimanie go bez %d sek., kej maszina je ôbrōcōnŏ.</string>
@@ -664,6 +746,9 @@ jednoker."</string>
     <string name="settings_glance_reply_text">Gibke wiadōmości-ôdpedzynia</string>
     <string name="settings_subappbar_switch_off">Wyłōncz</string>
     <string name="settings_subappbar_switch_on">Załōncz</string>
+    <string name="simple_sharing">Podŏwanie łōncza</string>
+    <string name="skip">Ôstŏw</string>
+    <string name="skip_verification">Poradzisz ôstawić kōntrola i skōntrolować nōmer telefōnu niyskorzij, kej bydzie ônego trza w serwisie Samsung.</string>
     <string name="slide_left_to_reject_content_description">Szibnij bez dwa palce na lewo, coby ôdciepać gŏdka.</string>
     <string name="slide_right_to_answer_content_description">Szibnij bez dwa palce na prawo, coby przijōńć gŏdka.</string>
     <string name="smart_call_block_button">Blokuj</string>
@@ -681,6 +766,9 @@ jednoker."</string>
     <string name="smart_call_spam_level_3">Scam abo machlojstwo</string>
     <string name="smart_call_unblock_button">Ôdymknij</string>
     <string name="sms">SMS</string>
+    <string name="sms_auth_page_area_code">Nōmer kerōnkowy</string>
+    <string name="sms_auth_page_phone_number">Nōmer telefōnu</string>
+    <string name="sms_authentification_activity_description">Kod weryfikacyjny bydzie posłany na dany niżyj nōmer telefōnu. Wkludź kod kraju i nōmer telefōnu.</string>
     <string name="spam_call_report_dialog_advertisement">Werbōngi</string>
     <string name="spam_call_report_dialog_delivery">Dostawy</string>
     <string name="spam_call_report_dialog_insurance">Ubezpieczynie</string>
@@ -710,6 +798,8 @@ jednoker."</string>
     <string name="switched_to_voip_mt_att_tmo">Użytkownik %s wyłōnczoł video</string>
     <string name="switching_camera_failed">Niy do się przełōnczyć fotoaparatōw.</string>
     <string name="switching_to_voice_call">Przełōnczanie na gŏdka…</string>
+    <string name="the_verification_has_failed">Weryfikacyjŏ niy podarziła sie. Sprōbuj jeszcze rŏz.</string>
+    <string name="toast_text_max_Length">Przestōmpiōno maksymalnŏ wielość znakōw</string>
     <string name="tts_hours">%d godz.</string>
     <string name="tts_minutes">%d min</string>
     <string name="tts_pager">Zajta %1$d z %2$d</string>
@@ -718,13 +808,20 @@ jednoker."</string>
     <string name="tutorial_incoming_call_app_answer">Tyknij, coby ôdebrać gŏdka</string>
     <string name="tutorial_incoming_call_app_reject">Tyknij, coby ôdciepać gŏdka.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
+    <string name="unable_to_connect_to_the_network">Niy idzie pożynić z necym. Badnij na nasztalowania neca i sprōbuj jeszcze rŏz.</string>
+    <string name="units_kb">kB</string>
+    <string name="units_mb">MB</string>
     <string name="unknown_cdma">Niydostympny</string>
+    <string name="upload_using_wifi_only">Posyłej ino bez Wi-Fi</string>
+    <string name="upload_using_wlan_only">Upload via WLAN only</string>
+    <string name="upload_wifi_and_mobile_nw">Poślij bez Wi-Fi abo nec mobilny</string>
+    <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
     <string name="usa_att_connected_as_voice">Gŏdka napoczyntŏ w trybie głosowym.</string>
     <string name="usa_att_data_usage_charge_alert">Hneda szafniesz limit Użyciŏ danych zrychtowany na maszinie. Wideo gŏdka potrzebuje danych.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Niy idzie napoczōńć pożyniyniŏ bez nec Wi-Fi. Pożyniynie bez nec mobilny. Ôbowiōnzujōm płaty za gŏdki głosowe i dane.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
     <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
-    <string name="usa_att_notify_wifi_to_lte_popup_text">Niy idzie napoczōńć pożyniyniŏ bez nec Wi-Fi. Pożyniynie bez nec mobilny. Ôbowiōnzujōm płaty za gŏdki głosowe i dane.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Wi-Fi no longer available. Call transferring to cellular network. Voice and data charges will apply.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Tyknij niżyj coby ôbrać zorta gŏdki.</string>
     <string name="usa_att_weak_wifi_call_drop_toast">Pożyniynie rozłōnczōne skuli ukrōcaniŏ zasiyngu Wi-Fi.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Niy idzie zmiynić zorty gŏdki bez czas gŏdkōw kōnferyncyjnych.</string>
@@ -775,9 +872,16 @@ Videogŏdka je dalij łōnaczōne w necu mobilnym. (Jak poleci dalij ôstanōm n
 
 Videogŏdka je terŏzki łōnaczōnŏ w necu mobilnym. (Jak bydzie leciało dalij to ôstanie narachowany płat za spotrzebowanie danych)."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Pożyniynie Wi-Fi ôstało stracōne. Pożynienie skōńczōne.</string>
+    <string name="use_wifi_and_mobile_nw">Używej Wi-Fi i necōw mobilnych</string>
+    <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>
+    <string name="verify">Zweryfikuj</string>
+    <string name="verify_your_phone_number">Weryfikowanie nōmeru telefōnu</string>
+    <string name="verify_your_phone_number_body">Zweryfikuj nōmer telefōnu, coby pożynić z kamratami w usugach Samsung.</string>
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Niy pokŏzuj jeszcze rŏz</string>
+    <string name="video_call_not_allowed">Niy idzie chytać ani przijmować wideogŏdek po załōnczyniu trybu Ôbsztalōnek baterji.</string>
     <string name="video_calling_incoming">Videogŏdka</string>
+    <string name="video_calls_quality_poor_tmo">Darymne zepniyńcie. Wideogŏdka poradzi być przepniynto na gŏdka.</string>
     <string name="video_calls_temporarily_not_available">Wideogŏdka niyma dostympnŏ we tym czasie. Gŏdka ôstanie przeciepniyntŏ na głosowŏ.</string>
     <string name="video_calls_temporarily_not_available_att">Ôbrany nōmer niy może dostŏwać videogŏdkōw. Napoczyntŏ gŏdka głosowŏ.</string>
     <string name="video_calls_temporarily_not_available_tmo">Videogŏdka niyma dostympnŏ.</string>
@@ -791,6 +895,10 @@ Videogŏdka je terŏzki łōnaczōnŏ w necu mobilnym. (Jak bydzie leciało dali
     <string name="waiting_call_dialog_Merging_not_possible">Gŏdki kōnferyncyjne sōm niydostympne jak trefiōm videogŏdki</string>
     <string name="waiting_call_dialog_dismiss_toast">Użytkownik %1$s skōńczył gŏdka. Sztartowanie gŏdki z użytkownikiym %2$s…</string>
     <string name="waiting_call_dialog_message">Przijmij gŏdka</string>
+    <string name="we_recommend_using_a_voice_call">Jak niy możesz dostŏwać SMS-ōw, doradzōmy użycie gŏdki głosowyj.</string>
     <string name="websiteLabelsGroup">Necowŏ adrysa</string>
     <string name="yellow_pages">Żōłte zajty</string>
+    <string name="you_have_entered_incorrect_code">Podany felerny kod weryfikacyji. Sprōbuj jeszcze rŏz.</string>
+    <string name="you_have_reached_your_daily_sms_limit">Osiągnięto dzienny limit SMS-ów. Spróbuj ponownie za godzin: %d.</string>
+    <string name="you_have_reached_your_daliy_voice_limit">Mŏsz maksymalnŏ wielość weryfikacyjōw głosowych. Sprōbuj jeszcze rŏz za %d godz.</string>
 </resources>

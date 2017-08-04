@@ -14,7 +14,7 @@
     <item android:id="@id/keypadButton" android:visible="false" android:title="@string/secOnscreenKeypadText" />
     <item android:id="@id/speakerOnButton" android:visible="false" android:title="@string/secOnscreenMenuSpeakerOnText" />
     <item android:id="@id/speakerOffButton" android:visible="false" android:title="@string/secOnscreenMenuSpeakerOffText" />
-    <item android:id="@id/switchToHeadsetButton" android:visible="false" android:title="@string/secOnscreenMenuSwitchToHeadsetText" />
+    <item android:id="@id/switchToHeadsetButton" android:visible="false" android:title="@string/secOnscreenMenuSwitchToAudioDeviceText" />
     <item android:id="@id/switchToPhoneButton" android:visible="false" android:title="@string/secOnscreenMenuSwitchToPhoneText" />
     <item android:id="@id/dualCameraOnButton" android:visible="false" android:title="@string/secOnscreenMenuDualCameraOnText" />
     <item android:id="@id/dualCameraOffButton" android:visible="false" android:title="@string/secOnscreenMenuDualCameraOffText" />

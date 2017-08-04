@@ -64,7 +64,6 @@
     <dimen name="sec_primary_call_photo_margin_top">10.0dip</dimen>
     <dimen name="sec_primary_video_call_name_is_number_text_size">30.0dip</dimen>
     <dimen name="sec_video_call_banner_more_button_height">40.0dip</dimen>
-    <dimen name="sec_video_call_banner_more_button_side_padding">24.0dip</dimen>
     <dimen name="sec_video_call_button_container">466.79688dip</dimen>
     <dimen name="sec_video_call_menu_button_view_margin_right">10.0dip</dimen>
     <dimen name="sec_video_incoming_hideme_height">271.0dip</dimen>
@@ -80,7 +79,6 @@
     <dimen name="caller_info_card_item_height">35.0dip</dimen>
     <dimen name="conference_call_item_name_margin_start">20.0dip</dimen>
     <dimen name="incoming_call_hideme_text_size">16.0dip</dimen>
-    <dimen name="incoming_call_target_circle_size">195.0dip</dimen>
     <dimen name="sec_call_state_layout_margin_bottom">5.0dip</dimen>
     <dimen name="sec_conference_call_item_height">75.0dip</dimen>
     <dimen name="sec_conference_call_item_padding_start">90.0dip</dimen>
@@ -119,7 +117,6 @@
     <dimen name="caller_info_card_item_icon_diameter">21.0dip</dimen>
     <dimen name="conference_call_manager_button_dimension">26.0dip</dimen>
     <dimen name="conference_call_manager_padding_top">15.0dip</dimen>
-    <dimen name="incoming_call_tab_circle_size">60.0dip</dimen>
     <dimen name="indicator_area_height">24.0dip</dimen>
     <dimen name="reject_call_with_message_create_icon_margin_left">24.0dip</dimen>
     <dimen name="reject_call_with_message_handler_height">32.0dip</dimen>
@@ -182,5 +179,4 @@
     <dimen name="tablet_volume_seekbar_margin_top">9.0dip</dimen>
     <dimen name="tablet_volume_seekbar_padding_top">10.0dip</dimen>
     <dimen name="tablet_volume_text_height">35.0dip</dimen>
-    <dimen name="tablet_volume_text_size">10.0dip</dimen>
 </resources>

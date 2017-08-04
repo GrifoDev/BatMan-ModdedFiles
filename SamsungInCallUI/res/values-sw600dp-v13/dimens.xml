@@ -7,6 +7,7 @@
     <dimen name="abc_text_size_title_material_toolbar">20.0dip</dimen>
     <dimen name="sec_incall_button_margin_top">84.0dip</dimen>
     <dimen name="abc_config_prefDialogWidth">580.0dip</dimen>
+    <dimen name="sec_below_btn_height">44.0dip</dimen>
     <dimen name="sec_below_btn_hold_margin_bottom">13.0dip</dimen>
     <dimen name="sec_below_btn_margin_bottom">-13.0dip</dimen>
     <dimen name="sec_endcall_button_margin_bottom">96.0dip</dimen>
@@ -18,11 +19,11 @@
     <dimen name="sec_incall_buttons_padding_two">179.0dip</dimen>
     <dimen name="sec_incall_under_button_margin_top">222.0dip</dimen>
     <dimen name="sec_call_popup_width">588.0dip</dimen>
+    <dimen name="incoming_call_target_circle_size">240.0dip</dimen>
     <dimen name="sec_incall_pager_indicator_margin">17.0dip</dimen>
-    <dimen name="sec_below_btn_height">44.0dip</dimen>
+    <dimen name="incoming_call_tab_circle_size">73.0dip</dimen>
     <dimen name="sec_below_btn_text_size">15.0dip</dimen>
     <dimen name="sec_end_upper_button_margin_top">516.0dip</dimen>
-    <dimen name="sec_endcall_button_diameter">60.0dip</dimen>
     <dimen name="sec_incall_button_height">69.0dip</dimen>
     <dimen name="sec_video_vga_end_button_size">65.0dip</dimen>
     <dimen name="sec_incall_button_side_padding">100.0dip</dimen>
@@ -30,6 +31,7 @@
     <dimen name="abc_action_bar_content_inset_with_nav">80.0dip</dimen>
     <dimen name="abc_action_bar_default_padding_end_material">8.0dip</dimen>
     <dimen name="abc_action_bar_default_padding_start_material">8.0dip</dimen>
+    <dimen name="sec_endcall_button_diameter">73.0dip</dimen>
     <dimen name="sec_incall_button_drawable_padding">8.0dip</dimen>
     <dimen name="sec_quick_panel_button_margin_end">9.0dip</dimen>
     <dimen name="sec_quick_panel_button_size">40.0dip</dimen>

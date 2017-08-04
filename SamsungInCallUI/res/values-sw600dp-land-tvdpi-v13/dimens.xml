@@ -14,6 +14,7 @@
     <dimen name="conference_call_manager_margin_top">176.0dip</dimen>
     <dimen name="incoming_call_tab_circle_margin_delta">-197.0dip</dimen>
     <dimen name="incoming_call_tab_circle_margin_delta_bottom">37.0dip</dimen>
+    <dimen name="sec_below_btn_height">44.0dip</dimen>
     <dimen name="sec_below_btn_hold_margin_bottom">7.0dip</dimen>
     <dimen name="sec_below_btn_margin_bottom">-7.0dip</dimen>
     <dimen name="sec_call_banner_incoming_height">390.0dip</dimen>
@@ -29,16 +30,14 @@
     <dimen name="sec_dialpad_digits_margin_bottom">8.0dip</dimen>
     <dimen name="sec_dialpad_key_number_height">55.0dip</dimen>
     <dimen name="sec_dialpad_key_numbers_size">45.0dip</dimen>
-    <dimen name="incoming_call_tab_circle_size">60.0dip</dimen>
-    <dimen name="sec_below_btn_height">44.0dip</dimen>
     <dimen name="sec_below_btn_text_size">15.0dip</dimen>
     <dimen name="sec_call_contact_name_text_size">30.0dip</dimen>
     <dimen name="sec_dialpad_keys_margin">245.0dip</dimen>
+    <dimen name="sec_dialpad_sub_letter_padding_top">25.0dip</dimen>
     <dimen name="sec_multiparty_call_photo_margin">21.5dip</dimen>
     <dimen name="conference_call_manager_list_margin_top">0.0dip</dimen>
     <dimen name="sec_incall_button_side_padding">250.0dip</dimen>
     <dimen name="sec_menu_button_top_margin">0.0dip</dimen>
     <dimen name="sec_menu_height">59.0dip</dimen>
     <dimen name="sec_primary_call_photo_size">70.0dip</dimen>
-    <dimen name="sec_dialpad_sub_letter_padding_top">25.0dip</dimen>
 </resources>

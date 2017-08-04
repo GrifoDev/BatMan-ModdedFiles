@@ -20,7 +20,7 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/llayoutConferenceCallerSeparate" android:layout_width="@dimen/sec_conference_caller_button_width" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/sec_conference_caller_button_margin_end">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/llayoutConferenceCallerSeparate" android:background="@drawable/sec_voicecall_mask_bg" android:layout_width="@dimen/sec_conference_caller_button_width" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/sec_conference_caller_button_margin_end">
         <com.android.incallui.widget.SecVoiceConferenceButton android:id="@id/conferenceCallerSeparate" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/secConferenceCallSplit" android:drawableTop="@drawable/voicecall_multiparty_btn_hidemerge_icon" android:contentDescription="@string/secConferenceCallSplitCall" style="@style/SecMultipartyCallButton" />
     </LinearLayout>
     <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/conferenceCallerDisconnectContainer" android:background="@drawable/sec_voicecall_mask_bg" android:layout_width="wrap_content" android:layout_height="wrap_content">

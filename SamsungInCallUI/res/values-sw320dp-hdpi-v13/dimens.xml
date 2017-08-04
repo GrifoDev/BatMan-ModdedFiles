@@ -49,7 +49,7 @@
     <dimen name="incoming_videocall_easy_tab_circle_margin_delta_bottom">40.0dip</dimen>
     <dimen name="incoming_videocall_tab_circle_margin_delta_bottom">20.0dip</dimen>
     <dimen name="reject_call_with_message_divider_height">1.0px</dimen>
-    <dimen name="sec_below_btn_hold_margin_bottom">4.0dip</dimen>
+    <dimen name="sec_below_btn_height">28.0dip</dimen>
     <dimen name="sec_below_btn_margin_bottom">-4.0dip</dimen>
     <dimen name="sec_call_banner_incoming_height">355.0dip</dimen>
     <dimen name="sec_call_banner_side_padding">14.0dip</dimen>
@@ -64,6 +64,7 @@
     <dimen name="sec_call_photo_magin_top_with_four_view">20.0dip</dimen>
     <dimen name="sec_call_popup_end_buttons_padding">3.0dip</dimen>
     <dimen name="sec_call_popup_primary_name_max_width">210.0dip</dimen>
+    <dimen name="sec_call_popup_primary_name_max_width_with_agif">175.0dip</dimen>
     <dimen name="sec_call_state_period_mark_diameter">6.0dip</dimen>
     <dimen name="sec_call_status_text_size">15.0dip</dimen>
     <dimen name="sec_clear_cover_callstate_label_margin_top">78.0dip</dimen>
@@ -140,4 +141,6 @@
     <dimen name="sec_video_vga_video_resize_margin_top">156.0dip</dimen>
     <dimen name="sec_video_vga_video_resize_width">142.0dip</dimen>
     <dimen name="sec_voice_epdg_notify_banner_top_margin">350.0dip</dimen>
+    <dimen name="suguden_guide_view_top_margin">323.0dip</dimen>
+    <dimen name="suguden_guide_view_top_margin_with_agif">323.0dip</dimen>
 </resources>
