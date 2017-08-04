@@ -149,7 +149,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextSize:F
 
-    const v1, 0x7f0900e7
+    const v1, 0x7f0900f5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -157,7 +157,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextTranslateY:F
 
-    const v1, 0x7f0900ed
+    const v1, 0x7f0900fb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -193,7 +193,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextViewMaxWidth:I
 
-    const v1, 0x7f08009b
+    const v1, 0x7f0800aa
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -207,7 +207,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f08009a
+    const v1, 0x7f0800a9
 
     :goto_0
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -219,7 +219,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f080099
+    const v1, 0x7f0800a8
 
     goto :goto_0
 .end method
@@ -1060,7 +1060,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f00c7
+    const v0, 0x7f0f00d7
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/SwipeAffordance;->findViewById(I)Landroid/view/View;
 
@@ -1076,7 +1076,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f0f00c4
+    const v0, 0x7f0f00d4
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/SwipeAffordance;->findViewById(I)Landroid/view/View;
 
@@ -1084,7 +1084,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance;->mArrowFrameView:Landroid/view/View;
 
-    const v0, 0x7f0f00c6
+    const v0, 0x7f0f00d6
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/SwipeAffordance;->findViewById(I)Landroid/view/View;
 
@@ -1094,7 +1094,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance;->mArrowView1:Landroid/widget/ImageView;
 
-    const v0, 0x7f0f00c5
+    const v0, 0x7f0f00d5
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/SwipeAffordance;->findViewById(I)Landroid/view/View;
 

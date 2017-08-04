@@ -52,6 +52,10 @@
 
 .field mPreviousLayoutItemCount:I
 
+.field mRemainingScrollHorizontal:I
+
+.field mRemainingScrollVertical:I
+
 .field mRunPredictiveAnimations:Z
 
 .field mRunSimpleAnimations:Z
@@ -100,7 +104,7 @@
     return-void
 .end method
 
-.method static synthetic access$1102(Landroid/support/v7/widget/RecyclerView$State;I)I
+.method static synthetic access$1302(Landroid/support/v7/widget/RecyclerView$State;I)I
     .locals 0
 
     iput p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mTargetPosition:I
@@ -226,6 +230,22 @@
     goto :goto_0
 .end method
 
+.method public getRemainingScrollHorizontal()I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mRemainingScrollHorizontal:I
+
+    return v0
+.end method
+
+.method public getRemainingScrollVertical()I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mRemainingScrollVertical:I
+
+    return v0
+.end method
+
 .method public getTargetScrollPosition()I
     .locals 1
 
@@ -284,8 +304,6 @@
     move-result v0
 
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mItemCount:I
-
-    iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
 
     iput-boolean v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
 

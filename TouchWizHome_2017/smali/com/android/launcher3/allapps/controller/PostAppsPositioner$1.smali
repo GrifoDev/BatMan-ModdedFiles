@@ -57,7 +57,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner$1;->val$itemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
 
-    # invokes: Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->access$000(Lcom/android/launcher3/allapps/controller/PostAppsPositioner;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
 
     move-result v0
@@ -66,7 +65,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner$1;->this$0:Lcom/android/launcher3/allapps/controller/PostAppsPositioner;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mProvider:Lcom/android/launcher3/common/customer/PostPositionProvider;
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->access$100(Lcom/android/launcher3/allapps/controller/PostAppsPositioner;)Lcom/android/launcher3/common/customer/PostPositionProvider;
 
     move-result-object v0

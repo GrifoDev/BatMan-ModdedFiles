@@ -62,7 +62,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/view/FolderView$8;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
     invoke-static {v3}, Lcom/android/launcher3/folder/view/FolderView;->access$500(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/FolderInfo;
 
     move-result-object v3
@@ -73,14 +72,14 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f080179
+    const v3, 0x7f080186
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     :goto_0
-    const v3, 0x7f080103
+    const v3, 0x7f080112
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -95,7 +94,7 @@
     return-void
 
     :cond_1
-    const v3, 0x7f080185
+    const v3, 0x7f080192
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

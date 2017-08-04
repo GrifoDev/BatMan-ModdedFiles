@@ -45,9 +45,9 @@
 .method public run()V
     .locals 15
 
-    const v14, 0x7f080135
+    const v14, 0x7f080144
 
-    const v13, 0x7f080134
+    const v13, 0x7f080143
 
     const/4 v12, 0x5
 
@@ -121,7 +121,7 @@
 
     if-ne v6, v10, :cond_3
 
-    const v7, 0x7f08018e
+    const v7, 0x7f08019b
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -150,7 +150,7 @@
     :cond_3
     if-ne v6, v11, :cond_4
 
-    const v7, 0x7f080181
+    const v7, 0x7f08018e
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -163,7 +163,7 @@
 
     if-ne v5, v10, :cond_5
 
-    const v7, 0x7f080186
+    const v7, 0x7f080193
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -174,7 +174,7 @@
     :cond_5
     if-ne v5, v11, :cond_0
 
-    const v7, 0x7f08017a
+    const v7, 0x7f080187
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -203,7 +203,7 @@
     :cond_7
     if-ne v6, v12, :cond_1
 
-    const v7, 0x7f08010a
+    const v7, 0x7f080119
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -232,7 +232,7 @@
     :sswitch_2
     if-ne v6, v10, :cond_1
 
-    const v7, 0x7f080136
+    const v7, 0x7f080145
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

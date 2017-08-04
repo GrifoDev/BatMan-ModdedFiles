@@ -47,8 +47,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$14;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$6000(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$6400(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
 
     move-result-object v0
 
@@ -62,8 +61,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/launcher3/home/HomeLoader$14$1;-><init>(Lcom/android/launcher3/home/HomeLoader$14;)V
 
-    # invokes: Lcom/android/launcher3/home/HomeLoader;->runOnMainThread(Ljava/lang/Runnable;)V
-    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeLoader;->access$6200(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
+    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeLoader;->access$6600(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
 
     return-void
 .end method

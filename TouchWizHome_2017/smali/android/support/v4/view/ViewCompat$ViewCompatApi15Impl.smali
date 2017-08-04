@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
+.annotation build Landroid/support/annotation/RequiresApi;
     value = 0xf
 .end annotation
 

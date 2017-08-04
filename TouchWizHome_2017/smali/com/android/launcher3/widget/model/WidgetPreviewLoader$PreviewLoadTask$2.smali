@@ -45,7 +45,6 @@
 
     iget-object v0, v0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->this$0:Lcom/android/launcher3/widget/model/WidgetPreviewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->mUnusedBitmaps:Ljava/util/Set;
     invoke-static {v0}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$200(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;)Ljava/util/Set;
 
     move-result-object v1
@@ -57,7 +56,6 @@
 
     iget-object v0, v0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->this$0:Lcom/android/launcher3/widget/model/WidgetPreviewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->mUnusedBitmaps:Ljava/util/Set;
     invoke-static {v0}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$200(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;)Ljava/util/Set;
 
     move-result-object v0

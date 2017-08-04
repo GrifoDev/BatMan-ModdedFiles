@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Bilaketa historia</string>
+    <string name="about">%s aplikazioari buruz</string>
+    <string name="about_already_installed">Azken bertsioa jada instalatu da.</string>
+    <string name="about_home_screen">Hasierako pantaila</string>
+    <string name="about_licence">Iturburu irekiko lizentziak</string>
+    <string name="about_network_err">Ezin da bilatu eguneraketarik. Telefonoa ez dago konektatuta sarera.</string>
+    <string name="about_new_version_exist">Bertsio berria dago erabilgarri</string>
+    <string name="about_retry">Saiatu berriz</string>
+    <string name="about_update">Eguneratu</string>
+    <string name="about_version">%s bertsioa</string>
     <string name="activity_not_available">Aplikazioa ez dago eskuragarri zure gailurako.</string>
     <string name="activity_not_found">Aplikazioa ez dago instalatuta</string>
     <string name="align_to_bottom">Lerrokatu behean</string>
@@ -108,7 +117,7 @@
     <string name="ok">Ados</string>
     <string name="only_one_widget_instance_allowed">%s widget gehitu dira jada pantaila Nagusian.</string>
     <string name="option_menu_contact_up">Jarri gurekin harremanetan</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Ezarpenak</string>
     <string name="options_menu">Aukera gehiago</string>
     <string name="options_menu_search_recommend">Bilaketa aukerak</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Ez dago lekurik orri honetan</string>
     <string name="out_of_space_dialog">Ez dago tokirik orri honetan. Beste orri batean gehituko da elementua.</string>
     <string name="permdesc_install_widget">Aplikazio honek widgetak gehi ditzake pantaila Nagusian.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">This app can read the settings of the custom content page, which is located to the left of the Home screen.</string>
+    <string name="permdesc_write_zeropage_settings">This app can change the settings of the custom content page, which is located to the left of the Home screen.</string>
     <string name="permlab_install_widget">Gehitu widgetak</string>
+    <string name="permlab_read_settings">irakurri hasierako ezarpenak eta lasterbideak</string>
+    <string name="permlab_read_zeropage_settings">Read custom content page settings</string>
+    <string name="permlab_write_zeropage_settings">Change custom content page settings</string>
     <string name="quick_option_add_apps">Gehitu aplikazioak</string>
     <string name="quick_option_add_shortcut_to_home">Gehitu last. Pant. nagusian</string>
     <string name="quick_option_add_to_personal">Geh. pertsonalera</string>

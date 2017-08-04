@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Otsingu ajalugu</string>
+    <string name="about">Rakenduse %s teave</string>
+    <string name="about_already_installed">Uusim versioon on juba installitud.</string>
+    <string name="about_home_screen">Avaleht</string>
+    <string name="about_licence">Avatud lähtekoodi litsentsid</string>
+    <string name="about_network_err">Värskendusi ei saa kontrollida. Teie telefon ei ole ühendatud võrku.</string>
+    <string name="about_new_version_exist">Uus versioon on saadaval.</string>
+    <string name="about_retry">Proovi uues.</string>
+    <string name="about_update">Värskenda</string>
+    <string name="about_version">Versioon %s</string>
     <string name="activity_not_available">See rakendus pole teie seadme jaoks saadaval.</string>
     <string name="activity_not_found">Rakendus pole installitud.</string>
     <string name="align_to_bottom">Joonda üles</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s vidin on juba lisatud avaekraanile.</string>
     <string name="option_menu_contact_up">Võtke meiega ühendust</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Seaded</string>
     <string name="options_menu">Veel valikuid</string>
     <string name="options_menu_search_recommend">Otsingu valikud</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Sellel lehel pole rohkem ruumi</string>
     <string name="out_of_space_dialog">Sellel lehel pole rohkem ruumi. Üksus lisatakse uuele lehele.</string>
     <string name="permdesc_install_widget">See rakendus saab lisada avaekraanile vidinaid.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">See rakendus saab lugeda avaekraanist vasakul asuva kohandatud sisu lehekülje seadeid.</string>
+    <string name="permdesc_write_zeropage_settings">See rakendus saab muuta avaekraanist vasakul asuva kohandatud sisu lehekülje seadeid.</string>
     <string name="permlab_install_widget">Vidinate lisamine</string>
+    <string name="permlab_read_settings">loe avalehe seadeid ja otseteid</string>
+    <string name="permlab_read_zeropage_settings">Loe kohand. sisu lehekülje seadeid</string>
+    <string name="permlab_write_zeropage_settings">Muuda kohand. sisu lehek. seadeid</string>
     <string name="quick_option_add_apps">Lisa rakendusi</string>
     <string name="quick_option_add_shortcut_to_home">Lisa otsetee avaekraanile</string>
     <string name="quick_option_add_to_personal">Lisa isikl.</string>

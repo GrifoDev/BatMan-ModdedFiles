@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView$2;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->access$100(Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -50,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView$2;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAppsPickerController:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->access$200(Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;)Lcom/android/launcher3/appspicker/controller/AppsPickerController;
 
     move-result-object v0

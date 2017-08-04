@@ -51,8 +51,6 @@
 
     iput-object v1, p0, Lcom/android/launcher3/executor/HomeSettingsChangeToSamsungGalaxyHomeStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    const/4 v0, 0x1
-
     :goto_0
     invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/executor/HomeSettingsChangeToSamsungGalaxyHomeStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
 

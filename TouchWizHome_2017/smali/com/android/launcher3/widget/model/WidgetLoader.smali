@@ -1432,7 +1432,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/widget/model/WidgetLoader;->mLoadTask:Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;
 
-    # invokes: Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;->notifyDirty()V
     invoke-static {v0}, Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;->access$100(Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;)V
 
     goto :goto_0
@@ -1515,7 +1514,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/model/WidgetLoader;->mLoadTask:Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;
 
-    # invokes: Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;->terminate()V
     invoke-static {v0}, Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;->access$200(Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;)V
 
     const/4 v0, 0x0

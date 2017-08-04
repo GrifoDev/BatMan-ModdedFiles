@@ -69,7 +69,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ZeroPageParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2100(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
 
     move-result-object v1

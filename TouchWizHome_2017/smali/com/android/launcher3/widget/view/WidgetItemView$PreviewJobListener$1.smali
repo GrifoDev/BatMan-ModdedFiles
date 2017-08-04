@@ -65,7 +65,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener$1;->this$1:Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;->mLayout:Lcom/android/launcher3/widget/view/WidgetPageLayout;
     invoke-static {v0}, Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;->access$000(Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;)Lcom/android/launcher3/widget/view/WidgetPageLayout;
 
     move-result-object v0
@@ -92,14 +91,12 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener$1;->this$1:Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;->mWidth:I
     invoke-static {v2}, Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;->access$100(Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;)I
 
     move-result v2
 
     iget-object v3, p0, Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener$1;->this$1:Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;->mHeight:I
     invoke-static {v3}, Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;->access$200(Lcom/android/launcher3/widget/view/WidgetItemView$PreviewJobListener;)I
 
     move-result v3

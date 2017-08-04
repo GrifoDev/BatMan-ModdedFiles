@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Suchverlauf</string>
+    <string name="about">Info zu %s</string>
+    <string name="about_already_installed">Die neueste Version ist bereits installiert.</string>
+    <string name="about_home_screen">Startbildschirm</string>
+    <string name="about_licence">Open Source-Lizenzen</string>
+    <string name="about_network_err">Es kann nicht auf Updates geprüft werden. Ihr Telefon ist mit keinem Netzwerk verbunden.</string>
+    <string name="about_new_version_exist">Eine neue Version ist verfügbar.</string>
+    <string name="about_retry">Wiederholen</string>
+    <string name="about_update">Aktualisieren</string>
+    <string name="about_version">Version %s</string>
     <string name="activity_not_available">Diese App ist für Ihr Gerät nicht verfügbar.</string>
     <string name="activity_not_found">Anwendung nicht installiert</string>
     <string name="align_to_bottom">Am unteren Rand anordnen</string>
@@ -79,7 +88,7 @@
     <string name="max_characters_available">Bis zu %d Zeichen verfügbar</string>
     <string name="menu_edit_cancel">Abbruch</string>
     <string name="menu_uninstall">App deinstallieren</string>
-    <string name="move_to_home">Hierher ziehen, um Shortcut zum Startbildschirm hinzuzufügen.</string>
+    <string name="move_to_home">Hierher ziehen, um Verknüpfung zum Startbildschirm hinzuzufügen.</string>
     <string name="multi_select_add_to_personal">Neu in persönlich</string>
     <string name="multi_select_apps_deselected">App-Auswahl aufgehoben.</string>
     <string name="multi_select_create_folder">Ordner erstellen</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-Widget bereits zum Startbildschirm hinzugefügt.</string>
     <string name="option_menu_contact_up">Kontaktieren Sie uns</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Einstellungen</string>
     <string name="options_menu">Weitere Optionen</string>
     <string name="options_menu_search_recommend">Suchoptionen</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Kein Platz mehr auf dieser Seite</string>
     <string name="out_of_space_dialog">Es gibt keinen Platz mehr auf dieser Seite. Das Element wird auf einer neuen Seite hinzugefügt.</string>
     <string name="permdesc_install_widget">Diese App kann Widgets zum Startbildschirm hinzufügen.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Diese App kann die Einstellungen der Seite für angepassten Inhalt links auf dem Startbildschirm lesen.</string>
+    <string name="permdesc_write_zeropage_settings">Diese App kann die Einstellungen der Seite für angepassten Inhalt links auf dem Startbildschirm ändern.</string>
     <string name="permlab_install_widget">Widgets hinzufügen</string>
+    <string name="permlab_read_settings">Home-Einstellungen und Schnellzugriffe lesen</string>
+    <string name="permlab_read_zeropage_settings">Seiteneinst. für angep. Inhalt lesen</string>
+    <string name="permlab_write_zeropage_settings">Einstellungen für angep. Inhalt ändern</string>
     <string name="quick_option_add_apps">Apps hinzufügen</string>
     <string name="quick_option_add_shortcut_to_home">Verknüpfung zu Start hinzufügen</string>
     <string name="quick_option_add_to_personal">Zu persönlich hzfg.</string>

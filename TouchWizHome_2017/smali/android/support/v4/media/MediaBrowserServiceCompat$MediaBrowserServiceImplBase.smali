@@ -47,7 +47,7 @@
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "This should be called inside of onLoadChildren or onLoadItem methods"
+    const-string v1, "This should be called inside of onLoadChildren, onLoadItem or onSearch methods"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 

@@ -59,7 +59,6 @@
 
     move v4, v3
 
-    # invokes: Lcom/android/launcher3/home/WorkspaceDragController;->onDropExtraObjects(Ljava/util/ArrayList;Ljava/lang/Runnable;ZZZZ)V
     invoke-static/range {v0 .. v6}, Lcom/android/launcher3/home/WorkspaceDragController;->access$500(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Ljava/lang/Runnable;ZZZZ)V
 
     return-void

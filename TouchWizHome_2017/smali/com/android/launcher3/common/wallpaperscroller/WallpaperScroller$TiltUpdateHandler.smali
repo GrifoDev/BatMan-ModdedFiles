@@ -101,12 +101,10 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;->this$0:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->mThread:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;
     invoke-static {v0}, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->access$700(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;)Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;
 
     move-result-object v0
 
-    # invokes: Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;->setWindowToken(Landroid/os/IBinder;)V
     invoke-static {v0, p1}, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;->access$800(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;Landroid/os/IBinder;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -269,7 +267,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;->this$0:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->mThread:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;
     invoke-static {v1}, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->access$700(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;)Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;
 
     move-result-object v1
@@ -278,12 +275,10 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;->this$0:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->mThread:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;
     invoke-static {v1}, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->access$700(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;)Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;
 
     move-result-object v1
 
-    # invokes: Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;->update(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltValue;)V
     invoke-static {v1, v0}, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;->access$900(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$WallpaperThread;Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltValue;)V
 
     goto :goto_0

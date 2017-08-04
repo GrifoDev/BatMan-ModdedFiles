@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController$5;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
     invoke-static {v0}, Lcom/android/launcher3/home/ZeroPageController;->access$500(Lcom/android/launcher3/home/ZeroPageController;)Z
 
     move-result v0
@@ -56,7 +55,6 @@
 
     const/4 v2, 0x1
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->showZeroPageDownloadDialog(Landroid/widget/Switch;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/home/ZeroPageController;->access$1600(Lcom/android/launcher3/home/ZeroPageController;Landroid/widget/Switch;Z)V
 
     :cond_0
@@ -66,7 +64,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController$5;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/home/ZeroPageController;->access$100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0

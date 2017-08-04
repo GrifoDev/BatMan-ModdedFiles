@@ -2410,7 +2410,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0800a8
+    const v4, 0x7f0800b7
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2426,7 +2426,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800a7
+    const v4, 0x7f0800b6
 
     const/4 v5, 0x2
 
@@ -2482,7 +2482,7 @@
     move v1, p4
 
     :goto_1
-    const v3, 0x7f0800a4
+    const v3, 0x7f0800b3
 
     new-array v4, v8, [Ljava/lang/Object;
 
@@ -2506,7 +2506,7 @@
     goto :goto_1
 
     :cond_3
-    const v3, 0x7f0800a6
+    const v3, 0x7f0800b5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

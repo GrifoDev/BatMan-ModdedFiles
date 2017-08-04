@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar$1;->this$0:Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;
 
-    # getter for: Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbPaint:Landroid/graphics/Paint;
     invoke-static {v0}, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->access$000(Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;)Landroid/graphics/Paint;
 
     move-result-object v1
@@ -58,14 +57,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar$1;->this$0:Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;
 
-    # getter for: Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mRv:Lcom/android/launcher3/common/base/view/BaseRecyclerView;
     invoke-static {v0}, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->access$400(Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;)Lcom/android/launcher3/common/base/view/BaseRecyclerView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar$1;->this$0:Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;
 
-    # getter for: Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbOffset:Landroid/graphics/Point;
     invoke-static {v1}, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->access$100(Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;)Landroid/graphics/Point;
 
     move-result-object v1
@@ -74,7 +71,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar$1;->this$0:Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;
 
-    # getter for: Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbOffset:Landroid/graphics/Point;
     invoke-static {v2}, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->access$100(Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;)Landroid/graphics/Point;
 
     move-result-object v2
@@ -83,7 +79,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar$1;->this$0:Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;
 
-    # getter for: Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbOffset:Landroid/graphics/Point;
     invoke-static {v3}, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->access$100(Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;)Landroid/graphics/Point;
 
     move-result-object v3
@@ -92,7 +87,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar$1;->this$0:Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;
 
-    # getter for: Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbWidth:I
     invoke-static {v4}, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->access$200(Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;)I
 
     move-result v4
@@ -101,7 +95,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar$1;->this$0:Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;
 
-    # getter for: Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbOffset:Landroid/graphics/Point;
     invoke-static {v4}, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->access$100(Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;)Landroid/graphics/Point;
 
     move-result-object v4
@@ -110,7 +103,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar$1;->this$0:Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;
 
-    # getter for: Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->mThumbHeight:I
     invoke-static {v5}, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;->access$300(Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollBar;)I
 
     move-result v5

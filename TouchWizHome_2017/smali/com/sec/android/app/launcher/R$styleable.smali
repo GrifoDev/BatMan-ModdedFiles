@@ -69,6 +69,28 @@
 
 .field public static final Favorite_y:I = 0x4
 
+.field public static final FontFamily:[I
+
+.field public static final FontFamilyFont:[I
+
+.field public static final FontFamilyFont_font:I = 0x1
+
+.field public static final FontFamilyFont_fontStyle:I = 0x0
+
+.field public static final FontFamilyFont_fontWeight:I = 0x2
+
+.field public static final FontFamily_fontProviderAuthority:I = 0x0
+
+.field public static final FontFamily_fontProviderCerts:I = 0x3
+
+.field public static final FontFamily_fontProviderFetchStrategy:I = 0x4
+
+.field public static final FontFamily_fontProviderFetchTimeout:I = 0x5
+
+.field public static final FontFamily_fontProviderPackage:I = 0x1
+
+.field public static final FontFamily_fontProviderQuery:I = 0x2
+
 .field public static final Hotseat:[I
 
 .field public static final Hotseat_cellCountX:I = 0x0
@@ -150,11 +172,11 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    const/4 v4, 0x3
+    const/4 v4, 0x1
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x3
 
     const/4 v1, 0x2
 
@@ -180,43 +202,57 @@
 
     sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->Favorite:[I
 
-    new-array v0, v1, [I
+    const/4 v0, 0x6
+
+    new-array v0, v0, [I
 
     fill-array-data v0, :array_3
 
-    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->Hotseat:[I
+    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->FontFamily:[I
 
-    new-array v0, v1, [I
+    new-array v0, v2, [I
 
     fill-array-data v0, :array_4
 
-    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->IconView:[I
+    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->FontFamilyFont:[I
 
     new-array v0, v1, [I
 
     fill-array-data v0, :array_5
 
+    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->Hotseat:[I
+
+    new-array v0, v1, [I
+
+    fill-array-data v0, :array_6
+
+    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->IconView:[I
+
+    new-array v0, v1, [I
+
+    fill-array-data v0, :array_7
+
     sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->Include:[I
-
-    new-array v0, v3, [I
-
-    const v1, 0x7f010016
-
-    aput v1, v0, v2
-
-    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->InsettableFrameLayout_Layout:[I
-
-    new-array v0, v3, [I
-
-    const v1, 0x7f010017
-
-    aput v1, v0, v2
-
-    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->PageIndicator:[I
 
     new-array v0, v4, [I
 
-    fill-array-data v0, :array_6
+    const v1, 0x7f01001f
+
+    aput v1, v0, v3
+
+    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->InsettableFrameLayout_Layout:[I
+
+    new-array v0, v4, [I
+
+    const v1, 0x7f010020
+
+    aput v1, v0, v3
+
+    sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->PageIndicator:[I
+
+    new-array v0, v2, [I
+
+    fill-array-data v0, :array_8
 
     sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->PagedView:[I
 
@@ -224,7 +260,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_7
+    fill-array-data v0, :array_9
 
     sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->RecyclerView:[I
 
@@ -232,19 +268,17 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_a
 
     sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->WidgetPageLayout:[I
 
-    new-array v0, v4, [I
+    new-array v0, v2, [I
 
-    fill-array-data v0, :array_9
+    fill-array-data v0, :array_b
 
     sput-object v0, Lcom/sec/android/app/launcher/R$styleable;->Workspace:[I
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -284,57 +318,74 @@
 
     :array_3
     .array-data 4
-        0x7f010029
-        0x7f01002a
+        0x7f010012
+        0x7f010013
+        0x7f010014
+        0x7f010015
+        0x7f010016
+        0x7f010017
     .end array-data
 
     :array_4
-    .array-data 4
-        0x7f010012
-        0x7f010013
-    .end array-data
-
-    :array_5
-    .array-data 4
-        0x7f010014
-        0x7f010015
-    .end array-data
-
-    :array_6
     .array-data 4
         0x7f010018
         0x7f010019
         0x7f01001a
     .end array-data
 
-    :array_7
+    :array_5
     .array-data 4
-        0x10100c4
-        0x10100f1
+        0x7f010032
+        0x7f010033
+    .end array-data
+
+    :array_6
+    .array-data 4
         0x7f01001b
         0x7f01001c
+    .end array-data
+
+    :array_7
+    .array-data 4
         0x7f01001d
         0x7f01001e
-        0x7f01001f
-        0x7f010020
+    .end array-data
+
+    :array_8
+    .array-data 4
         0x7f010021
         0x7f010022
         0x7f010023
     .end array-data
 
-    :array_8
+    :array_9
     .array-data 4
+        0x10100c4
+        0x10100f1
         0x7f010024
         0x7f010025
         0x7f010026
         0x7f010027
-    .end array-data
-
-    :array_9
-    .array-data 4
         0x7f010028
         0x7f010029
         0x7f01002a
+        0x7f01002b
+        0x7f01002c
+    .end array-data
+
+    :array_a
+    .array-data 4
+        0x7f01002d
+        0x7f01002e
+        0x7f01002f
+        0x7f010030
+    .end array-data
+
+    :array_b
+    .array-data 4
+        0x7f010031
+        0x7f010032
+        0x7f010033
     .end array-data
 .end method
 

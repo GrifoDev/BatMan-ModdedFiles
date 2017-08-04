@@ -262,87 +262,6 @@
     throw v0
 .end method
 
-.method static getDetailAppNameByComponentName(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/String;
-    .locals 6
-
-    if-nez p1, :cond_0
-
-    const/4 v4, 0x0
-
-    :goto_0
-    return-object v4
-
-    :cond_0
-    const-string v3, ""
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    const/16 v4, 0x80
-
-    :try_start_0
-    invoke-virtual {v1, v2, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v4
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v3
-
-    :goto_1
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const/16 v5, 0x28
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const/16 v5, 0x29
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_1
-.end method
-
 .method static getFolderCountInHome(Landroid/content/Context;)I
     .locals 10
 
@@ -916,6 +835,263 @@
     throw v0
 .end method
 
+.method static getHideApps(Landroid/content/Context;)Landroid/util/Pair;
+    .locals 14
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            ")",
+            "Landroid/util/Pair",
+            "<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v12, 0x0
+
+    const/4 v5, 0x1
+
+    const/4 v1, 0x0
+
+    const/4 v7, 0x0
+
+    const-string v6, ""
+
+    new-array v2, v5, [Ljava/lang/String;
+
+    const-string v0, "intent"
+
+    aput-object v0, v2, v1
+
+    const-string v3, "hidden=?"
+
+    new-array v4, v5, [Ljava/lang/String;
+
+    const/4 v0, 0x2
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v1
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/launcher3/common/model/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result-object v8
+
+    const/4 v0, 0x0
+
+    :try_start_1
+    invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
+
+    move-result v7
+
+    :cond_0
+    :goto_0
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x0
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-static {v11, v1}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_0
+
+    invoke-virtual {v10}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v10}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v5, ", "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-result-object v6
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v8, :cond_2
+
+    if-eqz v12, :cond_3
+
+    :try_start_2
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    :cond_2
+    :goto_1
+    new-instance v0, Landroid/util/Pair;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1, v6}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object v0
+
+    :catch_0
+    move-exception v1
+
+    :try_start_3
+    invoke-virtual {v0, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v9
+
+    const-string v0, "Launcher.SALogUtils"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "getHideApps Exception : "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v9}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_3
+    :try_start_4
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+
+    goto :goto_1
+
+    :catch_2
+    move-exception v0
+
+    :try_start_5
+    throw v0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    move-object v13, v1
+
+    move-object v1, v0
+
+    move-object v0, v13
+
+    :goto_2
+    if-eqz v8, :cond_4
+
+    if-eqz v1, :cond_5
+
+    :try_start_6
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_6
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
+
+    :cond_4
+    :goto_3
+    :try_start_7
+    throw v0
+
+    :catch_3
+    move-exception v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    goto :goto_3
+
+    :cond_5
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_1
+
+    goto :goto_3
+
+    :catchall_1
+    move-exception v0
+
+    move-object v1, v12
+
+    goto :goto_2
+.end method
+
 .method static getHomeApps(Landroid/content/Context;Z)Lcom/android/launcher3/util/logging/SALogUtils$Items;
     .locals 15
 
@@ -1063,6 +1239,12 @@
 
     if-eqz v12, :cond_1
 
+    invoke-virtual {v12}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1075,7 +1257,7 @@
 
     move-result-object v1
 
-    invoke-static {p0, v1}, Lcom/android/launcher3/util/logging/SALogUtils;->getDetailAppNameByComponentName(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1277,7 +1459,7 @@
 
     move-result-object v0
 
-    invoke-static {p0, v11}, Lcom/android/launcher3/util/logging/SALogUtils;->getDetailAppNameByComponentName(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/String;
+    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1423,7 +1605,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_1
 
     :try_start_0
     const-string v1, "intent"
@@ -1443,7 +1625,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     invoke-interface {v7, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
@@ -1453,36 +1635,31 @@
 
     move-result-object v17
 
-    if-eqz v15, :cond_3
+    if-eqz v15, :cond_2
 
-    if-eqz v17, :cond_0
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
     const/4 v1, 0x0
 
     invoke-static {v15, v1}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
 
     move-result-object v11
 
-    if-eqz v11, :cond_1
+    if-eqz v11, :cond_0
 
     invoke-virtual {v11}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v1
 
-    move-object/from16 v0, p0
+    if-eqz v1, :cond_0
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/util/logging/SALogUtils;->getDetailAppNameByComponentName(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/String;
+    invoke-virtual {v11}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v17
 
-    :cond_1
+    :cond_0
     :goto_1
     move-object/from16 v0, v17
 
@@ -1528,26 +1705,26 @@
 
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    :cond_2
+    :cond_1
     :goto_2
     return-object v12
 
-    :cond_3
-    if-eqz v17, :cond_4
+    :cond_2
+    if-eqz v17, :cond_3
 
     :try_start_2
     invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    :cond_4
+    :cond_3
     const-string v17, "FOLDER"
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
 
     move-result v1
@@ -1559,7 +1736,7 @@
     :goto_3
     move/from16 v0, v16
 
-    if-ge v13, v0, :cond_6
+    if-ge v13, v0, :cond_5
 
     const-string v1, " "
 
@@ -1573,7 +1750,7 @@
 
     goto :goto_3
 
-    :cond_6
+    :cond_5
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     goto :goto_2

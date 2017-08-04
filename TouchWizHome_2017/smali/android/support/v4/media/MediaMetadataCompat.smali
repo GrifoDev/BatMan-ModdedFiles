@@ -80,6 +80,8 @@
 
 .field public static final METADATA_KEY_DISPLAY_TITLE:Ljava/lang/String; = "android.media.metadata.DISPLAY_TITLE"
 
+.field public static final METADATA_KEY_DOWNLOAD_STATUS:Ljava/lang/String; = "android.media.metadata.DOWNLOAD_STATUS"
+
 .field public static final METADATA_KEY_DURATION:Ljava/lang/String; = "android.media.metadata.DURATION"
 
 .field public static final METADATA_KEY_GENRE:Ljava/lang/String; = "android.media.metadata.GENRE"
@@ -445,6 +447,16 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    sget-object v0, Landroid/support/v4/media/MediaMetadataCompat;->METADATA_KEYS_TYPE:Landroid/support/v4/util/ArrayMap;
+
+    const-string v1, "android.media.metadata.DOWNLOAD_STATUS"
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/String;
@@ -565,15 +577,8 @@
 
     const/16 v3, 0x15
 
-    if-ge v2, v3, :cond_1
+    if-lt v2, v3, :cond_0
 
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return-object v0
-
-    :cond_1
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -593,6 +598,12 @@
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     iput-object p0, v0, Landroid/support/v4/media/MediaMetadataCompat;->mMetadataObj:Ljava/lang/Object;
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -719,7 +730,7 @@
 
     move-result v19
 
-    if-nez v19, :cond_6
+    if-nez v19, :cond_8
 
     const/16 v19, 0x0
 
@@ -781,7 +792,7 @@
 
     move-result-object v15
 
-    if-eqz v15, :cond_8
+    if-eqz v15, :cond_a
 
     move-object v8, v15
 
@@ -817,7 +828,7 @@
 
     move-result v19
 
-    if-nez v19, :cond_9
+    if-nez v19, :cond_b
 
     invoke-static {v15}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -883,6 +894,10 @@
 
     invoke-virtual {v4, v13}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->setMediaUri(Landroid/net/Uri;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
+    new-instance v5, Landroid/os/Bundle;
+
+    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/support/v4/media/MediaMetadataCompat;->mBundle:Landroid/os/Bundle;
@@ -896,10 +911,6 @@
     move-result v19
 
     if-eqz v19, :cond_5
-
-    new-instance v5, Landroid/os/Bundle;
-
-    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
     const-string v19, "android.media.extra.BT_FOLDER_TYPE"
 
@@ -919,9 +930,49 @@
 
     invoke-virtual {v5, v0, v1, v2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/support/v4/media/MediaMetadataCompat;->mBundle:Landroid/os/Bundle;
+
+    move-object/from16 v19, v0
+
+    const-string v20, "android.media.metadata.DOWNLOAD_STATUS"
+
+    invoke-virtual/range {v19 .. v20}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_6
+
+    const-string v19, "android.media.extra.DOWNLOAD_STATUS"
+
+    const-string v20, "android.media.metadata.DOWNLOAD_STATUS"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/media/MediaMetadataCompat;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v20
+
+    move-object/from16 v0, v19
+
+    move-wide/from16 v1, v20
+
+    invoke-virtual {v5, v0, v1, v2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
+
+    :cond_6
+    invoke-virtual {v5}, Landroid/os/Bundle;->isEmpty()Z
+
+    move-result v19
+
+    if-nez v19, :cond_7
+
     invoke-virtual {v4, v5}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->setExtras(Landroid/os/Bundle;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
-    :cond_5
+    :cond_7
     invoke-virtual {v4}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->build()Landroid/support/v4/media/MediaDescriptionCompat;
 
     move-result-object v19
@@ -940,7 +991,7 @@
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_8
     const/16 v17, 0x0
 
     const/4 v10, 0x0
@@ -988,7 +1039,7 @@
 
     move-result v19
 
-    if-nez v19, :cond_7
+    if-nez v19, :cond_9
 
     add-int/lit8 v18, v17, 0x1
 
@@ -996,17 +1047,17 @@
 
     move/from16 v17, v18
 
-    :cond_7
+    :cond_9
     move v10, v11
 
     goto :goto_3
 
-    :cond_8
+    :cond_a
     add-int/lit8 v7, v7, 0x1
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_b
     add-int/lit8 v7, v7, 0x1
 
     goto/16 :goto_2
@@ -1039,15 +1090,8 @@
 
     const/16 v2, 0x15
 
-    if-ge v1, v2, :cond_1
+    if-lt v1, v2, :cond_0
 
-    :cond_0
-    iget-object v1, p0, Landroid/support/v4/media/MediaMetadataCompat;->mMetadataObj:Ljava/lang/Object;
-
-    :goto_0
-    return-object v1
-
-    :cond_1
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
@@ -1064,9 +1108,10 @@
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
+    :cond_0
     iget-object v1, p0, Landroid/support/v4/media/MediaMetadataCompat;->mMetadataObj:Ljava/lang/Object;
 
-    goto :goto_0
+    return-object v1
 .end method
 
 .method public getRating(Ljava/lang/String;)Landroid/support/v4/media/RatingCompat;

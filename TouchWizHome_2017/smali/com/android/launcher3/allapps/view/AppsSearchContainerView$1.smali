@@ -41,7 +41,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mAppsRecyclerView:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
     invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->access$000(Lcom/android/launcher3/allapps/view/AppsSearchContainerView;)Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
     move-result-object v0

@@ -155,7 +155,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$IncomingHandlerCallback;->this$0:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
-    # getter for: Lcom/android/launcher3/allapps/AlphabeticalAppsList;->mGalaxyItems:Ljava/util/List;
     invoke-static {v8}, Lcom/android/launcher3/allapps/AlphabeticalAppsList;->access$000(Lcom/android/launcher3/allapps/AlphabeticalAppsList;)Ljava/util/List;
 
     move-result-object v8
@@ -175,7 +174,6 @@
     :pswitch_2
     iget-object v8, p0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$IncomingHandlerCallback;->this$0:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
-    # getter for: Lcom/android/launcher3/allapps/AlphabeticalAppsList;->mGalaxyItems:Ljava/util/List;
     invoke-static {v8}, Lcom/android/launcher3/allapps/AlphabeticalAppsList;->access$000(Lcom/android/launcher3/allapps/AlphabeticalAppsList;)Ljava/util/List;
 
     move-result-object v8
@@ -188,7 +186,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$IncomingHandlerCallback;->this$0:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
-    # invokes: Lcom/android/launcher3/allapps/AlphabeticalAppsList;->updateAdapterItems()V
     invoke-static {v8}, Lcom/android/launcher3/allapps/AlphabeticalAppsList;->access$100(Lcom/android/launcher3/allapps/AlphabeticalAppsList;)V
 
     goto/16 :goto_0

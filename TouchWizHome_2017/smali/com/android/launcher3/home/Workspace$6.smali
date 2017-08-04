@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$6;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mZeroPageController:Lcom/android/launcher3/home/ZeroPageController;
     invoke-static {v0}, Lcom/android/launcher3/home/Workspace;->access$400(Lcom/android/launcher3/home/Workspace;)Lcom/android/launcher3/home/ZeroPageController;
 
     move-result-object v0

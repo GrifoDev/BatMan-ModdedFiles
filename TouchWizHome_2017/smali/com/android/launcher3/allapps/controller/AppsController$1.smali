@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$1;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->access$000(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/view/AppsPagedView;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$1;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->access$000(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/view/AppsPagedView;
 
     move-result-object v0

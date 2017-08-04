@@ -51,7 +51,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsViewBinder$6;->val$apps:Ljava/util/ArrayList;
 
-    # invokes: Lcom/android/launcher3/allapps/controller/AppsViewBinder;->bindItemsToFolder(Lcom/android/launcher3/folder/FolderInfo;Ljava/util/ArrayList;)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/allapps/controller/AppsViewBinder;->access$100(Lcom/android/launcher3/allapps/controller/AppsViewBinder;Lcom/android/launcher3/folder/FolderInfo;Ljava/util/ArrayList;)V
 
     return-void

@@ -45,7 +45,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView$9;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mFolderOptionButton:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderView;->access$600(Lcom/android/launcher3/folder/view/FolderView;)Landroid/widget/ImageView;
 
     move-result-object v1
@@ -54,7 +53,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView$9;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mFolderOptionButton:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderView;->access$600(Lcom/android/launcher3/folder/view/FolderView;)Landroid/widget/ImageView;
 
     move-result-object v1
@@ -76,7 +74,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView$9;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mFolderOptionButton:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderView;->access$600(Lcom/android/launcher3/folder/view/FolderView;)Landroid/widget/ImageView;
 
     move-result-object v1
@@ -85,7 +82,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView$9;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mFolderOptionButton:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderView;->access$600(Lcom/android/launcher3/folder/view/FolderView;)Landroid/widget/ImageView;
 
     move-result-object v1

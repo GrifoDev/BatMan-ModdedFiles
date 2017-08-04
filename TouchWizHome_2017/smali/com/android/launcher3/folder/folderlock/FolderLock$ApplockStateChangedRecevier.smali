@@ -86,7 +86,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$ApplockStateChangedRecevier;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->isFolderLockEnable:Z
     invoke-static {v3}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$500(Lcom/android/launcher3/folder/folderlock/FolderLock;)Z
 
     move-result v3
@@ -95,7 +94,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$ApplockStateChangedRecevier;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # setter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->isFolderLockEnable:Z
     invoke-static {v3, v2}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$502(Lcom/android/launcher3/folder/folderlock/FolderLock;Z)Z
 
     const-string v3, "Launcher.FolderLock"
@@ -112,7 +110,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$ApplockStateChangedRecevier;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->isFolderLockEnable:Z
     invoke-static {v5}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$500(Lcom/android/launcher3/folder/folderlock/FolderLock;)Z
 
     move-result v5
@@ -129,7 +126,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$ApplockStateChangedRecevier;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v3}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$600(Lcom/android/launcher3/folder/folderlock/FolderLock;)Ljava/util/List;
 
     move-result-object v3

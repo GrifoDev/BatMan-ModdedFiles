@@ -57,7 +57,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$12;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # invokes: Lcom/android/launcher3/folder/view/FolderView;->replaceFolderWithFinalItem()V
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$800(Lcom/android/launcher3/folder/view/FolderView;)V
 
     :cond_0

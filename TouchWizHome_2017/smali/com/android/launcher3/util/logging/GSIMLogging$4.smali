@@ -157,7 +157,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/util/logging/GSIMLogging$4;->this$0:Lcom/android/launcher3/util/logging/GSIMLogging;
 
-    # invokes: Lcom/android/launcher3/util/logging/GSIMLogging;->getGridInfo()Ljava/lang/String;
     invoke-static {v7}, Lcom/android/launcher3/util/logging/GSIMLogging;->access$700(Lcom/android/launcher3/util/logging/GSIMLogging;)Ljava/lang/String;
 
     move-result-object v7
@@ -168,7 +167,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/util/logging/GSIMLogging$4;->this$0:Lcom/android/launcher3/util/logging/GSIMLogging;
 
-    # invokes: Lcom/android/launcher3/util/logging/GSIMLogging;->hotseatListLogging()Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/launcher3/util/logging/GSIMLogging;->access$600(Lcom/android/launcher3/util/logging/GSIMLogging;)Ljava/util/ArrayList;
 
     move-result-object v5

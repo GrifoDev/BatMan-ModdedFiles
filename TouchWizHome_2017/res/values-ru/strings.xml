@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">История поиска</string>
+    <string name="about">О %s</string>
+    <string name="about_already_installed">Последняя версия уже установлена.</string>
+    <string name="about_home_screen">Главный экран</string>
+    <string name="about_licence">Лицензии открытого ПО</string>
+    <string name="about_network_err">Невозможно проверить наличие обновлений. Телефон не подключен к сети.</string>
+    <string name="about_new_version_exist">Доступна новая версия.</string>
+    <string name="about_retry">Повторить</string>
+    <string name="about_update">Обновить</string>
+    <string name="about_version">Версия %s</string>
     <string name="activity_not_available">Это приложение недоступно для вашего устройства.</string>
     <string name="activity_not_found">Приложение не установлено.</string>
     <string name="align_to_bottom">Выровнять по нижнему краю</string>
@@ -34,7 +43,7 @@
     <string name="default_scroll_format">Страница %1$d из %2$d.</string>
     <string name="disable_message">%1$s и все связанные функции будут отключены. Чтобы включить это приложение, перейдите в меню “Настройки” > “Приложения” и выберите %2$s.</string>
     <string name="disable_message_vzw">%s и все связанные функции отключатся. Чтобы снова включить их, перейдите в меню “Настройки” > “Приложения” > “Диспетчер приложений”.</string>
-    <string name="discard">Удалить</string>
+    <string name="discard">Сбросить</string>
     <string name="do_not_show_again">Больше не показывать</string>
     <string name="drag_here_to_move_from_folder">Перетащите сюда, чтобы переместить из папки.</string>
     <string name="duplcation_widget_instance_allowed_differ_type">Виджет, содержащий информацию о погоде, уже добавлен на домашнюю страницу. Удалите %s и повторите попытку.</string>
@@ -63,7 +72,7 @@
     <string name="home_screen_mode_apps">Главный экран и экран прилож.</string>
     <string name="home_screen_mode_change_alert_text">Все изменения главного экрана будут сброшены.</string>
     <string name="home_screen_mode_change_dialog_title">Применить выбранный макет главного экрана?</string>
-    <string name="home_screen_mode_change_with_copy_layout">Список иконок в меню приложений будет перенесен на главный экран. Нажмите ПРИМЕНИТЬ, чтобы сохранить текущий вид главного экрана или СБРОС, чтобы сбросить.</string>
+    <string name="home_screen_mode_change_with_copy_layout">Список иконок в меню приложений будет перенесен на главный экран. Нажмите ПРИМЕНИТЬ, чтобы сохранить текущий вид главного экрана или СБРОСИТЬ, чтобы выполнить сброс.</string>
     <string name="home_screen_mode_home_apps_body_text">Станет доступен отдельный экран приложений. Чтобы отобразить его, проведите пальцем по главному экрану вверх или вниз. Чтобы быстро запускать самые важные приложения, вы также можете поместить их на главный экран.</string>
     <string name="home_screen_mode_home_only_body_text">На главном экране будут показаны все приложения.</string>
     <string name="home_screen_mode_only_home">Только главный экран</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Виджет %s уже находится на главном экране.</string>
     <string name="option_menu_contact_up">Свяжитесь с нами</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Настройки</string>
     <string name="options_menu">Другие параметры</string>
     <string name="options_menu_search_recommend">Параметры поиска</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">На этой странице нет места</string>
     <string name="out_of_space_dialog">На странице не осталось места. Элемент будет добавлен на новую страницу.</string>
     <string name="permdesc_install_widget">Это приложение может добавлять виджеты на главный экран.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Это приложение может считывать настройки страницы специального содержимого, расположенной слева от главного экрана.</string>
+    <string name="permdesc_write_zeropage_settings">Это приложение может изменять настройки страницы специального содержимого, расположенной слева от главного экрана.</string>
     <string name="permlab_install_widget">Добавление виджетов</string>
+    <string name="permlab_read_settings">считать настройки и горячие клавиши главного экрана</string>
+    <string name="permlab_read_zeropage_settings">Счит. настр. страницы спец. содерж.</string>
+    <string name="permlab_write_zeropage_settings">Измен. настр. страницы спец. содер.</string>
     <string name="quick_option_add_apps">Добавить приложения</string>
     <string name="quick_option_add_shortcut_to_home">Доб. ярлык на глав. экран</string>
     <string name="quick_option_add_to_personal">Доб. на личный</string>

@@ -39,7 +39,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v2
@@ -48,7 +47,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v2
@@ -59,7 +57,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v2
@@ -77,7 +74,6 @@
     :cond_1
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$100(Lcom/android/launcher3/common/view/PageIndicator;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -97,14 +93,12 @@
     :goto_1
     iget-object v3, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # invokes: Lcom/android/launcher3/common/view/PageIndicator;->getPageIndex(I)I
     invoke-static {v3, v0}, Lcom/android/launcher3/common/view/PageIndicator;->access$200(Lcom/android/launcher3/common/view/PageIndicator;I)I
 
     move-result v3
 
     iget-object v4, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mMarkerStartOffset:I
     invoke-static {v4}, Lcom/android/launcher3/common/view/PageIndicator;->access$300(Lcom/android/launcher3/common/view/PageIndicator;)I
 
     move-result v4
@@ -125,7 +119,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$100(Lcom/android/launcher3/common/view/PageIndicator;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -146,7 +139,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$100(Lcom/android/launcher3/common/view/PageIndicator;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -169,20 +161,17 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mMarkerStartOffset:I
     invoke-static {v3}, Lcom/android/launcher3/common/view/PageIndicator;->access$300(Lcom/android/launcher3/common/view/PageIndicator;)I
 
     move-result v3
 
     add-int/2addr v3, v1
 
-    # invokes: Lcom/android/launcher3/common/view/PageIndicator;->showPageNumber(I)V
     invoke-static {v2, v3}, Lcom/android/launcher3/common/view/PageIndicator;->access$400(Lcom/android/launcher3/common/view/PageIndicator;I)V
 
     :cond_2
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v2
@@ -195,14 +184,12 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v3}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v3
@@ -216,7 +203,6 @@
     :cond_3
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v2
@@ -225,7 +211,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v2
@@ -236,7 +221,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator$1;->this$0:Lcom/android/launcher3/common/view/PageIndicator;
 
-    # getter for: Lcom/android/launcher3/common/view/PageIndicator;->mPagedView:Lcom/android/launcher3/common/base/view/PagedView;
     invoke-static {v2}, Lcom/android/launcher3/common/view/PageIndicator;->access$000(Lcom/android/launcher3/common/view/PageIndicator;)Lcom/android/launcher3/common/base/view/PagedView;
 
     move-result-object v2

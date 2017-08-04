@@ -155,6 +155,27 @@
     goto :goto_0
 .end method
 
+.method public static showIfNeeded(Landroid/app/FragmentManager;)V
+    .locals 2
+
+    const-string v1, "DisableAppConfirm"
+
+    invoke-virtual {p0, v1}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/DialogFragment;
+
+    if-eqz v0, :cond_0
+
+    const-string v1, "DisableAppConfirm"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
@@ -581,11 +602,11 @@
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f080082
+    const v5, 0x7f080091
 
     invoke-virtual {v0, v5, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f08001d
+    const v5, 0x7f080026
 
     invoke-virtual {v0, v5, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -595,7 +616,7 @@
 
     if-eqz v5, :cond_1
 
-    const v5, 0x7f0800c6
+    const v5, 0x7f0800d5
 
     new-array v6, v9, [Ljava/lang/Object;
 
@@ -646,7 +667,7 @@
 
     if-eqz v5, :cond_2
 
-    const v5, 0x7f080021
+    const v5, 0x7f08002a
 
     new-array v6, v9, [Ljava/lang/Object;
 
@@ -661,7 +682,7 @@
     goto :goto_0
 
     :cond_2
-    const v5, 0x7f080020
+    const v5, 0x7f080029
 
     const/4 v6, 0x2
 

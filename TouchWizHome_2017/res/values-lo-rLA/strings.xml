@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">ປະຫວັດການຊອກຫາ</string>
+    <string name="about">ກ່ຽວກັບ %s</string>
+    <string name="about_already_installed">ຕິດຕັ້ງລຸ້ນຫຼ້າສຸດຮຽບຮ້ອຍແລ້ວ.</string>
+    <string name="about_home_screen">ໜ້າຫຼັກ</string>
+    <string name="about_licence">ໃບອະນຸຍາດ Open source</string>
+    <string name="about_network_err">ບໍ່ສາມາດກວດຫາອັບເດດໄດ້. ໂທລະສັບຂອງທ່ານບໍ່ຖືກເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍ.</string>
+    <string name="about_new_version_exist">ມີເວີເຊິນໃໝ່ໃຫ້ຢູ່.</string>
+    <string name="about_retry">ລອງ​ໃໝ່ອີກ</string>
+    <string name="about_update">ອັບເດດ</string>
+    <string name="about_version">ຊຸດ %s</string>
     <string name="activity_not_available">ແອັບ​ນີ້​ບໍ່​ມີ​ໃຫ້​ສຳ​ລັບ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ.</string>
     <string name="activity_not_found">ແອັບບໍ່ຖືກຕິດຕັ້ງ.</string>
     <string name="align_to_bottom">ຈັດປັບໃສ່ເບື້ອງລຸ່ມສຸດ</string>
@@ -108,7 +117,7 @@
     <string name="ok">ຕົກລົງ</string>
     <string name="only_one_widget_instance_allowed">ເພີ່ມວິດເຈັດ %s ໃສ່ໜ້າຈໍຫຼັກແລ້ວ.</string>
     <string name="option_menu_contact_up">ຕິດຕໍ່ພວກເຮົາ</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">ການຕັ້ງຄ່າ</string>
     <string name="options_menu">ຕົວເລືອກເພີ່ມເຕີມ</string>
     <string name="options_menu_search_recommend">ຕົວເລືອກການຊອກຫາ</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ບໍ່ມີຫ້ອງອີກຢູ່ໃນໜ້ານີ້</string>
     <string name="out_of_space_dialog">ບໍ່ມີພື້ນທີ່ວ່າງໃນໜ້ານີ້. ລາຍການຈະບໍ່ຖືກເພີ່ມໃສ່ໜ້າໃໝ່.</string>
     <string name="permdesc_install_widget">ແອັບນີ້ສາມາດເພີ່ມວິດເຈັດໃສ່ໜ້າຈໍລັອກ.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ແອັບນີ້ສາມາດອ່ານການຕັ້ງຄ່າຂອງໜ້າເນື້ອໃນທີ່ກຳນົດເອງ, ເຊິ່ງຕັ້ງຢູ່ທາງເບື້ອງຊ້າຍຂອງໜ້າຈໍຫຼັກ.</string>
+    <string name="permdesc_write_zeropage_settings">ແອັບນີ້ສາມາດປ່ຽນການຕັ້ງຄ່າຂອງໜ້າເນື້ອໃນທີ່ກຳນົດເອງ, ເຊິ່ງຕັ້ງຢູ່ທາງເບື້ອງຊ້າຍຂອງໜ້າຈໍຫຼັກ.</string>
     <string name="permlab_install_widget">ເພີ່ມວິດເຈັດ</string>
+    <string name="permlab_read_settings">ອ່ານການຕັ້ງຄ່າໜ້າຈໍ ແລະເມນູລັດ</string>
+    <string name="permlab_read_zeropage_settings">ອ່ານການຕັ້ງຄ່າໜ້າເນື້ອໃນທີ່ກຳນົດເອງ</string>
+    <string name="permlab_write_zeropage_settings">ປ່ຽນການຕັ້ງຄ່າໜ້າເນື້ອໃນທີ່ກຳນົດເອງ</string>
     <string name="quick_option_add_apps">ເພີ່ມແອັບ</string>
     <string name="quick_option_add_shortcut_to_home">ເພີ່ມທາງລັດໃສ່ໜ້າຫຼັກ</string>
     <string name="quick_option_add_to_personal">ເພີ່ມໃສ່ສ່ວນຕົວ</string>

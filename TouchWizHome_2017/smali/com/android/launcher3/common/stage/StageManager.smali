@@ -139,6 +139,14 @@
     return-void
 .end method
 
+.method static synthetic access$600(Lcom/android/launcher3/common/stage/StageManager;)Lcom/android/launcher3/Launcher;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/stage/StageManager;->mActivity:Lcom/android/launcher3/Launcher;
+
+    return-object v0
+.end method
+
 .method private assertTransitInProgress()V
     .locals 1
 

@@ -97,7 +97,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$AppsGridInfoParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$1200(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Landroid/content/Context;
 
     move-result-object v5
@@ -153,7 +152,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$AppsGridInfoParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$1300(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Landroid/content/Context;
 
     move-result-object v5

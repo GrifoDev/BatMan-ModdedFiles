@@ -7,6 +7,8 @@
 
 
 # static fields
+.field static final CMD_ALL_STATES:Ljava/lang/String; = "emes_all_states"
+
 .field static final CMD_CHATTY_MODE:Ljava/lang/String; = "emes_chatty_mode"
 
 .field static final CMD_CONTEXT:Ljava/lang/String; = "emes_request_context"
@@ -20,6 +22,10 @@
 .field static final CMD_SPLIT_STATE:Ljava/lang/String; = "emes_split_state"
 
 .field static final CMD_STATE:Ljava/lang/String; = "emes_state"
+
+.field static final CMD_TTS_RESULT:Ljava/lang/String; = "emes_tts_result"
+
+.field static final CMD_USER_CONFIRM:Ljava/lang/String; = "emes_user_confirm"
 
 .field private static final TAG:Ljava/lang/String;
 
@@ -48,7 +54,7 @@
 
     move-result-object v0
 
-    const-string v1, "_0.2.0"
+    const-string v1, "_0.2.4"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -311,13 +317,34 @@
     goto/16 :goto_0
 
     :cond_5
-    const-string v12, "emes_partial_landing_state"
+    const-string v12, "emes_all_states"
 
     invoke-virtual {v2, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v12
 
     if-eqz v12, :cond_6
+
+    iget-object v12, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    const-string v13, "states"
+
+    invoke-virtual {v5, v13}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendAllStates(Lorg/json/JSONArray;)V
+
+    goto/16 :goto_0
+
+    :cond_6
+    const-string v12, "emes_partial_landing_state"
+
+    invoke-virtual {v2, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_7
 
     const-string v12, "isLanded"
 
@@ -331,7 +358,67 @@
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
+    const-string v12, "emes_user_confirm"
+
+    invoke-virtual {v2, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_8
+
+    iget-object v12, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    const-string v13, "appName"
+
+    invoke-virtual {v5, v13}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    const-string v14, "result"
+
+    invoke-virtual {v5, v14}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v12, v13, v14}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendUserConfirm(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_8
+    const-string v12, "emes_tts_result"
+
+    invoke-virtual {v2, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_9
+
+    iget-object v12, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    const-string v13, "result"
+
+    invoke-virtual {v5, v13}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendTtsResult(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_9
     sget-object v12, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->TAG:Ljava/lang/String;
 
     new-instance v13, Ljava/lang/StringBuilder;

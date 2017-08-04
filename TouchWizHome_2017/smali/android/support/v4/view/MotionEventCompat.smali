@@ -203,6 +203,8 @@
     .end annotation
 .end field
 
+.field public static final AXIS_SCROLL:I = 0x1a
+
 .field public static final AXIS_SIZE:I = 0x3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation

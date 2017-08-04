@@ -58,7 +58,6 @@
     :goto_0
     iget-object v0, p0, Lcom/android/launcher3/common/view/DragLayer$4;->this$0:Lcom/android/launcher3/common/view/DragLayer;
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDropAnim:Landroid/animation/ValueAnimator;
     invoke-static {v0}, Lcom/android/launcher3/common/view/DragLayer;->access$400(Lcom/android/launcher3/common/view/DragLayer;)Landroid/animation/ValueAnimator;
 
     move-result-object v0
@@ -69,7 +68,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/view/DragLayer;->mDropAnim:Landroid/animation/ValueAnimator;
     invoke-static {v0, v1}, Lcom/android/launcher3/common/view/DragLayer;->access$402(Lcom/android/launcher3/common/view/DragLayer;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     return-void
@@ -94,7 +92,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/DragLayer$4;->this$0:Lcom/android/launcher3/common/view/DragLayer;
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher3/common/view/DragLayer;->access$000(Lcom/android/launcher3/common/view/DragLayer;)Landroid/view/View;
 
     move-result-object v2
@@ -109,7 +106,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/view/DragLayer$4;->this$0:Lcom/android/launcher3/common/view/DragLayer;
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorView:Landroid/view/View;
     invoke-static {v3}, Lcom/android/launcher3/common/view/DragLayer;->access$000(Lcom/android/launcher3/common/view/DragLayer;)Landroid/view/View;
 
     move-result-object v3
@@ -175,14 +171,12 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/common/view/DragLayer$4;->this$0:Lcom/android/launcher3/common/view/DragLayer;
 
-    # setter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorViewInitialRect:Landroid/graphics/Rect;
     invoke-static {v2, v0}, Lcom/android/launcher3/common/view/DragLayer;->access$102(Lcom/android/launcher3/common/view/DragLayer;Landroid/graphics/Rect;)Landroid/graphics/Rect;
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/DragLayer$4;->this$0:Lcom/android/launcher3/common/view/DragLayer;
 
     iget-object v3, p0, Lcom/android/launcher3/common/view/DragLayer$4;->this$0:Lcom/android/launcher3/common/view/DragLayer;
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorView:Landroid/view/View;
     invoke-static {v3}, Lcom/android/launcher3/common/view/DragLayer;->access$000(Lcom/android/launcher3/common/view/DragLayer;)Landroid/view/View;
 
     move-result-object v3
@@ -191,7 +185,6 @@
 
     move-result v3
 
-    # setter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorViewInitialScrollX:I
     invoke-static {v2, v3}, Lcom/android/launcher3/common/view/DragLayer;->access$202(Lcom/android/launcher3/common/view/DragLayer;I)I
 
     :cond_1

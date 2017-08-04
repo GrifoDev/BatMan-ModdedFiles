@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Meklēšanas vēsture</string>
+    <string name="about">Par %s</string>
+    <string name="about_already_installed">Jaunākā versija jau ir instalēta.</string>
+    <string name="about_home_screen">Sākuma ekrāns</string>
+    <string name="about_licence">Atklātā pirmkoda licences</string>
+    <string name="about_network_err">Nevar meklēt atjauninājumus. Tālrunis nav savienots ar tīklu.</string>
+    <string name="about_new_version_exist">Ir pieejama jauna versija.</string>
+    <string name="about_retry">Mēģ. vēlreiz</string>
+    <string name="about_update">Atjaunināt</string>
+    <string name="about_version">Versija %s</string>
     <string name="activity_not_available">Šī programma jūsu ierīcei nav pieejama.</string>
     <string name="activity_not_found">Programma nav instalēta.</string>
     <string name="align_to_bottom">Līdzināt uz leju</string>
@@ -109,7 +118,7 @@ person."</string>
     <string name="ok">Labi</string>
     <string name="only_one_widget_instance_allowed">Logrīks %s jau ir pievienots sākuma ekrānam.</string>
     <string name="option_menu_contact_up">Sazināties ar mums</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Iestatījumi</string>
     <string name="options_menu">Citas iespējas</string>
     <string name="options_menu_search_recommend">Meklēšanas iespējas</string>
@@ -120,7 +129,13 @@ person."</string>
     <string name="out_of_space">Šajā lapā vairs nav vietas</string>
     <string name="out_of_space_dialog">Šajā lapā vairs nav vietas. Objekts tiks pievienots jaunā lapā.</string>
     <string name="permdesc_install_widget">Šī programma var pievienot logrīkus sākuma ekrānam.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Šī programma var lasīt pielāgotās satura lapas iestatījumus, kas atrodas sākuma ekrāna kreisajā pusē.</string>
+    <string name="permdesc_write_zeropage_settings">Šī programma var mainīt pielāgotās satura lapas iestatījumus, kas atrodas sākuma ekrāna kreisajā pusē.</string>
     <string name="permlab_install_widget">Logrīku pievienošana</string>
+    <string name="permlab_read_settings">lasīt sākuma iestatījumus un īsceļus</string>
+    <string name="permlab_read_zeropage_settings">Lasīt pielāgoto satura lapu iestat.</string>
+    <string name="permlab_write_zeropage_settings">Mainīt pielāgoto satura lapu iest.</string>
     <string name="quick_option_add_apps">Pievienot programmas</string>
     <string name="quick_option_add_shortcut_to_home">Piev. īsceļu sākuma ekr.</string>
     <string name="quick_option_add_to_personal">Piev. person.</string>

@@ -43,7 +43,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
     invoke-static {v4}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
 
     move-result-object v4
@@ -58,7 +57,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
     invoke-static {v4}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
 
     move-result-object v4
@@ -71,7 +69,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
     invoke-static {v4}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
 
     move-result-object v4
@@ -92,7 +89,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
     invoke-static {v4}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
 
     move-result-object v4

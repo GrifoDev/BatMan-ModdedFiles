@@ -77,7 +77,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/model/AppsLoader$2;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mMaxItemsPerPage:I
     invoke-static {v6}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$200(Lcom/android/launcher3/allapps/model/AppsLoader;)I
 
     move-result v6
@@ -88,28 +87,24 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    # setter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mTotalPageNumber:I
     invoke-static {v3, v4}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$102(Lcom/android/launcher3/allapps/model/AppsLoader;I)I
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$2;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$2;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mTotalPageNumber:I
     invoke-static {v4}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$100(Lcom/android/launcher3/allapps/model/AppsLoader;)I
 
     move-result v4
 
     new-array v4, v4, [Z
 
-    # setter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mIsPageLoaded:[Z
     invoke-static {v3, v4}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$302(Lcom/android/launcher3/allapps/model/AppsLoader;[Z)[Z
 
     iget v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$2;->val$startPage:I
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$2;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mIsPageLoaded:[Z
     invoke-static {v4}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$400(Lcom/android/launcher3/allapps/model/AppsLoader;)[Z
 
     move-result-object v4
@@ -133,7 +128,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$2;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    # invokes: Lcom/android/launcher3/allapps/model/AppsLoader;->isStopped(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Z
     invoke-static {v3, v4}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$500(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Z
 
     move-result v3
@@ -142,7 +136,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$2;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mIsPageLoaded:[Z
     invoke-static {v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$600(Lcom/android/launcher3/allapps/model/AppsLoader;)[Z
 
     move-result-object v3
@@ -172,7 +165,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$2;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mIsPageLoaded:[Z
     invoke-static {v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$700(Lcom/android/launcher3/allapps/model/AppsLoader;)[Z
 
     move-result-object v3

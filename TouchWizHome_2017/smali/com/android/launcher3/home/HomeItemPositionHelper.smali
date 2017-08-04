@@ -769,7 +769,7 @@
 
     aput-object v6, v4, v5
 
-    const-string v5, "container=? and screen=?"
+    const-string v5, "container=? and screen=? and hidden=0"
 
     const/4 v6, 0x2
 
@@ -797,7 +797,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_4
 
     const-string v2, "cellX"
 
@@ -828,7 +828,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4
 
     new-instance v12, Lcom/android/launcher3/common/base/item/ItemInfo;
 
@@ -866,7 +866,54 @@
 
     iput v2, v12, Lcom/android/launcher3/common/base/item/ItemInfo;->spanY:I
 
-    invoke-virtual {v13, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iget v2, v12, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
+
+    const/4 v3, -0x1
+
+    if-eq v2, v3, :cond_0
+
+    iget v2, v12, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
+
+    const/4 v3, -0x1
+
+    if-ne v2, v3, :cond_2
+
+    :cond_0
+    const-string v2, "HomeItemPositionHelper"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Need handling an occupied item which has wrong coordinates cellX : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget v4, v12, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " cellY : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget v4, v12, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -907,30 +954,39 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_0
+    :cond_1
     :goto_1
     return-object v13
 
-    :cond_1
-    if-eqz v8, :cond_0
+    :cond_2
+    :try_start_2
+    invoke-virtual {v13, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
-
-    goto :goto_1
+    goto/16 :goto_0
 
     :catchall_0
     move-exception v2
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_2
+    :cond_3
     throw v2
+
+    :cond_4
+    if-eqz v8, :cond_1
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
 .end method
 
 .method private getOccupiedTable(JII)[[Z

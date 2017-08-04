@@ -78,7 +78,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$7;->this$0:Lcom/android/launcher3/common/model/FavoritesUpdater;
 
-    # getter for: Lcom/android/launcher3/common/model/FavoritesUpdater;->mLoader:Lcom/android/launcher3/common/model/DataLoader;
     invoke-static {v2}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$100(Lcom/android/launcher3/common/model/FavoritesUpdater;)Lcom/android/launcher3/common/model/DataLoader;
 
     move-result-object v2
@@ -91,7 +90,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$7;->val$info:Lcom/android/launcher3/folder/FolderInfo;
 
-    # invokes: Lcom/android/launcher3/common/model/FavoritesUpdater;->logFolderCount(Lcom/android/launcher3/common/base/item/ItemInfo;)V
     invoke-static {v2, v4}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$200(Lcom/android/launcher3/common/model/FavoritesUpdater;Lcom/android/launcher3/common/base/item/ItemInfo;)V
 
     monitor-exit v3

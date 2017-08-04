@@ -39,21 +39,18 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsDragController$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsDragController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/AppsDragController;->mAppsReorderController:Lcom/android/launcher3/allapps/controller/AppsReorderController;
     invoke-static {v1}, Lcom/android/launcher3/allapps/controller/AppsDragController;->access$400(Lcom/android/launcher3/allapps/controller/AppsDragController;)Lcom/android/launcher3/allapps/controller/AppsReorderController;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsDragController$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsDragController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/AppsDragController;->mEmpty:Lcom/android/launcher3/allapps/controller/DragAppIcon;
     invoke-static {v2}, Lcom/android/launcher3/allapps/controller/AppsDragController;->access$200(Lcom/android/launcher3/allapps/controller/AppsDragController;)Lcom/android/launcher3/allapps/controller/DragAppIcon;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/controller/AppsDragController$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsDragController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/AppsDragController;->mTarget:Lcom/android/launcher3/allapps/controller/DragAppIcon;
     invoke-static {v3}, Lcom/android/launcher3/allapps/controller/AppsDragController;->access$300(Lcom/android/launcher3/allapps/controller/AppsDragController;)Lcom/android/launcher3/allapps/controller/DragAppIcon;
 
     move-result-object v3
@@ -65,7 +62,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsDragController$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsDragController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/AppsDragController;->mTarget:Lcom/android/launcher3/allapps/controller/DragAppIcon;
     invoke-static {v1}, Lcom/android/launcher3/allapps/controller/AppsDragController;->access$300(Lcom/android/launcher3/allapps/controller/AppsDragController;)Lcom/android/launcher3/allapps/controller/DragAppIcon;
 
     move-result-object v1
@@ -76,7 +72,6 @@
 
     check-cast v1, Lcom/android/launcher3/allapps/controller/DragAppIcon;
 
-    # setter for: Lcom/android/launcher3/allapps/controller/AppsDragController;->mEmpty:Lcom/android/launcher3/allapps/controller/DragAppIcon;
     invoke-static {v2, v1}, Lcom/android/launcher3/allapps/controller/AppsDragController;->access$202(Lcom/android/launcher3/allapps/controller/AppsDragController;Lcom/android/launcher3/allapps/controller/DragAppIcon;)Lcom/android/launcher3/allapps/controller/DragAppIcon;
     :try_end_0
     .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0

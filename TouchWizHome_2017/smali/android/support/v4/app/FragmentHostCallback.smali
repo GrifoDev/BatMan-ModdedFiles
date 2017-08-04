@@ -363,7 +363,7 @@
 
     if-nez v0, :cond_2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_2
 
     new-instance v0, Landroid/support/v4/app/LoaderManagerImpl;
 
@@ -378,7 +378,15 @@
     return-object v0
 
     :cond_2
-    invoke-virtual {v0, p0}, Landroid/support/v4/app/LoaderManagerImpl;->updateHostController(Landroid/support/v4/app/FragmentHostCallback;)V
+    if-eqz p2, :cond_1
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v1, v0, Landroid/support/v4/app/LoaderManagerImpl;->mStarted:Z
+
+    if-nez v1, :cond_1
+
+    invoke-virtual {v0}, Landroid/support/v4/app/LoaderManagerImpl;->doStart()V
 
     goto :goto_0
 .end method
@@ -705,7 +713,7 @@
 .end method
 
 .method restoreLoaderNonConfig(Landroid/support/v4/util/SimpleArrayMap;)V
-    .locals 0
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -717,6 +725,30 @@
         }
     .end annotation
 
+    if-eqz p1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1}, Landroid/support/v4/util/SimpleArrayMap;->size()I
+
+    move-result v0
+
+    :goto_0
+    if-ge v1, v0, :cond_0
+
+    invoke-virtual {p1, v1}, Landroid/support/v4/util/SimpleArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/support/v4/app/LoaderManagerImpl;
+
+    invoke-virtual {v2, p0}, Landroid/support/v4/app/LoaderManagerImpl;->updateHostController(Landroid/support/v4/app/FragmentHostCallback;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
     iput-object p1, p0, Landroid/support/v4/app/FragmentHostCallback;->mAllLoaderManagers:Landroid/support/v4/util/SimpleArrayMap;
 
     return-void

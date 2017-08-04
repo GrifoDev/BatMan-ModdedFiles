@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Іздеу журналы</string>
+    <string name="about">%s туралы</string>
+    <string name="about_already_installed">Соңғы нұсқасы бұрын орнатылып қойған.</string>
+    <string name="about_home_screen">Бейнебеттің өзіндік беті</string>
+    <string name="about_licence">Ашық бастапқы коды бар лицензиялар</string>
+    <string name="about_network_err">Жаңартуларды тексеру мүмкін емес. Телефоныңыз желіге қосылмаған.</string>
+    <string name="about_new_version_exist">Жаңа нұсқа қол жетімді.</string>
+    <string name="about_retry">Қайталау</string>
+    <string name="about_update">Жаңарту</string>
+    <string name="about_version">%s нұсқасы</string>
     <string name="activity_not_available">Бұл бағдарлама сіздің құрылғыңыз үшін қолжетімсіз.</string>
     <string name="activity_not_found">Бағдарлама орнатылмаған.</string>
     <string name="align_to_bottom">Төменге қарай туралау</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s виджеті бастапқы экранға бұрын қосылып қойған.</string>
     <string name="option_menu_contact_up">Бізге хабарласыңыз</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Параметрлер</string>
     <string name="options_menu">Басқа параметрлер</string>
     <string name="options_menu_search_recommend">Іздеу параметрлері</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Бұл бетте басқа орын жоқ</string>
     <string name="out_of_space_dialog">Бұл бетте басқа бос орын жоқ. Элемент жаңа бетке қосылады.</string>
     <string name="permdesc_install_widget">Бұл қолданба виджеттерді бастапқы экранға қоса алады.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Бұл қолданба Бастапқы экранның сол жағында орналасқан реттелмелі мазмұн бетінің параметрлерін оқи алады.</string>
+    <string name="permdesc_write_zeropage_settings">Бұл қолданба Бастапқы экранның сол жағында орналасқан реттелмелі мазмұн бетінің параметрлерін өзгерте алады.</string>
     <string name="permlab_install_widget">Виджеттерді қосу</string>
+    <string name="permlab_read_settings">Бастапқы параметрлер мен тіркесімдерді оқу</string>
+    <string name="permlab_read_zeropage_settings">Реттелмелі мазмұн беті парамет. оқу</string>
+    <string name="permlab_write_zeropage_settings">Реттелмелі мазмұн беті парам. өзг-у</string>
     <string name="quick_option_add_apps">Қолданбаларды қосу</string>
     <string name="quick_option_add_shortcut_to_home">Бас. экр. жедел пер. қосу</string>
     <string name="quick_option_add_to_personal">Жеке мәл.қосу</string>

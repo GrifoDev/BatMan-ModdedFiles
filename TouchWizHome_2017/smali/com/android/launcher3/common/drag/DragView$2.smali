@@ -43,7 +43,6 @@
 
     move-result v1
 
-    # setter for: Lcom/android/launcher3/common/drag/DragView;->mCrossFadeProgress:F
     invoke-static {v0, v1}, Lcom/android/launcher3/common/drag/DragView;->access$902(Lcom/android/launcher3/common/drag/DragView;F)F
 
     return-void

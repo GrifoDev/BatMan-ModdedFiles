@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/Launcher$CloseSystemDialogsIntentReceiver;->this$0:Lcom/android/launcher3/Launcher;
 
-    # invokes: Lcom/android/launcher3/Launcher;->closeSystemDialogs()V
     invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$1000(Lcom/android/launcher3/Launcher;)V
 
     return-void

@@ -161,7 +161,7 @@
 .method public getWidgetItemFolderViewId()I
     .locals 1
 
-    const v0, 0x7f030048
+    const v0, 0x7f03004a
 
     return v0
 .end method
@@ -169,7 +169,7 @@
 .method public getWidgetItemSingleViewId()I
     .locals 1
 
-    const v0, 0x7f030049
+    const v0, 0x7f03004b
 
     return v0
 .end method
@@ -177,7 +177,7 @@
 .method public getWidgetPageLayoutId()I
     .locals 1
 
-    const v0, 0x7f030047
+    const v0, 0x7f030049
 
     return v0
 .end method

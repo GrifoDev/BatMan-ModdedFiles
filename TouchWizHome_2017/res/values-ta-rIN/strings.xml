@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">தேடல் வரலாறு</string>
+    <string name="about">%s பற்றி</string>
+    <string name="about_already_installed">சமீபத்திய பதிப்பு ஏற்கனவே நிறுவப்பட்டது.</string>
+    <string name="about_home_screen">முகப்பு திரை</string>
+    <string name="about_licence">திறந்த மூல உரிமங்கள்</string>
+    <string name="about_network_err">புதுப்பிப்புகளைச் சரிபார்க்க இயலாது. உங்கள் ஃபோன் Wi-Fi நெட்வொர்க்கில் இணைக்கப்படவில்லை.</string>
+    <string name="about_new_version_exist">புதிய பதிப்பு கிடைக்கிறது.</string>
+    <string name="about_retry">மீ. முயலவும்</string>
+    <string name="about_update">புதுப்பி</string>
+    <string name="about_version">பதிப்பு %s</string>
     <string name="activity_not_available">உங்கள் சாதனத்தில் இந்த பயன்பாடு கிடைக்கவில்லை.</string>
     <string name="activity_not_found">பயன்பாடு நிறுவப்படவில்லை.</string>
     <string name="align_to_bottom">கீழே வரிசைப்படுத்தவும்</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">இந்த பக்கத்தில் இடம் எதுவும் இல்லை</string>
     <string name="out_of_space_dialog">இந்தப் பக்கத்தில் வேறு அறை இல்லை. உருப்படியானது புதியப் பக்கத்தில் சேர்க்கப்படும்.</string>
     <string name="permdesc_install_widget">இந்தப் பயன்பாட்டால் முகப்பு திரையில் விட்ஜெட்களை சேர்க்க இயலும்.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">முகப்புத் திரையின் இடதுபக்கத்தில் இந்த பயன்பாட்டால் தனிப்பயன் உள்ளடக்க பக்கத்தின் அமைவுகளை வாசிக்க இயலும்.</string>
+    <string name="permdesc_write_zeropage_settings">முகப்புத் திரையின் இடதுபக்கத்தில் இந்த பயன்பாட்டால் தனிப்பயன் உள்ளடக்க பக்கத்தின் அமைவுகளை மாற்ற இயலும்.</string>
     <string name="permlab_install_widget">விட்ஜெட்களை சேர்க்கவும்</string>
+    <string name="permlab_read_settings">முகப்பு அமைவுகள் மற்றும் குறுக்குவழிகளை வாசிக்கவும்.</string>
+    <string name="permlab_read_zeropage_settings">தனிப்பயன் உள்ளடக்கப் பக்க அமைவுகளை வாசிக்கவும்</string>
+    <string name="permlab_write_zeropage_settings">தனிப்பயன் உள்ளடக்கப் பக்க அமைவுகளை மாற்றவும்</string>
     <string name="quick_option_add_apps">பயன்பாடுகளைச் சேர்க்கவும்</string>
     <string name="quick_option_add_shortcut_to_home">முகப்பிற்கான குறுக்கு வழியைச் சேர்க்கவும்</string>
     <string name="quick_option_add_to_personal">தனிப்பட்டதில் சேர்க்கவும்</string>

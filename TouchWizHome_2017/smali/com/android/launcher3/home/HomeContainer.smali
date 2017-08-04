@@ -184,7 +184,7 @@
     iput-boolean v1, p0, Lcom/android/launcher3/home/HomeContainer;->mIsInstalledSFinder:Z
 
     :cond_0
-    const v1, 0x7f090148
+    const v1, 0x7f090156
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1329,73 +1329,86 @@
 .end method
 
 .method public setTranslationY(F)V
-    .locals 7
+    .locals 10
+
+    const/4 v5, 0x0
+
+    const/4 v9, 0x0
+
+    cmpl-float v6, p1, v9
+
+    if-eqz v6, :cond_3
+
+    const/4 v1, 0x1
+
+    :goto_0
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
+
+    invoke-virtual {v6, v1}, Lcom/android/launcher3/home/HomeController;->updateOnlyCurrentPage(Z)V
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setTranslationY(F)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    if-eqz v4, :cond_0
+    if-eqz v6, :cond_0
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
 
-    if-eqz v4, :cond_0
+    if-eqz v6, :cond_0
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
+    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/HomeContainer;->getHeight()I
 
-    move-result v6
+    move-result v8
 
-    invoke-virtual {v4, v5, p1, v6}, Lcom/android/launcher3/common/tray/TrayManager;->onChangeTrayTranslationY(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;FI)V
+    invoke-virtual {v6, v7, p1, v8}, Lcom/android/launcher3/common/tray/TrayManager;->onChangeTrayTranslationY(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;FI)V
 
     :cond_0
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    if-eqz v4, :cond_3
+    if-eqz v6, :cond_4
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
+    invoke-virtual {v6}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
 
     move-result v0
 
-    :goto_0
-    neg-int v3, v0
+    :goto_1
+    neg-int v4, v0
 
-    move v2, v0
+    move v3, v0
 
-    const/4 v4, 0x0
+    cmpl-float v6, p1, v9
 
-    cmpl-float v4, p1, v4
+    if-eqz v6, :cond_5
 
-    if-eqz v4, :cond_4
+    int-to-float v6, v4
 
-    int-to-float v4, v3
+    cmpg-float v6, p1, v6
 
-    cmpg-float v4, p1, v4
+    if-lez v6, :cond_1
 
-    if-lez v4, :cond_1
+    int-to-float v6, v3
 
-    int-to-float v4, v2
+    cmpl-float v6, p1, v6
 
-    cmpl-float v4, p1, v4
-
-    if-ltz v4, :cond_4
+    if-ltz v6, :cond_5
 
     :cond_1
-    const/16 v1, 0x8
+    const/16 v2, 0x8
 
-    :goto_1
+    :goto_2
     invoke-virtual {p0}, Lcom/android/launcher3/home/HomeContainer;->getVisibility()I
 
-    move-result v4
+    move-result v5
 
-    if-eq v4, v1, :cond_2
+    if-eq v5, v2, :cond_2
 
-    invoke-virtual {p0, v1}, Lcom/android/launcher3/home/HomeContainer;->setVisibility(I)V
+    invoke-virtual {p0, v2}, Lcom/android/launcher3/home/HomeContainer;->setVisibility(I)V
 
     :cond_2
     invoke-direct {p0, p1}, Lcom/android/launcher3/home/HomeContainer;->updateScaleAndAlphaByTranslationY(F)V
@@ -1403,18 +1416,23 @@
     return-void
 
     :cond_3
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeContainer;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-static {v4}, Lcom/android/launcher3/Utilities;->getFullScreenHeight(Landroid/app/Activity;)I
-
-    move-result v0
+    move v1, v5
 
     goto :goto_0
 
     :cond_4
-    const/4 v1, 0x0
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-static {v6}, Lcom/android/launcher3/Utilities;->getFullScreenHeight(Landroid/app/Activity;)I
+
+    move-result v0
 
     goto :goto_1
+
+    :cond_5
+    move v2, v5
+
+    goto :goto_2
 .end method
 
 .method setTrayManager(Lcom/android/launcher3/common/tray/TrayManager;)V

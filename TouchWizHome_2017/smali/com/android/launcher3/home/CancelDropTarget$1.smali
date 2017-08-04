@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/CancelDropTarget$1;->this$0:Lcom/android/launcher3/home/CancelDropTarget;
 
-    # getter for: Lcom/android/launcher3/home/CancelDropTarget;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/home/CancelDropTarget;->access$000(Lcom/android/launcher3/home/CancelDropTarget;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">శోధన చరిత్ర</string>
+    <string name="about">%s గురించి</string>
+    <string name="about_already_installed">తాజా వెర్షన్ ఇప్పటికే ఇన్‌స్టాల్ చేయబడింది.</string>
+    <string name="about_home_screen">హోమ్ స్క్రీన్</string>
+    <string name="about_licence">ఓపెన్ సోర్స్ లైసెన్స్‌లు</string>
+    <string name="about_network_err">అప్‌డేట్‌ల కోసం తనిఖీ చేయలేరు. మీ ఫోన్ నెట్‌వర్క్‌కి కనెక్ట్ చేయబడలేదు.</string>
+    <string name="about_new_version_exist">కొత్త సంస్కరణ అందుబాటులో ఉంది.</string>
+    <string name="about_retry">తిరిగి ప్రయత్నించు</string>
+    <string name="about_update">అప్‌డేట్ చేయి</string>
+    <string name="about_version">వెర్షన్ %s</string>
     <string name="activity_not_available">ఈ అప్లికేషన్ మీ పరికరంలో అందుబాటులో లేదు.</string>
     <string name="activity_not_found">అప్లికేషన్ స్థాపించబడలేదు.</string>
     <string name="align_to_bottom">దిగువకు సమలేఖనం చేయి</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ఈ పేజీ మీద ఇక గది లేదు</string>
     <string name="out_of_space_dialog">ఈ పేజీలో ఖాళీ లేదు. అంశం కొత్త పేజీకి జోడించబడుతుంది.</string>
     <string name="permdesc_install_widget">ఈ అప్లికేషన్ హోమ్ స్క్రీన్‌కు విడ్జెట్‌లను జోడించగలదు.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ఈ అప్లికేషన్ అనుకూల కంటెంట్ పేజీ సెట్టింగ్‌లను చదవగలదు, ఇది హోమ్ స్క్రీన్‌లో ఎడమ వైపు ఉంటుంది.</string>
+    <string name="permdesc_write_zeropage_settings">ఈ అప్లికేషన్ అనుకూల కంటెంట్ పేజీ సెట్టింగ్‌లను మార్చగలదు, ఇది హోమ్ స్క్రీన్‌లో ఎడమ వైపు ఉంటుంది.</string>
     <string name="permlab_install_widget">విడ్జెట్‌లను జోడించు</string>
+    <string name="permlab_read_settings">హోమ్ సెట్టింగులను మరియు సత్వరమార్గాలను చదవండి</string>
+    <string name="permlab_read_zeropage_settings">అనుకూల కంటెంట్ పేజీ సెట్టింగ్‌లను చదువు</string>
+    <string name="permlab_write_zeropage_settings">కస్టమ్ కంటెంట్ పేజీ సెట్టింగ్‌లను మార్చండి</string>
     <string name="quick_option_add_apps">అప్లికేషన్‌లను జోడించు</string>
     <string name="quick_option_add_shortcut_to_home">హోమ్‌కు సత్వరమార్గాన్ని జోడించండి</string>
     <string name="quick_option_add_to_personal">వ్యక్తిగతానికి జోడించు</string>

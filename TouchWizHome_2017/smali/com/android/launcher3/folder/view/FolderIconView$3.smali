@@ -77,7 +77,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderIconView$3;->this$0:Lcom/android/launcher3/folder/view/FolderIconView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewBackground:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderIconView;->access$400(Lcom/android/launcher3/folder/view/FolderIconView;)Landroid/widget/ImageView;
 
     move-result-object v1
@@ -87,7 +86,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderIconView$3;->this$0:Lcom/android/launcher3/folder/view/FolderIconView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderIconView;->mAnimParams:Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderIconView;->access$500(Lcom/android/launcher3/folder/view/FolderIconView;)Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
 
     move-result-object v1
@@ -110,7 +108,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderIconView$3;->this$0:Lcom/android/launcher3/folder/view/FolderIconView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderIconView;->mAnimParams:Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderIconView;->access$500(Lcom/android/launcher3/folder/view/FolderIconView;)Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
 
     move-result-object v1
@@ -133,7 +130,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderIconView$3;->this$0:Lcom/android/launcher3/folder/view/FolderIconView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderIconView;->mAnimParams:Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderIconView;->access$500(Lcom/android/launcher3/folder/view/FolderIconView;)Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
 
     move-result-object v1

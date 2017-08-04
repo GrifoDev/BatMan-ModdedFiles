@@ -378,7 +378,7 @@
 
     iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0800bb
+    const v8, 0x7f0800ca
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

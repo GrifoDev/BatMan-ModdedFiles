@@ -66,7 +66,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$RestoreAppsParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v2}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$1200(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v2
@@ -82,7 +81,6 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$RestoreAppsParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v2}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$1300(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v2
@@ -101,7 +99,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$RestoreAppsParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$1400(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Landroid/content/Context;
 
     move-result-object v2

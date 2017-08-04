@@ -15,6 +15,28 @@
 
 
 # static fields
+.field public static final FontFamily:[I
+
+.field public static final FontFamilyFont:[I
+
+.field public static final FontFamilyFont_font:I = 0x1
+
+.field public static final FontFamilyFont_fontStyle:I = 0x0
+
+.field public static final FontFamilyFont_fontWeight:I = 0x2
+
+.field public static final FontFamily_fontProviderAuthority:I = 0x0
+
+.field public static final FontFamily_fontProviderCerts:I = 0x3
+
+.field public static final FontFamily_fontProviderFetchStrategy:I = 0x4
+
+.field public static final FontFamily_fontProviderFetchTimeout:I = 0x5
+
+.field public static final FontFamily_fontProviderPackage:I = 0x1
+
+.field public static final FontFamily_fontProviderQuery:I = 0x2
+
 .field public static final RecyclerView:[I
 
 .field public static final RecyclerView_android_descendantFocusability:I = 0x1
@@ -44,11 +66,27 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    const/16 v0, 0xb
+    const/4 v0, 0x6
 
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
+
+    sput-object v0, Landroid/support/v7/recyclerview/R$styleable;->FontFamily:[I
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_1
+
+    sput-object v0, Landroid/support/v7/recyclerview/R$styleable;->FontFamilyFont:[I
+
+    const/16 v0, 0xb
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_2
 
     sput-object v0, Landroid/support/v7/recyclerview/R$styleable;->RecyclerView:[I
 
@@ -56,17 +94,34 @@
 
     :array_0
     .array-data 4
+        0x7f010012
+        0x7f010013
+        0x7f010014
+        0x7f010015
+        0x7f010016
+        0x7f010017
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x7f010018
+        0x7f010019
+        0x7f01001a
+    .end array-data
+
+    :array_2
+    .array-data 4
         0x10100c4
         0x10100f1
-        0x7f01001b
-        0x7f01001c
-        0x7f01001d
-        0x7f01001e
-        0x7f01001f
-        0x7f010020
-        0x7f010021
-        0x7f010022
-        0x7f010023
+        0x7f010024
+        0x7f010025
+        0x7f010026
+        0x7f010027
+        0x7f010028
+        0x7f010029
+        0x7f01002a
+        0x7f01002b
+        0x7f01002c
     .end array-data
 .end method
 

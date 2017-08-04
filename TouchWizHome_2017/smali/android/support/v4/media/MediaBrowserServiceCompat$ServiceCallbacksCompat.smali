@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "ServiceCallbacksCompat"
 .end annotation
 
@@ -20,18 +20,14 @@
 # instance fields
 .field final mCallbacks:Landroid/os/Messenger;
 
-.field final synthetic this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
-
 
 # direct methods
-.method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Landroid/os/Messenger;)V
+.method constructor <init>(Landroid/os/Messenger;)V
     .locals 0
-
-    iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->mCallbacks:Landroid/os/Messenger;
+    iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacksCompat;->mCallbacks:Landroid/os/Messenger;
 
     return-void
 .end method

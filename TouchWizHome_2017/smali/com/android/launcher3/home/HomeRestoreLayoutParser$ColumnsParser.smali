@@ -65,7 +65,6 @@
 
     move-result v2
 
-    # setter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mColumns:I
     invoke-static {v1, v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1302(Lcom/android/launcher3/home/HomeRestoreLayoutParser;I)I
 
     const-string v1, "Launcher.HomeRestore"
@@ -82,7 +81,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ColumnsParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mColumns:I
     invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
 
     move-result v3
@@ -109,21 +107,18 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ColumnsParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1400(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ColumnsParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mColumns:I
     invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
 
     move-result v2
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ColumnsParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mRows:I
     invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
 
     move-result v3
@@ -136,7 +131,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ColumnsParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1500(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
 
     move-result-object v1

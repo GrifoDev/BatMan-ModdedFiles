@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Povijest pretraživanja</string>
+    <string name="about">O aplikaciji %s</string>
+    <string name="about_already_installed">Već je instalirana najnovija verzija.</string>
+    <string name="about_home_screen">Početni zaslon</string>
+    <string name="about_licence">Licence otvorenog izvora</string>
+    <string name="about_network_err">Nije moguće tražiti aktualizacije. Telefon nije povezan na mrežu.</string>
+    <string name="about_new_version_exist">Dostupna je nova verzija.</string>
+    <string name="about_retry">Ponovi</string>
+    <string name="about_update">Aktualiziraj</string>
+    <string name="about_version">Verzija %s</string>
     <string name="activity_not_available">Ova aplikacija nije dostupna za vaš uređaj.</string>
     <string name="activity_not_found">Aplikacija nije instalirana.</string>
     <string name="align_to_bottom">Poravnaj s dnom</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Nema mjesta na stranici</string>
     <string name="out_of_space_dialog">Na ovoj stranici nema više prostora. Stavka će biti dodana na novu stranicu.</string>
     <string name="permdesc_install_widget">Ova aplikacija može dodavati widgete na početni zaslon.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ova aplikacija može pročitati postavke stranice s prilagođenim sadržajem, koja se nalazi s lijeve strane Početnog zaslona.</string>
+    <string name="permdesc_write_zeropage_settings">Ova aplikacija može promijeniti postavke stranice s prilagođenim sadržajem, koja se nalazi s lijeve strane Početnog zaslona.</string>
     <string name="permlab_install_widget">Dodajte widgete</string>
+    <string name="permlab_read_settings">čitaj postavke početnog zaslona i prečace</string>
+    <string name="permlab_read_zeropage_settings">Proč. pril. post. sadržaja stranice</string>
+    <string name="permlab_write_zeropage_settings">Prom. pril. post. sadržaja stranice</string>
     <string name="quick_option_add_apps">Dodaj aplikacije</string>
     <string name="quick_option_add_shortcut_to_home">Dod. prečac na poč. zasl.</string>
     <string name="quick_option_add_to_personal">Dodaj na osobni</string>

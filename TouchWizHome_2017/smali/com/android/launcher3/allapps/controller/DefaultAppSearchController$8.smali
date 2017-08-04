@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$8;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchManager:Lcom/android/launcher3/allapps/controller/DefaultAppSearchAlgorithm;
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$700(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Lcom/android/launcher3/allapps/controller/DefaultAppSearchAlgorithm;
 
     move-result-object v0

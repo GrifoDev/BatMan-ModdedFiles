@@ -38,12 +38,10 @@
 
     const/4 v1, 0x2
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderView;->mViewState:I
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/view/FolderView;->access$102(Lcom/android/launcher3/folder/view/FolderView;I)I
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$13;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mContent:Lcom/android/launcher3/folder/view/FolderPagedView;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderPagedView;
 
     move-result-object v0
@@ -62,7 +60,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/view/FolderView$13;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mContent:Lcom/android/launcher3/folder/view/FolderPagedView;
     invoke-static {v2}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderPagedView;
 
     move-result-object v2
@@ -71,14 +68,12 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/launcher3/folder/view/FolderView;->sendCustomAccessibilityEvent(ILjava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/folder/view/FolderView;->access$1000(Lcom/android/launcher3/folder/view/FolderView;ILjava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$13;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderView;->mViewState:I
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/view/FolderView;->access$102(Lcom/android/launcher3/folder/view/FolderView;I)I
 
     return-void

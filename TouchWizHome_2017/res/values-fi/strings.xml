@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Hakuhistoria</string>
+    <string name="about">Tietoja: %s</string>
+    <string name="about_already_installed">Uusin versio on jo asennettu.</string>
+    <string name="about_home_screen">Alkunäyttö</string>
+    <string name="about_licence">Avoimen lähdekoodin käyttöoikeudet</string>
+    <string name="about_network_err">Päivityksiä ei voi hakea. Puhelin ei ole yhteydessä verkkoon.</string>
+    <string name="about_new_version_exist">Uusi versio saatavilla</string>
+    <string name="about_retry">Yritä uud.</string>
+    <string name="about_update">Päivitä</string>
+    <string name="about_version">Versio %s</string>
     <string name="activity_not_available">Tätä sovellusta ei ole saatavilla omaan laitteeseesi.</string>
     <string name="activity_not_found">Sovellusta ei ole asennettu.</string>
     <string name="align_to_bottom">Tasaa alas</string>
@@ -109,7 +118,7 @@ sovellukset"</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-pienoisohjelma on jo lisätty alkunäyttöön.</string>
     <string name="option_menu_contact_up">Ota yhteyttä</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Asetukset</string>
     <string name="options_menu">Lisävalinnat</string>
     <string name="options_menu_search_recommend">Hakuvaihtoehdot</string>
@@ -120,7 +129,13 @@ sovellukset"</string>
     <string name="out_of_space">Tällä sivulla ei ole enää tilaa</string>
     <string name="out_of_space_dialog">Tällä sivulla ei ole enää tilaa. Kohde lisätään uudelle sivulle.</string>
     <string name="permdesc_install_widget">Tämä sovellus pystyy lisäämään pienoisohjelmia alkunäyttöön.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Tämä sovellus pystyy lukemaan alkunäytön vasemmalla puolella olevan mukautetun sisältösivun asetuksia.</string>
+    <string name="permdesc_write_zeropage_settings">Tämä sovellus pystyy muuttamaan alkunäytön vasemmalla puolella olevan mukautetun sisältösivun asetuksia.</string>
     <string name="permlab_install_widget">Lisää pienoisohjelmia</string>
+    <string name="permlab_read_settings">lue aloitusasetukset ja pikavalinnat</string>
+    <string name="permlab_read_zeropage_settings">Lue muk. sisältösivun asetukset</string>
+    <string name="permlab_write_zeropage_settings">Muuta muk. sisältösivun asetuksia</string>
     <string name="quick_option_add_apps">Lisää sovelluksia</string>
     <string name="quick_option_add_shortcut_to_home">Lisää etusivun pikavalinta</string>
     <string name="quick_option_add_to_personal">Lisää omiin</string>

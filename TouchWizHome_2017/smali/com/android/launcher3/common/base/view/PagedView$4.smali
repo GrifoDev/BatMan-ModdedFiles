@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$4;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # invokes: Lcom/android/launcher3/common/base/view/PagedView;->onPostReorderingAnimationCompleted()V
     invoke-static {v0}, Lcom/android/launcher3/common/base/view/PagedView;->access$400(Lcom/android/launcher3/common/base/view/PagedView;)V
 
     return-void

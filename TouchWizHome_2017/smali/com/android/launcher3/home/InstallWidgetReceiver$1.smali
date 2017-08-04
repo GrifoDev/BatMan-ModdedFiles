@@ -133,7 +133,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/InstallWidgetReceiver$1;->val$context:Landroid/content/Context;
 
-    # invokes: Lcom/android/launcher3/home/InstallWidgetReceiver;->bindWidget(Landroid/content/Context;Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;)Z
     invoke-static {v1, v2, v0}, Lcom/android/launcher3/home/InstallWidgetReceiver;->access$000(Lcom/android/launcher3/home/InstallWidgetReceiver;Landroid/content/Context;Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;)Z
 
     move-result v1

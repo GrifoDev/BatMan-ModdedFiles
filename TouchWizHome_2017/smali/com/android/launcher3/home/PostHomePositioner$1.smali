@@ -53,7 +53,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/PostHomePositioner$1;->val$itemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
 
-    # invokes: Lcom/android/launcher3/home/PostHomePositioner;->checkAndUpdatePositionInfo(Lcom/android/launcher3/common/customer/ItemRecord;)V
     invoke-static {v0, v1}, Lcom/android/launcher3/home/PostHomePositioner;->access$000(Lcom/android/launcher3/home/PostHomePositioner;Lcom/android/launcher3/common/customer/ItemRecord;)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner$1;->this$0:Lcom/android/launcher3/home/PostHomePositioner;
@@ -64,7 +63,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/PostHomePositioner$1;->val$itemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
 
-    # invokes: Lcom/android/launcher3/home/PostHomePositioner;->addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher3/home/PostHomePositioner;->access$100(Lcom/android/launcher3/home/PostHomePositioner;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
 
     move-result v0
@@ -73,7 +71,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner$1;->this$0:Lcom/android/launcher3/home/PostHomePositioner;
 
-    # getter for: Lcom/android/launcher3/home/PostHomePositioner;->mProvider:Lcom/android/launcher3/common/customer/PostPositionProvider;
     invoke-static {v0}, Lcom/android/launcher3/home/PostHomePositioner;->access$200(Lcom/android/launcher3/home/PostHomePositioner;)Lcom/android/launcher3/common/customer/PostPositionProvider;
 
     move-result-object v0

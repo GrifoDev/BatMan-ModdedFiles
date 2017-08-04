@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract onCaptioningEnabledChanged(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onEvent(Ljava/lang/String;Landroid/os/Bundle;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -89,7 +97,15 @@
     .end annotation
 .end method
 
-.method public abstract onShuffleModeChanged(Z)V
+.method public abstract onShuffleModeChanged(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onShuffleModeChangedDeprecated(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

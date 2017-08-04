@@ -60,7 +60,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreShortcutParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v3
@@ -80,7 +79,6 @@
     :cond_0
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreShortcutParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v3
@@ -109,7 +107,6 @@
 
     move-result-object v4
 
-    # invokes: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->restoreContactShortcut(Ljava/lang/String;J)V
     invoke-static {v3, v4, v0, v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3100(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Ljava/lang/String;J)V
 
     return-wide v0

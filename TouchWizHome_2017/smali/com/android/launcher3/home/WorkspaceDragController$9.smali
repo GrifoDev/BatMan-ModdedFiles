@@ -53,7 +53,6 @@
 
     iget-boolean v2, p0, Lcom/android/launcher3/home/WorkspaceDragController$9;->val$isFromHomeFolder:Z
 
-    # invokes: Lcom/android/launcher3/home/WorkspaceDragController;->addItemOnNewPage(Ljava/util/ArrayList;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Z)V
     invoke-static {v0, v1, v3, v3, v2}, Lcom/android/launcher3/home/WorkspaceDragController;->access$100(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Z)V
 
     return-void

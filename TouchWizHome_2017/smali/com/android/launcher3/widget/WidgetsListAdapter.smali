@@ -183,7 +183,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0f00ed
+    const v11, 0x7f0f00fd
 
     invoke-virtual {v10, v11}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -210,7 +210,7 @@
 
     iget-object v10, p0, Lcom/android/launcher3/widget/WidgetsListAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v11, 0x7f030045
+    const v11, 0x7f030047
 
     invoke-virtual {v10, v11, v8, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -393,7 +393,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/WidgetsListAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f03004e
+    const v3, 0x7f030050
 
     invoke-virtual {v2, v3, p1, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -401,7 +401,7 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    const v2, 0x7f0f00ed
+    const v2, 0x7f0f00fd
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -459,7 +459,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f00ed
+    const v4, 0x7f0f00fd
 
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

@@ -652,7 +652,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08018c
+    const v3, 0x7f080199
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -664,7 +664,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08011b
+    const v3, 0x7f08012a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -772,6 +772,8 @@
     goto :goto_1
 
     :cond_2
+    invoke-direct {p0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->updateAllSwitch()V
+
     return-void
 .end method
 
@@ -830,13 +832,13 @@
 
     const/4 v4, 0x0
 
-    const v1, 0x7f03001a
+    const v1, 0x7f03001c
 
     invoke-virtual {p1, v1, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0f0049
+    const v1, 0x7f0f0059
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -846,7 +848,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->recyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    const v1, 0x7f0f0048
+    const v1, 0x7f0f0058
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -856,7 +858,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
 
-    const v1, 0x7f0f0047
+    const v1, 0x7f0f0057
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

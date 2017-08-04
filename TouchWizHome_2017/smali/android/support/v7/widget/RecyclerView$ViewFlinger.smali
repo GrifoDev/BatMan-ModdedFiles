@@ -66,6 +66,14 @@
     return-void
 .end method
 
+.method static synthetic access$400(Landroid/support/v7/widget/RecyclerView$ViewFlinger;)Landroid/widget/OverScroller;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mScroller:Landroid/widget/OverScroller;
+
+    return-object v0
+.end method
+
 .method private computeScrollDuration(IIII)I
     .locals 14
 
@@ -235,19 +243,15 @@
 .end method
 
 .method private distanceInfluenceForSnapDuration(F)F
-    .locals 4
+    .locals 2
 
     const/high16 v0, 0x3f000000    # 0.5f
 
     sub-float/2addr p1, v0
 
-    float-to-double v0, p1
+    const v0, 0x3ef1463b
 
-    const-wide v2, 0x3fde28c7460698c7L    # 0.4712389167638204
-
-    mul-double/2addr v0, v2
-
-    double-to-float p1, v0
+    mul-float/2addr p1, v0
 
     float-to-double v0, p1
 
@@ -344,21 +348,15 @@
 .end method
 
 .method public run()V
-    .locals 23
+    .locals 25
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
-
-    move-object/from16 v20, v0
-
-    if-nez v20, :cond_0
+    if-nez v2, :cond_0
 
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->stop()V
 
@@ -370,742 +368,669 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->consumePendingUpdateOperations()V
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->consumePendingUpdateOperations()V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mScroller:Landroid/widget/OverScroller;
+    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mScroller:Landroid/widget/OverScroller;
+
+    move-object/from16 v18, v0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
-    move-object/from16 v0, v20
+    iget-object v0, v2, Landroid/support/v7/widget/RecyclerView$LayoutManager;->mSmoothScroller:Landroid/support/v7/widget/RecyclerView$SmoothScroller;
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
+    move-object/from16 v19, v0
 
-    move-object/from16 v20, v0
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/OverScroller;->computeScrollOffset()Z
 
-    move-object/from16 v0, v20
+    move-result v2
 
-    iget-object v13, v0, Landroid/support/v7/widget/RecyclerView$LayoutManager;->mSmoothScroller:Landroid/support/v7/widget/RecyclerView$SmoothScroller;
-
-    invoke-virtual {v12}, Landroid/widget/OverScroller;->computeScrollOffset()Z
-
-    move-result v20
-
-    if-eqz v20, :cond_13
-
-    invoke-virtual {v12}, Landroid/widget/OverScroller;->getCurrX()I
-
-    move-result v18
-
-    invoke-virtual {v12}, Landroid/widget/OverScroller;->getCurrY()I
-
-    move-result v19
+    if-eqz v2, :cond_14
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mLastFlingX:I
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move/from16 v20, v0
+    invoke-static {v2}, Landroid/support/v7/widget/RecyclerView;->access$500(Landroid/support/v7/widget/RecyclerView;)[I
 
-    sub-int v4, v18, v20
+    move-result-object v5
+
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/OverScroller;->getCurrX()I
+
+    move-result v23
+
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/OverScroller;->getCurrY()I
+
+    move-result v24
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mLastFlingY:I
+    iget v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mLastFlingX:I
 
-    move/from16 v20, v0
+    sub-int v3, v23, v2
 
-    sub-int v5, v19, v20
+    move-object/from16 v0, p0
 
-    const/4 v9, 0x0
+    iget v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mLastFlingY:I
+
+    sub-int v4, v24, v2
 
     const/16 v17, 0x0
 
-    move/from16 v0, v18
+    const/4 v8, 0x0
+
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mLastFlingX:I
 
-    move/from16 v0, v19
+    move/from16 v0, v24
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mLastFlingY:I
 
+    const/4 v9, 0x0
+
     const/4 v10, 0x0
 
-    const/4 v11, 0x0
-
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    const/4 v6, 0x0
 
-    move-object/from16 v0, v20
+    const/4 v7, 0x1
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
+    invoke-virtual/range {v2 .. v7}, Landroid/support/v7/widget/RecyclerView;->dispatchNestedPreScroll(II[I[II)Z
 
-    move-object/from16 v20, v0
+    move-result v2
 
-    if-eqz v20, :cond_3
+    if-eqz v2, :cond_1
 
-    move-object/from16 v0, p0
+    const/4 v2, 0x0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    aget v2, v5, v2
 
-    move-object/from16 v20, v0
+    sub-int/2addr v3, v2
 
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->eatRequestLayout()V
+    const/4 v2, 0x1
 
-    move-object/from16 v0, p0
+    aget v2, v5, v2
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->onEnterLayoutOrScroll()V
-
-    const-string v20, "RV Scroll"
-
-    invoke-static/range {v20 .. v20}, Landroid/support/v4/os/TraceCompat;->beginSection(Ljava/lang/String;)V
-
-    if-eqz v4, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mRecycler:Landroid/support/v7/widget/RecyclerView$Recycler;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
-
-    move-object/from16 v22, v0
-
-    move-object/from16 v0, v22
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
-
-    move-object/from16 v22, v0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v0, v4, v1, v2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->scrollHorizontallyBy(ILandroid/support/v7/widget/RecyclerView$Recycler;Landroid/support/v7/widget/RecyclerView$State;)I
-
-    move-result v9
-
-    sub-int v10, v4, v9
+    sub-int/2addr v4, v2
 
     :cond_1
-    if-eqz v5, :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
+
+    if-eqz v2, :cond_22
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
-
-    move-object/from16 v20, v0
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->eatRequestLayout()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v21, v0
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->onEnterLayoutOrScroll()V
 
-    move-object/from16 v0, v21
+    const-string v2, "RV Scroll"
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mRecycler:Landroid/support/v7/widget/RecyclerView$Recycler;
-
-    move-object/from16 v21, v0
+    invoke-static {v2}, Landroid/support/v4/os/TraceCompat;->beginSection(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v22, v0
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v22
+    iget-object v6, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
+    iget-object v6, v6, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    move-object/from16 v22, v0
+    invoke-virtual {v2, v6}, Landroid/support/v7/widget/RecyclerView;->fillRemainingScrollValues(Landroid/support/v7/widget/RecyclerView$State;)V
 
-    move-object/from16 v0, v20
+    if-eqz v3, :cond_21
 
-    move-object/from16 v1, v21
+    move-object/from16 v0, p0
 
-    move-object/from16 v2, v22
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    invoke-virtual {v0, v5, v1, v2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->scrollVerticallyBy(ILandroid/support/v7/widget/RecyclerView$Recycler;Landroid/support/v7/widget/RecyclerView$State;)I
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
-    move-result v17
+    move-object/from16 v0, p0
 
-    sub-int v11, v5, v17
+    iget-object v6, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v6, v6, Landroid/support/v7/widget/RecyclerView;->mRecycler:Landroid/support/v7/widget/RecyclerView$Recycler;
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v11, v11, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
+
+    invoke-virtual {v2, v3, v6, v11}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->scrollHorizontallyBy(ILandroid/support/v7/widget/RecyclerView$Recycler;Landroid/support/v7/widget/RecyclerView$State;)I
+
+    move-result v7
+
+    sub-int v9, v3, v7
+
+    :goto_1
+    if-eqz v4, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v6, v6, Landroid/support/v7/widget/RecyclerView;->mRecycler:Landroid/support/v7/widget/RecyclerView$Recycler;
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v11, v11, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
+
+    invoke-virtual {v2, v4, v6, v11}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->scrollVerticallyBy(ILandroid/support/v7/widget/RecyclerView$Recycler;Landroid/support/v7/widget/RecyclerView$State;)I
+
+    move-result v8
+
+    sub-int v10, v4, v8
 
     :cond_2
     invoke-static {}, Landroid/support/v4/os/TraceCompat;->endSection()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->repositionShadowingViews()V
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->repositionShadowingViews()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->onExitLayoutOrScroll()V
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->onExitLayoutOrScroll()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    const/4 v6, 0x0
 
-    const/16 v21, 0x0
+    invoke-virtual {v2, v6}, Landroid/support/v7/widget/RecyclerView;->resumeRequestLayout(Z)V
 
-    invoke-virtual/range {v20 .. v21}, Landroid/support/v7/widget/RecyclerView;->resumeRequestLayout(Z)V
+    if-eqz v19, :cond_3
 
-    if-eqz v13, :cond_3
+    invoke-virtual/range {v19 .. v19}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->isPendingInitialRun()Z
 
-    invoke-virtual {v13}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->isPendingInitialRun()Z
+    move-result v2
 
-    move-result v20
+    if-nez v2, :cond_3
 
-    if-nez v20, :cond_3
+    invoke-virtual/range {v19 .. v19}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->isRunning()Z
 
-    invoke-virtual {v13}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->isRunning()Z
+    move-result v2
 
-    move-result v20
-
-    if-eqz v20, :cond_3
+    if-eqz v2, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    move-object/from16 v0, v20
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
+    move-result v13
 
-    move-object/from16 v20, v0
+    if-nez v13, :cond_17
 
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
-
-    move-result v3
-
-    if-nez v3, :cond_16
-
-    invoke-virtual {v13}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->stop()V
+    invoke-virtual/range {v19 .. v19}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->stop()V
 
     :cond_3
-    :goto_1
+    :goto_2
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mItemDecorations:Ljava/util/ArrayList;
 
-    move-object/from16 v0, v20
+    invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mItemDecorations:Ljava/util/ArrayList;
+    move-result v2
 
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v20
-
-    if-nez v20, :cond_4
+    if-nez v2, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->invalidate()V
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->invalidate()V
 
     :cond_4
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->getOverScrollMode()I
 
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->getOverScrollMode()I
+    move-result v2
 
-    move-result v20
+    const/4 v6, 0x2
 
-    const/16 v21, 0x2
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    if-eq v0, v1, :cond_5
+    if-eq v2, v6, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v4, v5}, Landroid/support/v7/widget/RecyclerView;->considerReleasingGlowsOnScroll(II)V
+    invoke-virtual {v2, v3, v4}, Landroid/support/v7/widget/RecyclerView;->considerReleasingGlowsOnScroll(II)V
 
     :cond_5
-    if-nez v10, :cond_6
+    move-object/from16 v0, p0
 
-    if-eqz v11, :cond_c
+    iget-object v6, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x1
+
+    invoke-virtual/range {v6 .. v12}, Landroid/support/v7/widget/RecyclerView;->dispatchNestedScroll(IIII[II)Z
+
+    move-result v2
+
+    if-nez v2, :cond_c
+
+    if-nez v9, :cond_6
+
+    if-eqz v10, :cond_c
 
     :cond_6
-    invoke-virtual {v12}, Landroid/widget/OverScroller;->getCurrVelocity()F
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/OverScroller;->getCurrVelocity()F
 
-    move-result v20
+    move-result v2
+
+    float-to-int v0, v2
+
+    move/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    move/from16 v0, v23
+
+    if-eq v9, v0, :cond_7
+
+    if-gez v9, :cond_19
 
     move/from16 v0, v20
 
-    float-to-int v14, v0
+    neg-int v0, v0
 
-    const/4 v15, 0x0
-
-    move/from16 v0, v18
-
-    if-eq v10, v0, :cond_7
-
-    if-gez v10, :cond_18
-
-    neg-int v15, v14
+    move/from16 v21, v0
 
     :cond_7
-    :goto_2
-    const/16 v16, 0x0
-
-    move/from16 v0, v19
-
-    if-eq v11, v0, :cond_8
-
-    if-gez v11, :cond_1a
-
-    neg-int v0, v14
-
-    move/from16 v16, v0
-
-    :cond_8
     :goto_3
-    move-object/from16 v0, p0
+    const/16 v22, 0x0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    move/from16 v0, v24
 
-    move-object/from16 v20, v0
+    if-eq v10, v0, :cond_8
 
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->getOverScrollMode()I
-
-    move-result v20
-
-    const/16 v21, 0x2
+    if-gez v10, :cond_1b
 
     move/from16 v0, v20
 
-    move/from16 v1, v21
+    neg-int v0, v0
 
-    if-eq v0, v1, :cond_9
+    move/from16 v22, v0
+
+    :cond_8
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->getOverScrollMode()I
+
+    move-result v2
+
+    const/4 v6, 0x2
+
+    if-eq v2, v6, :cond_9
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    move/from16 v0, v21
 
-    move-object/from16 v0, v20
+    move/from16 v1, v22
 
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v15, v1}, Landroid/support/v7/widget/RecyclerView;->absorbGlows(II)V
+    invoke-virtual {v2, v0, v1}, Landroid/support/v7/widget/RecyclerView;->absorbGlows(II)V
 
     :cond_9
-    if-nez v15, :cond_a
+    if-nez v21, :cond_a
 
-    move/from16 v0, v18
+    move/from16 v0, v23
 
-    if-eq v10, v0, :cond_a
+    if-eq v9, v0, :cond_a
 
-    invoke-virtual {v12}, Landroid/widget/OverScroller;->getFinalX()I
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/OverScroller;->getFinalX()I
 
-    move-result v20
+    move-result v2
 
-    if-nez v20, :cond_c
+    if-nez v2, :cond_c
 
     :cond_a
-    if-nez v16, :cond_b
+    if-nez v22, :cond_b
 
-    move/from16 v0, v19
+    move/from16 v0, v24
 
-    if-eq v11, v0, :cond_b
+    if-eq v10, v0, :cond_b
 
-    invoke-virtual {v12}, Landroid/widget/OverScroller;->getFinalY()I
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/OverScroller;->getFinalY()I
 
-    move-result v20
+    move-result v2
 
-    if-nez v20, :cond_c
+    if-nez v2, :cond_c
 
     :cond_b
-    invoke-virtual {v12}, Landroid/widget/OverScroller;->abortAnimation()V
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/OverScroller;->abortAnimation()V
 
     :cond_c
-    if-nez v9, :cond_d
+    if-nez v7, :cond_d
 
-    if-eqz v17, :cond_e
+    if-eqz v8, :cond_e
 
     :cond_d
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v9, v1}, Landroid/support/v7/widget/RecyclerView;->dispatchOnScrolled(II)V
+    invoke-virtual {v2, v7, v8}, Landroid/support/v7/widget/RecyclerView;->dispatchOnScrolled(II)V
 
     :cond_e
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    invoke-static {v2}, Landroid/support/v7/widget/RecyclerView;->access$700(Landroid/support/v7/widget/RecyclerView;)Z
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->awakenScrollBars()Z
-    invoke-static/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->access$500(Landroid/support/v7/widget/RecyclerView;)Z
+    move-result v2
 
-    move-result v20
-
-    if-nez v20, :cond_f
+    if-nez v2, :cond_f
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView;->invalidate()V
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->invalidate()V
 
     :cond_f
-    if-eqz v5, :cond_1c
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->canScrollVertically()Z
-
-    move-result v20
-
-    if-eqz v20, :cond_1c
-
-    move/from16 v0, v17
-
-    if-ne v0, v5, :cond_1c
-
-    const/4 v8, 0x1
-
-    :goto_4
     if-eqz v4, :cond_1d
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
-    move-object/from16 v0, v20
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->canScrollVertically()Z
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
+    move-result v2
 
-    move-object/from16 v20, v0
+    if-eqz v2, :cond_1d
 
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->canScrollHorizontally()Z
+    if-ne v8, v4, :cond_1d
 
-    move-result v20
-
-    if-eqz v20, :cond_1d
-
-    if-ne v9, v4, :cond_1d
-
-    const/4 v7, 0x1
+    const/16 v16, 0x1
 
     :goto_5
-    if-nez v4, :cond_10
+    if-eqz v3, :cond_1e
 
-    if-eqz v5, :cond_11
+    move-object/from16 v0, p0
 
-    :cond_10
-    if-nez v7, :cond_11
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    if-eqz v8, :cond_1e
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
-    :cond_11
-    const/4 v6, 0x1
+    invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->canScrollHorizontally()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1e
+
+    if-ne v7, v3, :cond_1e
+
+    const/4 v15, 0x1
 
     :goto_6
-    invoke-virtual {v12}, Landroid/widget/OverScroller;->isFinished()Z
+    if-nez v3, :cond_10
 
-    move-result v20
+    if-eqz v4, :cond_11
 
-    if-nez v20, :cond_12
+    :cond_10
+    if-nez v15, :cond_11
 
-    if-nez v6, :cond_1f
+    if-eqz v16, :cond_1f
+
+    :cond_11
+    const/4 v14, 0x1
+
+    :goto_7
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/OverScroller;->isFinished()Z
+
+    move-result v2
+
+    if-nez v2, :cond_12
+
+    if-nez v14, :cond_20
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v2, v6}, Landroid/support/v7/widget/RecyclerView;->hasNestedScrollingParent(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_20
 
     :cond_12
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    const/4 v6, 0x0
 
-    const/16 v21, 0x0
+    invoke-virtual {v2, v6}, Landroid/support/v7/widget/RecyclerView;->setScrollState(I)V
 
-    invoke-virtual/range {v20 .. v21}, Landroid/support/v7/widget/RecyclerView;->setScrollState(I)V
+    invoke-static {}, Landroid/support/v7/widget/RecyclerView;->access$800()Z
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->ALLOW_THREAD_GAP_WORK:Z
-    invoke-static {}, Landroid/support/v7/widget/RecyclerView;->access$600()Z
+    move-result v2
 
-    move-result v20
-
-    if-eqz v20, :cond_13
+    if-eqz v2, :cond_13
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mPrefetchRegistry:Landroid/support/v7/widget/GapWorker$LayoutPrefetchRegistryImpl;
 
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mPrefetchRegistry:Landroid/support/v7/widget/GapWorker$LayoutPrefetchRegistryImpl;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/support/v7/widget/GapWorker$LayoutPrefetchRegistryImpl;->clearPrefetchPositions()V
+    invoke-virtual {v2}, Landroid/support/v7/widget/GapWorker$LayoutPrefetchRegistryImpl;->clearPrefetchPositions()V
 
     :cond_13
-    :goto_7
-    if-eqz v13, :cond_15
-
-    invoke-virtual {v13}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->isPendingInitialRun()Z
-
-    move-result v20
-
-    if-eqz v20, :cond_14
-
-    const/16 v20, 0x0
-
-    const/16 v21, 0x0
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    # invokes: Landroid/support/v7/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
-    invoke-static {v13, v0, v1}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$400(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
-
-    :cond_14
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mReSchedulePostAnimationCallback:Z
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move/from16 v20, v0
+    const/4 v6, 0x1
 
-    if-nez v20, :cond_15
+    invoke-virtual {v2, v6}, Landroid/support/v7/widget/RecyclerView;->stopNestedScroll(I)V
 
-    invoke-virtual {v13}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->stop()V
+    :cond_14
+    :goto_8
+    if-eqz v19, :cond_16
+
+    invoke-virtual/range {v19 .. v19}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->isPendingInitialRun()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_15
+
+    const/4 v2, 0x0
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, v19
+
+    invoke-static {v0, v2, v6}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$600(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
 
     :cond_15
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mReSchedulePostAnimationCallback:Z
+
+    if-nez v2, :cond_16
+
+    invoke-virtual/range {v19 .. v19}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->stop()V
+
+    :cond_16
     invoke-direct/range {p0 .. p0}, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->enableRunOnAnimationRequests()V
 
     goto/16 :goto_0
 
-    :cond_16
-    invoke-virtual {v13}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->getTargetPosition()I
-
-    move-result v20
-
-    move/from16 v0, v20
-
-    if-lt v0, v3, :cond_17
-
-    add-int/lit8 v20, v3, -0x1
-
-    move/from16 v0, v20
-
-    invoke-virtual {v13, v0}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->setTargetPosition(I)V
-
-    sub-int v20, v4, v10
-
-    sub-int v21, v5, v11
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    # invokes: Landroid/support/v7/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
-    invoke-static {v13, v0, v1}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$400(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
-
-    goto/16 :goto_1
-
     :cond_17
-    sub-int v20, v4, v10
+    invoke-virtual/range {v19 .. v19}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->getTargetPosition()I
 
-    sub-int v21, v5, v11
+    move-result v2
 
-    move/from16 v0, v20
+    if-lt v2, v13, :cond_18
 
-    move/from16 v1, v21
+    add-int/lit8 v2, v13, -0x1
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
-    invoke-static {v13, v0, v1}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$400(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
+    move-object/from16 v0, v19
 
-    goto/16 :goto_1
+    invoke-virtual {v0, v2}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->setTargetPosition(I)V
+
+    sub-int v2, v3, v9
+
+    sub-int v6, v4, v10
+
+    move-object/from16 v0, v19
+
+    invoke-static {v0, v2, v6}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$600(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
+
+    goto/16 :goto_2
 
     :cond_18
-    if-lez v10, :cond_19
+    sub-int v2, v3, v9
 
-    move v15, v14
+    sub-int v6, v4, v10
+
+    move-object/from16 v0, v19
+
+    invoke-static {v0, v2, v6}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$600(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
 
     goto/16 :goto_2
 
     :cond_19
-    const/4 v15, 0x0
+    if-lez v9, :cond_1a
 
-    goto/16 :goto_2
+    move/from16 v21, v20
+
+    goto/16 :goto_3
 
     :cond_1a
-    if-lez v11, :cond_1b
-
-    move/from16 v16, v14
+    const/16 v21, 0x0
 
     goto/16 :goto_3
 
     :cond_1b
-    const/16 v16, 0x0
+    if-lez v10, :cond_1c
 
-    goto/16 :goto_3
+    move/from16 v22, v20
+
+    goto/16 :goto_4
 
     :cond_1c
-    const/4 v8, 0x0
+    const/16 v22, 0x0
 
     goto/16 :goto_4
 
     :cond_1d
-    const/4 v7, 0x0
+    const/16 v16, 0x0
 
     goto/16 :goto_5
 
     :cond_1e
-    const/4 v6, 0x0
+    const/4 v15, 0x0
 
     goto/16 :goto_6
 
     :cond_1f
+    const/4 v14, 0x0
+
+    goto/16 :goto_7
+
+    :cond_20
     invoke-virtual/range {p0 .. p0}, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->postOnAnimation()V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mGapWorker:Landroid/support/v7/widget/GapWorker;
 
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mGapWorker:Landroid/support/v7/widget/GapWorker;
-
-    move-object/from16 v20, v0
-
-    if-eqz v20, :cond_13
+    if-eqz v2, :cond_14
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v2, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mGapWorker:Landroid/support/v7/widget/GapWorker;
-
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/support/v7/widget/RecyclerView;->mGapWorker:Landroid/support/v7/widget/GapWorker;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
+    iget-object v6, v0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    move-object/from16 v21, v0
+    invoke-virtual {v2, v6, v3, v4}, Landroid/support/v7/widget/GapWorker;->postFromTraversal(Landroid/support/v7/widget/RecyclerView;II)V
 
-    move-object/from16 v0, v20
+    goto :goto_8
 
-    move-object/from16 v1, v21
+    :cond_21
+    move/from16 v7, v17
 
-    invoke-virtual {v0, v1, v4, v5}, Landroid/support/v7/widget/GapWorker;->postFromTraversal(Landroid/support/v7/widget/RecyclerView;II)V
+    goto/16 :goto_1
 
-    goto/16 :goto_7
+    :cond_22
+    move/from16 v7, v17
+
+    goto/16 :goto_2
 .end method
 
 .method public smoothScrollBy(II)V

@@ -44,7 +44,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/launcher3/util/capture/CapturePreview$1;->this$0:Lcom/android/launcher3/util/capture/CapturePreview;
 
-    # invokes: Lcom/android/launcher3/util/capture/CapturePreview;->startCaptureScreen()V
     invoke-static {v0}, Lcom/android/launcher3/util/capture/CapturePreview;->access$000(Lcom/android/launcher3/util/capture/CapturePreview;)V
 
     goto :goto_0

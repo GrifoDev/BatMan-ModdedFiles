@@ -37,6 +37,8 @@
 
 .field public static final EXTRA_HTML_TEXT:Ljava/lang/String; = "android.intent.extra.HTML_TEXT"
 
+.field public static final EXTRA_START_PLAYBACK:Ljava/lang/String; = "android.intent.extra.START_PLAYBACK"
+
 .field public static final FLAG_ACTIVITY_CLEAR_TASK:I = 0x8000
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -60,21 +62,21 @@
 
     if-lt v0, v1, :cond_0
 
-    new-instance v1, Landroid/support/v4/content/IntentCompat$IntentCompatApi15Impl;
+    new-instance v0, Landroid/support/v4/content/IntentCompat$IntentCompatApi15Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/content/IntentCompat$IntentCompatApi15Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/content/IntentCompat$IntentCompatApi15Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/content/IntentCompat;->IMPL:Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/content/IntentCompat;->IMPL:Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
 
     :goto_0
     return-void
 
     :cond_0
-    new-instance v1, Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
+    new-instance v0, Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/content/IntentCompat;->IMPL:Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/content/IntentCompat;->IMPL:Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
 
     goto :goto_0
 .end method

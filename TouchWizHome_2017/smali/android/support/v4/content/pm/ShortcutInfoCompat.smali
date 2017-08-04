@@ -18,9 +18,7 @@
 
 .field private mDisabledMessage:Ljava/lang/CharSequence;
 
-.field private mIconBitmap:Landroid/graphics/Bitmap;
-
-.field private mIconId:I
+.field private mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
 .field private mId:Ljava/lang/String;
 
@@ -46,6 +44,14 @@
     invoke-direct {p0}, Landroid/support/v4/content/pm/ShortcutInfoCompat;-><init>()V
 
     return-void
+.end method
+
+.method static synthetic access$100(Landroid/support/v4/content/pm/ShortcutInfoCompat;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
+
+    return-object v0
 .end method
 
 .method static synthetic access$102(Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/content/Context;)Landroid/content/Context;
@@ -112,23 +118,15 @@
     return-object p1
 .end method
 
-.method static synthetic access$702(Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+.method static synthetic access$702(Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/support/v4/graphics/drawable/IconCompat;)Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 0
 
-    iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconBitmap:Landroid/graphics/Bitmap;
+    iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
     return-object p1
 .end method
 
-.method static synthetic access$802(Landroid/support/v4/content/pm/ShortcutInfoCompat;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconId:I
-
-    return p1
-.end method
-
-.method static synthetic access$902(Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/content/ComponentName;)Landroid/content/ComponentName;
+.method static synthetic access$802(Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/content/ComponentName;)Landroid/content/ComponentName;
     .locals 0
 
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
@@ -167,41 +165,110 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    iget v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconId:I
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
     if-eqz v0, :cond_0
 
-    const-string v0, "android.intent.extra.shortcut.ICON_RESOURCE"
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
-    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
-
-    iget v2, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconId:I
-
-    invoke-static {v1, v2}, Landroid/content/Intent$ShortcutIconResource;->fromContext(Landroid/content/Context;I)Landroid/content/Intent$ShortcutIconResource;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual {v0, p1}, Landroid/support/v4/graphics/drawable/IconCompat;->addToShortcutIntent(Landroid/content/Intent;)V
 
     :cond_0
-    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "android.intent.extra.shortcut.ICON"
-
-    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconBitmap:Landroid/graphics/Bitmap;
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    :cond_1
     return-object p1
+.end method
+
+.method public getActivity()Landroid/content/ComponentName;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
+
+    return-object v0
+.end method
+
+.method public getDisabledMessage()Ljava/lang/CharSequence;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
+
+    return-object v0
+.end method
+
+.method public getId()Ljava/lang/String;
+    .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mId:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getIntent()Landroid/content/Intent;
+    .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
+
+    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
+
+    array-length v1, v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    aget-object v0, v0, v1
+
+    return-object v0
+.end method
+
+.method public getIntents()[Landroid/content/Intent;
+    .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
+
+    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
+
+    array-length v1, v1
+
+    invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Landroid/content/Intent;
+
+    return-object v0
+.end method
+
+.method public getLongLabel()Ljava/lang/CharSequence;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
+
+    return-object v0
+.end method
+
+.method public getShortLabel()Ljava/lang/CharSequence;
+    .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLabel:Ljava/lang/CharSequence;
+
+    return-object v0
 .end method
 
 .method toShortcutInfo()Landroid/content/pm/ShortcutInfo;
     .locals 4
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0x19
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x1a
     .end annotation
 
     new-instance v1, Landroid/content/pm/ShortcutInfo$Builder;
@@ -224,22 +291,19 @@
 
     move-result-object v0
 
-    iget v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconId:I
+    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_0
 
-    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
-    iget v2, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconId:I
-
-    invoke-static {v1, v2}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
+    invoke-virtual {v1}, Landroid/support/v4/graphics/drawable/IconCompat;->toIcon()Landroid/graphics/drawable/Icon;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setIcon(Landroid/graphics/drawable/Icon;)Landroid/content/pm/ShortcutInfo$Builder;
 
     :cond_0
-    :goto_0
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -280,19 +344,4 @@
     move-result-object v1
 
     return-object v1
-
-    :cond_4
-    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIconBitmap:Landroid/graphics/Bitmap;
-
-    invoke-static {v1}, Landroid/graphics/drawable/Icon;->createWithBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setIcon(Landroid/graphics/drawable/Icon;)Landroid/content/pm/ShortcutInfo$Builder;
-
-    goto :goto_0
 .end method

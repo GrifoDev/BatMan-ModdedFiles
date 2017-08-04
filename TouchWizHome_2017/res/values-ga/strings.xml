@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Stair chuardaigh</string>
+    <string name="about">Eolas faoi %s</string>
+    <string name="about_already_installed">Tá an leagan is déanaí suiteáilte cheana féin.</string>
+    <string name="about_home_screen">Scáileán baile</string>
+    <string name="about_licence">Ceadúnais foinse oscailte</string>
+    <string name="about_network_err">"Seiceáil le haghaidh nuashonruithe dodhéanta. Níl d'fhón nasctha le líonra."</string>
+    <string name="about_new_version_exist">Tá leagan nua ar fáil</string>
+    <string name="about_retry">Atriail</string>
+    <string name="about_update">Nuashonraigh</string>
+    <string name="about_version">Leagan %s</string>
     <string name="activity_not_available">Níl an feidhmchlár seo ar fáil do do ghléas.</string>
     <string name="activity_not_found">Níl an feidhmchlár suiteáilte.</string>
     <string name="align_to_bottom">Ailínigh leis an mbun</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Níl a thuilleadh spáis ar an leathanach seo</string>
     <string name="out_of_space_dialog">Níl aon spás fágtha ar an leathanach seo. Cuirfear an mhír le leathanach nua.</string>
     <string name="permdesc_install_widget">Is féidir leis an bhfeidhmchlár seo giuirléidí a chur leis an scáileán baile.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Is féidir leis an bhfeidhmchlár seo socruithe an leathanaigh inneachair shaincheaptha a léamh, atá ar thaobh clé an Scáileáin baile.</string>
+    <string name="permdesc_write_zeropage_settings">Is féidir leis an bhfeidhmchlár seo socruithe an leathanaigh inneachair shaincheaptha a athrú, atá ar thaobh clé an Scáileáin baile.</string>
     <string name="permlab_install_widget">Cuir giuirléidí leis</string>
+    <string name="permlab_read_settings">Léigh socruithe agus aicearraí Baile</string>
+    <string name="permlab_read_zeropage_settings">Léigh soc. lgh. innea. shaincheaptha</string>
+    <string name="permlab_write_zeropage_settings">Ath. soc. lgh. innea. shaincheaptha</string>
     <string name="quick_option_add_apps">Cuir feidhmchláir leis</string>
     <string name="quick_option_add_shortcut_to_home">Cuir aicearra le Baile</string>
     <string name="quick_option_add_to_personal">Cuir le pearsanta</string>

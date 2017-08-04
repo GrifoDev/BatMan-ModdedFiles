@@ -52,7 +52,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$1;->this$0:Lcom/android/launcher3/common/stage/Stage;
 
-    # invokes: Lcom/android/launcher3/common/stage/Stage;->cleanupSwitchAnimation()V
     invoke-static {v1}, Lcom/android/launcher3/common/stage/Stage;->access$000(Lcom/android/launcher3/common/stage/Stage;)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$1;->this$0:Lcom/android/launcher3/common/stage/Stage;
@@ -61,7 +60,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/stage/Stage$1;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;
 
-    # invokes: Lcom/android/launcher3/common/stage/Stage;->transitAnimEnd(ZZLcom/android/launcher3/common/stage/StageEntry;)V
     invoke-static {v1, v4, v2, v3}, Lcom/android/launcher3/common/stage/Stage;->access$100(Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$1;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;

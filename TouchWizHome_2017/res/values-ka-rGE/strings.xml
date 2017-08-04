@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">ძებნის ისტორია</string>
+    <string name="about">%s-ის შესახებ</string>
+    <string name="about_already_installed">უახლესი ვერსია უკვე დაინსტალირებულია.</string>
+    <string name="about_home_screen">საწყისი ეკრანი</string>
+    <string name="about_licence">ღია წყაროს ლიცენზიები</string>
+    <string name="about_network_err">განახლების შემოწმება შეუძლებელია. ტელეფონი არ არის დაკავშირებული ქსელთან.</string>
+    <string name="about_new_version_exist">გამოვიდა ახალი ვერსია.</string>
+    <string name="about_retry">ისევ ცდა</string>
+    <string name="about_update">განახლება</string>
+    <string name="about_version">ვერსია %s</string>
     <string name="activity_not_available">ეს აპლიკაცია არ არის თქვენი მოწყობილობისთვის.</string>
     <string name="activity_not_found">პროგრამა არაა დაინსტალირებული.</string>
     <string name="align_to_bottom">ქვემოთ გასწორება</string>
@@ -108,7 +117,7 @@
     <string name="ok">კი</string>
     <string name="only_one_widget_instance_allowed">%s ვიჯეტი უკვე დამატებულია საწყის გვერდზე.</string>
     <string name="option_menu_contact_up">მოგვმართეთ</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">პარამეტრები</string>
     <string name="options_menu">სხვა ოფციები</string>
     <string name="options_menu_search_recommend">ძიების ვარიანტები</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ამ გვერდზე აღარ არის ადგილი</string>
     <string name="out_of_space_dialog">ამ გვერდზე აღარ არის ადგილი. ელემენტი დაემატება თქვენს ახალ გვერდზე.</string>
     <string name="permdesc_install_widget">ამ აპლიკაციას შეუძლია, დაამატოს ვიჯეტები საწყის ეკრანზე.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ამ აპლიკაციას შეუძლია წაიკითხოს მორგებული შიგთავსის გვერდი, რომელიც განთავსებულია „საწყისი ეკრანის“ მარცხნივ.</string>
+    <string name="permdesc_write_zeropage_settings">ამ აპლიკაციას შეუძლია შეცვალოს მორგებული შიგთავსის გვერდი, რომელიც განთავსებულია „საწყისი ეკრანის“ მარცხნივ.</string>
     <string name="permlab_install_widget">ვიჯეტების დამატება</string>
+    <string name="permlab_read_settings">საწყისი ეკრანის პარამეტრებისა და სწრაფი ღილაკების წაკითხვა</string>
+    <string name="permlab_read_zeropage_settings">მორგებული შიგთავსის გვერდის წაკითხ.</string>
+    <string name="permlab_write_zeropage_settings">მორგებული შიგთავსის გვერდის შეცვლა</string>
     <string name="quick_option_add_apps">აპლიკაციების დამატება</string>
     <string name="quick_option_add_shortcut_to_home">ღილაკის დამატება საწყისზე</string>
     <string name="quick_option_add_to_personal">პირადზე დამატ.</string>

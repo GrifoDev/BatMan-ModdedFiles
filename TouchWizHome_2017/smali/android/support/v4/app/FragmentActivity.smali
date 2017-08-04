@@ -1,10 +1,10 @@
 .class public Landroid/support/v4/app/FragmentActivity;
-.super Landroid/support/v4/app/BaseFragmentActivityJB;
+.super Landroid/support/v4/app/BaseFragmentActivityApi16;
 .source "FragmentActivity.java"
 
 # interfaces
 .implements Landroid/support/v4/app/ActivityCompat$OnRequestPermissionsResultCallback;
-.implements Landroid/support/v4/app/ActivityCompatApi23$RequestPermissionsRequestCodeValidator;
+.implements Landroid/support/v4/app/ActivityCompat$RequestPermissionsRequestCodeValidator;
 
 
 # annotations
@@ -71,7 +71,7 @@
 
     const/4 v1, 0x1
 
-    invoke-direct {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;-><init>()V
+    invoke-direct {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;-><init>()V
 
     new-instance v0, Landroid/support/v4/app/FragmentActivity$1;
 
@@ -213,7 +213,7 @@
 .method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 3
 
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v4/app/BaseFragmentActivityJB;->dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v4/app/BaseFragmentActivityApi16;->dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -427,7 +427,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/BaseFragmentActivityJB;->onActivityResult(IILandroid/content/Intent;)V
+    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onActivityResult(IILandroid/content/Intent;)V
 
     goto :goto_0
 .end method
@@ -439,30 +439,49 @@
 .end method
 
 .method public onBackPressed()V
-    .locals 1
+    .locals 4
 
-    iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
+    iget-object v2, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentController;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {v2}, Landroid/support/v4/app/FragmentController;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->popBackStackImmediate()Z
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->isStateSaved()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-eqz v1, :cond_1
 
-    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;->onBackPressed()V
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v3, 0x19
+
+    if-gt v2, v3, :cond_1
 
     :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    if-nez v1, :cond_2
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->popBackStackImmediate()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    :cond_2
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onBackPressed()V
+
+    goto :goto_0
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
 
-    invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityJB;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
 
@@ -484,7 +503,7 @@
 
     invoke-virtual {v6, v5}, Landroid/support/v4/app/FragmentController;->attachHost(Landroid/support/v4/app/Fragment;)V
 
-    invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityJB;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onCreate(Landroid/os/Bundle;)V
 
     invoke-virtual {p0}, Landroid/support/v4/app/FragmentActivity;->getLastNonConfigurationInstance()Ljava/lang/Object;
 
@@ -619,7 +638,7 @@
 
     if-nez p1, :cond_0
 
-    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityJB;->onCreatePanelMenu(ILandroid/view/Menu;)Z
+    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onCreatePanelMenu(ILandroid/view/Menu;)Z
 
     move-result v0
 
@@ -639,7 +658,7 @@
     return v0
 
     :cond_0
-    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityJB;->onCreatePanelMenu(ILandroid/view/Menu;)Z
+    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onCreatePanelMenu(ILandroid/view/Menu;)Z
 
     move-result v0
 
@@ -649,7 +668,7 @@
 .method public bridge synthetic onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 1
 
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v4/app/BaseFragmentActivityJB;->onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
 
     move-result-object v0
 
@@ -659,7 +678,7 @@
 .method public bridge synthetic onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 1
 
-    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/BaseFragmentActivityJB;->onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
+    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
 
     move-result-object v0
 
@@ -669,7 +688,7 @@
 .method protected onDestroy()V
     .locals 1
 
-    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;->onDestroy()V
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onDestroy()V
 
     const/4 v0, 0x0
 
@@ -689,7 +708,7 @@
 .method public onLowMemory()V
     .locals 1
 
-    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;->onLowMemory()V
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onLowMemory()V
 
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
 
@@ -701,7 +720,7 @@
 .method public onMenuItemSelected(ILandroid/view/MenuItem;)Z
     .locals 1
 
-    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityJB;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
+    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
 
     move-result v0
 
@@ -761,7 +780,7 @@
 .method protected onNewIntent(Landroid/content/Intent;)V
     .locals 1
 
-    invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityJB;->onNewIntent(Landroid/content/Intent;)V
+    invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onNewIntent(Landroid/content/Intent;)V
 
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
 
@@ -776,7 +795,7 @@
     packed-switch p1, :pswitch_data_0
 
     :goto_0
-    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityJB;->onPanelClosed(ILandroid/view/Menu;)V
+    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onPanelClosed(ILandroid/view/Menu;)V
 
     return-void
 
@@ -800,7 +819,7 @@
 
     const/4 v1, 0x2
 
-    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;->onPause()V
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onPause()V
 
     const/4 v0, 0x0
 
@@ -843,7 +862,7 @@
 .method protected onPostResume()V
     .locals 2
 
-    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;->onPostResume()V
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onPostResume()V
 
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mHandler:Landroid/os/Handler;
 
@@ -870,7 +889,7 @@
 
     const/4 v0, 0x0
 
-    invoke-super {p0, v0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityJB;->onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
+    invoke-super {p0, v0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
 
     move-result v0
 
@@ -900,7 +919,7 @@
     return v0
 
     :cond_0
-    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/BaseFragmentActivityJB;->onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
+    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
 
     move-result v0
 
@@ -1012,7 +1031,7 @@
 .method protected onResume()V
     .locals 2
 
-    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;->onResume()V
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onResume()V
 
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mHandler:Landroid/os/Handler;
 
@@ -1105,7 +1124,7 @@
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 6
 
-    invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityJB;->onSaveInstanceState(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onSaveInstanceState(Landroid/os/Bundle;)V
 
     iget-object v4, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
 
@@ -1203,7 +1222,7 @@
 
     const/4 v0, 0x0
 
-    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;->onStart()V
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onStart()V
 
     iput-boolean v0, p0, Landroid/support/v4/app/FragmentActivity;->mStopped:Z
 
@@ -1262,7 +1281,7 @@
 
     const/4 v1, 0x1
 
-    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityJB;->onStop()V
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onStop()V
 
     iput-boolean v1, p0, Landroid/support/v4/app/FragmentActivity;->mStopped:Z
 
@@ -1359,7 +1378,7 @@
     invoke-static {p2}, Landroid/support/v4/app/FragmentActivity;->checkForValidRequestCode(I)V
 
     :cond_0
-    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityJB;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-super {p0, p1, p2}, Landroid/support/v4/app/BaseFragmentActivityApi16;->startActivityForResult(Landroid/content/Intent;I)V
 
     return-void
 .end method
@@ -1374,7 +1393,7 @@
         value = 0x10
     .end annotation
 
-    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/BaseFragmentActivityJB;->startActivityForResult(Landroid/content/Intent;ILandroid/os/Bundle;)V
+    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/app/BaseFragmentActivityApi16;->startActivityForResult(Landroid/content/Intent;ILandroid/os/Bundle;)V
 
     return-void
 .end method
@@ -1464,7 +1483,7 @@
         }
     .end annotation
 
-    invoke-super/range {p0 .. p6}, Landroid/support/v4/app/BaseFragmentActivityJB;->startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;III)V
+    invoke-super/range {p0 .. p6}, Landroid/support/v4/app/BaseFragmentActivityApi16;->startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;III)V
 
     return-void
 .end method
@@ -1485,7 +1504,7 @@
         }
     .end annotation
 
-    invoke-super/range {p0 .. p7}, Landroid/support/v4/app/BaseFragmentActivityJB;->startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
+    invoke-super/range {p0 .. p7}, Landroid/support/v4/app/BaseFragmentActivityApi16;->startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
 
     return-void
 .end method

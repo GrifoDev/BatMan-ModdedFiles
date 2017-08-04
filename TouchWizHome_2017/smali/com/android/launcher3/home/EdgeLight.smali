@@ -249,7 +249,7 @@
 
     const/16 v4, 0x258
 
-    const v0, 0x7f0f0054
+    const v0, 0x7f0f0064
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/EdgeLight;->findViewById(I)Landroid/view/View;
 
@@ -269,7 +269,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/EdgeLight;->mEdgeLightAnimator:Landroid/graphics/drawable/AnimationDrawable;
 
-    const v0, 0x7f0f0055
+    const v0, 0x7f0f0065
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/EdgeLight;->findViewById(I)Landroid/view/View;
 
@@ -279,7 +279,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0f0056
+    const v0, 0x7f0f0066
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/EdgeLight;->findViewById(I)Landroid/view/View;
 
@@ -289,7 +289,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/EdgeLight;->mArrowView1:Landroid/widget/ImageView;
 
-    const v0, 0x7f0f0057
+    const v0, 0x7f0f0067
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/EdgeLight;->findViewById(I)Landroid/view/View;
 

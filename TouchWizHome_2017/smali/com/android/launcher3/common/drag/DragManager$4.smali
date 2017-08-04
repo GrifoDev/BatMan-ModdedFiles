@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/drag/DragManager$4;->this$0:Lcom/android/launcher3/common/drag/DragManager;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/common/drag/DragManager;->access$000(Lcom/android/launcher3/common/drag/DragManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
@@ -54,7 +53,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager$4;->this$0:Lcom/android/launcher3/common/drag/DragManager;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragManager;->mQuickOptionView:Lcom/android/launcher3/common/quickoption/QuickOptionView;
     invoke-static {v1}, Lcom/android/launcher3/common/drag/DragManager;->access$600(Lcom/android/launcher3/common/drag/DragManager;)Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
     move-result-object v1
@@ -65,7 +63,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/drag/DragManager;->mQuickOptionView:Lcom/android/launcher3/common/quickoption/QuickOptionView;
     invoke-static {v0, v1}, Lcom/android/launcher3/common/drag/DragManager;->access$602(Lcom/android/launcher3/common/drag/DragManager;Lcom/android/launcher3/common/quickoption/QuickOptionView;)Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
     invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
@@ -76,7 +73,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/drag/DragManager$4;->this$0:Lcom/android/launcher3/common/drag/DragManager;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/common/drag/DragManager;->access$000(Lcom/android/launcher3/common/drag/DragManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2

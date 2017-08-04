@@ -28,7 +28,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;)V
+.method constructor <init>(Ljava/lang/String;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
+.method constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -20,7 +20,6 @@
     value = {
         Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;,
         Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubCompat;,
-        Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubApi26;,
         Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubApi21;
     }
 .end annotation
@@ -48,31 +47,9 @@
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v1, 0x1a
-
-    if-lt v0, v1, :cond_0
-
-    new-instance v0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubApi26;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubApi26;-><init>(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/support/v4/media/session/MediaControllerCompat$1;)V
-
-    invoke-static {v0}, Landroid/support/v4/media/session/MediaControllerCompatApi26;->createCallback(Landroid/support/v4/media/session/MediaControllerCompatApi26$Callback;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mCallbackObj:Ljava/lang/Object;
-
-    :goto_0
-    return-void
-
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_0
 
     new-instance v0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubApi21;
 
@@ -84,9 +61,10 @@
 
     iput-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mCallbackObj:Ljava/lang/Object;
 
-    goto :goto_0
+    :goto_0
+    return-void
 
-    :cond_1
+    :cond_0
     new-instance v0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubCompat;
 
     invoke-direct {v0, p0}, Landroid/support/v4/media/session/MediaControllerCompat$Callback$StubCompat;-><init>(Landroid/support/v4/media/session/MediaControllerCompat$Callback;)V
@@ -96,7 +74,7 @@
     goto :goto_0
 .end method
 
-.method static synthetic access$200(Landroid/support/v4/media/session/MediaControllerCompat$Callback;)Ljava/lang/Object;
+.method static synthetic access$000(Landroid/support/v4/media/session/MediaControllerCompat$Callback;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mCallbackObj:Ljava/lang/Object;
@@ -104,7 +82,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/os/Handler;)V
+.method static synthetic access$100(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/os/Handler;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->setHandler(Landroid/os/Handler;)V
@@ -139,6 +117,12 @@
 .end method
 
 .method public onAudioInfoChanged(Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onCaptioningEnabledChanged(Z)V
     .locals 0
 
     return-void
@@ -201,8 +185,16 @@
     return-void
 .end method
 
+.method public onShuffleModeChanged(I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onShuffleModeChanged(Z)V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     return-void
 .end method

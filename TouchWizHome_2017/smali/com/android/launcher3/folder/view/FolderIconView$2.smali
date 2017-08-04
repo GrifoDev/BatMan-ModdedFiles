@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderIconView$2;->this$0:Lcom/android/launcher3/folder/view/FolderIconView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderIconView;->mHiddenItems:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderIconView;->access$200(Lcom/android/launcher3/folder/view/FolderIconView;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -58,7 +57,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderIconView$2;->this$0:Lcom/android/launcher3/folder/view/FolderIconView;
 
-    # invokes: Lcom/android/launcher3/folder/view/FolderIconView;->drawPreviews()V
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderIconView;->access$300(Lcom/android/launcher3/folder/view/FolderIconView;)V
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderIconView$2;->val$postDropRunnable:Ljava/lang/Runnable;

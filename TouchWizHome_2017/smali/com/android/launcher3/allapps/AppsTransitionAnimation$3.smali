@@ -88,7 +88,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$3;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
     invoke-static {v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$200(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Lcom/android/launcher3/allapps/controller/AppsController;
 
     move-result-object v1

@@ -6,17 +6,12 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/app/ServiceCompat$Api24ServiceCompatImpl;,
-        Landroid/support/v4/app/ServiceCompat$BaseServiceCompatImpl;,
-        Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;,
         Landroid/support/v4/app/ServiceCompat$StopForegroundFlags;
     }
 .end annotation
 
 
 # static fields
-.field static final IMPL:Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;
-
 .field public static final START_STICKY:I = 0x1
 
 .field public static final STOP_FOREGROUND_DETACH:I = 0x2
@@ -25,34 +20,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastN()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Landroid/support/v4/app/ServiceCompat$Api24ServiceCompatImpl;
-
-    invoke-direct {v0}, Landroid/support/v4/app/ServiceCompat$Api24ServiceCompatImpl;-><init>()V
-
-    sput-object v0, Landroid/support/v4/app/ServiceCompat;->IMPL:Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;
-
-    :goto_0
-    return-void
-
-    :cond_0
-    new-instance v0, Landroid/support/v4/app/ServiceCompat$BaseServiceCompatImpl;
-
-    invoke-direct {v0}, Landroid/support/v4/app/ServiceCompat$BaseServiceCompatImpl;-><init>()V
-
-    sput-object v0, Landroid/support/v4/app/ServiceCompat;->IMPL:Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;
-
-    goto :goto_0
-.end method
-
 .method private constructor <init>()V
     .locals 0
 
@@ -62,11 +29,33 @@
 .end method
 
 .method public static stopForeground(Landroid/app/Service;I)V
-    .locals 1
+    .locals 2
 
-    sget-object v0, Landroid/support/v4/app/ServiceCompat;->IMPL:Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/app/ServiceCompat$ServiceCompatImpl;->stopForeground(Landroid/app/Service;I)V
+    const/16 v1, 0x18
 
+    if-lt v0, v1, :cond_0
+
+    invoke-virtual {p0, p1}, Landroid/app/Service;->stopForeground(I)V
+
+    :goto_0
     return-void
+
+    :cond_0
+    and-int/lit8 v0, p1, 0x1
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_1
+    invoke-virtual {p0, v0}, Landroid/app/Service;->stopForeground(Z)V
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method

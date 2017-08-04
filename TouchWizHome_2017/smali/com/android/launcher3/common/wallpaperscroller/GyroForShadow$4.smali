@@ -52,7 +52,6 @@
     :sswitch_1
     iget-wide v2, p1, Landroid/hardware/SensorEvent;->timestamp:J
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->mStartTimestamp:J
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$300()J
 
     move-result-wide v4
@@ -61,10 +60,8 @@
 
     if-ltz v1, :cond_0
 
-    # invokes: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->updateMap(Landroid/hardware/SensorEvent;)V
     invoke-static {p1}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$400(Landroid/hardware/SensorEvent;)V
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->mListeners:Ljava/util/Vector;
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$500()Ljava/util/Vector;
 
     move-result-object v1
@@ -86,32 +83,26 @@
 
     check-cast v0, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow$VectorListener;
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->mMapX:F
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$600()F
 
     move-result v1
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->mMapY:F
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$700()F
 
     move-result v2
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->mTiltRangeX:F
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$800()F
 
     move-result v3
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->mTiltRangeY:F
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$900()F
 
     move-result v4
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->mWallpaperRangeX:F
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$1000()F
 
     move-result v5
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->mWallpaperRangeY:F
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$1100()F
 
     move-result v6

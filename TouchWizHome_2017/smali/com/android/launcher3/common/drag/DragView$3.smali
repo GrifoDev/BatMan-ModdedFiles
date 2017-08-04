@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/drag/DragView$3;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->mPaint:Landroid/graphics/Paint;
     invoke-static {v0}, Lcom/android/launcher3/common/drag/DragView;->access$1100(Lcom/android/launcher3/common/drag/DragView;)Landroid/graphics/Paint;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/drag/DragView$3;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->mCurrentFilter:[F
     invoke-static {v2}, Lcom/android/launcher3/common/drag/DragView;->access$1000(Lcom/android/launcher3/common/drag/DragView;)[F
 
     move-result-object v2

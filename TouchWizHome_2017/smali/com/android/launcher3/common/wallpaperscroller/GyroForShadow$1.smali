@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow$1;->val$activity:Landroid/app/Activity;
 
-    # invokes: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->changeTiltXYRange(Landroid/app/Activity;)V
     invoke-static {v0}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$000(Landroid/app/Activity;)V
 
     return-void

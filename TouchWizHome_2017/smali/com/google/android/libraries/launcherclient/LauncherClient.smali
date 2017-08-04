@@ -126,7 +126,6 @@
 
     iget v3, p0, Lcom/google/android/libraries/launcherclient/LauncherClient;->mCurrentServiceConnectionOptions:I
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;->mEnableOverlay:Z
     invoke-static {p3}, Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;->access$300(Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;)Z
 
     move-result v1
@@ -142,7 +141,6 @@
 
     iget v3, p0, Lcom/google/android/libraries/launcherclient/LauncherClient;->mCurrentServiceConnectionOptions:I
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;->mEnableHotword:Z
     invoke-static {p3}, Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;->access$400(Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;)Z
 
     move-result v1
@@ -158,7 +156,6 @@
 
     iget v3, p0, Lcom/google/android/libraries/launcherclient/LauncherClient;->mCurrentServiceConnectionOptions:I
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;->mEnablePrewarming:Z
     invoke-static {p3}, Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;->access$500(Lcom/google/android/libraries/launcherclient/LauncherClient$ClientOptions;)Z
 
     move-result v1

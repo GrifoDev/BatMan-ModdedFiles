@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Pretraži istoriju</string>
+    <string name="about">O aplikaciji %s</string>
+    <string name="about_already_installed">Najnovija verzija je već instalirana.</string>
+    <string name="about_home_screen">Početni ekran</string>
+    <string name="about_licence">Licence otvorenog koda</string>
+    <string name="about_network_err">Nije moguće proveriti ima li ažuriranja. Telefon nije povezan na mrežu.</string>
+    <string name="about_new_version_exist">Nova verzija je dostupna.</string>
+    <string name="about_retry">Ponovi</string>
+    <string name="about_update">Ažuriraj</string>
+    <string name="about_version">Verzija %s</string>
     <string name="activity_not_available">Ova aplikacija nije dostupna za tvoj uređaj.</string>
     <string name="activity_not_found">Aplikacija nije instalirana.</string>
     <string name="align_to_bottom">Poravnaj sa dnom</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Vidžet %s je već dodat na početni ekran.</string>
     <string name="option_menu_contact_up">Kontaktirajte nas</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Podešavanja</string>
     <string name="options_menu">Još opcija</string>
     <string name="options_menu_search_recommend">Opcije pretrage</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Na ovoj strani više nema mesta</string>
     <string name="out_of_space_dialog">Na ovoj stranici više nema mesta. Stavka će biti dodata na novoj stranici.</string>
     <string name="permdesc_install_widget">Ova aplikacija može da dodaje vidžete na početni ekran.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ova aplikacija može da čita podešavanja stranice prilagođenog sadržaja, koja se nalazi na levoj strani Početnog ekrana.</string>
+    <string name="permdesc_write_zeropage_settings">Ova aplikacija može da menja podešavanja stranice prilagođenog sadržaja, koja se nalazi na levoj strani Početnog ekrana.</string>
     <string name="permlab_install_widget">Dodaj vidžete</string>
+    <string name="permlab_read_settings">pročitaj podešavanja i prečice početnog ekrana</string>
+    <string name="permlab_read_zeropage_settings">Pročitaj podeš. str. pril. sadržaja</string>
+    <string name="permlab_write_zeropage_settings">Promeni podeš. str. pril. sadržaja</string>
     <string name="quick_option_add_apps">Dodaj aplikacije</string>
     <string name="quick_option_add_shortcut_to_home">Dodaj preč. na Poč. ekran</string>
     <string name="quick_option_add_to_personal">Dod. na lič.</string>

@@ -10,9 +10,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/view/PagerTitleStrip$PageListener;,
-        Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplIcs;,
-        Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplBase;,
-        Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
+        Landroid/support/v4/view/PagerTitleStrip$SingleLineAllCapsTransform;
     }
 .end annotation
 
@@ -20,11 +18,7 @@
 # static fields
 .field private static final ATTRS:[I
 
-.field private static final IMPL:Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
-
 .field private static final SIDE_ALPHA:F = 0.6f
-
-.field private static final TAG:Ljava/lang/String; = "PagerTitleStrip"
 
 .field private static final TEXT_ATTRS:[I
 
@@ -94,31 +88,7 @@
 
     sput-object v0, Landroid/support/v4/view/PagerTitleStrip;->TEXT_ATTRS:[I
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xe
-
-    if-lt v0, v1, :cond_0
-
-    new-instance v0, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplIcs;
-
-    invoke-direct {v0}, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplIcs;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/PagerTitleStrip;->IMPL:Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
-
-    :goto_0
     return-void
-
-    :cond_0
-    new-instance v0, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplBase;
-
-    invoke-direct {v0}, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImplBase;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/PagerTitleStrip;->IMPL:Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
-
-    goto :goto_0
-
-    nop
 
     :array_0
     .array-data 4
@@ -362,11 +332,17 @@
 .end method
 
 .method private static setSingleLineAllCaps(Landroid/widget/TextView;)V
-    .locals 1
+    .locals 2
 
-    sget-object v0, Landroid/support/v4/view/PagerTitleStrip;->IMPL:Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;
+    new-instance v0, Landroid/support/v4/view/PagerTitleStrip$SingleLineAllCapsTransform;
 
-    invoke-interface {v0, p0}, Landroid/support/v4/view/PagerTitleStrip$PagerTitleStripImpl;->setSingleLineAllCaps(Landroid/widget/TextView;)V
+    invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/support/v4/view/PagerTitleStrip$SingleLineAllCapsTransform;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTransformationMethod(Landroid/text/method/TransformationMethod;)V
 
     return-void
 .end method

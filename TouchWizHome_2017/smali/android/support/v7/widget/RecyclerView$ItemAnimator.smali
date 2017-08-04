@@ -94,8 +94,7 @@
 
     const/4 v4, -0x1
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$ViewHolder;->mFlags:I
-    invoke-static {p0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->access$1400(Landroid/support/v7/widget/RecyclerView$ViewHolder;)I
+    invoke-static {p0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->access$1600(Landroid/support/v7/widget/RecyclerView$ViewHolder;)I
 
     move-result v3
 

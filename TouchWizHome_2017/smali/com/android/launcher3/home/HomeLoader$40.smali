@@ -45,16 +45,14 @@
 .method public run()V
     .locals 10
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgLock:Ljava/lang/Object;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9100()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9500()Ljava/lang/Object;
 
     move-result-object v5
 
     monitor-enter v5
 
     :try_start_0
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgItemsIdMap:Lcom/android/launcher3/util/LongArrayMap;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9200()Lcom/android/launcher3/util/LongArrayMap;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9600()Lcom/android/launcher3/util/LongArrayMap;
 
     move-result-object v4
 

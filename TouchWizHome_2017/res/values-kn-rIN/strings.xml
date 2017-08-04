@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">ಹುಡುಕಾಟ ಇತಿಹಾಸ</string>
+    <string name="about">%s ಕುರಿತು</string>
+    <string name="about_already_installed">ಈಗಾಗಲೇ ಇತ್ತೀಚಿನ ಆವೃತ್ತಿಯನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿದೆ.</string>
+    <string name="about_home_screen">ಹೋಮ್ ಸ್ಕ್ರೀನ್</string>
+    <string name="about_licence">ಮುಕ್ತ ಮೂಲ ಪರವಾನಗಿಗಳು</string>
+    <string name="about_network_err">ನವೀಕರಣಗಳಿಗಾಗಿ ಪರಿಶೀಲಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಿಮ್ಮ ಫೋನ್ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ.</string>
+    <string name="about_new_version_exist">ಒಂದು ಹೊಸ ಆವೃತ್ತಿಯು ಲಭ್ಯವಿರುತ್ತದೆ.</string>
+    <string name="about_retry">ಮರುಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="about_update">ನವೀಕರಿಸಿ</string>
+    <string name="about_version">ಆವೃತ್ತಿ %s</string>
     <string name="activity_not_available">ನಿಮ್ಮ ಸಾಧನಕ್ಕಾಗಿ ಈ ಅನ್ವಯಿಸುವಿಕೆ ಲಭ್ಯವಿಲ್ಲ.</string>
     <string name="activity_not_found">ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಸ್ಥಾಪಿಸಿಲ್ಲ.</string>
     <string name="align_to_bottom">ಕೆಳಕ್ಕೆ ಜೋಡಿಸು</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ಈ ಪುಟದ ಮೇಲೆ ಹೆಚ್ಚು ಜಾಗ ಇಲ್ಲ</string>
     <string name="out_of_space_dialog">ಈ ಪುಟದಲ್ಲಿ ಯಾವುದೇ ಸ್ಥಳಾವಕಾಶವಿಲ್ಲ. ಹೊಸ ಪುಟಕ್ಕೆ ಐಟಂ ಸೇರಿಸಲಾಗುವುದು.</string>
     <string name="permdesc_install_widget">ಈ ಅನ್ವಯಿಸುವಿಕೆಯು ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ಗೆ ವಿಜೆಟ್‌ಗಳನ್ನು ಸೇರಿಸಬಹುದು.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ಈ ಅನ್ವಯಿಸುವಿಕೆಯು ಹೋಮ್ ಸ್ಕ್ರೀನ್ ಎಡಭಾಗದಲ್ಲಿ ಕಂಡುಬರುವ, ಕಸ್ಟಮ್ ಒಳಾಂಶ ಪುಟದ ಸಂಯೋಜನೆಗಳನ್ನು ಓದಬಹುದು.</string>
+    <string name="permdesc_write_zeropage_settings">ಈ ಅನ್ವಯಿಸುವಿಕೆಯು ಹೋಮ್ ಸ್ಕ್ರೀನ್ ಎಡಭಾಗದಲ್ಲಿ ಕಂಡುಬರುವ, ಕಸ್ಟಮ್ ಒಳಾಂಶ ಪುಟದ ಸಂಯೋಜನೆಗಳನ್ನು ಬದಲಿಸಬಹುದು.</string>
     <string name="permlab_install_widget">ವಿಜೆಟ್‌ಗಳನ್ನು ಸೇರಿಸಿ</string>
+    <string name="permlab_read_settings">ಹೋಮ್ ಸಂಯೋಜನೆಗಳು ಮತ್ತು ಶಾರ್ಟ್‍ಕಟ್‍ಗಳನ್ನು ಓದಿ</string>
+    <string name="permlab_read_zeropage_settings">ಕಸ್ಟಮ್ ಒಳಾಂಶ ಪುಟ ಸಂಯೋಜನೆಗಳನ್ನು ಓದಿ</string>
+    <string name="permlab_write_zeropage_settings">ಕಸ್ಟಮ್ ಒಳಾಂಶ ಪುಟ ಸಂಯೋಜನೆಗಳನ್ನು ಬದಲಿಸಿ</string>
     <string name="quick_option_add_apps">ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ಸೇರಿಸಿ</string>
     <string name="quick_option_add_shortcut_to_home">ಹೋಮ್‍ಗೆ ಶಾರ್ಟ್‌ಕಟ್ ಸೇರಿಸಿ</string>
     <string name="quick_option_add_to_personal">ವೈಯ. ಸೇರಿಸಿ</string>

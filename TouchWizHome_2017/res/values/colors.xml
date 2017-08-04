@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="about_color_description">#ff505050</color>
     <color name="all_apps_bg_color">#4d000000</color>
     <color name="all_apps_grid_section_text_color">#ff009688</color>
     <color name="all_apps_search_market_button_focused_bg_color">#ffdddddd</color>
@@ -47,7 +48,7 @@
     <color name="shadow_dark_bg_color">#b0000000</color>
     <color name="text_color">#fffafafa</color>
     <color name="text_color_dark">#ff444444</color>
-    <color name="text_shadow_color">#99000000</color>
+    <color name="text_shadow_color">#80000000</color>
     <color name="text_shadow_color_dark">#ccffffff</color>
     <color name="tray_fake_view_text_color">#fffafafa</color>
     <color name="tray_transfer_divider_color">#4dfafafa</color>

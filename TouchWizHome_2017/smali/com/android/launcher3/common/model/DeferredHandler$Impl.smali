@@ -31,7 +31,6 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
 
-    # getter for: Lcom/android/launcher3/common/model/DeferredHandler;->sQueue:Ljava/util/LinkedList;
     invoke-static {}, Lcom/android/launcher3/common/model/DeferredHandler;->access$000()Ljava/util/LinkedList;
 
     move-result-object v2
@@ -39,7 +38,6 @@
     monitor-enter v2
 
     :try_start_0
-    # getter for: Lcom/android/launcher3/common/model/DeferredHandler;->sQueue:Ljava/util/LinkedList;
     invoke-static {}, Lcom/android/launcher3/common/model/DeferredHandler;->access$000()Ljava/util/LinkedList;
 
     move-result-object v1
@@ -56,7 +54,6 @@
     return-void
 
     :cond_0
-    # getter for: Lcom/android/launcher3/common/model/DeferredHandler;->sQueue:Ljava/util/LinkedList;
     invoke-static {}, Lcom/android/launcher3/common/model/DeferredHandler;->access$000()Ljava/util/LinkedList;
 
     move-result-object v1
@@ -73,7 +70,6 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    # getter for: Lcom/android/launcher3/common/model/DeferredHandler;->sQueue:Ljava/util/LinkedList;
     invoke-static {}, Lcom/android/launcher3/common/model/DeferredHandler;->access$000()Ljava/util/LinkedList;
 
     move-result-object v2

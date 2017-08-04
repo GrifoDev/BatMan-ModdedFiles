@@ -820,6 +820,22 @@
     return-void
 .end method
 
+.method private finishSettingsActivity()V
+    .locals 2
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    new-instance v1, Lcom/android/launcher3/Launcher$16;
+
+    invoke-direct {v1, p0}, Lcom/android/launcher3/Launcher$16;-><init>(Lcom/android/launcher3/Launcher;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
 .method private getTypedText()Ljava/lang/String;
     .locals 1
 
@@ -1017,7 +1033,7 @@
 .method private setupViews()V
     .locals 2
 
-    const v0, 0x7f0f0091
+    const v0, 0x7f0f00a1
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1025,7 +1041,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/Launcher;->mLauncherView:Landroid/view/View;
 
-    const v0, 0x7f0f0092
+    const v0, 0x7f0f00a2
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1251,6 +1267,65 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
+    return-void
+.end method
+
+.method private updateWhiteBgIfNecessary()V
+    .locals 5
+
+    const/4 v4, 0x1
+
+    invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
+
+    move-result v0
+
+    invoke-static {p0}, Lcom/android/launcher3/util/WhiteBgManager;->setup(Landroid/content/Context;)V
+
+    invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
+
+    move-result v3
+
+    if-eq v0, v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/launcher3/Launcher;->mDarkFontObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v3, v4}, Landroid/database/ContentObserver;->onChange(Z)V
+
+    :cond_0
+    invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteStatusBar()Z
+
+    move-result v2
+
+    invoke-static {p0}, Lcom/android/launcher3/util/WhiteBgManager;->setupForStatusBar(Landroid/content/Context;)V
+
+    invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteStatusBar()Z
+
+    move-result v3
+
+    if-eq v2, v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/launcher3/Launcher;->mDarkStatusBarObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v3, v4}, Landroid/database/ContentObserver;->onChange(Z)V
+
+    :cond_1
+    invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteNavigationBar()Z
+
+    move-result v1
+
+    invoke-static {p0}, Lcom/android/launcher3/util/WhiteBgManager;->setupForNavigationBar(Landroid/content/Context;)V
+
+    invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteNavigationBar()Z
+
+    move-result v3
+
+    if-eq v1, v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/launcher3/Launcher;->mDarkNavigationBarObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v3, v4}, Landroid/database/ContentObserver;->onChange(Z)V
+
+    :cond_2
     return-void
 .end method
 
@@ -1921,7 +1996,7 @@
 
     if-eqz p1, :cond_0
 
-    const v2, 0x7f0d002e
+    const v2, 0x7f0d002f
 
     :goto_0
     invoke-static {p0, v2}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
@@ -1944,7 +2019,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f0d002d
+    const v2, 0x7f0d002e
 
     goto :goto_0
 
@@ -2153,7 +2228,7 @@
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 5
 
-    const v4, 0x7f0800c2
+    const v4, 0x7f0800d1
 
     invoke-super {p0, p1}, Landroid/app/Activity;->dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
 
@@ -2173,7 +2248,7 @@
 
     if-ne v2, v3, :cond_0
 
-    const v3, 0x7f08000f
+    const v3, 0x7f080018
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2189,7 +2264,7 @@
 
     if-ne v2, v3, :cond_1
 
-    const v3, 0x7f0800ba
+    const v3, 0x7f0800c9
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -3362,6 +3437,14 @@
 
     if-eqz v1, :cond_0
 
+    iget-object v1, p0, Lcom/android/launcher3/Launcher;->mModel:Lcom/android/launcher3/LauncherModel;
+
+    invoke-virtual {v1, p0}, Lcom/android/launcher3/LauncherModel;->isCurrentCallbacks(Lcom/android/launcher3/LauncherModel$Callbacks;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
     iget-object v1, p0, Lcom/android/launcher3/Launcher;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
     invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getAppWidgetHost()Lcom/android/launcher3/home/LauncherAppWidgetHost;
@@ -3545,6 +3628,8 @@
     iget-object v4, p0, Lcom/android/launcher3/Launcher;->mDarkNavigationBarObserver:Landroid/database/ContentObserver;
 
     invoke-virtual {v2, v3, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    invoke-direct {p0}, Lcom/android/launcher3/Launcher;->updateWhiteBgIfNecessary()V
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportEasyModeChange()Z
 
@@ -4404,7 +4489,7 @@
 
     if-eqz v5, :cond_12
 
-    const v5, 0x7f03002e
+    const v5, 0x7f030030
 
     invoke-virtual {p0, v5}, Lcom/android/launcher3/Launcher;->setContentView(I)V
 
@@ -4732,7 +4817,7 @@
     goto/16 :goto_2
 
     :cond_12
-    const v5, 0x7f03002c
+    const v5, 0x7f03002e
 
     invoke-virtual {p0, v5}, Lcom/android/launcher3/Launcher;->setContentView(I)V
 
@@ -6887,13 +6972,7 @@
 
     iput-boolean v3, v0, Lcom/android/launcher3/Launcher;->mSkipAnim:Z
 
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/LauncherAppState;->setSettingsActivity(Lcom/android/launcher3/SettingsActivity;)V
+    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/Launcher;->finishSettingsActivity()V
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportWallpaperTilt()Z
 
@@ -7762,7 +7841,7 @@
 
     if-eqz p4, :cond_0
 
-    const v6, 0x7f080063
+    const v6, 0x7f08006c
 
     invoke-virtual {p0, v6}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 

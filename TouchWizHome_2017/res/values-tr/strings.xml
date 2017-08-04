@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Arama geçmişi</string>
+    <string name="about">%s hakkında</string>
+    <string name="about_already_installed">En son sürüm zaten yüklü.</string>
+    <string name="about_home_screen">Ana sayfa ekranı</string>
+    <string name="about_licence">Açık kaynak lisansları</string>
+    <string name="about_network_err">Güncellemeler denetlenemiyor. Telefonunuz bir ağa bağlı değil.</string>
+    <string name="about_new_version_exist">Yeni bir sürüm mevcut.</string>
+    <string name="about_retry">Tekrar dene</string>
+    <string name="about_update">Güncelle</string>
+    <string name="about_version">%s Sürümü</string>
     <string name="activity_not_available">Bu uygulama sizin cihazınız için mevcut değildir.</string>
     <string name="activity_not_found">Uygulama yüklenmedi.</string>
     <string name="align_to_bottom">Alta hizala</string>
@@ -108,7 +117,7 @@
     <string name="ok">Tamam</string>
     <string name="only_one_widget_instance_allowed">"%s widget'ı ana ekrana zaten eklendi."</string>
     <string name="option_menu_contact_up">Bize ulaşın</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Ayarlar</string>
     <string name="options_menu">Diğer seçenekler</string>
     <string name="options_menu_search_recommend">Arama seçenekleri</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Bu sayfada yer yok</string>
     <string name="out_of_space_dialog">Bu sayfada daha fazla yer yok. Öğe yeni bir sayfaya eklenecek.</string>
     <string name="permdesc_install_widget">"Bu uygulama, ana ekranınıza widget'lar ekleyebilir."</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Bu uygulama, Ana ekranın solunda bulunan özel içerik sayfasının ayarlarını okuyabilir.</string>
+    <string name="permdesc_write_zeropage_settings">Bu uygulama, Ana ekranın solunda bulunan özel içerik sayfasının ayarlarını değiştirebilir.</string>
     <string name="permlab_install_widget">"Widget'lar ekleyin"</string>
+    <string name="permlab_read_settings">Ana sayfa ayarlarını ve kısayolları okuma</string>
+    <string name="permlab_read_zeropage_settings">Özel içerik sayfası ayarlarını oku</string>
+    <string name="permlab_write_zeropage_settings">Özel içerik sayfası ayarlrnı değştr</string>
     <string name="quick_option_add_apps">Uygulamaları ekle</string>
     <string name="quick_option_add_shortcut_to_home">Ana sayfaya kısayol ekle</string>
     <string name="quick_option_add_to_personal">Kişisele ekle</string>

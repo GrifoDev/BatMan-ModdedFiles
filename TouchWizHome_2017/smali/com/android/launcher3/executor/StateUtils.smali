@@ -233,6 +233,15 @@
 
     goto/16 :goto_0
 
+    :pswitch_17
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_APPS_GRID_SETTING_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -258,5 +267,6 @@
         :pswitch_15
         :pswitch_16
         :pswitch_10
+        :pswitch_17
     .end packed-switch
 .end method

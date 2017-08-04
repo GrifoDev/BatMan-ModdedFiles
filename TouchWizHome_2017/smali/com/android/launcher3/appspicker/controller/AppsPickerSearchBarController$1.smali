@@ -51,7 +51,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController$1;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;)Landroid/content/Context;
 
     move-result-object v1

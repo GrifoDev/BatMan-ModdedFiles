@@ -1579,7 +1579,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f03002a
+    const v3, 0x7f03002c
 
     const/4 v4, 0x0
 
@@ -1768,7 +1768,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f080034
+    const v1, 0x7f08003d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3938,7 +3938,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mKeyListener:Lcom/android/launcher3/folder/controller/FolderFocusListener;
 
-    const v0, 0x7f0f0064
+    const v0, 0x7f0f0074
 
     invoke-virtual {p1, v0}, Lcom/android/launcher3/folder/view/FolderView;->findViewById(I)Landroid/view/View;
 
@@ -4045,7 +4045,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/folder/view/FolderPagedView;->mAddButton:Landroid/view/View;
 
-    const v5, 0x7f0f0076
+    const v5, 0x7f0f0086
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4209,14 +4209,14 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f08017b
+    const v4, 0x7f080188
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     :goto_1
-    const v4, 0x7f08010d
+    const v4, 0x7f08011c
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4239,7 +4239,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f080187
+    const v4, 0x7f080194
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4260,14 +4260,14 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f080179
+    const v4, 0x7f080186
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     :goto_3
-    const v4, 0x7f080104
+    const v4, 0x7f080113
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4276,7 +4276,7 @@
     goto :goto_2
 
     :cond_3
-    const v4, 0x7f080185
+    const v4, 0x7f080192
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

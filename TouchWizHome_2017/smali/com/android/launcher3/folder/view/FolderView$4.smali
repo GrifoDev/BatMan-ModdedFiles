@@ -41,7 +41,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderView;->mNeedToShowCursor:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/view/FolderView;->access$202(Lcom/android/launcher3/folder/view/FolderView;Z)Z
 
     const/4 v0, 0x0

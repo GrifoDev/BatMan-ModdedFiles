@@ -6,6 +6,10 @@
 # instance fields
 .field private mHelpContainer:Landroid/widget/LinearLayout;
 
+.field private mHelpText:Landroid/widget/TextView;
+
+.field private mLauncher:Lcom/android/launcher3/Launcher;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
@@ -33,6 +37,10 @@
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
+    check-cast p1, Lcom/android/launcher3/Launcher;
+
+    iput-object p1, p0, Lcom/android/launcher3/folder/view/FolderBgView;->mLauncher:Lcom/android/launcher3/Launcher;
+
     return-void
 .end method
 
@@ -43,7 +51,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f006a
+    const v0, 0x7f0f007a
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/folder/view/FolderBgView;->findViewById(I)Landroid/view/View;
 
@@ -52,6 +60,16 @@
     check-cast v0, Landroid/widget/LinearLayout;
 
     iput-object v0, p0, Lcom/android/launcher3/folder/view/FolderBgView;->mHelpContainer:Landroid/widget/LinearLayout;
+
+    const v0, 0x7f0f007b
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/folder/view/FolderBgView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/android/launcher3/folder/view/FolderBgView;->mHelpText:Landroid/widget/TextView;
 
     return-void
 .end method
@@ -90,6 +108,44 @@
     invoke-virtual {v0}, Lcom/android/launcher3/util/LightingEffectManager;->turnOffAllLight()V
 
     return-void
+.end method
+
+.method public setHelpTextColor(Z)V
+    .locals 4
+
+    const/4 v3, 0x0
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/view/FolderBgView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0d0004
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+
+    move-result v0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderBgView;->mHelpText:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/view/FolderBgView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0d0005
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method public setHelpTextContainerHeightAndGravity(II)V
@@ -153,6 +209,20 @@
     const/4 v2, 0x0
 
     invoke-virtual {v1, p1, p2, v2}, Lcom/android/launcher3/util/LightingEffectManager;->showEffect(ZIZ)V
+
+    invoke-static {}, Lcom/android/launcher3/Utilities;->isMobileKeyboardMode()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderBgView;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    invoke-static {v1, p1}, Lcom/android/launcher3/Utilities;->hideNavigationBar(Landroid/view/Window;Z)V
 
     :cond_0
     return-void

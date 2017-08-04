@@ -102,7 +102,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsAdapter$1;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsAdapter;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsAdapter;->mOnChangeListener:Lcom/android/launcher3/common/model/BadgeSettingsAdapter$OnChangeListener;
     invoke-static {v1}, Lcom/android/launcher3/common/model/BadgeSettingsAdapter;->access$000(Lcom/android/launcher3/common/model/BadgeSettingsAdapter;)Lcom/android/launcher3/common/model/BadgeSettingsAdapter$OnChangeListener;
 
     move-result-object v1
@@ -117,7 +116,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/model/BadgeSettingsAdapter$1;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsAdapter;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsAdapter;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher3/common/model/BadgeSettingsAdapter;->access$100(Lcom/android/launcher3/common/model/BadgeSettingsAdapter;)Landroid/content/Context;
 
     move-result-object v2
@@ -126,7 +124,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08018c
+    const v3, 0x7f080199
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -134,7 +132,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/model/BadgeSettingsAdapter$1;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsAdapter;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsAdapter;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/launcher3/common/model/BadgeSettingsAdapter;->access$100(Lcom/android/launcher3/common/model/BadgeSettingsAdapter;)Landroid/content/Context;
 
     move-result-object v3
@@ -143,7 +140,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08011d
+    const v4, 0x7f08012c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

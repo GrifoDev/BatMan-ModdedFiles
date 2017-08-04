@@ -2210,7 +2210,7 @@
 .end method
 
 .method getEnterFromWidgetsAnimation(ZLjava/util/HashMap;Z)Landroid/animation/Animator;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -2223,11 +2223,11 @@
         }
     .end annotation
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/high16 v4, 0x40000000    # 2.0f
+    const/high16 v5, 0x40000000    # 2.0f
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    const/high16 v4, 0x3f800000    # 1.0f
 
     sget-object v2, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
@@ -2252,7 +2252,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
@@ -2274,7 +2274,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-direct {v2, v3, v0, v5}, Lcom/android/launcher3/home/StageChangeListener;-><init>(Landroid/view/View;ZZ)V
+    invoke-direct {v2, v3, v0, v6}, Lcom/android/launcher3/home/StageChangeListener;-><init>(Landroid/view/View;ZZ)V
 
     invoke-virtual {v1, v2}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -2292,7 +2292,7 @@
 
     int-to-float v3, v3
 
-    div-float/2addr v3, v4
+    div-float/2addr v3, v5
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setPivotX(F)V
 
@@ -2306,7 +2306,7 @@
 
     int-to-float v3, v3
 
-    div-float/2addr v3, v4
+    div-float/2addr v3, v5
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setPivotY(F)V
 
@@ -2318,15 +2318,21 @@
     :cond_1
     iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->setScaleX(F)V
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->setTranslationY(F)V
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setScaleX(F)V
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setScaleY(F)V
+
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+
+    invoke-virtual {v2, v4}, Landroid/view/View;->setAlpha(F)V
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
@@ -2452,7 +2458,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09014b
+    const v3, 0x7f090159
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4404,7 +4410,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f0f0098
+    const v1, 0x7f0f00a8
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 

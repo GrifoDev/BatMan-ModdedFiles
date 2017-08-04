@@ -174,11 +174,7 @@
 
     if-eqz v3, :cond_0
 
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v27
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/NotificationCompat$NotificationCompatApi16Impl;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
+    invoke-static/range {v27 .. v27}, Landroid/support/v4/app/NotificationCompat;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
     move-result-object v26
 
@@ -212,16 +208,6 @@
     return-object v0
 .end method
 
-.method public getActionCount(Landroid/app/Notification;)I
-    .locals 1
-
-    invoke-static {p1}, Landroid/support/v4/app/NotificationCompatJellybean;->getActionCount(Landroid/app/Notification;)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public getActionsFromParcelableArrayList(Ljava/util/ArrayList;)[Landroid/support/v4/app/NotificationCompat$Action;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -250,36 +236,6 @@
     return-object v0
 .end method
 
-.method public getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
-    .locals 1
-
-    invoke-static {p1}, Landroid/support/v4/app/NotificationCompatJellybean;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getGroup(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
-
-    invoke-static {p1}, Landroid/support/v4/app/NotificationCompatJellybean;->getGroup(Landroid/app/Notification;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getLocalOnly(Landroid/app/Notification;)Z
-    .locals 1
-
-    invoke-static {p1}, Landroid/support/v4/app/NotificationCompatJellybean;->getLocalOnly(Landroid/app/Notification;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public getParcelableArrayListForActions([Landroid/support/v4/app/NotificationCompat$Action;)Ljava/util/ArrayList;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -299,24 +255,4 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method public getSortKey(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
-
-    invoke-static {p1}, Landroid/support/v4/app/NotificationCompatJellybean;->getSortKey(Landroid/app/Notification;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public isGroupSummary(Landroid/app/Notification;)Z
-    .locals 1
-
-    invoke-static {p1}, Landroid/support/v4/app/NotificationCompatJellybean;->isGroupSummary(Landroid/app/Notification;)Z
-
-    move-result v0
-
-    return v0
 .end method

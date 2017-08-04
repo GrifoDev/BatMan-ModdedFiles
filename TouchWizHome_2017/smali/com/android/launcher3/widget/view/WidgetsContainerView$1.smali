@@ -36,7 +36,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetsContainerView$1;->this$0:Lcom/android/launcher3/widget/view/WidgetsContainerView;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetsContainerView;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/widget/view/WidgetsContainerView;->access$000(Lcom/android/launcher3/widget/view/WidgetsContainerView;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1

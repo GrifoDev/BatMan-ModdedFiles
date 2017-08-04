@@ -60,7 +60,6 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$1;->this$0:Lcom/android/launcher3/common/bnr/extractor/LCExtractor;
 
-    # invokes: Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->extractData()V
     invoke-static {v0}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->access$000(Lcom/android/launcher3/common/bnr/extractor/LCExtractor;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -91,7 +90,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$1;->this$0:Lcom/android/launcher3/common/bnr/extractor/LCExtractor;
 
-    # getter for: Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->access$100(Lcom/android/launcher3/common/bnr/extractor/LCExtractor;)Landroid/content/Context;
 
     move-result-object v0

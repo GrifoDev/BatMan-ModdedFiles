@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$1;->this$0:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->mTiltUpdateHandler:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;
     invoke-static {v0}, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->access$000(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;)Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;
 
     move-result-object v0
@@ -45,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$1;->this$0:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->mTiltUpdateHandler:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;
     invoke-static {v0}, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;->access$000(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;)Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;
 
     move-result-object v0
@@ -62,7 +60,6 @@
 
     move v6, p6
 
-    # invokes: Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;->update(FFFFFF)V
     invoke-static/range {v0 .. v6}, Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;->access$100(Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller$TiltUpdateHandler;FFFFFF)V
 
     :cond_0

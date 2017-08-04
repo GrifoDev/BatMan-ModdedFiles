@@ -56,7 +56,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$8;->val$stackTrace:[Ljava/lang/StackTraceElement;
 
-    # invokes: Lcom/android/launcher3/common/model/FavoritesUpdater;->checkItemInfoLocked(JLcom/android/launcher3/common/base/item/ItemInfo;[Ljava/lang/StackTraceElement;)V
     invoke-static {v2, v3, v0, v4}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$000(JLcom/android/launcher3/common/base/item/ItemInfo;[Ljava/lang/StackTraceElement;)V
 
     monitor-exit v1

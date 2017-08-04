@@ -161,17 +161,28 @@
 .end method
 
 .method public static delete(Landroid/content/Context;Landroid/net/Uri;)Z
-    .locals 1
+    .locals 2
 
+    :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0, p1}, Landroid/provider/DocumentsContract;->deleteDocument(Landroid/content/ContentResolver;Landroid/net/Uri;)Z
+    invoke-static {v1, p1}, Landroid/provider/DocumentsContract;->deleteDocument(Landroid/content/ContentResolver;Landroid/net/Uri;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v0
+    move-result v1
 
-    return v0
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static exists(Landroid/content/Context;Landroid/net/Uri;)Z

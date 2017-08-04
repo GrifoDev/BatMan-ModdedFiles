@@ -48,7 +48,7 @@
 
     sget-object v0, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    const v1, 0x7f080029
+    const v1, 0x7f080032
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/util/Talk;->say(I)V
 
@@ -56,7 +56,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderController$4;->val$closedFolder:Lcom/android/launcher3/folder/view/FolderView;
 
-    # invokes: Lcom/android/launcher3/folder/controller/FolderController;->onCloseComplete(Lcom/android/launcher3/folder/view/FolderView;)V
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/controller/FolderController;->access$600(Lcom/android/launcher3/folder/controller/FolderController;Lcom/android/launcher3/folder/view/FolderView;)V
 
     return-void

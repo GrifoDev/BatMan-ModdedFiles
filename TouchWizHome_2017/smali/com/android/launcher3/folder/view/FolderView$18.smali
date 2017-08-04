@@ -39,14 +39,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$18;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mController:Lcom/android/launcher3/common/base/controller/ControllerBase;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$1600(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/common/base/controller/ControllerBase;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView$18;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
     invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderView;->access$500(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/FolderInfo;
 
     move-result-object v1
@@ -59,7 +57,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/view/FolderView$18;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mFolderIconView:Lcom/android/launcher3/folder/view/FolderIconView;
     invoke-static {v3}, Lcom/android/launcher3/folder/view/FolderView;->access$1500(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderIconView;
 
     move-result-object v3

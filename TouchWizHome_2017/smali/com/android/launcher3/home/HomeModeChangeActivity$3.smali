@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeModeChangeActivity$3;->this$0:Lcom/android/launcher3/home/HomeModeChangeActivity;
 
-    # invokes: Lcom/android/launcher3/home/HomeModeChangeActivity;->setHomeScreenMode()V
     invoke-static {v0}, Lcom/android/launcher3/home/HomeModeChangeActivity;->access$300(Lcom/android/launcher3/home/HomeModeChangeActivity;)V
 
     return-void

@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x17
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/media/MediaBrowserCompat;
 .end annotation

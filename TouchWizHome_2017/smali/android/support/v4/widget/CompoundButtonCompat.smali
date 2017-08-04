@@ -27,34 +27,36 @@
 
     if-lt v0, v1, :cond_0
 
-    new-instance v1, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi23Impl;
+    new-instance v0, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi23Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi23Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi23Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     :goto_0
     return-void
 
     :cond_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x15
 
     if-lt v0, v1, :cond_1
 
-    new-instance v1, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;
+    new-instance v0, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatApi21Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     goto :goto_0
 
     :cond_1
-    new-instance v1, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
+    new-instance v0, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/widget/CompoundButtonCompat;->IMPL:Landroid/support/v4/widget/CompoundButtonCompat$CompoundButtonCompatBaseImpl;
 
     goto :goto_0
 .end method

@@ -78,7 +78,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;->mAnimator:Landroid/animation/AnimatorSet;
     invoke-static {v0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;->access$202(Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     return-void

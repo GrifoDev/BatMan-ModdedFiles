@@ -86,7 +86,6 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$4;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v3}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$900(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Lcom/android/launcher3/Launcher;
 
     move-result-object v3

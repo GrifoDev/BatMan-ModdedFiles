@@ -45,9 +45,9 @@
 .method public run()V
     .locals 12
 
-    const v8, 0x7f080143
+    const v8, 0x7f080152
 
-    const v11, 0x7f080142
+    const v11, 0x7f080151
 
     const/4 v10, 0x2
 
@@ -73,9 +73,9 @@
 
     const-string v6, ""
 
-    if-ne v5, v9, :cond_5
+    if-ne v5, v9, :cond_6
 
-    const v7, 0x7f08018d
+    const v7, 0x7f08019a
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -91,8 +91,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/util/logging/SALogging$7;->val$itemInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    # invokes: Lcom/android/launcher3/util/logging/SALogging;->getPackageAndTitleString(Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
-    invoke-static {v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$100(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+    invoke-static {v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$200(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -184,13 +183,11 @@
 
     if-eqz v7, :cond_0
 
-    const v7, 0x7f080144
+    const v7, 0x7f080153
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
-
-    sget-object v8, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
     iget-object v7, p0, Lcom/android/launcher3/util/logging/SALogging$7;->val$itemInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
 
@@ -198,18 +195,33 @@
 
     iget-object v7, v7, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->providerName:Landroid/content/ComponentName;
 
-    invoke-static {v8, v7}, Lcom/android/launcher3/util/logging/SALogUtils;->getDetailAppNameByComponentName(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/String;
+    if-eqz v7, :cond_5
+
+    iget-object v7, p0, Lcom/android/launcher3/util/logging/SALogging$7;->val$itemInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    check-cast v7, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+
+    iget-object v7, v7, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->providerName:Landroid/content/ComponentName;
+
+    invoke-virtual {v7}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v6
 
+    const v7, 0x7f080149
+
+    invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_5
     const/16 v1, 0x11
 
     goto :goto_0
 
-    :cond_5
-    if-ne v5, v10, :cond_7
+    :cond_6
+    if-ne v5, v10, :cond_8
 
-    const v7, 0x7f08017f
+    const v7, 0x7f08018c
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -219,14 +231,13 @@
 
     instance-of v7, v7, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     iget-object v7, p0, Lcom/android/launcher3/util/logging/SALogging$7;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
     iget-object v8, p0, Lcom/android/launcher3/util/logging/SALogging$7;->val$itemInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    # invokes: Lcom/android/launcher3/util/logging/SALogging;->getPackageAndTitleString(Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
-    invoke-static {v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$100(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+    invoke-static {v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$200(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -236,9 +247,9 @@
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     iget-object v7, p0, Lcom/android/launcher3/util/logging/SALogging$7;->val$itemInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
 
     instance-of v7, v7, Lcom/android/launcher3/folder/FolderInfo;
@@ -255,7 +266,7 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_8
     const/4 v7, 0x5
 
     if-ne v5, v7, :cond_0
@@ -264,8 +275,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/util/logging/SALogging$7;->val$itemInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    # invokes: Lcom/android/launcher3/util/logging/SALogging;->getPackageAndTitleString(Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
-    invoke-static {v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$100(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+    invoke-static {v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$200(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -275,17 +285,17 @@
 
     move-result v4
 
-    if-ne v4, v9, :cond_9
+    if-ne v4, v9, :cond_a
 
-    const v7, 0x7f080185
+    const v7, 0x7f080192
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    :cond_8
+    :cond_9
     :goto_1
-    const v7, 0x7f080108
+    const v7, 0x7f080117
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -293,10 +303,10 @@
 
     goto/16 :goto_0
 
-    :cond_9
-    if-ne v4, v10, :cond_8
+    :cond_a
+    if-ne v4, v10, :cond_9
 
-    const v7, 0x7f08017a
+    const v7, 0x7f080187
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

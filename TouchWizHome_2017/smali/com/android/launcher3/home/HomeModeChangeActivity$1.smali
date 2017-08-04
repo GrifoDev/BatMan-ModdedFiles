@@ -53,7 +53,6 @@
 
     if-eqz v1, :cond_0
 
-    # getter for: Lcom/android/launcher3/home/HomeModeChangeActivity;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/HomeModeChangeActivity;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -72,12 +71,10 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeModeChangeActivity$1;->this$0:Lcom/android/launcher3/home/HomeModeChangeActivity;
 
-    # invokes: Lcom/android/launcher3/home/HomeModeChangeActivity;->preformOnClick(Z)V
     invoke-static {v1, v0}, Lcom/android/launcher3/home/HomeModeChangeActivity;->access$100(Lcom/android/launcher3/home/HomeModeChangeActivity;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeModeChangeActivity$1;->this$0:Lcom/android/launcher3/home/HomeModeChangeActivity;
 
-    # invokes: Lcom/android/launcher3/home/HomeModeChangeActivity;->askConfirmation()V
     invoke-static {v1}, Lcom/android/launcher3/home/HomeModeChangeActivity;->access$200(Lcom/android/launcher3/home/HomeModeChangeActivity;)V
 
     goto :goto_0

@@ -23,13 +23,3 @@
 
     return-void
 .end method
-
-.method public static getChannel(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/app/Notification;->getChannel()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method

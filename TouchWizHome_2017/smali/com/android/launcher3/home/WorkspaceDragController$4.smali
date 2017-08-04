@@ -62,7 +62,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$4;->val$info:Lcom/android/launcher3/common/base/item/PendingAddItemInfo;
 
-    # invokes: Lcom/android/launcher3/home/WorkspaceDragController;->addItemOnNewPage(Ljava/util/ArrayList;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Z)V
     invoke-static {v0, v3, v1, v3, v2}, Lcom/android/launcher3/home/WorkspaceDragController;->access$100(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Z)V
 
     return-void

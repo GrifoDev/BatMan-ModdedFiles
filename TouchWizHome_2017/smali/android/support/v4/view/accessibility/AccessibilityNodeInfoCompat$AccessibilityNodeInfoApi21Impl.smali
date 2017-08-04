@@ -1,10 +1,10 @@
 .class Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoApi21Impl;
-.super Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoKitKatImpl;
+.super Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoApi19Impl;
 .source "AccessibilityNodeInfoCompat.java"
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
+.annotation build Landroid/support/annotation/RequiresApi;
     value = 0x15
 .end annotation
 
@@ -22,17 +22,19 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoKitKatImpl;-><init>()V
+    invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoApi19Impl;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public addAction(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public addAction(Landroid/view/accessibility/AccessibilityNodeInfo;Ljava/lang/Object;)V
     .locals 0
 
-    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->addAction(Ljava/lang/Object;Ljava/lang/Object;)V
+    check-cast p2, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+
+    invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)V
 
     return-void
 .end method
@@ -40,7 +42,9 @@
 .method public getAccessibilityActionId(Ljava/lang/Object;)I
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->getAccessibilityActionId(Ljava/lang/Object;)I
+    check-cast p1, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->getId()I
 
     move-result v0
 
@@ -50,19 +54,21 @@
 .method public getAccessibilityActionLabel(Ljava/lang/Object;)Ljava/lang/CharSequence;
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->getAccessibilityActionLabel(Ljava/lang/Object;)Ljava/lang/CharSequence;
+    check-cast p1, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->getLabel()Ljava/lang/CharSequence;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getActionList(Ljava/lang/Object;)Ljava/util/List;
+.method public getActionList(Landroid/view/accessibility/AccessibilityNodeInfo;)Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/Object;",
+            "Landroid/view/accessibility/AccessibilityNodeInfo;",
             ")",
             "Ljava/util/List",
             "<",
@@ -71,9 +77,11 @@
         }
     .end annotation
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->getActionList(Ljava/lang/Object;)Ljava/util/List;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getActionList()Ljava/util/List;
 
     move-result-object v0
+
+    check-cast v0, Ljava/util/List;
 
     return-object v0
 .end method
@@ -81,37 +89,39 @@
 .method public getCollectionInfoSelectionMode(Ljava/lang/Object;)I
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21$CollectionInfo;->getSelectionMode(Ljava/lang/Object;)I
+    check-cast p1, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->getSelectionMode()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public getError(Ljava/lang/Object;)Ljava/lang/CharSequence;
+.method public getError(Landroid/view/accessibility/AccessibilityNodeInfo;)Ljava/lang/CharSequence;
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->getError(Ljava/lang/Object;)Ljava/lang/CharSequence;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getError()Ljava/lang/CharSequence;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getMaxTextLength(Ljava/lang/Object;)I
+.method public getMaxTextLength(Landroid/view/accessibility/AccessibilityNodeInfo;)I
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->getMaxTextLength(Ljava/lang/Object;)I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getMaxTextLength()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public getWindow(Ljava/lang/Object;)Ljava/lang/Object;
+.method public getWindow(Landroid/view/accessibility/AccessibilityNodeInfo;)Ljava/lang/Object;
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->getWindow(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getWindow()Landroid/view/accessibility/AccessibilityWindowInfo;
 
     move-result-object v0
 
@@ -121,7 +131,9 @@
 .method public isCollectionItemSelected(Ljava/lang/Object;)Z
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21$CollectionItemInfo;->isSelected(Ljava/lang/Object;)Z
+    check-cast p1, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->isSelected()Z
 
     move-result v0
 
@@ -131,9 +143,9 @@
 .method public newAccessibilityAction(ILjava/lang/CharSequence;)Ljava/lang/Object;
     .locals 1
 
-    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->newAccessibilityAction(ILjava/lang/CharSequence;)Ljava/lang/Object;
+    new-instance v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
-    move-result-object v0
+    invoke-direct {v0, p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;-><init>(ILjava/lang/CharSequence;)V
 
     return-object v0
 .end method
@@ -141,7 +153,7 @@
 .method public obtainCollectionInfo(IIZI)Ljava/lang/Object;
     .locals 1
 
-    invoke-static {p1, p2, p3, p4}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->obtainCollectionInfo(IIZI)Ljava/lang/Object;
+    invoke-static {p1, p2, p3, p4}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->obtain(IIZI)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
     move-result-object v0
 
@@ -151,55 +163,57 @@
 .method public obtainCollectionItemInfo(IIIIZZ)Ljava/lang/Object;
     .locals 1
 
-    invoke-static/range {p1 .. p6}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->obtainCollectionItemInfo(IIIIZZ)Ljava/lang/Object;
+    invoke-static/range {p1 .. p6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->obtain(IIIIZZ)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public removeAction(Ljava/lang/Object;Ljava/lang/Object;)Z
+.method public removeAction(Landroid/view/accessibility/AccessibilityNodeInfo;Ljava/lang/Object;)Z
     .locals 1
 
-    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->removeAction(Ljava/lang/Object;Ljava/lang/Object;)Z
+    check-cast p2, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+
+    invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->removeAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public removeChild(Ljava/lang/Object;Landroid/view/View;)Z
+.method public removeChild(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/View;)Z
     .locals 1
 
-    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->removeChild(Ljava/lang/Object;Landroid/view/View;)Z
+    invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->removeChild(Landroid/view/View;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public removeChild(Ljava/lang/Object;Landroid/view/View;I)Z
+.method public removeChild(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/View;I)Z
     .locals 1
 
-    invoke-static {p1, p2, p3}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->removeChild(Ljava/lang/Object;Landroid/view/View;I)Z
+    invoke-virtual {p1, p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo;->removeChild(Landroid/view/View;I)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public setError(Ljava/lang/Object;Ljava/lang/CharSequence;)V
+.method public setError(Landroid/view/accessibility/AccessibilityNodeInfo;Ljava/lang/CharSequence;)V
     .locals 0
 
-    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->setError(Ljava/lang/Object;Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setError(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
-.method public setMaxTextLength(Ljava/lang/Object;I)V
+.method public setMaxTextLength(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
     .locals 0
 
-    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi21;->setMaxTextLength(Ljava/lang/Object;I)V
+    invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setMaxTextLength(I)V
 
     return-void
 .end method

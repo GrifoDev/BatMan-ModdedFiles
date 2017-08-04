@@ -597,11 +597,6 @@
 
 .method private moveSpinner(F)V
     .locals 20
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     move-object/from16 v0, p0
 
@@ -983,11 +978,6 @@
 
 .method private setColorViewAlpha(I)V
     .locals 1
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mCircleView:Landroid/support/v4/widget/CircleImageView;
 
@@ -1069,11 +1059,6 @@
 
 .method private startDragging(F)V
     .locals 3
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     iget v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mInitialDownY:F
 
@@ -1157,11 +1142,6 @@
 
 .method private startScaleDownReturnToStartAnimation(ILandroid/view/animation/Animation$AnimationListener;)V
     .locals 4
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     iput p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mFrom:I
 
@@ -1207,11 +1187,6 @@
 
 .method private startScaleUpAnimation(Landroid/view/animation/Animation$AnimationListener;)V
     .locals 4
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mCircleView:Landroid/support/v4/widget/CircleImageView;
 
@@ -1271,6 +1246,8 @@
 .method public canChildScrollUp()Z
     .locals 2
 
+    const/4 v1, -0x1
+
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mChildScrollUpCallback:Landroid/support/v4/widget/SwipeRefreshLayout$OnChildScrollUpCallback;
 
     if-eqz v0, :cond_0
@@ -1289,7 +1266,22 @@
     :cond_0
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTarget:Landroid/view/View;
 
-    const/4 v1, -0x1
+    instance-of v0, v0, Landroid/widget/ListView;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTarget:Landroid/view/View;
+
+    check-cast v0, Landroid/widget/ListView;
+
+    invoke-static {v0, v1}, Landroid/support/v4/widget/ListViewCompat;->canScrollList(Landroid/widget/ListView;I)Z
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTarget:Landroid/view/View;
 
     invoke-static {v0, v1}, Landroid/support/v4/view/ViewCompat;->canScrollVertically(Landroid/view/View;I)Z
 

@@ -54,7 +54,6 @@
     :cond_1
     iget-object v2, p0, Lcom/android/launcher3/Launcher$7;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v2}, Lcom/android/launcher3/Launcher;->access$000(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v2
@@ -67,7 +66,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/Launcher$7;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v2}, Lcom/android/launcher3/Launcher;->access$000(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v2
@@ -78,7 +76,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/Launcher$7;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mBuildLayersRunnable:Ljava/lang/Runnable;
     invoke-static {v2}, Lcom/android/launcher3/Launcher;->access$200(Lcom/android/launcher3/Launcher;)Ljava/lang/Runnable;
 
     move-result-object v2

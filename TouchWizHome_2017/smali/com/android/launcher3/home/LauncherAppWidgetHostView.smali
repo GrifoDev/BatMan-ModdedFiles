@@ -1395,7 +1395,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f030017
+    const v1, 0x7f030019
 
     const/4 v2, 0x0
 
@@ -1929,6 +1929,12 @@
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/launcher3/util/logging/GSIMLogging;->insertLogging(Ljava/lang/String;Ljava/lang/String;JZ)V
 
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/util/logging/SALogging;->insertGoogleSearchLaunchCount()V
+
     :cond_8
     :pswitch_2
     iget-object v1, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mLongPressHelper:Lcom/android/launcher3/util/event/CheckLongPressHelper;
@@ -1999,6 +2005,8 @@
     invoke-virtual {v1}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->cancelLongPress()V
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

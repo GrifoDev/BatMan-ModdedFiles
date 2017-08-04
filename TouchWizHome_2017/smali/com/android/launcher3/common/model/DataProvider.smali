@@ -41,6 +41,388 @@
     return-void
 .end method
 
+.method private printDBLog()V
+    .locals 25
+
+    const-string v5, "container = ?"
+
+    const/4 v2, 0x1
+
+    new-array v6, v2, [Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    const/16 v3, -0x64
+
+    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v6, v2
+
+    const/4 v2, 0x4
+
+    new-array v4, v2, [Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    const-string v3, "_id"
+
+    aput-object v3, v4, v2
+
+    const/4 v2, 0x1
+
+    const-string v3, "title"
+
+    aput-object v3, v4, v2
+
+    const/4 v2, 0x2
+
+    const-string v3, "screen"
+
+    aput-object v3, v4, v2
+
+    const/4 v2, 0x3
+
+    const-string v3, "intent"
+
+    aput-object v3, v4, v2
+
+    sget-object v2, Lcom/android/launcher3/common/model/DataProvider;->sDb:Landroid/database/sqlite/SQLiteDatabase;
+
+    const-string v3, "favorites"
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    invoke-virtual/range {v2 .. v9}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v15
+
+    if-nez v15, :cond_0
+
+    const-string v2, "DataProvider"
+
+    const-string v3, "getMaxId : cursor is null"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    const/4 v2, 0x2
+
+    new-array v4, v2, [Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    const-string v3, "_id"
+
+    aput-object v3, v4, v2
+
+    const/4 v2, 0x1
+
+    const-string v3, "screenRank"
+
+    aput-object v3, v4, v2
+
+    sget-object v7, Lcom/android/launcher3/common/model/DataProvider;->sDb:Landroid/database/sqlite/SQLiteDatabase;
+
+    const-string v8, "workspaceScreens"
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x0
+
+    const/4 v14, 0x0
+
+    move-object v9, v4
+
+    invoke-virtual/range {v7 .. v14}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v15
+
+    if-nez v15, :cond_2
+
+    const-string v2, "DataProvider"
+
+    const-string v3, "getMaxId : cursor is null"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
+    return-void
+
+    :cond_0
+    :goto_2
+    :try_start_0
+    invoke-interface {v15}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v2, 0x0
+
+    invoke-interface {v15, v2}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v18
+
+    const/4 v2, 0x1
+
+    invoke-interface {v15, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v24
+
+    const/4 v2, 0x2
+
+    invoke-interface {v15, v2}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v20
+
+    const/4 v2, 0x3
+
+    invoke-interface {v15, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v17
+
+    const-string v2, "DataProvider"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "id = "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-wide/from16 v0, v18
+
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v7, " screenId = "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-wide/from16 v0, v20
+
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v7, " title = "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v7, " intent = "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v7, "\n"
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v16
+
+    :try_start_1
+    const-string v2, "DataProvider"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "Exception e = "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-interface {v15}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_0
+
+    :cond_1
+    invoke-interface {v15}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    invoke-interface {v15}, Landroid/database/Cursor;->close()V
+
+    throw v2
+
+    :cond_2
+    :goto_3
+    :try_start_2
+    invoke-interface {v15}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const/4 v2, 0x0
+
+    invoke-interface {v15, v2}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v18
+
+    const/4 v2, 0x1
+
+    invoke-interface {v15, v2}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v22
+
+    const-string v2, "DataProvider"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "id = "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-wide/from16 v0, v18
+
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v7, " screenRank = "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-wide/from16 v0, v22
+
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v7, "\n"
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v16
+
+    :try_start_3
+    const-string v2, "DataProvider"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "Exception e = "
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    invoke-interface {v15}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_1
+
+    :cond_3
+    invoke-interface {v15}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_1
+
+    :catchall_1
+    move-exception v2
+
+    invoke-interface {v15}, Landroid/database/Cursor;->close()V
+
+    throw v2
+.end method
+
 .method public static setContext(Landroid/content/Context;)V
     .locals 3
 
@@ -154,6 +536,18 @@
 .end method
 
 .method public getMaxId(Ljava/lang/String;)J
+    .locals 2
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/common/model/DataProvider;->getMaxId(Ljava/lang/String;Z)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public getMaxId(Ljava/lang/String;Z)J
     .locals 12
 
     const/4 v9, 0x0
@@ -209,6 +603,10 @@
     cmp-long v0, v10, v0
 
     if-nez v0, :cond_2
+
+    invoke-direct {p0}, Lcom/android/launcher3/common/model/DataProvider;->printDBLog()V
+
+    if-eqz p2, :cond_2
 
     new-instance v0, Ljava/lang/RuntimeException;
 

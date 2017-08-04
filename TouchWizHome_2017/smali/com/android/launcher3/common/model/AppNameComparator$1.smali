@@ -57,7 +57,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/model/AppNameComparator$1;->this$0:Lcom/android/launcher3/common/model/AppNameComparator;
 
-    # invokes: Lcom/android/launcher3/common/model/AppNameComparator;->compareTitles(Ljava/lang/String;Ljava/lang/String;)I
     invoke-static {v3, v0, v1}, Lcom/android/launcher3/common/model/AppNameComparator;->access$000(Lcom/android/launcher3/common/model/AppNameComparator;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2

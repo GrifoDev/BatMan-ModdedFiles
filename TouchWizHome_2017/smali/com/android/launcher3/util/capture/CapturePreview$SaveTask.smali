@@ -202,7 +202,6 @@
     :try_start_0
     iget-object v5, p0, Lcom/android/launcher3/util/capture/CapturePreview$SaveTask;->this$0:Lcom/android/launcher3/util/capture/CapturePreview;
 
-    # getter for: Lcom/android/launcher3/util/capture/CapturePreview;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/launcher3/util/capture/CapturePreview;->access$100(Lcom/android/launcher3/util/capture/CapturePreview;)Landroid/content/Context;
 
     move-result-object v5
@@ -215,7 +214,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/util/capture/CapturePreview$SaveTask;->this$0:Lcom/android/launcher3/util/capture/CapturePreview;
 
-    # getter for: Lcom/android/launcher3/util/capture/CapturePreview;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/launcher3/util/capture/CapturePreview;->access$100(Lcom/android/launcher3/util/capture/CapturePreview;)Landroid/content/Context;
 
     move-result-object v5
@@ -240,7 +238,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/util/capture/CapturePreview$SaveTask;->this$0:Lcom/android/launcher3/util/capture/CapturePreview;
 
-    # getter for: Lcom/android/launcher3/util/capture/CapturePreview;->mDirtyFlags:I
     invoke-static {v5}, Lcom/android/launcher3/util/capture/CapturePreview;->access$200(Lcom/android/launcher3/util/capture/CapturePreview;)I
 
     move-result v7
@@ -252,7 +249,6 @@
     :goto_4
     and-int/2addr v5, v7
 
-    # setter for: Lcom/android/launcher3/util/capture/CapturePreview;->mDirtyFlags:I
     invoke-static {v6, v5}, Lcom/android/launcher3/util/capture/CapturePreview;->access$202(Lcom/android/launcher3/util/capture/CapturePreview;I)I
 
     :cond_4
@@ -296,12 +292,10 @@
 
     iget-object v8, p0, Lcom/android/launcher3/util/capture/CapturePreview$SaveTask;->this$0:Lcom/android/launcher3/util/capture/CapturePreview;
 
-    # getter for: Lcom/android/launcher3/util/capture/CapturePreview;->mContext:Landroid/content/Context;
     invoke-static {v8}, Lcom/android/launcher3/util/capture/CapturePreview;->access$100(Lcom/android/launcher3/util/capture/CapturePreview;)Landroid/content/Context;
 
     move-result-object v8
 
-    # invokes: Lcom/android/launcher3/util/capture/CapturePreview;->getExternalCacheDirPath(Landroid/content/Context;)Ljava/lang/String;
     invoke-static {v6, v8}, Lcom/android/launcher3/util/capture/CapturePreview;->access$300(Lcom/android/launcher3/util/capture/CapturePreview;Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0

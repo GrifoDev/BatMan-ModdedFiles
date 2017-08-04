@@ -160,69 +160,69 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 5
 
-    const/16 v5, 0x15
+    const/16 v4, 0x15
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    new-array v1, v2, [I
+    new-array v0, v1, [I
 
-    const v4, 0x10100b3
+    const v3, 0x10100b3
 
-    aput v4, v1, v3
+    aput v3, v0, v2
 
-    sput-object v1, Landroid/support/v4/widget/DrawerLayout;->LAYOUT_ATTRS:[I
-
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x13
-
-    if-lt v1, v4, :cond_0
-
-    move v1, v2
-
-    :goto_0
-    sput-boolean v1, Landroid/support/v4/widget/DrawerLayout;->CAN_HIDE_DESCENDANTS:Z
-
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v1, v5, :cond_1
-
-    :goto_1
-    sput-boolean v2, Landroid/support/v4/widget/DrawerLayout;->SET_DRAWER_SHADOW_FROM_ELEVATION:Z
+    sput-object v0, Landroid/support/v4/widget/DrawerLayout;->LAYOUT_ATTRS:[I
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v0, v5, :cond_2
+    const/16 v3, 0x13
 
-    new-instance v1, Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImplApi21;
+    if-lt v0, v3, :cond_0
 
-    invoke-direct {v1}, Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImplApi21;-><init>()V
+    move v0, v1
 
-    sput-object v1, Landroid/support/v4/widget/DrawerLayout;->IMPL:Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImpl;
+    :goto_0
+    sput-boolean v0, Landroid/support/v4/widget/DrawerLayout;->CAN_HIDE_DESCENDANTS:Z
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    if-lt v0, v4, :cond_1
+
+    :goto_1
+    sput-boolean v1, Landroid/support/v4/widget/DrawerLayout;->SET_DRAWER_SHADOW_FROM_ELEVATION:Z
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    if-lt v0, v4, :cond_2
+
+    new-instance v0, Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImplApi21;
+
+    invoke-direct {v0}, Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImplApi21;-><init>()V
+
+    sput-object v0, Landroid/support/v4/widget/DrawerLayout;->IMPL:Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImpl;
 
     :goto_2
     return-void
 
     :cond_0
-    move v1, v3
+    move v0, v2
 
     goto :goto_0
 
     :cond_1
-    move v2, v3
+    move v1, v2
 
     goto :goto_1
 
     :cond_2
-    new-instance v1, Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImplBase;
+    new-instance v0, Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImplBase;
 
-    invoke-direct {v1}, Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImplBase;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImplBase;-><init>()V
 
-    sput-object v1, Landroid/support/v4/widget/DrawerLayout;->IMPL:Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImpl;
+    sput-object v0, Landroid/support/v4/widget/DrawerLayout;->IMPL:Landroid/support/v4/widget/DrawerLayout$DrawerLayoutCompatImpl;
 
     goto :goto_2
 .end method
@@ -262,7 +262,7 @@
 
     new-instance v2, Landroid/support/v4/widget/DrawerLayout$ChildAccessibilityDelegate;
 
-    invoke-direct {v2, p0}, Landroid/support/v4/widget/DrawerLayout$ChildAccessibilityDelegate;-><init>(Landroid/support/v4/widget/DrawerLayout;)V
+    invoke-direct {v2}, Landroid/support/v4/widget/DrawerLayout$ChildAccessibilityDelegate;-><init>()V
 
     iput-object v2, p0, Landroid/support/v4/widget/DrawerLayout;->mChildAccessibilityDelegate:Landroid/support/v4/widget/DrawerLayout$ChildAccessibilityDelegate;
 
@@ -1363,15 +1363,15 @@
 .end method
 
 .method public computeScroll()V
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     invoke-virtual {p0}, Landroid/support/v4/widget/DrawerLayout;->getChildCount()I
 
     move-result v0
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     const/4 v1, 0x0
 
@@ -1380,46 +1380,47 @@
 
     invoke-virtual {p0, v1}, Landroid/support/v4/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v4
+    move-result-object v6
 
-    check-cast v4, Landroid/support/v4/widget/DrawerLayout$LayoutParams;
+    check-cast v6, Landroid/support/v4/widget/DrawerLayout$LayoutParams;
 
-    iget v2, v4, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->onScreen:F
+    iget v3, v6, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->onScreen:F
 
-    invoke-static {v3, v2}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v5, v3}, Ljava/lang/Math;->max(FF)F
 
-    move-result v3
+    move-result v5
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    iput v3, p0, Landroid/support/v4/widget/DrawerLayout;->mScrimOpacity:F
+    iput v5, p0, Landroid/support/v4/widget/DrawerLayout;->mScrimOpacity:F
 
-    iget-object v4, p0, Landroid/support/v4/widget/DrawerLayout;->mLeftDragger:Landroid/support/v4/widget/ViewDragHelper;
+    iget-object v6, p0, Landroid/support/v4/widget/DrawerLayout;->mLeftDragger:Landroid/support/v4/widget/ViewDragHelper;
 
-    invoke-virtual {v4, v6}, Landroid/support/v4/widget/ViewDragHelper;->continueSettling(Z)Z
+    invoke-virtual {v6, v7}, Landroid/support/v4/widget/ViewDragHelper;->continueSettling(Z)Z
+
+    move-result v2
+
+    iget-object v6, p0, Landroid/support/v4/widget/DrawerLayout;->mRightDragger:Landroid/support/v4/widget/ViewDragHelper;
+
+    invoke-virtual {v6, v7}, Landroid/support/v4/widget/ViewDragHelper;->continueSettling(Z)Z
 
     move-result v4
 
-    iget-object v5, p0, Landroid/support/v4/widget/DrawerLayout;->mRightDragger:Landroid/support/v4/widget/ViewDragHelper;
+    if-nez v2, :cond_1
 
-    invoke-virtual {v5, v6}, Landroid/support/v4/widget/ViewDragHelper;->continueSettling(Z)Z
-
-    move-result v5
-
-    or-int/2addr v4, v5
-
-    if-eqz v4, :cond_1
-
-    invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
+    if-eqz v4, :cond_2
 
     :cond_1
+    invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
+
+    :cond_2
     return-void
 .end method
 

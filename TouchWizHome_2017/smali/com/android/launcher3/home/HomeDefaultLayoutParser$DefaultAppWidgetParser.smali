@@ -44,7 +44,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v14}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2100(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v14
@@ -71,7 +70,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v14}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2200(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v14
@@ -116,7 +114,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v14}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2300(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v14
@@ -129,7 +126,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v14}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2400(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v14
@@ -142,7 +138,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v14}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2500(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v14
@@ -155,7 +150,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v14}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2600(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v14
@@ -178,7 +172,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mHomeParseContainer:I
     invoke-static {v14}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$000(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)I
 
     move-result v14
@@ -191,7 +184,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # invokes: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->setUsedGridSize(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v14, v2, v3, v12, v13}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$500(Lcom/android/launcher3/home/HomeDefaultLayoutParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
@@ -343,7 +335,6 @@
 
     iget-object v14, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultAppWidgetParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mContext:Landroid/content/Context;
     invoke-static {v14}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2700(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/Context;
 
     move-result-object v14

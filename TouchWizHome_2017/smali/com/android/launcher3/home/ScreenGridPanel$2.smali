@@ -47,7 +47,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$300(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v1
@@ -56,7 +55,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$300(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v1
@@ -65,7 +63,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$300(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v1
@@ -74,7 +71,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$300(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v1
@@ -84,7 +80,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1
@@ -117,7 +112,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
@@ -132,14 +126,12 @@
 
     move-result v2
 
-    # setter for: Lcom/android/launcher3/home/ScreenGridPanel;->mAppsCellX:I
     invoke-static {v1, v2}, Lcom/android/launcher3/home/ScreenGridPanel;->access$602(Lcom/android/launcher3/home/ScreenGridPanel;I)I
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
     iget-object v2, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
@@ -154,12 +146,10 @@
 
     move-result v2
 
-    # setter for: Lcom/android/launcher3/home/ScreenGridPanel;->mAppsCellY:I
     invoke-static {v1, v2}, Lcom/android/launcher3/home/ScreenGridPanel;->access$702(Lcom/android/launcher3/home/ScreenGridPanel;I)I
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mScreenGridExplainView:Landroid/widget/TextView;
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$500(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -170,7 +160,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
 
     move-result-object v1

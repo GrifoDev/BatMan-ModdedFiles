@@ -46,8 +46,6 @@
 
 .field mAllowAddToBackStack:Z
 
-.field mAllowOptimization:Z
-
 .field mBreadCrumbShortTitleRes:I
 
 .field mBreadCrumbShortTitleText:Ljava/lang/CharSequence;
@@ -93,6 +91,8 @@
 .field mPopEnterAnim:I
 
 .field mPopExitAnim:I
+
+.field mReorderingAllowed:Z
 
 .field mSharedElementSourceNames:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -165,7 +165,7 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Landroid/support/v4/app/BackStackRecord;->mAllowOptimization:Z
+    iput-boolean v0, p0, Landroid/support/v4/app/BackStackRecord;->mReorderingAllowed:Z
 
     iput-object p1, p0, Landroid/support/v4/app/BackStackRecord;->mManager:Landroid/support/v4/app/FragmentManagerImpl;
 
@@ -1545,7 +1545,7 @@
     invoke-virtual {v4, v0, v5}, Landroid/support/v4/app/FragmentManagerImpl;->addFragment(Landroid/support/v4/app/Fragment;Z)V
 
     :goto_1
-    iget-boolean v4, p0, Landroid/support/v4/app/BackStackRecord;->mAllowOptimization:Z
+    iget-boolean v4, p0, Landroid/support/v4/app/BackStackRecord;->mReorderingAllowed:Z
 
     if-nez v4, :cond_1
 
@@ -1636,7 +1636,7 @@
     goto :goto_1
 
     :cond_2
-    iget-boolean v4, p0, Landroid/support/v4/app/BackStackRecord;->mAllowOptimization:Z
+    iget-boolean v4, p0, Landroid/support/v4/app/BackStackRecord;->mReorderingAllowed:Z
 
     if-nez v4, :cond_3
 
@@ -1743,7 +1743,7 @@
     invoke-virtual {v3, v0}, Landroid/support/v4/app/FragmentManagerImpl;->removeFragment(Landroid/support/v4/app/Fragment;)V
 
     :goto_1
-    iget-boolean v3, p0, Landroid/support/v4/app/BackStackRecord;->mAllowOptimization:Z
+    iget-boolean v3, p0, Landroid/support/v4/app/BackStackRecord;->mReorderingAllowed:Z
 
     if-nez v3, :cond_1
 
@@ -1838,7 +1838,7 @@
     goto :goto_1
 
     :cond_2
-    iget-boolean v3, p0, Landroid/support/v4/app/BackStackRecord;->mAllowOptimization:Z
+    iget-boolean v3, p0, Landroid/support/v4/app/BackStackRecord;->mReorderingAllowed:Z
 
     if-nez v3, :cond_3
 
@@ -2525,40 +2525,6 @@
     goto :goto_1
 .end method
 
-.method public postOnCommit(Ljava/lang/Runnable;)Landroid/support/v4/app/FragmentTransaction;
-    .locals 2
-
-    if-nez p1, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "runnable cannot be null"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/support/v4/app/BackStackRecord;->disallowAddToBackStack()Landroid/support/v4/app/FragmentTransaction;
-
-    iget-object v0, p0, Landroid/support/v4/app/BackStackRecord;->mCommitRunnables:Ljava/util/ArrayList;
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Landroid/support/v4/app/BackStackRecord;->mCommitRunnables:Ljava/util/ArrayList;
-
-    :cond_1
-    iget-object v0, p0, Landroid/support/v4/app/BackStackRecord;->mCommitRunnables:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    return-object p0
-.end method
-
 .method public remove(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
     .locals 2
 
@@ -2606,6 +2572,40 @@
     return-object p0
 .end method
 
+.method public runOnCommit(Ljava/lang/Runnable;)Landroid/support/v4/app/FragmentTransaction;
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "runnable cannot be null"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/support/v4/app/BackStackRecord;->disallowAddToBackStack()Landroid/support/v4/app/FragmentTransaction;
+
+    iget-object v0, p0, Landroid/support/v4/app/BackStackRecord;->mCommitRunnables:Ljava/util/ArrayList;
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Landroid/support/v4/app/BackStackRecord;->mCommitRunnables:Ljava/util/ArrayList;
+
+    :cond_1
+    iget-object v0, p0, Landroid/support/v4/app/BackStackRecord;->mCommitRunnables:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    return-object p0
+.end method
+
 .method public runOnCommitRunnables()V
     .locals 3
 
@@ -2648,11 +2648,13 @@
 .end method
 
 .method public setAllowOptimization(Z)Landroid/support/v4/app/FragmentTransaction;
-    .locals 0
+    .locals 1
 
-    iput-boolean p1, p0, Landroid/support/v4/app/BackStackRecord;->mAllowOptimization:Z
+    invoke-virtual {p0, p1}, Landroid/support/v4/app/BackStackRecord;->setReorderingAllowed(Z)Landroid/support/v4/app/FragmentTransaction;
 
-    return-object p0
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public setBreadCrumbShortTitle(I)Landroid/support/v4/app/FragmentTransaction;
@@ -2780,6 +2782,14 @@
     invoke-direct {v0, v1, p1}, Landroid/support/v4/app/BackStackRecord$Op;-><init>(ILandroid/support/v4/app/Fragment;)V
 
     invoke-virtual {p0, v0}, Landroid/support/v4/app/BackStackRecord;->addOp(Landroid/support/v4/app/BackStackRecord$Op;)V
+
+    return-object p0
+.end method
+
+.method public setReorderingAllowed(Z)Landroid/support/v4/app/FragmentTransaction;
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/support/v4/app/BackStackRecord;->mReorderingAllowed:Z
 
     return-object p0
 .end method

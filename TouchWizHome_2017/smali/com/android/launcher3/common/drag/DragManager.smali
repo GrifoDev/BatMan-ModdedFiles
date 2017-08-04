@@ -620,7 +620,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f030038
+    const v2, 0x7f03003a
 
     invoke-static {v1, v2, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -3297,7 +3297,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0900fe
+    const v6, 0x7f09010c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

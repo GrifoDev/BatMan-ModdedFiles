@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "ConnectionRecord"
 .end annotation
 
@@ -40,14 +40,10 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
-
 
 # direct methods
-.method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
+.method constructor <init>()V
     .locals 1
-
-    iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

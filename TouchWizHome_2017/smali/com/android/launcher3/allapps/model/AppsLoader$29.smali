@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->removeUnRestoredItems()V
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->removeCloneItem(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,18 +22,18 @@
 
 .field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
-.field final synthetic val$removeItems:Ljava/util/ArrayList;
+.field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$29;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
     iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$29;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
-    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$29;->val$removeItems:Ljava/util/ArrayList;
+    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$29;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,25 +49,15 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$29;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sLauncherModel:Lcom/android/launcher3/LauncherModel;
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$3500()Lcom/android/launcher3/LauncherModel;
+    iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$29;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/launcher3/LauncherModel;->getLoaderTask()Lcom/android/launcher3/LauncherModel$LoaderTask;
-
-    move-result-object v3
-
-    # invokes: Lcom/android/launcher3/allapps/model/AppsLoader;->tryGetCallbacks(Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
     invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$29;->val$removeItems:Ljava/util/ArrayList;
-
-    invoke-interface {v0, v1}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->bindItemsRemoved(Ljava/util/ArrayList;)V
+    invoke-interface {v0}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->removeAllBindItems()V
 
     :cond_0
     return-void

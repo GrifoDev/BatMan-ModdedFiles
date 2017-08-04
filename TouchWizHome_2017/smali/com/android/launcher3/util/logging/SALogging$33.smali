@@ -39,41 +39,48 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 5
 
-    sget-object v1, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+    sget-object v2, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f08018e
+    const-string v0, ""
 
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$33;->val$info:Landroid/appwidget/AppWidgetProviderInfo;
+
+    iget-object v2, v2, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$33;->val$info:Landroid/appwidget/AppWidgetProviderInfo;
+
+    iget-object v2, v2, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
 
     move-result-object v2
 
-    const v3, 0x7f080137
+    const v3, 0x7f08019b
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    sget-object v4, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+    const v4, 0x7f080146
 
-    iget-object v5, p0, Lcom/android/launcher3/util/logging/SALogging$33;->val$info:Landroid/appwidget/AppWidgetProviderInfo;
-
-    iget-object v5, v5, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
-
-    invoke-static {v4, v5}, Lcom/android/launcher3/util/logging/SALogUtils;->getDetailAppNameByComponentName(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/String;
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2, v3, v4, v0}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Qidirish jurnali</string>
+    <string name="about">%s haqida</string>
+    <string name="about_already_installed">So‘nggi versiya oldinroq o‘rnatilgan.</string>
+    <string name="about_home_screen">Asosiy ekran</string>
+    <string name="about_licence">Ochiq manba litsenziyalari</string>
+    <string name="about_network_err">Yangilanishlar mavjudligini tekshirib bo‘lmadi. Telefoningiz tarmoqqa ulanmagan.</string>
+    <string name="about_new_version_exist">Yangi versiya mavjud.</string>
+    <string name="about_retry">Qayta urin</string>
+    <string name="about_update">Yangilash</string>
+    <string name="about_version">%s versiyasi</string>
     <string name="activity_not_available">Bu ilovadan qurilmangizda foydalanib bo‘lmaydi.</string>
     <string name="activity_not_found">Ilova o‘rnatilmadi.</string>
     <string name="align_to_bottom">Pastga tenglashtirilsin</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Ushbu sahifada boshqa joy yo‘q</string>
     <string name="out_of_space_dialog">Ushbu sahifada bo‘sh joy qolmadi. Element yangi sahifaga qo‘shiladi.</string>
     <string name="permdesc_install_widget">Bu ilova vidjetlarni asosiy ekranga qo‘shishi mumkin.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ushbu ilova Asosiy ekrandan chap tomonida joylashgan maxsus tarkib sahifasi parametrlarini o‘qishi mumkin.</string>
+    <string name="permdesc_write_zeropage_settings">Ushbu ilova Asosiy ekrandan chap tomonida joylashgan maxsus tarkib sahifasi parametrlarini o‘zgartirishi mumkin.</string>
     <string name="permlab_install_widget">Vidjetlar qo‘shish</string>
+    <string name="permlab_read_settings">Asosiy parametrlar va yorliqlarni o‘qish</string>
+    <string name="permlab_read_zeropage_settings">Maxsus trkb sahifa. param. o‘qish</string>
+    <string name="permlab_write_zeropage_settings">Maxsus tarkib sahifa. param. o‘zgar</string>
     <string name="quick_option_add_apps">Ilovalar qo‘shish</string>
     <string name="quick_option_add_shortcut_to_home">Bosh ekranga yorliq qo‘sh</string>
     <string name="quick_option_add_to_personal">Shaxsiyga qo‘sh</string>

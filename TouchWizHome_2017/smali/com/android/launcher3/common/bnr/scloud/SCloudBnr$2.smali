@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/bnr/scloud/SCloudBnr$2;->this$0:Lcom/android/launcher3/common/bnr/scloud/SCloudBnr;
 
-    # getter for: Lcom/android/launcher3/common/bnr/scloud/SCloudBnr;->mListener:Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient$QuickBackupListener;
     invoke-static {v0}, Lcom/android/launcher3/common/bnr/scloud/SCloudBnr;->access$000(Lcom/android/launcher3/common/bnr/scloud/SCloudBnr;)Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient$QuickBackupListener;
 
     move-result-object v0

@@ -47,7 +47,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/Workspace$11;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mCurrentPage:I
     invoke-static {v2}, Lcom/android/launcher3/home/Workspace;->access$800(Lcom/android/launcher3/home/Workspace;)I
 
     move-result v2
@@ -60,7 +59,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/Workspace$11;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # invokes: Lcom/android/launcher3/home/Workspace;->showRemoveScreenPopup()V
     invoke-static {v1}, Lcom/android/launcher3/home/Workspace;->access$900(Lcom/android/launcher3/home/Workspace;)V
 
     const/4 v0, 0x1
@@ -76,7 +74,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080189
+    const v3, 0x7f080196
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -88,7 +86,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080146
+    const v4, 0x7f080155
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

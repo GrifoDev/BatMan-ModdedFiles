@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Gözleg taryhy</string>
+    <string name="about">%s hakynda</string>
+    <string name="about_already_installed">Iň täze wersiýa eýýäm gurnalan.</string>
+    <string name="about_home_screen">Baş ekran</string>
+    <string name="about_licence">Açyk çeşmeli lisenziýalar</string>
+    <string name="about_network_err">Täzelemeleri barlap bolmaýar. Telefonyňyz tora birikmedik.</string>
+    <string name="about_new_version_exist">Täze wersiýa elýeterli</string>
+    <string name="about_retry">Täz synan</string>
+    <string name="about_update">Täzele</string>
+    <string name="about_version">Wersiýa %s</string>
     <string name="activity_not_available">Bu goýma siziň enjamyňyz üçin elýeterli däl.</string>
     <string name="activity_not_found">Gollanma gurulmady.</string>
     <string name="align_to_bottom">Aşak deňle</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Şu sahypada başga boş ýer ýok</string>
     <string name="out_of_space_dialog">Bu sahypada başga ýer ýok. Element täze sahypa goşular.</string>
     <string name="permdesc_install_widget">Bu goýma öý ekrana wijetleri goşup bilýär.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Bu goýma Öý ekranyň çepinde durýan laýyk material sahypasynyň sazlamalaryny okap bilýär.</string>
+    <string name="permdesc_write_zeropage_settings">Bu goýma Öý ekranyň çepinde durýan laýyk material sahypasynyň sazlamalaryny üýtgedip bilýär.</string>
     <string name="permlab_install_widget">Wijetleri goş</string>
+    <string name="permlab_read_settings">Öý sazlamalary we salgylamalary okamak</string>
+    <string name="permlab_read_zeropage_settings">Laýyk material sahypa sazlama oka</string>
+    <string name="permlab_write_zeropage_settings">Laýyk material sahyp sazlama üýtget</string>
     <string name="quick_option_add_apps">Goýma goş</string>
     <string name="quick_option_add_shortcut_to_home">Öý ekrana çykgyt goş</string>
     <string name="quick_option_add_to_personal">Şahsylara goşuň</string>

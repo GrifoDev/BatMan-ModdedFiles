@@ -19,6 +19,8 @@
 
 .field static final KEY_DATA_URI:Ljava/lang/String; = "uri"
 
+.field static final KEY_EXTRAS_BUNDLE:Ljava/lang/String; = "extras"
+
 .field static final KEY_SENDER:Ljava/lang/String; = "sender"
 
 .field static final KEY_TEXT:Ljava/lang/String; = "text"
@@ -31,6 +33,8 @@
 
 .field private mDataUri:Landroid/net/Uri;
 
+.field private mExtras:Landroid/os/Bundle;
+
 .field private final mSender:Ljava/lang/CharSequence;
 
 .field private final mText:Ljava/lang/CharSequence;
@@ -40,9 +44,15 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;JLjava/lang/CharSequence;)V
-    .locals 0
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mExtras:Landroid/os/Bundle;
 
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mText:Ljava/lang/CharSequence;
 
@@ -159,7 +169,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     const-string v2, "uri"
 
@@ -167,7 +177,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     const-string v2, "type"
 
@@ -184,6 +194,27 @@
     check-cast v2, Landroid/net/Uri;
 
     invoke-virtual {v1, v4, v2}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->setData(Ljava/lang/String;Landroid/net/Uri;)Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
+
+    :cond_3
+    const-string v2, "extras"
+
+    invoke-virtual {p0, v2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v1}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    const-string v4, "extras"
+
+    invoke-virtual {p0, v4}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -308,6 +339,17 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     :cond_3
+    iget-object v1, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mExtras:Landroid/os/Bundle;
+
+    if-eqz v1, :cond_4
+
+    const-string v1, "extras"
+
+    iget-object v2, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mExtras:Landroid/os/Bundle;
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    :cond_4
     return-object v0
 .end method
 
@@ -325,6 +367,14 @@
     .locals 1
 
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mDataUri:Landroid/net/Uri;
+
+    return-object v0
+.end method
+
+.method public getExtras()Landroid/os/Bundle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mExtras:Landroid/os/Bundle;
 
     return-object v0
 .end method

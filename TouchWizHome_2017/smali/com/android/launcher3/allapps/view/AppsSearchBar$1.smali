@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchBar$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchBar;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsSearchBar;->mSearchView:Landroid/widget/SearchView;
     invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsSearchBar;->access$100(Lcom/android/launcher3/allapps/view/AppsSearchBar;)Landroid/widget/SearchView;
 
     move-result-object v0

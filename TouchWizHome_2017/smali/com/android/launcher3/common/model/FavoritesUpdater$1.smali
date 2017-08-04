@@ -70,7 +70,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$1;->val$stackTrace:[Ljava/lang/StackTraceElement;
 
-    # invokes: Lcom/android/launcher3/common/model/FavoritesUpdater;->checkItemInfoLocked(JLcom/android/launcher3/common/base/item/ItemInfo;[Ljava/lang/StackTraceElement;)V
     invoke-static {v2, v3, v0, v4}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$000(JLcom/android/launcher3/common/base/item/ItemInfo;[Ljava/lang/StackTraceElement;)V
 
     sget-object v0, Lcom/android/launcher3/common/model/DataLoader;->sBgItemsIdMap:Lcom/android/launcher3/util/LongArrayMap;
@@ -129,7 +128,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$1;->this$0:Lcom/android/launcher3/common/model/FavoritesUpdater;
 
-    # getter for: Lcom/android/launcher3/common/model/FavoritesUpdater;->mLoader:Lcom/android/launcher3/common/model/DataLoader;
     invoke-static {v0}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$100(Lcom/android/launcher3/common/model/FavoritesUpdater;)Lcom/android/launcher3/common/model/DataLoader;
 
     move-result-object v0
@@ -165,7 +163,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$1;->this$0:Lcom/android/launcher3/common/model/FavoritesUpdater;
 
-    # getter for: Lcom/android/launcher3/common/model/FavoritesUpdater;->mLoader:Lcom/android/launcher3/common/model/DataLoader;
     invoke-static {v0}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$100(Lcom/android/launcher3/common/model/FavoritesUpdater;)Lcom/android/launcher3/common/model/DataLoader;
 
     move-result-object v0
@@ -178,7 +175,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$1;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    # invokes: Lcom/android/launcher3/common/model/FavoritesUpdater;->logFolderCount(Lcom/android/launcher3/common/base/item/ItemInfo;)V
     invoke-static {v0, v2}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$200(Lcom/android/launcher3/common/model/FavoritesUpdater;Lcom/android/launcher3/common/base/item/ItemInfo;)V
 
     goto :goto_0

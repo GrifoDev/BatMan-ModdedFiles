@@ -53,7 +53,6 @@
 
     move-result-object v1
 
-    # setter for: Lcom/android/launcher3/executor/StateManager;->mTopViewState:Ljava/lang/String;
     invoke-static {v0, v1}, Lcom/android/launcher3/executor/StateManager;->access$202(Lcom/android/launcher3/executor/StateManager;Ljava/lang/String;)Ljava/lang/String;
 
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi;->isBixbySupported()Z
@@ -62,7 +61,6 @@
 
     if-eqz v0, :cond_1
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/executor/StateManager;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -79,7 +77,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/executor/StateManager$TopViewListener;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mTopViewState:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/launcher3/executor/StateManager;->access$200(Lcom/android/launcher3/executor/StateManager;)Ljava/lang/String;
 
     move-result-object v2
@@ -98,7 +95,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/executor/StateManager$TopViewListener;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mTopViewState:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/launcher3/executor/StateManager;->access$200(Lcom/android/launcher3/executor/StateManager;)Ljava/lang/String;
 
     move-result-object v1
@@ -111,7 +107,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/executor/StateManager$TopViewListener;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
     invoke-static {v0}, Lcom/android/launcher3/executor/StateManager;->access$300(Lcom/android/launcher3/executor/StateManager;)Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     move-result-object v0
@@ -123,7 +118,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/executor/StateManager$TopViewListener;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mTopViewState:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/launcher3/executor/StateManager;->access$200(Lcom/android/launcher3/executor/StateManager;)Ljava/lang/String;
 
     move-result-object v0
@@ -132,14 +126,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/executor/StateManager$TopViewListener;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
     invoke-static {v0}, Lcom/android/launcher3/executor/StateManager;->access$300(Lcom/android/launcher3/executor/StateManager;)Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/executor/StateManager$TopViewListener;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mTopViewState:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/launcher3/executor/StateManager;->access$200(Lcom/android/launcher3/executor/StateManager;)Ljava/lang/String;
 
     move-result-object v1
@@ -148,7 +140,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/executor/StateManager$TopViewListener;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mTopViewState:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/launcher3/executor/StateManager;->access$200(Lcom/android/launcher3/executor/StateManager;)Ljava/lang/String;
 
     move-result-object v0

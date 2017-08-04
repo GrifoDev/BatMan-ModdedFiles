@@ -13,6 +13,8 @@
 
 .field private mName:Ljava/lang/String;
 
+.field private mOrdinalNumber:I
+
 
 # direct methods
 .method constructor <init>()V
@@ -23,6 +25,10 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/launcher3/executor/StateAppInfo;->mComponentName:Landroid/content/ComponentName;
+
+    const/16 v0, -0x3e7
+
+    iput v0, p0, Lcom/android/launcher3/executor/StateAppInfo;->mOrdinalNumber:I
 
     return-void
 .end method
@@ -90,6 +96,14 @@
     iget-object v0, p0, Lcom/android/launcher3/executor/StateAppInfo;->mName:Ljava/lang/String;
 
     goto :goto_0
+.end method
+
+.method public getOrdinalNumber()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/launcher3/executor/StateAppInfo;->mOrdinalNumber:I
+
+    return v0
 .end method
 
 .method isValid()Z
@@ -253,6 +267,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/executor/StateAppInfo;->mName:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method setOrdinalNumber(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/launcher3/executor/StateAppInfo;->mOrdinalNumber:I
 
     return-void
 .end method

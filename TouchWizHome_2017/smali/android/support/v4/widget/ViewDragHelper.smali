@@ -915,19 +915,15 @@
 .end method
 
 .method private distanceInfluenceForSnapDuration(F)F
-    .locals 4
+    .locals 2
 
     const/high16 v0, 0x3f000000    # 0.5f
 
     sub-float/2addr p1, v0
 
-    float-to-double v0, p1
+    const v0, 0x3ef1463b
 
-    const-wide v2, 0x3fde28c7460698c7L    # 0.4712389167638204
-
-    mul-double/2addr v0, v2
-
-    double-to-float p1, v0
+    mul-float/2addr p1, v0
 
     float-to-double v0, p1
 

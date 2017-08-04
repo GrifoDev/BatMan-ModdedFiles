@@ -89,7 +89,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f030039
+    const v4, 0x7f03003b
 
     invoke-virtual {v0, v4, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v4, 0x7f0f00bf
+    const v4, 0x7f0f00cf
 
     invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     move-result v4
 
-    const v5, 0x7f0200d9
+    const v5, 0x7f0200de
 
     if-ne v4, v5, :cond_1
 
@@ -129,7 +129,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f080088
+    const v5, 0x7f080097
 
     invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -176,7 +176,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f09012b
+    const v5, 0x7f090139
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -204,7 +204,7 @@
 
     move-result v4
 
-    const v5, 0x7f080081
+    const v5, 0x7f080090
 
     if-ne v4, v5, :cond_2
 

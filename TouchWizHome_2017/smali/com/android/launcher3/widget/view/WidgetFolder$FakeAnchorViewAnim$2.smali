@@ -46,7 +46,6 @@
 
     iget-object v1, v1, Lcom/android/launcher3/widget/view/WidgetFolder$FakeAnchorViewAnim;->this$0:Lcom/android/launcher3/widget/view/WidgetFolder;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetFolder;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/widget/view/WidgetFolder;->access$200(Lcom/android/launcher3/widget/view/WidgetFolder;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1

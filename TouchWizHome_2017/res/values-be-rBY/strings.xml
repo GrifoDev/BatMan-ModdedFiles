@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Гісторыя пошуку</string>
+    <string name="about">Аб %s</string>
+    <string name="about_already_installed">Апошняя версія ўжо ўсталявана.</string>
+    <string name="about_home_screen">Галоўны экран</string>
+    <string name="about_licence">Ліцэнзіі адкрытага ПЗ</string>
+    <string name="about_network_err">Немагчыма праверыць наяўнасць абнаўленняў. Ваш тэлефон не падлучаны да сеткі.</string>
+    <string name="about_new_version_exist">Ёсць новая версія.</string>
+    <string name="about_retry">Паўтарыць</string>
+    <string name="about_update">Абнавіць</string>
+    <string name="about_version">Версія %s</string>
     <string name="activity_not_available">Гэта праграма недаступна для вашай прылады.</string>
     <string name="activity_not_found">Праграма не ўсталявана.</string>
     <string name="align_to_bottom">Выраўнаваць па ніжнім краі</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">На гэтай старонцы няма месца</string>
     <string name="out_of_space_dialog">На гэтай старонцы больш няма месца. Элемент будзе дададзены на новую старонку.</string>
     <string name="permdesc_install_widget">Гэта праграма можа дадаваць віджэты на галоўны экран.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Гэта праграма можа чытаць налады карыстальніцкай старонкі змесціва, якая размешчана злева ад галоўнага экрана.</string>
+    <string name="permdesc_write_zeropage_settings">Гэта праграма можа змяняць налады карыстальніцкай старонкі змесціва, якая размешчана злева ад галоўнага экрана.</string>
     <string name="permlab_install_widget">Дадаць віджэты</string>
+    <string name="permlab_read_settings">Чытаць налады і ярлыкі галоўнага экрана</string>
+    <string name="permlab_read_zeropage_settings">Чыт. налады карыст. стар. са змесц.</string>
+    <string name="permlab_write_zeropage_settings">Змян. нал. карыст. стар. са змесц.</string>
     <string name="quick_option_add_apps">Дадаць праграмы</string>
     <string name="quick_option_add_shortcut_to_home">Дад. ярлык на гал. экран</string>
     <string name="quick_option_add_to_personal">Дад. у асаб.</string>

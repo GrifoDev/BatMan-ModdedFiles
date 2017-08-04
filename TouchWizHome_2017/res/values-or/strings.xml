@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">ଇତିହାସ ସନ୍ଧାନ କରନ୍ତୁ</string>
+    <string name="about">%s ବିଷୟରେ</string>
+    <string name="about_already_installed">ନବୀନତ୍ତମ ସଂସ୍କରଣ ପୂର୍ବରୁ ସଂସ୍ଥାପିତ ହୋଇଛି।</string>
+    <string name="about_home_screen">ହୋମ୍ ସ୍କ୍ରିନ୍‍</string>
+    <string name="about_licence">ଉତ୍ସ ଲାଇସେନ୍ସ ଖୋଲନ୍ତୁ</string>
+    <string name="about_network_err">ଅପଡେଟସ୍ ଯାଞ୍ଚ କରିପାରିବେ ନାହିଁ। ଆପଣଙ୍କ ଫୋନ୍ ଏକ ନେଟୱାର୍କକୁ ସଂଯୋଜିତ ନୁହେଁ।</string>
+    <string name="about_new_version_exist">ଏକ ନୂତନ ସଂସ୍କରଣ ଉପଲବ୍ଧ ଅଛି।</string>
+    <string name="about_retry">ପୁନଃଚେଷ୍ଟା</string>
+    <string name="about_update">ଅପଡେଟ୍</string>
+    <string name="about_version">ସଂସ୍କରଣ %s</string>
     <string name="activity_not_available">ଆପଣଙ୍କ ଡିଭାଇସ୍ ପାଇଁ ଏହି ଆପ୍ଲିକେସନ୍‌ ଉପଲବ୍ଧ ନାହିଁ।</string>
     <string name="activity_not_found">ଆପ୍ଲିକେସନ୍ ସଂସ୍ଥାପନ ହୋଇନାହିଁ।</string>
     <string name="align_to_bottom">ନିମ୍ନକୁ ଶ୍ରେଣୀବଦ୍ଧ</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ଏହି ପୃଷ୍ଠାରେ ଅଧିକ ରୁମ୍‌ ନାହିଁ</string>
     <string name="out_of_space_dialog">ଏହି ପୃଷ୍ଠାରେ ଅଉ ଅଧିକ ସ୍ଥାନ ବାକି ନାହିଁ। ଏକ ନୂତନ ପୃଷ୍ଠାକୁ ଆଇଟମ୍ ଯୋଡା ହେବ।</string>
     <string name="permdesc_install_widget">ଏହି ଆପ୍ଲିକେସନ୍‌ ହୋମ୍ ସ୍କ୍ରିନକୁ ୱିଜେଟଗୁଡିକ ଯୋଡି ପାରିବ।</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ଏହି ଆପ୍ଲିକେସନ୍ କଷ୍ଟମ୍ ବିଷୟବସ୍ତୁ ପୃଷ୍ଠାର ସେଟିଂସ୍ ପଢିପାରେ, ଯାହା ହୋମ୍ ସ୍କ୍ରିନର ବାମରେ ଅବସ୍ଥାନ ହୋଇଛି।</string>
+    <string name="permdesc_write_zeropage_settings">ଏହି ଆପ୍ଲିକେସନ୍ କଷ୍ଟମ୍ ବିଷୟବସ୍ତୁ ପୃଷ୍ଠାର ସେଟିଂସ୍ ପରିବର୍ତ୍ତନ କରିପାରେ, ଯାହା ହୋମ୍ ସ୍କ୍ରିନର ବାମରେ ଅବସ୍ଥାନ ହୋଇଛି।</string>
     <string name="permlab_install_widget">ୱିଜେଟଗୁଡିକ ଯୋଡନ୍ତୁ</string>
+    <string name="permlab_read_settings">ହୋମ୍ ସେଟିଂସ୍ ଏବଂ ସର୍ଟକଟଗୁଡିକ ପଠନ କରନ୍ତୁ</string>
+    <string name="permlab_read_zeropage_settings">କଷ୍ଟ. ବିଷୟବ. ପୃଷ୍ଠା ସେଟିଂସ୍ ପଢନ୍ତୁ</string>
+    <string name="permlab_write_zeropage_settings">କଷ୍ଟ. ବିଷ. ପୃଷ୍ଠା ସେଟିଂ. ପରିବର୍ତ୍ତନ</string>
     <string name="quick_option_add_apps">ଆପସ୍ ଯୋଡନ୍ତୁ</string>
     <string name="quick_option_add_shortcut_to_home">ହୋମକୁ ସର୍ଟକଟ୍ ଯୋଡନ୍ତୁ</string>
     <string name="quick_option_add_to_personal">ବ୍ୟକ୍ତିଗତକୁ ଯୋଡନ୍ତୁ</string>

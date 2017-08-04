@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Пребарај ја историјата</string>
+    <string name="about">За %s</string>
+    <string name="about_already_installed">Најновата верзија веќе е инсталирана.</string>
+    <string name="about_home_screen">Почетен екран</string>
+    <string name="about_licence">Лиценци за отворен код</string>
+    <string name="about_network_err">Не може да се провери за ажурирања. Телефонот не е поврзан со мрежа.</string>
+    <string name="about_new_version_exist">Достапна е нова верзија.</string>
+    <string name="about_retry">Повторно</string>
+    <string name="about_update">Ажурирај</string>
+    <string name="about_version">Верзија %s</string>
     <string name="activity_not_available">Оваа апликација не е достапна за Вашиот уред.</string>
     <string name="activity_not_found">Апликацијата не е инсталирана.</string>
     <string name="align_to_bottom">Порамни со дното</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Виџетот %s веќе е додаден во почетниот екран.</string>
     <string name="option_menu_contact_up">Контактирајте нѐ</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Поставувања</string>
     <string name="options_menu">Повеќе опции</string>
     <string name="options_menu_search_recommend">Опции за пребарување</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Нема веќе место на оваа страница</string>
     <string name="out_of_space_dialog">Нема повеќе простор на оваа страница. Ставката ќе се додаде на нова страница.</string>
     <string name="permdesc_install_widget">Оваа апликација може да додава виџети на почетниот екран.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Оваа апликација може да ги чита поставувањата на страницата со прилагодена содржина, што се наоѓа лево од Почетниот екран.</string>
+    <string name="permdesc_write_zeropage_settings">Оваа апликација може да ги менува поставувањата на страницата со прилагодена содржина, што се наоѓа лево од Почетниот екран.</string>
     <string name="permlab_install_widget">Додај виџети</string>
+    <string name="permlab_read_settings">читај основни поставувања и кратенки</string>
+    <string name="permlab_read_zeropage_settings">Проч.пост. на стр.за прилаг. содрж.</string>
+    <string name="permlab_write_zeropage_settings">Смен.пост.на стр. за прилаг. содрж.</string>
     <string name="quick_option_add_apps">Додај апликации</string>
     <string name="quick_option_add_shortcut_to_home">Додај крат.на Почет.екран</string>
     <string name="quick_option_add_to_personal">Дод.во лично</string>

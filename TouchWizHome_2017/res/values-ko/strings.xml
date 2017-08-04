@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">검색기록</string>
+    <string name="about">%s 정보</string>
+    <string name="about_already_installed">최신 버전입니다.</string>
+    <string name="about_home_screen">홈 화면</string>
+    <string name="about_licence">오픈소스 라이선스</string>
+    <string name="about_network_err">업데이트를 확인할 수 없습니다. 휴대전화가 네트워크에 연결된 상태가 아닙니다.</string>
+    <string name="about_new_version_exist">최신 버전이 있습니다.</string>
+    <string name="about_retry">다시 시도</string>
+    <string name="about_update">업데이트</string>
+    <string name="about_version">버전 %s</string>
     <string name="activity_not_available">내 디바이스에서 사용할 수 없는 앱입니다.</string>
     <string name="activity_not_found">애플리케이션이 설치되지 않았습니다.</string>
     <string name="align_to_bottom">아래쪽 맞춤</string>
@@ -76,7 +85,7 @@
     <string name="last_page">현재 페이지가 마지막 페이지입니다.</string>
     <string name="lock_or_unlock_dislog_msg">이 앱을 폴더 밖으로 이동한 후에도 앱을 잠글까요?</string>
     <string name="long_press_widget_to_add">홈 화면에 추가할 위젯을 길게 누르세요.</string>
-    <string name="max_characters_available">글자는 최대 %d자까지 입력할 수 있습니다.</string>
+    <string name="max_characters_available">%d자까지 입력할 수 있습니다.</string>
     <string name="menu_edit_cancel">취소</string>
     <string name="menu_uninstall">앱 삭제</string>
     <string name="move_to_home">홈에 바로가기를 추가할 아이콘을 여기에 놓으세요.</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">현재 페이지에는 저장공간이 없습니다</string>
     <string name="out_of_space_dialog">이 페이지에 공간이 없습니다. 새 페이지에 항목을 추가합니다.</string>
     <string name="permdesc_install_widget">이 앱은 홈 화면에 위젯을 추가할 수 있습니다.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">이 앱은 홈 화면의 왼쪽 페이지와 같이 직접 설정한 콘텐츠 페이지의 설정을 읽을 수 있습니다.</string>
+    <string name="permdesc_write_zeropage_settings">이 앱은 홈 화면의 왼쪽 페이지와 같이 직접 설정한 콘텐츠 페이지의 설정을 변경할 수 있습니다.</string>
     <string name="permlab_install_widget">위젯 추가</string>
+    <string name="permlab_read_settings">홈 설정 및 바로가기 읽기</string>
+    <string name="permlab_read_zeropage_settings">직접 설정한 콘텐츠 페이지 설정 읽기</string>
+    <string name="permlab_write_zeropage_settings">직접 설정한 콘텐츠 페이지 설정 변경</string>
     <string name="quick_option_add_apps">앱 추가</string>
     <string name="quick_option_add_shortcut_to_home">홈에 바로가기 추가</string>
     <string name="quick_option_add_to_personal">퍼스널 홈에 추가</string>

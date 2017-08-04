@@ -28,13 +28,13 @@
 
 .field private static mBadgePositionFactor:F
 
-.field protected static mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
-
 
 # instance fields
 .field private mBadgeCount:Ljava/lang/String;
 
 .field protected mBadgeView:Landroid/widget/TextView;
+
+.field protected mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
 .field private mCheckBox:Landroid/widget/CheckBox;
 
@@ -857,15 +857,13 @@
 .end method
 
 .method public applyFromApplicationInfo(Lcom/android/launcher3/common/base/item/IconInfo;Z)V
-    .locals 3
+    .locals 4
 
     invoke-static {p1}, Lcom/android/launcher3/common/view/LiveIconManager;->isLiveIconPackage(Lcom/android/launcher3/common/base/item/IconInfo;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mLauncher:Lcom/android/launcher3/Launcher;
+    if-eqz v1, :cond_0
 
     iget-object v1, p1, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
 
@@ -875,53 +873,99 @@
 
     invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
+
+    const-string v1, "IconView"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "applyFromApplicationInfo - start GetLive : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/launcher3/common/view/IconView;->mLauncher:Lcom/android/launcher3/Launcher;
 
     iget-object v2, p1, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-static {v0, v1, v2}, Lcom/android/launcher3/common/view/LiveIconManager;->getLiveIcon(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
+    invoke-static {v1, v0, v2}, Lcom/android/launcher3/common/view/LiveIconManager;->getLiveIcon(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
+    iput-object v1, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
+
+    const-string v1, "IconView"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "applyFromApplicationInfo - end GetLive : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
+    iget-object v1, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getIconCache()Lcom/android/launcher3/common/model/IconCache;
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getIconCache()Lcom/android/launcher3/common/model/IconCache;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
+    invoke-virtual {p1, v1}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
+    iput-object v1, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
 
     :cond_1
-    iget-object v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
+    iget-object v1, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/android/launcher3/common/view/IconView;->refreshIcon(Lcom/android/launcher3/common/base/item/IconInfo;ZLandroid/graphics/Bitmap;)V
+    invoke-virtual {p0, p1, p2, v1}, Lcom/android/launcher3/common/view/IconView;->refreshIcon(Lcom/android/launcher3/common/base/item/IconInfo;ZLandroid/graphics/Bitmap;)V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->changeTextColorForBg(Z)V
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/view/IconView;->changeTextColorForBg(Z)V
 
     invoke-static {}, Lcom/android/launcher3/Utilities;->isNeededToTestLauncherResume()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
-    const-string v0, "apps"
+    const-string v1, "apps"
 
-    invoke-static {v0}, Lcom/android/launcher3/Utilities;->printCallStack(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/android/launcher3/Utilities;->printCallStack(Ljava/lang/String;)V
 
     :cond_2
     return-void
@@ -938,57 +982,19 @@
 .end method
 
 .method public applyFromShortcutInfo(Lcom/android/launcher3/common/base/item/IconInfo;Lcom/android/launcher3/common/model/IconCache;Z)V
-    .locals 4
+    .locals 5
 
-    iget-boolean v2, p1, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
-
-    if-eqz v2, :cond_4
-
-    invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeAppIcon()Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-static {p1}, Lcom/android/launcher3/common/view/LiveIconManager;->isLiveIconPackage(Lcom/android/launcher3/common/base/item/IconInfo;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p1, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
-
-    invoke-virtual {v2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    iget-object v3, p1, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    invoke-static {v2, v1, v3}, Lcom/android/launcher3/common/view/LiveIconManager;->getLiveIcon(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    :cond_0
     iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mLauncher:Lcom/android/launcher3/Launcher;
 
     invoke-static {v2, p1}, Lcom/android/launcher3/common/view/LiveIconManager;->applyKnoxLiveIcon(Lcom/android/launcher3/Launcher;Lcom/android/launcher3/common/base/item/IconInfo;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     iget-object v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    :cond_1
+    :goto_0
     invoke-virtual {p0, p1, p3, v0}, Lcom/android/launcher3/common/view/IconView;->refreshIcon(Lcom/android/launcher3/common/base/item/IconInfo;ZLandroid/graphics/Bitmap;)V
 
     invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
@@ -1005,36 +1011,122 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     iget v2, p1, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_0
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/view/IconView;->enableShortcutIconToTitle()V
 
-    :cond_2
+    :cond_0
     invoke-static {}, Lcom/android/launcher3/Utilities;->isNeededToTestLauncherResume()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_1
 
     const-string v2, "home"
 
     invoke-static {v2}, Lcom/android/launcher3/Utilities;->printCallStack(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_1
     return-void
+
+    :cond_2
+    invoke-static {p1}, Lcom/android/launcher3/common/view/LiveIconManager;->isLiveIconPackage(Lcom/android/launcher3/common/base/item/IconInfo;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p1, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+
+    invoke-virtual {v2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "IconView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "applyFromShortcutInfo - start GetLive : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    iget-object v3, p1, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-static {v2, v1, v3}, Lcom/android/launcher3/common/view/LiveIconManager;->getLiveIcon(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    const-string v2, "IconView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "applyFromShortcutInfo - end GetLive : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_3
+    iget-boolean v2, p1, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
+
+    if-eqz v2, :cond_4
+
+    invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeAppIcon()Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    goto :goto_0
 
     :cond_4
     invoke-virtual {p1, p2}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method protected applyKnoxLiveIcon(Lcom/android/launcher3/common/base/item/IconInfo;)Z
@@ -1598,7 +1690,7 @@
 
     :cond_4
     :goto_0
-    const v6, 0x7f0f0075
+    const v6, 0x7f0f0085
 
     invoke-virtual {p0, v6}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -1975,7 +2067,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/view/IconView;->mTitleView:Landroid/widget/TextView;
 
-    const v2, 0x7f0200c7
+    const v2, 0x7f0200cc
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -2261,7 +2353,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f0007
+    const v0, 0x7f0f0017
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2271,7 +2363,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mIconView:Landroid/widget/ImageView;
 
-    const v0, 0x7f0f0008
+    const v0, 0x7f0f0018
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2281,7 +2373,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mTitleView:Landroid/widget/TextView;
 
-    const v0, 0x7f0f0071
+    const v0, 0x7f0f0081
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2291,7 +2383,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mShadow:Landroid/widget/ImageView;
 
-    const v0, 0x7f0f0074
+    const v0, 0x7f0f0084
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2301,7 +2393,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mCountBadgeView:Landroid/widget/TextView;
 
-    const v0, 0x7f0f0075
+    const v0, 0x7f0f0085
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2327,7 +2419,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020088
+    const v2, 0x7f02008b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2341,7 +2433,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900b3
+    const v2, 0x7f0900c1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2350,7 +2442,7 @@
     invoke-virtual {v0, v3, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_0
-    const v0, 0x7f0f0073
+    const v0, 0x7f0f0083
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 
@@ -2544,13 +2636,13 @@
 
     move-result-object v2
 
-    sput-object v2, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iput-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
-    sget-object v2, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     if-eqz v2, :cond_4
 
-    sget-object v2, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     invoke-virtual {v2}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->animateDown()V
 
@@ -2579,15 +2671,15 @@
     if-nez v2, :cond_7
 
     :cond_5
-    sget-object v2, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     if-eqz v2, :cond_6
 
-    sget-object v2, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     invoke-virtual {v2}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->cancel()V
 
-    sget-object v2, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     invoke-virtual {v2}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->animateUp()V
 
@@ -2603,7 +2695,7 @@
     :cond_7
     const/4 v2, 0x0
 
-    sput-object v2, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iput-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mLongPressHelper:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
@@ -2760,15 +2852,11 @@
     :cond_3
     if-eqz v3, :cond_0
 
-    sget-object v5, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iget-object v5, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     if-eqz v5, :cond_4
 
-    sget-object v5, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->cancel()V
-
-    sget-object v5, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iget-object v5, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     invoke-virtual {v5}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->animateUp()V
 
@@ -2784,7 +2872,7 @@
     :cond_5
     const/4 v5, 0x0
 
-    sput-object v5, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
+    iput-object v5, p0, Lcom/android/launcher3/common/view/IconView;->mBounceAnim:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     move v5, v6
 
@@ -3090,7 +3178,7 @@
 
     move-result-object v11
 
-    const v13, 0x7f080064
+    const v13, 0x7f08006d
 
     invoke-virtual {v11, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3198,7 +3286,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f080065
+    const v14, 0x7f08006e
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3813,7 +3901,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0f0074
+    const v0, 0x7f0f0084
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/IconView;->findViewById(I)Landroid/view/View;
 

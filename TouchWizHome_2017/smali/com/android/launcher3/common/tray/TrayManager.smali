@@ -499,35 +499,15 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
+    check-cast p1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    iget-object v2, p1, Lcom/android/launcher3/common/base/item/IconInfo;->componentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
     move-result-object v2
-
-    move-object v1, p1
-
-    check-cast v1, Lcom/android/launcher3/common/base/item/IconInfo;
-
-    iget-object v1, v1, Lcom/android/launcher3/common/base/item/IconInfo;->componentName:Landroid/content/ComponentName;
-
-    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ")"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -679,74 +659,82 @@
 .method private handleWallpaperBlur(F)V
     .locals 8
 
-    const/4 v6, 0x2
+    const/4 v7, 0x2
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    iget-boolean v3, p0, Lcom/android/launcher3/common/tray/TrayManager;->mIsRunningSwipeAnimation:Z
+    iget-boolean v4, p0, Lcom/android/launcher3/common/tray/TrayManager;->mIsRunningSwipeAnimation:Z
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
 
     move-result v1
 
-    cmpl-float v3, p1, v5
+    cmpl-float v4, p1, v6
 
-    if-ltz v3, :cond_1
+    if-ltz v4, :cond_1
 
-    int-to-float v3, v1
+    int-to-float v4, v1
 
-    div-float v2, p1, v3
+    div-float v3, p1, v4
 
     :goto_0
-    const/high16 v3, 0x3f800000    # 1.0f
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v3, v4}, Ljava/lang/Math;->min(FF)F
 
-    move-result v2
+    move-result v3
 
-    const v3, 0x3e99999a    # 0.3f
+    cmpl-float v4, v3, v6
 
-    mul-float/2addr v3, v2
+    if-lez v4, :cond_2
 
-    invoke-static {v3, v6, v6}, Lcom/android/launcher3/Utilities;->simplifyDecimalFraction(FII)F
+    const/4 v2, 0x1
+
+    :goto_1
+    const v4, 0x3e99999a    # 0.3f
+
+    mul-float/2addr v4, v3
+
+    invoke-static {v4, v7, v7}, Lcom/android/launcher3/Utilities;->simplifyDecimalFraction(FII)F
 
     move-result v0
 
-    cmpl-float v3, v2, v5
-
-    if-lez v3, :cond_2
-
-    const/4 v3, 0x1
-
-    :goto_1
     iget-object v4, p0, Lcom/android/launcher3/common/tray/TrayManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
     invoke-virtual {v4}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
 
-    move-result-object v4
+    move-result-object v6
 
-    const-wide/16 v6, 0x0
+    if-eqz v2, :cond_3
 
-    invoke-static {v3, v4, v0, v6, v7}, Lcom/android/launcher3/util/BlurUtils;->blurByWindowManager(ZLandroid/view/Window;FJ)V
+    const-wide/16 v4, 0x0
+
+    :goto_2
+    invoke-static {v2, v6, v0, v4, v5}, Lcom/android/launcher3/util/BlurUtils;->blurByWindowManager(ZLandroid/view/Window;FJ)V
 
     :cond_0
     return-void
 
     :cond_1
-    neg-float v3, p1
+    neg-float v4, p1
 
-    int-to-float v4, v1
+    int-to-float v5, v1
 
-    div-float v2, v3, v4
+    div-float v3, v4, v5
 
     goto :goto_0
 
     :cond_2
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     goto :goto_1
+
+    :cond_3
+    const-wide/16 v4, 0x64
+
+    goto :goto_2
 .end method
 
 .method private loggingDirection(II)V
@@ -928,7 +916,7 @@
     :cond_3
     if-eqz v9, :cond_6
 
-    const v1, 0x7f080182
+    const v1, 0x7f08018f
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -938,7 +926,7 @@
     :goto_2
     packed-switch p1, :pswitch_data_0
 
-    const v1, 0x7f0800e2
+    const v1, 0x7f0800f1
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -961,7 +949,7 @@
     return-void
 
     :cond_6
-    const v1, 0x7f080183
+    const v1, 0x7f080190
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -976,7 +964,7 @@
 
     if-eqz v9, :cond_8
 
-    const v1, 0x7f08017b
+    const v1, 0x7f080188
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -986,7 +974,7 @@
     goto :goto_2
 
     :cond_8
-    const v1, 0x7f08017c
+    const v1, 0x7f080189
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -995,7 +983,7 @@
     goto :goto_4
 
     :pswitch_0
-    const v1, 0x7f0800e3
+    const v1, 0x7f0800f2
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1004,7 +992,7 @@
     goto :goto_3
 
     :pswitch_1
-    const v1, 0x7f0800e1
+    const v1, 0x7f0800f0
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2886,7 +2874,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08016d
+    const v6, 0x7f08017c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3009,7 +2997,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08004f
+    const v6, 0x7f080058
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3331,7 +3319,7 @@
 
     iput v6, p0, Lcom/android/launcher3/common/tray/TrayManager;->mFlingThresholdVelocity:I
 
-    const v6, 0x7f0f009b
+    const v6, 0x7f0f00ab
 
     invoke-virtual {p1, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -3339,7 +3327,7 @@
 
     check-cast v5, Landroid/view/ViewStub;
 
-    const v6, 0x7f0f009d
+    const v6, 0x7f0f00ad
 
     invoke-virtual {p1, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -3347,7 +3335,7 @@
 
     check-cast v0, Landroid/view/ViewStub;
 
-    const v6, 0x7f030042
+    const v6, 0x7f030044
 
     invoke-virtual {v5, v6}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
@@ -3371,7 +3359,7 @@
 
     invoke-virtual {v6, v7}, Lcom/android/launcher3/common/tray/FakeView;->setDragEventListener(Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;)V
 
-    const v6, 0x7f030041
+    const v6, 0x7f030043
 
     invoke-virtual {v0, v6}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
@@ -3389,7 +3377,7 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/tray/TrayManager;->setBottomViewDragEnable()V
 
-    const v6, 0x7f090144
+    const v6, 0x7f090152
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3397,7 +3385,7 @@
 
     iput v6, p0, Lcom/android/launcher3/common/tray/TrayManager;->mFakeViewMaxHeight:I
 
-    const v6, 0x7f090143
+    const v6, 0x7f090151
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3421,7 +3409,7 @@
 
     iput v6, p0, Lcom/android/launcher3/common/tray/TrayManager;->mFakeViewAnimationTime:I
 
-    const v6, 0x7f0f00a0
+    const v6, 0x7f0f00b0
 
     invoke-virtual {p1, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -3429,7 +3417,7 @@
 
     iput-object v6, p0, Lcom/android/launcher3/common/tray/TrayManager;->mHightlightView:Landroid/view/View;
 
-    const v6, 0x7f0f009f
+    const v6, 0x7f0f00af
 
     invoke-virtual {p1, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -3437,7 +3425,7 @@
 
     iput-object v6, p0, Lcom/android/launcher3/common/tray/TrayManager;->mShadowView:Landroid/view/View;
 
-    const v6, 0x7f090145
+    const v6, 0x7f090153
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3445,7 +3433,7 @@
 
     iput v6, p0, Lcom/android/launcher3/common/tray/TrayManager;->mHighlightHeight:I
 
-    const v6, 0x7f090149
+    const v6, 0x7f090157
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3453,7 +3441,7 @@
 
     iput v6, p0, Lcom/android/launcher3/common/tray/TrayManager;->mShadowHeight:I
 
-    const v6, 0x7f0d002c
+    const v6, 0x7f0d002d
 
     const/4 v7, 0x0
 
@@ -3467,7 +3455,7 @@
 
     invoke-direct {p0, v6, v4}, Lcom/android/launcher3/common/tray/TrayManager;->handleHighlightAndShadow(FI)V
 
-    const v6, 0x7f09014b
+    const v6, 0x7f090159
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

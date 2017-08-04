@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$FolderManager;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v0

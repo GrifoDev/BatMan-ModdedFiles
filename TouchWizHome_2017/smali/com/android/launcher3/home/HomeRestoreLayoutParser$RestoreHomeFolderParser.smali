@@ -50,7 +50,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$4000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v0

@@ -69,14 +69,12 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # invokes: Lcom/android/launcher3/home/ScreenGridPanel;->getGridInfoIndex(II)I
     invoke-static {v8, v6, v7}, Lcom/android/launcher3/home/ScreenGridPanel;->access$000(Lcom/android/launcher3/home/ScreenGridPanel;II)I
 
     move-result v5
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mAppsGridButtonMap:[Ljava/lang/String;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$100(Lcom/android/launcher3/home/ScreenGridPanel;)[Ljava/lang/String;
 
     move-result-object v8
@@ -95,7 +93,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mAppsGridButtonMap:[Ljava/lang/String;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$100(Lcom/android/launcher3/home/ScreenGridPanel;)[Ljava/lang/String;
 
     move-result-object v8
@@ -118,7 +115,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f080090
+    const v9, 0x7f08009f
 
     const/4 v10, 0x2
 
@@ -146,7 +143,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v8
@@ -155,7 +151,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$300(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v8
@@ -180,7 +175,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
 
     move-result-object v8
@@ -191,7 +185,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
 
     move-result-object v8
@@ -202,7 +195,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mScreenGridExplainView:Landroid/widget/TextView;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$500(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v8
@@ -215,7 +207,6 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v9}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
 
     move-result-object v9
@@ -227,12 +218,10 @@
     :goto_0
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # invokes: Lcom/android/launcher3/home/ScreenGridPanel;->updateBtnForScreenGrid(Ljava/lang/String;)V
     invoke-static {v8, v2}, Lcom/android/launcher3/home/ScreenGridPanel;->access$800(Lcom/android/launcher3/home/ScreenGridPanel;Ljava/lang/String;)V
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$300(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v8
@@ -255,7 +244,6 @@
     :cond_1
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
 
     move-result-object v8
@@ -266,7 +254,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
 
     move-result-object v8
@@ -277,7 +264,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mAppsCellX:I
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$600(Lcom/android/launcher3/home/ScreenGridPanel;)I
 
     move-result v8
@@ -286,7 +272,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mAppsCellY:I
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$700(Lcom/android/launcher3/home/ScreenGridPanel;)I
 
     move-result v8
@@ -296,7 +281,6 @@
     :cond_2
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mScreenGridExplainView:Landroid/widget/TextView;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$500(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v8
@@ -308,7 +292,6 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v9}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
 
     move-result-object v9
@@ -322,7 +305,6 @@
     :cond_3
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mScreenGridExplainView:Landroid/widget/TextView;
     invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$500(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v8

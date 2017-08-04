@@ -158,6 +158,30 @@
 
 
 # virtual methods
+.method public addKeyboardNavigationClusters(Landroid/view/View;Ljava/util/Collection;I)V
+    .locals 0
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/view/View;",
+            "Ljava/util/Collection",
+            "<",
+            "Landroid/view/View;",
+            ">;I)V"
+        }
+    .end annotation
+
+    return-void
+.end method
+
 .method public animate(Landroid/view/View;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
     .locals 2
 
@@ -684,6 +708,18 @@
     goto :goto_0
 .end method
 
+.method public getNextClusterForwardId(Landroid/view/View;)I
+    .locals 1
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const/4 v0, -0x1
+
+    return v0
+.end method
+
 .method public getPaddingEnd(Landroid/view/View;)I
     .locals 1
 
@@ -919,6 +955,18 @@
     goto :goto_0
 .end method
 
+.method public isFocusedByDefault(Landroid/view/View;)Z
+    .locals 1
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public isImportantForAccessibility(Landroid/view/View;)Z
     .locals 1
 
@@ -929,6 +977,18 @@
 
 .method public isInLayout(Landroid/view/View;)Z
     .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public isKeyboardNavigationCluster(Landroid/view/View;)Z
+    .locals 1
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -999,6 +1059,18 @@
     return v0
 .end method
 
+.method public keyboardNavigationClusterSearch(Landroid/view/View;Landroid/view/View;I)Landroid/view/View;
+    .locals 1
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public offsetLeftAndRight(Landroid/view/View;I)V
     .locals 2
 
@@ -1066,11 +1138,9 @@
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
     .locals 1
 
-    invoke-virtual {p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getInfo()Ljava/lang/Object;
+    invoke-virtual {p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v0
-
-    check-cast v0, Landroid/view/accessibility/AccessibilityNodeInfo;
 
     invoke-virtual {p1, v0}, Landroid/view/View;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
@@ -1088,7 +1158,7 @@
 .method public postInvalidateOnAnimation(Landroid/view/View;)V
     .locals 0
 
-    invoke-virtual {p1}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p1}, Landroid/view/View;->postInvalidate()V
 
     return-void
 .end method
@@ -1096,7 +1166,7 @@
 .method public postInvalidateOnAnimation(Landroid/view/View;IIII)V
     .locals 0
 
-    invoke-virtual {p1, p2, p3, p4, p5}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {p1, p2, p3, p4, p5}, Landroid/view/View;->postInvalidate(IIII)V
 
     return-void
 .end method
@@ -1131,6 +1201,20 @@
     .locals 0
 
     return-void
+.end method
+
+.method public restoreDefaultFocus(Landroid/view/View;)Z
+    .locals 1
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    invoke-virtual {p1}, Landroid/view/View;->requestFocus()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public setAccessibilityDelegate(Landroid/view/View;Landroid/support/v4/view/AccessibilityDelegateCompat;)V
@@ -1320,6 +1404,16 @@
     return-void
 .end method
 
+.method public setFocusedByDefault(Landroid/view/View;Z)V
+    .locals 0
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    return-void
+.end method
+
 .method public setHasTransientState(Landroid/view/View;Z)V
     .locals 0
 
@@ -1328,6 +1422,16 @@
 
 .method public setImportantForAccessibility(Landroid/view/View;I)V
     .locals 0
+
+    return-void
+.end method
+
+.method public setKeyboardNavigationCluster(Landroid/view/View;Z)V
+    .locals 0
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
@@ -1373,6 +1477,16 @@
     return-void
 .end method
 
+.method public setNextClusterForwardId(Landroid/view/View;I)V
+    .locals 0
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    return-void
+.end method
+
 .method public setOnApplyWindowInsetsListener(Landroid/view/View;Landroid/support/v4/view/OnApplyWindowInsetsListener;)V
     .locals 0
 
@@ -1407,8 +1521,6 @@
 
 .method public setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
     .locals 0
-
-    invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompatICS;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
     return-void
 .end method

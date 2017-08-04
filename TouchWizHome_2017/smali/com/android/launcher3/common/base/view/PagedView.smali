@@ -253,6 +253,8 @@
 
 .field protected mUnboundedScrollX:I
 
+.field private mUpdateOnlyCurrentPage:Z
+
 .field private mUseMinScale:Z
 
 .field private mVelocityTracker:Landroid/view/VelocityTracker;
@@ -407,6 +409,8 @@
     iput v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mHintPageRightZone:I
 
     iput v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mHintPageWidth:I
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
 
     new-instance v1, Lcom/android/launcher3/common/base/view/PagedView$2;
 
@@ -830,6 +834,84 @@
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
 
     return-void
+.end method
+
+.method private checkTouchedPageIndicator(FF)Z
+    .locals 12
+
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x2
+
+    new-array v0, v8, [I
+
+    iget-object v8, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
+
+    invoke-virtual {v8, v0}, Lcom/android/launcher3/common/view/PageIndicator;->getLocationOnScreen([I)V
+
+    aget v8, v0, v7
+
+    int-to-float v4, v8
+
+    iget-object v8, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/common/view/PageIndicator;->getWidth()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    add-float v2, v4, v8
+
+    aget v8, v0, v6
+
+    int-to-float v3, v8
+
+    iget-object v8, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/common/view/PageIndicator;->getHeight()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    add-float v1, v3, v8
+
+    new-instance v5, Landroid/graphics/Rect;
+
+    float-to-int v8, v4
+
+    float-to-int v9, v3
+
+    float-to-int v10, v2
+
+    float-to-int v11, v1
+
+    invoke-direct {v5, v8, v9, v10, v11}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    iget-object v8, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
+
+    if-eqz v8, :cond_0
+
+    float-to-int v8, p1
+
+    float-to-int v9, p2
+
+    invoke-virtual {v5, v8, v9}, Landroid/graphics/Rect;->contains(II)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    :goto_0
+    return v6
+
+    :cond_0
+    move v6, v7
+
+    goto :goto_0
 .end method
 
 .method private dampedOverScroll(F)V
@@ -2701,9 +2783,9 @@
 .method protected determineScrollingStart(Landroid/view/MotionEvent;F)Z
     .locals 10
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     iget v8, p0, Lcom/android/launcher3/common/base/view/PagedView;->mActivePointerId:I
 
@@ -2717,7 +2799,7 @@
 
     :cond_0
     :goto_0
-    return v6
+    return v7
 
     :cond_1
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getX(I)F
@@ -2760,9 +2842,11 @@
 
     if-le v3, v1, :cond_2
 
-    move v4, v7
+    move v4, v6
 
     :goto_1
+    iput-boolean v7, p0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
+
     if-eqz v4, :cond_0
 
     invoke-static {}, Lcom/android/launcher3/util/event/ScrollDetector;->isHorizontalScroll()Z
@@ -2771,9 +2855,9 @@
 
     if-eqz v8, :cond_0
 
-    iput v7, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTouchState:I
+    iput v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTouchState:I
 
-    iget v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
+    iget v7, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
 
     iget v8, p0, Lcom/android/launcher3/common/base/view/PagedView;->mLastMotionX:F
 
@@ -2783,9 +2867,9 @@
 
     move-result v8
 
-    add-float/2addr v6, v8
+    add-float/2addr v7, v8
 
-    iput v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
+    iput v7, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
 
     iput v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mLastMotionX:F
 
@@ -2793,12 +2877,12 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->pageBeginMoving()V
 
-    move v6, v7
+    move v7, v6
 
     goto :goto_0
 
     :cond_2
-    move v4, v6
+    move v4, v7
 
     goto :goto_1
 .end method
@@ -2810,7 +2894,7 @@
 
     move-result v8
 
-    if-lez v8, :cond_e
+    if-lez v8, :cond_f
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getViewportWidth()I
 
@@ -2915,11 +2999,11 @@
     :cond_3
     const/4 v12, -0x1
 
-    if-eq v7, v12, :cond_e
+    if-eq v7, v12, :cond_f
 
     const/4 v12, -0x1
 
-    if-eq v9, v12, :cond_e
+    if-eq v9, v12, :cond_f
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getDrawingTime()J
 
@@ -2974,7 +3058,7 @@
     add-int/lit8 v6, v8, -0x1
 
     :goto_1
-    if-ltz v6, :cond_c
+    if-ltz v6, :cond_d
 
     move-object/from16 v0, p0
 
@@ -3017,9 +3101,9 @@
 
     if-nez v12, :cond_8
 
-    if-gt v7, v6, :cond_b
+    if-gt v7, v6, :cond_c
 
-    if-gt v6, v9, :cond_b
+    if-gt v6, v9, :cond_c
 
     move-object/from16 v0, p0
 
@@ -3027,7 +3111,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_b
+    if-eqz v12, :cond_c
 
     :cond_8
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportTransitionEffects()Z
@@ -3050,6 +3134,34 @@
     :goto_3
     move-object/from16 v0, p0
 
+    iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
+
+    if-eqz v12, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mIsPageMoving:Z
+
+    if-nez v12, :cond_b
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getCurrentPage()I
+
+    move-result v12
+
+    if-ne v6, v12, :cond_4
+
+    new-instance v12, Lcom/android/launcher3/util/DvfsUtil;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getContext()Landroid/content/Context;
+
+    move-result-object v13
+
+    invoke-direct {v12, v13}, Lcom/android/launcher3/util/DvfsUtil;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v12}, Lcom/android/launcher3/util/DvfsUtil;->boostOneFrame()V
+
+    move-object/from16 v0, p0
+
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1, v11, v4, v5}, Lcom/android/launcher3/common/base/view/PagedView;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
@@ -3064,6 +3176,15 @@
     goto :goto_3
 
     :cond_b
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1, v11, v4, v5}, Lcom/android/launcher3/common/base/view/PagedView;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
+
+    goto :goto_2
+
+    :cond_c
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportTransitionEffects()Z
 
     move-result v12
@@ -3076,12 +3197,12 @@
 
     goto :goto_2
 
-    :cond_c
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mDragView:Landroid/view/View;
 
-    if-eqz v12, :cond_d
+    if-eqz v12, :cond_e
 
     move-object/from16 v0, p0
 
@@ -3093,7 +3214,7 @@
 
     invoke-virtual {v0, v1, v12, v4, v5}, Lcom/android/launcher3/common/base/view/PagedView;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
-    :cond_d
+    :cond_e
     const/4 v12, 0x0
 
     move-object/from16 v0, p0
@@ -3102,7 +3223,7 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
-    :cond_e
+    :cond_f
     return-void
 .end method
 
@@ -3918,7 +4039,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f08001f
+    const v1, 0x7f080028
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -7641,6 +7762,41 @@
 
     if-nez v22, :cond_b
 
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
+
+    move-result v22
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result v23
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v22
+
+    move/from16 v2, v23
+
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/common/base/view/PagedView;->checkTouchedPageIndicator(FF)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_1c
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/view/PageIndicator;->clickPageIndicator(Landroid/view/MotionEvent;)V
+
+    goto/16 :goto_8
+
+    :cond_1c
     invoke-virtual/range {p0 .. p1}, Lcom/android/launcher3/common/base/view/PagedView;->onUnhandledTap(Landroid/view/MotionEvent;)V
 
     goto/16 :goto_8
@@ -7658,13 +7814,13 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_1c
+    if-ne v0, v1, :cond_1d
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->snapToDestination()V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->onScrollInteractionEnd()V
 
-    :cond_1c
+    :cond_1d
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->resetTouchState()V
 
     goto/16 :goto_1
@@ -7675,6 +7831,8 @@
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->releaseVelocityTracker()V
 
     goto/16 :goto_1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -8948,6 +9106,8 @@
 
     const/4 v2, 0x0
 
+    iput-boolean v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
+
     invoke-direct {p0, p1}, Lcom/android/launcher3/common/base/view/PagedView;->validateNewPage(I)I
 
     move-result p1
@@ -9430,6 +9590,14 @@
     invoke-virtual {v0, p1, p2}, Lcom/android/launcher3/common/view/PageIndicator;->updateMarker(ILcom/android/launcher3/common/view/PageIndicator$PageMarkerResources;)V
 
     :cond_0
+    return-void
+.end method
+
+.method public updateOnlyCurrentPage(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
+
     return-void
 .end method
 

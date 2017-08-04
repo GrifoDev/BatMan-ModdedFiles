@@ -47,14 +47,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$12;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
     invoke-static {v0}, Lcom/android/launcher3/home/Workspace;->access$1000(Lcom/android/launcher3/home/Workspace;)I
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/launcher3/home/Workspace$12;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mCurrentPage:I
     invoke-static {v1}, Lcom/android/launcher3/home/Workspace;->access$1100(Lcom/android/launcher3/home/Workspace;)I
 
     move-result v1
@@ -63,7 +61,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$12;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v0}, Lcom/android/launcher3/home/Workspace;->access$500(Lcom/android/launcher3/home/Workspace;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v0
@@ -77,14 +74,12 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/Workspace$12;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
     invoke-static {v1}, Lcom/android/launcher3/home/Workspace;->access$1000(Lcom/android/launcher3/home/Workspace;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/launcher3/home/Workspace$12;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mCurrentPage:I
     invoke-static {v2}, Lcom/android/launcher3/home/Workspace;->access$1200(Lcom/android/launcher3/home/Workspace;)I
 
     move-result v2

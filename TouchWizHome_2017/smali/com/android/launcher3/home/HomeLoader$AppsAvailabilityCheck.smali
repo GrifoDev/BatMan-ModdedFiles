@@ -1,4 +1,4 @@
-.class Lcom/android/launcher3/home/HomeLoader$AppsAvailabilityCheck;
+.class public Lcom/android/launcher3/home/HomeLoader$AppsAvailabilityCheck;
 .super Landroid/content/BroadcastReceiver;
 .source "HomeLoader.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AppsAvailabilityCheck"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -26,270 +26,294 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 14
+    .locals 17
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgLock:Ljava/lang/Object;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$4500()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$4700()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v11
 
-    monitor-enter v9
+    monitor-enter v11
 
     :try_start_0
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v5, Ljava/util/ArrayList;
+    new-instance v8, Ljava/util/ArrayList;
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sPendingPackages:Ljava/util/HashMap;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$4600()Ljava/util/HashMap;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
-
-    move-result-object v8
-
-    invoke-interface {v8}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$4800()Ljava/util/HashMap;
 
     move-result-object v10
 
+    invoke-virtual {v10}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v12
+
     :cond_0
     :goto_0
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_5
+    if-eqz v10, :cond_5
 
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast v2, Ljava/util/Map$Entry;
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v9
 
-    check-cast v7, Lcom/android/launcher3/common/compat/UserHandleCompat;
+    check-cast v9, Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v10
 
-    check-cast v8, Ljava/util/HashSet;
+    check-cast v10, Ljava/util/HashSet;
 
-    invoke-virtual {v8}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v10}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v8
+    move-result-object v10
 
     :cond_1
     :goto_1
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v11
+    move-result v13
 
-    if-eqz v11, :cond_3
+    if-eqz v13, :cond_3
 
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v1
 
-    check-cast v6, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$4700()Lcom/android/launcher3/common/compat/LauncherAppsCompat;
+    invoke-static {v1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
-    move-result-object v11
+    move-result-object v0
 
-    invoke-virtual {v11, v6, v7}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->isPackageEnabledForProfile(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_1
-
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
     invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$4900()Lcom/android/launcher3/common/compat/LauncherAppsCompat;
 
-    move-result-object v11
+    move-result-object v13
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sPackageManager:Landroid/content/pm/PackageManager;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$4800()Landroid/content/pm/PackageManager;
+    invoke-virtual {v13, v0, v9}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->isActivityEnabledForProfile(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
 
-    move-result-object v12
+    move-result v13
 
-    const/16 v13, 0x2000
+    if-nez v13, :cond_1
 
-    invoke-virtual {v11, v12, v6, v13}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->isAppEnabled(Landroid/content/pm/PackageManager;Ljava/lang/String;I)Z
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5100()Lcom/android/launcher3/common/compat/LauncherAppsCompat;
 
-    move-result v2
+    move-result-object v13
 
-    if-eqz v2, :cond_2
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5000()Landroid/content/pm/PackageManager;
 
-    const-string v11, "HomeLoader"
+    move-result-object v14
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v15
 
-    const-string v13, "Package found on sd-card: "
+    const/16 v16, 0x2000
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v13 .. v16}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->isAppEnabled(Landroid/content/pm/PackageManager;Ljava/lang/String;I)Z
 
-    move-result-object v12
+    move-result v5
 
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5200()Lcom/android/launcher3/common/compat/LauncherAppsCompat;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v14
 
-    const/4 v13, 0x1
+    invoke-virtual {v13, v14, v9}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getActivityList(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/util/List;
 
-    invoke-static {v11, v12, v13}, Lcom/android/launcher3/Launcher;->addDumpLog(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-result-object v13
 
-    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v13, v0}, Lcom/android/launcher3/home/HomeLoader;->access$5300(Ljava/util/List;Landroid/content/ComponentName;)Z
+
+    move-result v3
+
+    if-eqz v5, :cond_2
+
+    if-eqz v3, :cond_2
+
+    const-string v13, "HomeLoader"
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "Component found on sd-card: "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    const/4 v15, 0x1
+
+    invoke-static {v13, v14, v15}, Lcom/android/launcher3/Launcher;->addDumpLog(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v8, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :catchall_0
-    move-exception v8
+    move-exception v10
 
-    monitor-exit v9
+    monitor-exit v11
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v8
+    throw v10
 
     :cond_2
     :try_start_1
-    const-string v11, "HomeLoader"
+    const-string v13, "HomeLoader"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "Package not found: "
+    const-string v15, "Component not found: "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v14
 
-    const/4 v13, 0x1
+    const/4 v15, 0x1
 
-    invoke-static {v11, v12, v13}, Lcom/android/launcher3/Launcher;->addDumpLog(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v13, v14, v15}, Lcom/android/launcher3/Launcher;->addDumpLog(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    goto :goto_1
+    move-result-object v13
+
+    invoke-virtual {v7, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_1
 
     :cond_3
-    invoke-virtual {v4}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v8
+    move-result v10
 
-    if-nez v8, :cond_4
+    if-nez v10, :cond_4
 
-    const/4 v1, 0x3
+    const/4 v4, 0x3
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    move-result v8
+    move-result v10
 
-    new-array v8, v8, [Ljava/lang/String;
+    new-array v10, v10, [Ljava/lang/String;
 
-    invoke-virtual {v4, v8}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v7, v10}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v6
 
-    check-cast v3, [Ljava/lang/String;
+    check-cast v6, [Ljava/lang/String;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sLauncherModel:Lcom/android/launcher3/LauncherModel;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5100()Lcom/android/launcher3/LauncherModel;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5500()Lcom/android/launcher3/LauncherModel;
 
-    move-result-object v8
+    move-result-object v10
 
-    new-instance v11, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;
+    new-instance v13, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sLauncherModel:Lcom/android/launcher3/LauncherModel;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5000()Lcom/android/launcher3/LauncherModel;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5400()Lcom/android/launcher3/LauncherModel;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v12}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v14}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-direct {v11, v12, v1, v3, v7}, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;-><init>(Lcom/android/launcher3/LauncherModel;I[Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    invoke-direct {v13, v14, v4, v6, v9}, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;-><init>(Lcom/android/launcher3/LauncherModel;I[Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
-    invoke-virtual {v8, v11}, Lcom/android/launcher3/LauncherModel;->enqueuePackageUpdated(Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;)V
+    invoke-virtual {v10, v13}, Lcom/android/launcher3/LauncherModel;->enqueuePackageUpdated(Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;)V
 
     :cond_4
-    invoke-virtual {v5}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v8}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v8
+    move-result v10
 
-    if-nez v8, :cond_0
+    if-nez v10, :cond_0
 
-    const/4 v1, 0x4
+    const/4 v4, 0x4
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
-    move-result v8
+    move-result v10
 
-    new-array v8, v8, [Ljava/lang/String;
+    new-array v10, v10, [Ljava/lang/String;
 
-    invoke-virtual {v5, v8}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v8, v10}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v6
 
-    check-cast v3, [Ljava/lang/String;
+    check-cast v6, [Ljava/lang/String;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sLauncherModel:Lcom/android/launcher3/LauncherModel;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5300()Lcom/android/launcher3/LauncherModel;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5700()Lcom/android/launcher3/LauncherModel;
 
-    move-result-object v8
+    move-result-object v10
 
-    new-instance v11, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;
+    new-instance v13, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sLauncherModel:Lcom/android/launcher3/LauncherModel;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5200()Lcom/android/launcher3/LauncherModel;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5600()Lcom/android/launcher3/LauncherModel;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v12}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v14}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-direct {v11, v12, v1, v3, v7}, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;-><init>(Lcom/android/launcher3/LauncherModel;I[Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    invoke-direct {v13, v14, v4, v6, v9}, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;-><init>(Lcom/android/launcher3/LauncherModel;I[Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
-    invoke-virtual {v8, v11}, Lcom/android/launcher3/LauncherModel;->enqueuePackageUpdated(Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;)V
+    invoke-virtual {v10, v13}, Lcom/android/launcher3/LauncherModel;->enqueuePackageUpdated(Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;)V
 
     goto/16 :goto_0
 
     :cond_5
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sPendingPackages:Ljava/util/HashMap;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5400()Ljava/util/HashMap;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$5800()Ljava/util/HashMap;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8}, Ljava/util/HashMap;->clear()V
+    invoke-virtual {v10}, Ljava/util/HashMap;->clear()V
 
-    monitor-exit v9
+    monitor-exit v11
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Gyszichta sznupanio</string>
+    <string name="about">%s — informacyje</string>
+    <string name="about_already_installed">Nojnowszo wersyjo je już zainsztalowano.</string>
+    <string name="about_home_screen">Ekran sztartowy</string>
+    <string name="about_licence">Licencjye Open source</string>
+    <string name="about_network_err">Niy idzie wysznupać uaktualniynio. Mobilniŏk niyma zepniynty z necym.</string>
+    <string name="about_new_version_exist">Nowŏ wersyjŏ je dostympnŏ.</string>
+    <string name="about_retry">Dej zajś</string>
+    <string name="about_update">Aktualizuj</string>
+    <string name="about_version">Wersyjŏ %s</string>
     <string name="activity_not_available">Ta aplikacyjo niy ma do chycynio dlo Twojij masziny.</string>
     <string name="activity_not_found">Aplikacjŏ niy ôstała zainsztalowanŏ.</string>
     <string name="align_to_bottom">Wyrōwnej na spodek</string>
@@ -24,9 +33,9 @@
     <string name="autoalign_popup_message">Po wyrōwnaniu nniy idzie wrōcić do przodziyjszyj aranżacyji.</string>
     <string name="autoalign_popup_title">Wyrōwnać dingsy na zajcie?</string>
     <string name="available_galaxyapps">Dostympne w Galaxy Apps</string>
-    <string name="badge_manage_explain">Wybierz, czy odznaczenia poszczególnych aplikacji mają być wyświetlane.</string>
-    <string name="badge_manage_summary">Wybierz, czy odznaczenia poszczególnych aplikacji mają być wyświetlane.</string>
-    <string name="badge_manage_title">Zarządzaj odznaczeniami aplikacji</string>
+    <string name="badge_manage_explain">Ôbier, eli ôznŏczynia kŏżdyj jednyj aplikacyji majōm być pokŏzywane.</string>
+    <string name="badge_manage_summary">Ôbier, eli ôznŏczynia kŏżdyj jednyj aplikacyji majōm być pokŏzywane.</string>
+    <string name="badge_manage_title">Reskyruj ôdznŏczyniami aplikacyje</string>
     <string name="badge_select_all_app">Wszyjske</string>
     <string name="button">Knefel</string>
     <string name="cancel">Pociep</string>
@@ -80,7 +89,7 @@ Microsoft"</string>
     <string name="max_characters_available">Maksymalna liczba dozwolonych znaków: %d.</string>
     <string name="menu_edit_cancel">Pociep</string>
     <string name="menu_uninstall">Ôdinstaluj aplikacyjŏ</string>
-    <string name="move_to_home">Przeciągnij tutaj, aby dodać skrót do ekranu startowego.</string>
+    <string name="move_to_home">Przeciōng tukej coby dodać skrōt do ekranu dōmowego.</string>
     <string name="multi_select_add_to_personal">Przidej do ôsobistych</string>
     <string name="multi_select_apps_deselected">Wyciepano ôznaczynie aplikacyji.</string>
     <string name="multi_select_create_folder">Złōnacz katalog</string>
@@ -120,9 +129,15 @@ Microsoft"</string>
     <string name="out_of_space">Niy ma miyjsca na tyj zajcie</string>
     <string name="out_of_space_dialog">Niy ma placu na tyj zajcie. Dings bydzie przidany do nowyj zajty.</string>
     <string name="permdesc_install_widget">Ta aplikacyjo dozwŏlo na przidowanie widgetōw do ekranu sztartowego.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ta aplikacja może odczytywać ustawienia niestandardowej strony zawartości, znajdującej się po lewej stronie ekranu startowego.</string>
+    <string name="permdesc_write_zeropage_settings">Ta aplikacja może zmieniać ustawienia niestandardowej strony zawartości, znajdującej się po lewej stronie ekranu startowego.</string>
     <string name="permlab_install_widget">Przidej widgety</string>
+    <string name="permlab_read_settings">czytej nasztalowania sztartowe i skrōty</string>
+    <string name="permlab_read_zeropage_settings">Odczyt. ust. niestand. str. zawart.</string>
+    <string name="permlab_write_zeropage_settings">Zmień niestan. ustaw. str. zawart.</string>
     <string name="quick_option_add_apps">Przidej aplikacyje</string>
-    <string name="quick_option_add_shortcut_to_home">Dodaj skr. do ekr. start.</string>
+    <string name="quick_option_add_shortcut_to_home">Dodej skrōt do ekr.dōmow.</string>
     <string name="quick_option_add_to_personal">Dod.do ôsob.</string>
     <string name="quick_option_app_info">Info ô aplikacyji</string>
     <string name="quick_option_cant_disable">Niy idzie wyłōnczyć aplikacyji %s.</string>
@@ -191,8 +206,8 @@ Microsoft"</string>
     <string name="widget_button_text">Widgety</string>
     <string name="work_folder_name">Robota</string>
     <string name="zeropage_briefing_title">Skrót informacji</string>
-    <string name="zeropage_download">Pobierz</string>
-    <string name="zeropage_download_msg">Do korzystania z tej funkcji należy zainstalować aplikację %1$s. Dotknij opcji POBIERZ, aby pobrać i zainstalować %2$s.</string>
+    <string name="zeropage_download">Zebiyr</string>
+    <string name="zeropage_download_msg">Do używaniŏ tyj fōnkcyji trza zainsztalować aplikacyjŏ %1$s. Tyknij ôpcyji ZEBIYR, coby zebrać i zainsztalować %2$s.</string>
     <string name="zeropage_hellobixby_title">Hello Bixby</string>
     <string name="zeropage_sohu_title">Wiadomości Sohu</string>
 </resources>

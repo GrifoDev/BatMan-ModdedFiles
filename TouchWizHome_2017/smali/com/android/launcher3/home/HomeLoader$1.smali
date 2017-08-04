@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$1;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->mItemPositionHelper:Lcom/android/launcher3/home/HomeItemPositionHelper;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$000(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeItemPositionHelper;
 
     move-result-object v0

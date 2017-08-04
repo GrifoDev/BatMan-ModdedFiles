@@ -194,7 +194,7 @@
 
     const/4 v3, 0x1
 
-    const v1, 0x7f0f00ae
+    const v1, 0x7f0f00be
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -541,7 +541,7 @@
 
     int-to-float v5, v5
 
-    const v6, 0x7f0d002f
+    const v6, 0x7f0d0030
 
     const/4 v7, 0x0
 
@@ -836,7 +836,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f080062
+    const v2, 0x7f08006b
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -852,7 +852,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f080056
+    const v2, 0x7f08005f
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -1489,7 +1489,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f00af
+    const v0, 0x7f0f00bf
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1511,7 +1511,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f00b0
+    const v0, 0x7f0f00c0
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1533,7 +1533,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f00b1
+    const v0, 0x7f0f00c1
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1555,7 +1555,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f00b2
+    const v0, 0x7f0f00c2
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1577,7 +1577,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f00b3
+    const v0, 0x7f0f00c3
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1679,7 +1679,7 @@
     move v0, v8
 
     :goto_0
-    const v9, 0x7f0f00ae
+    const v9, 0x7f0f00be
 
     invoke-virtual {p0, v9}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1695,7 +1695,7 @@
 
     move-result-object v4
 
-    const v9, 0x7f09010a
+    const v9, 0x7f090118
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1844,7 +1844,7 @@
 .method public setEditTextBg()V
     .locals 5
 
-    const v4, 0x7f0200d0
+    const v4, 0x7f0200d5
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getContext()Landroid/content/Context;
 
@@ -1858,7 +1858,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090107
+    const v3, 0x7f090115
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

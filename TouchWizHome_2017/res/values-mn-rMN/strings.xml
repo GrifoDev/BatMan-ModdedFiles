@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Хайлтын түүх</string>
+    <string name="about">%s-н тухай</string>
+    <string name="about_already_installed">Сүүлийн хувилбарыг хэдийнэ суурилуулсан.</string>
+    <string name="about_home_screen">Эх дэлгэц</string>
+    <string name="about_licence">Нээлттэй эхийн лицензүүд</string>
+    <string name="about_network_err">Шинэчлэл шалгах боломжгүй. Таны утас сүлжээнд холбогдоогүй байна.</string>
+    <string name="about_new_version_exist">Шинэ хувилбар боломжтой байна</string>
+    <string name="about_retry">Дахин оролд</string>
+    <string name="about_update">Шинэчлэх</string>
+    <string name="about_version">%s хувилбар</string>
     <string name="activity_not_available">Таны төхөөрөмжид энэ апп боломжгүй.</string>
     <string name="activity_not_found">Програм суугаагүй.</string>
     <string name="align_to_bottom">Доошоо зэрэгцүүлэх</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Энэ хуудсанд дахиад зай байхгүй</string>
     <string name="out_of_space_dialog">Энэ хуудсанд зай байхгүй. Уг зүйлийг шинэ хуудсанд нэмнэ.</string>
     <string name="permdesc_install_widget">Энэ хэрэглүүр эх дэлгэцэнд тоноглол нэмж чадна.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Энэ хэрэглүүр Эх дэлгэцийн зүүн талд байрлах хэрэглэгчийн контентын хуудсын тохиргоог унших боломжтой.</string>
+    <string name="permdesc_write_zeropage_settings">Энэ хэрэглүүр Эх дэлгэцийн зүүн талд байрлах хэрэглэгчийн контентын хуудсын тохиргоог өөрчлөх боломжтой.</string>
     <string name="permlab_install_widget">Тоноглол нэмэх</string>
+    <string name="permlab_read_settings">Home тохиргоо болон товчилборуудыг унших</string>
+    <string name="permlab_read_zeropage_settings">Хэр.н контент хуудсын тох.оо унших</string>
+    <string name="permlab_write_zeropage_settings">Хэр.н контент хуудсын тох.оо өөрч.х</string>
     <string name="quick_option_add_apps">Хэрэглүүр нэмэх</string>
     <string name="quick_option_add_shortcut_to_home">Эх дэлгэцэнд холбоос нэм</string>
     <string name="quick_option_add_to_personal">Хувийнхад нэмэх</string>

@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.support.v4.media.session.IMediaControllerCallback"
 
+.field static final TRANSACTION_onCaptioningEnabledChanged:I = 0xb
+
 .field static final TRANSACTION_onEvent:I = 0x1
 
 .field static final TRANSACTION_onExtrasChanged:I = 0x7
@@ -42,7 +44,9 @@
 
 .field static final TRANSACTION_onSessionDestroyed:I = 0x2
 
-.field static final TRANSACTION_onShuffleModeChanged:I = 0xa
+.field static final TRANSACTION_onShuffleModeChanged:I = 0xc
+
+.field static final TRANSACTION_onShuffleModeChangedDeprecated:I = 0xa
 
 .field static final TRANSACTION_onVolumeInfoChanged:I = 0x8
 
@@ -110,6 +114,8 @@
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    const/4 v0, 0x0
 
     const/4 v3, 0x1
 
@@ -357,15 +363,41 @@
 
     move v0, v3
 
-    :goto_7
-    invoke-virtual {p0, v0}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onShuffleModeChanged(Z)V
+    :cond_6
+    invoke-virtual {p0, v0}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onShuffleModeChangedDeprecated(Z)V
 
     goto/16 :goto_0
 
-    :cond_6
-    const/4 v0, 0x0
+    :sswitch_b
+    const-string v4, "android.support.v4.media.session.IMediaControllerCallback"
 
-    goto :goto_7
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_7
+
+    move v0, v3
+
+    :cond_7
+    invoke-virtual {p0, v0}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onCaptioningEnabledChanged(Z)V
+
+    goto/16 :goto_0
+
+    :sswitch_c
+    const-string v4, "android.support.v4.media.session.IMediaControllerCallback"
+
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onShuffleModeChanged(I)V
+
+    goto/16 :goto_0
 
     nop
 
@@ -381,6 +413,8 @@
         0x8 -> :sswitch_8
         0x9 -> :sswitch_9
         0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0xc -> :sswitch_c
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

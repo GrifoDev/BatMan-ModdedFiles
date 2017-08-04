@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Historia e kërkimit</string>
+    <string name="about">Rreth %s</string>
+    <string name="about_already_installed">Versioni më i fundit është instaluar tashmë.</string>
+    <string name="about_home_screen">Ekrani kryesor</string>
+    <string name="about_licence">Licenca burimi të hapur</string>
+    <string name="about_network_err">S’mund të kontrolloj për përditësime. Telefoni yt nuk është lidhur me ndonjë rrjet.</string>
+    <string name="about_new_version_exist">Ka një version të ri në dispozicion.</string>
+    <string name="about_retry">Riprovo</string>
+    <string name="about_update">Përditëso</string>
+    <string name="about_version">Versioni %s</string>
     <string name="activity_not_available">Ky app nuk disponohet për pajisjen tënde.</string>
     <string name="activity_not_found">Aplikacioni nuk është instaluar.</string>
     <string name="align_to_bottom">Drejtvizo me fundin</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Nuk ka më hapësirë në këtë faqe</string>
     <string name="out_of_space_dialog">Nuk ka më vend në këtë faqe. Objekti do të shtohet në një faqe të re.</string>
     <string name="permdesc_install_widget">Ky app mund të shtojë widget-e në ekranin bazë.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ky app mund të lexojë cilësimet e faqes me materiale të personalizuara, e cila gjendet në të majtë të Ekranit bazë.</string>
+    <string name="permdesc_write_zeropage_settings">Ky app mund të ndryshojë cilësimet e faqes me materiale të personalizuara, e cila gjendet në të majtë të Ekranit bazë.</string>
     <string name="permlab_install_widget">Shto widget-e</string>
+    <string name="permlab_read_settings">Lexo percaktimet dhe ikonen Bazë</string>
+    <string name="permlab_read_zeropage_settings">Lexo cilësimet e personalizimit</string>
+    <string name="permlab_write_zeropage_settings">Ndrysho cilësimet e personalizimit</string>
     <string name="quick_option_add_apps">Shto app-e</string>
     <string name="quick_option_add_shortcut_to_home">Shto shkurtore në Bazë</string>
     <string name="quick_option_add_to_personal">Shto te pers.</string>

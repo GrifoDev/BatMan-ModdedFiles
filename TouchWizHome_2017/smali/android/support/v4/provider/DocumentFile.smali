@@ -37,51 +37,51 @@
 .method public static fromSingleUri(Landroid/content/Context;Landroid/net/Uri;)Landroid/support/v4/provider/DocumentFile;
     .locals 3
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v1, 0x13
+    const/16 v2, 0x13
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v2, :cond_0
 
-    new-instance v1, Landroid/support/v4/provider/SingleDocumentFile;
+    new-instance v0, Landroid/support/v4/provider/SingleDocumentFile;
 
-    invoke-direct {v1, v2, p0, p1}, Landroid/support/v4/provider/SingleDocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
+    invoke-direct {v0, v1, p0, p1}, Landroid/support/v4/provider/SingleDocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
 
     :goto_0
-    return-object v1
+    return-object v0
 
     :cond_0
-    move-object v1, v2
+    move-object v0, v1
 
     goto :goto_0
 .end method
 
 .method public static fromTreeUri(Landroid/content/Context;Landroid/net/Uri;)Landroid/support/v4/provider/DocumentFile;
-    .locals 4
+    .locals 3
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v1, 0x15
+    const/16 v2, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v2, :cond_0
 
-    new-instance v1, Landroid/support/v4/provider/TreeDocumentFile;
+    new-instance v0, Landroid/support/v4/provider/TreeDocumentFile;
 
     invoke-static {p1}, Landroid/support/v4/provider/DocumentsContractApi21;->prepareTreeUri(Landroid/net/Uri;)Landroid/net/Uri;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v1, v2, p0, v3}, Landroid/support/v4/provider/TreeDocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
+    invoke-direct {v0, v1, p0, v2}, Landroid/support/v4/provider/TreeDocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
 
     :goto_0
-    return-object v1
+    return-object v0
 
     :cond_0
-    move-object v1, v2
+    move-object v0, v1
 
     goto :goto_0
 .end method
@@ -97,13 +97,13 @@
 
     invoke-static {p0, p1}, Landroid/support/v4/provider/DocumentsContractApi19;->isDocumentUri(Landroid/content/Context;Landroid/net/Uri;)Z
 
-    move-result v1
+    move-result v0
 
     :goto_0
-    return v1
+    return v0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

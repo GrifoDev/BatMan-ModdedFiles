@@ -59,7 +59,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$9;->this$0:Lcom/android/launcher3/common/model/FavoritesUpdater;
 
-    # getter for: Lcom/android/launcher3/common/model/FavoritesUpdater;->mFavoritesProvider:Lcom/android/launcher3/common/model/FavoritesProvider;
     invoke-static {v1}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$400(Lcom/android/launcher3/common/model/FavoritesUpdater;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v1
@@ -97,7 +96,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$9;->val$stackTrace:[Ljava/lang/StackTraceElement;
 
-    # invokes: Lcom/android/launcher3/common/model/FavoritesUpdater;->checkItemInfoLocked(JLcom/android/launcher3/common/base/item/ItemInfo;[Ljava/lang/StackTraceElement;)V
     invoke-static {v4, v5, v0, v3}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$000(JLcom/android/launcher3/common/base/item/ItemInfo;[Ljava/lang/StackTraceElement;)V
 
     sget-object v3, Lcom/android/launcher3/common/model/DataLoader;->sBgItemsIdMap:Lcom/android/launcher3/util/LongArrayMap;

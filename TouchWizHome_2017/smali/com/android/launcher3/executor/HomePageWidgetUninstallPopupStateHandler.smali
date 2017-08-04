@@ -128,78 +128,99 @@
 .end method
 
 .method public parseParameters(Lcom/samsung/android/sdk/bixby/data/State;)Ljava/lang/String;
-    .locals 5
+    .locals 7
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
 
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/launcher3/executor/StateParamHelper;->newHelper(Ljava/util/Map;)Lcom/android/launcher3/executor/StateParamHelper;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/launcher3/executor/StateParamHelper;->newHelper(Ljava/util/Map;)Lcom/android/launcher3/executor/StateParamHelper;
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    const-string v1, "WidgetName"
+    check-cast v0, Ljava/lang/String;
 
-    sget-object v2, Lcom/android/launcher3/executor/StateParamHelper$Type;->STRING:Lcom/android/launcher3/executor/StateParamHelper$Type;
+    sget-object v4, Lcom/android/launcher3/executor/StateParamHelper$Type;->STRING:Lcom/android/launcher3/executor/StateParamHelper$Type;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/executor/StateParamHelper;->hasSlotValue(Ljava/lang/String;Lcom/android/launcher3/executor/StateParamHelper$Type;)Z
+    invoke-virtual {v2, v0, v4}, Lcom/android/launcher3/executor/StateParamHelper;->hasSlotValue(Ljava/lang/String;Lcom/android/launcher3/executor/StateParamHelper$Type;)Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_0
+    if-nez v4, :cond_1
 
-    new-instance v1, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME_PAGE_WIDGET_EDIT_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v4, Lcom/android/launcher3/executor/ExecutorState;->HOME_PAGE_WIDGET_EDIT_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "Widget"
+    const-string v4, "Widget"
 
-    const-string v3, "Exist"
+    const-string v5, "Exist"
 
-    const-string v4, "no"
+    const-string v6, "no"
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    move-result-object v1
+    move-result-object v3
 
-    iput-object v1, p0, Lcom/android/launcher3/executor/HomePageWidgetUninstallPopupStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    iput-object v3, p0, Lcom/android/launcher3/executor/HomePageWidgetUninstallPopupStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    const-string v1, "PARAM_CHECK_ERROR"
+    const-string v3, "PARAM_CHECK_ERROR"
 
     :goto_0
-    return-object v1
+    return-object v3
 
-    :cond_0
-    iget-object v1, p0, Lcom/android/launcher3/executor/HomePageWidgetUninstallPopupStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+    :cond_1
+    iget-object v4, p0, Lcom/android/launcher3/executor/HomePageWidgetUninstallPopupStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    const-string v2, "WidgetName"
+    invoke-virtual {v2, v0}, Lcom/android/launcher3/executor/StateParamHelper;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/executor/StateParamHelper;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v2
+    invoke-virtual {v4, v5}, Lcom/android/launcher3/executor/StateAppInfo;->setComponentName(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/executor/StateAppInfo;->setComponentName(Ljava/lang/String;)V
+    iget-object v4, p0, Lcom/android/launcher3/executor/HomePageWidgetUninstallPopupStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    iget-object v1, p0, Lcom/android/launcher3/executor/HomePageWidgetUninstallPopupStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+    invoke-virtual {v4}, Lcom/android/launcher3/executor/StateAppInfo;->isValid()Z
 
-    invoke-virtual {v1}, Lcom/android/launcher3/executor/StateAppInfo;->isValid()Z
+    move-result v4
 
-    move-result v1
+    if-nez v4, :cond_0
 
-    if-nez v1, :cond_1
-
-    const-string v1, "PARAM_CHECK_ERROR"
+    const-string v3, "PARAM_CHECK_ERROR"
 
     goto :goto_0
 
-    :cond_1
-    const-string v1, "PARAM_CHECK_OK"
+    :cond_2
+    const-string v3, "PARAM_CHECK_OK"
 
     goto :goto_0
 .end method

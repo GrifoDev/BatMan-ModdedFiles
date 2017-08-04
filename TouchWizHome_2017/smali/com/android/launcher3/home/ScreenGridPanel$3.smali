@@ -45,7 +45,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/ScreenGridPanel$3;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
@@ -54,7 +53,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/ScreenGridPanel$3;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v0}, Lcom/android/launcher3/home/ScreenGridPanel;->access$300(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v0
@@ -67,7 +65,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$3;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1
@@ -76,7 +73,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08018a
+    const v2, 0x7f080197
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -84,7 +81,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/ScreenGridPanel$3;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
@@ -93,7 +89,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08014c
+    const v3, 0x7f08015b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

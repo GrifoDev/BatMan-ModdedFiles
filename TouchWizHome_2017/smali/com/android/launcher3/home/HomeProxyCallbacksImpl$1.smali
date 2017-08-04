@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl$1;->this$0:Lcom/android/launcher3/home/HomeProxyCallbacksImpl;
 
-    # getter for: Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->access$000(Lcom/android/launcher3/home/HomeProxyCallbacksImpl;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl$1;->this$0:Lcom/android/launcher3/home/HomeProxyCallbacksImpl;
 
-    # getter for: Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->access$000(Lcom/android/launcher3/home/HomeProxyCallbacksImpl;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v0

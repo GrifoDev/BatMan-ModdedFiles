@@ -84,6 +84,8 @@
 
 .field static final PARAM_NLG_MULTI_APPS:Ljava/lang/String; = "MultiApps"
 
+.field static final PARAM_NLG_ORDINAL_NUMBER:Ljava/lang/String; = "OrdinalNumber"
+
 .field static final PARAM_NLG_PAGE:Ljava/lang/String; = "Page"
 
 .field static final PARAM_NLG_PAGE_COUNT:Ljava/lang/String; = "page_count"

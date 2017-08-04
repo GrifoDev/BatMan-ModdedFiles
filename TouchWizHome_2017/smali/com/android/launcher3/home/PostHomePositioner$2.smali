@@ -57,12 +57,10 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$itemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
 
-    # invokes: Lcom/android/launcher3/home/PostHomePositioner;->addWidget(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher3/home/PostHomePositioner;->access$300(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->this$0:Lcom/android/launcher3/home/PostHomePositioner;
 
-    # getter for: Lcom/android/launcher3/home/PostHomePositioner;->mProvider:Lcom/android/launcher3/common/customer/PostPositionProvider;
     invoke-static {v0}, Lcom/android/launcher3/home/PostHomePositioner;->access$400(Lcom/android/launcher3/home/PostHomePositioner;)Lcom/android/launcher3/common/customer/PostPositionProvider;
 
     move-result-object v0

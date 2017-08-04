@@ -63,7 +63,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceDragController$7;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceDragController;->mDropToLayout:Lcom/android/launcher3/common/base/view/CellLayout;
     invoke-static {v2}, Lcom/android/launcher3/home/WorkspaceDragController;->access$200(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/common/base/view/CellLayout;
 
     move-result-object v2

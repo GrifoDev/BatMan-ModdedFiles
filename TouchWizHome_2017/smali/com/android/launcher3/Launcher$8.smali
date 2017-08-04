@@ -50,7 +50,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mHomeBindController:Lcom/android/launcher3/home/HomeBindController;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$300(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/home/HomeBindController;
 
     move-result-object v5
@@ -59,7 +58,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$000(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v5
@@ -68,7 +66,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mHomeBindController:Lcom/android/launcher3/home/HomeBindController;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$300(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/home/HomeBindController;
 
     move-result-object v5
@@ -90,7 +87,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mHomeBindController:Lcom/android/launcher3/home/HomeBindController;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$300(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/home/HomeBindController;
 
     move-result-object v5
@@ -101,7 +97,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mHomeBindController:Lcom/android/launcher3/home/HomeBindController;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$300(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/home/HomeBindController;
 
     move-result-object v5
@@ -110,7 +105,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mModel:Lcom/android/launcher3/LauncherModel;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$400(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/LauncherModel;
 
     move-result-object v5
@@ -148,7 +142,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$000(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v5
@@ -240,7 +233,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mDragMgr:Lcom/android/launcher3/common/drag/DragManager;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$500(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/common/drag/DragManager;
 
     move-result-object v5
@@ -266,7 +258,6 @@
     :cond_4
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$600(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     move-result-object v5
@@ -275,7 +266,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$600(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     move-result-object v5
@@ -288,7 +278,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/Launcher$8;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
     invoke-static {v5}, Lcom/android/launcher3/Launcher;->access$600(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     move-result-object v5

@@ -37,7 +37,6 @@
 .method public onAlarm(Lcom/android/launcher3/util/alarm/Alarm;)V
     .locals 2
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->access$000()Ljava/lang/String;
 
     move-result-object v0

@@ -10,6 +10,9 @@
 .method public abstract addResultApps()V
 .end method
 
+.method public abstract getItem(I)Lcom/android/launcher3/common/base/item/ItemInfo;
+.end method
+
 .method public abstract getItem(Landroid/content/ComponentName;)Lcom/android/launcher3/common/base/item/ItemInfo;
 .end method
 

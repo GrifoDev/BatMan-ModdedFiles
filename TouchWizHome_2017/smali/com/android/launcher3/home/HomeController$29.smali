@@ -45,7 +45,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$1300(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1
@@ -58,7 +57,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v1
@@ -67,7 +65,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mHotseat:Lcom/android/launcher3/home/Hotseat;
     invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$1400(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Hotseat;
 
     move-result-object v1
@@ -76,7 +73,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mHotseat:Lcom/android/launcher3/home/Hotseat;
     invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$1400(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Hotseat;
 
     move-result-object v1
@@ -103,7 +99,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # invokes: Lcom/android/launcher3/home/HomeController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
     invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$1500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/common/stage/StageManager;
 
     move-result-object v1

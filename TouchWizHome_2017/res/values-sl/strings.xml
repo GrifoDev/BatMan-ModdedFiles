@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Zgodovina iskanja</string>
+    <string name="about">Več o aplikaciji %s</string>
+    <string name="about_already_installed">Najnovejša različica je že nameščena.</string>
+    <string name="about_home_screen">Domači zaslon</string>
+    <string name="about_licence">Odprtokodne licence</string>
+    <string name="about_network_err">Posodobitev ni mogoče preveriti. Telefon ni povezan z omrežjem.</string>
+    <string name="about_new_version_exist">Na voljo je nova različica.</string>
+    <string name="about_retry">Posk. znova</string>
+    <string name="about_update">Posodobi</string>
+    <string name="about_version">Različica %s</string>
     <string name="activity_not_available">Ta aplikacija ni na voljo za vašo napravo.</string>
     <string name="activity_not_found">Program ni nameščen.</string>
     <string name="align_to_bottom">Poravnaj navzdol</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Na tej strani ni več prostora</string>
     <string name="out_of_space_dialog">Na tej strani ni več prostora. Element bo dodan na novo stran.</string>
     <string name="permdesc_install_widget">Ta aplikacija lahko dodaja pripomočke na domači zaslon.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ta aplikacija lahko bere nastavitve strani s prilagojeno vsebino, ki je na levi strani domačega zaslona.</string>
+    <string name="permdesc_write_zeropage_settings">Ta aplikacija lahko spremeni nastavitve strani s prilagojeno vsebino, ki je na levi strani domačega zaslona.</string>
     <string name="permlab_install_widget">Dodajanje pripomočkov</string>
+    <string name="permlab_read_settings">preberi nastavitve in bližnjice domačega zaslona</string>
+    <string name="permlab_read_zeropage_settings">Branje nast. strani s pril. vsebino</string>
+    <string name="permlab_write_zeropage_settings">Spr. nast. strani s pril. vsebino</string>
     <string name="quick_option_add_apps">Dodaj aplikacije</string>
     <string name="quick_option_add_shortcut_to_home">Dodaj bliž. na dom. zaslon</string>
     <string name="quick_option_add_to_personal">Dod. na os.</string>

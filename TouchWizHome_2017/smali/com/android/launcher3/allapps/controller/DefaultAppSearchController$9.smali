@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$9;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarEditView:Landroid/widget/SearchView;
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$400(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/widget/SearchView;
 
     move-result-object v0
@@ -48,14 +47,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$9;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$800(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$9;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarEditView:Landroid/widget/SearchView;
     invoke-static {v1}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$400(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/widget/SearchView;
 
     move-result-object v1

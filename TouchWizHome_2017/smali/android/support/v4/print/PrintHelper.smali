@@ -42,12 +42,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {}, Landroid/support/v4/print/PrintHelper;->systemSupportsPrint()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
@@ -94,6 +88,12 @@
     goto :goto_0
 
     :cond_2
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x13
+
+    if-lt v0, v1, :cond_3
+
     new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperKitkatImpl;
 
     invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperKitkatImpl;-><init>(Landroid/content/Context;)V

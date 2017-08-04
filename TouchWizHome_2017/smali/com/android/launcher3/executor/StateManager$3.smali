@@ -71,7 +71,6 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/executor/StateManager$3;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
     invoke-static {v2}, Lcom/android/launcher3/executor/StateManager;->access$300(Lcom/android/launcher3/executor/StateManager;)Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     move-result-object v2
@@ -80,7 +79,6 @@
 
     invoke-virtual {v2, v1, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/executor/StateManager;->access$100()Ljava/lang/String;
 
     move-result-object v3
@@ -122,7 +120,6 @@
     :cond_2
     iget-object v2, p0, Lcom/android/launcher3/executor/StateManager$3;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
     invoke-static {v2}, Lcom/android/launcher3/executor/StateManager;->access$300(Lcom/android/launcher3/executor/StateManager;)Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     move-result-object v2
@@ -142,7 +139,6 @@
     :cond_4
     iget-object v2, p0, Lcom/android/launcher3/executor/StateManager$3;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
     invoke-static {v2}, Lcom/android/launcher3/executor/StateManager;->access$300(Lcom/android/launcher3/executor/StateManager;)Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     move-result-object v2
@@ -158,7 +154,6 @@
     :catch_0
     move-exception v0
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/executor/StateManager;->access$100()Ljava/lang/String;
 
     move-result-object v2

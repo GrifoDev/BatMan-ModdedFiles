@@ -28,24 +28,20 @@
 .method public run()V
     .locals 4
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->sSensorManager:Landroid/hardware/SensorManager;
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$100()Landroid/hardware/SensorManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->sSensorManager:Landroid/hardware/SensorManager;
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$100()Landroid/hardware/SensorManager;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->sel:Landroid/hardware/SensorEventListener;
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$200()Landroid/hardware/SensorEventListener;
 
     move-result-object v1
 
-    # getter for: Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->sSensorManager:Landroid/hardware/SensorManager;
     invoke-static {}, Lcom/android/launcher3/common/wallpaperscroller/GyroForShadow;->access$100()Landroid/hardware/SensorManager;
 
     move-result-object v2

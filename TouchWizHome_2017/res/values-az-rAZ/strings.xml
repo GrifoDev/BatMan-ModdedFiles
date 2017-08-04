@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Axtarış tarixçəsi</string>
+    <string name="about">%s haqqında</string>
+    <string name="about_already_installed">Ən son versiya artıq quraşdırılmışdır.</string>
+    <string name="about_home_screen">Əsas ekran</string>
+    <string name="about_licence">Açıq mənbə lisenziyaları</string>
+    <string name="about_network_err">Yeniləmələri yoxlamaq olmur. Telefonunuz şəbəkəyə qoşulmamışdır.</string>
+    <string name="about_new_version_exist">Yeni versiya movcuddur.</string>
+    <string name="about_retry">Təkrarla</string>
+    <string name="about_update">Yenilə</string>
+    <string name="about_version">Versiya %s</string>
     <string name="activity_not_available">Bu proqram cihazınız üçün aktiv deyil.</string>
     <string name="activity_not_found">Proqram quraşdırılmamışdır.</string>
     <string name="align_to_bottom">Aşağıda bərabərləşdir</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Bu səhifədə yer yoxdur</string>
     <string name="out_of_space_dialog">Bu səhifədə yer yoxdur. Element yeni səhifəyə əlavə ediləcək.</string>
     <string name="permdesc_install_widget">Bu proqram əsas ekrana vidjetlər əlavə edə bilər.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Bu proqram Əsas ekranın solunda yerləşən fərdi məzmun səhifəsinin parametrlərini oxuya bilər.</string>
+    <string name="permdesc_write_zeropage_settings">Bu proqram Əsas ekranın solunda yerləşən fərdi məzmun səhifəsinin parametrlərini dəyişə bilər.</string>
     <string name="permlab_install_widget">Vidjetlər əlavə et</string>
+    <string name="permlab_read_settings">ana parametrləri və qısa yolları oxuyun</string>
+    <string name="permlab_read_zeropage_settings">Fərdi məzmun səhif parametrl oxu</string>
+    <string name="permlab_write_zeropage_settings">Fərdi məzmun səhif parametrl dəyiş</string>
     <string name="quick_option_add_apps">Proqram əlavə et</string>
     <string name="quick_option_add_shortcut_to_home">Əsas ekrn qısayol əlv et</string>
     <string name="quick_option_add_to_personal">Şəxsi əlavə et</string>

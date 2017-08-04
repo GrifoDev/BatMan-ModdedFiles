@@ -75,7 +75,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$2;->this$0:Lcom/android/launcher3/common/tray/FakeViewAnimation;
 
-    # getter for: Lcom/android/launcher3/common/tray/FakeViewAnimation;->mFakeViewAnimators:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/common/tray/FakeViewAnimation;->access$000(Lcom/android/launcher3/common/tray/FakeViewAnimation;)Ljava/util/HashMap;
 
     move-result-object v0

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">തിരയൽ ചരിത്രം</string>
+    <string name="about">%s വിവരം</string>
+    <string name="about_already_installed">ഏറ്റവും പുതിയ പതിപ്പ് നേരത്തേതന്നെ ഇൻസ്റ്റാൾ ചെയ്തിട്ടുണ്ട്.</string>
+    <string name="about_home_screen">ഹോം സ്ക്രീന്‍‌</string>
+    <string name="about_licence">ഓപ്പൺ സോഴ്സ് ലൈസൻസുകൾ</string>
+    <string name="about_network_err">‌അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കാനാവില്ല. നിങ്ങളുടെ ഫോണിനെ ഒരു നെറ്റ്‌വർക്കിലേക്ക് ബന്ധിപ്പിച്ചിട്ടില്ല.</string>
+    <string name="about_new_version_exist">ഒരു പുതിയ പതിപ്പ് ലഭ്യമാണ്.</string>
+    <string name="about_retry">വീണ്ടും ശ്രമിക്കുക</string>
+    <string name="about_update">അപ്‌ഡേറ്റ് ചെയ്യുക</string>
+    <string name="about_version">പതിപ്പ് %s</string>
     <string name="activity_not_available">നിങ്ങളുടെ ഉപകരണത്തിൽ ഈ ഉള്ളടക്കം ലഭ്യമല്ല.</string>
     <string name="activity_not_found">ആപ്ലിക്കേഷന്‍ ഇന്‍സ്റ്റോള്‍ ചെയ്തിട്ടില്ല.</string>
     <string name="align_to_bottom">തഴേയ്ക്ക് അടുക്കിവയ്ക്കുക</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ഈ പേജില്‍ കൂടുതല്‍ സ്ഥലം ഇല്ല</string>
     <string name="out_of_space_dialog">ഈ പേജിൽ ഇനിയും സ്ഥലമില്ല. ഇനം ഒരു പുതിയ പേജിൽ ചേർക്കപ്പെടും.</string>
     <string name="permdesc_install_widget">ഹോം സ്ക്രീനിലേക്ക് വിജറ്റുകൾ ചേർക്കാൻ ഈ ആപ്ലിക്കേഷന് സാധിക്കും.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ഹോം സ്ക്രീനിന്‍റെ ഇടത് വശത്തുള്ള ഇച്ഛാനുസൃത ഉള്ളടക്ക പേജിന്‍റെ ക്രമീകരണങ്ങൾ ഈ ആപ്പിന് വായിക്കാനാകും.</string>
+    <string name="permdesc_write_zeropage_settings">ഹോം സ്ക്രീനിന്‍റെ ഇടത് വശത്തുള്ള ഇച്ഛാനുസൃത ഉള്ളടക്ക പേജിന്‍റെ ക്രമീകരണങ്ങൾ ഈ ആപ്പിന് മാറ്റാനാകും.</string>
     <string name="permlab_install_widget">വിജറ്റുകൾ ചേർക്കുക</string>
+    <string name="permlab_read_settings">ഹോം ക്രമീകരണങ്ങളും കുറുക്കു വഴികളും വായിക്കുക</string>
+    <string name="permlab_read_zeropage_settings">ഇച്ഛാനുസൃത ഉള്ളടക്ക പേജ് വായിക്കൽ ക്രമീകരണങ്ങൾ</string>
+    <string name="permlab_write_zeropage_settings">ഇച്ഛാനുസൃത ഉള്ളടക്ക പേജ് മാറ്റൽ ക്രമീകരണങ്ങൾ</string>
     <string name="quick_option_add_apps">ആപ്ലിക്കേഷനുകൾ ചേർക്കുക</string>
     <string name="quick_option_add_shortcut_to_home">ഹോമിലേക്ക് എളുപ്പവഴി ചേർക്കുക</string>
     <string name="quick_option_add_to_personal">വ്യക്തിപരമായതിലേക്ക് ചേര്‍ക്കുക</string>

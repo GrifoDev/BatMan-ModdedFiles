@@ -102,7 +102,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$AppsButtonParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v3
@@ -119,7 +118,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$AppsButtonParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v3
@@ -136,7 +134,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$AppsButtonParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2400(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v3
@@ -163,7 +160,6 @@
 
     const-string v4, ""
 
-    # invokes: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->addShortcut(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
     invoke-static {v3, p2, v4, v0, v8}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2500(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
 
     const-wide/16 v4, 0x0

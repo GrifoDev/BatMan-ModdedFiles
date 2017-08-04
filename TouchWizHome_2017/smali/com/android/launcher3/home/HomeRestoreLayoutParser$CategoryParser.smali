@@ -63,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -80,7 +79,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -97,7 +95,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -116,7 +113,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -135,7 +131,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -146,7 +141,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -187,7 +181,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -206,7 +199,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -225,7 +217,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -236,7 +227,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -250,7 +240,6 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -267,7 +256,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -284,7 +272,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -303,7 +290,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -322,7 +308,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -333,7 +318,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -344,7 +328,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -478,7 +461,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    # getter for: Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mTagParserMap:Ljava/util/HashMap;
     invoke-static {v4}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v4

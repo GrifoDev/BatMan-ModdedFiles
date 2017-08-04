@@ -263,7 +263,6 @@
 .method public static getInstance()Lcom/android/launcher3/gamehome/GameHomeManager;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/gamehome/GameHomeManager$SingletonHolder;->sGameHomeManager:Lcom/android/launcher3/gamehome/GameHomeManager;
     invoke-static {}, Lcom/android/launcher3/gamehome/GameHomeManager$SingletonHolder;->access$000()Lcom/android/launcher3/gamehome/GameHomeManager;
 
     move-result-object v0
@@ -888,7 +887,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/gamehome/GameHomeManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v14, 0x7f080096
+    const v14, 0x7f0800a5
 
     const/4 v15, 0x0
 

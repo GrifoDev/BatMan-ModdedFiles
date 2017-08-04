@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Historial de búsqueda</string>
+    <string name="about">Acerca de %s</string>
+    <string name="about_already_installed">La versión más reciente ya está instalada.</string>
+    <string name="about_home_screen">Pantalla de inicio</string>
+    <string name="about_licence">Licencias de código abierto</string>
+    <string name="about_network_err">No es posible buscar actualizaciones. El teléfono no está conectado a una red.</string>
+    <string name="about_new_version_exist">Hay una nueva versión disponible.</string>
+    <string name="about_retry">Reintentar</string>
+    <string name="about_update">Actualizar</string>
+    <string name="about_version">Versión %s</string>
     <string name="activity_not_available">Esta aplicación no está disponible para su dispositivo.</string>
     <string name="activity_not_found">Aplicación no instalada.</string>
     <string name="align_to_bottom">Alinear a la parte inferior</string>
@@ -108,7 +117,7 @@
     <string name="ok">Aceptar</string>
     <string name="only_one_widget_instance_allowed">El widget %s ya está en la pantalla de inicio.</string>
     <string name="option_menu_contact_up">Contáctenos</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Ajustes</string>
     <string name="options_menu">Más opciones</string>
     <string name="options_menu_search_recommend">Opciones de búsqueda</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">No hay más espacio en esta página</string>
     <string name="out_of_space_dialog">No hay más espacio en esta página. El elemento se añadirá en una página nueva.</string>
     <string name="permdesc_install_widget">Esta aplicación puede añadir widgets a la pantalla de inicio.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Esta aplicación puede leer los ajustes de la página de contenido personalizado, que se encuentra en el lado izquierdo de la pantalla de inicio.</string>
+    <string name="permdesc_write_zeropage_settings">Esta aplicación puede cambiar los ajustes de la página de contenido personalizado, que se encuentra en el lado izquierdo de la pantalla de inicio.</string>
     <string name="permlab_install_widget">Añadir widgets</string>
+    <string name="permlab_read_settings">Leer configuración de Inicio y atajos</string>
+    <string name="permlab_read_zeropage_settings">Leer ajustes de página personal</string>
+    <string name="permlab_write_zeropage_settings">Cambiar ajustes de página personal</string>
     <string name="quick_option_add_apps">Añadir aplicaciones</string>
     <string name="quick_option_add_shortcut_to_home">Añadir atajo a Inicio</string>
     <string name="quick_option_add_to_personal">Añ. a pers.</string>

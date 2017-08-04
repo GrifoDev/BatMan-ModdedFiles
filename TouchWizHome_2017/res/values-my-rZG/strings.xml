@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">မွတ္တမ္းေဟာင္း ရွာေဖြပါ</string>
+    <string name="about">%s ၏ အေၾကာင္း</string>
+    <string name="about_already_installed">ေနာက္ဆုံးေပၚဗားရွင္းကို ထည့္သြင္းထားၿပီးျဖစ္သည္။</string>
+    <string name="about_home_screen">ပင္မဖန္သားျပင္</string>
+    <string name="about_licence">အခမဲ့သံုး ရင္းျမစ္လိုင္စင္မ်ား</string>
+    <string name="about_network_err">အပ္ဒိတ္မ်ားကို စစ္ေဆး၍မရပါ။ သင့္ဖုန္းကုိ ကြန္ရက္ႏွင့္ ခ်ိတ္ဆက္မထားပါ။</string>
+    <string name="about_new_version_exist">ဗားရွင္း အသစ္တစ္ခု ရႏိုင္သည္။</string>
+    <string name="about_retry">ျပန္ႀကိဳးစားပါ</string>
+    <string name="about_update">အပ္ဒိတ္</string>
+    <string name="about_version">ပံုစံ %s</string>
     <string name="activity_not_available">ဤအက္ပ္သည္ သင့္ကိရိယာအတြက္ မရႏိုင္ပါ။</string>
     <string name="activity_not_found">လုပ္ငန္းသံုးပရိုဂရမ္အား သြင္းမထားပါ။</string>
     <string name="align_to_bottom">ေအာက္ေျခတြင္ စီပါ</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ဤစာမ်က္ႏွာေပၚတြင္ ေနရာမရွိေတာ့ပါ</string>
     <string name="out_of_space_dialog">ဤစာမ်က္ႏွာေပၚတြင္ ေနာက္ထပ္ ေနရာ မရွိေတာ့ပါ။ ဤအရာကုိ စာမ်က္ႏွာအသစ္သုိ႔ ထည့္ပါမည္။</string>
     <string name="permdesc_install_widget">ဤအက္ပ္သည္ မူလဖန္သားျပင္သို႔ ဝဒ္ဂ်က္မ်ားထည့္ႏိုင္သည္။</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ဤအက္ပ္က ပင္မ ဖန္သားျပင္၏ ဘယ္ဘက္တြင္ ရွိေသာ စိတ္ႀကိဳက္ အေၾကာင္းအရာ စာမ်က္ႏွာ၏ သတ္မွတ္ခ်က္မ်ားကုိ ဖတ္ႏုိင္သည္။</string>
+    <string name="permdesc_write_zeropage_settings">ဤအက္ပ္က ပင္မ ဖန္သားျပင္၏ ဘယ္ဘက္တြင္ ရွိေသာ စိတ္ႀကိဳက္ အေၾကာင္းအရာ စာမ်က္ႏွာ၏ သတ္မွတ္ခ်က္မ်ားကုိ ေျပာင္းႏုိင္သည္။</string>
     <string name="permlab_install_widget">ဝဒ္ဂ်က္မ်ား ထည့္ပါ</string>
+    <string name="permlab_read_settings">ပင္မဆက္တင္မ်ားႏွင့္ ျဖတ္လမ္းမ်ားကို ဖတ္ပါ</string>
+    <string name="permlab_read_zeropage_settings">စိတ္ႀကိဳက္ အေၾကာင္းအရာ စာမ်က္ႏွာ သတ္မွတ္ခ်က္မ်ားကုိ ဖတ္ပါ</string>
+    <string name="permlab_write_zeropage_settings">စိတ္ႀကိဳက္ အေၾကာင္းအရာ စာမ်က္ႏွာ သတ္မွတ္ခ်က္မ်ားကုိ ေျပာင္းပါ</string>
     <string name="quick_option_add_apps">အက္ပ္မ်ား ထည့္ပါ</string>
     <string name="quick_option_add_shortcut_to_home">ေရွာ့ကတ္ကို ပင္မထဲ ထည့္ပါ</string>
     <string name="quick_option_add_to_personal">ကိုယ္ေရးကိုယ္တာသို႔ ထည့္ပါ</string>

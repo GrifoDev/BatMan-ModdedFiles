@@ -91,7 +91,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0d0003
+    const v0, 0x7f0d0004
 
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->mContext:Landroid/content/Context;
@@ -111,7 +111,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0d0004
+    const v0, 0x7f0d0005
 
     goto :goto_0
 .end method
@@ -257,7 +257,7 @@
 
     move-result-object v9
 
-    const v21, 0x7f03000c
+    const v21, 0x7f03000e
 
     const/16 v22, 0x0
 
@@ -269,7 +269,7 @@
 
     move-result-object p2
 
-    const v21, 0x7f0f002a
+    const v21, 0x7f0f003a
 
     move-object/from16 v0, p2
 
@@ -302,7 +302,7 @@
 
     if-ge v7, v0, :cond_1
 
-    const v21, 0x7f03000e
+    const v21, 0x7f030010
 
     const/16 v22, 0x0
 
@@ -330,7 +330,7 @@
 
     aget-object v22, v6, v7
 
-    const v21, 0x7f0f002e
+    const v21, 0x7f0f003e
 
     move/from16 v0, v21
 
@@ -348,7 +348,7 @@
 
     aget-object v22, v6, v7
 
-    const v21, 0x7f0f002f
+    const v21, 0x7f0f003f
 
     move/from16 v0, v21
 
@@ -366,7 +366,7 @@
 
     aget-object v22, v6, v7
 
-    const v21, 0x7f0f0030
+    const v21, 0x7f0f0040
 
     move/from16 v0, v21
 
@@ -458,7 +458,7 @@
     goto/16 :goto_0
 
     :cond_1
-    const v21, 0x7f0f000a
+    const v21, 0x7f0f001a
 
     move-object/from16 v0, p2
 
@@ -477,7 +477,7 @@
     :goto_1
     const-string v20, ""
 
-    const v21, 0x7f0f0009
+    const v21, 0x7f0f0019
 
     move-object/from16 v0, p2
 
@@ -512,7 +512,7 @@
     invoke-virtual {v5, v0, v1, v2, v3}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
     :goto_2
-    const v21, 0x7f0f000b
+    const v21, 0x7f0f001b
 
     move-object/from16 v0, p2
 
@@ -578,7 +578,7 @@
 
     check-cast v6, [Lcom/android/launcher3/appspicker/AppIconViewHolder;
 
-    const v21, 0x7f0f000a
+    const v21, 0x7f0f001a
 
     move-object/from16 v0, p2
 

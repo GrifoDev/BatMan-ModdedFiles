@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">محفوظات البحث</string>
+    <string name="about">حول %s</string>
+    <string name="about_already_installed">تم مسبقاً تثبيت أحدث إصدار.</string>
+    <string name="about_home_screen">الشاشة الرئيسية</string>
+    <string name="about_licence">فتح تراخيص المصدر</string>
+    <string name="about_network_err">يتعذر التحقق من وجود تحديثات. هاتفك غير متصل بأي شبكة.</string>
+    <string name="about_new_version_exist">يتوفر إصدار جديد.</string>
+    <string name="about_retry">إعادة المحاولة</string>
+    <string name="about_update">تحديث</string>
+    <string name="about_version">إصدار %s</string>
     <string name="activity_not_available">هذا التطبيق غير متوفر لجهازك.</string>
     <string name="activity_not_found">لم يتم تثبيت التطبيق.</string>
     <string name="align_to_bottom">محاذاة للأسفل</string>
@@ -108,7 +117,7 @@
     <string name="ok">موافق</string>
     <string name="only_one_widget_instance_allowed">تمت إضافة التطبيق المصغر %s إلى الشاشة الرئيسية بالفعل.</string>
     <string name="option_menu_contact_up">اتصل بنا</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">الضبط</string>
     <string name="options_menu">مزيد من الخيارات</string>
     <string name="options_menu_search_recommend">خيارات البحث</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">لا توجد أية مساحة أخرى في هذه الصفحة</string>
     <string name="out_of_space_dialog">ما من مساحة إضافية على هذه الصفحة. ستتم إضافة العنصر إلى صفحة جديدة.</string>
     <string name="permdesc_install_widget">يمكن لهذا التطبيق إضافة تطبيقات مصغرة على الشاشة الرئيسية.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">يمكن لهذا التطبيق قراءة ضبط صفحة المحتوى المخصص، وهو يوجد على يسار شاشة الصفحة الرئيسية.</string>
+    <string name="permdesc_write_zeropage_settings">يمكن لهذا التطبيق تغيير ضبط صفحة المحتوى المخصص، وهو يوجد على يسار شاشة الصفحة الرئيسية.</string>
     <string name="permlab_install_widget">إضافة تطبيقات مصغرة</string>
+    <string name="permlab_read_settings">قراءة إعدادات واختصارات الشاشة الرئيسية</string>
+    <string name="permlab_read_zeropage_settings">قراءة ضبط صفحة المحتوى المخصص</string>
+    <string name="permlab_write_zeropage_settings">تغيير ضبط صفحة المحتوى المخصص</string>
     <string name="quick_option_add_apps">إضافة تطبيقات</string>
     <string name="quick_option_add_shortcut_to_home">إضافة اختصار إلى الشاشة الرئيسية</string>
     <string name="quick_option_add_to_personal">إضافة للشخصية</string>

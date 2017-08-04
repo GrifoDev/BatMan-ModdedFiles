@@ -38,7 +38,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v0
@@ -47,7 +46,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v0
@@ -56,7 +54,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v0
@@ -65,14 +62,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v1
@@ -89,14 +84,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v1
@@ -115,7 +108,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
     invoke-static {v0, v1}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$102(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     return-void
@@ -144,14 +136,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v1
@@ -170,14 +160,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mWidgetView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->access$000(Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;)Landroid/view/View;
 
     move-result-object v1

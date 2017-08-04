@@ -32,13 +32,29 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 2
+    .locals 3
 
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
     const-string v0, "Launcher"
 
-    const-string v1, "need_dark_statusbar is changed!!"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "need_dark_statusbar is changed!!"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

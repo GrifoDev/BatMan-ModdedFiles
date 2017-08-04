@@ -144,7 +144,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mThreadExitAlarm:Lcom/android/launcher3/util/alarm/Alarm;
     invoke-static {v7}, Lcom/android/launcher3/home/ZeroPageController;->access$1500(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/util/alarm/Alarm;
 
     move-result-object v7
@@ -191,7 +190,6 @@
     :cond_2
     const/4 v7, 0x0
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->setOffset(IIZ)Z
     invoke-static {v0, v6, v7, v3}, Lcom/android/launcher3/home/ZeroPageController;->access$1400(Lcom/android/launcher3/home/ZeroPageController;IIZ)Z
 
     move-result v7
@@ -228,7 +226,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v7}, Lcom/android/launcher3/home/ZeroPageController;->access$100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v7
@@ -244,7 +241,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mThreadExitAlarm:Lcom/android/launcher3/util/alarm/Alarm;
     invoke-static {v7}, Lcom/android/launcher3/home/ZeroPageController;->access$1500(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/util/alarm/Alarm;
 
     move-result-object v7
@@ -256,7 +252,6 @@
     :catch_0
     move-exception v2
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->access$000()Ljava/lang/String;
 
     move-result-object v7
@@ -300,7 +295,6 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
     :goto_2
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->access$000()Ljava/lang/String;
 
     move-result-object v7
@@ -330,7 +324,6 @@
     :catch_1
     move-exception v2
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->access$000()Ljava/lang/String;
 
     move-result-object v7
@@ -367,7 +360,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mThreadExitAlarm:Lcom/android/launcher3/util/alarm/Alarm;
     invoke-static {v0}, Lcom/android/launcher3/home/ZeroPageController;->access$1500(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/util/alarm/Alarm;
 
     move-result-object v0

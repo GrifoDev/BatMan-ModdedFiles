@@ -59,27 +59,22 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/logging/GSIMLogging$3;->this$0:Lcom/android/launcher3/util/logging/GSIMLogging;
 
-    # invokes: Lcom/android/launcher3/util/logging/GSIMLogging;->homeWidgetListLogging()V
     invoke-static {v1}, Lcom/android/launcher3/util/logging/GSIMLogging;->access$100(Lcom/android/launcher3/util/logging/GSIMLogging;)V
 
     iget-object v1, p0, Lcom/android/launcher3/util/logging/GSIMLogging$3;->this$0:Lcom/android/launcher3/util/logging/GSIMLogging;
 
-    # invokes: Lcom/android/launcher3/util/logging/GSIMLogging;->homeDefaultPageIndexLogging()V
     invoke-static {v1}, Lcom/android/launcher3/util/logging/GSIMLogging;->access$200(Lcom/android/launcher3/util/logging/GSIMLogging;)V
 
     iget-object v1, p0, Lcom/android/launcher3/util/logging/GSIMLogging$3;->this$0:Lcom/android/launcher3/util/logging/GSIMLogging;
 
-    # invokes: Lcom/android/launcher3/util/logging/GSIMLogging;->homeItemCountLogging()V
     invoke-static {v1}, Lcom/android/launcher3/util/logging/GSIMLogging;->access$300(Lcom/android/launcher3/util/logging/GSIMLogging;)V
 
     iget-object v1, p0, Lcom/android/launcher3/util/logging/GSIMLogging$3;->this$0:Lcom/android/launcher3/util/logging/GSIMLogging;
 
-    # invokes: Lcom/android/launcher3/util/logging/GSIMLogging;->zeroPageStatusLogging()V
     invoke-static {v1}, Lcom/android/launcher3/util/logging/GSIMLogging;->access$400(Lcom/android/launcher3/util/logging/GSIMLogging;)V
 
     iget-object v1, p0, Lcom/android/launcher3/util/logging/GSIMLogging$3;->this$0:Lcom/android/launcher3/util/logging/GSIMLogging;
 
-    # invokes: Lcom/android/launcher3/util/logging/GSIMLogging;->homeScreenModeLogging()V
     invoke-static {v1}, Lcom/android/launcher3/util/logging/GSIMLogging;->access$500(Lcom/android/launcher3/util/logging/GSIMLogging;)V
 
     invoke-static {v7}, Lcom/android/launcher3/util/logging/GSIMLogging$PreferencesLogging;->setWeekOfYearNumber(I)V
@@ -88,7 +83,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/util/logging/GSIMLogging$3;->this$0:Lcom/android/launcher3/util/logging/GSIMLogging;
 
-    # invokes: Lcom/android/launcher3/util/logging/GSIMLogging;->hotseatListLogging()Ljava/util/ArrayList;
     invoke-static {v2}, Lcom/android/launcher3/util/logging/GSIMLogging;->access$600(Lcom/android/launcher3/util/logging/GSIMLogging;)Ljava/util/ArrayList;
 
     move-result-object v2

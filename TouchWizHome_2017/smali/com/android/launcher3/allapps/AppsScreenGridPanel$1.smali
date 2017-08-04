@@ -45,7 +45,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
     invoke-static {v4}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$000(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/allapps/controller/AppsController;
 
     move-result-object v4
@@ -86,7 +85,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v4}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$100(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v4
@@ -103,7 +101,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/view/View;
 
     move-result-object v4
@@ -112,7 +109,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/view/View;
 
     move-result-object v4
@@ -125,7 +121,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/view/View;
 
     move-result-object v5
@@ -135,12 +130,10 @@
     :goto_1
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # invokes: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->updateBtnForScreenGrid(Ljava/lang/String;)V
     invoke-static {v4, v0}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$300(Lcom/android/launcher3/allapps/AppsScreenGridPanel;Ljava/lang/String;)V
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
     invoke-static {v4}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$000(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/allapps/controller/AppsController;
 
     move-result-object v4
@@ -158,7 +151,6 @@
     :cond_1
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/view/View;
 
     move-result-object v4
@@ -167,7 +159,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/view/View;
 
     move-result-object v4
@@ -180,7 +171,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$1;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
     invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/view/View;
 
     move-result-object v5

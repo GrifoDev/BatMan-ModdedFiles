@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Søgeoversigt</string>
+    <string name="about">Om %s</string>
+    <string name="about_already_installed">Den nyeste version er allerede installeret.</string>
+    <string name="about_home_screen">Startskærm</string>
+    <string name="about_licence">Open source-licenser</string>
+    <string name="about_network_err">Det er ikke muligt at søge efter opdateringer. Din telefon har ikke forbindelse til et netværk.</string>
+    <string name="about_new_version_exist">En ny version er tilgængelig.</string>
+    <string name="about_retry">Prøv igen</string>
+    <string name="about_update">Opdater</string>
+    <string name="about_version">Version %s</string>
     <string name="activity_not_available">Denne app er ikke tilgængelig til din enhed.</string>
     <string name="activity_not_found">Program ikke installeret.</string>
     <string name="align_to_bottom">Juster nederst</string>
@@ -109,7 +118,7 @@ apps"</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">"Widget'en %s er allerede blevet føjet til startskærmen."</string>
     <string name="option_menu_contact_up">Kontakt os</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Indstillinger</string>
     <string name="options_menu">Flere funktioner</string>
     <string name="options_menu_search_recommend">Søgeindstillinger</string>
@@ -120,7 +129,13 @@ apps"</string>
     <string name="out_of_space">Ikke mere plads på denne side</string>
     <string name="out_of_space_dialog">Der er ikke mere plads på denne side. Elementet vil blive tilføjet på en ny side.</string>
     <string name="permdesc_install_widget">Denne app kan føje widgets til startskærmen.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Denne app kan læse indstillingerne for siden med tilpasset indhold, som findes til venstre for startskærmen.</string>
+    <string name="permdesc_write_zeropage_settings">Denne app kan ændre indstillingerne for siden med tilpasset indhold, som findes til venstre for startskærmen.</string>
     <string name="permlab_install_widget">Tilføj widgets</string>
+    <string name="permlab_read_settings">Læs Hjem-indstillinger og genveje</string>
+    <string name="permlab_read_zeropage_settings">Læs indst. for tilp. sideindhold</string>
+    <string name="permlab_write_zeropage_settings">Skift indst. for tilp. sideindhold</string>
     <string name="quick_option_add_apps">Tilføj apps</string>
     <string name="quick_option_add_shortcut_to_home">Føj genvej til startskærm</string>
     <string name="quick_option_add_to_personal">Til. t. per.</string>

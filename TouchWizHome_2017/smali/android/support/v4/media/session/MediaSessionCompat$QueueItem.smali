@@ -221,18 +221,6 @@
     goto :goto_0
 .end method
 
-.method public static obtain(Ljava/lang/Object;)Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-static {p0}, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->fromQueueItem(Ljava/lang/Object;)Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public describeContents()I

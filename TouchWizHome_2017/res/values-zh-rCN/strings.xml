@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">搜索历史记录</string>
+    <string name="about">关于 %s</string>
+    <string name="about_already_installed">已安装最新版本。</string>
+    <string name="about_home_screen">主屏幕</string>
+    <string name="about_licence">开源许可证</string>
+    <string name="about_network_err">您的手机未连接至网络，无法检查更新。</string>
+    <string name="about_new_version_exist">新版本可用。</string>
+    <string name="about_retry">重试</string>
+    <string name="about_update">更新</string>
+    <string name="about_version">版本%1$s</string>
     <string name="activity_not_available">该应用程序不可用于您的设备。</string>
     <string name="activity_not_found">未安装应用程序。</string>
     <string name="align_to_bottom">向底部对齐</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">此页面上没有更多空间。</string>
     <string name="out_of_space_dialog">本页空间不足，项目将添加至新页面。</string>
     <string name="permdesc_install_widget">此应用程序可在主屏幕上添加小组件。</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">此应用程序可以读取自定义内容页面的设置，该设置位于主屏幕的左侧。</string>
+    <string name="permdesc_write_zeropage_settings">此应用程序可以更改自定义内容页面的设置，该设置位于主屏幕的左侧。</string>
     <string name="permlab_install_widget">添加小组件</string>
+    <string name="permlab_read_settings">读取主屏幕设置和快捷键</string>
+    <string name="permlab_read_zeropage_settings">读取自定义内容页面设置</string>
+    <string name="permlab_write_zeropage_settings">更改自定义内容页面设置</string>
     <string name="quick_option_add_apps">添加应用程序</string>
     <string name="quick_option_add_shortcut_to_home">添加快捷方式至主屏幕</string>
     <string name="quick_option_add_to_personal">添加至个人</string>

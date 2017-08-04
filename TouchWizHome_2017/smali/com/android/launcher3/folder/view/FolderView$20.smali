@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$20;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mItemsInReadingOrder:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$1700(Lcom/android/launcher3/folder/view/FolderView;)Ljava/util/ArrayList;
 
     move-result-object v0

@@ -34,9 +34,17 @@
 
 .field public static final enum SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
+.field public static final enum TEST_ALL_STATES_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+.field public static final enum TEST_ALL_STATES_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
 .field public static final enum TEST_SETUP_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
 .field public static final enum TEST_SETUP_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+.field public static final enum TEST_TEARDOWN_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+.field public static final enum TEST_TEARDOWN_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
 
 # instance fields
@@ -45,23 +53,23 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .locals 9
 
-    const/4 v7, 0x4
+    const/4 v8, 0x4
 
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     const-string v1, "SUCCESS"
 
-    invoke-direct {v0, v1, v3, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v4, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
@@ -69,7 +77,7 @@
 
     const-string v1, "FAILURE"
 
-    invoke-direct {v0, v1, v4, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v5, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
@@ -77,7 +85,7 @@
 
     const-string v1, "STATE_SUCCESS"
 
-    invoke-direct {v0, v1, v5, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v6, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
@@ -85,7 +93,7 @@
 
     const-string v1, "STATE_FAILURE"
 
-    invoke-direct {v0, v1, v6, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v7, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
@@ -93,7 +101,7 @@
 
     const-string v1, "TEST_SETUP_SUCCESS"
 
-    invoke-direct {v0, v1, v7, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v8, v6}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_SETUP_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
@@ -103,37 +111,107 @@
 
     const/4 v2, 0x5
 
-    invoke-direct {v0, v1, v2, v6}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v2, v7}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_SETUP_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    const/4 v0, 0x6
+    new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string v1, "TEST_TEARDOWN_SUCCESS"
+
+    const/4 v2, 0x6
+
+    invoke-direct {v0, v1, v2, v8}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_TEARDOWN_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string v1, "TEST_TEARDOWN_FAILURE"
+
+    const/4 v2, 0x7
+
+    const/4 v3, 0x5
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_TEARDOWN_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string v1, "TEST_ALL_STATES_SUCCESS"
+
+    const/16 v2, 0x8
+
+    const/4 v3, 0x6
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_ALL_STATES_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string v1, "TEST_ALL_STATES_FAILURE"
+
+    const/16 v2, 0x9
+
+    const/4 v3, 0x7
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_ALL_STATES_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const/16 v0, 0xa
 
     new-array v0, v0, [Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v4
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v6
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->STATE_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v7
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_SETUP_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    aput-object v1, v0, v7
+    aput-object v1, v0, v8
 
     const/4 v1, 0x5
 
     sget-object v2, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_SETUP_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x6
+
+    sget-object v2, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_TEARDOWN_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    sget-object v2, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_TEARDOWN_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x8
+
+    sget-object v2, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_ALL_STATES_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x9
+
+    sget-object v2, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_ALL_STATES_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     aput-object v2, v0, v1
 
@@ -225,33 +303,17 @@
 
     goto :goto_0
 
-    :pswitch_2
-    const-string v0, "success"
-
-    goto :goto_0
-
-    :pswitch_3
-    const-string v0, "failure"
-
-    goto :goto_0
-
-    :pswitch_4
-    const-string v0, "success"
-
-    goto :goto_0
-
-    :pswitch_5
-    const-string v0, "failure"
-
-    goto :goto_0
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
         :pswitch_1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_4
-        :pswitch_5
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method

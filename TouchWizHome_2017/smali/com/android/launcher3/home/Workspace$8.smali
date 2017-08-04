@@ -53,7 +53,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/Workspace$8;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mCurrentPage:I
     invoke-static {v1}, Lcom/android/launcher3/home/Workspace;->access$700(Lcom/android/launcher3/home/Workspace;)I
 
     move-result v1

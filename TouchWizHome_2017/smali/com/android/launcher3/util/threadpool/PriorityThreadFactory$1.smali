@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/util/threadpool/PriorityThreadFactory$1;->this$0:Lcom/android/launcher3/util/threadpool/PriorityThreadFactory;
 
-    # getter for: Lcom/android/launcher3/util/threadpool/PriorityThreadFactory;->mPriority:I
     invoke-static {v0}, Lcom/android/launcher3/util/threadpool/PriorityThreadFactory;->access$000(Lcom/android/launcher3/util/threadpool/PriorityThreadFactory;)I
 
     move-result v0

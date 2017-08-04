@@ -37,7 +37,6 @@
 .method public onRuleCanceled(Ljava/lang/String;)V
     .locals 3
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/executor/StateManager;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -68,7 +67,6 @@
 .method public onStateReceived(Lcom/samsung/android/sdk/bixby/data/State;)V
     .locals 3
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/executor/StateManager;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -99,7 +97,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/executor/StateManager$2;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # getter for: Lcom/android/launcher3/executor/StateManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
     invoke-static {v0}, Lcom/android/launcher3/executor/StateManager;->access$300(Lcom/android/launcher3/executor/StateManager;)Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     move-result-object v0
@@ -112,7 +109,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/executor/StateManager$2;->this$0:Lcom/android/launcher3/executor/StateManager;
 
-    # invokes: Lcom/android/launcher3/executor/StateManager;->onStateReceived(Lcom/samsung/android/sdk/bixby/data/State;)V
     invoke-static {v0, p1}, Lcom/android/launcher3/executor/StateManager;->access$000(Lcom/android/launcher3/executor/StateManager;Lcom/samsung/android/sdk/bixby/data/State;)V
 
     return-void

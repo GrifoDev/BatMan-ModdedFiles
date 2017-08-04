@@ -4,6 +4,8 @@
 
 
 # static fields
+.field public static final ABOUT_PREFERENCE_KEY:Ljava/lang/String; = "pref_about_page"
+
 .field private static final ACTION_EDGE_HANDLE_STATE:Ljava/lang/String; = "com.sec.android.launcher.action.EDGE_HANDLE_STATE"
 
 .field public static final ACTION_SHOW_APPS_VIEW:Ljava/lang/String; = "com.sec.launcher.action.SHOW_APPS_VIEW"
@@ -27,6 +29,8 @@
 .field public static final BADGE_MANAGER_PREFERENCE_KEY:Ljava/lang/String; = "badge_manager"
 
 .field public static final CLONE_ITEM_ENABLED_PREFERENCE_KEY:Ljava/lang/String; = "pref_CloneItemEnabled"
+
+.field public static final CONTACT_SHORTCUT_IDS:Ljava/lang/String; = "contact_shortcut_ids"
 
 .field private static final CORE_POOL_SIZE:I
 
@@ -71,6 +75,14 @@
 .field private static final MAXIMUM_POOL_SIZE:I
 
 .field public static final SCREEN_GRID_SUMMARY:Ljava/lang/String; = "screen_grid_summary"
+
+.field public static final SMARTSWITCH_RESTORE_ERROR_CODE:Ljava/lang/String; = "smartswitch_restore_error_code"
+
+.field public static final SMARTSWITCH_RESTORE_RESULT:Ljava/lang/String; = "smartswitch_restore_result"
+
+.field public static final SMARTSWITCH_RESTORE_SOURCE:Ljava/lang/String; = "smartswitch_restore_source"
+
+.field public static final SMARTSWITCH_SAVE_FILE_LENGTH:Ljava/lang/String; = "smartswich_save_file_length"
 
 .field public static final SUPPORT_THEME_STORE_WALLPAPERS_AND_THEMES:I = 0x0
 
@@ -1279,98 +1291,6 @@
     goto :goto_0
 .end method
 
-.method public static compareByStage(Ljava/util/ArrayList;FFFF)Z
-    .locals 10
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/util/Range;",
-            ">;FFFF)Z"
-        }
-    .end annotation
-
-    const/4 v3, 0x1
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    cmpl-float v7, p3, v7
-
-    if-eqz v7, :cond_3
-
-    div-float v7, p4, p3
-
-    float-to-double v4, v7
-
-    float-to-double v8, p1
-
-    div-double/2addr v8, v4
-
-    double-to-int v0, v8
-
-    float-to-double v8, p2
-
-    div-double/2addr v8, v4
-
-    double-to-int v2, v8
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    :cond_0
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_2
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/util/Range;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-virtual {v1, v8}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-virtual {v1, v8}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
-
-    :cond_1
-    :goto_0
-    return v3
-
-    :cond_2
-    if-eq v0, v2, :cond_1
-
-    move v3, v6
-
-    goto :goto_0
-
-    :cond_3
-    move v3, v6
-
-    goto :goto_0
-.end method
-
 .method public static createAppsButton(Landroid/content/Context;)Lcom/android/launcher3/common/base/item/IconInfo;
     .locals 4
 
@@ -1384,7 +1304,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08000f
+    const v2, 0x7f080018
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2414,7 +2334,7 @@
 
     new-array v0, v3, [Landroid/text/InputFilter;
 
-    const v2, 0x7f08004c
+    const v2, 0x7f080055
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -2640,9 +2560,9 @@
 .method public static getScreenSize(Landroid/content/Context;Landroid/graphics/Point;)V
     .locals 4
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -2652,6 +2572,23 @@
 
     move-result-object v0
 
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportRotate()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v3, 0x2
+
+    if-eq v2, v3, :cond_1
+
+    :cond_0
     invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v2
@@ -2660,8 +2597,9 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_3
 
+    :cond_1
     iget v2, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
     iget v3, v0, Landroid/util/DisplayMetrics;->heightPixels:I
@@ -2682,11 +2620,11 @@
 
     iput v2, p1, Landroid/graphics/Point;->y:I
 
-    :cond_0
+    :cond_2
     :goto_0
     return-void
 
-    :cond_1
+    :cond_3
     iget v2, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
     iget v3, v0, Landroid/util/DisplayMetrics;->heightPixels:I
@@ -4699,7 +4637,7 @@
 .method public static startActivityForResultSafely(Landroid/app/Activity;Landroid/content/Intent;I)V
     .locals 4
 
-    const v2, 0x7f080002
+    const v2, 0x7f08000b
 
     const/4 v1, 0x0
 
@@ -4788,7 +4726,7 @@
 
     if-nez v8, :cond_0
 
-    const v8, 0x7f080175
+    const v8, 0x7f080182
 
     const/4 v9, 0x0
 
@@ -4911,7 +4849,7 @@
     :catch_0
     move-exception v0
 
-    const v8, 0x7f080002
+    const v8, 0x7f08000b
 
     const/4 v9, 0x0
 
@@ -4961,7 +4899,7 @@
     :catch_1
     move-exception v0
 
-    const v8, 0x7f080002
+    const v8, 0x7f08000b
 
     const/4 v9, 0x0
 
@@ -5269,7 +5207,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080098
+    const v3, 0x7f0800a7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

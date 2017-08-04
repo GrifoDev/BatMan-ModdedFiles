@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">खोजी इतिहास</string>
+    <string name="about">%s को बारेमा</string>
+    <string name="about_already_installed">सबैभन्दा नयाँ संस्करण पहिले नै स्थापित छ।</string>
+    <string name="about_home_screen">होम स्क्रीन</string>
+    <string name="about_licence">ओपन सोर्स लाइसेन्स</string>
+    <string name="about_network_err">अपडेटहरू जाँच्न सकिँदैन। तपाईको फोन नेटवर्कमा जडान गरिएको छैन।</string>
+    <string name="about_new_version_exist">नयाँ संस्करण उपलब्ध छ।</string>
+    <string name="about_retry">पुनः प्रयास</string>
+    <string name="about_update">अपडेट गर्नुहोस्</string>
+    <string name="about_version">संस्करण %s</string>
     <string name="activity_not_available">यो एप तपाईको यन्त्रको लागि उपलब्ध छैन।</string>
     <string name="activity_not_found">अनुप्रयोग स्थापना गरिएन।</string>
     <string name="align_to_bottom">तलतिर पङ्क्तिबद्ध गर्नुहोस्</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">यो पेजमा थप कोठा छैनन्</string>
     <string name="out_of_space_dialog">यस पृष्ठमा कुनै थप स्थान छैन। यस वस्तुलाई एउटा नयाँ पृष्ठमा थपिनेछ।</string>
     <string name="permdesc_install_widget">यो एपले होम स्क्रीनमा विजेटहरू थप्न सक्छ।</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">यस एपले होम स्क्रीनको बायाँतर्फ रहेको अनुकूल बनाउन मिल्ने पृष्ठका सेटिङहरू पढ्न सक्छ।</string>
+    <string name="permdesc_write_zeropage_settings">यस एपले होम स्क्रीनको बायाँतर्फ रहेको अनुकूल बनाउन मिल्ने पृष्ठका सेटिङहरूलाई परिवर्तन गर्न सक्छ।</string>
     <string name="permlab_install_widget">विजेटहरू थप्नुहोस्</string>
+    <string name="permlab_read_settings">गृह सेटिङहरु र सर्टकटहरू पढ्नुहोस्</string>
+    <string name="permlab_read_zeropage_settings">अनुकूल बनाउन मिल्ने सामग्री पृष्ठका सेटिङहरू पढ्ने</string>
+    <string name="permlab_write_zeropage_settings">अनुकूल बनाउन मिल्ने सामग्री पृष्ठका सेटिङहरू परिवर्तन गर्ने</string>
     <string name="quick_option_add_apps">एप्स थप्नु</string>
     <string name="quick_option_add_shortcut_to_home">होममा शर्टकट थप्‍नुहोस्</string>
     <string name="quick_option_add_to_personal">व्यक्तिगतमा थप्नुहोस्</string>

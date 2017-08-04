@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/google/android/libraries/launcherclient/AbsServiceStatusChecker$1;->this$0:Lcom/google/android/libraries/launcherclient/AbsServiceStatusChecker;
 
-    # invokes: Lcom/google/android/libraries/launcherclient/AbsServiceStatusChecker;->assertMainThread()V
     invoke-static {v0}, Lcom/google/android/libraries/launcherclient/AbsServiceStatusChecker;->access$000(Lcom/google/android/libraries/launcherclient/AbsServiceStatusChecker;)V
 
     iget-object v0, p0, Lcom/google/android/libraries/launcherclient/AbsServiceStatusChecker$1;->val$statusCallback:Lcom/google/android/libraries/launcherclient/AbsServiceStatusChecker$StatusCallback;

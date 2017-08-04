@@ -41,7 +41,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView$1;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mContentView:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->access$000(Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;)Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
     move-result-object v0

@@ -46,7 +46,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAnimInfoForClosing:Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$102(Lcom/android/launcher3/folder/FolderTransitionAnimation;Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;)Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
 
     return-void

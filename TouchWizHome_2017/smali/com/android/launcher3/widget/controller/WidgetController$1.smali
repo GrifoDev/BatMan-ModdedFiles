@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$1;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v0
@@ -56,7 +55,6 @@
 
     const/4 v1, 0x1
 
-    # invokes: Lcom/android/launcher3/widget/controller/WidgetController;->changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
     invoke-static {v0, p1, v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$100(Lcom/android/launcher3/widget/controller/WidgetController;Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
 
     return-void
@@ -67,7 +65,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$1;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # invokes: Lcom/android/launcher3/widget/controller/WidgetController;->openFolder(Landroid/view/View;Z)V
     invoke-static {v0, p1, p2}, Lcom/android/launcher3/widget/controller/WidgetController;->access$000(Lcom/android/launcher3/widget/controller/WidgetController;Landroid/view/View;Z)V
 
     return-void
@@ -78,7 +75,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$1;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v0
@@ -93,7 +89,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$1;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v0
@@ -108,7 +103,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$1;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mDragController:Lcom/android/launcher3/widget/controller/WidgetDragController;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$200(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/controller/WidgetDragController;
 
     move-result-object v0
@@ -121,20 +115,17 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController$1;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/widget/controller/WidgetController;->access$300(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Lcom/android/launcher3/widget/controller/WidgetDragController;-><init>(Landroid/content/Context;)V
 
-    # setter for: Lcom/android/launcher3/widget/controller/WidgetController;->mDragController:Lcom/android/launcher3/widget/controller/WidgetDragController;
     invoke-static {v0, v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$202(Lcom/android/launcher3/widget/controller/WidgetController;Lcom/android/launcher3/widget/controller/WidgetDragController;)Lcom/android/launcher3/widget/controller/WidgetDragController;
 
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$1;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mDragController:Lcom/android/launcher3/widget/controller/WidgetDragController;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$200(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/controller/WidgetDragController;
 
     move-result-object v0

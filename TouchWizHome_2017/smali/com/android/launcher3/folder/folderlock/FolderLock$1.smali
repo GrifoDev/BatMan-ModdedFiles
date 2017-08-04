@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$1;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # invokes: Lcom/android/launcher3/folder/folderlock/FolderLock;->checkselfToMoveUnlockItemFromLockedFolder()V
     invoke-static {v0}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$400(Lcom/android/launcher3/folder/folderlock/FolderLock;)V
 
     return-void

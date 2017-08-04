@@ -49,7 +49,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;->mIsAnimaing:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;->access$302(Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;Z)Z
 
     iget v0, p0, Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView$1;->val$visibility:I
@@ -75,7 +74,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView$1;->this$1:Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;->mRunnable:Ljava/lang/Runnable;
     invoke-static {v0}, Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;->access$400(Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;)Ljava/lang/Runnable;
 
     move-result-object v0
@@ -86,7 +84,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView$1;->this$1:Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;->mRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;->access$400(Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;)Ljava/lang/Runnable;
 
     move-result-object v1
@@ -110,7 +107,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;->mIsAnimaing:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;->access$302(Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;Z)Z
 
     return-void

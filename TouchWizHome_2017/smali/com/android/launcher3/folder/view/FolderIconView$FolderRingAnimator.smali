@@ -78,7 +78,6 @@
 
     sput p3, Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;->sPreviewSize:I
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderIconView;->sStaticValuesDirty:Z
     invoke-static {}, Lcom/android/launcher3/folder/view/FolderIconView;->access$100()Z
 
     move-result v1
@@ -223,7 +222,6 @@
     aput-object v2, v1, v9
 
     :cond_1
-    # setter for: Lcom/android/launcher3/folder/view/FolderIconView;->sStaticValuesDirty:Z
     invoke-static {v5}, Lcom/android/launcher3/folder/view/FolderIconView;->access$102(Z)Z
 
     :cond_2
@@ -233,6 +231,16 @@
 
 # virtual methods
 .method public animateToAcceptState()V
+    .locals 1
+
+    sget v0, Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;->sPreviewSize:I
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;->animateToAcceptState(I)V
+
+    return-void
+.end method
+
+.method public animateToAcceptState(I)V
     .locals 4
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;->mNeutralAnimator:Landroid/animation/ValueAnimator;
@@ -264,7 +272,9 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    sget v0, Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;->sPreviewSize:I
+    sput p1, Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;->sPreviewSize:I
+
+    move v0, p1
 
     iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;->mAcceptAnimator:Landroid/animation/ValueAnimator;
 
@@ -279,6 +289,8 @@
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
 
     return-void
+
+    nop
 
     :array_0
     .array-data 4

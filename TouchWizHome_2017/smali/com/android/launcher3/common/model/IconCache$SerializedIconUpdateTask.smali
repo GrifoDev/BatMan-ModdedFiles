@@ -144,7 +144,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # invokes: Lcom/android/launcher3/common/model/IconCache;->updateCacheAndGetContentValues(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Z)Landroid/content/ContentValues;
     invoke-static {v5, v0, v12}, Lcom/android/launcher3/common/model/IconCache;->access$100(Lcom/android/launcher3/common/model/IconCache;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Z)Landroid/content/ContentValues;
 
     move-result-object v4
@@ -191,7 +190,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mSystemState:Ljava/lang/String;
     invoke-static {v6}, Lcom/android/launcher3/common/model/IconCache;->access$200(Lcom/android/launcher3/common/model/IconCache;)Ljava/lang/String;
 
     move-result-object v6
@@ -201,7 +199,6 @@
     :cond_0
     iget-object v5, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mIconDb:Lcom/android/launcher3/common/model/IconCache$IconDB;
     invoke-static {v5}, Lcom/android/launcher3/common/model/IconCache;->access$300(Lcom/android/launcher3/common/model/IconCache;)Lcom/android/launcher3/common/model/IconCache$IconDB;
 
     move-result-object v5
@@ -272,7 +269,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mUserManager:Lcom/android/launcher3/common/compat/UserManagerCompat;
     invoke-static {v7}, Lcom/android/launcher3/common/model/IconCache;->access$400(Lcom/android/launcher3/common/model/IconCache;)Lcom/android/launcher3/common/compat/UserManagerCompat;
 
     move-result-object v7
@@ -346,7 +342,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # invokes: Lcom/android/launcher3/common/model/IconCache;->isExistIconInDB(Lcom/android/launcher3/util/ComponentKey;)Z
     invoke-static {v5, v1}, Lcom/android/launcher3/common/model/IconCache;->access$500(Lcom/android/launcher3/common/model/IconCache;Lcom/android/launcher3/util/ComponentKey;)Z
 
     move-result v5
@@ -357,7 +352,6 @@
 
     iget-wide v8, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->mUserSerial:J
 
-    # invokes: Lcom/android/launcher3/common/model/IconCache;->addIconToDBAndMemCache(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Landroid/content/pm/PackageInfo;J)V
     invoke-static {v5, v0, v3, v8, v9}, Lcom/android/launcher3/common/model/IconCache;->access$600(Lcom/android/launcher3/common/model/IconCache;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Landroid/content/pm/PackageInfo;J)V
 
     iget-object v5, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->mUpdatedPackages:Ljava/util/HashSet;
@@ -405,7 +399,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mUserManager:Lcom/android/launcher3/common/compat/UserManagerCompat;
     invoke-static {v7}, Lcom/android/launcher3/common/model/IconCache;->access$400(Lcom/android/launcher3/common/model/IconCache;)Lcom/android/launcher3/common/compat/UserManagerCompat;
 
     move-result-object v7
@@ -447,12 +440,10 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/IconCache$SerializedIconUpdateTask;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mWorkerHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher3/common/model/IconCache;->access$800(Lcom/android/launcher3/common/model/IconCache;)Landroid/os/Handler;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->ICON_UPDATE_TOKEN:Ljava/lang/Object;
     invoke-static {}, Lcom/android/launcher3/common/model/IconCache;->access$700()Ljava/lang/Object;
 
     move-result-object v1

@@ -45,7 +45,6 @@
 
     iget-boolean v1, p0, Lcom/android/launcher3/LauncherModel$3;->val$refresh:Z
 
-    # invokes: Lcom/android/launcher3/LauncherModel;->updateWidgetsProviders(Z)V
     invoke-static {v0, v1}, Lcom/android/launcher3/LauncherModel;->access$1800(Lcom/android/launcher3/LauncherModel;Z)V
 
     return-void

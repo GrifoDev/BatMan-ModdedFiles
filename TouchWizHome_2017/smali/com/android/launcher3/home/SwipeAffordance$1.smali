@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$1;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # getter for: Lcom/android/launcher3/home/SwipeAffordance;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher3/home/SwipeAffordance;->access$000(Lcom/android/launcher3/home/SwipeAffordance;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -49,7 +48,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$1;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # getter for: Lcom/android/launcher3/home/SwipeAffordance;->mArrowView1:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/launcher3/home/SwipeAffordance;->access$100(Lcom/android/launcher3/home/SwipeAffordance;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -58,7 +56,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$1;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # getter for: Lcom/android/launcher3/home/SwipeAffordance;->mArrowView2:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/launcher3/home/SwipeAffordance;->access$200(Lcom/android/launcher3/home/SwipeAffordance;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -67,7 +64,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$1;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # setter for: Lcom/android/launcher3/home/SwipeAffordance;->mIsStartedAnim:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/home/SwipeAffordance;->access$302(Lcom/android/launcher3/home/SwipeAffordance;Z)Z
 
     return-void
@@ -82,7 +78,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$1;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # getter for: Lcom/android/launcher3/home/SwipeAffordance;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher3/home/SwipeAffordance;->access$000(Lcom/android/launcher3/home/SwipeAffordance;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -91,7 +86,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$1;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # getter for: Lcom/android/launcher3/home/SwipeAffordance;->mArrowView1:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/launcher3/home/SwipeAffordance;->access$100(Lcom/android/launcher3/home/SwipeAffordance;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -100,7 +94,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$1;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # getter for: Lcom/android/launcher3/home/SwipeAffordance;->mArrowView2:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/launcher3/home/SwipeAffordance;->access$200(Lcom/android/launcher3/home/SwipeAffordance;)Landroid/widget/ImageView;
 
     move-result-object v0

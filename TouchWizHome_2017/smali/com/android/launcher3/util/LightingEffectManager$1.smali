@@ -44,7 +44,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/util/LightingEffectManager;->mEffectAnim:Landroid/animation/Animator;
     invoke-static {v0, v1}, Lcom/android/launcher3/util/LightingEffectManager;->access$102(Lcom/android/launcher3/util/LightingEffectManager;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     iget-boolean v0, p0, Lcom/android/launcher3/util/LightingEffectManager$1;->val$toBeShown:Z
@@ -53,7 +52,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/util/LightingEffectManager$1;->this$0:Lcom/android/launcher3/util/LightingEffectManager;
 
-    # getter for: Lcom/android/launcher3/util/LightingEffectManager;->mEffectLayer:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/util/LightingEffectManager;->access$000(Lcom/android/launcher3/util/LightingEffectManager;)Landroid/view/View;
 
     move-result-object v0
@@ -64,7 +62,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/util/LightingEffectManager$1;->this$0:Lcom/android/launcher3/util/LightingEffectManager;
 
-    # getter for: Lcom/android/launcher3/util/LightingEffectManager;->mEffectTopOn:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/util/LightingEffectManager;->access$200(Lcom/android/launcher3/util/LightingEffectManager;)Landroid/view/View;
 
     move-result-object v0
@@ -73,7 +70,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/util/LightingEffectManager$1;->this$0:Lcom/android/launcher3/util/LightingEffectManager;
 
-    # getter for: Lcom/android/launcher3/util/LightingEffectManager;->mEffectBottomOn:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/util/LightingEffectManager;->access$300(Lcom/android/launcher3/util/LightingEffectManager;)Landroid/view/View;
 
     move-result-object v0
@@ -93,7 +89,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/util/LightingEffectManager$1;->this$0:Lcom/android/launcher3/util/LightingEffectManager;
 
-    # getter for: Lcom/android/launcher3/util/LightingEffectManager;->mEffectLayer:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/util/LightingEffectManager;->access$000(Lcom/android/launcher3/util/LightingEffectManager;)Landroid/view/View;
 
     move-result-object v0

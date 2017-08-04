@@ -63,7 +63,6 @@
 
     const-class v20, Landroid/content/Intent;
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->isValidExtraType(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Z
     invoke-static/range {v18 .. v20}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$000(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Z
 
     move-result v18
@@ -80,7 +79,6 @@
 
     const-class v20, Landroid/content/Intent$ShortcutIconResource;
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->isValidExtraType(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Z
     invoke-static/range {v18 .. v20}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$000(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Z
 
     move-result v18
@@ -97,7 +95,6 @@
 
     const-class v20, Landroid/graphics/Bitmap;
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->isValidExtraType(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Z
     invoke-static/range {v18 .. v20}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$000(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Z
 
     move-result v18
@@ -186,7 +183,6 @@
 
     move-object/from16 v2, v20
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->updateContactShortcut(Landroid/content/Context;Landroid/content/Intent;Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;)Z
     invoke-static {v0, v1, v2, v8}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$100(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Context;Landroid/content/Intent;Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;)Z
 
     move-result v18
@@ -360,7 +356,6 @@
 
     move-result-object v20
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->hasActivityForComponent(Landroid/content/Context;Landroid/content/ComponentName;)Z
     invoke-static/range {v18 .. v20}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$200(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Context;Landroid/content/ComponentName;)Z
 
     move-result v18
@@ -398,7 +393,6 @@
 
     move-object/from16 v1, v19
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->shortcutExistsOnHomeOnlyMode(Landroid/content/Context;Landroid/content/Intent;)Z
     invoke-static {v0, v1, v9}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$300(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Context;Landroid/content/Intent;)Z
 
     move-result v18
@@ -495,7 +489,6 @@
     invoke-virtual {v9, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
     :cond_a
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->convertToLauncherActivityIfPossible(Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;)Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
     invoke-static {v8}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$500(Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;)Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
 
     move-result-object v8
@@ -569,7 +562,6 @@
 
     move-object/from16 v20, v0
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->uninstallShortcutExistInQueue(Landroid/content/Context;Landroid/content/Intent;)Z
     invoke-static/range {v18 .. v20}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$600(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Context;Landroid/content/Intent;)Z
 
     move-result v18
@@ -775,7 +767,6 @@
 
     move-object/from16 v21, v0
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->shortcutExistsOnHomeOnlyMode(Landroid/content/Context;Ljava/lang/String;Landroid/content/Intent;)Z
     invoke-static/range {v18 .. v21}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$400(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Context;Ljava/lang/String;Landroid/content/Intent;)Z
 
     move-result v18
@@ -901,7 +892,6 @@
 
     move-object/from16 v20, v0
 
-    # invokes: Lcom/android/launcher3/home/InstallShortcutReceiver;->shortcutExistInQueue(Landroid/content/Context;Landroid/content/Intent;)Z
     invoke-static/range {v18 .. v20}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$700(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Context;Landroid/content/Intent;)Z
 
     move-result v18
@@ -1021,7 +1011,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f080094
+    const v19, 0x7f0800a3
 
     const/16 v20, 0x1
 
@@ -1120,7 +1110,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f080095
+    const v19, 0x7f0800a4
 
     const/16 v20, 0x1
 

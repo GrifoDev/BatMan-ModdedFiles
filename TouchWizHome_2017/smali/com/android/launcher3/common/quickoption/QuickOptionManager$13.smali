@@ -65,7 +65,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$13;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v5
@@ -78,7 +77,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$13;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v5
@@ -87,7 +85,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08018d
+    const v6, 0x7f08019a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -118,7 +116,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$13;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v6}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v6
@@ -127,7 +124,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d3
+    const v7, 0x7f0800e2
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -173,7 +170,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$13;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v5
@@ -182,7 +178,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08017f
+    const v6, 0x7f08018c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -197,7 +193,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$13;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v5
@@ -210,7 +205,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$13;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v5
@@ -219,7 +213,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080185
+    const v6, 0x7f080192
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -232,7 +226,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$13;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v5
@@ -241,7 +234,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080179
+    const v6, 0x7f080186
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

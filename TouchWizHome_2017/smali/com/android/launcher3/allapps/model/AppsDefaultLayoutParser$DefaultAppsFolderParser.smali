@@ -42,7 +42,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$DefaultAppsFolderParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mIsCSC:Z
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$800(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Z
 
     move-result v0
@@ -51,7 +50,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$DefaultAppsFolderParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$900(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v0
@@ -70,7 +68,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$DefaultAppsFolderParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$1000(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v0
@@ -87,7 +84,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$DefaultAppsFolderParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$1100(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v0
@@ -106,7 +102,6 @@
 
     const-wide/16 v2, -0x1
 
-    # setter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mAppsParseContainer:J
     invoke-static {v0, v2, v3}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$102(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;J)J
 
     invoke-super {p0, p1, p2}, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppsFolderParser;->parseAndAdd(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)J

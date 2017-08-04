@@ -310,36 +310,6 @@
     goto :goto_0
 .end method
 
-.method public static getGroup(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/app/Notification;->getGroup()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static getLocalOnly(Landroid/app/Notification;)Z
-    .locals 1
-
-    iget v0, p0, Landroid/app/Notification;->flags:I
-
-    and-int/lit16 v0, v0, 0x100
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public static getParcelableArrayListForActions([Landroid/support/v4/app/NotificationCompatBase$Action;)Ljava/util/ArrayList;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -384,36 +354,6 @@
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-.end method
-
-.method public static getSortKey(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/app/Notification;->getSortKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static isGroupSummary(Landroid/app/Notification;)Z
-    .locals 1
-
-    iget v0, p0, Landroid/app/Notification;->flags:I
-
-    and-int/lit16 v0, v0, 0x200
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
 
     goto :goto_0
 .end method

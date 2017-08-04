@@ -231,9 +231,11 @@
 
     if-eqz v4, :cond_0
 
-    const-string v4, "easy_mode"
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    invoke-interface {v2, v4, v7}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
 
     move-result v4
 

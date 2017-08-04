@@ -37,11 +37,10 @@
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 4
 
-    const v2, 0x7f080192
+    const v2, 0x7f08019f
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;->this$0:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetSearchbar;->mMenuActionListener:Lcom/android/launcher3/widget/view/WidgetSearchbar$MenuActionListener;
     invoke-static {v0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->access$300(Lcom/android/launcher3/widget/view/WidgetSearchbar;)Lcom/android/launcher3/widget/view/WidgetSearchbar$MenuActionListener;
 
     move-result-object v0
@@ -52,13 +51,12 @@
 
     move-result v0
 
-    const v1, 0x7f0f00fb
+    const v1, 0x7f0f010b
 
     if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;->this$0:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetSearchbar;->mMenuActionListener:Lcom/android/launcher3/widget/view/WidgetSearchbar$MenuActionListener;
     invoke-static {v0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->access$300(Lcom/android/launcher3/widget/view/WidgetSearchbar;)Lcom/android/launcher3/widget/view/WidgetSearchbar$MenuActionListener;
 
     move-result-object v0
@@ -85,7 +83,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800fc
+    const v3, 0x7f08010b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -105,13 +103,12 @@
 
     move-result v0
 
-    const v1, 0x7f0f00fa
+    const v1, 0x7f0f010a
 
     if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;->this$0:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetSearchbar;->mMenuActionListener:Lcom/android/launcher3/widget/view/WidgetSearchbar$MenuActionListener;
     invoke-static {v0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->access$300(Lcom/android/launcher3/widget/view/WidgetSearchbar;)Lcom/android/launcher3/widget/view/WidgetSearchbar$MenuActionListener;
 
     move-result-object v0
@@ -138,7 +135,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08015f
+    const v3, 0x7f08016e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

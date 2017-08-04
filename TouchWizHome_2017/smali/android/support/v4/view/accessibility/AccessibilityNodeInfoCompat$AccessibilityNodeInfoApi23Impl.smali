@@ -4,7 +4,7 @@
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
+.annotation build Landroid/support/annotation/RequiresApi;
     value = 0x17
 .end annotation
 
@@ -32,9 +32,7 @@
 .method public getActionContextClick()Ljava/lang/Object;
     .locals 1
 
-    invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->getActionContextClick()Ljava/lang/Object;
-
-    move-result-object v0
+    sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_CONTEXT_CLICK:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     return-object v0
 .end method
@@ -42,9 +40,7 @@
 .method public getActionScrollDown()Ljava/lang/Object;
     .locals 1
 
-    invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->getActionScrollDown()Ljava/lang/Object;
-
-    move-result-object v0
+    sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SCROLL_DOWN:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     return-object v0
 .end method
@@ -52,9 +48,7 @@
 .method public getActionScrollLeft()Ljava/lang/Object;
     .locals 1
 
-    invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->getActionScrollLeft()Ljava/lang/Object;
-
-    move-result-object v0
+    sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SCROLL_LEFT:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     return-object v0
 .end method
@@ -62,9 +56,7 @@
 .method public getActionScrollRight()Ljava/lang/Object;
     .locals 1
 
-    invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->getActionScrollRight()Ljava/lang/Object;
-
-    move-result-object v0
+    sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SCROLL_RIGHT:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     return-object v0
 .end method
@@ -72,9 +64,7 @@
 .method public getActionScrollToPosition()Ljava/lang/Object;
     .locals 1
 
-    invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->getActionScrollToPosition()Ljava/lang/Object;
-
-    move-result-object v0
+    sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SCROLL_TO_POSITION:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     return-object v0
 .end method
@@ -82,9 +72,7 @@
 .method public getActionScrollUp()Ljava/lang/Object;
     .locals 1
 
-    invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->getActionScrollUp()Ljava/lang/Object;
-
-    move-result-object v0
+    sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SCROLL_UP:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     return-object v0
 .end method
@@ -92,27 +80,25 @@
 .method public getActionShowOnScreen()Ljava/lang/Object;
     .locals 1
 
-    invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->getActionShowOnScreen()Ljava/lang/Object;
-
-    move-result-object v0
+    sget-object v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SHOW_ON_SCREEN:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     return-object v0
 .end method
 
-.method public isContextClickable(Ljava/lang/Object;)Z
+.method public isContextClickable(Landroid/view/accessibility/AccessibilityNodeInfo;)Z
     .locals 1
 
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->isContextClickable(Ljava/lang/Object;)Z
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->isContextClickable()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public setContextClickable(Ljava/lang/Object;Z)V
+.method public setContextClickable(Landroid/view/accessibility/AccessibilityNodeInfo;Z)V
     .locals 0
 
-    invoke-static {p1, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompatApi23;->setContextClickable(Ljava/lang/Object;Z)V
+    invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setContextClickable(Z)V
 
     return-void
 .end method

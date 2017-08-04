@@ -90,13 +90,8 @@
 
     const/16 v3, 0x13
 
-    if-ge v2, v3, :cond_1
+    if-lt v2, v3, :cond_0
 
-    :cond_0
-    :goto_0
-    return-object v0
-
-    :cond_1
     invoke-static {p0}, Landroid/support/v4/media/RatingCompatKitkat;->getRatingStyle(Ljava/lang/Object;)I
 
     move-result v1
@@ -105,11 +100,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     packed-switch v1, :pswitch_data_0
 
-    goto :goto_0
+    :cond_0
+    :goto_0
+    return-object v0
 
     :pswitch_0
     invoke-static {p0}, Landroid/support/v4/media/RatingCompatKitkat;->hasHeart(Ljava/lang/Object;)Z
@@ -158,14 +155,12 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_1
     invoke-static {v1}, Landroid/support/v4/media/RatingCompat;->newUnratedRating(I)Landroid/support/v4/media/RatingCompat;
 
     move-result-object v0
 
     goto :goto_1
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -427,29 +422,22 @@
 
     const/16 v1, 0x13
 
-    if-ge v0, v1, :cond_1
+    if-lt v0, v1, :cond_0
 
-    :cond_0
-    iget-object v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingObj:Ljava/lang/Object;
-
-    :goto_0
-    return-object v0
-
-    :cond_1
     invoke-virtual {p0}, Landroid/support/v4/media/RatingCompat;->isRated()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingStyle:I
 
     packed-switch v0, :pswitch_data_0
 
-    :goto_1
     const/4 v0, 0x0
 
-    goto :goto_0
+    :goto_0
+    return-object v0
 
     :pswitch_0
     invoke-virtual {p0}, Landroid/support/v4/media/RatingCompat;->hasHeart()Z
@@ -462,7 +450,8 @@
 
     iput-object v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingObj:Ljava/lang/Object;
 
-    :goto_2
+    :cond_0
+    :goto_1
     iget-object v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingObj:Ljava/lang/Object;
 
     goto :goto_0
@@ -478,7 +467,7 @@
 
     iput-object v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingObj:Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_1
 
     :pswitch_2
     iget v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingStyle:I
@@ -493,7 +482,7 @@
 
     iput-object v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingObj:Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_1
 
     :pswitch_3
     invoke-virtual {p0}, Landroid/support/v4/media/RatingCompat;->getPercentRating()F
@@ -508,7 +497,7 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_1
     iget v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingStyle:I
 
     invoke-static {v0}, Landroid/support/v4/media/RatingCompatKitkat;->newUnratedRating(I)Ljava/lang/Object;
@@ -517,9 +506,7 @@
 
     iput-object v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingObj:Ljava/lang/Object;
 
-    goto :goto_2
-
-    nop
+    goto :goto_1
 
     :pswitch_data_0
     .packed-switch 0x1

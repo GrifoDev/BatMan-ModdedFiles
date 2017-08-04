@@ -116,7 +116,6 @@
 
     new-array v4, v7, [Ljava/util/Locale;
 
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_THAI:Ljava/util/Locale;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$600()Ljava/util/Locale;
 
     move-result-object v5
@@ -129,7 +128,6 @@
 
     new-array v4, v7, [Ljava/util/Locale;
 
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_ARABIC:Ljava/util/Locale;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$500()Ljava/util/Locale;
 
     move-result-object v5
@@ -142,7 +140,6 @@
 
     new-array v4, v7, [Ljava/util/Locale;
 
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_HEBREW:Ljava/util/Locale;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$400()Ljava/util/Locale;
 
     move-result-object v5
@@ -155,7 +152,6 @@
 
     new-array v4, v7, [Ljava/util/Locale;
 
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_GREEK:Ljava/util/Locale;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$300()Ljava/util/Locale;
 
     move-result-object v5
@@ -168,7 +164,6 @@
 
     new-array v4, v7, [Ljava/util/Locale;
 
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_UKRAINIAN:Ljava/util/Locale;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$200()Ljava/util/Locale;
 
     move-result-object v5
@@ -181,7 +176,6 @@
 
     new-array v4, v7, [Ljava/util/Locale;
 
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_HINDI:Ljava/util/Locale;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$100()Ljava/util/Locale;
 
     move-result-object v5
@@ -410,7 +404,6 @@
 
     new-array v4, v7, [Ljava/util/Locale;
 
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_SERBIAN:Ljava/util/Locale;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$000()Ljava/util/Locale;
 
     move-result-object v5
@@ -477,14 +470,12 @@
 
     move-result-object v5
 
-    # invokes: Lcom/android/launcher3/util/locale/LocaleUtils;->isCJKUnicodeBlock(Ljava/lang/Character$UnicodeBlock;)Z
     invoke-static {v5}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$700(Ljava/lang/Character$UnicodeBlock;)Z
 
     move-result v7
 
     if-nez v7, :cond_0
 
-    # invokes: Lcom/android/launcher3/util/locale/LocaleUtils;->isJapanesePhoneticUnicodeBlock(Ljava/lang/Character$UnicodeBlock;)Z
     invoke-static {v5}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$800(Ljava/lang/Character$UnicodeBlock;)Z
 
     move-result v7
@@ -495,7 +486,6 @@
     const/4 v6, 0x0
 
     :goto_0
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->KOREAN_LANGUAGE:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$900()Ljava/lang/String;
 
     move-result-object v7
@@ -506,7 +496,6 @@
 
     if-eqz v7, :cond_1
 
-    # invokes: Lcom/android/launcher3/util/locale/LocaleUtils;->isCJKUnicodeBlock(Ljava/lang/Character$UnicodeBlock;)Z
     invoke-static {v5}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$700(Ljava/lang/Character$UnicodeBlock;)Z
 
     move-result v7
@@ -516,7 +505,6 @@
     const/4 v6, 0x1
 
     :cond_1
-    # getter for: Lcom/android/launcher3/util/locale/LocaleUtils;->JAPANESE_LANGUAGE:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$1000()Ljava/lang/String;
 
     move-result-object v7

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">História vyhľadávania</string>
+    <string name="about">%s – informácie</string>
+    <string name="about_already_installed">Najnovšia verzia je už nainštalovaná.</string>
+    <string name="about_home_screen">Domovská obrazovka</string>
+    <string name="about_licence">Licencie na otvorený zdrojový kód</string>
+    <string name="about_network_err">Nedajú sa vyhľadať aktualizácie. Telefón nie je pripojený k sieti.</string>
+    <string name="about_new_version_exist">K dispozícii je nová verzia.</string>
+    <string name="about_retry">Znova</string>
+    <string name="about_update">Aktualizovať</string>
+    <string name="about_version">Verzia %s</string>
     <string name="activity_not_available">Táto aplikácia nie je dostupná pre vaše zariadenie.</string>
     <string name="activity_not_found">Aplikácia nie je nainštalovaná.</string>
     <string name="align_to_bottom">Zarovnať dole</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Miniaplikácia %s je už pridaná na domovskú obrazovku.</string>
     <string name="option_menu_contact_up">Kontakt</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Nastavenia</string>
     <string name="options_menu">Ďalšie možnosti</string>
     <string name="options_menu_search_recommend">Možnosti vyhľadávania</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Na tejto stránke nie je žiadne ďalšie miesto</string>
     <string name="out_of_space_dialog">Na tejto stránke už nie je žiadne voľné miesto. Položka sa pridá na novú stránku.</string>
     <string name="permdesc_install_widget">Táto aplikácia môže pridávať miniaplikácie na domovskú obrazovku.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Táto aplikácia môže čítať nastavenia stránky s vlastným obsahom, ktorá sa nachádza vľavo od domovskej obrazovky.</string>
+    <string name="permdesc_write_zeropage_settings">Táto aplikácia môže meniť nastavenia stránky s vlastným obsahom, ktorá sa nachádza vľavo od domovskej obrazovky.</string>
     <string name="permlab_install_widget">Pridávanie miniaplikácií</string>
+    <string name="permlab_read_settings">čítať domovské nastavenia a odkazy</string>
+    <string name="permlab_read_zeropage_settings">Čítať nast. str. s vlastným obsahom</string>
+    <string name="permlab_write_zeropage_settings">Zmeniť nast. str. s vlastným obsahom</string>
     <string name="quick_option_add_apps">Pridať aplikácie</string>
     <string name="quick_option_add_shortcut_to_home">Odkaz na domovskej stránke</string>
     <string name="quick_option_add_to_personal">Prid. na os.</string>

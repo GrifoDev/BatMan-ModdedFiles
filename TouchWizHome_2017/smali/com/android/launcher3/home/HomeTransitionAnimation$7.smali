@@ -64,12 +64,10 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # setter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mIsRunningSwipeAnimation:Z
     invoke-static {v0, v5}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$402(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
@@ -78,7 +76,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
@@ -87,7 +84,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
@@ -105,7 +101,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$000(Lcom/android/launcher3/home/HomeTransitionAnimation;)Landroid/view/View;
 
     move-result-object v0
@@ -116,7 +111,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$000(Lcom/android/launcher3/home/HomeTransitionAnimation;)Landroid/view/View;
 
     move-result-object v0
@@ -125,7 +119,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$000(Lcom/android/launcher3/home/HomeTransitionAnimation;)Landroid/view/View;
 
     move-result-object v0
@@ -134,7 +127,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$000(Lcom/android/launcher3/home/HomeTransitionAnimation;)Landroid/view/View;
 
     move-result-object v0
@@ -152,12 +144,10 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # setter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mIsRunningSwipeAnimation:Z
     invoke-static {v0, v4}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$402(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
@@ -166,7 +156,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
@@ -177,7 +166,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0

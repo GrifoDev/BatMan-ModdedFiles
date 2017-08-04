@@ -20,8 +20,6 @@
 
 
 # instance fields
-.field final mAllowOptimization:Z
-
 .field final mBreadCrumbShortTitleRes:I
 
 .field final mBreadCrumbShortTitleText:Ljava/lang/CharSequence;
@@ -35,6 +33,8 @@
 .field final mName:Ljava/lang/String;
 
 .field final mOps:[I
+
+.field final mReorderingAllowed:Z
 
 .field final mSharedElementSourceNames:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -164,7 +164,7 @@
     const/4 v0, 0x1
 
     :goto_0
-    iput-boolean v0, p0, Landroid/support/v4/app/BackStackState;->mAllowOptimization:Z
+    iput-boolean v0, p0, Landroid/support/v4/app/BackStackState;->mReorderingAllowed:Z
 
     return-void
 
@@ -326,9 +326,9 @@
 
     iput-object v5, p0, Landroid/support/v4/app/BackStackState;->mSharedElementTargetNames:Ljava/util/ArrayList;
 
-    iget-boolean v5, p1, Landroid/support/v4/app/BackStackRecord;->mAllowOptimization:Z
+    iget-boolean v5, p1, Landroid/support/v4/app/BackStackRecord;->mReorderingAllowed:Z
 
-    iput-boolean v5, p0, Landroid/support/v4/app/BackStackState;->mAllowOptimization:Z
+    iput-boolean v5, p0, Landroid/support/v4/app/BackStackState;->mReorderingAllowed:Z
 
     return-void
 .end method
@@ -434,9 +434,9 @@
 
     if-ltz v2, :cond_1
 
-    iget-object v7, p1, Landroid/support/v4/app/FragmentManagerImpl;->mActive:Ljava/util/ArrayList;
+    iget-object v7, p1, Landroid/support/v4/app/FragmentManagerImpl;->mActive:Landroid/util/SparseArray;
 
-    invoke-virtual {v7, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v7, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -549,9 +549,9 @@
 
     iput-object v7, v0, Landroid/support/v4/app/BackStackRecord;->mSharedElementTargetNames:Ljava/util/ArrayList;
 
-    iget-boolean v7, p0, Landroid/support/v4/app/BackStackState;->mAllowOptimization:Z
+    iget-boolean v7, p0, Landroid/support/v4/app/BackStackState;->mReorderingAllowed:Z
 
-    iput-boolean v7, v0, Landroid/support/v4/app/BackStackRecord;->mAllowOptimization:Z
+    iput-boolean v7, v0, Landroid/support/v4/app/BackStackRecord;->mReorderingAllowed:Z
 
     invoke-virtual {v0, v10}, Landroid/support/v4/app/BackStackRecord;->bumpBackStackNesting(I)V
 
@@ -607,7 +607,7 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
-    iget-boolean v1, p0, Landroid/support/v4/app/BackStackState;->mAllowOptimization:Z
+    iget-boolean v1, p0, Landroid/support/v4/app/BackStackState;->mReorderingAllowed:Z
 
     if-eqz v1, :cond_0
 

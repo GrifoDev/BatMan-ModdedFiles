@@ -31,7 +31,6 @@
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 1
 
-    # invokes: Lcom/android/launcher3/home/HomeFocusHelper;->handleScreenGridPanelOptionButtonKeyEvent(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     invoke-static {p1, p2, p3}, Lcom/android/launcher3/home/HomeFocusHelper;->access$800(Landroid/view/View;ILandroid/view/KeyEvent;)Z
 
     move-result v0

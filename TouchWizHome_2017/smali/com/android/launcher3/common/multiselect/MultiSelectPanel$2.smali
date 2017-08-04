@@ -41,7 +41,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel$2;->this$0:Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
 
-    # invokes: Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getIdByView(Landroid/view/View;)I
     invoke-static {v2, p1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->access$000(Lcom/android/launcher3/common/multiselect/MultiSelectPanel;Landroid/view/View;)I
 
     move-result v2

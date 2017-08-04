@@ -249,7 +249,7 @@
 .method public onWidgetItemClick(Landroid/view/View;)V
     .locals 4
 
-    const v2, 0x7f080192
+    const v2, 0x7f08019f
 
     instance-of v0, p1, Lcom/android/launcher3/widget/view/WidgetItemFolderView;
 
@@ -285,7 +285,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080141
+    const v3, 0x7f080150
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -324,7 +324,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800c9
+    const v3, 0x7f0800d8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

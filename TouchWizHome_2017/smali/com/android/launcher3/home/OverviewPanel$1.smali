@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/OverviewPanel$1;->this$0:Lcom/android/launcher3/home/OverviewPanel;
 
-    # getter for: Lcom/android/launcher3/home/OverviewPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v0}, Lcom/android/launcher3/home/OverviewPanel;->access$000(Lcom/android/launcher3/home/OverviewPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/OverviewPanel$1;->this$0:Lcom/android/launcher3/home/OverviewPanel;
 
-    # getter for: Lcom/android/launcher3/home/OverviewPanel;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v0}, Lcom/android/launcher3/home/OverviewPanel;->access$000(Lcom/android/launcher3/home/OverviewPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v0
@@ -65,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/OverviewPanel$1;->this$0:Lcom/android/launcher3/home/OverviewPanel;
 
-    # invokes: Lcom/android/launcher3/home/OverviewPanel;->onClickWidgetsButton()V
     invoke-static {v0}, Lcom/android/launcher3/home/OverviewPanel;->access$100(Lcom/android/launcher3/home/OverviewPanel;)V
 
     :cond_0

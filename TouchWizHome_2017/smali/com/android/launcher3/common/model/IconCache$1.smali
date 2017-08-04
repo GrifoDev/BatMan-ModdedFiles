@@ -73,7 +73,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher3/common/model/IconCache$1;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mMainThreadExecutor:Lcom/android/launcher3/util/MainThreadExecutor;
     invoke-static {v1}, Lcom/android/launcher3/common/model/IconCache;->access$000(Lcom/android/launcher3/common/model/IconCache;)Lcom/android/launcher3/util/MainThreadExecutor;
 
     move-result-object v1

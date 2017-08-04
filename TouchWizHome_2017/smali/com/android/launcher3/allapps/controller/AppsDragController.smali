@@ -158,7 +158,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090144
+    const v1, 0x7f090152
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3364,7 +3364,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080182
+    const v3, 0x7f08018f
 
     move-object/from16 v0, v16
 
@@ -3372,7 +3372,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080158
+    const v4, 0x7f080167
 
     move-object/from16 v0, v16
 
@@ -5088,7 +5088,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900a8
+    const v1, 0x7f0900b6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6241,7 +6241,7 @@
     :cond_1
     sget-object v1, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    const v2, 0x7f0800a1
+    const v2, 0x7f0800b0
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/util/Talk;->say(I)V
 

@@ -218,12 +218,10 @@
 
     iget-object v9, p0, Lcom/android/launcher3/common/base/view/PagedView$3;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mSidePageHoverIndex:I
     invoke-static {v9, v8}, Lcom/android/launcher3/common/base/view/PagedView;->access$102(Lcom/android/launcher3/common/base/view/PagedView;I)I
 
     iget-object v8, p0, Lcom/android/launcher3/common/base/view/PagedView$3;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # getter for: Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
     invoke-static {v8}, Lcom/android/launcher3/common/base/view/PagedView;->access$200(Lcom/android/launcher3/common/base/view/PagedView;)Lcom/android/launcher3/common/view/PageIndicator;
 
     move-result-object v8
@@ -232,7 +230,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/common/base/view/PagedView$3;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # getter for: Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
     invoke-static {v8}, Lcom/android/launcher3/common/base/view/PagedView;->access$200(Lcom/android/launcher3/common/base/view/PagedView;)Lcom/android/launcher3/common/view/PageIndicator;
 
     move-result-object v8
@@ -256,7 +253,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f080189
+    const v10, 0x7f080196
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -268,7 +265,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f08013f
+    const v11, 0x7f08014e
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

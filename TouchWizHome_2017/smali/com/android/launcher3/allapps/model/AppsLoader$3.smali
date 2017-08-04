@@ -67,7 +67,6 @@
     move-object v4, v1
 
     :goto_1
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sCollator:Ljava/text/Collator;
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$800()Ljava/text/Collator;
 
     move-result-object v5
@@ -78,7 +77,6 @@
 
     if-nez v2, :cond_0
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sCollator:Ljava/text/Collator;
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$800()Ljava/text/Collator;
 
     move-result-object v5
@@ -186,7 +184,6 @@
     goto :goto_1
 
     :cond_3
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sCollator:Ljava/text/Collator;
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$800()Ljava/text/Collator;
 
     move-result-object v3
@@ -298,7 +295,6 @@
 
     iput v2, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mCellCountX:I
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$900()I
 
     move-result v4
@@ -307,7 +303,6 @@
 
     iput v4, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mCellCountX:I
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$900()I
 
     move-result v4

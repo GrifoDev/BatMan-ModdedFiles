@@ -136,7 +136,7 @@
     invoke-virtual {p0, v1}, Lcom/android/launcher3/allapps/view/AppsPagedView;->setImportantForAccessibility(I)V
 
     :cond_0
-    const v1, 0x7f090098
+    const v1, 0x7f0900a6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -156,7 +156,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/allapps/view/AppsPagedView;->setMinScale(F)V
 
-    const v1, 0x7f0900d1
+    const v1, 0x7f0900df
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -164,7 +164,7 @@
 
     iput v1, p0, Lcom/android/launcher3/allapps/view/AppsPagedView;->mHintPageWidth:I
 
-    const v1, 0x7f0900d0
+    const v1, 0x7f0900de
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -184,7 +184,7 @@
 
     iput v1, p0, Lcom/android/launcher3/allapps/view/AppsPagedView;->mHintPageRightZone:I
 
-    const v1, 0x7f0900a6
+    const v1, 0x7f0900b4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -218,7 +218,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsPagedView;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f030016
+    const v2, 0x7f030018
 
     const/4 v3, 0x0
 
@@ -1920,7 +1920,7 @@
 .method public snapToPageSALoggging(Z)V
     .locals 8
 
-    const v4, 0x7f080132
+    const v4, 0x7f080141
 
     if-eqz p1, :cond_0
 
@@ -1949,7 +1949,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080182
+    const v3, 0x7f08018f
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1986,13 +1986,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f080180
+    const v3, 0x7f08018d
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f0800e7
+    const v4, 0x7f0800f6
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2009,7 +2009,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08017f
+    const v3, 0x7f08018c
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

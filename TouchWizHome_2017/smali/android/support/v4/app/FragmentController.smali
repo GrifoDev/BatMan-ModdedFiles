@@ -392,62 +392,25 @@
 
     iget-object v0, v0, Landroid/support/v4/app/FragmentHostCallback;->mFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
-    iget-object v0, v0, Landroid/support/v4/app/FragmentManagerImpl;->mActive:Ljava/util/ArrayList;
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManagerImpl;->getActiveFragments()Ljava/util/List;
 
-    if-nez v0, :cond_0
+    move-result-object v0
 
-    const/4 v0, 0x0
-
-    :goto_0
     return-object v0
+.end method
 
-    :cond_0
-    if-nez p1, :cond_1
+.method public getActiveFragmentsCount()I
+    .locals 1
 
-    new-instance p1, Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Landroid/support/v4/app/FragmentController;->getActiveFragmentsCount()I
-
-    move-result v0
-
-    invoke-direct {p1, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    :cond_1
     iget-object v0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
 
     iget-object v0, v0, Landroid/support/v4/app/FragmentHostCallback;->mFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
-    iget-object v0, v0, Landroid/support/v4/app/FragmentManagerImpl;->mActive:Ljava/util/ArrayList;
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManagerImpl;->getActiveFragmentCount()I
 
-    invoke-interface {p1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    move-result v0
 
-    move-object v0, p1
-
-    goto :goto_0
-.end method
-
-.method public getActiveFragmentsCount()I
-    .locals 2
-
-    iget-object v1, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
-
-    iget-object v1, v1, Landroid/support/v4/app/FragmentHostCallback;->mFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
-
-    iget-object v0, v1, Landroid/support/v4/app/FragmentManagerImpl;->mActive:Ljava/util/ArrayList;
-
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    return v1
-
-    :cond_0
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    goto :goto_0
+    return v0
 .end method
 
 .method public getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;

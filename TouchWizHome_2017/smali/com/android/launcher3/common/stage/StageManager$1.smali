@@ -62,7 +62,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/StageManager$1;->this$0:Lcom/android/launcher3/common/stage/StageManager;
 
-    # invokes: Lcom/android/launcher3/common/stage/StageManager;->cleanupAnimation()V
     invoke-static {v1}, Lcom/android/launcher3/common/stage/StageManager;->access$000(Lcom/android/launcher3/common/stage/StageManager;)V
 
     iget-object v4, p0, Lcom/android/launcher3/common/stage/StageManager$1;->this$0:Lcom/android/launcher3/common/stage/StageManager;
@@ -82,7 +81,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/common/stage/StageManager$1;->val$data:Lcom/android/launcher3/common/stage/StageEntry;
 
-    # invokes: Lcom/android/launcher3/common/stage/StageManager;->transitAnimEnd(Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
     invoke-static {v4, v5, v1, v6, v7}, Lcom/android/launcher3/common/stage/StageManager;->access$100(Lcom/android/launcher3/common/stage/StageManager;Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
 
     iget-object v4, p0, Lcom/android/launcher3/common/stage/StageManager$1;->this$0:Lcom/android/launcher3/common/stage/StageManager;
@@ -102,7 +100,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/common/stage/StageManager$1;->val$data:Lcom/android/launcher3/common/stage/StageEntry;
 
-    # invokes: Lcom/android/launcher3/common/stage/StageManager;->transitAnimEnd(Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
     invoke-static {v4, v5, v1, v6, v7}, Lcom/android/launcher3/common/stage/StageManager;->access$100(Lcom/android/launcher3/common/stage/StageManager;Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/StageManager$1;->val$data:Lcom/android/launcher3/common/stage/StageEntry;
@@ -176,7 +173,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/stage/StageManager$1;->val$toStage:Lcom/android/launcher3/common/stage/Stage;
 
-    # invokes: Lcom/android/launcher3/common/stage/StageManager;->dumpStageView(Lcom/android/launcher3/common/stage/Stage;)V
     invoke-static {v1, v2}, Lcom/android/launcher3/common/stage/StageManager;->access$200(Lcom/android/launcher3/common/stage/StageManager;Lcom/android/launcher3/common/stage/Stage;)V
 
     return-void

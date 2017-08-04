@@ -45,12 +45,11 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$8;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
 
-    const v3, 0x7f08007c
+    const v3, 0x7f08008b
 
     invoke-virtual {v2, v3}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -76,7 +75,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$8;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2

@@ -443,7 +443,7 @@
 .method private getWidgetState(Lcom/android/launcher3/widget/controller/WidgetState$State;)Lcom/android/launcher3/widget/controller/WidgetState;
     .locals 5
 
-    const v4, 0x7f0f00cd
+    const v4, 0x7f0f00dd
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetStateMap:Ljava/util/HashMap;
 
@@ -499,7 +499,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
 
-    const v4, 0x7f0f00cc
+    const v4, 0x7f0f00dc
 
     invoke-virtual {v3, v4}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -993,7 +993,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0f00a1
+    const v2, 0x7f0f00b1
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1031,7 +1031,7 @@
     :goto_1
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0f00d1
+    const v2, 0x7f0f00e1
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1043,7 +1043,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0f00cf
+    const v2, 0x7f0f00df
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1055,7 +1055,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0f00d0
+    const v2, 0x7f0f00e0
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 

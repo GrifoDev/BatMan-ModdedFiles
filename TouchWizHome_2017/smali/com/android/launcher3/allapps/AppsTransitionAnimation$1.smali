@@ -38,7 +38,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$1;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
     invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v0
@@ -47,7 +46,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$1;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
     invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v0
@@ -56,7 +54,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$1;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
     invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v0
@@ -65,14 +62,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$1;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
     invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$1;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
     invoke-static {v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v1
@@ -89,14 +84,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$1;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
     invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$1;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
     invoke-static {v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v1
@@ -115,7 +108,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
     invoke-static {v0, v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$102(Lcom/android/launcher3/allapps/AppsTransitionAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     return-void
@@ -144,7 +136,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$1;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
     invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v0

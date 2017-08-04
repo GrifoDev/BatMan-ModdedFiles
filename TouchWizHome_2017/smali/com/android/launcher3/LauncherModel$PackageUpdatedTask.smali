@@ -73,7 +73,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mHasLoaderCompletedOnce:Z
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$1400(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v30
@@ -86,7 +85,6 @@
 
     invoke-static/range {v30 .. v31}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->sPackageChangeRunnables:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher3/LauncherModel;->access$1500()Ljava/util/ArrayList;
 
     move-result-object v30
@@ -108,7 +106,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mApp:Lcom/android/launcher3/LauncherAppState;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$1200(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v30
@@ -378,7 +375,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mIconCache:Lcom/android/launcher3/common/model/IconCache;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$000(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/common/model/IconCache;
 
     move-result-object v30
@@ -492,7 +488,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mIconCache:Lcom/android/launcher3/common/model/IconCache;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$000(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/common/model/IconCache;
 
     move-result-object v30
@@ -529,7 +524,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mApp:Lcom/android/launcher3/LauncherAppState;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$1200(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v30
@@ -613,7 +607,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mIconCache:Lcom/android/launcher3/common/model/IconCache;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$000(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/common/model/IconCache;
 
     move-result-object v30
@@ -650,7 +643,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mApp:Lcom/android/launcher3/LauncherAppState;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$1200(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v30
@@ -729,7 +721,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mApp:Lcom/android/launcher3/LauncherAppState;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$1200(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v30
@@ -1265,7 +1256,6 @@
 
     move-object/from16 v1, v31
 
-    # invokes: Lcom/android/launcher3/LauncherModel;->isPackageDisabled(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
     invoke-static {v10, v0, v1}, Lcom/android/launcher3/LauncherModel;->access$1700(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
 
     move-result v30
@@ -1341,7 +1331,6 @@
 
     move-object/from16 v1, v31
 
-    # invokes: Lcom/android/launcher3/LauncherModel;->isPackageDisabled(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
     invoke-static {v10, v0, v1}, Lcom/android/launcher3/LauncherModel;->access$1700(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
 
     move-result v30
@@ -1579,7 +1568,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mApp:Lcom/android/launcher3/LauncherAppState;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$1200(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v30
@@ -1673,7 +1661,6 @@
 
     move-object/from16 v30, v0
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mHandler:Lcom/android/launcher3/common/model/DeferredHandler;
     invoke-static/range {v30 .. v30}, Lcom/android/launcher3/LauncherModel;->access$900(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/common/model/DeferredHandler;
 
     move-result-object v30

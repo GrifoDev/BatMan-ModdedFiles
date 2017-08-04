@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$5;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mRemoveEmptyScreenRunnable:Ljava/lang/Runnable;
     invoke-static {v0}, Lcom/android/launcher3/home/Workspace;->access$300(Lcom/android/launcher3/home/Workspace;)Ljava/lang/Runnable;
 
     move-result-object v0
@@ -49,7 +48,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$5;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mRemoveEmptyScreenRunnable:Ljava/lang/Runnable;
     invoke-static {v0}, Lcom/android/launcher3/home/Workspace;->access$300(Lcom/android/launcher3/home/Workspace;)Ljava/lang/Runnable;
 
     move-result-object v0

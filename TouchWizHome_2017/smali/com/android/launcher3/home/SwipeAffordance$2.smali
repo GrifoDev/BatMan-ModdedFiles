@@ -44,12 +44,10 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$2;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # invokes: Lcom/android/launcher3/home/SwipeAffordance;->endAnimators()V
     invoke-static {v0}, Lcom/android/launcher3/home/SwipeAffordance;->access$400(Lcom/android/launcher3/home/SwipeAffordance;)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance$2;->this$0:Lcom/android/launcher3/home/SwipeAffordance;
 
-    # setter for: Lcom/android/launcher3/home/SwipeAffordance;->mIsStartedAnim:Z
     invoke-static {v0, v2}, Lcom/android/launcher3/home/SwipeAffordance;->access$302(Lcom/android/launcher3/home/SwipeAffordance;Z)Z
 
     return-void

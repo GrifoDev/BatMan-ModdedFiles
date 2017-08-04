@@ -63,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$18;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mAppWidgetHost:Lcom/android/launcher3/home/LauncherAppWidgetHost;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$1000(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/LauncherAppWidgetHost;
 
     move-result-object v0

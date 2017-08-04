@@ -36,29 +36,41 @@
 .method public onGetRoot(Ljava/lang/String;ILandroid/os/Bundle;)Landroid/service/media/MediaBrowserService$BrowserRoot;
     .locals 4
 
-    iget-object v1, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor;->mServiceProxy:Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;
+    const/4 v2, 0x0
 
-    invoke-interface {v1, p1, p2, p3}, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;->onGetRoot(Ljava/lang/String;ILandroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;
+    iget-object v3, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor;->mServiceProxy:Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;
+
+    if-nez p3, :cond_0
+
+    move-object v1, v2
+
+    :goto_0
+    invoke-interface {v3, p1, p2, v1}, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;->onGetRoot(Ljava/lang/String;ILandroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    const/4 v1, 0x0
-
-    :goto_0
-    return-object v1
+    :goto_1
+    return-object v2
 
     :cond_0
-    new-instance v1, Landroid/service/media/MediaBrowserService$BrowserRoot;
+    new-instance v1, Landroid/os/Bundle;
 
-    iget-object v2, v0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;->mRootId:Ljava/lang/String;
+    invoke-direct {v1, p3}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v2, Landroid/service/media/MediaBrowserService$BrowserRoot;
+
+    iget-object v1, v0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;->mRootId:Ljava/lang/String;
 
     iget-object v3, v0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;->mExtras:Landroid/os/Bundle;
 
-    invoke-direct {v1, v2, v3}, Landroid/service/media/MediaBrowserService$BrowserRoot;-><init>(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-direct {v2, v1, v3}, Landroid/service/media/MediaBrowserService$BrowserRoot;-><init>(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public onLoadChildren(Ljava/lang/String;Landroid/service/media/MediaBrowserService$Result;)V

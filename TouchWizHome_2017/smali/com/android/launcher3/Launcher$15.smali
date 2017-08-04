@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/Launcher$15;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mPaused:Z
     invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$1100(Lcom/android/launcher3/Launcher;)Z
 
     move-result v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/Launcher$15;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mTiltWallpaperScroller:Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;
     invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$1200(Lcom/android/launcher3/Launcher;)Lcom/android/launcher3/common/wallpaperscroller/WallpaperScroller;
 
     move-result-object v0
@@ -57,7 +55,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/Launcher$15;->this$0:Lcom/android/launcher3/Launcher;
 
-    # invokes: Lcom/android/launcher3/Launcher;->resetWallpaperOffsets()V
     invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$1300(Lcom/android/launcher3/Launcher;)V
 
     :cond_0

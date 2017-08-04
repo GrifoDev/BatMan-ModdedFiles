@@ -57,7 +57,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/view/DragLayer$5;->this$0:Lcom/android/launcher3/common/view/DragLayer;
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDragMgr:Lcom/android/launcher3/common/drag/DragManager;
     invoke-static {v0}, Lcom/android/launcher3/common/view/DragLayer;->access$500(Lcom/android/launcher3/common/view/DragLayer;)Lcom/android/launcher3/common/drag/DragManager;
 
     move-result-object v0

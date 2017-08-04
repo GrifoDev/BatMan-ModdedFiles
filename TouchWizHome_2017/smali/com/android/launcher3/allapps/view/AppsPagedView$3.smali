@@ -51,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsPagedView$3;->this$0:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsPagedView;->mCellLayouts:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsPagedView;->access$000(Lcom/android/launcher3/allapps/view/AppsPagedView;)Ljava/util/ArrayList;
 
     move-result-object v0

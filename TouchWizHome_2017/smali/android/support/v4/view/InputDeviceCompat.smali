@@ -32,6 +32,8 @@
 
 .field public static final SOURCE_MOUSE:I = 0x2002
 
+.field public static final SOURCE_ROTARY_ENCODER:I = 0x400000
+
 .field public static final SOURCE_STYLUS:I = 0x4002
 
 .field public static final SOURCE_TOUCHPAD:I = 0x100008

@@ -49,7 +49,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/animation/AppIconBounceAnimation$1;->this$0:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
-    # getter for: Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->mIconView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->access$000(Lcom/android/launcher3/util/animation/AppIconBounceAnimation;)Landroid/view/View;
 
     move-result-object v1
@@ -58,7 +57,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/animation/AppIconBounceAnimation$1;->this$0:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
-    # getter for: Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->mIconView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->access$000(Lcom/android/launcher3/util/animation/AppIconBounceAnimation;)Landroid/view/View;
 
     move-result-object v1
@@ -67,7 +65,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/animation/AppIconBounceAnimation$1;->this$0:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
-    # getter for: Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->mThumbnailView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->access$100(Lcom/android/launcher3/util/animation/AppIconBounceAnimation;)Landroid/view/View;
 
     move-result-object v1
@@ -76,7 +73,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/animation/AppIconBounceAnimation$1;->this$0:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
-    # getter for: Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->mThumbnailView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->access$100(Lcom/android/launcher3/util/animation/AppIconBounceAnimation;)Landroid/view/View;
 
     move-result-object v1
@@ -85,7 +81,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/animation/AppIconBounceAnimation$1;->this$0:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
-    # getter for: Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->mThumbnailView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->access$100(Lcom/android/launcher3/util/animation/AppIconBounceAnimation;)Landroid/view/View;
 
     move-result-object v1

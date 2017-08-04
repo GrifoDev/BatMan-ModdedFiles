@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView$3;->this$0:Lcom/android/launcher3/common/tray/FakeView;
 
-    # getter for: Lcom/android/launcher3/common/tray/FakeView;->mChangeStageAlarmListener:Lcom/android/launcher3/util/alarm/OnAlarmListener;
     invoke-static {v0}, Lcom/android/launcher3/common/tray/FakeView;->access$400(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/util/alarm/OnAlarmListener;
 
     move-result-object v0

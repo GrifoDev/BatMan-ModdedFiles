@@ -99,6 +99,17 @@
     .end annotation
 .end field
 
+.field private static sOmcActivity:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field protected static sPackageManager:Landroid/content/pm/PackageManager;
 
 .field protected static final sPendingPackages:Ljava/util/HashMap;
@@ -264,6 +275,10 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/android/launcher3/common/model/DataLoader;->sLoaderList:Ljava/util/ArrayList;
+
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/launcher3/common/model/DataLoader;->sOmcActivity:Ljava/util/List;
 
     const/4 v0, 0x2
 
@@ -1557,115 +1572,187 @@
 .end method
 
 .method protected backupStkPositionIfNecessary(Ljava/lang/String;JJII)V
-    .locals 8
-
-    const/4 v4, 0x0
+    .locals 10
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+    invoke-virtual {v6}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
 
-    move-result v3
+    move-result v6
 
-    if-nez v3, :cond_1
+    if-nez v6, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    sget-object v5, Lcom/android/launcher3/common/model/DataLoader;->STK_PKG_LIST:[Ljava/lang/String;
+    sget-object v7, Lcom/android/launcher3/common/model/DataLoader;->STK_PKG_LIST:[Ljava/lang/String;
 
-    array-length v6, v5
+    array-length v8, v7
 
-    move v3, v4
+    const/4 v6, 0x0
 
     :goto_1
-    if-ge v3, v6, :cond_2
+    if-ge v6, v8, :cond_2
 
-    aget-object v2, v5, v3
+    aget-object v5, v7, v6
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_3
+    if-eqz v9, :cond_4
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     :cond_2
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    sget-object v3, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
+    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sProfile:Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
+    iget-object v6, v6, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
 
-    move-result-object v5
+    invoke-virtual {v6}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountX()I
 
-    invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    move-result v1
 
-    move-result-object v3
+    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sProfile:Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
-    invoke-interface {v3}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    iget-object v6, v6, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
 
-    move-result-object v1
+    invoke-virtual {v6}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountY()I
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result v2
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    if-ltz p6, :cond_3
 
-    invoke-virtual {v3, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    if-ltz p7, :cond_3
 
-    move-result-object v3
+    move/from16 v0, p6
 
-    const-string v4, ";"
+    if-ge v0, v1, :cond_3
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v0, p7
 
-    move-result-object v3
+    if-lt v0, v2, :cond_5
 
-    invoke-virtual {v3, p4, p5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    :cond_3
+    const-string v6, "DataLoader"
 
-    move-result-object v3
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string v4, ";"
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v8, "Stk outside position cellX : "
 
-    move-result-object v3
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v3
+    move/from16 v0, p6
 
-    const-string v4, ";"
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v3
+    const-string v8, " cellY : "
 
-    invoke-virtual {v3, p7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v7
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move/from16 v0, p7
 
-    move-result-object v3
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-interface {v1, p1, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    move-result-object v7
 
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :cond_3
-    add-int/lit8 v3, v3, 0x1
+    :cond_4
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
+
+    :cond_5
+    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v6, v7, v8}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v6
+
+    invoke-interface {v6}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v4
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, ";"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p4, p5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, ";"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, p6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, ";"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move/from16 v0, p7
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-interface {v4, p1, v6}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    invoke-interface {v4}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    goto/16 :goto_0
 .end method
 
 .method public abstract bindItemsSync(ILcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
@@ -2255,7 +2342,7 @@
 .end method
 
 .method protected getRestoredItemIntent(Landroid/content/Intent;I)Landroid/content/Intent;
-    .locals 2
+    .locals 4
 
     and-int/lit8 v1, p2, 0x1
 
@@ -2287,6 +2374,74 @@
 
     if-eqz v1, :cond_1
 
+    sget-object v1, Lcom/android/launcher3/common/model/DataLoader;->sOmcActivity:Ljava/util/List;
+
+    if-nez v1, :cond_3
+
+    sget-object v1, Lcom/android/launcher3/common/model/DataLoader;->sPackageManager:Landroid/content/pm/PackageManager;
+
+    const/4 v2, 0x0
+
+    invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->getOmcIntent(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/android/launcher3/common/model/DataLoader;->sOmcActivity:Ljava/util/List;
+
+    :cond_3
+    sget-object v1, Lcom/android/launcher3/common/model/DataLoader;->sOmcActivity:Ljava/util/List;
+
+    if-eqz v1, :cond_4
+
+    sget-object v1, Lcom/android/launcher3/common/model/DataLoader;->sOmcActivity:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-lez v1, :cond_4
+
+    invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_4
+
+    invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->getOmcIntent(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p1
+
+    goto :goto_0
+
+    :cond_4
     invoke-static {}, Lcom/android/launcher3/LauncherModel;->getOmcIntent()Landroid/content/Intent;
 
     move-result-object p1

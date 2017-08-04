@@ -168,7 +168,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    # invokes: Lcom/android/launcher3/widget/model/WidgetLoader;->waitWithoutInterrupt(Ljava/lang/Object;)V
     invoke-static {p0}, Lcom/android/launcher3/widget/model/WidgetLoader;->access$400(Ljava/lang/Object;)V
 
     monitor-exit p0
@@ -206,7 +205,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/widget/model/WidgetLoader$LoadTask;->syncContext:Lcom/android/launcher3/widget/model/WidgetLoader$SyncContext;
 
-    # invokes: Lcom/android/launcher3/widget/model/WidgetLoader;->loadWidgetAndShortcut(Lcom/android/launcher3/widget/model/WidgetLoader$SyncContext;)Ljava/util/List;
     invoke-static {v2, v3}, Lcom/android/launcher3/widget/model/WidgetLoader;->access$500(Lcom/android/launcher3/widget/model/WidgetLoader;Lcom/android/launcher3/widget/model/WidgetLoader$SyncContext;)Ljava/util/List;
 
     move-result-object v1
@@ -223,7 +221,6 @@
 
     iget-boolean v3, v3, Lcom/android/launcher3/widget/model/WidgetLoader$SyncContext;->hasUninstallApp:Z
 
-    # invokes: Lcom/android/launcher3/widget/model/WidgetLoader;->notifyLoadComplete(Ljava/util/List;Z)V
     invoke-static {v2, v1, v3}, Lcom/android/launcher3/widget/model/WidgetLoader;->access$600(Lcom/android/launcher3/widget/model/WidgetLoader;Ljava/util/List;Z)V
 
     :cond_1

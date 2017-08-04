@@ -67,7 +67,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f08018a
+    const v3, 0x7f080197
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -86,7 +86,7 @@
 
     if-ne v3, v4, :cond_2
 
-    const v3, 0x7f08014e
+    const v3, 0x7f08015d
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -101,7 +101,7 @@
     return-void
 
     :cond_1
-    const v3, 0x7f08017e
+    const v3, 0x7f08018b
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -118,7 +118,7 @@
 
     if-ne v3, v6, :cond_3
 
-    const v3, 0x7f08014f
+    const v3, 0x7f08015e
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -135,7 +135,7 @@
 
     if-ne v3, v4, :cond_0
 
-    const v3, 0x7f080151
+    const v3, 0x7f080160
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -152,7 +152,7 @@
 
     if-ne v3, v6, :cond_5
 
-    const v3, 0x7f080150
+    const v3, 0x7f08015f
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -169,7 +169,7 @@
 
     if-ne v3, v6, :cond_0
 
-    const v3, 0x7f080152
+    const v3, 0x7f080161
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

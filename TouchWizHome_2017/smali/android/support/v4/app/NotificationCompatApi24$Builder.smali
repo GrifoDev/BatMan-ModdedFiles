@@ -21,9 +21,11 @@
 # instance fields
 .field private b:Landroid/app/Notification$Builder;
 
+.field private mGroupAlertBehavior:I
+
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroid/app/Notification;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/widget/RemoteViews;ILandroid/app/PendingIntent;Landroid/app/PendingIntent;Landroid/graphics/Bitmap;IIZZZILjava/lang/CharSequence;ZLjava/lang/String;Ljava/util/ArrayList;Landroid/os/Bundle;IILandroid/app/Notification;Ljava/lang/String;ZLjava/lang/String;[Ljava/lang/CharSequence;Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/app/Notification;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/widget/RemoteViews;ILandroid/app/PendingIntent;Landroid/app/PendingIntent;Landroid/graphics/Bitmap;IIZZZILjava/lang/CharSequence;ZLjava/lang/String;Ljava/util/ArrayList;Landroid/os/Bundle;IILandroid/app/Notification;Ljava/lang/String;ZLjava/lang/String;[Ljava/lang/CharSequence;Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;I)V
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +59,7 @@
             "Landroid/widget/RemoteViews;",
             "Landroid/widget/RemoteViews;",
             "Landroid/widget/RemoteViews;",
-            ")V"
+            "I)V"
         }
     .end annotation
 
@@ -380,6 +382,34 @@
     goto/16 :goto_3
 
     :cond_7
+    move/from16 v0, p32
+
+    iput v0, p0, Landroid/support/v4/app/NotificationCompatApi24$Builder;->mGroupAlertBehavior:I
+
+    return-void
+.end method
+
+.method private removeSoundAndVibration(Landroid/app/Notification;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p1, Landroid/app/Notification;->sound:Landroid/net/Uri;
+
+    iput-object v0, p1, Landroid/app/Notification;->vibrate:[J
+
+    iget v0, p1, Landroid/app/Notification;->defaults:I
+
+    and-int/lit8 v0, v0, -0x2
+
+    iput v0, p1, Landroid/app/Notification;->defaults:I
+
+    iget v0, p1, Landroid/app/Notification;->defaults:I
+
+    and-int/lit8 v0, v0, -0x3
+
+    iput v0, p1, Landroid/app/Notification;->defaults:I
+
     return-void
 .end method
 
@@ -396,14 +426,60 @@
 .end method
 
 .method public build()Landroid/app/Notification;
-    .locals 1
+    .locals 3
 
-    iget-object v0, p0, Landroid/support/v4/app/NotificationCompatApi24$Builder;->b:Landroid/app/Notification$Builder;
+    iget-object v1, p0, Landroid/support/v4/app/NotificationCompatApi24$Builder;->b:Landroid/app/Notification$Builder;
 
-    invoke-virtual {v0}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+    invoke-virtual {v1}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
 
     move-result-object v0
 
+    iget v1, p0, Landroid/support/v4/app/NotificationCompatApi24$Builder;->mGroupAlertBehavior:I
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Landroid/app/Notification;->getGroup()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget v1, v0, Landroid/app/Notification;->flags:I
+
+    and-int/lit16 v1, v1, 0x200
+
+    if-eqz v1, :cond_0
+
+    iget v1, p0, Landroid/support/v4/app/NotificationCompatApi24$Builder;->mGroupAlertBehavior:I
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_0
+
+    invoke-direct {p0, v0}, Landroid/support/v4/app/NotificationCompatApi24$Builder;->removeSoundAndVibration(Landroid/app/Notification;)V
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/app/Notification;->getGroup()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    iget v1, v0, Landroid/app/Notification;->flags:I
+
+    and-int/lit16 v1, v1, 0x200
+
+    if-nez v1, :cond_1
+
+    iget v1, p0, Landroid/support/v4/app/NotificationCompatApi24$Builder;->mGroupAlertBehavior:I
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_1
+
+    invoke-direct {p0, v0}, Landroid/support/v4/app/NotificationCompatApi24$Builder;->removeSoundAndVibration(Landroid/app/Notification;)V
+
+    :cond_1
     return-object v0
 .end method
 

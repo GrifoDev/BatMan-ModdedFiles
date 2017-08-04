@@ -9,20 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x18
     name = "ChildAccessibilityDelegate"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Landroid/support/v4/widget/DrawerLayout;
-
-
 # direct methods
-.method constructor <init>(Landroid/support/v4/widget/DrawerLayout;)V
+.method constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Landroid/support/v4/widget/DrawerLayout$ChildAccessibilityDelegate;->this$0:Landroid/support/v4/widget/DrawerLayout;
 
     invoke-direct {p0}, Landroid/support/v4/view/AccessibilityDelegateCompat;-><init>()V
 

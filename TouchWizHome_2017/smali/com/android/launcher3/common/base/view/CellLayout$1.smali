@@ -65,7 +65,6 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/common/base/view/CellLayout$1;->this$0:Lcom/android/launcher3/common/base/view/CellLayout;
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout;->mDragOutlineAlphas:[F
     invoke-static {v2}, Lcom/android/launcher3/common/base/view/CellLayout;->access$000(Lcom/android/launcher3/common/base/view/CellLayout;)[F
 
     move-result-object v3
@@ -88,7 +87,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/base/view/CellLayout$1;->this$0:Lcom/android/launcher3/common/base/view/CellLayout;
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout;->mDragOutlines:[Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/android/launcher3/common/base/view/CellLayout;->access$100(Lcom/android/launcher3/common/base/view/CellLayout;)[Landroid/graphics/Rect;
 
     move-result-object v3

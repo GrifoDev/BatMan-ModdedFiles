@@ -65,7 +65,6 @@
 .method public static getInstance()Lcom/android/launcher3/LauncherProviderID;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/LauncherProviderID$SingletonHolder;->sLauncherProviderID:Lcom/android/launcher3/LauncherProviderID;
     invoke-static {}, Lcom/android/launcher3/LauncherProviderID$SingletonHolder;->access$000()Lcom/android/launcher3/LauncherProviderID;
 
     move-result-object v0

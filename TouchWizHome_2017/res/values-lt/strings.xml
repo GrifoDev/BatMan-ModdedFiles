@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Ieškos istorija</string>
+    <string name="about">Apie %s</string>
+    <string name="about_already_installed">Naujausia versija jau įdiegta.</string>
+    <string name="about_home_screen">Pradžios ekranas</string>
+    <string name="about_licence">Atvirojo kodo licencijos</string>
+    <string name="about_network_err">Negalima ieškoti naujinių. Jūsų telefonas neprijungtas prie tinklo.</string>
+    <string name="about_new_version_exist">Yra nauja versija.</string>
+    <string name="about_retry">Kartoti</string>
+    <string name="about_update">Naujinti</string>
+    <string name="about_version">Versija %s</string>
     <string name="activity_not_available">Jūsų įrenginys negali naudotis šia programa.</string>
     <string name="activity_not_found">Programa nebuvo įdiegta.</string>
     <string name="align_to_bottom">Lygiuoti apačioje</string>
@@ -108,7 +117,7 @@
     <string name="ok">Gerai</string>
     <string name="only_one_widget_instance_allowed">%s valdiklis jau pridėtas prie pradžios ekrano.</string>
     <string name="option_menu_contact_up">Kreipkitės</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Nustatymai</string>
     <string name="options_menu">Daugiau parinkčių</string>
     <string name="options_menu_search_recommend">Paieškos parinktys</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Šiame puslapyje nebėra vietos</string>
     <string name="out_of_space_dialog">Šiame puslapyje nebėra vietos. Elementas bus pridėtas naujame puslapyje.</string>
     <string name="permdesc_install_widget">Ši programa gali pridėti valdiklių pradžios ekrane.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ši programa gali nuskaityti pasirinktinio turinio puslapio nustatymus, kurie yra kairėje pradžios ekrano pusėje.</string>
+    <string name="permdesc_write_zeropage_settings">Ši programa gali keisti pasirinktinio turinio puslapio nustatymus, kurie yra kairėje pradžios ekrano pusėje.</string>
     <string name="permlab_install_widget">Pridėti valdiklius</string>
+    <string name="permlab_read_settings">skaityti Pradžios ekrano nustatymus ir šaukinius</string>
+    <string name="permlab_read_zeropage_settings">Skait. pasir. turinio psl. nustat.</string>
+    <string name="permlab_write_zeropage_settings">Keist pasirink. turinio psl. nust.</string>
     <string name="quick_option_add_apps">Pridėti programų</string>
     <string name="quick_option_add_shortcut_to_home">Į pradž. p. įdėti šaukinį</string>
     <string name="quick_option_add_to_personal">Įtr. į asmen.</string>

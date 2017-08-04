@@ -56,14 +56,8 @@
 
 # instance fields
 .field private mAnimationState:I
-    .annotation build Landroid/support/v7/widget/FastScroller$AnimationState;
-    .end annotation
-.end field
 
 .field private mDragState:I
-    .annotation build Landroid/support/v7/widget/FastScroller$DragState;
-    .end annotation
-.end field
 
 .field private final mHideRunnable:Ljava/lang/Runnable;
 
@@ -111,9 +105,6 @@
 .field private final mShowHideAnimator:Landroid/animation/ValueAnimator;
 
 .field private mState:I
-    .annotation build Landroid/support/v7/widget/FastScroller$State;
-    .end annotation
-.end field
 
 .field mVerticalDragY:F
     .annotation build Landroid/support/annotation/VisibleForTesting;
@@ -807,10 +798,6 @@
 
 .method private setState(I)V
     .locals 3
-    .param p1    # I
-        .annotation build Landroid/support/v7/widget/FastScroller$State;
-        .end annotation
-    .end param
 
     const/4 v2, 0x2
 

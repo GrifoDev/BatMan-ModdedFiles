@@ -56,17 +56,17 @@
     return-void
 .end method
 
-.method bridge synthetic onResultSent(Ljava/lang/Object;I)V
+.method bridge synthetic onResultSent(Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Ljava/util/List;
 
-    invoke-virtual {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi24$1;->onResultSent(Ljava/util/List;I)V
+    invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi24$1;->onResultSent(Ljava/util/List;)V
 
     return-void
 .end method
 
-.method onResultSent(Ljava/util/List;I)V
+.method onResultSent(Ljava/util/List;)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,7 +74,7 @@
             "Ljava/util/List",
             "<",
             "Landroid/support/v4/media/MediaBrowserCompat$MediaItem;",
-            ">;I)V"
+            ">;)V"
         }
     .end annotation
 
@@ -118,7 +118,11 @@
     :cond_0
     iget-object v3, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi24$1;->val$resultWrapper:Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;
 
-    invoke-virtual {v3, v2, p2}, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->sendResult(Ljava/util/List;I)V
+    invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi24$1;->getFlags()I
+
+    move-result v4
+
+    invoke-virtual {v3, v2, v4}, Landroid/support/v4/media/MediaBrowserServiceCompatApi24$ResultWrapper;->sendResult(Ljava/util/List;I)V
 
     return-void
 .end method

@@ -38,7 +38,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderController$3;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
 
-    # getter for: Lcom/android/launcher3/folder/controller/FolderController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/folder/controller/FolderController;->access$400(Lcom/android/launcher3/folder/controller/FolderController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1
@@ -47,7 +46,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080034
+    const v2, 0x7f08003d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -71,7 +70,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/controller/FolderController$3;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
 
-    # getter for: Lcom/android/launcher3/folder/controller/FolderController;->mTargetFolderIconView:Lcom/android/launcher3/folder/view/FolderIconView;
     invoke-static {v3}, Lcom/android/launcher3/folder/controller/FolderController;->access$500(Lcom/android/launcher3/folder/controller/FolderController;)Lcom/android/launcher3/folder/view/FolderIconView;
 
     move-result-object v3

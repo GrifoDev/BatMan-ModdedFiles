@@ -103,7 +103,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/view/FolderView$15;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mContent:Lcom/android/launcher3/folder/view/FolderPagedView;
     invoke-static {v3}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderPagedView;
 
     move-result-object v3
@@ -114,7 +113,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/view/FolderView$15;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mContent:Lcom/android/launcher3/folder/view/FolderPagedView;
     invoke-static {v3}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderPagedView;
 
     move-result-object v3
@@ -125,7 +123,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/folder/view/FolderView$15;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderView;->mItemsInvalidated:Z
     invoke-static {v3, v5}, Lcom/android/launcher3/folder/view/FolderView;->access$1202(Lcom/android/launcher3/folder/view/FolderView;Z)Z
 
     :cond_2

@@ -41,7 +41,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetFolder$1;->this$0:Lcom/android/launcher3/widget/view/WidgetFolder;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetFolder;->mPagedView:Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
     invoke-static {v1}, Lcom/android/launcher3/widget/view/WidgetFolder;->access$100(Lcom/android/launcher3/widget/view/WidgetFolder;)Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
 
     move-result-object v1
@@ -50,7 +49,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetFolder$1;->this$0:Lcom/android/launcher3/widget/view/WidgetFolder;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetFolder;->mPagedView:Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
     invoke-static {v1}, Lcom/android/launcher3/widget/view/WidgetFolder;->access$100(Lcom/android/launcher3/widget/view/WidgetFolder;)Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
 
     move-result-object v1

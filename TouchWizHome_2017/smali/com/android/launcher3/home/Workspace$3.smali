@@ -59,7 +59,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/Workspace$3;->val$onComplete:Ljava/lang/Runnable;
 
-    # invokes: Lcom/android/launcher3/home/Workspace;->fadeAndRemoveEmptyScreen(IILjava/lang/Runnable;)V
     invoke-static {v0, v3, v1, v2}, Lcom/android/launcher3/home/Workspace;->access$000(Lcom/android/launcher3/home/Workspace;IILjava/lang/Runnable;)V
 
     return-void

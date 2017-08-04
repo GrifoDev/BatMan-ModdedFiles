@@ -45,7 +45,6 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/launcher3/home/EdgeLight$SpageNotificationObserver;->this$0:Lcom/android/launcher3/home/EdgeLight;
 
-    # getter for: Lcom/android/launcher3/home/EdgeLight;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/launcher3/home/EdgeLight;->access$100(Lcom/android/launcher3/home/EdgeLight;)Landroid/content/Context;
 
     move-result-object v0
@@ -54,7 +53,6 @@
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher3/home/EdgeLight;->SPAGE_NOTIFICATION_URI:Landroid/net/Uri;
     invoke-static {}, Lcom/android/launcher3/home/EdgeLight;->access$000()Landroid/net/Uri;
 
     move-result-object v1
@@ -96,7 +94,6 @@
     move v0, v8
 
     :goto_0
-    # setter for: Lcom/android/launcher3/home/EdgeLight;->mNotiExist:Z
     invoke-static {v1, v0}, Lcom/android/launcher3/home/EdgeLight;->access$202(Lcom/android/launcher3/home/EdgeLight;Z)Z
 
     const-string v0, "EdgeLight"
@@ -113,7 +110,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/EdgeLight$SpageNotificationObserver;->this$0:Lcom/android/launcher3/home/EdgeLight;
 
-    # getter for: Lcom/android/launcher3/home/EdgeLight;->mNotiExist:Z
     invoke-static {v2}, Lcom/android/launcher3/home/EdgeLight;->access$200(Lcom/android/launcher3/home/EdgeLight;)Z
 
     move-result v2
@@ -130,7 +126,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/EdgeLight$SpageNotificationObserver;->this$0:Lcom/android/launcher3/home/EdgeLight;
 
-    # getter for: Lcom/android/launcher3/home/EdgeLight;->mNotiExist:Z
     invoke-static {v0}, Lcom/android/launcher3/home/EdgeLight;->access$200(Lcom/android/launcher3/home/EdgeLight;)Z
 
     move-result v0

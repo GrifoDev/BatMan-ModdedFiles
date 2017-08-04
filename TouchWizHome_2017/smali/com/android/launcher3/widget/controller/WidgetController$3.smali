@@ -204,7 +204,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mStateActionListener:Lcom/android/launcher3/widget/controller/WidgetState$StateActionListener;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$800(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/controller/WidgetState$StateActionListener;
 
     move-result-object v0
@@ -221,7 +220,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mStateActionListener:Lcom/android/launcher3/widget/controller/WidgetState$StateActionListener;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$800(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/controller/WidgetState$StateActionListener;
 
     move-result-object v0
@@ -253,7 +251,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetLoader:Lcom/android/launcher3/widget/model/WidgetLoader;
     invoke-static {v3}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1200(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/model/WidgetLoader;
 
     move-result-object v3
@@ -314,7 +311,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetLoader:Lcom/android/launcher3/widget/model/WidgetLoader;
     invoke-static {v3}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1200(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/model/WidgetLoader;
 
     move-result-object v3
@@ -364,7 +360,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v2}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v2
@@ -377,7 +372,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v2}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v2
@@ -432,7 +426,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$900(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/controller/WidgetState;
 
     move-result-object v1
@@ -471,7 +464,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$900(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/controller/WidgetState;
 
     move-result-object v1
@@ -480,7 +472,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v1
@@ -495,7 +486,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v1
@@ -522,7 +512,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v1
@@ -541,7 +530,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1000(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
@@ -554,7 +542,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$3;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1100(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0

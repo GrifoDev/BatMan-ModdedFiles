@@ -31,7 +31,6 @@
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 1
 
-    # invokes: Lcom/android/launcher3/home/HomeFocusHelper;->handleZeroPageSwitchKeyEvent(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     invoke-static {p1, p2, p3}, Lcom/android/launcher3/home/HomeFocusHelper;->access$600(Landroid/view/View;ILandroid/view/KeyEvent;)Z
 
     move-result v0

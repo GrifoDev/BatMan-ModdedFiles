@@ -97,7 +97,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/StageManager$2;->this$0:Lcom/android/launcher3/common/stage/StageManager;
 
-    # getter for: Lcom/android/launcher3/common/stage/StageManager;->mCurrentAnimation:Landroid/animation/AnimatorSet;
     invoke-static {v1}, Lcom/android/launcher3/common/stage/StageManager;->access$300(Lcom/android/launcher3/common/stage/StageManager;)Landroid/animation/AnimatorSet;
 
     move-result-object v1
@@ -154,7 +153,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/StageManager$2;->this$0:Lcom/android/launcher3/common/stage/StageManager;
 
-    # invokes: Lcom/android/launcher3/common/stage/StageManager;->dumpStack()V
     invoke-static {v1}, Lcom/android/launcher3/common/stage/StageManager;->access$400(Lcom/android/launcher3/common/stage/StageManager;)V
 
     :goto_0
@@ -178,7 +176,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/common/stage/StageManager$2;->val$data:Lcom/android/launcher3/common/stage/StageEntry;
 
-    # invokes: Lcom/android/launcher3/common/stage/StageManager;->transitAnimStart(Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
     invoke-static {v4, v5, v1, v6, v7}, Lcom/android/launcher3/common/stage/StageManager;->access$500(Lcom/android/launcher3/common/stage/StageManager;Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/StageManager$2;->this$0:Lcom/android/launcher3/common/stage/StageManager;
@@ -198,7 +195,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/common/stage/StageManager$2;->val$data:Lcom/android/launcher3/common/stage/StageEntry;
 
-    # invokes: Lcom/android/launcher3/common/stage/StageManager;->transitAnimStart(Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
     invoke-static {v1, v4, v3, v5, v6}, Lcom/android/launcher3/common/stage/StageManager;->access$500(Lcom/android/launcher3/common/stage/StageManager;Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/StageManager$2;->val$data:Lcom/android/launcher3/common/stage/StageEntry;
@@ -246,6 +242,18 @@
     move-result v1
 
     if-ne v1, v2, :cond_3
+
+    new-instance v1, Lcom/android/launcher3/util/DvfsUtil;
+
+    iget-object v4, p0, Lcom/android/launcher3/common/stage/StageManager$2;->this$0:Lcom/android/launcher3/common/stage/StageManager;
+
+    invoke-static {v4}, Lcom/android/launcher3/common/stage/StageManager;->access$600(Lcom/android/launcher3/common/stage/StageManager;)Lcom/android/launcher3/Launcher;
+
+    move-result-object v4
+
+    invoke-direct {v1, v4}, Lcom/android/launcher3/util/DvfsUtil;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v1}, Lcom/android/launcher3/util/DvfsUtil;->boostOneFrame()V
 
     const/4 v1, 0x2
 

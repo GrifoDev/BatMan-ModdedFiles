@@ -36,6 +36,10 @@
 .field private static final TAG_ROOT_PATH:Ljava/lang/String; = "root-path"
 
 .field private static sCache:Ljava/util/HashMap;
+    .annotation build Landroid/support/annotation/GuardedBy;
+        value = "sCache"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",

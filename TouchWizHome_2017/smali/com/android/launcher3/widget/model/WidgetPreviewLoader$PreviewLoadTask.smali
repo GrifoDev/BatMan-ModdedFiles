@@ -120,7 +120,6 @@
     :cond_1
     iget-object v2, p0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->this$0:Lcom/android/launcher3/widget/model/WidgetPreviewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->mUnusedBitmaps:Ljava/util/Set;
     invoke-static {v2}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$200(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;)Ljava/util/Set;
 
     move-result-object v2
@@ -130,7 +129,6 @@
     :try_start_0
     iget-object v4, p0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->this$0:Lcom/android/launcher3/widget/model/WidgetPreviewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->mUnusedBitmaps:Ljava/util/Set;
     invoke-static {v4}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$200(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;)Ljava/util/Set;
 
     move-result-object v4
@@ -180,7 +178,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->this$0:Lcom/android/launcher3/widget/model/WidgetPreviewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->mUnusedBitmaps:Ljava/util/Set;
     invoke-static {v4}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$200(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;)Ljava/util/Set;
 
     move-result-object v4
@@ -230,7 +227,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->mKey:Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;
 
-    # invokes: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->readFromDb(Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;Landroid/graphics/Bitmap;Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;)Landroid/graphics/Bitmap;
     invoke-static {v2, v4, v3, p0}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$500(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;Landroid/graphics/Bitmap;Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;)Landroid/graphics/Bitmap;
 
     move-result-object v7
@@ -253,7 +249,6 @@
 
     move-result-object v4
 
-    # invokes: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->getPackageVersion(Ljava/lang/String;)[J
     invoke-static {v2, v4}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$600(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;Ljava/lang/String;)[J
 
     move-result-object v2
@@ -286,7 +281,6 @@
 
     iget v5, p0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->mPreviewHeight:I
 
-    # invokes: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->generatePreview(Lcom/android/launcher3/Launcher;Ljava/lang/Object;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
     invoke-static/range {v0 .. v5}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$700(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;Lcom/android/launcher3/Launcher;Ljava/lang/Object;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
 
     move-result-object v7
@@ -318,7 +312,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->this$0:Lcom/android/launcher3/widget/model/WidgetPreviewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->mWorkerHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$400(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;)Landroid/os/Handler;
 
     move-result-object v0
@@ -358,7 +351,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$PreviewLoadTask;->this$0:Lcom/android/launcher3/widget/model/WidgetPreviewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->mWorkerHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader;->access$400(Lcom/android/launcher3/widget/model/WidgetPreviewLoader;)Landroid/os/Handler;
 
     move-result-object v0

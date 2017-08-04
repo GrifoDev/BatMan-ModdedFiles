@@ -108,7 +108,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren$1;->this$0:Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->mGridChangeAnimationSet:Landroid/view/animation/AnimationSet;
     invoke-static {v1}, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->access$000(Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;)Landroid/view/animation/AnimationSet;
 
     move-result-object v1
@@ -121,7 +120,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren$1;->this$0:Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->mGridChangeAnimationSet:Landroid/view/animation/AnimationSet;
     invoke-static {v1}, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->access$000(Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;)Landroid/view/animation/AnimationSet;
 
     move-result-object v1
@@ -134,7 +132,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren$1;->this$0:Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->mGridChangeAnimationSet:Landroid/view/animation/AnimationSet;
     invoke-static {v1}, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->access$000(Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;)Landroid/view/animation/AnimationSet;
 
     move-result-object v1

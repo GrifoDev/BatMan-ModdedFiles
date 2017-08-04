@@ -45,7 +45,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mCurrentScrollDir:I
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$1800(Lcom/android/launcher3/folder/view/FolderView;)I
 
     move-result v0
@@ -54,7 +53,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mContent:Lcom/android/launcher3/folder/view/FolderPagedView;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderPagedView;
 
     move-result-object v0
@@ -63,18 +61,15 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderView;->mScrollHintDir:I
     invoke-static {v0, v2}, Lcom/android/launcher3/folder/view/FolderView;->access$1902(Lcom/android/launcher3/folder/view/FolderView;I)I
 
     :goto_0
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderView;->mCurrentScrollDir:I
     invoke-static {v0, v2}, Lcom/android/launcher3/folder/view/FolderView;->access$1802(Lcom/android/launcher3/folder/view/FolderView;I)I
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mScrollPauseAlarm:Lcom/android/launcher3/util/alarm/Alarm;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$2000(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/util/alarm/Alarm;
 
     move-result-object v0
@@ -91,7 +86,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mScrollPauseAlarm:Lcom/android/launcher3/util/alarm/Alarm;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$2000(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/util/alarm/Alarm;
 
     move-result-object v0
@@ -108,7 +102,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mCurrentScrollDir:I
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$1800(Lcom/android/launcher3/folder/view/FolderView;)I
 
     move-result v0
@@ -119,7 +112,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderView;->mContent:Lcom/android/launcher3/folder/view/FolderPagedView;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderPagedView;
 
     move-result-object v0
@@ -128,7 +120,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$OnScrollHintListener;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderView;->mScrollHintDir:I
     invoke-static {v0, v2}, Lcom/android/launcher3/folder/view/FolderView;->access$1902(Lcom/android/launcher3/folder/view/FolderView;I)I
 
     goto :goto_0

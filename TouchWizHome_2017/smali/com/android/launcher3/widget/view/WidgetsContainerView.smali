@@ -120,7 +120,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0f00d5
+    const v2, 0x7f0f00e5
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -520,7 +520,7 @@
 .method public getRevealView()Landroid/view/View;
     .locals 1
 
-    const v0, 0x7f0f00ef
+    const v0, 0x7f0f00ff
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetsContainerView;->findViewById(I)Landroid/view/View;
 
@@ -562,7 +562,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f08004b
+    const v1, 0x7f080054
 
     const/4 v2, 0x0
 
@@ -643,7 +643,7 @@
 
     invoke-super {p0}, Lcom/android/launcher3/common/base/view/BaseContainerView;->onFinishInflate()V
 
-    const v0, 0x7f0f003b
+    const v0, 0x7f0f004b
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetsContainerView;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetsContainerView;->mContent:Landroid/view/View;
 
-    const v0, 0x7f0f00f0
+    const v0, 0x7f0f0100
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetsContainerView;->findViewById(I)Landroid/view/View;
 
@@ -836,7 +836,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200d5
+    const v2, 0x7f0200da
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

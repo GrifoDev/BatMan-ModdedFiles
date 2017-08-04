@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Таърихи ҷустуҷӯ</string>
+    <string name="about">Дар бораи %s</string>
+    <string name="about_already_installed">Версияи охирин аллакай насб шудааст.</string>
+    <string name="about_home_screen">Экрани асосӣ</string>
+    <string name="about_licence">Иҷозатномаҳои манбаи кушод</string>
+    <string name="about_network_err">Тафтиши навсозиҳо ғайриимкон аст. Телефони шумо ба ягон шабака пайваст нест.</string>
+    <string name="about_new_version_exist">Версияи нав дастрас аст</string>
+    <string name="about_retry">Кӯшиши дуб-а</string>
+    <string name="about_update">Навсозӣ</string>
+    <string name="about_version">Версияи %s</string>
     <string name="activity_not_available">Ин барнома барои дастгоҳи шумо дастрас нест.</string>
     <string name="activity_not_found">Барнома насб нашудааст.</string>
     <string name="align_to_bottom">Ба поён мос кардан</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Дар ин саҳифа дигар ҷой нест</string>
     <string name="out_of_space_dialog">Дар ин саҳифа дигар ҷой нест. Ҷузъ ба саҳифаи нав илова карда мешавад.</string>
     <string name="permdesc_install_widget">Ин барнома метавонад ба экрани асосӣ видҷетҳо илова кунад.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ин барнома метавонад танзимоти саҳифаи муҳтавои фармоиширо бихонад, ки дар тарафи чапи экрани Асосӣ ҷойгир аст.</string>
+    <string name="permdesc_write_zeropage_settings">Ин барнома метавонад танзимоти саҳифаи муҳтавои фармоиширо тағйир диҳад, ки дар тарафи чапи экрани Асосӣ ҷойгир аст.</string>
     <string name="permlab_install_widget">Иловаи видҷетҳо</string>
+    <string name="permlab_read_settings">Хондани танзимот ва миёнбурҳои Экрани асосӣ</string>
+    <string name="permlab_read_zeropage_settings">Хондани тнзмти саҳ мҳтвои фармоишӣ</string>
+    <string name="permlab_write_zeropage_settings">Тағйири тнзмт саҳ муҳтавои фармоишӣ</string>
     <string name="quick_option_add_apps">Иловаи барномаҳо</string>
     <string name="quick_option_add_shortcut_to_home">Иловаи миёнбур ба Асосӣ</string>
     <string name="quick_option_add_to_personal">Илова ба шахсӣ</string>

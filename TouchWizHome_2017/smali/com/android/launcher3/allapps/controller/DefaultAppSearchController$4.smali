@@ -125,7 +125,6 @@
     :cond_2
     iget-object v4, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$4;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
     invoke-static {v4}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$500(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Lcom/android/launcher3/allapps/controller/AppsController;
 
     move-result-object v4
@@ -134,7 +133,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$4;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
     invoke-static {v4}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$500(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Lcom/android/launcher3/allapps/controller/AppsController;
 
     move-result-object v4

@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeBindController$9;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    # getter for: Lcom/android/launcher3/home/HomeBindController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeBindController;->access$000(Lcom/android/launcher3/home/HomeBindController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v0

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">සෙවුම් ඉතිහාසය</string>
+    <string name="about">%s පිළිබඳ</string>
+    <string name="about_already_installed">නවතම අනුවාදය දැනටමත් ස්ථාපිතයි.</string>
+    <string name="about_home_screen">නිවාස තිරය</string>
+    <string name="about_licence">විවෘත මූලාශ්‍ර බලපත්‍ර</string>
+    <string name="about_network_err">යාවත්කාල සඳහා පිරික්සිය නොහැක. ඔබේ දුරකථනය ජාලයකට සබැඳී නැත.</string>
+    <string name="about_new_version_exist">නව අනුවාදයක් තිබේ.</string>
+    <string name="about_retry">යළි උත්. ක.</string>
+    <string name="about_update">යාවත්කාලය</string>
+    <string name="about_version">%s අනුවාදය</string>
     <string name="activity_not_available">මෙම යෙදුම ඔබේ උපාංගය සඳහා ලබා ගත නොහැක.</string>
     <string name="activity_not_found">යෙදුම ස්ථාපිත නොවිය.</string>
     <string name="align_to_bottom">පහළට පෙළ ගස්වන්න</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">මෙම පිටුවෙහි තවත් ඉඩ නැත</string>
     <string name="out_of_space_dialog">මෙම පිටුවේ වැඩි ඉඩක් නැත. අයිතමය නව පිටුවකට එක් කරනු ඇත.</string>
     <string name="permdesc_install_widget">මෙම යෙදුමට මුල් තිරය වෙත විජෙට්ටු එක් කළ හැක.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">මෙම යෙදුමට මුල් තිරයේ වම් පස පිහිටා ඇති, අභිමත අන්තර්ගත පිටුවේ සැකසුම් කියවිය හැක.</string>
+    <string name="permdesc_write_zeropage_settings">මෙම යෙදුමට මුල් තිරයේ වම් පස පිහිටා ඇති, අභිමත අන්තර්ගත පිටුවේ සැකසුම් වෙනස් කළ හැක.</string>
     <string name="permlab_install_widget">විජෙට්ටු එක් කරන්න</string>
+    <string name="permlab_read_settings">නිවාස සැකසුම් සහ කෙටිමාං කියවන්න</string>
+    <string name="permlab_read_zeropage_settings">අභිමත අන්තර්ගත පිටු සැකසුම් කියවන්න</string>
+    <string name="permlab_write_zeropage_settings">අභිමත අන්තර්ගත පිටුවේ සැකසුම් වෙනස</string>
     <string name="quick_option_add_apps">යෙදුම් එක් කරන්න</string>
     <string name="quick_option_add_shortcut_to_home">මුල් පිටුවට කෙටිමඟ එක් ක.</string>
     <string name="quick_option_add_to_personal">පුද්ග. වෙත එක් ක.</string>

@@ -26,6 +26,8 @@
 # static fields
 .field private static final synthetic $VALUES:[Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
 
+.field public static final enum CONFIRM:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+
 .field public static final enum MULTIPLE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
 
 .field public static final enum NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
@@ -35,7 +37,9 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 6
+
+    const/4 v5, 0x3
 
     const/4 v4, 0x2
 
@@ -67,7 +71,15 @@
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->MULTIPLE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
 
-    const/4 v0, 0x3
+    new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+
+    const-string v1, "CONFIRM"
+
+    invoke-direct {v0, v1, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->CONFIRM:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+
+    const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
 
@@ -82,6 +94,10 @@
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->MULTIPLE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
 
     aput-object v1, v0, v4
+
+    sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->CONFIRM:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+
+    aput-object v1, v0, v5
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->$VALUES:[Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
 
@@ -168,12 +184,16 @@
 
     goto :goto_0
 
-    nop
+    :pswitch_3
+    const-string v1, "\"nlgParamMode\":\"confirm\""
+
+    goto :goto_0
 
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
         :pswitch_1
         :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

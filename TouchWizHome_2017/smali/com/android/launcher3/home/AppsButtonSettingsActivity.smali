@@ -168,124 +168,6 @@
     goto :goto_1
 .end method
 
-.method private changeAppsButtonEnabled(Z)V
-    .locals 5
-
-    iget-boolean v1, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mEnabledAppsButton:Z
-
-    if-ne v1, p1, :cond_0
-
-    :goto_0
-    return-void
-
-    :cond_0
-    sget-object v1, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "setAppsButtonEnabled : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    const-string v1, "value"
-
-    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/launcher3/common/model/LauncherSettings$Settings;->CONTENT_URI:Landroid/net/Uri;
-
-    const-string v3, "set_boolean_setting"
-
-    const-string v4, "pref_apps_button_setting"
-
-    invoke-virtual {v1, v2, v3, v4, v0}, Landroid/content/ContentResolver;->call(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v3, 0x7f080177
-
-    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v4, 0x7f0800db
-
-    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    if-eqz p1, :cond_1
-
-    const-string v1, "1"
-
-    :goto_1
-    invoke-virtual {v2, v3, v4, v1}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v3, 0x7f080196
-
-    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz p1, :cond_2
-
-    const/4 v1, 0x1
-
-    :goto_2
-    invoke-virtual {v2, v3, v1}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
-
-    goto :goto_0
-
-    :cond_1
-    const-string v1, "2"
-
-    goto :goto_1
-
-    :cond_2
-    const/4 v1, 0x0
-
-    goto :goto_2
-.end method
-
 .method private drawFolderPreview(Ljava/util/ArrayList;I)Landroid/graphics/Bitmap;
     .locals 22
 
@@ -346,7 +228,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0900c7
+    const v21, 0x7f0900d5
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -356,7 +238,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0900c8
+    const v21, 0x7f0900d6
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -497,7 +379,7 @@
     goto :goto_1
 
     :cond_0
-    const v20, 0x7f02009c
+    const v20, 0x7f0200a1
 
     move-object/from16 v0, p0
 
@@ -565,7 +447,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f09009f
+    const v8, 0x7f0900ad
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -897,7 +779,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09009f
+    const v3, 0x7f0900ad
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1326,71 +1208,71 @@
 .end method
 
 .method private initActionBar()V
-    .locals 4
+    .locals 6
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getActionBar()Landroid/app/ActionBar;
 
-    move-result-object v1
+    move-result-object v3
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
+    invoke-virtual {v3, v4}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    const v2, 0x7f03001f
+    const v4, 0x7f030021
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setCustomView(I)V
+    invoke-virtual {v3, v4}, Landroid/app/ActionBar;->setCustomView(I)V
 
-    invoke-virtual {v1}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
+    invoke-virtual {v3}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v4
 
-    const v3, 0x7f0f0013
+    const v5, 0x7f0f0023
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {v1}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
+    invoke-virtual {v3}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v4
 
-    const v3, 0x7f0f0059
+    const v5, 0x7f0f0069
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Landroid/widget/TextView;
+    check-cast v4, Landroid/widget/TextView;
 
-    iput-object v2, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mApplyButton:Landroid/widget/TextView;
+    iput-object v4, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mApplyButton:Landroid/widget/TextView;
 
-    iget-object v2, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mApplyButton:Landroid/widget/TextView;
+    iget-object v4, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mApplyButton:Landroid/widget/TextView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v2, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mApplyButton:Landroid/widget/TextView;
+    iget-object v4, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mApplyButton:Landroid/widget/TextView;
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setEnabled(Z)V
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Lcom/android/launcher3/theme/OpenThemeManager;->isDefaultTheme()Z
+    invoke-virtual {v4}, Lcom/android/launcher3/theme/OpenThemeManager;->isDefaultTheme()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
-    const v2, 0x7f0f0058
+    const v4, 0x7f0f0068
 
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1398,15 +1280,42 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v4
 
-    const v3, 0x7f020069
+    const v5, 0x7f02006c
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-static {p0}, Lcom/android/launcher3/Utilities;->isEnableBtnBg(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getChildCount()I
+
+    move-result v4
+
+    if-ge v1, v4, :cond_0
+
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v4
+
+    const v5, 0x7f020116
+
+    invoke-virtual {v4, v5}, Landroid/view/View;->setBackgroundResource(I)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
 
     :cond_0
     return-void
@@ -1417,7 +1326,7 @@
 
     const/4 v1, 0x1
 
-    const v0, 0x7f0f001d
+    const v0, 0x7f0f002d
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1427,7 +1336,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mPreview:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f0f001e
+    const v0, 0x7f0f002e
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1437,7 +1346,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mHelpText:Landroid/widget/TextView;
 
-    const v0, 0x7f0f001a
+    const v0, 0x7f0f002a
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1447,7 +1356,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mShowAppsRadio:Landroid/widget/RadioButton;
 
-    const v0, 0x7f0f001c
+    const v0, 0x7f0f002c
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1466,7 +1375,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/RadioButton;->setChecked(Z)V
 
     :goto_0
-    const v0, 0x7f0f0019
+    const v0, 0x7f0f0029
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1474,7 +1383,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f001b
+    const v0, 0x7f0f002b
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1511,7 +1420,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f080177
+    const v2, 0x7f080184
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1523,7 +1432,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f08015e
+    const v3, 0x7f08016d
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1539,7 +1448,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f08011e
+    const v3, 0x7f08012d
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1618,6 +1527,124 @@
 
 
 # virtual methods
+.method public changeAppsButtonEnabled(Z)V
+    .locals 5
+
+    iget-boolean v1, p0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->mEnabledAppsButton:Z
+
+    if-ne v1, p1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    sget-object v1, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "setAppsButtonEnabled : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string v1, "value"
+
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/launcher3/common/model/LauncherSettings$Settings;->CONTENT_URI:Landroid/net/Uri;
+
+    const-string v3, "set_boolean_setting"
+
+    const-string v4, "pref_apps_button_setting"
+
+    invoke-virtual {v1, v2, v3, v4, v0}, Landroid/content/ContentResolver;->call(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v3, 0x7f080184
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v4, 0x7f0800ea
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz p1, :cond_1
+
+    const-string v1, "1"
+
+    :goto_1
+    invoke-virtual {v2, v3, v4, v1}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v3, 0x7f0801a3
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz p1, :cond_2
+
+    const/4 v1, 0x1
+
+    :goto_2
+    invoke-virtual {v2, v3, v1}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
+
+    goto :goto_0
+
+    :cond_1
+    const-string v1, "2"
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_2
+.end method
+
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 2
 
@@ -1665,7 +1692,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080177
+    const v2, 0x7f080184
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1675,7 +1702,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800f4
+    const v3, 0x7f080103
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1693,7 +1720,7 @@
     if-nez v2, :cond_0
 
     :goto_1
-    invoke-direct {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->changeAppsButtonEnabled(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->changeAppsButtonEnabled(Z)V
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->finish()V
 
@@ -1716,10 +1743,10 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f0f0013 -> :sswitch_0
-        0x7f0f0019 -> :sswitch_2
-        0x7f0f001b -> :sswitch_3
-        0x7f0f0059 -> :sswitch_1
+        0x7f0f0023 -> :sswitch_0
+        0x7f0f0029 -> :sswitch_2
+        0x7f0f002b -> :sswitch_3
+        0x7f0f0069 -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -1788,12 +1815,12 @@
 
     move-result v0
 
-    invoke-direct {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->changeAppsButtonEnabled(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->changeAppsButtonEnabled(Z)V
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->finish()V
 
     :cond_0
-    const v0, 0x7f030007
+    const v0, 0x7f030009
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->setContentView(I)V
 
@@ -1806,6 +1833,12 @@
     move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->addIconsToPreview(Ljava/util/ArrayList;)V
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/android/launcher3/LauncherAppState;->setAppsButtonSettingsActivity(Lcom/android/launcher3/home/AppsButtonSettingsActivity;)V
 
     return-void
 .end method

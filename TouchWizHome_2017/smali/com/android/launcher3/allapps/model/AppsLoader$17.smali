@@ -3,12 +3,12 @@
 .source "AppsLoader.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/Comparator;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->removePackagesAndComponents(Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->filterCurrentPageItems(JLjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,28 +16,26 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/Comparator",
+        "<",
+        "Lcom/android/launcher3/common/base/item/ItemInfo;",
+        ">;"
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-.field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-
-.field final synthetic val$removedApps:Ljava/util/ArrayList;
-
-.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$17;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
-
-    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$17;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-
-    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$17;->val$removedApps:Ljava/util/ArrayList;
-
-    iput-object p4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$17;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,35 +44,30 @@
 
 
 # virtual methods
-.method public run()V
+.method public compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
     .locals 4
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$17;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$17;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    iget-wide v2, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sLauncherModel:Lcom/android/launcher3/LauncherModel;
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1500()Lcom/android/launcher3/LauncherModel;
+    sub-long/2addr v0, v2
 
-    move-result-object v3
+    long-to-int v0, v0
 
-    invoke-virtual {v3}, Lcom/android/launcher3/LauncherModel;->getLoaderTask()Lcom/android/launcher3/LauncherModel$LoaderTask;
+    return v0
+.end method
 
-    move-result-object v3
+.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 1
 
-    # invokes: Lcom/android/launcher3/allapps/model/AppsLoader;->tryGetCallbacks(Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    check-cast p1, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    move-result-object v0
+    check-cast p2, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/allapps/model/AppsLoader$17;->compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$17;->val$removedApps:Ljava/util/ArrayList;
+    move-result v0
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$17;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    invoke-interface {v0, v1, v2}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->bindComponentsRemoved(Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
-
-    :cond_0
-    return-void
+    return v0
 .end method

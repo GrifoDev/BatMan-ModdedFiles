@@ -49,8 +49,7 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgLock:Ljava/lang/Object;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$8400()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$8800()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -76,8 +75,7 @@
 
     check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBgItemsIdMap:Lcom/android/launcher3/util/LongArrayMap;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$8500()Lcom/android/launcher3/util/LongArrayMap;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$8900()Lcom/android/launcher3/util/LongArrayMap;
 
     move-result-object v4
 
@@ -155,8 +153,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$20;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeLoader;->access$8600(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeLoader;->access$9000(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
 
     move-result-object v2
 
@@ -168,8 +165,7 @@
 
     invoke-direct {v3, p0, v1}, Lcom/android/launcher3/home/HomeLoader$20$1;-><init>(Lcom/android/launcher3/home/HomeLoader$20;Ljava/util/ArrayList;)V
 
-    # invokes: Lcom/android/launcher3/home/HomeLoader;->runOnMainThread(Ljava/lang/Runnable;)V
-    invoke-static {v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$8700(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
+    invoke-static {v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$9100(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
 
     :cond_2
     return-void

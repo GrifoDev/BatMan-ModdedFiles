@@ -2346,7 +2346,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/launcher3/common/drag/DragManager;->setScrollView(Landroid/view/View;)V
 
-    const v0, 0x7f0f0093
+    const v0, 0x7f0f00a3
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/DragLayer;->findViewById(I)Landroid/view/View;
 

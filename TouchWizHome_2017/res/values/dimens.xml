@@ -145,6 +145,20 @@
     <dimen name="title_shortcut_icon_padding_top">3.0dip</dimen>
     <dimen name="searchbar_searchview_padding_end">-18.0dip</dimen>
     <dimen name="searchbar_searchview_padding_start">-18.5dip</dimen>
+    <dimen name="about_app_name_size">19.0sp</dimen>
+    <dimen name="about_area_margin_bottom">44.0dip</dimen>
+    <dimen name="about_button_height">40.0dip</dimen>
+    <dimen name="about_button_width">170.0dip</dimen>
+    <dimen name="about_icon_bottom_margin">19.0dip</dimen>
+    <dimen name="about_icon_height">105.0dip</dimen>
+    <dimen name="about_icon_screen">273.0dip</dimen>
+    <dimen name="about_icon_width">116.0dip</dimen>
+    <dimen name="about_licence_margin_bottom">29.0dip</dimen>
+    <dimen name="about_licence_text_size">15.0sp</dimen>
+    <dimen name="about_notice_bottom_margin">11.0dip</dimen>
+    <dimen name="about_text_bottom_padding">10.0dip</dimen>
+    <dimen name="about_text_top_margin">10.0dip</dimen>
+    <dimen name="about_title_bottom_margin">7.0dip</dimen>
     <dimen name="all_apps_grid_section_text_size">24.0sp</dimen>
     <dimen name="all_apps_grid_section_y_offset">8.0dip</dimen>
     <dimen name="all_apps_grid_view_start_margin">0.0dip</dimen>
@@ -166,7 +180,7 @@
     <dimen name="apps_paged_view_offsetY_screengrid">58.0dip</dimen>
     <dimen name="apps_pulling_pages_offset">15.0dip</dimen>
     <dimen name="apps_screen_grid_panel_width">144.5dip</dimen>
-    <dimen name="apps_scroll_zone">20.0dip</dimen>
+    <dimen name="apps_scroll_zone">25.0dip</dimen>
     <dimen name="apps_search_list_top_bottom_padding">8.0dip</dimen>
     <dimen name="apps_search_titlebar_btn_margin">8.0dip</dimen>
     <dimen name="apps_search_titlebar_margin_left">20.0dip</dimen>
@@ -206,7 +220,7 @@
     <dimen name="ged_home_cellheight_port">100.0dip</dimen>
     <dimen name="ged_home_cellwidth_land">106.0dip</dimen>
     <dimen name="ged_home_cellwidth_port">80.0dip</dimen>
-    <dimen name="hint_page_scroll_zone">30.0dip</dimen>
+    <dimen name="hint_page_scroll_zone">35.0dip</dimen>
     <dimen name="hint_page_width">10.0dip</dimen>
     <dimen name="home_edge_light_anim_arrow_translate_x">8.0dip</dimen>
     <dimen name="home_edge_light_arrow1_margin_start">3.0dip</dimen>
@@ -218,7 +232,7 @@
     <dimen name="home_icon_text_theme_extra_padding_bottom">6.0dip</dimen>
     <dimen name="home_icon_text_theme_extra_padding_width">4.0dip</dimen>
     <dimen name="home_pulling_pages_offset">15.0dip</dimen>
-    <dimen name="home_scroll_zone">20.0dip</dimen>
+    <dimen name="home_scroll_zone">25.0dip</dimen>
     <dimen name="home_settings_easy_mode_tips_button_height">40.0dip</dimen>
     <dimen name="home_settings_easy_mode_tips_button_padding">4.0dip</dimen>
     <dimen name="home_settings_easy_mode_tips_button_text_size">15.0sp</dimen>

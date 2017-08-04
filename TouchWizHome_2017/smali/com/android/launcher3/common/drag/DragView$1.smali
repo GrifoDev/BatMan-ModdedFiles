@@ -59,7 +59,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->mTargetOffsetX:I
     invoke-static {v3}, Lcom/android/launcher3/common/drag/DragView;->access$000(Lcom/android/launcher3/common/drag/DragView;)I
 
     move-result v3
@@ -72,7 +71,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->mTargetOffsetY:I
     invoke-static {v3}, Lcom/android/launcher3/common/drag/DragView;->access$100(Lcom/android/launcher3/common/drag/DragView;)I
 
     move-result v3
@@ -87,14 +85,12 @@
 
     int-to-float v4, v0
 
-    # setter for: Lcom/android/launcher3/common/drag/DragView;->mOffsetX:F
     invoke-static {v3, v4}, Lcom/android/launcher3/common/drag/DragView;->access$202(Lcom/android/launcher3/common/drag/DragView;F)F
 
     iget-object v3, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
     int-to-float v4, v1
 
-    # setter for: Lcom/android/launcher3/common/drag/DragView;->mOffsetY:F
     invoke-static {v3, v4}, Lcom/android/launcher3/common/drag/DragView;->access$302(Lcom/android/launcher3/common/drag/DragView;F)F
 
     iget-object v3, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
@@ -129,7 +125,6 @@
 
     invoke-virtual {v3, v4}, Lcom/android/launcher3/common/drag/DragView;->setScaleY(F)V
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->sDragAlpha:F
     invoke-static {}, Lcom/android/launcher3/common/drag/DragView;->access$400()F
 
     move-result v3
@@ -140,7 +135,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->sDragAlpha:F
     invoke-static {}, Lcom/android/launcher3/common/drag/DragView;->access$400()F
 
     move-result v4
@@ -172,14 +166,12 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->mTouchX:I
     invoke-static {v4}, Lcom/android/launcher3/common/drag/DragView;->access$500(Lcom/android/launcher3/common/drag/DragView;)I
 
     move-result v4
 
     iget-object v5, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->mRegistrationX:I
     invoke-static {v5}, Lcom/android/launcher3/common/drag/DragView;->access$600(Lcom/android/launcher3/common/drag/DragView;)I
 
     move-result v5
@@ -196,14 +188,12 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->mTouchY:I
     invoke-static {v4}, Lcom/android/launcher3/common/drag/DragView;->access$700(Lcom/android/launcher3/common/drag/DragView;)I
 
     move-result v4
 
     iget-object v5, p0, Lcom/android/launcher3/common/drag/DragView$1;->this$0:Lcom/android/launcher3/common/drag/DragView;
 
-    # getter for: Lcom/android/launcher3/common/drag/DragView;->mRegistrationY:I
     invoke-static {v5}, Lcom/android/launcher3/common/drag/DragView;->access$800(Lcom/android/launcher3/common/drag/DragView;)I
 
     move-result v5

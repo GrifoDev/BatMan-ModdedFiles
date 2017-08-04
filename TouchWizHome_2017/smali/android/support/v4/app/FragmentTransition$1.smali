@@ -41,7 +41,6 @@
 
     const/4 v1, 0x4
 
-    # invokes: Landroid/support/v4/app/FragmentTransition;->setViewVisibility(Ljava/util/ArrayList;I)V
     invoke-static {v0, v1}, Landroid/support/v4/app/FragmentTransition;->access$000(Ljava/util/ArrayList;I)V
 
     return-void

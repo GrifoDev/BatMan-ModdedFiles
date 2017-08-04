@@ -1,9 +1,13 @@
 .class Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;
-.super Landroid/support/v4/app/ActivityCompatApi21$SharedElementCallback21;
+.super Landroid/app/SharedElementCallback;
 .source "ActivityCompat.java"
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/app/ActivityCompat;
 .end annotation
@@ -15,14 +19,14 @@
 
 
 # instance fields
-.field private mCallback:Landroid/support/v4/app/SharedElementCallback;
+.field protected mCallback:Landroid/support/v4/app/SharedElementCallback;
 
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/app/SharedElementCallback;)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityCompatApi21$SharedElementCallback21;-><init>()V
+    invoke-direct {p0}, Landroid/app/SharedElementCallback;-><init>()V
 
     iput-object p1, p0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;->mCallback:Landroid/support/v4/app/SharedElementCallback;
 

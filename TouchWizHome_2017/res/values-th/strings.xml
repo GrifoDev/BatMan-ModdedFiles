@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">ค้นหาประวัติ</string>
+    <string name="about">เกี่ยวกับ %s</string>
+    <string name="about_already_installed">ติดตั้งเวอร์ชั่นล่าสุดอยู่แล้ว</string>
+    <string name="about_home_screen">หน้า​จอ​หลัก</string>
+    <string name="about_licence">ใบอนุญาตของโอเพ่นซอร์ส</string>
+    <string name="about_network_err">ไม่สามารถตรวจหาอัพเดท โทรศัพท์ของคุณไม่ได้เชื่อมต่อกับเครือข่าย</string>
+    <string name="about_new_version_exist">เวอร์ชั่นใหม่พร้อมใช้งาน</string>
+    <string name="about_retry">ลอง​ใหม่</string>
+    <string name="about_update">อัพ​เด​ท</string>
+    <string name="about_version">เวอร์ชั่น %s</string>
     <string name="activity_not_available">แอพนี้ไม่พร้อมใช้งานสำหรับอุปกรณ์ของคุณ</string>
     <string name="activity_not_found">ไม่​ได้​ติด​ตั้ง​แอ​พพลิ​เค​ชั่น</string>
     <string name="align_to_bottom">จัดเรียงไปด้านล่าง</string>
@@ -108,7 +117,7 @@
     <string name="ok">ตกลง</string>
     <string name="only_one_widget_instance_allowed">วิดเจ็ด %s ถูกเพิ่มลงบนหน้าจอหลักแล้ว</string>
     <string name="option_menu_contact_up">ติดต่อเรา</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">การตั้งค่า</string>
     <string name="options_menu">ตัวเลือกเพิ่มเติม</string>
     <string name="options_menu_search_recommend">ตัวเลือกการค้นหา</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ไม่​มี​ที่​ว่าง​เพิ่ม​เติม​ใน​หน้า​นี้</string>
     <string name="out_of_space_dialog">ไม่มีพื้นที่ว่างในหน้านี้ รายการจะถูกเพิ่มลงในหน้าใหม่</string>
     <string name="permdesc_install_widget">แอพนี้สามารถเพิ่ม Widgets ไปยังหน้าจอหลักได้</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">แอพนี้สามารถอ่านการตั้งค่าของหน้าคอนเทนท์ที่กำหนดเอง ซึ่งอยู่ทางด้านซ้ายของหน้าจอหลัก</string>
+    <string name="permdesc_write_zeropage_settings">แอพนี้สามารถเปลี่ยนการตั้งค่าของหน้าคอนเทนท์ที่กำหนดเอง ซึ่งอยู่ที่ทางด้านซ้ายของหน้าจอหลัก</string>
     <string name="permlab_install_widget">เพิ่ม Widget</string>
+    <string name="permlab_read_settings">อ่าน​การ​ตั้ง​ค่า​หน้า​หลัก​และ​ทาง​ลัด</string>
+    <string name="permlab_read_zeropage_settings">อ่านการตั้งค่าหน้าคอนเทนท์เพจเอง</string>
+    <string name="permlab_write_zeropage_settings">เปลี่ยนการตั้งค่าหน้าคอนเทนท์เพจเอง</string>
     <string name="quick_option_add_apps">เพิ่มแอพ</string>
     <string name="quick_option_add_shortcut_to_home">เพิ่มทางลัดไปยังหน้าหลัก</string>
     <string name="quick_option_add_to_personal">Add to personal</string>

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$1;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->updateAllSwitch()V
     invoke-static {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$000(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)V
 
     return-void

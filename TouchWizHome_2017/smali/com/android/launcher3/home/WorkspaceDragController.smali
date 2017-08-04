@@ -1576,7 +1576,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/WorkspaceDragController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v9, 0x7f080025
+    const v9, 0x7f08002e
 
     new-array v10, v7, [Ljava/lang/Object;
 
@@ -1603,7 +1603,7 @@
     :cond_3
     iget-object v8, p0, Lcom/android/launcher3/home/WorkspaceDragController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v9, 0x7f08006a
+    const v9, 0x7f080073
 
     new-array v10, v7, [Ljava/lang/Object;
 
@@ -5195,7 +5195,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08018f
+    const v6, 0x7f08019c
 
     move-object/from16 v0, v61
 
@@ -5203,7 +5203,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f080158
+    const v8, 0x7f080167
 
     move-object/from16 v0, v61
 
@@ -6050,7 +6050,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0800aa
+    const v5, 0x7f0800b9
 
     const/4 v6, 0x2
 
@@ -6086,7 +6086,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0800a7
+    const v5, 0x7f0800b6
 
     const/4 v6, 0x2
 
@@ -6139,7 +6139,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0800a8
+    const v5, 0x7f0800b7
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6155,7 +6155,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0800a7
+    const v5, 0x7f0800b6
 
     const/4 v6, 0x2
 
@@ -6196,7 +6196,7 @@
     goto :goto_0
 
     :cond_3
-    const v4, 0x7f0800a6
+    const v4, 0x7f0800b5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7152,7 +7152,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900dc
+    const v1, 0x7f0900ea
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

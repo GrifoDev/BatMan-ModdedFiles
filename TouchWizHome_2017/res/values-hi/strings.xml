@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">खोज इतिहास</string>
+    <string name="about">%s के बारे में</string>
+    <string name="about_already_installed">नवीनतम संस्करण पहले से स्थापित है।</string>
+    <string name="about_home_screen">होम स्क्रीन</string>
+    <string name="about_licence">ओपन सोर्स लाइसेंसेस</string>
+    <string name="about_network_err">अपडेट्स नहीं जांच सकते हैं। आपका फोन किसी नेटवर्क से कनेक्ट नहीं है।</string>
+    <string name="about_new_version_exist">नया संस्करण उपलब्ध है</string>
+    <string name="about_retry">पुनः प्रयास</string>
+    <string name="about_update">अपडेट करें</string>
+    <string name="about_version">संस्करण %s</string>
     <string name="activity_not_available">यह एप आपके डिवाइस के लिए उपलब्ध नहीं है।</string>
     <string name="activity_not_found">एप्लीकेशन स्थापित नहीं हुई।</string>
     <string name="align_to_bottom">नीचे संरेखित करें</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">इस पेज पर और अधिक रूम नहीं</string>
     <string name="out_of_space_dialog">इस पेज पर और अधिक स्थान नहीं है। मद को नए पेज पर जोड़ा जाएगा।</string>
     <string name="permdesc_install_widget">यह एप होम स्क्रीन पर विजेट्स जोड़ सकता है।</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">यह एप कस्टम सामग्री पेज की सेटिंग्स पढ़ सकता है, जो कि होम स्क्रीन के बाईं ओर स्थित है।</string>
+    <string name="permdesc_write_zeropage_settings">यह एप कस्टम सामग्री पेज की सेटिंग्स बदल सकता है, जो कि होम स्क्रीन के बाईं ओर स्थित है।</string>
     <string name="permlab_install_widget">विजेट्स जोड़ें</string>
+    <string name="permlab_read_settings">होम सेटिंग्स और शॉर्टकट्स पढ़ें</string>
+    <string name="permlab_read_zeropage_settings">कस्टम सामग्री पेज सेटिंग्स पढ़ें</string>
+    <string name="permlab_write_zeropage_settings">कस्टम सामग्री पेज सेटिंग्स बदलें</string>
     <string name="quick_option_add_apps">एप्स जोड़ें</string>
     <string name="quick_option_add_shortcut_to_home">होम पर शॉर्टकट जोड़ें</string>
     <string name="quick_option_add_to_personal">व्यक्तिगत पर जोड़ें</string>

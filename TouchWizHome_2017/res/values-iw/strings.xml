@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">היסטוריית חיפושים</string>
+    <string name="about">אודות %s</string>
+    <string name="about_already_installed">הגרסה העדכנית ביותר כבר מותקנת.</string>
+    <string name="about_home_screen">מסך ראשי</string>
+    <string name="about_licence">רישיונות קוד פתוח</string>
+    <string name="about_network_err">לא ניתן לבדוק זמינות עדכונים. הטלפון שלך לא מחובר לרשת.</string>
+    <string name="about_new_version_exist">גרסה חדשה זמינה.</string>
+    <string name="about_retry">נסה שוב</string>
+    <string name="about_update">עדכן</string>
+    <string name="about_version">גרסה %s</string>
     <string name="activity_not_available">יישום זה אינו זמין למכשירים כמו זה שברשותך.</string>
     <string name="activity_not_found">היישום אינו מותקן.</string>
     <string name="align_to_bottom">יישר כלפי מטה</string>
@@ -108,7 +117,7 @@
     <string name="ok">אישור</string>
     <string name="only_one_widget_instance_allowed">היישומון %s כבר נוסף במסך הבית.</string>
     <string name="option_menu_contact_up">צור קשר</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">הגדרות</string>
     <string name="options_menu">אפשרויות נוספות</string>
     <string name="options_menu_search_recommend">אפשרויות חיפוש</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">אין מקום נוסף בעמוד זה</string>
     <string name="out_of_space_dialog">אין יותר מקום בדף זה. הפריט יתווסף לדף חדש.</string>
     <string name="permdesc_install_widget">יישום זה מורשה להוסיף יישומונים במסך הבית.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">יישום זה מורשה לקרוא את ההגדרות של דף תוכן מותאם, שנמצא משמאל למסך הבית.</string>
+    <string name="permdesc_write_zeropage_settings">יישום זה מורשה לשנות את ההגדרות של דף תוכן מותאם, שנמצא משמאל למסך הבית.</string>
     <string name="permlab_install_widget">הוסף יישומונים</string>
+    <string name="permlab_read_settings">קרא הגדרות וקיצורי דרך של מסך הבית</string>
+    <string name="permlab_read_zeropage_settings">קרא הגדרות בדף של תוכן מותאם</string>
+    <string name="permlab_write_zeropage_settings">שנה הגדרות בדף של תוכן מותאם</string>
     <string name="quick_option_add_apps">הוסף יישומים</string>
     <string name="quick_option_add_shortcut_to_home">הוסף קיצור דרך למסך הבית</string>
     <string name="quick_option_add_to_personal">הוסף לאישי</string>

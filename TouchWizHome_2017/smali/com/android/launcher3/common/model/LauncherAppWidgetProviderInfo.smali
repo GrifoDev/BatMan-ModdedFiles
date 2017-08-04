@@ -306,7 +306,6 @@
 
     iget-object v9, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->parseSupportSpans()V
     invoke-static {v9}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$100(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)V
 
     :cond_4
@@ -316,7 +315,6 @@
 
     iget v11, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSpanY:I
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->updateSpanAndResizeMode(IIZ)V
     invoke-static {v9, v10, v11, v12}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$200(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;IIZ)V
 
     goto :goto_0
@@ -511,7 +509,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getSupportSpanCount()I
     invoke-static {v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$300(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)I
 
     move-result v0
@@ -520,7 +517,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getMinXSpan()I
     invoke-static {v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$400(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)I
 
     move-result v0
@@ -541,7 +537,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getSupportSpanCount()I
     invoke-static {v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$300(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)I
 
     move-result v0
@@ -550,7 +545,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getMinYSpan()I
     invoke-static {v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$500(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)I
 
     move-result v0
@@ -610,7 +604,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getNearestHeight(I)I
     invoke-static {v0, p1}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$800(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;I)I
 
     move-result v0
@@ -623,7 +616,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getNearestWidth(I)I
     invoke-static {v0, p1}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$700(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;I)I
 
     move-result v0
@@ -663,7 +655,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getSupportedSpans()Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$900(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -676,7 +667,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getSupportSpanCount()I
     invoke-static {v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$300(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)I
 
     move-result v0
@@ -685,7 +675,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->isAvailableSize(II)Z
     invoke-static {v0, p1, p2}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$1000(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;II)Z
 
     move-result v0
@@ -776,7 +765,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getSupportSpanCount()I
     invoke-static {v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$300(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)I
 
     move-result v0
@@ -785,7 +773,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->mSupportCellSpans:Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;
 
-    # invokes: Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->getResizeMode()I
     invoke-static {v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->access$600(Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;)I
 
     move-result v0

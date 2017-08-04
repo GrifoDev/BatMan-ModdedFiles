@@ -35,7 +35,7 @@
 # instance fields
 .field final mAnchorInfo:Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;
 
-.field private mInitialItemPrefetchCount:I
+.field private mInitialPrefetchItemCount:I
 
 .field private mLastStackFromEnd:Z
 
@@ -120,7 +120,7 @@
 
     const/4 v0, 0x2
 
-    iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialItemPrefetchCount:I
+    iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialPrefetchItemCount:I
 
     invoke-virtual {p0, p2}, Landroid/support/v7/widget/LinearLayoutManager;->setOrientation(I)V
 
@@ -174,7 +174,7 @@
 
     const/4 v1, 0x2
 
-    iput v1, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialItemPrefetchCount:I
+    iput v1, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialPrefetchItemCount:I
 
     invoke-static {p1, p2, p3, p4}, Landroid/support/v7/widget/LinearLayoutManager;->getProperties(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/support/v7/widget/RecyclerView$LayoutManager$Properties;
 
@@ -2363,7 +2363,7 @@
     const/4 v3, 0x0
 
     :goto_2
-    iget v6, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialItemPrefetchCount:I
+    iget v6, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialPrefetchItemCount:I
 
     if-ge v3, v6, :cond_4
 
@@ -3316,10 +3316,10 @@
     goto :goto_0
 .end method
 
-.method public getInitialItemPrefetchCount()I
+.method public getInitialPrefetchItemCount()I
     .locals 1
 
-    iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialItemPrefetchCount:I
+    iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialPrefetchItemCount:I
 
     return v0
 .end method
@@ -3751,31 +3751,27 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 2
+    .locals 1
 
     invoke-super {p0, p1}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
     invoke-virtual {p0}, Landroid/support/v7/widget/LinearLayoutManager;->getChildCount()I
 
-    move-result v1
+    move-result v0
 
-    if-lez v1, :cond_0
-
-    invoke-static {p1}, Landroid/support/v4/view/accessibility/AccessibilityEventCompat;->asRecord(Landroid/view/accessibility/AccessibilityEvent;)Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;
-
-    move-result-object v0
+    if-lez v0, :cond_0
 
     invoke-virtual {p0}, Landroid/support/v7/widget/LinearLayoutManager;->findFirstVisibleItemPosition()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->setFromIndex(I)V
+    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setFromIndex(I)V
 
     invoke-virtual {p0}, Landroid/support/v7/widget/LinearLayoutManager;->findLastVisibleItemPosition()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->setToIndex(I)V
+    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setToIndex(I)V
 
     :cond_0
     return-void
@@ -5389,7 +5385,7 @@
 .method public setInitialPrefetchItemCount(I)V
     .locals 0
 
-    iput p1, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialItemPrefetchCount:I
+    iput p1, p0, Landroid/support/v7/widget/LinearLayoutManager;->mInitialPrefetchItemCount:I
 
     return-void
 .end method

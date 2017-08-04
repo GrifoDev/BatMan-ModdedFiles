@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$2;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # invokes: Lcom/android/launcher3/common/base/view/PagedView;->updateMaxScrollX()V
     invoke-static {v0}, Lcom/android/launcher3/common/base/view/PagedView;->access$000(Lcom/android/launcher3/common/base/view/PagedView;)V
 
     :cond_0

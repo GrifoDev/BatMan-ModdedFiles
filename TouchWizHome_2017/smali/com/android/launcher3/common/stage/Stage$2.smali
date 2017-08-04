@@ -87,7 +87,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$2;->this$0:Lcom/android/launcher3/common/stage/Stage;
 
-    # getter for: Lcom/android/launcher3/common/stage/Stage;->mStateSwitchAnim:Landroid/animation/AnimatorSet;
     invoke-static {v1}, Lcom/android/launcher3/common/stage/Stage;->access$200(Lcom/android/launcher3/common/stage/Stage;)Landroid/animation/AnimatorSet;
 
     move-result-object v1
@@ -116,7 +115,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;
 
-    # invokes: Lcom/android/launcher3/common/stage/Stage;->transitAnimStart(ZZLcom/android/launcher3/common/stage/StageEntry;)V
     invoke-static {v1, v8, v2, v3}, Lcom/android/launcher3/common/stage/Stage;->access$300(Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;

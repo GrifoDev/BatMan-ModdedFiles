@@ -43,7 +43,6 @@
 
     const/4 v1, 0x1
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->setOffset(IIZ)Z
     invoke-static {v0, v2, v2, v1}, Lcom/android/launcher3/home/ZeroPageController;->access$1400(Lcom/android/launcher3/home/ZeroPageController;IIZ)Z
 
     return-void

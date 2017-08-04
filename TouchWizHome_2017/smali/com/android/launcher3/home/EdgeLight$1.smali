@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/EdgeLight$1;->this$0:Lcom/android/launcher3/home/EdgeLight;
 
-    # getter for: Lcom/android/launcher3/home/EdgeLight;->mArrowFrameView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/home/EdgeLight;->access$300(Lcom/android/launcher3/home/EdgeLight;)Landroid/view/View;
 
     move-result-object v0
@@ -55,7 +54,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/EdgeLight$1;->this$0:Lcom/android/launcher3/home/EdgeLight;
 
-    # getter for: Lcom/android/launcher3/home/EdgeLight;->mArrowFrameView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/home/EdgeLight;->access$300(Lcom/android/launcher3/home/EdgeLight;)Landroid/view/View;
 
     move-result-object v0

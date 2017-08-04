@@ -45,12 +45,10 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/IconCache$2;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mWorkerHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher3/common/model/IconCache;->access$800(Lcom/android/launcher3/common/model/IconCache;)Landroid/os/Handler;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->ICON_UPDATE_TOKEN:Ljava/lang/Object;
     invoke-static {}, Lcom/android/launcher3/common/model/IconCache;->access$700()Ljava/lang/Object;
 
     move-result-object v1
@@ -59,14 +57,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/IconCache$2;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mIconDb:Lcom/android/launcher3/common/model/IconCache$IconDB;
     invoke-static {v0}, Lcom/android/launcher3/common/model/IconCache;->access$300(Lcom/android/launcher3/common/model/IconCache;)Lcom/android/launcher3/common/model/IconCache$IconDB;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/common/model/IconCache$2;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    # getter for: Lcom/android/launcher3/common/model/IconCache;->mIconDb:Lcom/android/launcher3/common/model/IconCache$IconDB;
     invoke-static {v1}, Lcom/android/launcher3/common/model/IconCache;->access$300(Lcom/android/launcher3/common/model/IconCache;)Lcom/android/launcher3/common/model/IconCache$IconDB;
 
     move-result-object v1
@@ -75,7 +71,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/launcher3/common/model/IconCache$IconDB;->clearDB(Landroid/database/sqlite/SQLiteDatabase;)V
     invoke-static {v0, v1}, Lcom/android/launcher3/common/model/IconCache$IconDB;->access$900(Lcom/android/launcher3/common/model/IconCache$IconDB;Landroid/database/sqlite/SQLiteDatabase;)V
 
     return-void

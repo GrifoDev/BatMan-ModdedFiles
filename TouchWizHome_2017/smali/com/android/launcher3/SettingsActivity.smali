@@ -268,7 +268,7 @@
     invoke-virtual {v1, v3}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     :cond_0
-    const v1, 0x7f03003b
+    const v1, 0x7f03003d
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setContentView(I)V
 
@@ -276,7 +276,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f00c2
+    const v2, 0x7f0f00d2
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -290,7 +290,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f00c3
+    const v2, 0x7f0f00d3
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -396,7 +396,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08018c
+    const v2, 0x7f080199
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -406,7 +406,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080140
+    const v3, 0x7f08014f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -422,6 +422,35 @@
     .packed-switch 0x102002c
         :pswitch_0
     .end packed-switch
+.end method
+
+.method protected onResume()V
+    .locals 3
+
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getAppsButtonSettingsActivity()Lcom/android/launcher3/home/AppsButtonSettingsActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/AppsButtonSettingsActivity;->finish()V
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/LauncherAppState;->setAppsButtonSettingsActivity(Lcom/android/launcher3/home/AppsButtonSettingsActivity;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
@@ -496,7 +525,7 @@
 
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
-    const v1, 0x7f08001a
+    const v1, 0x7f080023
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setTitle(I)V
 
@@ -563,7 +592,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f08003a
+    const v1, 0x7f080043
 
     :goto_0
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setTitle(I)V
@@ -571,7 +600,7 @@
     return-void
 
     :cond_2
-    const v1, 0x7f080045
+    const v1, 0x7f08004e
 
     goto :goto_0
 .end method

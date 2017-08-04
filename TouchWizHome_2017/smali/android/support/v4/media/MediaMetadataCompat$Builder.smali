@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/support/v4/media/MediaMetadataCompat;I)V
-    .locals 6
+    .locals 5
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -75,7 +75,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_2
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -88,8 +88,6 @@
     invoke-virtual {v4, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
-
-    if-eqz v2, :cond_0
 
     instance-of v4, v2, Landroid/graphics/Bitmap;
 
@@ -109,7 +107,7 @@
 
     move-result v4
 
-    if-le v4, p2, :cond_2
+    if-le v4, p2, :cond_0
 
     :cond_1
     invoke-direct {p0, v0, p2}, Landroid/support/v4/media/MediaMetadataCompat$Builder;->scaleBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
@@ -121,44 +119,6 @@
     goto :goto_0
 
     :cond_2
-    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v5, 0xe
-
-    if-lt v4, v5, :cond_0
-
-    const-string v4, "android.media.metadata.ART"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_3
-
-    const-string v4, "android.media.metadata.ALBUM_ART"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    :cond_3
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
-
-    move-result-object v4
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v0, v4, v5}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
-
-    move-result-object v4
-
-    invoke-virtual {p0, v1, v4}, Landroid/support/v4/media/MediaMetadataCompat$Builder;->putBitmap(Ljava/lang/String;Landroid/graphics/Bitmap;)Landroid/support/v4/media/MediaMetadataCompat$Builder;
-
-    goto :goto_0
-
-    :cond_4
     return-void
 .end method
 

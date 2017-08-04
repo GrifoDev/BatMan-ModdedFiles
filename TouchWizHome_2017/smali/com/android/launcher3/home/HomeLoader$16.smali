@@ -43,8 +43,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$16;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$7400(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$7800(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
 
     move-result-object v1
 
@@ -82,8 +81,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$16;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sContext:Landroid/content/Context;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$7500()Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$7900()Landroid/content/Context;
 
     move-result-object v2
 

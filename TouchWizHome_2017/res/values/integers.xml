@@ -12,6 +12,8 @@
     <integer name="home_cellCountX">4</integer>
     <integer name="home_cellCountY">4</integer>
     <integer name="config_workspaceScreenGridShrinkPercentage">70</integer>
+    <integer name="easy_home_cellCountX">3</integer>
+    <integer name="easy_home_cellCountY">4</integer>
     <integer name="config_badgePositionPercentage">30</integer>
     <integer name="config_EdgeLightArrowShowTranslateXDuration">667</integer>
     <integer name="config_appsDragTransitionDuration">333</integer>
@@ -67,9 +69,9 @@
     <integer name="new_app_delay_duration">333</integer>
     <integer name="new_app_scale_ani_duration">333</integer>
     <integer name="quick_options_dismiss_distance">40</integer>
-    <integer name="text_shadow_dy">1</integer>
+    <integer name="text_shadow_dy">2</integer>
     <integer name="text_shadow_dy_dark">0</integer>
-    <integer name="text_shadow_radius">2</integer>
+    <integer name="text_shadow_radius">4</integer>
     <integer name="text_shadow_radius_dark">3</integer>
     <integer name="transition_rotation_max">6</integer>
 </resources>

@@ -38,7 +38,6 @@
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/android/launcher3/home/CancelDropTarget;->setCancelDropTargetVisible(Z)V
     invoke-static {v0, v1}, Lcom/android/launcher3/home/CancelDropTarget;->access$100(Lcom/android/launcher3/home/CancelDropTarget;Z)V
 
     return-void

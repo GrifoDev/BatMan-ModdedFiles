@@ -15,6 +15,10 @@
 # static fields
 .field private static final EASY_MODE_ID:C = '5'
 
+.field static final EMPTY_DETAIL:Ljava/lang/String; = "Empty"
+
+.field private static final HOME_APPS_MODE_ID:C = '0'
+
 .field private static final HOME_ONLY_MODE_ID:C = '3'
 
 .field private static final MODE_INDEX:I = 0x1
@@ -55,11 +59,15 @@
 
 .field public static final QUICKOPTION_WIDGETINFO:I = 0xc
 
+.field private static final STATUS_APPS:Ljava/lang/String; = "status_apps"
+
+.field private static final STATUS_HOME:Ljava/lang/String; = "status_home"
+
 .field private static final TAG:Ljava/lang/String; = "Launcher.SALogging"
 
 .field private static final TRACKING_ID:Ljava/lang/String; = "401-399-1029810"
 
-.field private static final VERSION:Ljava/lang/String; = "8.11"
+.field private static final VERSION:Ljava/lang/String; = "8.12"
 
 .field private static mMultiSelectCancelAlarm:Lcom/android/launcher3/util/alarm/Alarm;
 
@@ -69,7 +77,21 @@
 
 
 # instance fields
+.field private final mModeList:[C
+
 .field mQOInfo:Lcom/android/launcher3/util/logging/SALogging$QOAction;
+
+.field private mStatusIDMap:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mUpdateStatusLogValuesForAppItem:Ljava/lang/Runnable;
 
@@ -94,6 +116,14 @@
 
     invoke-direct {p0}, Lcom/android/launcher3/util/logging/Logging;-><init>()V
 
+    const/4 v0, 0x3
+
+    new-array v0, v0, [C
+
+    fill-array-data v0, :array_0
+
+    iput-object v0, p0, Lcom/android/launcher3/util/logging/SALogging;->mModeList:[C
+
     new-instance v0, Lcom/android/launcher3/util/logging/SALogging$23;
 
     invoke-direct {v0, p0}, Lcom/android/launcher3/util/logging/SALogging$23;-><init>(Lcom/android/launcher3/util/logging/SALogging;)V
@@ -111,69 +141,26 @@
     iput-object v0, p0, Lcom/android/launcher3/util/logging/SALogging;->mQOInfo:Lcom/android/launcher3/util/logging/SALogging$QOAction;
 
     return-void
+
+    nop
+
+    :array_0
+    .array-data 2
+        0x30s
+        0x33s
+        0x35s
+    .end array-data
 .end method
 
-.method static synthetic access$100(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
-    .locals 1
+.method static synthetic access$100(Lcom/android/launcher3/util/logging/SALogging;)V
+    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getPackageAndTitleString(Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+    invoke-direct {p0}, Lcom/android/launcher3/util/logging/SALogging;->registerStatusPref()V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/util/logging/SALogging;->getEventIDForMutliSelect(ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getFolderAppsCountAndColorDetail(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getHotSeatAppStatusID(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/launcher3/util/logging/SALogging;)Z
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/launcher3/util/logging/SALogging;->isBixbyRunning()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$500(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/Launcher;)Ljava/lang/String;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getBixbyScreenID(Lcom/android/launcher3/Launcher;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;)Ljava/lang/String;
+.method static synthetic access$1000(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/launcher3/util/logging/SALogging;->getBixbyEventID(ILcom/android/launcher3/Launcher;)Ljava/lang/String;
@@ -183,7 +170,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/Launcher;)Ljava/lang/String;
+.method static synthetic access$1100(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/Launcher;)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getQuickOptionScreenID(Lcom/android/launcher3/Launcher;)Ljava/lang/String;
@@ -193,7 +180,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;)Ljava/lang/String;
+.method static synthetic access$1200(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/launcher3/util/logging/SALogging;->getQuickOptionEventID(ILcom/android/launcher3/Launcher;)Ljava/lang/String;
@@ -203,10 +190,106 @@
     return-object v0
 .end method
 
-.method static synthetic access$900(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$1300(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/util/logging/SALogging;->getEventIDForMutliSelect(ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1400(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->changeIdByMode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1500(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->changeEmptyDetail(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$200(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getPackageAndTitleString(Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/launcher3/util/logging/SALogging;)[C
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/util/logging/SALogging;->mModeList:[C
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getFolderAppsCountAndColorDetail(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$500(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    return-object v0
+.end method
+
+.method static synthetic access$600(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;C)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1, p2}, Lcom/android/launcher3/util/logging/SALogging;->changeIdByMode(Ljava/lang/String;C)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$700(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getHotSeatAppStatusID(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$800(Lcom/android/launcher3/util/logging/SALogging;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/launcher3/util/logging/SALogging;->isBixbyRunning()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$900(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/Launcher;)Ljava/lang/String;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/util/logging/SALogging;->getBixbyScreenID(Lcom/android/launcher3/Launcher;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -308,6 +391,30 @@
     return v3
 .end method
 
+.method private changeEmptyDetail(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, " "
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const-string p1, "Empty"
+
+    :cond_1
+    return-object p1
+.end method
+
 .method private changeIdByMode(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
 
@@ -364,12 +471,39 @@
     goto :goto_0
 .end method
 
+.method private changeIdByMode(Ljava/lang/String;C)Ljava/lang/String;
+    .locals 3
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C
+
+    move-result-object v0
+
+    array-length v1, v0
+
+    if-ge v2, v1, :cond_0
+
+    const/16 v1, 0x30
+
+    if-eq p2, v1, :cond_0
+
+    aput-char p2, v0, v2
+
+    :cond_0
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
 .method private getBixbyEventID(ILcom/android/launcher3/Launcher;)Ljava/lang/String;
     .locals 8
 
-    const v7, 0x7f08012e
+    const v7, 0x7f08013d
 
-    const v6, 0x7f08012d
+    const v6, 0x7f08013c
 
     const/4 v5, 0x2
 
@@ -433,7 +567,7 @@
     :pswitch_3
     if-ne v2, v4, :cond_0
 
-    const v3, 0x7f08012f
+    const v3, 0x7f08013e
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -444,7 +578,7 @@
     :pswitch_4
     if-ne v2, v4, :cond_0
 
-    const v3, 0x7f08012a
+    const v3, 0x7f080139
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -455,7 +589,7 @@
     :pswitch_5
     if-ne v2, v4, :cond_0
 
-    const v3, 0x7f08012c
+    const v3, 0x7f08013b
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -466,7 +600,7 @@
     :pswitch_6
     if-ne v2, v4, :cond_3
 
-    const v3, 0x7f08012b
+    const v3, 0x7f08013a
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -477,7 +611,7 @@
     :cond_3
     if-ne v2, v5, :cond_0
 
-    const v3, 0x7f080135
+    const v3, 0x7f080144
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -488,7 +622,7 @@
     :pswitch_7
     if-ne v2, v4, :cond_4
 
-    const v3, 0x7f080126
+    const v3, 0x7f080135
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -499,7 +633,7 @@
     :cond_4
     if-ne v2, v5, :cond_0
 
-    const v3, 0x7f0800d6
+    const v3, 0x7f0800e5
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -510,7 +644,7 @@
     :pswitch_8
     if-ne v2, v4, :cond_5
 
-    const v3, 0x7f080127
+    const v3, 0x7f080136
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -521,7 +655,7 @@
     :cond_5
     if-ne v2, v5, :cond_0
 
-    const v3, 0x7f0800d7
+    const v3, 0x7f0800e6
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -532,7 +666,7 @@
     :pswitch_9
     if-ne v2, v4, :cond_6
 
-    const v3, 0x7f080124
+    const v3, 0x7f080133
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -543,7 +677,7 @@
     :cond_6
     if-ne v2, v5, :cond_0
 
-    const v3, 0x7f0800d4
+    const v3, 0x7f0800e3
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -554,7 +688,7 @@
     :pswitch_a
     if-ne v2, v4, :cond_7
 
-    const v3, 0x7f080129
+    const v3, 0x7f080138
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -565,7 +699,7 @@
     :cond_7
     if-ne v2, v5, :cond_0
 
-    const v3, 0x7f0800d9
+    const v3, 0x7f0800e8
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -576,7 +710,7 @@
     :pswitch_b
     if-ne v2, v4, :cond_8
 
-    const v3, 0x7f080130
+    const v3, 0x7f08013f
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -587,7 +721,7 @@
     :cond_8
     if-ne v2, v5, :cond_0
 
-    const v3, 0x7f0800da
+    const v3, 0x7f0800e9
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -598,7 +732,7 @@
     :pswitch_c
     if-ne v2, v4, :cond_9
 
-    const v3, 0x7f080128
+    const v3, 0x7f080137
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -609,7 +743,7 @@
     :cond_9
     if-ne v2, v5, :cond_0
 
-    const v3, 0x7f0800d8
+    const v3, 0x7f0800e7
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -620,7 +754,7 @@
     :pswitch_d
     if-ne v2, v4, :cond_a
 
-    const v3, 0x7f080125
+    const v3, 0x7f080134
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -631,7 +765,7 @@
     :cond_a
     if-ne v2, v5, :cond_0
 
-    const v3, 0x7f0800d5
+    const v3, 0x7f0800e4
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -642,7 +776,7 @@
     :pswitch_e
     if-ne v2, v4, :cond_0
 
-    const v3, 0x7f080131
+    const v3, 0x7f080140
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -651,7 +785,7 @@
     goto/16 :goto_0
 
     :pswitch_f
-    const v3, 0x7f080133
+    const v3, 0x7f080142
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -702,7 +836,7 @@
 
     if-ne v3, v5, :cond_1
 
-    const v4, 0x7f08018d
+    const v4, 0x7f08019a
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -715,7 +849,7 @@
     :cond_1
     if-ne v3, v6, :cond_2
 
-    const v4, 0x7f08017f
+    const v4, 0x7f08018c
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -738,7 +872,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f080185
+    const v5, 0x7f080192
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -753,7 +887,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f080179
+    const v5, 0x7f080186
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -765,9 +899,9 @@
 .method private getEventIDForMutliSelect(ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
     .locals 10
 
-    const v9, 0x7f080156
+    const v9, 0x7f080165
 
-    const v8, 0x7f080153
+    const v8, 0x7f080162
 
     const/4 v7, 0x2
 
@@ -796,7 +930,7 @@
     :pswitch_0
     if-eqz p3, :cond_1
 
-    const v4, 0x7f080056
+    const v4, 0x7f08005f
 
     invoke-virtual {p2, v4}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -811,7 +945,7 @@
 
     if-eqz v1, :cond_2
 
-    const v4, 0x7f080157
+    const v4, 0x7f080166
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -826,7 +960,7 @@
     goto :goto_1
 
     :cond_2
-    const v4, 0x7f08015c
+    const v4, 0x7f08016b
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -839,7 +973,7 @@
 
     if-eqz v1, :cond_4
 
-    const v4, 0x7f080157
+    const v4, 0x7f080166
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -849,7 +983,7 @@
     goto :goto_0
 
     :cond_4
-    const v4, 0x7f08015c
+    const v4, 0x7f08016b
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -862,7 +996,7 @@
 
     if-eqz v1, :cond_6
 
-    const v4, 0x7f08010f
+    const v4, 0x7f08011e
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -872,7 +1006,7 @@
     goto :goto_0
 
     :cond_6
-    const v4, 0x7f080112
+    const v4, 0x7f080121
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -883,7 +1017,7 @@
     :pswitch_1
     if-ne v3, v5, :cond_7
 
-    const v4, 0x7f08015b
+    const v4, 0x7f08016a
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -894,7 +1028,7 @@
     :cond_7
     if-ne v3, v6, :cond_0
 
-    const v4, 0x7f080111
+    const v4, 0x7f080120
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -923,7 +1057,7 @@
     :cond_9
     if-ne v3, v6, :cond_0
 
-    const v4, 0x7f08010b
+    const v4, 0x7f08011a
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -952,7 +1086,7 @@
     :cond_b
     if-ne v3, v6, :cond_0
 
-    const v4, 0x7f08010e
+    const v4, 0x7f08011d
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1103,7 +1237,7 @@
     :cond_3
     if-nez v3, :cond_4
 
-    const-string v3, " "
+    const-string v3, "Empty"
 
     :cond_4
     return-object v3
@@ -1112,7 +1246,7 @@
 .method private getHotSeatAppStatusID(I)Ljava/lang/String;
     .locals 4
 
-    const v3, 0x7f0801a2
+    const v3, 0x7f0801af
 
     sget-object v2, Lcom/android/launcher3/util/logging/SALogging;->sContext:Landroid/content/Context;
 
@@ -1137,7 +1271,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v2, 0x7f0801b4
+    const v2, 0x7f0801c1
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1146,7 +1280,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v2, 0x7f0801b6
+    const v2, 0x7f0801c3
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1155,7 +1289,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v2, 0x7f0801a3
+    const v2, 0x7f0801b0
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1164,7 +1298,7 @@
     goto :goto_0
 
     :pswitch_4
-    const v2, 0x7f0801a1
+    const v2, 0x7f0801ae
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1185,7 +1319,6 @@
 .method public static getInstance()Lcom/android/launcher3/util/logging/SALogging;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/util/logging/SALogging$SingletonHolder;->sSALoggingInstance:Lcom/android/launcher3/util/logging/SALogging;
     invoke-static {}, Lcom/android/launcher3/util/logging/SALogging$SingletonHolder;->access$000()Lcom/android/launcher3/util/logging/SALogging;
 
     move-result-object v0
@@ -1194,13 +1327,13 @@
 .end method
 
 .method private getPackageAndTitleString(Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
-    .locals 3
+    .locals 2
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
     iget-object v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     iget-object v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
@@ -1209,54 +1342,18 @@
     move-result-object v0
 
     :goto_0
-    iget-object v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    if-eqz v1, :cond_0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ")"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :cond_0
-    :goto_1
     return-object v0
 
-    :cond_1
+    :cond_0
     instance-of v1, p1, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
@@ -1266,7 +1363,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
@@ -1282,15 +1379,15 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     const-string v0, "unknown"
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     const-string v0, "APP"
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method private getQuickOptionEventID(ILcom/android/launcher3/Launcher;)Ljava/lang/String;
@@ -1318,7 +1415,7 @@
     goto :goto_0
 
     :pswitch_0
-    const v3, 0x7f080133
+    const v3, 0x7f080142
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1363,7 +1460,7 @@
 
     if-ne v4, v6, :cond_2
 
-    const v5, 0x7f08018e
+    const v5, 0x7f08019b
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1378,7 +1475,7 @@
     :cond_2
     if-ne v4, v7, :cond_3
 
-    const v5, 0x7f080181
+    const v5, 0x7f08018e
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1393,7 +1490,7 @@
 
     if-ne v3, v6, :cond_4
 
-    const v5, 0x7f080186
+    const v5, 0x7f080193
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1404,7 +1501,7 @@
     :cond_4
     if-ne v3, v7, :cond_1
 
-    const v5, 0x7f08017a
+    const v5, 0x7f080187
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1439,18 +1536,519 @@
     goto :goto_0
 .end method
 
+.method private registerStatusPref()V
+    .locals 9
+
+    sget-object v4, Lcom/android/launcher3/util/logging/SALogging;->sContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    new-instance v1, Ljava/util/HashSet;
+
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+
+    new-instance v4, Ljava/util/HashMap;
+
+    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b8
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801af
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801c1
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801c3
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b0
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801ae
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b5
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801be
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801ac
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801ab
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801ad
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801ba
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b4
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801bd
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b3
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b6
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b9
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801a5
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_apps"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801a7
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_apps"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801a2
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_apps"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801a6
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_apps"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b7
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801a4
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_apps"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801aa
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801c2
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801c0
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801bf
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801a9
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_apps"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801c4
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801bc
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801bb
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801a8
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_apps"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801a3
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b1
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    const v5, 0x7f0801b2
+
+    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "status_home"
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging;->mStatusIDMap:Ljava/util/HashMap;
+
+    invoke-virtual {v4}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iget-object v6, p0, Lcom/android/launcher3/util/logging/SALogging;->mModeList:[C
+
+    array-length v7, v6
+
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v4, v7, :cond_0
+
+    aget-char v2, v6, v4
+
+    invoke-direct {p0, v0, v2}, Lcom/android/launcher3/util/logging/SALogging;->changeIdByMode(Ljava/lang/String;C)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v1, v8}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-static {}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->getInstance()Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingPrefBuilder;
+
+    invoke-direct {v5}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingPrefBuilder;-><init>()V
+
+    const-string v6, "SASettingPref"
+
+    invoke-virtual {v5, v6, v1}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingPrefBuilder;->addKeys(Ljava/lang/String;Ljava/util/Set;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingPrefBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingPrefBuilder;->build()Ljava/util/Map;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->registerSettingPref(Ljava/util/Map;)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public init(Landroid/app/Application;)V
     .locals 1
 
-    const/4 v0, 0x0
-
     sput-object p1, Lcom/android/launcher3/util/logging/SALogging;->sContext:Landroid/content/Context;
-
-    sput-boolean v0, Lcom/android/launcher3/util/logging/SALogging;->sIsFinishHomeBinding:Z
-
-    sput-boolean v0, Lcom/android/launcher3/util/logging/SALogging;->sIsFinishAppBinding:Z
 
     new-instance v0, Lcom/android/launcher3/util/logging/SALogging$1;
 
@@ -1652,7 +2250,7 @@
 .end method
 
 .method public insertEventLog(Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;)V
-    .locals 7
+    .locals 9
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1673,21 +2271,21 @@
     return-void
 
     :cond_1
-    new-instance v0, Lcom/android/launcher3/util/logging/SALogging$30;
+    new-instance v1, Lcom/android/launcher3/util/logging/SALogging$30;
 
-    move-object v1, p0
+    move-object v2, p0
 
-    move-object v2, p2
+    move-object v3, p2
 
-    move-object v3, p1
+    move-object v4, p5
 
-    move-wide v4, p3
+    move-object v5, p1
 
-    move-object v6, p5
+    move-wide v6, p3
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/launcher3/util/logging/SALogging$30;-><init>(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;)V
+    invoke-direct/range {v1 .. v7}, Lcom/android/launcher3/util/logging/SALogging$30;-><init>(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/util/logging/SALogging;->runOnLoggingThread(Ljava/lang/Runnable;)V
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/util/logging/SALogging;->runOnLoggingThread(Ljava/lang/Runnable;)V
 
     goto :goto_0
 .end method
@@ -1716,7 +2314,7 @@
     :cond_1
     new-instance v0, Lcom/android/launcher3/util/logging/SALogging$29;
 
-    invoke-direct {v0, p0, p2, p1, p3}, Lcom/android/launcher3/util/logging/SALogging$29;-><init>(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v0, p0, p2, p3, p1}, Lcom/android/launcher3/util/logging/SALogging$29;-><init>(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/util/logging/SALogging;->runOnLoggingThread(Ljava/lang/Runnable;)V
 
@@ -1757,6 +2355,18 @@
     return-void
 .end method
 
+.method public insertGoogleSearchLaunchCount()V
+    .locals 1
+
+    new-instance v0, Lcom/android/launcher3/util/logging/SALogging$35;
+
+    invoke-direct {v0, p0}, Lcom/android/launcher3/util/logging/SALogging$35;-><init>(Lcom/android/launcher3/util/logging/SALogging;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/util/logging/SALogging;->runOnLoggingThread(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method public insertHideAppsLog(Ljava/util/ArrayList;)V
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
@@ -1770,8 +2380,6 @@
     .end annotation
 
     const-string v0, ""
-
-    const-string v2, ""
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -1809,35 +2417,13 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, "("
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    iget-object v5, v1, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
 
     move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, ")"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1862,13 +2448,31 @@
 
     move-result-object v3
 
-    const v4, 0x7f0801a5
+    const v4, 0x7f0801b2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p0, v3, v0}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-object v3, Lcom/android/launcher3/util/logging/SALogging;->sContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0801b1
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    invoke-virtual {p0, v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
 
     return-void
 .end method
@@ -2137,6 +2741,18 @@
     invoke-direct {v0, p0, p1}, Lcom/android/launcher3/util/logging/SALogging$13;-><init>(Lcom/android/launcher3/util/logging/SALogging;Landroid/content/Context;)V
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/util/logging/SALogging;->runOnLoggingThread(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public startLoader()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/launcher3/util/logging/SALogging;->sIsFinishHomeBinding:Z
+
+    sput-boolean v0, Lcom/android/launcher3/util/logging/SALogging;->sIsFinishAppBinding:Z
 
     return-void
 .end method

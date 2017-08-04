@@ -39,14 +39,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$1;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$900(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$1;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mMarketSearchIntent:Landroid/content/Intent;
     invoke-static {v1}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$800(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/content/Intent;
 
     move-result-object v1

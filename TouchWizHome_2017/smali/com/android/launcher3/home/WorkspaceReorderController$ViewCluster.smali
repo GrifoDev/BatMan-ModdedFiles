@@ -96,7 +96,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountY:I
     invoke-static {v0}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$000(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v0
@@ -107,7 +106,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountY:I
     invoke-static {v0}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$000(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v0
@@ -118,7 +116,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountX:I
     invoke-static {v0}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$100(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v0
@@ -129,7 +126,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountX:I
     invoke-static {v0}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$100(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v0
@@ -226,7 +222,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountY:I
     invoke-static {v8}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$000(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v8
@@ -269,7 +264,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountY:I
     invoke-static {v8}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$000(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v8
@@ -303,7 +297,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountX:I
     invoke-static {v8}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$100(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v8
@@ -346,7 +339,6 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountX:I
     invoke-static {v8}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$100(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v8
@@ -629,7 +621,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountY:I
     invoke-static {v4}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$000(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v4
@@ -664,7 +655,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountY:I
     invoke-static {v4}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$000(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v4
@@ -695,7 +685,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountX:I
     invoke-static {v4}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$100(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v4
@@ -730,7 +719,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountX:I
     invoke-static {v4}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$100(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v4
@@ -768,7 +756,6 @@
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountX:I
     invoke-static {v1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$100(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v1
@@ -793,7 +780,6 @@
     :goto_1
     iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ViewCluster;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mCountY:I
     invoke-static {v1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$000(Lcom/android/launcher3/home/WorkspaceReorderController;)I
 
     move-result v1

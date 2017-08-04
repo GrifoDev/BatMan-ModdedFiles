@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/event/CheckLongPressHelper$CheckForLongPress;->this$0:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
-    # getter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$000(Lcom/android/launcher3/util/event/CheckLongPressHelper;)Landroid/view/View;
 
     move-result-object v1
@@ -52,7 +51,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/event/CheckLongPressHelper$CheckForLongPress;->this$0:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
-    # getter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$000(Lcom/android/launcher3/util/event/CheckLongPressHelper;)Landroid/view/View;
 
     move-result-object v1
@@ -65,7 +63,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/event/CheckLongPressHelper$CheckForLongPress;->this$0:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
-    # getter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mHasPerformedLongPress:Z
     invoke-static {v1}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$100(Lcom/android/launcher3/util/event/CheckLongPressHelper;)Z
 
     move-result v1
@@ -74,7 +71,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/event/CheckLongPressHelper$CheckForLongPress;->this$0:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
-    # getter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mListener:Landroid/view/View$OnLongClickListener;
     invoke-static {v1}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$200(Lcom/android/launcher3/util/event/CheckLongPressHelper;)Landroid/view/View$OnLongClickListener;
 
     move-result-object v1
@@ -83,14 +79,12 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/event/CheckLongPressHelper$CheckForLongPress;->this$0:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
-    # getter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mListener:Landroid/view/View$OnLongClickListener;
     invoke-static {v1}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$200(Lcom/android/launcher3/util/event/CheckLongPressHelper;)Landroid/view/View$OnLongClickListener;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/launcher3/util/event/CheckLongPressHelper$CheckForLongPress;->this$0:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
-    # getter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$000(Lcom/android/launcher3/util/event/CheckLongPressHelper;)Landroid/view/View;
 
     move-result-object v2
@@ -104,7 +98,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/event/CheckLongPressHelper$CheckForLongPress;->this$0:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
-    # getter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$000(Lcom/android/launcher3/util/event/CheckLongPressHelper;)Landroid/view/View;
 
     move-result-object v1
@@ -117,7 +110,6 @@
 
     const/4 v2, 0x1
 
-    # setter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mHasPerformedLongPress:Z
     invoke-static {v1, v2}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$102(Lcom/android/launcher3/util/event/CheckLongPressHelper;Z)Z
 
     :cond_0
@@ -126,7 +118,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher3/util/event/CheckLongPressHelper$CheckForLongPress;->this$0:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
-    # getter for: Lcom/android/launcher3/util/event/CheckLongPressHelper;->mView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/event/CheckLongPressHelper;->access$000(Lcom/android/launcher3/util/event/CheckLongPressHelper;)Landroid/view/View;
 
     move-result-object v1

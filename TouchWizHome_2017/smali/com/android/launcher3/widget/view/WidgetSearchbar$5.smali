@@ -41,7 +41,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/widget/view/WidgetSearchbar;->mPopupMenu:Landroid/widget/PopupMenu;
     invoke-static {v0, v1}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->access$402(Lcom/android/launcher3/widget/view/WidgetSearchbar;Landroid/widget/PopupMenu;)Landroid/widget/PopupMenu;
 
     return-void

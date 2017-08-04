@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">搜索历史记录</string>
-    <string name="activity_not_available">该应用程序不可用于您的设备。</string>
+    <string name="about">%s སྐོར།</string>
+    <string name="about_already_installed">པར་གཞི་གསི་གསར་ཤོས་དེ་སྒྲིག་འཇུག་བྱས་འདུག</string>
+    <string name="about_home_screen">བརྙན་ཡོལ་མ་ངོས།</string>
+    <string name="about_licence">ཡོང་ཁུངས་ཆོག་མཆན་ལག་ཁྱེར།</string>
+    <string name="about_network_err">ཁྱེད་ཀྱི་ལག་ཐོག་ཁ་པར་དྲ་བ་དང་འབྲེལ་མེད།གསར་བརྗེས་བརྟག་ཞིབ་མི་ཐུབ།</string>
+    <string name="about_new_version_exist">པར་གཞི་གསར་པ་སྤྱོད་མི་ཐུབ།</string>
+    <string name="about_retry">བསྐྱར་ཚོད།</string>
+    <string name="about_update">གསར་སྒྱུར།</string>
+    <string name="about_version">པར་གཞི་%s</string>
+    <string name="activity_not_available">ཉེར་སྤྱོད་བྱ་རིམ་འདི་ཁྱེད་ཀྱི་འཕྲུལ་ཆས་ལ་སྤྱོད་མི་ཐུབ།</string>
     <string name="activity_not_found">ཉེར་སྤྱོད་བྱ་རིམ་སྒྲིག་འཇུག་བྱས་མེད།</string>
     <string name="align_to_bottom">གོང་ནས་འོག་བར།</string>
     <string name="align_to_top">འོག་ནས་གོང་བར།</string>
@@ -11,7 +20,7 @@
     <string name="app_search_tablet">搜索平板电脑</string>
     <string name="application_name">TouchWiz བརྙན་ཡོལ་མ་ངོས།</string>
     <string name="apply">ཉེར་སྤྱོད།</string>
-    <string name="appsPicker_add_button">添加</string>
+    <string name="appsPicker_add_button">སྣོན་འཇུག་བྱས།</string>
     <string name="appsPicker_apps">འབོད༌སྐུལ</string>
     <string name="appsPicker_search_result_found">%dརྙེད་པ།</string>
     <string name="apps_button_hide">ཉེར་སྤྱོད་མཐེབ་གཅུས་སྦོས།</string>
@@ -32,10 +41,10 @@
     <string name="cancel">རྩིས་མེད།</string>
     <string name="default_page">默认页面</string>
     <string name="default_scroll_format">ཤོག་གྲངས་ %1$d པའི %2$d</string>
-    <string name="disable_message">将禁用 %1$s 和与其相关的所有功能。若要重新启用应用程序，请进入【设置】>【应用程序】，然后选择 %2$s。</string>
+    <string name="disable_message">%1$sདང་དེ་དང་འབྲེལ་ཡོད་ཀྱི་ཕན་ནུས་ཚང་མ་བཀག་སྲིད།གལ་སྲིད་ཉེར་སྤྱོད་བྱ་རིམ་འདི་ཁ་ཕྱེ་ཚེ།༼སྒྲིག་འགོད་༽>༼ཉེར་སྤྱོད་བྱ་རིམ་༽ནང་ཞུགས་པ་དང་དེ་རྗེས་%2$sའདེམས་དགོས།</string>
     <string name="disable_message_vzw">%sདང་དེའི་འབྲེལ་ཡོད་ནུས་པ་ཡོད་ཚད་བཀག་སྲིད། གལ་སྲིད་ཡང་བསྐྱར་ཁ་ཕྱེ་དགོས་ཚེ།༼སྒྲིག་འགོད།༽>༼ཉེར་སྤྱོད་བྱ་རིམ་༽>༼ཉེར་སྤྱོད་བྱ་རིམ་དོ་དམ་ཡོ་བྱད།༽ནང་ཞུགས་དགོས།</string>
     <string name="discard">སྐྱུར་བ།</string>
-    <string name="do_not_show_again">不再显示</string>
+    <string name="do_not_show_again">ཡང་བསྐྱར་མི་གསལ་བ།</string>
     <string name="drag_here_to_move_from_folder">拖动至此处以从文件夹中移出。</string>
     <string name="duplcation_widget_instance_allowed_differ_type">包含天气信息的小组件已添加至主屏幕。请移除 %s 并重试。</string>
     <string name="enabled">སྤྱོད་ཁ་ཕྱེ་ཟིན།</string>
@@ -79,7 +88,7 @@
     <string name="max_characters_available">ཆེས་མང་ན་ཡིག་རྟགས་%dནང་འཇུག་བྱས་ཆོག</string>
     <string name="menu_edit_cancel">རྩིས་མེད།</string>
     <string name="menu_uninstall">ཉེར་སྤྱོད་བྱ་རིམ་ཕབ་དོར་བཏང་།</string>
-    <string name="move_to_home">拖动至此处以在主屏幕上添加快捷方式。</string>
+    <string name="move_to_home">འདི་གར་འདྲུད་ནས་བརྙན་ཡོལ་མ་ངོས་ཐོག་མྱུར་མགྱོགས་འགྲོས་ཐབས་སྣོན་འཇུག་བྱས།</string>
     <string name="multi_select_add_to_personal">མི་སྒེར་ཐོག་སྣོན་འཇུག་བྱས།</string>
     <string name="multi_select_apps_deselected">ཉེར་སྤྱོད་བདམ་པ་དོར་སོང་།</string>
     <string name="multi_select_create_folder">ཡིག་སྣོད་གསར་པ་འཛུགས་པ།</string>
@@ -108,7 +117,7 @@
     <string name="ok">གཏན་འཁེལ།</string>
     <string name="only_one_widget_instance_allowed">%s 小组件已添加至主屏幕</string>
     <string name="option_menu_contact_up">ང་ཚོ་དང་འབྲེལ་གཏུག་བྱས།</string>
-    <string name="option_menu_galaxy_essentials">盖乐世精选</string>
+    <string name="option_menu_galaxy_essentials">GALAXYདྲག་བསྡུས།</string>
     <string name="option_menu_home_settings">སྒྲིག་འགོད་ཁག</string>
     <string name="options_menu">དེ་ལས་མང་བའི་འདེམས་ག</string>
     <string name="options_menu_search_recommend">搜索选项</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ཤོག་གྲངས་འདིར་ན་ ད་དུང་ཁང་པ་མེད་པ</string>
     <string name="out_of_space_dialog">本页空间不足，项目将添加至新页面。</string>
     <string name="permdesc_install_widget">此应用程序可在主屏幕上添加小组件。</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">此应用程序可以读取自定义内容页面的设置，该设置位于主屏幕的左侧。</string>
+    <string name="permdesc_write_zeropage_settings">此应用程序可以更改自定义内容页面的设置，该设置位于主屏幕的左侧。</string>
     <string name="permlab_install_widget">添加小组件</string>
+    <string name="permlab_read_settings">འཇམ་སླས་ཕྱིར་དངོས་པོ་འཛུགས་ཤིང་ཀློག</string>
+    <string name="permlab_read_zeropage_settings">读取自定义内容页面设置</string>
+    <string name="permlab_write_zeropage_settings">更改自定义内容页面设置</string>
     <string name="quick_option_add_apps">ཉེར་སྤྱོད་བྱ་རིམ་སྣོན་འཇུག་བྱས།</string>
     <string name="quick_option_add_shortcut_to_home">མྱུར་མགྱོགས་འགྲོས་ཐབས་དེ་བརྙན་ཡོལ་མ་ངོས་ཐོག་སྣོན་འཇུག་བྱས།</string>
     <string name="quick_option_add_to_personal">མི་སྒེར་ཐོག་སྣོན་འཇུག་བྱས།</string>

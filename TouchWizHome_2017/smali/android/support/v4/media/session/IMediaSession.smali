@@ -137,6 +137,14 @@
     .end annotation
 .end method
 
+.method public abstract getShuffleMode()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getTag()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -153,7 +161,15 @@
     .end annotation
 .end method
 
-.method public abstract isShuffleModeEnabled()Z
+.method public abstract isCaptioningEnabled()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isShuffleModeEnabledDeprecated()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -329,6 +345,14 @@
     .end annotation
 .end method
 
+.method public abstract setCaptioningEnabled(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setRepeatMode(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -337,7 +361,15 @@
     .end annotation
 .end method
 
-.method public abstract setShuffleModeEnabled(Z)V
+.method public abstract setShuffleMode(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setShuffleModeEnabledDeprecated(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -26,21 +26,21 @@
 
     if-lt v0, v1, :cond_0
 
-    new-instance v1, Landroid/support/v4/text/ICUCompat$ICUCompatApi21Impl;
+    new-instance v0, Landroid/support/v4/text/ICUCompat$ICUCompatApi21Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/text/ICUCompat$ICUCompatApi21Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/text/ICUCompat$ICUCompatApi21Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
 
     :goto_0
     return-void
 
     :cond_0
-    new-instance v1, Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
+    new-instance v0, Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/text/ICUCompat;->IMPL:Landroid/support/v4/text/ICUCompat$ICUCompatBaseImpl;
 
     goto :goto_0
 .end method

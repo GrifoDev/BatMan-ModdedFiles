@@ -3,12 +3,12 @@
 .source "AppsLoader.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/launcher3/common/model/DataLoader$ItemInfoFilter;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->updatePackageFlags(Lcom/android/launcher3/util/StringFilter;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/util/FlagOp;)V
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->getItemInfoInAppsForComponentName(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-.field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-
-.field final synthetic val$updatedIcons:Ljava/util/ArrayList;
+.field final synthetic val$cName:Landroid/content/ComponentName;
 
 .field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$cName:Landroid/content/ComponentName;
 
-    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$updatedIcons:Ljava/util/ArrayList;
-
-    iput-object p4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,39 +42,47 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public filterItem(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/content/ComponentName;)Z
+    .locals 2
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+    iget-object v0, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    if-nez v0, :cond_0
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sLauncherModel:Lcom/android/launcher3/LauncherModel;
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$4000()Lcom/android/launcher3/LauncherModel;
+    iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$cName:Landroid/content/ComponentName;
 
-    move-result-object v3
+    invoke-virtual {p3, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3}, Lcom/android/launcher3/LauncherModel;->getLoaderTask()Lcom/android/launcher3/LauncherModel$LoaderTask;
+    move-result v0
 
-    move-result-object v3
-
-    # invokes: Lcom/android/launcher3/allapps/model/AppsLoader;->tryGetCallbacks(Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$updatedIcons:Ljava/util/ArrayList;
-
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->bindAppsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    :goto_0
+    return v0
 
     :cond_0
-    return-void
+    iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$cName:Landroid/content/ComponentName;
+
+    invoke-virtual {p3, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$33;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

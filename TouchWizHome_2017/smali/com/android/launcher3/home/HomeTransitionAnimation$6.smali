@@ -54,7 +54,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$6;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # setter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
     invoke-static {v0, v2}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$302(Lcom/android/launcher3/home/HomeTransitionAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     iget-boolean v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$6;->val$accessibilityEnabled:Z

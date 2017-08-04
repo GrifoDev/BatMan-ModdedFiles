@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
 
-    # getter for: Lcom/android/launcher3/common/tray/FakeView;->mDragEventCallback:Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
     invoke-static {v1}, Lcom/android/launcher3/common/tray/FakeView;->access$100(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
 
     move-result-object v1
@@ -48,7 +47,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
 
-    # getter for: Lcom/android/launcher3/common/tray/FakeView;->mDirection:I
     invoke-static {v1}, Lcom/android/launcher3/common/tray/FakeView;->access$200(Lcom/android/launcher3/common/tray/FakeView;)I
 
     move-result v1
@@ -60,14 +58,12 @@
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
 
-    # getter for: Lcom/android/launcher3/common/tray/FakeView;->mDragEventCallback:Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
     invoke-static {v1}, Lcom/android/launcher3/common/tray/FakeView;->access$100(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
 
-    # getter for: Lcom/android/launcher3/common/tray/FakeView;->mTrayLevel:Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
     invoke-static {v2}, Lcom/android/launcher3/common/tray/FakeView;->access$300(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
 
     move-result-object v2

@@ -6,6 +6,8 @@
 # instance fields
 .field mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
+.field private mAppName:Ljava/lang/String;
+
 
 # direct methods
 .method constructor <init>(Lcom/android/launcher3/executor/ExecutorState;)V
@@ -45,9 +47,17 @@
 
     iget-object v2, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/executor/StateAppInfo;->getName()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/proxy/LauncherProxy;->getAppNamebyComponentName(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->mAppName:Ljava/lang/String;
+
+    invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->mAppName:Ljava/lang/String;
 
     const/4 v3, 0x0
 

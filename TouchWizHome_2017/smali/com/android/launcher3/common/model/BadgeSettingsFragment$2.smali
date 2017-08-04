@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$2;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
     invoke-static {v1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$100(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Landroid/widget/Switch;
 
     move-result-object v1
@@ -50,7 +49,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$2;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
     invoke-static {v1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$100(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Landroid/widget/Switch;
 
     move-result-object v2
@@ -64,7 +62,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$2;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->refreshAllAppItems(Z)V
     invoke-static {v1, v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$200(Lcom/android/launcher3/common/model/BadgeSettingsFragment;Z)V
 
     invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
@@ -73,7 +70,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$2;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$300(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Landroid/content/Context;
 
     move-result-object v2
@@ -82,7 +78,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08018c
+    const v3, 0x7f080199
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -90,7 +86,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$2;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$300(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Landroid/content/Context;
 
     move-result-object v2
@@ -99,7 +94,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08011b
+    const v3, 0x7f08012a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

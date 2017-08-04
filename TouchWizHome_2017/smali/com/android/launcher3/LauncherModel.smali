@@ -558,6 +558,55 @@
     return-object v0
 .end method
 
+.method public static getOmcIntent(Ljava/lang/String;)Landroid/content/Intent;
+    .locals 4
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string v1, "com.samsung.omcagent.intent.action.OMC_APP_MANAGER"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "package"
+
+    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "Launcher.Model"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Omc Intent created. : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return-object v0
+.end method
+
 .method public static getWorkerLooper()Landroid/os/Looper;
     .locals 1
 
@@ -2267,6 +2316,12 @@
 
     invoke-static {}, Lcom/android/launcher3/home/ExternalRequestQueue;->enableExternalRequestQueue()V
 
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/util/logging/SALogging;->startLoader()V
+
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
@@ -2446,13 +2501,20 @@
     throw v0
 .end method
 
-.method public unregisterOnAllAppItemListLoadCompletedListener()V
+.method public unregisterOnAllAppItemListLoadCompletedListener(Lcom/android/launcher3/Launcher;)V
     .locals 1
+
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/LauncherModel;->isCurrentCallbacks(Lcom/android/launcher3/LauncherModel$Callbacks;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/launcher3/LauncherModel;->mOnAllAppItemListLoadCompletedListener:Lcom/android/launcher3/LauncherModel$OnAllAppItemListLoadCompletedListener;
 
+    :cond_0
     return-void
 .end method
 

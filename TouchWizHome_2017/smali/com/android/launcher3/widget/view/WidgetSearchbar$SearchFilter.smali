@@ -66,7 +66,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar$SearchFilter;->this$0:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
     invoke-static {v7}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->access$100(Lcom/android/launcher3/widget/view/WidgetSearchbar;)Landroid/widget/SearchView;
 
     move-result-object v7
@@ -85,7 +84,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar$SearchFilter;->this$0:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchListener:Lcom/android/launcher3/widget/view/WidgetSearchbar$SearchListener;
     invoke-static {v7}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->access$500(Lcom/android/launcher3/widget/view/WidgetSearchbar;)Lcom/android/launcher3/widget/view/WidgetSearchbar$SearchListener;
 
     move-result-object v7
@@ -94,7 +92,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar$SearchFilter;->this$0:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchListener:Lcom/android/launcher3/widget/view/WidgetSearchbar$SearchListener;
     invoke-static {v7}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->access$500(Lcom/android/launcher3/widget/view/WidgetSearchbar;)Lcom/android/launcher3/widget/view/WidgetSearchbar$SearchListener;
 
     move-result-object v7

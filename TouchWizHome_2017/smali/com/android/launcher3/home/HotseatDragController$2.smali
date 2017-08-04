@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HotseatDragController$2;->this$0:Lcom/android/launcher3/home/HotseatDragController;
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v0}, Lcom/android/launcher3/home/HotseatDragController;->access$000(Lcom/android/launcher3/home/HotseatDragController;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v0
@@ -56,7 +55,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/home/HotseatDragController$2;->this$0:Lcom/android/launcher3/home/HotseatDragController;
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mTargetCell:[I
     invoke-static {v6}, Lcom/android/launcher3/home/HotseatDragController;->access$100(Lcom/android/launcher3/home/HotseatDragController;)[I
 
     move-result-object v6

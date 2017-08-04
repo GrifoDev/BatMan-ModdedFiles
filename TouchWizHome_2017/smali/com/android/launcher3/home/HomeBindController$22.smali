@@ -47,7 +47,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/HomeBindController$22;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    # getter for: Lcom/android/launcher3/home/HomeBindController;->mWidgetsToAdvance:Ljava/util/HashMap;
     invoke-static {v4}, Lcom/android/launcher3/home/HomeBindController;->access$100(Lcom/android/launcher3/home/HomeBindController;)Ljava/util/HashMap;
 
     move-result-object v4
@@ -75,7 +74,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/HomeBindController$22;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    # getter for: Lcom/android/launcher3/home/HomeBindController;->mWidgetsToAdvance:Ljava/util/HashMap;
     invoke-static {v4}, Lcom/android/launcher3/home/HomeBindController;->access$100(Lcom/android/launcher3/home/HomeBindController;)Ljava/util/HashMap;
 
     move-result-object v4
@@ -100,7 +98,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/HomeBindController$22;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    # getter for: Lcom/android/launcher3/home/HomeBindController;->mHandler:Landroid/os/Handler;
     invoke-static {v4}, Lcom/android/launcher3/home/HomeBindController;->access$200(Lcom/android/launcher3/home/HomeBindController;)Landroid/os/Handler;
 
     move-result-object v4
@@ -123,7 +120,6 @@
 
     const-wide/16 v6, 0x4e20
 
-    # invokes: Lcom/android/launcher3/home/HomeBindController;->sendAdvanceMessage(J)V
     invoke-static {v4, v6, v7}, Lcom/android/launcher3/home/HomeBindController;->access$300(Lcom/android/launcher3/home/HomeBindController;J)V
 
     :cond_2

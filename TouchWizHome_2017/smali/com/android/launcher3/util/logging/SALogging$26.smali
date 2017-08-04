@@ -43,85 +43,41 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 6
 
-    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$26;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+    iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$26;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$26;->val$statusID:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$26;->val$statusID:Ljava/lang/String;
 
-    # invokes: Lcom/android/launcher3/util/logging/SALogging;->changeIdByMode(Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$900(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1400(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$26;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$26;->val$detail:Ljava/lang/String;
+
+    invoke-static {v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1500(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    :try_start_0
-    invoke-static {}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->getInstance()Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;
+    sget-object v3, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+
+    const-string v4, "SASettingPref"
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v3
 
-    new-instance v4, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingBuilder;
-
-    invoke-direct {v4}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$26;->val$detail:Ljava/lang/String;
-
-    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const-string v2, " "
-
-    :goto_0
-    invoke-virtual {v4, v0, v2}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingBuilder;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingBuilder;
+    invoke-interface {v3}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$SettingBuilder;->build()Ljava/util/Map;
+    invoke-interface {v2, v1, v0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v2
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    invoke-virtual {v3, v2}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->sendLog(Ljava/util/Map;)I
-
-    :goto_1
     return-void
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$26;->val$detail:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    const-string v2, "Launcher.SALogging"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "insertStatusLog : Exception "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 .end method

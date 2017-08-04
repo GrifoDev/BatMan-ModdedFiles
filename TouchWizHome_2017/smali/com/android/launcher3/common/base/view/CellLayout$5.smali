@@ -88,7 +88,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/CellLayout$5;->this$0:Lcom/android/launcher3/common/base/view/CellLayout;
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout;->mReorderAnimators:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/common/base/view/CellLayout;->access$200(Lcom/android/launcher3/common/base/view/CellLayout;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -103,7 +102,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/CellLayout$5;->this$0:Lcom/android/launcher3/common/base/view/CellLayout;
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout;->mReorderAnimators:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/common/base/view/CellLayout;->access$200(Lcom/android/launcher3/common/base/view/CellLayout;)Ljava/util/HashMap;
 
     move-result-object v0

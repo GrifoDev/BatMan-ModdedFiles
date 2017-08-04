@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Хронология на търсене</string>
+    <string name="about">За %s</string>
+    <string name="about_already_installed">Най-новата версия вече е инсталирана.</string>
+    <string name="about_home_screen">Начален екран</string>
+    <string name="about_licence">Лицензи за отворен код</string>
+    <string name="about_network_err">Не може да се провери за актуализации. Телефонът не е свързан с мрежа.</string>
+    <string name="about_new_version_exist">Достъпна е нова версия.</string>
+    <string name="about_retry">Нов опит</string>
+    <string name="about_update">Актуализация</string>
+    <string name="about_version">Версия %s</string>
     <string name="activity_not_available">Това приложение не е налично за вашето устройство.</string>
     <string name="activity_not_found">Приложението не е инсталирано.</string>
     <string name="align_to_bottom">Подравняване отдолу</string>
@@ -14,7 +23,7 @@
     <string name="appsPicker_add_button">ДОБАВЯНЕ</string>
     <string name="appsPicker_apps">Приложения</string>
     <string name="appsPicker_search_result_found">%d намерен</string>
-    <string name="apps_button_hide">Бутон скриване приложения</string>
+    <string name="apps_button_hide">Скриване бутон приложения</string>
     <string name="apps_button_label">Прилож.</string>
     <string name="apps_button_setting_guide_text">Когато бутонът за приложения е включен, елементът отдясно ще се премести от текущата позиция на началния екран.</string>
     <string name="apps_button_show">Показ. бутон приложения</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Няма повече място на тази страница</string>
     <string name="out_of_space_dialog">На тази страница няма повече място. Елементът ще се добави към нова страница.</string>
     <string name="permdesc_install_widget">Това приложение може да добавя уиджети на началния екран.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Това приложение може да чете настройките на страницата с персонализирано съдържание, която се намира отляво на началния екран.</string>
+    <string name="permdesc_write_zeropage_settings">Това приложение може да променя настройките на страницата с персонализирано съдържание, която се намира отляво на началния екран.</string>
     <string name="permlab_install_widget">Добавяне на уиджети</string>
+    <string name="permlab_read_settings">четене на начални настройки и бързи клавиши</string>
+    <string name="permlab_read_zeropage_settings">Прочитане настр. стр. перс. съдърж.</string>
+    <string name="permlab_write_zeropage_settings">Промяна персон. настр. стр. съдърж.</string>
     <string name="quick_option_add_apps">Добавяне на приложения</string>
     <string name="quick_option_add_shortcut_to_home">Доб. пряк път в „Начало“</string>
     <string name="quick_option_add_to_personal">Доб. в личен</string>

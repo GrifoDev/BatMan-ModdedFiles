@@ -41,23 +41,20 @@
 .method public run()V
     .locals 3
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sIsLoadingAndBindingWorkspace:Z
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9300()Z
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9700()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBindCompleteRunnables:Ljava/util/ArrayList;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9400()Ljava/util/ArrayList;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9800()Ljava/util/ArrayList;
 
     move-result-object v1
 
     monitor-enter v1
 
     :try_start_0
-    # getter for: Lcom/android/launcher3/home/HomeLoader;->sBindCompleteRunnables:Ljava/util/ArrayList;
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9500()Ljava/util/ArrayList;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9900()Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -82,8 +79,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$41;->val$r:Ljava/lang/Runnable;
 
-    # invokes: Lcom/android/launcher3/home/HomeLoader;->runOnWorkerThread(Ljava/lang/Runnable;)V
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$9600(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$10000(Ljava/lang/Runnable;)V
 
     goto :goto_0
 .end method

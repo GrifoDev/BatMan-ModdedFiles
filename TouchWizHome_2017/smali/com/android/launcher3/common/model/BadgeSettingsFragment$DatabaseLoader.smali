@@ -125,12 +125,10 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mDatabaseLoader:Lcom/android/launcher3/common/model/BadgeSettingsFragment$DatabaseLoader;
     invoke-static {v0, v1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$1202(Lcom/android/launcher3/common/model/BadgeSettingsFragment;Lcom/android/launcher3/common/model/BadgeSettingsFragment$DatabaseLoader;)Lcom/android/launcher3/common/model/BadgeSettingsFragment$DatabaseLoader;
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$DatabaseLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->isDatabaseLoaderRunning:Z
     invoke-static {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$1300(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Z
 
     move-result v0
@@ -143,14 +141,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$DatabaseLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->dismissProgress()V
     invoke-static {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$900(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)V
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$DatabaseLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->isDatabaseLoaderRunning:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$1302(Lcom/android/launcher3/common/model/BadgeSettingsFragment;Z)Z
 
     :cond_0

@@ -31,34 +31,36 @@
 
     if-lt v0, v1, :cond_0
 
-    new-instance v1, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi21Impl;
+    new-instance v0, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi21Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi21Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi21Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 
     :goto_0
     return-void
 
     :cond_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x12
 
     if-lt v0, v1, :cond_1
 
-    new-instance v1, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi18Impl;
+    new-instance v0, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi18Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi18Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi18Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 
     goto :goto_0
 
     :cond_1
-    new-instance v1, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
+    new-instance v0, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 
     goto :goto_0
 .end method
@@ -85,6 +87,10 @@
 
 .method public static getNestedScrollAxes(Landroid/view/ViewGroup;)I
     .locals 1
+    .param p0    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 

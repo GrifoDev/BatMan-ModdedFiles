@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$15;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceDragController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v0}, Lcom/android/launcher3/home/WorkspaceDragController;->access$300(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$15;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceDragController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v0}, Lcom/android/launcher3/home/WorkspaceDragController;->access$300(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v0

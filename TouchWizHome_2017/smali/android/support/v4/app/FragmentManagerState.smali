@@ -26,6 +26,8 @@
 
 .field mBackStack:[Landroid/support/v4/app/BackStackState;
 
+.field mNextFragmentIndex:I
+
 .field mPrimaryNavActiveIndex:I
 
 
@@ -95,6 +97,12 @@
 
     iput v0, p0, Landroid/support/v4/app/FragmentManagerState;->mPrimaryNavActiveIndex:I
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/support/v4/app/FragmentManagerState;->mNextFragmentIndex:I
+
     return-void
 .end method
 
@@ -124,6 +132,10 @@
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
     iget v0, p0, Landroid/support/v4/app/FragmentManagerState;->mPrimaryNavActiveIndex:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/support/v4/app/FragmentManagerState;->mNextFragmentIndex:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

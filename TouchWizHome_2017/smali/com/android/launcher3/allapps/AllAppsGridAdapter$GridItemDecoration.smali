@@ -76,7 +76,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionTextPaint:Landroid/graphics/Paint;
     invoke-static {v1}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$600(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/graphics/Paint;
 
     move-result-object v1
@@ -95,7 +94,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionTextPaint:Landroid/graphics/Paint;
     invoke-static {v1}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$600(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/graphics/Paint;
 
     move-result-object v1
@@ -299,7 +297,6 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mApps:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
     invoke-static {v2}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$000(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
     move-result-object v2
@@ -314,7 +311,6 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mAppsPerRow:I
     invoke-static {v2}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$100(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)I
 
     move-result v2
@@ -329,7 +325,6 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mApps:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
     invoke-static {v2}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$000(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
     move-result-object v2
@@ -344,7 +339,6 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionNamesMargin:I
     invoke-static {v2}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$200(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)I
 
     move-result v2
@@ -429,7 +423,6 @@
 
     iget-object v3, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mPredictionBarDividerOffset:I
     invoke-static {v3}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$300(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)I
 
     move-result v3
@@ -440,7 +433,6 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mBackgroundPadding:Landroid/graphics/Rect;
     invoke-static {v2}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$400(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/graphics/Rect;
 
     move-result-object v2
@@ -461,7 +453,6 @@
 
     iget-object v5, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mBackgroundPadding:Landroid/graphics/Rect;
     invoke-static {v5}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$400(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/graphics/Rect;
 
     move-result-object v5
@@ -480,7 +471,6 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mPredictedAppsDividerPaint:Landroid/graphics/Paint;
     invoke-static {v2}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$500(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/graphics/Paint;
 
     move-result-object v7
@@ -643,7 +633,6 @@
 
     iget-object v3, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mBackgroundPadding:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$400(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/graphics/Rect;
 
     move-result-object v3
@@ -656,7 +645,6 @@
 
     iget-object v3, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionNamesMargin:I
     invoke-static {v3}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$200(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)I
 
     move-result v3
@@ -668,7 +656,6 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionNamesMargin:I
     invoke-static {v2}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$200(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)I
 
     move-result v2
@@ -717,7 +704,6 @@
 
     iget-object v3, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mAppsPerRow:I
     invoke-static {v3}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$100(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)I
 
     move-result v3
@@ -728,7 +714,6 @@
 
     iget-object v4, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mAppsPerRow:I
     invoke-static {v4}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$100(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)I
 
     move-result v4
@@ -804,7 +789,6 @@
 
     iget-object v4, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionTextPaint:Landroid/graphics/Paint;
     invoke-static {v4}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$600(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/graphics/Paint;
 
     move-result-object v4
@@ -825,7 +809,6 @@
 
     iget-object v3, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionHeaderOffset:I
     invoke-static {v3}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$700(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)I
 
     move-result v3
@@ -847,7 +830,6 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$GridItemDecoration;->this$0:Lcom/android/launcher3/allapps/AllAppsGridAdapter;
 
-    # getter for: Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mBackgroundPadding:Landroid/graphics/Rect;
     invoke-static {v2}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->access$400(Lcom/android/launcher3/allapps/AllAppsGridAdapter;)Landroid/graphics/Rect;
 
     move-result-object v2

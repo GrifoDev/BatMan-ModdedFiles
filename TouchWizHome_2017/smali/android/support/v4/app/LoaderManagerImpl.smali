@@ -401,6 +401,10 @@
 
     invoke-virtual {v1}, Landroid/support/v4/util/SparseArrayCompat;->clear()V
 
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroid/support/v4/app/LoaderManagerImpl;->mHost:Landroid/support/v4/app/FragmentHostCallback;
+
     return-void
 .end method
 

@@ -57,7 +57,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$3;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$900(Lcom/android/launcher3/home/ZeroPageController;)I
 
     move-result v3
@@ -69,19 +68,16 @@
     :goto_0
     iget-object v4, p0, Lcom/android/launcher3/home/ZeroPageController$3;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mInterval:J
     invoke-static {v4}, Lcom/android/launcher3/home/ZeroPageController;->access$1200(Lcom/android/launcher3/home/ZeroPageController;)J
 
     move-result-wide v4
 
     sub-long v4, v6, v4
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->setOffsetMsg(IIZJ)V
     invoke-static/range {v0 .. v5}, Lcom/android/launcher3/home/ZeroPageController;->access$1300(Lcom/android/launcher3/home/ZeroPageController;IIZJ)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController$3;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # setter for: Lcom/android/launcher3/home/ZeroPageController;->mInterval:J
     invoke-static {v0, v6, v7}, Lcom/android/launcher3/home/ZeroPageController;->access$1202(Lcom/android/launcher3/home/ZeroPageController;J)J
 
     return-void

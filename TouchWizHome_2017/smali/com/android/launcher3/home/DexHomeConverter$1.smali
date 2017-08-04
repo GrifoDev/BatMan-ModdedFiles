@@ -116,7 +116,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher3/home/DexHomeConverter$1;->this$0:Lcom/android/launcher3/home/DexHomeConverter;
 
-    # getter for: Lcom/android/launcher3/home/DexHomeConverter;->mPrefs:Landroid/content/SharedPreferences;
     invoke-static {v1}, Lcom/android/launcher3/home/DexHomeConverter;->access$000(Lcom/android/launcher3/home/DexHomeConverter;)Landroid/content/SharedPreferences;
 
     move-result-object v1

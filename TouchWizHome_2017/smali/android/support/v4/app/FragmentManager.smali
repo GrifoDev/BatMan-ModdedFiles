@@ -68,12 +68,6 @@
 .end method
 
 .method public abstract getFragments()Ljava/util/List;
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,6 +83,9 @@
 .end method
 
 .method public abstract isDestroyed()Z
+.end method
+
+.method public abstract isStateSaved()Z
 .end method
 
 .method public openTransaction()Landroid/support/v4/app/FragmentTransaction;

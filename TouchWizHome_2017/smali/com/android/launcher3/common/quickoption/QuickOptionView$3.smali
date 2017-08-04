@@ -61,7 +61,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/quickoption/QuickOptionView;->mHideAnim:Landroid/animation/AnimatorSet;
     invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$502(Lcom/android/launcher3/common/quickoption/QuickOptionView;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     return-void
@@ -84,7 +83,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/quickoption/QuickOptionView;->mHideAnim:Landroid/animation/AnimatorSet;
     invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$502(Lcom/android/launcher3/common/quickoption/QuickOptionView;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$3;->val$removeCallback:Ljava/lang/Runnable;

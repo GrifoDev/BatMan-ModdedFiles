@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Издөө тарыхы</string>
+    <string name="about">%s тууралуу</string>
+    <string name="about_already_installed">Акыркы нускасы эчак орнотулган.</string>
+    <string name="about_home_screen">Башкы экран</string>
+    <string name="about_licence">Ачык булак лицензиялары</string>
+    <string name="about_network_err">Жаңыртууларды текшерүүгө болбойт. Телефонуңуз тармакка туташылган эмес.</string>
+    <string name="about_new_version_exist">Жаңы версия байкалат</string>
+    <string name="about_retry">Дагы арак. кыл</string>
+    <string name="about_update">Жаңыртуу</string>
+    <string name="about_version">Версия %s</string>
     <string name="activity_not_available">Бул колдонмо сиздин түзмөгүңүздө байкалбайт.</string>
     <string name="activity_not_found">Сунуучу орнотулган эмес</string>
     <string name="align_to_bottom">Төмөн жагына ирээттөө</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Бул бетте орун жок</string>
     <string name="out_of_space_dialog">Бул бетте башка орун жок. Нерсе жаңы бетке кошулат.</string>
     <string name="permdesc_install_widget">Бул колдонмо башкы экранга виджеттерди кошо алат.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Бул колдонмо Башкы экрандын сол жагында жайгашкан кардардык мазмун бетинин орнотууларын окуй алат.</string>
+    <string name="permdesc_write_zeropage_settings">Бул колдонмо Башкы экрандын сол жагында жайгашкан кардардык мазмун бетинин орнотууларын өзгөртө алат.</string>
     <string name="permlab_install_widget">Виджеттерди кошуу</string>
+    <string name="permlab_read_settings">Башкы экран орнотууларын жана тез чакырмаларды окуу</string>
+    <string name="permlab_read_zeropage_settings">Жеке мазмундун баракча орнотууларын окуу</string>
+    <string name="permlab_write_zeropage_settings">Кардардык мазмун бетинин орнотууларын өзгөртүу</string>
     <string name="quick_option_add_apps">Колдонмолорду кошуу</string>
     <string name="quick_option_add_shortcut_to_home">Башкыга тез чакыр. кошуу</string>
     <string name="quick_option_add_to_personal">Жекелик. кош</string>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Історія пошуку</string>
+    <string name="about">Про %s</string>
+    <string name="about_already_installed">Останню версію вже встановлено.</string>
+    <string name="about_home_screen">Головний екран</string>
+    <string name="about_licence">Ліцензії ПЗ із відкритим кодом</string>
+    <string name="about_network_err">Неможливо перевірити наявність оновлень. Телефон не підключено до мережі.</string>
+    <string name="about_new_version_exist">Доступна нова версія.</string>
+    <string name="about_retry">Повторити</string>
+    <string name="about_update">Оновити</string>
+    <string name="about_version">Версія %s</string>
     <string name="activity_not_available">Ця програма недоступна для вашого пристрою.</string>
     <string name="activity_not_found">Програму не інстальовано.</string>
     <string name="align_to_bottom">Вирівняти по нижньому краю</string>
@@ -108,7 +117,7 @@
     <string name="ok">ОК</string>
     <string name="only_one_widget_instance_allowed">Віджет %s вже додано на головний екран.</string>
     <string name="option_menu_contact_up">Зв’язатися з нами</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Налаштування</string>
     <string name="options_menu">Інші опції</string>
     <string name="options_menu_search_recommend">Параметри пошуку</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">На цій сторінці немає вільного місця</string>
     <string name="out_of_space_dialog">На сторінці не залишилося місця. Об’єкт буде додано на нову сторінку.</string>
     <string name="permdesc_install_widget">Ця програма може додавати віджети на головний екран.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ця програма може читати налаштування сторінки настроюваного вмісту, що знаходиться в лівій частині головного екрана.</string>
+    <string name="permdesc_write_zeropage_settings">Ця програма може змінювати налаштування сторінки настроюваного вмісту, що знаходиться в лівій частині головного екрана.</string>
     <string name="permlab_install_widget">Додавання віджетів</string>
+    <string name="permlab_read_settings">зчитувати установки та клавіши швидкого доступу екрана</string>
+    <string name="permlab_read_zeropage_settings">Читання налашт.стор.настроюв.вмісту</string>
+    <string name="permlab_write_zeropage_settings">Зміна налашт. стор. настроюв.вмісту</string>
     <string name="quick_option_add_apps">Додати програми</string>
     <string name="quick_option_add_shortcut_to_home">Додати ярлик на гол.екран</string>
     <string name="quick_option_add_to_personal">Дод.до особ.</string>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">搜尋記錄</string>
+    <string name="about">關於 %s</string>
+    <string name="about_already_installed">已安裝最新版本。</string>
+    <string name="about_home_screen">主螢幕</string>
+    <string name="about_licence">開放原始碼授權</string>
+    <string name="about_network_err">無法查看更新。您的手機未連接至網路。</string>
+    <string name="about_new_version_exist">已有新版本可用。</string>
+    <string name="about_retry">重試</string>
+    <string name="about_update">更新</string>
+    <string name="about_version">版本%s</string>
     <string name="activity_not_available">此應用程式目前無法供您的裝置使用。</string>
     <string name="activity_not_found">未安裝應用程式。</string>
     <string name="align_to_bottom">置底對齊</string>
@@ -108,7 +117,7 @@
     <string name="ok">確定</string>
     <string name="only_one_widget_instance_allowed">已新增 %s widget 到主螢幕。</string>
     <string name="option_menu_contact_up">與我們聯絡</string>
-    <string name="option_menu_galaxy_essentials">GALAXY 基本軟體</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">設定</string>
     <string name="options_menu">更多選項</string>
     <string name="options_menu_search_recommend">搜尋選項</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">此頁面沒有更多空間。</string>
     <string name="out_of_space_dialog">此頁面沒有多餘空間。項目將加入至新頁面。</string>
     <string name="permdesc_install_widget">此應用程式可新增 widget 至主螢幕。</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">此應用程式可讀取位於主螢幕左側的自訂內容頁面設定。</string>
+    <string name="permdesc_write_zeropage_settings">此應用程式可變更位於主螢幕左側的自訂內容頁面設定。</string>
     <string name="permlab_install_widget">新增 widget</string>
+    <string name="permlab_read_settings">讀取首頁的設定與捷徑</string>
+    <string name="permlab_read_zeropage_settings">讀取自訂內容頁面設定</string>
+    <string name="permlab_write_zeropage_settings">變更自定內容頁面設定</string>
     <string name="quick_option_add_apps">新增應用程式</string>
     <string name="quick_option_add_shortcut_to_home">新增捷徑至首頁</string>
     <string name="quick_option_add_to_personal">新增至個人</string>

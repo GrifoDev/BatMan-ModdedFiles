@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->startSettingActivity(Z)V
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->restoreScreenGrid(IZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
+.field final synthetic val$finishStage:Z
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsController;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/controller/AppsController$23;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
+
+    iput-boolean p2, p0, Lcom/android/launcher3/allapps/controller/AppsController$23;->val$finishStage:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,7 +49,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$23;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$600(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1
@@ -54,12 +57,15 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$23;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    # invokes: Lcom/android/launcher3/allapps/controller/AppsController;->repositionByGrid([I)V
     invoke-static {v1, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->access$700(Lcom/android/launcher3/allapps/controller/AppsController;[I)V
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$23;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
     invoke-virtual {v1}, Lcom/android/launcher3/allapps/controller/AppsController;->updateDirtyItems()V
+
+    iget-boolean v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$23;->val$finishStage:Z
+
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$23;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
@@ -67,7 +73,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$23;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    # invokes: Lcom/android/launcher3/allapps/controller/AppsController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
     invoke-static {v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$800(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
 
     move-result-object v1
@@ -78,5 +83,18 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/common/stage/StageManager;->finishStage(Lcom/android/launcher3/common/stage/Stage;Lcom/android/launcher3/common/stage/StageEntry;)V
 
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getTopViewChangedMessageHandler()Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;
+
+    move-result-object v1
+
+    const/4 v2, 0x6
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;->sendMessage(I)V
+
+    :cond_0
     return-void
 .end method

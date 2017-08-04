@@ -135,7 +135,7 @@
 
     sput v1, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->transition_rotation_max:F
 
-    const v1, 0x7f0900d8
+    const v1, 0x7f0900e6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -143,7 +143,7 @@
 
     iput v1, p0, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->mDragBarSize:I
 
-    const v1, 0x7f090158
+    const v1, 0x7f090166
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -151,7 +151,7 @@
 
     iput v1, p0, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->mEditModePanel_left_Adjust:I
 
-    const v1, 0x7f090159
+    const v1, 0x7f090167
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

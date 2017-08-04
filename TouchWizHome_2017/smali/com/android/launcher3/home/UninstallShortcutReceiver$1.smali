@@ -148,7 +148,7 @@
     :cond_4
     iget-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$1;->val$context:Landroid/content/Context;
 
-    const v4, 0x7f080097
+    const v4, 0x7f0800a6
 
     const/4 v5, 0x1
 
@@ -189,7 +189,6 @@
 
     iget-object v5, v0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
 
-    # invokes: Lcom/android/launcher3/home/UninstallShortcutReceiver;->shortcutExistInQueue(Landroid/content/Context;Landroid/content/Intent;)Z
     invoke-static {v3, v4, v5}, Lcom/android/launcher3/home/UninstallShortcutReceiver;->access$000(Lcom/android/launcher3/home/UninstallShortcutReceiver;Landroid/content/Context;Landroid/content/Intent;)Z
 
     move-result v3

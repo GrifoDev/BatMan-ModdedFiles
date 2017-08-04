@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Historia wyszukiwania</string>
+    <string name="about">%s — informacje</string>
+    <string name="about_already_installed">Najnowsza wersja jest już zainstalowana.</string>
+    <string name="about_home_screen">Ekran startowy</string>
+    <string name="about_licence">Licencje Open source</string>
+    <string name="about_network_err">Nie można wyszukać aktualizacji. Telefon nie jest połączony z siecią.</string>
+    <string name="about_new_version_exist">Dostępna jest nowa wersja.</string>
+    <string name="about_retry">Ponów</string>
+    <string name="about_update">Aktualizuj</string>
+    <string name="about_version">Wersja %s</string>
     <string name="activity_not_available">Ta aplikacja nie jest dostępna dla Twojego urządzenia.</string>
     <string name="activity_not_found">Aplikacja nie została zainstalowana.</string>
     <string name="align_to_bottom">Wyrównaj do dołu</string>
@@ -70,7 +79,7 @@ Microsoft"</string>
     <string name="home_screen_mode_only_home">Tylko ekran startowy</string>
     <string name="home_screen_screengrid">Siatka ekranu startowego</string>
     <string name="home_screen_settings_hide_apps">Ukryj aplikacje</string>
-    <string name="homes_screen_settings">Ust. Ekranu głównego</string>
+    <string name="homes_screen_settings">Ust. ekranu głównego</string>
     <string name="homesetting_easymode_close">Zamknij</string>
     <string name="homesetting_easymode_summary">Tryb ułatwienia można wyłączyć w menu Ustawienia.</string>
     <string name="homesetting_easymode_title">Tryb ułatwienia włączony</string>
@@ -120,7 +129,13 @@ Microsoft"</string>
     <string name="out_of_space">Brak miejsca na tej stronie</string>
     <string name="out_of_space_dialog">Brak miejsca na tej stronie. Element zostanie dodany do nowej strony.</string>
     <string name="permdesc_install_widget">Ta aplikacja umożliwia dodawanie widgetów do ekranu startowego.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ta aplikacja może odczytywać ustawienia niestandardowej strony zawartości, znajdującej się po lewej stronie ekranu startowego.</string>
+    <string name="permdesc_write_zeropage_settings">Ta aplikacja może zmieniać ustawienia niestandardowej strony zawartości, znajdującej się po lewej stronie ekranu startowego.</string>
     <string name="permlab_install_widget">Dodaj widgety</string>
+    <string name="permlab_read_settings">czytaj ustawienia początkowe i skróty</string>
+    <string name="permlab_read_zeropage_settings">Odczyt. ust. niestand. str. zawart.</string>
+    <string name="permlab_write_zeropage_settings">Zmień niestan. ustaw. str. zawart.</string>
     <string name="quick_option_add_apps">Dodaj aplikacje</string>
     <string name="quick_option_add_shortcut_to_home">Dodaj skr. do ekr. start.</string>
     <string name="quick_option_add_to_personal">Dod.do osob.</string>

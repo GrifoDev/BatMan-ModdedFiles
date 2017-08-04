@@ -24,15 +24,35 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/helper/ItemTouchHelper;Landroid/support/v7/widget/RecyclerView$ViewHolder;IIFFFFILandroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .locals 9
 
     iput-object p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
-    iput p9, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->val$swipeDir:I
+    move/from16 v0, p9
 
-    iput-object p10, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->val$prevSelected:Landroid/support/v7/widget/RecyclerView$ViewHolder;
+    iput v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->val$swipeDir:I
 
-    invoke-direct/range {p0 .. p8}, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;-><init>(Landroid/support/v7/widget/helper/ItemTouchHelper;Landroid/support/v7/widget/RecyclerView$ViewHolder;IIFFFF)V
+    move-object/from16 v0, p10
+
+    iput-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$3;->val$prevSelected:Landroid/support/v7/widget/RecyclerView$ViewHolder;
+
+    move-object v1, p0
+
+    move-object v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    move v5, p5
+
+    move v6, p6
+
+    move/from16 v7, p7
+
+    move/from16 v8, p8
+
+    invoke-direct/range {v1 .. v8}, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;-><init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIFFFF)V
 
     return-void
 .end method

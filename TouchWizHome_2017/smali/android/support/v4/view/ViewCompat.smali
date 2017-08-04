@@ -17,6 +17,8 @@
         Landroid/support/v4/view/ViewCompat$ViewCompatApi15Impl;,
         Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;,
         Landroid/support/v4/view/ViewCompat$ScrollIndicators;,
+        Landroid/support/v4/view/ViewCompat$NestedScrollType;,
+        Landroid/support/v4/view/ViewCompat$ScrollAxis;,
         Landroid/support/v4/view/ViewCompat$FocusRelativeDirection;,
         Landroid/support/v4/view/ViewCompat$FocusRealDirection;,
         Landroid/support/v4/view/ViewCompat$FocusDirection;
@@ -119,138 +121,156 @@
 
 .field private static final TAG:Ljava/lang/String; = "ViewCompat"
 
+.field public static final TYPE_NON_TOUCH:I = 0x1
+
+.field public static final TYPE_TOUCH:I
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
     invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi26Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi26Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi26Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi26Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     :goto_0
     return-void
 
     :cond_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x18
 
     if-lt v0, v1, :cond_1
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi24Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi24Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi24Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi24Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 
     :cond_1
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x17
 
     if-lt v0, v1, :cond_2
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi23Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi23Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi23Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi23Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 
     :cond_2
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x15
 
     if-lt v0, v1, :cond_3
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 
     :cond_3
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x13
 
     if-lt v0, v1, :cond_4
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi19Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi19Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi19Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi19Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 
     :cond_4
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x12
 
     if-lt v0, v1, :cond_5
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi18Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi18Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi18Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi18Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 
     :cond_5
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x11
 
     if-lt v0, v1, :cond_6
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi17Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi17Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi17Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi17Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 
     :cond_6
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x10
 
     if-lt v0, v1, :cond_7
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi16Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi16Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi16Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi16Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 
     :cond_7
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0xf
 
     if-lt v0, v1, :cond_8
 
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatApi15Impl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi15Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatApi15Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi15Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 
     :cond_8
-    new-instance v1, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     goto :goto_0
 .end method
@@ -259,6 +279,34 @@
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static addKeyboardNavigationClusters(Landroid/view/View;Ljava/util/Collection;I)V
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/view/View;",
+            "Ljava/util/Collection",
+            "<",
+            "Landroid/view/View;",
+            ">;I)V"
+        }
+    .end annotation
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0, p1, p2}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->addKeyboardNavigationClusters(Landroid/view/View;Ljava/util/Collection;I)V
 
     return-void
 .end method
@@ -345,6 +393,10 @@
 
 .method public static dispatchNestedFling(Landroid/view/View;FFZ)Z
     .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
@@ -357,6 +409,10 @@
 
 .method public static dispatchNestedPreFling(Landroid/view/View;FF)Z
     .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
@@ -369,6 +425,18 @@
 
 .method public static dispatchNestedPreScroll(Landroid/view/View;II[I[I)Z
     .locals 6
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # [I
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # [I
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
@@ -389,8 +457,83 @@
     return v0
 .end method
 
+.method public static dispatchNestedPreScroll(Landroid/view/View;II[I[II)Z
+    .locals 6
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # [I
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # [I
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+
+    instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    if-eqz v0, :cond_0
+
+    move-object v0, p0
+
+    check-cast v0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    move v1, p1
+
+    move v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p4
+
+    move v5, p5
+
+    invoke-interface/range {v0 .. v5}, Landroid/support/v4/view/NestedScrollingChild2;->dispatchNestedPreScroll(II[I[II)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    if-nez p5, :cond_1
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->dispatchNestedPreScroll(Landroid/view/View;II[I[I)Z
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static dispatchNestedScroll(Landroid/view/View;IIII[I)Z
     .locals 7
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p5    # [I
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
@@ -411,6 +554,73 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static dispatchNestedScroll(Landroid/view/View;IIII[II)Z
+    .locals 7
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p5    # [I
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+
+    instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    if-eqz v0, :cond_0
+
+    move-object v0, p0
+
+    check-cast v0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    move v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    move-object v5, p5
+
+    move v6, p6
+
+    invoke-interface/range {v0 .. v6}, Landroid/support/v4/view/NestedScrollingChild2;->dispatchNestedScroll(IIII[II)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    if-nez p6, :cond_1
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move v3, p2
+
+    move v4, p3
+
+    move v5, p4
+
+    move-object v6, p5
+
+    invoke-virtual/range {v0 .. v6}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->dispatchNestedScroll(Landroid/view/View;IIII[I)Z
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static dispatchStartTemporaryDetach(Landroid/view/View;)V
@@ -652,6 +862,22 @@
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->getMinimumWidth(Landroid/view/View;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static getNextClusterForwardId(Landroid/view/View;)I
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->getNextClusterForwardId(Landroid/view/View;)I
 
     move-result v0
 
@@ -916,6 +1142,10 @@
 
 .method public static hasNestedScrollingParent(Landroid/view/View;)Z
     .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
@@ -924,6 +1154,39 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static hasNestedScrollingParent(Landroid/view/View;I)Z
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    if-eqz v0, :cond_1
+
+    check-cast p0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    invoke-interface {p0, p1}, Landroid/support/v4/view/NestedScrollingChild2;->hasNestedScrollingParent(I)Z
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_1
+    if-nez p1, :cond_0
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->hasNestedScrollingParent(Landroid/view/View;)Z
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method public static hasOnClickListeners(Landroid/view/View;)Z
@@ -974,6 +1237,22 @@
     return v0
 .end method
 
+.method public static isFocusedByDefault(Landroid/view/View;)Z
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->isFocusedByDefault(Landroid/view/View;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static isImportantForAccessibility(Landroid/view/View;)Z
     .locals 1
 
@@ -992,6 +1271,22 @@
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->isInLayout(Landroid/view/View;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isKeyboardNavigationCluster(Landroid/view/View;)Z
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->isKeyboardNavigationCluster(Landroid/view/View;)Z
 
     move-result v0
 
@@ -1024,6 +1319,10 @@
 
 .method public static isNestedScrollingEnabled(Landroid/view/View;)Z
     .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
@@ -1066,6 +1365,22 @@
     invoke-virtual {p0}, Landroid/view/View;->jumpDrawablesToCurrentState()V
 
     return-void
+.end method
+
+.method public static keyboardNavigationClusterSearch(Landroid/view/View;Landroid/view/View;I)Landroid/view/View;
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0, p1, p2}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->keyboardNavigationClusterSearch(Landroid/view/View;Landroid/view/View;I)Landroid/view/View;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public static offsetLeftAndRight(Landroid/view/View;I)V
@@ -1214,6 +1529,22 @@
     return v0
 .end method
 
+.method public static restoreDefaultFocus(Landroid/view/View;)Z
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->restoreDefaultFocus(Landroid/view/View;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static setAccessibilityDelegate(Landroid/view/View;Landroid/support/v4/view/AccessibilityDelegateCompat;)V
     .locals 1
 
@@ -1330,6 +1661,20 @@
     return-void
 .end method
 
+.method public static setFocusedByDefault(Landroid/view/View;Z)V
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0, p1}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->setFocusedByDefault(Landroid/view/View;Z)V
+
+    return-void
+.end method
+
 .method public static setHasTransientState(Landroid/view/View;Z)V
     .locals 1
 
@@ -1346,6 +1691,20 @@
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     invoke-virtual {v0, p0, p1}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->setImportantForAccessibility(Landroid/view/View;I)V
+
+    return-void
+.end method
+
+.method public static setKeyboardNavigationCluster(Landroid/view/View;Z)V
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0, p1}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->setKeyboardNavigationCluster(Landroid/view/View;Z)V
 
     return-void
 .end method
@@ -1396,10 +1755,28 @@
 
 .method public static setNestedScrollingEnabled(Landroid/view/View;Z)V
     .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     invoke-virtual {v0, p0, p1}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->setNestedScrollingEnabled(Landroid/view/View;Z)V
+
+    return-void
+.end method
+
+.method public static setNextClusterForwardId(Landroid/view/View;I)V
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0, p1}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->setNextClusterForwardId(Landroid/view/View;I)V
 
     return-void
 .end method
@@ -1678,6 +2055,10 @@
 
 .method public static startNestedScroll(Landroid/view/View;I)Z
     .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
@@ -1688,14 +2069,84 @@
     return v0
 .end method
 
+.method public static startNestedScroll(Landroid/view/View;II)Z
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    if-eqz v0, :cond_0
+
+    check-cast p0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    invoke-interface {p0, p1, p2}, Landroid/support/v4/view/NestedScrollingChild2;->startNestedScroll(II)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    if-nez p2, :cond_1
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0, p1}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->startNestedScroll(Landroid/view/View;I)Z
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static stopNestedScroll(Landroid/view/View;)V
     .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->stopNestedScroll(Landroid/view/View;)V
 
     return-void
+.end method
+
+.method public static stopNestedScroll(Landroid/view/View;I)V
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    if-eqz v0, :cond_1
+
+    check-cast p0, Landroid/support/v4/view/NestedScrollingChild2;
+
+    invoke-interface {p0, p1}, Landroid/support/v4/view/NestedScrollingChild2;->stopNestedScroll(I)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-nez p1, :cond_0
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->stopNestedScroll(Landroid/view/View;)V
+
+    goto :goto_0
 .end method
 
 .method public static updateDragShadow(Landroid/view/View;Landroid/view/View$DragShadowBuilder;)V

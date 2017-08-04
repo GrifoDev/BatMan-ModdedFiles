@@ -407,7 +407,6 @@
 .method public static getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$SingletonHolder;->sOpenThemeMgr:Lcom/android/launcher3/theme/OpenThemeManager;
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager$SingletonHolder;->access$100()Lcom/android/launcher3/theme/OpenThemeManager;
 
     move-result-object v0
@@ -1121,7 +1120,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0200b9
+    const v1, 0x7f0200be
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1208,7 +1207,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900da
+    const v1, 0x7f0900e8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1216,7 +1215,7 @@
 
     iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mTextBackgroundExtraPadding:I
 
-    const v1, 0x7f0900d9
+    const v1, 0x7f0900e7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2396,7 +2395,6 @@
 
     sget-object v3, Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;->HOME:Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;->value:I
     invoke-static {v3}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;->access$200(Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;)I
 
     move-result v3
@@ -2491,7 +2489,6 @@
 
     sget-object v3, Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;->HOME:Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;->value:I
     invoke-static {v3}, Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;->access$200(Lcom/android/launcher3/theme/OpenThemeManager$ThemeType;)I
 
     move-result v3
@@ -2537,9 +2534,9 @@
 .method public preloadBadgeDrawable()Landroid/graphics/drawable/Drawable;
     .locals 9
 
-    const v8, 0x7f020088
+    const v8, 0x7f02008b
 
-    const v7, 0x7f020087
+    const v7, 0x7f02008a
 
     sget-object v6, Lcom/android/launcher3/theme/OpenThemeManager;->mContext:Landroid/content/Context;
 

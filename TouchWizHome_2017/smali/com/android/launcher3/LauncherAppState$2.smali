@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/LauncherAppState$2;->this$0:Lcom/android/launcher3/LauncherAppState;
 
-    # getter for: Lcom/android/launcher3/LauncherAppState;->mModel:Lcom/android/launcher3/LauncherModel;
     invoke-static {v0}, Lcom/android/launcher3/LauncherAppState;->access$400(Lcom/android/launcher3/LauncherAppState;)Lcom/android/launcher3/LauncherModel;
 
     move-result-object v0

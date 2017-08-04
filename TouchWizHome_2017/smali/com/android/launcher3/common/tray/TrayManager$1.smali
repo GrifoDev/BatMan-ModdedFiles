@@ -45,7 +45,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/tray/TrayManager$1;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
 
-    # getter for: Lcom/android/launcher3/common/tray/TrayManager;->mFakeViewToBeShownOnChangeStage:Lcom/android/launcher3/common/tray/FakeView;
     invoke-static {v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$000(Lcom/android/launcher3/common/tray/TrayManager;)Lcom/android/launcher3/common/tray/FakeView;
 
     move-result-object v1
@@ -54,7 +53,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/tray/TrayManager$1;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
 
-    # getter for: Lcom/android/launcher3/common/tray/TrayManager;->mFakeViewToBeShownOnChangeStage:Lcom/android/launcher3/common/tray/FakeView;
     invoke-static {v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$000(Lcom/android/launcher3/common/tray/TrayManager;)Lcom/android/launcher3/common/tray/FakeView;
 
     move-result-object v1
@@ -77,14 +75,12 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/tray/TrayManager$1;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
 
-    # getter for: Lcom/android/launcher3/common/tray/TrayManager;->mCurrentChangedOffsetY:F
     invoke-static {v3}, Lcom/android/launcher3/common/tray/TrayManager;->access$100(Lcom/android/launcher3/common/tray/TrayManager;)F
 
     move-result v3
 
     iget-object v4, p0, Lcom/android/launcher3/common/tray/TrayManager$1;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
 
-    # getter for: Lcom/android/launcher3/common/tray/TrayManager;->mTrayHeight:I
     invoke-static {v4}, Lcom/android/launcher3/common/tray/TrayManager;->access$200(Lcom/android/launcher3/common/tray/TrayManager;)I
 
     move-result v4

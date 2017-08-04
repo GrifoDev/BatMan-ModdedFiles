@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">ប្រវត្តិ​ស្វែងរក</string>
+    <string name="about">អំពី %s</string>
+    <string name="about_already_installed">បាន​ដំឡើង​កំណែ​ថ្មី​បំផុត​ហើយ។</string>
+    <string name="about_home_screen">គេហអេក្រង់</string>
+    <string name="about_licence">អាជ្ញាបណ្ណ​ប្រភព​បើក​ទូលាយ</string>
+    <string name="about_network_err">មិន​អាច​ពិនិត្យ​រក​អាប់ដេត។ ទូរសព្ទ​របស់​អ្នក​មិន​បាន​ភ្ជាប់​ទៅ​បណ្ដាញ។</string>
+    <string name="about_new_version_exist">មាន​កំណែ​ថ្មី។</string>
+    <string name="about_retry">សាកល្បង​ម្ដងទៀត</string>
+    <string name="about_update">អាប់ដេត</string>
+    <string name="about_version">កំណែ %s</string>
     <string name="activity_not_available">កម្មវិធី​នេះ​មិន​អាច​ប្រើ​បាន​ទេ​សម្រាប់​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="activity_not_found">មិន​បាន​ដំឡើង​កម្មវិធី។</string>
     <string name="align_to_bottom">តម្រឹម​ខាងក្រោម</string>
@@ -24,9 +33,9 @@
     <string name="autoalign_popup_message">នៅពេល​អ្នក​តម្រឹម​ពួកវា អ្នក​មិន​អាច​ត្រឡប់​ទៅ​ការរៀបចំ​ពីមុន​របស់​អ្នក​ឡើយ។</string>
     <string name="autoalign_popup_title">តម្រឹម​ធាតុ​លើ​ទំព័រ?</string>
     <string name="available_galaxyapps">មាន​ក្នុង Galaxy Apps</string>
-    <string name="badge_manage_explain">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​មេដាយ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
-    <string name="badge_manage_summary">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​មេដាយ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
-    <string name="badge_manage_title">គ្រប់គ្រង​មេដាយ​កម្មវិធី</string>
+    <string name="badge_manage_explain">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​សញ្ញាលក្ខណ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
+    <string name="badge_manage_summary">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​សញ្ញាលក្ខណ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
+    <string name="badge_manage_title">គ្រប់គ្រង​សញ្ញាលក្ខណ​កម្មវិធី</string>
     <string name="badge_select_all_app">ទាំង​អស់</string>
     <string name="button">ប៊ូតុង</string>
     <string name="cancel">បោះបង់</string>
@@ -108,7 +117,7 @@
     <string name="ok">ព្រម</string>
     <string name="only_one_widget_instance_allowed">វីដជីត %s ត្រូវ​បាន​ថែម​ទៅ​គេហអេក្រង់​ហើយ។</string>
     <string name="option_menu_contact_up">ទាក់ទង​យើង</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">ការកំណត់</string>
     <string name="options_menu">ជម្រើស​ច្រើន​ទៀត</string>
     <string name="options_menu_search_recommend">ជម្រើស​ស្វែងរក</string>
@@ -119,13 +128,19 @@
     <string name="out_of_space">គ្មាន​កន្លែង​បន្ថែម​លើ​ទំព័រ​នេះ</string>
     <string name="out_of_space_dialog">មិនមាន​កន្លែង​ច្រើនទៀត​លើ​ទំព័រ​នេះ។ ធាតុ​នេះ​នឹង​ត្រូវ​បាន​ថែម​ទៅ​ទំព័រ​ថ្មី។</string>
     <string name="permdesc_install_widget">កម្មវិធី​នេះ​អាច​ថែម​វីដជីត​ទៅ​គេហអេក្រង់។</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">កម្មវិធី​នេះ​អាច​អាន​ការកំណត់​នៃ​ទំព័រ​ខ្លឹមព័ត៌មាន​តាមបំណង ដែល​ស្ថិត​នៅ​ខាងឆ្វេង​នៃ​គេហអេក្រង់។</string>
+    <string name="permdesc_write_zeropage_settings">កម្មវិធី​នេះ​អាច​ប្ដូរ​ការកំណត់​នៃ​ទំព័រ​ខ្លឹមព័ត៌មាន​តាមបំណង ដែល​ស្ថិត​នៅ​ខាងឆ្វេង​នៃ​គេហអេក្រង់។</string>
     <string name="permlab_install_widget">ថែម​វីដជីត</string>
+    <string name="permlab_read_settings">អាន​ការកំណត់​គេហ និង ផ្លូវ​កាត់</string>
+    <string name="permlab_read_zeropage_settings">អាន​ការកំណត់​ទំព័រ​ខ្លឹមព័ត៌មាន​តាមបំណង</string>
+    <string name="permlab_write_zeropage_settings">ប្ដូរ​ការកំណត់​ទំព័រ​ខ្លឹមព័ត៌មាន​តាមបំណង</string>
     <string name="quick_option_add_apps">ថែម​កម្មវិធី</string>
     <string name="quick_option_add_shortcut_to_home">ថែម​ផ្លូវកាត់​ទៅ​គេហ</string>
     <string name="quick_option_add_to_personal">ថែម​ទៅ​ផ្ទាល់ខ្លួន</string>
     <string name="quick_option_app_info">ព័ត៌មាន​កម្មវិធី</string>
     <string name="quick_option_cant_disable">មិន​អាច​បិទ %s។</string>
-    <string name="quick_option_clear_badge">ជម្រះ​មេដាយ</string>
+    <string name="quick_option_clear_badge">ជម្រះ​សញ្ញាលក្ខណ</string>
     <string name="quick_option_delete_folder">លុប​សឺមី</string>
     <string name="quick_option_delete_folder_alert">នឹង​លុប​សឺមី %s។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​នៅតែ​អាច​ប្រើ​បាន​ដដែល​លើ​អេក្រង់​កម្មវិធី។</string>
     <string name="quick_option_delete_folder_alert_no_title">នឹង​លុប​សឺមី​នេះ។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​នៅតែ​អាច​ប្រើ​បាន​ដដែល​លើ​អេក្រង់​កម្មវិធី។</string>

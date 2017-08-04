@@ -51,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderPagedView$1;->this$0:Lcom/android/launcher3/folder/view/FolderPagedView;
 
-    # getter for: Lcom/android/launcher3/folder/view/FolderPagedView;->mPendingAnimations:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderPagedView;->access$000(Lcom/android/launcher3/folder/view/FolderPagedView;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -154,7 +153,6 @@
 
     iget v2, p0, Lcom/android/launcher3/folder/view/FolderPagedView$1;->val$newRank:I
 
-    # invokes: Lcom/android/launcher3/folder/view/FolderPagedView;->addViewForRank(Landroid/view/View;I)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/folder/view/FolderPagedView;->access$100(Lcom/android/launcher3/folder/view/FolderPagedView;Landroid/view/View;I)V
 
     goto :goto_1

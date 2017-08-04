@@ -1134,7 +1134,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v0, 0x7f0f00d7
+    const v0, 0x7f0f00e7
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1144,7 +1144,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f0f00d8
+    const v0, 0x7f0f00e8
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1154,7 +1154,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mPagedView:Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
 
-    const v0, 0x7f0f00da
+    const v0, 0x7f0f00ea
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 

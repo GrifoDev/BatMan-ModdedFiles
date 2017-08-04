@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Search history</string>
+    <string name="about">About %s</string>
+    <string name="about_already_installed">The latest version is already installed.</string>
+    <string name="about_home_screen">Pejy trano</string>
+    <string name="about_licence">Open source licenses</string>
+    <string name="about_network_err">"Can't check for updates. Your phone isn't connected to a network."</string>
+    <string name="about_new_version_exist">Misy kinova vaovao.</string>
+    <string name="about_retry">Haverina</string>
+    <string name="about_update">Update</string>
+    <string name="about_version">Kinova %s</string>
     <string name="activity_not_available">This app is not available for your device.</string>
     <string name="activity_not_found">Tsy tafapetraka ny rindranasa.</string>
     <string name="align_to_bottom">Align to bottom</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">"Tsisy toerana malalaka intsony eran'ny pejy"</string>
     <string name="out_of_space_dialog">There is no more room on this page. The item will be added to a new page.</string>
     <string name="permdesc_install_widget">This app can add widgets to the home screen.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">This app can read the settings of the custom content page, which is located to the left of the Home screen.</string>
+    <string name="permdesc_write_zeropage_settings">This app can change the settings of the custom content page, which is located to the left of the Home screen.</string>
     <string name="permlab_install_widget">Add widgets</string>
+    <string name="permlab_read_settings">Hamaky ny Tefy trano sy ny hitsindalana</string>
+    <string name="permlab_read_zeropage_settings">Read custom content page settings</string>
+    <string name="permlab_write_zeropage_settings">Change custom content page settings</string>
     <string name="quick_option_add_apps">Add apps</string>
     <string name="quick_option_add_shortcut_to_home">Add shortcut to Home</string>
     <string name="quick_option_add_to_personal">Ho manokana</string>

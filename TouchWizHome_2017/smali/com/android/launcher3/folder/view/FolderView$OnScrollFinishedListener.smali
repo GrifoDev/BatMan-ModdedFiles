@@ -47,7 +47,6 @@
 
     const/4 v2, 0x1
 
-    # invokes: Lcom/android/launcher3/folder/view/FolderView;->onDragOver(Lcom/android/launcher3/common/drag/DropTarget$DragObject;I)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/folder/view/FolderView;->access$2100(Lcom/android/launcher3/folder/view/FolderView;Lcom/android/launcher3/common/drag/DropTarget$DragObject;I)V
 
     return-void

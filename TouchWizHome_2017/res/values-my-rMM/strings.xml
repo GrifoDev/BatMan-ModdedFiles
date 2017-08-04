@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">မှတ်တမ်းဟောင်း ရှာဖွေပါ</string>
+    <string name="about">%s ၏ အကြောင်း</string>
+    <string name="about_already_installed">နောက်ဆုံးပေါ်ဗားရှင်းကို ထည့်သွင်းထားပြီးဖြစ်သည်။</string>
+    <string name="about_home_screen">ပင်မဖန်သားပြင်</string>
+    <string name="about_licence">အခမဲ့သုံး ရင်းမြစ်လိုင်စင်များ</string>
+    <string name="about_network_err">အပ်ဒိတ်များကို စစ်ဆေး၍မရပါ။ သင့်ဖုန်းကို ကွန်ရက်နှင့် ချိတ်ဆက်မထားပါ။</string>
+    <string name="about_new_version_exist">ဗားရှင်း အသစ်တစ်ခု ရနိုင်သည်။</string>
+    <string name="about_retry">ပြန်ကြိုးစားပါ</string>
+    <string name="about_update">အပ်ဒိတ်</string>
+    <string name="about_version">ပုံစံ %s</string>
     <string name="activity_not_available">ဤအက်ပ်သည် သင့်ကိရိယာအတွက် မရနိုင်ပါ။</string>
     <string name="activity_not_found">လုပ်ငန်းသုံးပရိုဂရမ်အား သွင်းမထားပါ။</string>
     <string name="align_to_bottom">အောက်ခြေတွင် စီပါ</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ဤစာမျက်နှာပေါ်တွင် နေရာမရှိတော့ပါ</string>
     <string name="out_of_space_dialog">ဤစာမျက်နှာပေါ်တွင် နောက်ထပ် နေရာ မရှိတော့ပါ။ ဤအရာကို စာမျက်နှာအသစ်သို့ ထည့်ပါမည်။</string>
     <string name="permdesc_install_widget">ဤအက်ပ်သည် မူလဖန်သားပြင်သို့ ဝဒ်ဂျက်များထည့်နိုင်သည်။</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ဤအက်ပ်က ပင်မ ဖန်သားပြင်၏ ဘယ်ဘက်တွင် ရှိသော စိတ်ကြိုက် အကြောင်းအရာ စာမျက်နှာ၏ သတ်မှတ်ချက်များကို ဖတ်နိုင်သည်။</string>
+    <string name="permdesc_write_zeropage_settings">ဤအက်ပ်က ပင်မ ဖန်သားပြင်၏ ဘယ်ဘက်တွင် ရှိသော စိတ်ကြိုက် အကြောင်းအရာ စာမျက်နှာ၏ သတ်မှတ်ချက်များကို ပြောင်းနိုင်သည်။</string>
     <string name="permlab_install_widget">ဝဒ်ဂျက်များ ထည့်ပါ</string>
+    <string name="permlab_read_settings">ပင်မဆက်တင်များနှင့် ဖြတ်လမ်းများကို ဖတ်ပါ</string>
+    <string name="permlab_read_zeropage_settings">စိတ်ကြိုက် အကြောင်းအရာ စာမျက်နှာ သတ်မှတ်ချက်များကို ဖတ်ပါ</string>
+    <string name="permlab_write_zeropage_settings">စိတ်ကြိုက် အကြောင်းအရာ စာမျက်နှာ သတ်မှတ်ချက်များကို ပြောင်းပါ</string>
     <string name="quick_option_add_apps">အက်ပ်များ ထည့်ပါ</string>
     <string name="quick_option_add_shortcut_to_home">ရှော့ကတ်ကို ပင်မထဲ ထည့်ပါ</string>
     <string name="quick_option_add_to_personal">ကိုယ်ရေးကိုယ်တာသို့ ထည့်ပါ</string>

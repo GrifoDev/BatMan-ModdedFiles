@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Istoric căutare</string>
+    <string name="about">Despre %s</string>
+    <string name="about_already_installed">Cea mai recentă versiune este deja instalată.</string>
+    <string name="about_home_screen">Ecran de pornire</string>
+    <string name="about_licence">Licențe open source</string>
+    <string name="about_network_err">Nu se pot căuta actualizări. Telefonul nu este conectat la o rețea.</string>
+    <string name="about_new_version_exist">Este disponibilă o versiune nouă.</string>
+    <string name="about_retry">Reîncercare</string>
+    <string name="about_update">Actualizare</string>
+    <string name="about_version">Versiunea %s</string>
     <string name="activity_not_available">Aplicaţia nu este disponibilă pentru dispozitivul dvs.</string>
     <string name="activity_not_found">Aplicația nu este instalată.</string>
     <string name="align_to_bottom">Aliniere jos</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget-ul %s a fost deja adăugat la ecranul Acasă.</string>
     <string name="option_menu_contact_up">Contactați-ne</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Setări</string>
     <string name="options_menu">Mai multe opţiuni</string>
     <string name="options_menu_search_recommend">Opțiuni căutare</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Nu mai există spațiu pe această pagină</string>
     <string name="out_of_space_dialog">Nu mai există spațiu pe pagină. Elementul va fi adăugat pe o pagină nouă.</string>
     <string name="permdesc_install_widget">Această aplicație poate adăuga widgeturi pe ecranul Acasă.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Această aplicație poate citi setările paginii de conținut personalizat care se află în partea stângă a ecranului Acasă.</string>
+    <string name="permdesc_write_zeropage_settings">Această aplicație poate modifica setările paginii de conținut personalizat care se află în partea stângă a ecranului Acasă.</string>
     <string name="permlab_install_widget">Adăugare widgeturi</string>
+    <string name="permlab_read_settings">citire setări ecran principal și comenzi rapide</string>
+    <string name="permlab_read_zeropage_settings">Citire setări pag. conținut person.</string>
+    <string name="permlab_write_zeropage_settings">Schimb. setări pag. conținut person.</string>
     <string name="quick_option_add_apps">Adăugare aplicații</string>
     <string name="quick_option_add_shortcut_to_home">Ad. com. rap. pe ecr. Acasă</string>
     <string name="quick_option_add_to_personal">Ad. pe ecr. pers.</string>

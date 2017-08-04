@@ -46,7 +46,6 @@
 
     const/4 v2, 0x1
 
-    # setter for: Lcom/android/launcher3/LauncherModel$LoaderTask;->mLoadAndBindStepFinished:Z
     invoke-static {v0, v2}, Lcom/android/launcher3/LauncherModel$LoaderTask;->access$802(Lcom/android/launcher3/LauncherModel$LoaderTask;Z)Z
 
     const-string v0, "Launcher.Model"

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/DexHomeConverter$2;->this$0:Lcom/android/launcher3/home/DexHomeConverter;
 
-    # invokes: Lcom/android/launcher3/home/DexHomeConverter;->syncItems()V
     invoke-static {v0}, Lcom/android/launcher3/home/DexHomeConverter;->access$100(Lcom/android/launcher3/home/DexHomeConverter;)V
 
     return-void

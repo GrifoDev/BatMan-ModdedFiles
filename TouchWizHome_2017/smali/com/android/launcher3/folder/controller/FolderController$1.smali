@@ -44,7 +44,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderController$1;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
 
-    # getter for: Lcom/android/launcher3/folder/controller/FolderController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/folder/controller/FolderController;->access$000(Lcom/android/launcher3/folder/controller/FolderController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1

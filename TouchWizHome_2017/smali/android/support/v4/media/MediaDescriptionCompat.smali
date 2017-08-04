@@ -58,6 +58,14 @@
 
 .field public static final EXTRA_BT_FOLDER_TYPE:Ljava/lang/String; = "android.media.extra.BT_FOLDER_TYPE"
 
+.field public static final EXTRA_DOWNLOAD_STATUS:Ljava/lang/String; = "android.media.extra.DOWNLOAD_STATUS"
+
+.field public static final STATUS_DOWNLOADED:J = 0x2L
+
+.field public static final STATUS_DOWNLOADING:J = 0x1L
+
+.field public static final STATUS_NOT_DOWNLOADED:J
+
 
 # instance fields
 .field private final mDescription:Ljava/lang/CharSequence;
@@ -197,19 +205,14 @@
 
     const/4 v1, 0x0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2
 
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x15
 
-    if-ge v4, v5, :cond_1
+    if-lt v4, v5, :cond_2
 
-    :cond_0
-    :goto_0
-    return-object v1
-
-    :cond_1
     new-instance v0, Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
     invoke-direct {v0}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;-><init>()V
@@ -254,12 +257,12 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_3
 
     move-object v3, v1
 
-    :goto_1
-    if-eqz v3, :cond_2
+    :goto_0
+    if-eqz v3, :cond_0
 
     const-string v4, "android.support.v4.media.description.NULL_BUNDLE_FLAG"
 
@@ -267,7 +270,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_4
 
     invoke-virtual {v2}, Landroid/os/Bundle;->size()I
 
@@ -275,29 +278,30 @@
 
     const/4 v5, 0x2
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_4
 
     const/4 v2, 0x0
 
-    :cond_2
-    :goto_2
+    :cond_0
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->setExtras(Landroid/os/Bundle;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     invoke-virtual {v0, v3}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->setMediaUri(Landroid/net/Uri;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
-    :cond_3
-    :goto_3
+    :cond_1
+    :goto_2
     invoke-virtual {v0}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->build()Landroid/support/v4/media/MediaDescriptionCompat;
 
     move-result-object v1
 
     iput-object p0, v1, Landroid/support/v4/media/MediaDescriptionCompat;->mDescriptionObj:Ljava/lang/Object;
 
-    goto :goto_0
+    :cond_2
+    return-object v1
 
-    :cond_4
+    :cond_3
     const-string v4, "android.support.v4.media.description.MEDIA_URI"
 
     invoke-virtual {v2, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -308,9 +312,9 @@
 
     move-object v3, v4
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_5
+    :cond_4
     const-string v4, "android.support.v4.media.description.MEDIA_URI"
 
     invoke-virtual {v2, v4}, Landroid/os/Bundle;->remove(Ljava/lang/String;)V
@@ -319,14 +323,14 @@
 
     invoke-virtual {v2, v4}, Landroid/os/Bundle;->remove(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_6
+    :cond_5
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x17
 
-    if-lt v4, v5, :cond_3
+    if-lt v4, v5, :cond_1
 
     invoke-static {p0}, Landroid/support/v4/media/MediaDescriptionCompatApi23;->getMediaUri(Ljava/lang/Object;)Landroid/net/Uri;
 
@@ -334,7 +338,7 @@
 
     invoke-virtual {v0, v4}, Landroid/support/v4/media/MediaDescriptionCompat$Builder;->setMediaUri(Landroid/net/Uri;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
 
-    goto :goto_3
+    goto :goto_2
 .end method
 
 

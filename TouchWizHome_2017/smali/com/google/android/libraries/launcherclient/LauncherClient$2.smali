@@ -41,7 +41,6 @@
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/google/android/libraries/launcherclient/LauncherClient;->notifyStatusChanged(I)V
     invoke-static {v0, v1}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$600(Lcom/google/android/libraries/launcherclient/LauncherClient;I)V
 
     return-void

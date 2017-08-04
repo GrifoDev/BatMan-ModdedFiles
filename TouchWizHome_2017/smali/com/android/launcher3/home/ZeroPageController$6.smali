@@ -47,7 +47,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$500(Lcom/android/launcher3/home/ZeroPageController;)Z
 
     move-result v3
@@ -72,7 +71,6 @@
 
     move-result-object v4
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->showZeroPageDownloadDialog(Landroid/widget/Switch;Z)V
     invoke-static {v3, v4, v10}, Lcom/android/launcher3/home/ZeroPageController;->access$1600(Lcom/android/launcher3/home/ZeroPageController;Landroid/widget/Switch;Z)V
 
     :goto_0
@@ -81,7 +79,6 @@
     :cond_0
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v3
@@ -94,7 +91,6 @@
 
     move-result v4
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->updateZeroPageBg(ZZ)V
     invoke-static {v3, p2, v4}, Lcom/android/launcher3/home/ZeroPageController;->access$1700(Lcom/android/launcher3/home/ZeroPageController;ZZ)V
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$6;->val$zeroPageScreen:Lcom/android/launcher3/home/WorkspaceCellLayout;
@@ -128,17 +124,14 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v4}, Lcom/android/launcher3/home/ZeroPageController;->access$100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v4
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->startActivityInVirtualScreen(Landroid/content/Context;ZZ)V
     invoke-static {v3, v4, v10, v8}, Lcom/android/launcher3/home/ZeroPageController;->access$1800(Lcom/android/launcher3/home/ZeroPageController;Landroid/content/Context;ZZ)V
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->bindVirtualScreen()V
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$1900(Lcom/android/launcher3/home/ZeroPageController;)V
 
     goto :goto_0
@@ -147,14 +140,12 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$1100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v4}, Lcom/android/launcher3/home/ZeroPageController;->access$1100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v4
@@ -175,14 +166,12 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$1100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v4}, Lcom/android/launcher3/home/ZeroPageController;->access$1100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v4
@@ -193,7 +182,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v5}, Lcom/android/launcher3/home/ZeroPageController;->access$1100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v5
@@ -209,7 +197,6 @@
     :cond_3
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v3
@@ -230,7 +217,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$6;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->getZeroPagePackageName()Ljava/lang/String;
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$2000(Lcom/android/launcher3/home/ZeroPageController;)Ljava/lang/String;
 
     move-result-object v3
@@ -244,7 +230,6 @@
     :catch_0
     move-exception v9
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->access$000()Ljava/lang/String;
 
     move-result-object v3

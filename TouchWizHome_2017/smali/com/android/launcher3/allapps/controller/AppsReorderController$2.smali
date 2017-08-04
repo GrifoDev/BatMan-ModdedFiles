@@ -82,7 +82,6 @@
 
     iget v4, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$pageE:I
 
-    # invokes: Lcom/android/launcher3/allapps/controller/AppsReorderController;->doRealTimeReorder(Lcom/android/launcher3/allapps/controller/DragAppIcon;III)V
     invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher3/allapps/controller/AppsReorderController;->access$000(Lcom/android/launcher3/allapps/controller/AppsReorderController;Lcom/android/launcher3/allapps/controller/DragAppIcon;III)V
 
     return-void

@@ -949,7 +949,6 @@
 .method public static getInstance()Lcom/android/launcher3/folder/folderlock/FolderLock;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock$SingletonHolder;->sFolderLockInstance:Lcom/android/launcher3/folder/folderlock/FolderLock;
     invoke-static {}, Lcom/android/launcher3/folder/folderlock/FolderLock$SingletonHolder;->access$100()Lcom/android/launcher3/folder/folderlock/FolderLock;
 
     move-result-object v0

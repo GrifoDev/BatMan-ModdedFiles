@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Cronologia di ricerca</string>
+    <string name="about">Informazioni su %s</string>
+    <string name="about_already_installed">La versione più recente è già installata.</string>
+    <string name="about_home_screen">Schermata Home</string>
+    <string name="about_licence">Licenze open source</string>
+    <string name="about_network_err">Impossibile verificare la presenza di aggiornamenti. Il telefono non è connesso a nessuna rete.</string>
+    <string name="about_new_version_exist">È disponibile una nuova versione.</string>
+    <string name="about_retry">Riprova</string>
+    <string name="about_update">Aggiorna</string>
+    <string name="about_version">Versione %s</string>
     <string name="activity_not_available">Questa applicazione non è disponibile per questo dispositivo.</string>
     <string name="activity_not_found">Applicazione non installata.</string>
     <string name="align_to_bottom">Allinea in basso</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s già aggiunto alla schermata Home.</string>
     <string name="option_menu_contact_up">Contattateci</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Impostazioni</string>
     <string name="options_menu">Altre opzioni</string>
     <string name="options_menu_search_recommend">Opzioni di ricerca</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Spazio esaurito su questa pagina</string>
     <string name="out_of_space_dialog">"Spazio esaurito su questa pagina. L'elemento verrà aggiunto in una nuova pagina."</string>
     <string name="permdesc_install_widget">Questa applicazione è in grado di aggiungere widget alla schermata Home.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Questa applicazione può leggere le impostazioni della pagina dei contenuti personalizzati, situata a sinistra della schermata Home.</string>
+    <string name="permdesc_write_zeropage_settings">Questa applicazione può modificare le impostazioni della pagina dei contenuti personalizzati, situata a sinistra della schermata Home.</string>
     <string name="permlab_install_widget">Aggiunta di widget</string>
+    <string name="permlab_read_settings">leggi impostazioni e collegamenti Home</string>
+    <string name="permlab_read_zeropage_settings">Impostaz. contenuti personalizzati</string>
+    <string name="permlab_write_zeropage_settings">Modifica impostazioni pagina person.</string>
     <string name="quick_option_add_apps">Aggiungi applicazioni</string>
     <string name="quick_option_add_shortcut_to_home">Aggiungi collegam. a Home</string>
     <string name="quick_option_add_to_personal">Agg. a pers.</string>

@@ -8,6 +8,10 @@
 
 .field private intent:Ljava/lang/String;
 
+.field private isCalleePathRule:Z
+
+.field private isFromSimulator:Z
+
 .field private isRoot:Z
 
 .field private pathRuleId:Ljava/lang/String;
@@ -20,7 +24,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Z)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;ZZZ)V
     .locals 1
 
     const/4 v0, 0x0
@@ -39,10 +43,6 @@
 
     iput-object v0, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->apps:[Ljava/lang/String;
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->isRoot:Z
-
     iput-object p1, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->pathRuleId:Ljava/lang/String;
 
     iput-object p2, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->pathRuleName:Ljava/lang/String;
@@ -56,6 +56,10 @@
     iput-object p6, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->apps:[Ljava/lang/String;
 
     iput-boolean p7, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->isRoot:Z
+
+    iput-boolean p8, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->isCalleePathRule:Z
+
+    iput-boolean p9, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->isFromSimulator:Z
 
     return-void
 .end method
@@ -108,6 +112,22 @@
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->utterance:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public isCalleePathRule()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->isCalleePathRule:Z
+
+    return v0
+.end method
+
+.method public isFromSimulator()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;->isFromSimulator:Z
+
+    return v0
 .end method
 
 .method public isRoot()Z

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Zoeken in historie</string>
+    <string name="about">Over %s</string>
+    <string name="about_already_installed">De laatste versie is al geïnstalleerd.</string>
+    <string name="about_home_screen">Startscherm</string>
+    <string name="about_licence">Open bron-licenties</string>
+    <string name="about_network_err">Kan niet controleren op updates. Uw telefoon is niet met een netwerk verbonden.</string>
+    <string name="about_new_version_exist">Er is een nieuwe versie beschikbaar.</string>
+    <string name="about_retry">Opnieuw</string>
+    <string name="about_update">Bijwerken</string>
+    <string name="about_version">Versie %s</string>
     <string name="activity_not_available">Deze app is niet beschikbaar voor uw apparaat.</string>
     <string name="activity_not_found">Applicatie niet geïnstalleerd.</string>
     <string name="align_to_bottom">Uitlijnen met onderkant</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-widget al toegevoegd aan startscherm.</string>
     <string name="option_menu_contact_up">Neem contact met ons op</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Instellingen</string>
     <string name="options_menu">Meer opties</string>
     <string name="options_menu_search_recommend">Zoekopties</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Geen ruimte meer op deze pagina</string>
     <string name="out_of_space_dialog">Er is geen ruimte meer op deze pagina. Het item wordt toegevoegd aan een nieuwe pagina.</string>
     <string name="permdesc_install_widget">Deze app kan widgets toevoegen aan het startscherm.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Deze app kan de instellingen lezen van de aangepaste inhoudspagina die zich aan de linkerkant van het Startscherm bevindt.</string>
+    <string name="permdesc_write_zeropage_settings">Deze app kan de instellingen wijzigen van de aangepaste inhoudspagina die zich aan de linkerkant van het Startscherm bevindt.</string>
     <string name="permlab_install_widget">Widgets toevoegen</string>
+    <string name="permlab_read_settings">Instellingen en sneltoetsen startpagina lezen</string>
+    <string name="permlab_read_zeropage_settings">Aangepaste inhoudspagina lezen</string>
+    <string name="permlab_write_zeropage_settings">Aangepaste inhoudpagina wijzigen</string>
     <string name="quick_option_add_apps">Apps toevoegen</string>
     <string name="quick_option_add_shortcut_to_home">Sneltoets op Startpagina</string>
     <string name="quick_option_add_to_personal">Persoonlijk</string>

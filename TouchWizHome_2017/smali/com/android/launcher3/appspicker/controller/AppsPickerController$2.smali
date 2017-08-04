@@ -39,7 +39,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController$2;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
     invoke-static {v4}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerController;)Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
     move-result-object v4
@@ -63,7 +62,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController$2;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
     invoke-static {v4}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerController;)Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
     move-result-object v4
@@ -78,7 +76,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController$2;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
     invoke-static {v4}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerController;)Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
     move-result-object v4
@@ -91,7 +88,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController$2;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
     invoke-static {v4}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerController;)Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
     move-result-object v4
@@ -112,7 +108,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController$2;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
     invoke-static {v4}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerController;)Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
     move-result-object v4

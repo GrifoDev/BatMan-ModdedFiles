@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Riwayat pencarian</string>
+    <string name="about">Tentang %s</string>
+    <string name="about_already_installed">Versi terbaru telah terinstal.</string>
+    <string name="about_home_screen">Layar depan</string>
+    <string name="about_licence">Lisensi sumber terbuka</string>
+    <string name="about_network_err">Tidak dapat memeriksa pembaruan. Ponsel Anda tidak tersambung ke jaringan.</string>
+    <string name="about_new_version_exist">Versi baru tersedia.</string>
+    <string name="about_retry">Coba lagi</string>
+    <string name="about_update">Pembaruan</string>
+    <string name="about_version">Versi %s</string>
     <string name="activity_not_available">Aplikasi ini tidak tersedia untuk perangkat Anda.</string>
     <string name="activity_not_found">Aplikasi tidak diinstal.</string>
     <string name="align_to_bottom">Sejajarkan ke bawah</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Tidak lagi tersedia tempat di halaman ini</string>
     <string name="out_of_space_dialog">Tidak ada lagi ruangan di halaman ini. Item akan ditambahkan ke halaman baru.</string>
     <string name="permdesc_install_widget">Aplikasi ini dapat menambah widget ke layar depan.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Aplikasi ini dapat membaca pengaturan halaman konten khusus, yang berada di sebelah kiri Layar depan.</string>
+    <string name="permdesc_write_zeropage_settings">Aplikasi ini dapat mengubah pengaturan halaman konten khusus, yang berada di sebelah kiri Layar depan.</string>
     <string name="permlab_install_widget">Tambah widget</string>
+    <string name="permlab_read_settings">baca pengaturan Layar Depan dan pintasan</string>
+    <string name="permlab_read_zeropage_settings">Pengaturan baca hlmn konten kustom</string>
+    <string name="permlab_write_zeropage_settings">Ubah pengaturan hlmn konten kustom</string>
     <string name="quick_option_add_apps">Tambah aplikasi</string>
     <string name="quick_option_add_shortcut_to_home">Tambah pintasan ke Depan</string>
     <string name="quick_option_add_to_personal">Tmbh ke pribadi</string>

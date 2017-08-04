@@ -76,7 +76,6 @@
 
     iget-object v5, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$FolderLockReceiver;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v5}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$600(Lcom/android/launcher3/folder/folderlock/FolderLock;)Ljava/util/List;
 
     move-result-object v5
@@ -150,12 +149,10 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$FolderLockReceiver;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # invokes: Lcom/android/launcher3/folder/folderlock/FolderLock;->clearTempUnlockedFolder()V
     invoke-static {v2}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$700(Lcom/android/launcher3/folder/folderlock/FolderLock;)V
 
     iget-object v2, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$FolderLockReceiver;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$600(Lcom/android/launcher3/folder/folderlock/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -184,7 +181,6 @@
     :cond_2
     iget-object v2, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$FolderLockReceiver;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$800(Lcom/android/launcher3/folder/folderlock/FolderLock;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
@@ -207,7 +203,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$FolderLockReceiver;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$800(Lcom/android/launcher3/folder/folderlock/FolderLock;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
@@ -238,7 +233,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$FolderLockReceiver;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # getter for: Lcom/android/launcher3/folder/folderlock/FolderLock;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v2}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$800(Lcom/android/launcher3/folder/folderlock/FolderLock;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
@@ -256,7 +250,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/folderlock/FolderLock$FolderLockReceiver;->this$0:Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    # invokes: Lcom/android/launcher3/folder/folderlock/FolderLock;->putOutUnlockedItemFromLockedFolder(Ljava/lang/String;)V
     invoke-static {v2, v1}, Lcom/android/launcher3/folder/folderlock/FolderLock;->access$900(Lcom/android/launcher3/folder/folderlock/FolderLock;Ljava/lang/String;)V
 
     goto/16 :goto_1

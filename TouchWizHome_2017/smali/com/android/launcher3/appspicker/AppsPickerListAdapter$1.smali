@@ -37,7 +37,7 @@
 .method public onClick(Landroid/view/View;)V
     .locals 3
 
-    const v2, 0x7f0f0030
+    const v2, 0x7f0f0040
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -65,7 +65,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/appspicker/AppsPickerListAdapter$1;->this$0:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
 
-    # getter for: Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->mItemSelectedListener:Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
     invoke-static {v2}, Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->access$000(Lcom/android/launcher3/appspicker/AppsPickerListAdapter;)Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
 
     move-result-object v2
@@ -74,7 +73,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/appspicker/AppsPickerListAdapter$1;->this$0:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
 
-    # getter for: Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->mItemSelectedListener:Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
     invoke-static {v2}, Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->access$000(Lcom/android/launcher3/appspicker/AppsPickerListAdapter;)Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
 
     move-result-object v2

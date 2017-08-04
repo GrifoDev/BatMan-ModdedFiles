@@ -423,6 +423,8 @@
     goto :goto_0
 
     :cond_1
+    invoke-virtual {v1}, Lcom/android/launcher3/folder/FolderInfo;->sortContents()V
+
     return-object v1
 .end method
 

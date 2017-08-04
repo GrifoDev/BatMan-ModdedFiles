@@ -37,14 +37,12 @@
 .method public onAlarm(Lcom/android/launcher3/util/alarm/Alarm;)V
     .locals 3
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mReorderAnimSet:Landroid/animation/AnimatorSet;
     invoke-static {}, Lcom/android/launcher3/home/HotseatDragController;->access$200()Landroid/animation/AnimatorSet;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mReorderAnimSet:Landroid/animation/AnimatorSet;
     invoke-static {}, Lcom/android/launcher3/home/HotseatDragController;->access$200()Landroid/animation/AnimatorSet;
 
     move-result-object v0
@@ -61,21 +59,18 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/home/HotseatDragController$4;->this$0:Lcom/android/launcher3/home/HotseatDragController;
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mContent:Lcom/android/launcher3/home/HotseatCellLayout;
     invoke-static {v0}, Lcom/android/launcher3/home/HotseatDragController;->access$500(Lcom/android/launcher3/home/HotseatDragController;)Lcom/android/launcher3/home/HotseatCellLayout;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/home/HotseatDragController$4;->this$0:Lcom/android/launcher3/home/HotseatDragController;
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mEmptyCellRank:I
     invoke-static {v1}, Lcom/android/launcher3/home/HotseatDragController;->access$300(Lcom/android/launcher3/home/HotseatDragController;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/launcher3/home/HotseatDragController$4;->this$0:Lcom/android/launcher3/home/HotseatDragController;
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mTargetRank:I
     invoke-static {v2}, Lcom/android/launcher3/home/HotseatDragController;->access$400(Lcom/android/launcher3/home/HotseatDragController;)I
 
     move-result v2
@@ -84,17 +79,14 @@
 
     move-result-object v0
 
-    # setter for: Lcom/android/launcher3/home/HotseatDragController;->mReorderAnimSet:Landroid/animation/AnimatorSet;
     invoke-static {v0}, Lcom/android/launcher3/home/HotseatDragController;->access$202(Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mReorderAnimSet:Landroid/animation/AnimatorSet;
     invoke-static {}, Lcom/android/launcher3/home/HotseatDragController;->access$200()Landroid/animation/AnimatorSet;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mReorderAnimSet:Landroid/animation/AnimatorSet;
     invoke-static {}, Lcom/android/launcher3/home/HotseatDragController;->access$200()Landroid/animation/AnimatorSet;
 
     move-result-object v0
@@ -106,12 +98,10 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HotseatDragController$4;->this$0:Lcom/android/launcher3/home/HotseatDragController;
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mTargetRank:I
     invoke-static {v1}, Lcom/android/launcher3/home/HotseatDragController;->access$400(Lcom/android/launcher3/home/HotseatDragController;)I
 
     move-result v1
 
-    # setter for: Lcom/android/launcher3/home/HotseatDragController;->mEmptyCellRank:I
     invoke-static {v0, v1}, Lcom/android/launcher3/home/HotseatDragController;->access$302(Lcom/android/launcher3/home/HotseatDragController;I)I
 
     goto :goto_0

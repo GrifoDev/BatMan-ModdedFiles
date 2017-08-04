@@ -119,7 +119,6 @@
     :pswitch_0
     iget-object v1, p0, Lcom/google/android/libraries/launcherclient/LauncherClient$OverlayCallbacks;->mClient:Lcom/google/android/libraries/launcherclient/LauncherClient;
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient;->mServiceStatus:I
     invoke-static {v1}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$800(Lcom/google/android/libraries/launcherclient/LauncherClient;)I
 
     move-result v1
@@ -130,7 +129,6 @@
 
     iget-object v1, p0, Lcom/google/android/libraries/launcherclient/LauncherClient$OverlayCallbacks;->mClient:Lcom/google/android/libraries/launcherclient/LauncherClient;
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient;->mLauncherClientCallbacks:Lcom/google/android/libraries/launcherclient/LauncherClientCallbacks;
     invoke-static {v1}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$900(Lcom/google/android/libraries/launcherclient/LauncherClient;)Lcom/google/android/libraries/launcherclient/LauncherClientCallbacks;
 
     move-result-object v3
@@ -208,7 +206,6 @@
 
     iget v3, p1, Landroid/os/Message;->arg1:I
 
-    # invokes: Lcom/google/android/libraries/launcherclient/LauncherClient;->notifyStatusChanged(I)V
     invoke-static {v1, v3}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$600(Lcom/google/android/libraries/launcherclient/LauncherClient;I)V
 
     move v1, v2
@@ -291,7 +288,6 @@
 
     iput-object p1, p0, Lcom/google/android/libraries/launcherclient/LauncherClient$OverlayCallbacks;->mClient:Lcom/google/android/libraries/launcherclient/LauncherClient;
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient;->mActivity:Landroid/app/Activity;
     invoke-static {p1}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$700(Lcom/google/android/libraries/launcherclient/LauncherClient;)Landroid/app/Activity;
 
     move-result-object v1
@@ -326,7 +322,6 @@
 
     iput v1, p0, Lcom/google/android/libraries/launcherclient/LauncherClient$OverlayCallbacks;->mWindowShift:I
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient;->mActivity:Landroid/app/Activity;
     invoke-static {p1}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$700(Lcom/google/android/libraries/launcherclient/LauncherClient;)Landroid/app/Activity;
 
     move-result-object v1

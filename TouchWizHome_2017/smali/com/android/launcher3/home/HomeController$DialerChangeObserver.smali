@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$DialerChangeObserver;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # invokes: Lcom/android/launcher3/home/HomeController;->changeDialerApp()V
     invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$1900(Lcom/android/launcher3/home/HomeController;)V
 
     return-void

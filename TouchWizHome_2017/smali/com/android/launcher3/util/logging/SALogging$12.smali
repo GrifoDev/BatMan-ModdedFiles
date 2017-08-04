@@ -39,263 +39,512 @@
 
 # virtual methods
 .method public run()V
-    .locals 14
+    .locals 27
 
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->val$context:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    const-string v10, "SASettingPref"
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->val$context:Landroid/content/Context;
 
-    const/4 v11, 0x0
+    move-object/from16 v19, v0
 
-    invoke-virtual {v9, v10, v11}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual/range {v19 .. v19}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v16
 
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->val$context:Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    move-result-object v19
 
-    move-result-object v6
+    invoke-virtual/range {v19 .. v19}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
 
-    const v9, 0x7f080198
+    move-result v19
 
-    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    if-eqz v19, :cond_1
 
-    move-result-object v9
+    const/16 v5, 0x35
 
-    invoke-interface {v7, v9}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
+    :goto_0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$300(Lcom/android/launcher3/util/logging/SALogging;)[C
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    array-length v0, v0
+
+    move/from16 v22, v0
+
+    const/16 v19, 0x0
+
+    move/from16 v20, v19
+
+    :goto_1
+    move/from16 v0, v20
+
+    move/from16 v1, v22
+
+    if-ge v0, v1, :cond_8
+
+    aget-char v11, v21, v20
+
+    if-ne v5, v11, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    const/16 v23, -0x66
+
+    const/16 v24, 0x1
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->getItemCountByContainer(IZ)I
+
+    move-result v7
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    const v23, 0x7f0801a5
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v7}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->getAppsPageCount()I
+
+    move-result v13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    const v23, 0x7f0801a7
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v13}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    const/16 v23, -0x66
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->getItemCountByContainer(IZ)I
 
     move-result v9
 
-    if-nez v9, :cond_0
+    move-object/from16 v0, p0
 
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    const/16 v10, -0x66
+    move-object/from16 v19, v0
 
-    const/4 v11, 0x1
+    const v23, 0x7f0801a2
 
-    invoke-virtual {v9, v10, v11}, Lcom/android/launcher3/util/logging/SALogging;->getItemCountByContainer(IZ)I
+    move-object/from16 v0, v16
 
-    move-result v1
+    move/from16 v1, v23
 
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    const v10, 0x7f080198
+    move-result-object v23
 
-    invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    move-result-object v10
+    move-object/from16 v1, v23
 
-    invoke-virtual {v9, v10, v1}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v9}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
 
-    :cond_0
-    const v9, 0x7f08019a
+    move-object/from16 v0, p0
 
-    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    move-result-object v9
+    move-object/from16 v19, v0
 
-    invoke-interface {v7, v9}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
+    const v23, 0x7f0801a6
 
-    move-result v9
+    move-object/from16 v0, v16
 
-    if-nez v9, :cond_1
+    move/from16 v1, v23
 
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v9}, Lcom/android/launcher3/util/logging/SALogging;->getAppsPageCount()I
+    move-result-object v23
 
-    move-result v4
+    sget-object v24, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+    const/16 v25, 0x0
 
-    const v10, 0x7f08019a
+    invoke-static/range {v24 .. v25}, Lcom/android/launcher3/util/logging/SALogUtils;->countFolderColorNotDefault(Landroid/content/Context;Z)I
 
-    invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result v24
 
-    move-result-object v10
+    move-object/from16 v0, v19
 
-    invoke-virtual {v9, v10, v4}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
+    move-object/from16 v1, v23
 
-    :cond_1
-    const v9, 0x7f080195
+    move/from16 v2, v24
 
-    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
 
-    move-result-object v9
-
-    invoke-interface {v7, v9}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_2
-
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
-
-    const/16 v10, -0x66
-
-    const/4 v11, 0x0
-
-    invoke-virtual {v9, v10, v11}, Lcom/android/launcher3/util/logging/SALogging;->getItemCountByContainer(IZ)I
-
-    move-result v3
-
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
-
-    const v10, 0x7f080195
-
-    invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10, v3}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
-
-    :cond_2
-    const v9, 0x7f080199
-
-    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-interface {v7, v9}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_3
-
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
-
-    const v10, 0x7f080199
-
-    invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    sget-object v11, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
-
-    const/4 v12, 0x0
-
-    invoke-static {v11, v12}, Lcom/android/launcher3/util/logging/SALogUtils;->countFolderColorNotDefault(Landroid/content/Context;Z)I
-
-    move-result v11
-
-    invoke-virtual {v9, v10, v11}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
-
-    :cond_3
-    const v9, 0x7f08019c
-
-    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-interface {v7, v9}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_4
-
-    sget-object v9, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+    sget-object v19, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v23
 
-    const/4 v11, 0x0
+    const/16 v24, 0x0
 
-    invoke-virtual {v9, v10, v11}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    move-object/from16 v0, v19
 
-    move-result-object v5
+    move-object/from16 v1, v23
 
-    const-string v9, "AppsController.ViewType"
+    move/from16 v2, v24
 
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v15
+
+    const-string v19, "AppsController.ViewType"
+
+    const/16 v23, 0x0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v23
+
+    invoke-interface {v15, v0, v1}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v18
+
+    if-eqz v18, :cond_0
+
+    const-string v19, "CUSTOM_GRID"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_3
+
+    :cond_0
+    const/4 v10, 0x1
+
+    :goto_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v23, v0
+
+    const v19, 0x7f0801a9
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v24
+
+    if-eqz v10, :cond_4
+
+    const/16 v19, 0x1
+
+    :goto_3
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    move/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    const/16 v23, 0x2
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v23
+
+    invoke-static {v0, v1}, Lcom/android/launcher3/util/logging/SALogging;->access$400(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    const v23, 0x7f0801a4
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v6}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    new-array v8, v0, [I
+
+    sget-object v19, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+
+    move-object/from16 v0, v19
+
+    invoke-static {v0, v8}, Lcom/android/launcher3/util/ScreenGridUtilities;->loadCurrentAppsGridSize(Landroid/content/Context;[I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    const/16 v23, 0x0
+
+    aget v23, v8, v23
+
+    const/16 v24, 0x1
+
+    aget v24, v8, v24
+
+    const/16 v25, 0x1
+
+    const/16 v26, 0x0
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    move/from16 v3, v25
+
+    move/from16 v4, v26
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->insertChangeGridLog(IIZZ)V
+
+    :goto_4
+    add-int/lit8 v19, v20, 0x1
+
+    move/from16 v20, v19
+
+    goto/16 :goto_1
+
+    :cond_1
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_2
+
+    const/16 v5, 0x33
+
+    goto/16 :goto_0
+
+    :cond_2
+    const/16 v5, 0x30
+
+    goto/16 :goto_0
+
+    :cond_3
     const/4 v10, 0x0
 
-    invoke-interface {v5, v9, v10}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    if-eqz v8, :cond_4
-
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
-
-    const v10, 0x7f08019c
-
-    invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10, v8}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;Ljava/lang/String;)V
+    goto/16 :goto_2
 
     :cond_4
-    const v9, 0x7f080197
+    const/16 v19, 0x0
 
-    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-interface {v7, v9}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_5
-
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
-
-    const/4 v10, 0x2
-
-    # invokes: Lcom/android/launcher3/util/logging/SALogging;->getFolderAppsCountAndColorDetail(I)Ljava/lang/String;
-    invoke-static {v9, v10}, Lcom/android/launcher3/util/logging/SALogging;->access$200(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
-
-    const v10, 0x7f080197
-
-    invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10, v0}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;Ljava/lang/String;)V
+    goto :goto_3
 
     :cond_5
-    const v9, 0x7f08019b
+    move-object/from16 v0, p0
 
-    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->val$context:Landroid/content/Context;
 
-    move-result-object v9
+    move-object/from16 v19, v0
 
-    invoke-interface {v7, v9}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
+    const-string v23, "SASettingPref"
 
-    move-result v9
+    const/16 v24, 0x0
 
-    if-nez v9, :cond_6
+    move-object/from16 v0, v19
 
-    const/4 v9, 0x2
+    move-object/from16 v1, v23
 
-    new-array v2, v9, [I
+    move/from16 v2, v24
 
-    sget-object v9, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    invoke-static {v9, v2}, Lcom/android/launcher3/util/ScreenGridUtilities;->loadCurrentAppsGridSize(Landroid/content/Context;[I)V
+    move-result-object v19
 
-    iget-object v9, p0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+    invoke-interface/range {v19 .. v19}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    const/4 v10, 0x0
+    move-result-object v14
 
-    aget v10, v2, v10
+    move-object/from16 v0, p0
 
-    const/4 v11, 0x1
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    aget v11, v2, v11
+    move-object/from16 v19, v0
 
-    const/4 v12, 0x1
+    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$500(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
 
-    const/4 v13, 0x0
+    move-result-object v19
 
-    invoke-virtual {v9, v10, v11, v12, v13}, Lcom/android/launcher3/util/logging/SALogging;->insertChangeGridLog(IIZZ)V
+    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v19
+
+    invoke-interface/range {v19 .. v19}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v23
 
     :cond_6
+    :goto_5
+    invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_7
+
+    invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$500(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, Ljava/lang/String;
+
+    const-string v24, "status_apps"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$12;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v17
+
+    invoke-static {v0, v1, v11}, Lcom/android/launcher3/util/logging/SALogging;->access$600(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;C)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-interface {v14, v12}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    goto :goto_5
+
+    :cond_7
+    invoke-interface {v14}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    goto/16 :goto_4
+
+    :cond_8
     return-void
 .end method

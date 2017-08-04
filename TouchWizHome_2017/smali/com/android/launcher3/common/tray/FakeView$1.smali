@@ -41,7 +41,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/common/tray/FakeView;->access$002(Lcom/android/launcher3/common/tray/FakeView;Z)Z
 
     return-void

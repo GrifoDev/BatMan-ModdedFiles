@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Leitarferill</string>
+    <string name="about">Um „%s“</string>
+    <string name="about_already_installed">Nýjasta útgáfan hefur þegar verið sett upp.</string>
+    <string name="about_home_screen">Heimaskjár</string>
+    <string name="about_licence">Leyfi frjáls hugbúnaðar</string>
+    <string name="about_network_err">Ekki er hægt að leita að uppfærslum. Síminn er ekki nettengdur.</string>
+    <string name="about_new_version_exist">Ný útgáfa er í boði.</string>
+    <string name="about_retry">Reyna aftur</string>
+    <string name="about_update">Uppfærsla</string>
+    <string name="about_version">Útgáfa %s</string>
     <string name="activity_not_available">Þetta forrit er ekki í boði fyrir tækið þitt.</string>
     <string name="activity_not_found">Forritið var ekki sett upp.</string>
     <string name="align_to_bottom">Jafna við botn</string>
@@ -109,7 +118,7 @@ forrit"</string>
     <string name="ok">Í lagi</string>
     <string name="only_one_widget_instance_allowed">%s-græjunni hefur þegar verið bætt við heimaskjá.</string>
     <string name="option_menu_contact_up">Hafa samband</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Stillingar</string>
     <string name="options_menu">Fleiri kostir</string>
     <string name="options_menu_search_recommend">Leitarvalkostir</string>
@@ -120,7 +129,13 @@ forrit"</string>
     <string name="out_of_space">Síðan er full</string>
     <string name="out_of_space_dialog">Ekkert pláss er á síðunni. Atriðinu verður bætt við nýja síðu.</string>
     <string name="permdesc_install_widget">Þetta forrit getur bætt við græjum á heimaskjáinn.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Þetta forrit getur lesið stillingar sérstilltu efnissíðunnar sem er vinstra megin við heimaskjáinn.</string>
+    <string name="permdesc_write_zeropage_settings">Þetta forrit getur breytt stillingum sérstilltu efnissíðunnar sem er vinstra megin við heimaskjáinn.</string>
     <string name="permlab_install_widget">Bæta við græjum</string>
+    <string name="permlab_read_settings">lesa heimastillingar og flýtileiðir</string>
+    <string name="permlab_read_zeropage_settings">Lesa stillingar sérst. efnissíðu</string>
+    <string name="permlab_write_zeropage_settings">Breyta stillingum sérst. efnissíðu</string>
     <string name="quick_option_add_apps">Bæta við forritum</string>
     <string name="quick_option_add_shortcut_to_home">Bæta flýtil. á heimaskjá</string>
     <string name="quick_option_add_to_personal">Á einkaskjá</string>

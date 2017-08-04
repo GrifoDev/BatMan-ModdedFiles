@@ -73,7 +73,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f08018f
+    const v6, 0x7f08019c
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -89,8 +89,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/util/logging/SALogging$20;->val$btnText:Ljava/lang/String;
 
-    # invokes: Lcom/android/launcher3/util/logging/SALogging;->getEventIDForMutliSelect(ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {v3, v6, v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$1000(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v6, v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$1300(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -128,7 +127,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f080182
+    const v6, 0x7f08018f
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -161,7 +160,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f08017b
+    const v6, 0x7f080188
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -176,7 +175,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f080187
+    const v6, 0x7f080194
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

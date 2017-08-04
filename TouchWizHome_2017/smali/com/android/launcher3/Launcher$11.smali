@@ -38,7 +38,23 @@
 
     const-string v0, "Launcher"
 
-    const-string v1, "need_dark_navigationbar is changed!!"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "need_dark_navigationbar is changed!!"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -66,7 +82,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/Launcher$11;->this$0:Lcom/android/launcher3/Launcher;
 
-    # getter for: Lcom/android/launcher3/Launcher;->mAttached:Z
     invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$800(Lcom/android/launcher3/Launcher;)Z
 
     move-result v0

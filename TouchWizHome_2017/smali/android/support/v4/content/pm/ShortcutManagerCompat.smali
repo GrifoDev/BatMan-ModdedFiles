@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method private constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static createShortcutResultIntent(Landroid/content/Context;Landroid/support/v4/content/pm/ShortcutInfoCompat;)Landroid/content/Intent;
-    .locals 2
+    .locals 3
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -45,7 +45,19 @@
 
     if-eqz v1, :cond_0
 
-    invoke-static {p0, p1}, Landroid/support/v4/content/pm/ShortcutManagerCompatApi26;->createShortcutResultIntent(Landroid/content/Context;Landroid/support/v4/content/pm/ShortcutInfoCompat;)Landroid/content/Intent;
+    const-class v1, Landroid/content/pm/ShortcutManager;
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/ShortcutManager;
+
+    invoke-virtual {p1}, Landroid/support/v4/content/pm/ShortcutInfoCompat;->toShortcutInfo()Landroid/content/pm/ShortcutInfo;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/ShortcutManager;->createShortcutResultIntent(Landroid/content/pm/ShortcutInfo;)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -79,7 +91,15 @@
 
     if-eqz v3, :cond_1
 
-    invoke-static {p0}, Landroid/support/v4/content/pm/ShortcutManagerCompatApi26;->isRequestPinShortcutSupported(Landroid/content/Context;)Z
+    const-class v2, Landroid/content/pm/ShortcutManager;
+
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/pm/ShortcutManager;
+
+    invoke-virtual {v2}, Landroid/content/pm/ShortcutManager;->isRequestPinShortcutSupported()Z
 
     move-result v2
 
@@ -176,7 +196,19 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {p0, p1, p2}, Landroid/support/v4/content/pm/ShortcutManagerCompatApi26;->requestPinShortcut(Landroid/content/Context;Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/content/IntentSender;)Z
+    const-class v0, Landroid/content/pm/ShortcutManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/ShortcutManager;
+
+    invoke-virtual {p1}, Landroid/support/v4/content/pm/ShortcutInfoCompat;->toShortcutInfo()Landroid/content/pm/ShortcutInfo;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2, p2}, Landroid/content/pm/ShortcutManager;->requestPinShortcut(Landroid/content/pm/ShortcutInfo;Landroid/content/IntentSender;)Z
 
     move-result v0
 

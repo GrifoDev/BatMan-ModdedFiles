@@ -55,7 +55,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08009d
+    const v4, 0x7f0800ac
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -69,7 +69,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08009e
+    const v4, 0x7f0800ad
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -372,7 +372,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0200be
+    const v0, 0x7f0200c3
 
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->mPreview1:Landroid/widget/ImageView;
@@ -386,7 +386,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0200bd
+    const v0, 0x7f0200c2
 
     goto :goto_0
 .end method
@@ -516,7 +516,7 @@
 
     invoke-super {p0}, Lcom/android/launcher3/widget/view/WidgetItemView;->onFinishInflate()V
 
-    const v0, 0x7f0f00db
+    const v0, 0x7f0f00eb
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->findViewById(I)Landroid/view/View;
 
@@ -526,7 +526,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f0f00dc
+    const v0, 0x7f0f00ec
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->findViewById(I)Landroid/view/View;
 
@@ -536,7 +536,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->mCountView:Landroid/widget/TextView;
 
-    const v0, 0x7f0f00df
+    const v0, 0x7f0f00ef
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->findViewById(I)Landroid/view/View;
 
@@ -546,7 +546,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->mPreview1:Landroid/widget/ImageView;
 
-    const v0, 0x7f0f00e0
+    const v0, 0x7f0f00f0
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->findViewById(I)Landroid/view/View;
 
@@ -556,7 +556,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->mPreview2:Landroid/widget/ImageView;
 
-    const v0, 0x7f0f00dd
+    const v0, 0x7f0f00ed
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->findViewById(I)Landroid/view/View;
 
@@ -576,7 +576,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAutoMirrored(Z)V
 
-    const v0, 0x7f0f00de
+    const v0, 0x7f0f00ee
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetItemFolderView;->findViewById(I)Landroid/view/View;
 

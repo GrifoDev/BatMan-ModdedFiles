@@ -12,6 +12,8 @@
 
 
 # static fields
+.field public static final INVALID_VALUE:I = -0x3e7
+
 .field public static final LAUNCHER_PROXY_NOT_READY:I = -0x1
 
 .field public static final LAUNCHER_PROXY_NOT_SUPPORTED_STATE:I = -0x2
@@ -27,8 +29,6 @@
 .field public static final PAGE_MOVE_EMPTY:I = 0x0
 
 .field public static final PAGE_MOVE_FIRST:I = -0x4
-
-.field public static final PAGE_MOVE_INVALID:I = -0x3e7
 
 .field public static final PAGE_MOVE_LAST:I = -0x5
 
@@ -1903,23 +1903,21 @@
 
     invoke-interface {v5}, Lcom/android/launcher3/proxy/FolderProxyCallbacks;->getOpenedFolderIconView()Lcom/android/launcher3/folder/view/FolderIconView;
 
-    move-result-object v1
+    move-result-object v0
 
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1}, Lcom/android/launcher3/folder/view/FolderIconView;->getFolderView()Lcom/android/launcher3/folder/view/FolderView;
+    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderIconView;->getFolderInfo()Lcom/android/launcher3/folder/FolderInfo;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Lcom/android/launcher3/folder/view/FolderView;->getItemsInReadingOrder()Ljava/util/ArrayList;
+    iget-object v2, v1, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
@@ -1933,12 +1931,6 @@
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
-
-    check-cast v0, Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
     move-result-object v3
 
     check-cast v3, Lcom/android/launcher3/common/base/item/ItemInfo;
@@ -1947,11 +1939,11 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2
 
     iget-object v6, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     iget-object v6, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
@@ -1971,7 +1963,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2248,7 +2240,7 @@
 .end method
 
 .method public final getItemInfoInHideApps(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Lcom/android/launcher3/common/base/item/ItemInfo;
-    .locals 2
+    .locals 3
 
     const/4 v0, 0x0
 
@@ -2259,11 +2251,32 @@
     return-object v0
 
     :cond_1
+    invoke-interface {p1}, Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;->getOrdinalNumber()I
+
+    move-result v1
+
+    const/16 v2, -0x3e7
+
+    if-eq v1, v2, :cond_2
+
+    iget-object v0, p0, Lcom/android/launcher3/proxy/LauncherProxy;->mAppsPickerProxyCallback:Lcom/android/launcher3/proxy/AppsPickerProxyCallbacks;
+
+    invoke-interface {p1}, Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;->getOrdinalNumber()I
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Lcom/android/launcher3/proxy/AppsPickerProxyCallbacks;->getItem(I)Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_2
     invoke-interface {p1}, Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;->getComponentName()Landroid/content/ComponentName;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v0, p0, Lcom/android/launcher3/proxy/LauncherProxy;->mAppsPickerProxyCallback:Lcom/android/launcher3/proxy/AppsPickerProxyCallbacks;
 
@@ -2277,7 +2290,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     invoke-interface {p1}, Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;->getName()Ljava/lang/String;
 
     move-result-object v1

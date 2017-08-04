@@ -27,34 +27,36 @@
 
     if-lt v0, v1, :cond_0
 
-    new-instance v1, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi19Impl;
+    new-instance v0, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi19Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi19Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi19Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
     :goto_0
     return-void
 
     :cond_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x12
 
     if-lt v0, v1, :cond_1
 
-    new-instance v1, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;
+    new-instance v0, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatApi18Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
     goto :goto_0
 
     :cond_1
-    new-instance v1, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
+    new-instance v0, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/graphics/BitmapCompat;->IMPL:Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;
 
     goto :goto_0
 .end method

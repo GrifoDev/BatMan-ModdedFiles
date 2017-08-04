@@ -49,7 +49,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v6}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$100(Lcom/android/launcher3/widget/WidgetHostViewLoader;)I
 
     move-result v6
@@ -62,7 +61,6 @@
     :cond_0
     iget-object v6, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v6}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$000(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Lcom/android/launcher3/Launcher;
 
     move-result-object v6
@@ -77,14 +75,12 @@
 
     iget-object v6, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v6}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$000(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Lcom/android/launcher3/Launcher;
 
     move-result-object v6
 
     iget-object v7, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v7}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$100(Lcom/android/launcher3/widget/WidgetHostViewLoader;)I
 
     move-result v7
@@ -97,7 +93,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mInfo:Lcom/android/launcher3/widget/PendingAddWidgetInfo;
     invoke-static {v6}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$400(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Lcom/android/launcher3/widget/PendingAddWidgetInfo;
 
     move-result-object v6
@@ -106,7 +101,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # setter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v6, v10}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$102(Lcom/android/launcher3/widget/WidgetHostViewLoader;I)I
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportGSAPreWarming()Z
@@ -206,7 +200,6 @@
 
     iget-object v7, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mInfo:Lcom/android/launcher3/widget/PendingAddWidgetInfo;
     invoke-static {v7}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$400(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Lcom/android/launcher3/widget/PendingAddWidgetInfo;
 
     move-result-object v7
@@ -233,7 +226,6 @@
 
     iget-object v6, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v6}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$000(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Lcom/android/launcher3/Launcher;
 
     move-result-object v6
@@ -246,14 +238,12 @@
 
     iget-object v6, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mView:Landroid/view/View;
     invoke-static {v6}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$500(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Landroid/view/View;
 
     move-result-object v6
 
     iget-object v7, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mInfo:Lcom/android/launcher3/widget/PendingAddWidgetInfo;
     invoke-static {v7}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$400(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Lcom/android/launcher3/widget/PendingAddWidgetInfo;
 
     move-result-object v7

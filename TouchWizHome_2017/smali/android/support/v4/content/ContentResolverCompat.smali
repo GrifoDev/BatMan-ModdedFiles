@@ -3,49 +3,7 @@
 .source "ContentResolverCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImplJB;,
-        Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImplBase;,
-        Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImpl;
-    }
-.end annotation
-
-
-# static fields
-.field private static final IMPL:Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImpl;
-
-
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
-
-    new-instance v1, Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImplJB;
-
-    invoke-direct {v1}, Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImplJB;-><init>()V
-
-    sput-object v1, Landroid/support/v4/content/ContentResolverCompat;->IMPL:Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImpl;
-
-    :goto_0
-    return-void
-
-    :cond_0
-    new-instance v1, Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImplBase;
-
-    invoke-direct {v1}, Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImplBase;-><init>()V
-
-    sput-object v1, Landroid/support/v4/content/ContentResolverCompat;->IMPL:Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImpl;
-
-    goto :goto_0
-.end method
-
 .method private constructor <init>()V
     .locals 0
 
@@ -55,9 +13,29 @@
 .end method
 
 .method public static query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/support/v4/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 8
+    .locals 9
 
-    sget-object v0, Landroid/support/v4/content/ContentResolverCompat;->IMPL:Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImpl;
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0x10
+
+    if-lt v1, v2, :cond_2
+
+    if-eqz p6, :cond_0
+
+    :try_start_0
+    invoke-virtual {p6}, Landroid/support/v4/os/CancellationSignal;->getCancellationSignalObject()Ljava/lang/Object;
+
+    move-result-object v1
+
+    :goto_0
+    check-cast v1, Landroid/os/CancellationSignal;
+
+    move-object v0, v1
+
+    check-cast v0, Landroid/os/CancellationSignal;
+
+    move-object v7, v0
 
     move-object v1, p0
 
@@ -71,11 +49,45 @@
 
     move-object v6, p5
 
-    move-object v7, p6
+    invoke-virtual/range {v1 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-interface/range {v0 .. v7}, Landroid/support/v4/content/ContentResolverCompat$ContentResolverCompatImpl;->query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/support/v4/os/CancellationSignal;)Landroid/database/Cursor;
+    move-result-object v1
 
-    move-result-object v0
+    :goto_1
+    return-object v1
 
-    return-object v0
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v8
+
+    instance-of v1, v8, Landroid/os/OperationCanceledException;
+
+    if-eqz v1, :cond_1
+
+    new-instance v1, Landroid/support/v4/os/OperationCanceledException;
+
+    invoke-direct {v1}, Landroid/support/v4/os/OperationCanceledException;-><init>()V
+
+    throw v1
+
+    :cond_1
+    throw v8
+
+    :cond_2
+    if-eqz p6, :cond_3
+
+    invoke-virtual {p6}, Landroid/support/v4/os/CancellationSignal;->throwIfCanceled()V
+
+    :cond_3
+    invoke-virtual/range {p0 .. p5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v1
+
+    goto :goto_1
 .end method

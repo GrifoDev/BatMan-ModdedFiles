@@ -52,7 +52,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$202(Lcom/android/launcher3/folder/FolderTransitionAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     iget-boolean v0, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$2;->val$enter:Z

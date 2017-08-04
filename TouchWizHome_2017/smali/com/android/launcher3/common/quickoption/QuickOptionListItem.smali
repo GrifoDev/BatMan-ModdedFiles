@@ -4,73 +4,73 @@
 
 
 # static fields
-.field static final ADD_APPS_ICON_ID:I = 0x7f0200d6
+.field static final ADD_APPS_ICON_ID:I = 0x7f0200db
 
-.field static final ADD_APPS_TEXT_ID:I = 0x7f080078
+.field static final ADD_APPS_TEXT_ID:I = 0x7f080087
 
-.field static final ADD_SHORTCUT_TO_HOME_ICON_ID:I = 0x7f0200d7
+.field static final ADD_SHORTCUT_TO_HOME_ICON_ID:I = 0x7f0200dc
 
-.field static final ADD_SHORTCUT_TO_HOME_TEXT_ID:I = 0x7f080079
+.field static final ADD_SHORTCUT_TO_HOME_TEXT_ID:I = 0x7f080088
 
-.field static final ADD_TO_PERSONAL_ICON_ID:I = 0x7f0200d8
+.field static final ADD_TO_PERSONAL_ICON_ID:I = 0x7f0200dd
 
-.field static final ADD_TO_PERSONAL_TEXT_ID:I = 0x7f08007a
+.field static final ADD_TO_PERSONAL_TEXT_ID:I = 0x7f080089
 
-.field static final APP_INFO_ICON_ID:I = 0x7f0200da
+.field static final APP_INFO_ICON_ID:I = 0x7f0200df
 
-.field static final APP_INFO_TEXT_ID:I = 0x7f08007b
+.field static final APP_INFO_TEXT_ID:I = 0x7f08008a
 
-.field static final CLEAR_BADGE_ICON_ID:I = 0x7f0200db
+.field static final CLEAR_BADGE_ICON_ID:I = 0x7f0200e0
 
-.field static final CLEAR_BADGE_TEXT_ID:I = 0x7f08007d
+.field static final CLEAR_BADGE_TEXT_ID:I = 0x7f08008c
 
-.field static final DELETE_FOLDER_ICON_ID:I = 0x7f0200e1
+.field static final DELETE_FOLDER_ICON_ID:I = 0x7f0200e6
 
-.field static final DELETE_FOLDER_TEXT_ID:I = 0x7f08007e
+.field static final DELETE_FOLDER_TEXT_ID:I = 0x7f08008d
 
-.field static final DIMMED_DISABLE_TEXT_ID:I = 0x7f080081
+.field static final DIMMED_DISABLE_TEXT_ID:I = 0x7f080090
 
-.field static final DISABLE_ICON_ID:I = 0x7f0200dc
+.field static final DISABLE_ICON_ID:I = 0x7f0200e1
 
-.field static final DISABLE_TEXT_ID:I = 0x7f080082
+.field static final DISABLE_TEXT_ID:I = 0x7f080091
 
-.field static final INSTALL_DUAL_IM_ICON_ID:I = 0x7f0200dd
+.field static final INSTALL_DUAL_IM_ICON_ID:I = 0x7f0200e2
 
-.field static final INSTALL_DUAL_IM_TEXT_ID:I = 0x7f080083
+.field static final INSTALL_DUAL_IM_TEXT_ID:I = 0x7f080092
 
-.field static final LOCK_ICON_ID:I = 0x7f0200df
+.field static final LOCK_ICON_ID:I = 0x7f0200e4
 
-.field static final LOCK_TEXT_ID:I = 0x7f080084
+.field static final LOCK_TEXT_ID:I = 0x7f080093
 
-.field static final MOVE_FROM_FOLDER_ICON_ID:I = 0x7f0200e0
+.field static final MOVE_FROM_FOLDER_ICON_ID:I = 0x7f0200e5
 
-.field static final MOVE_FROM_FOLDER_TEXT_ID:I = 0x7f080085
+.field static final MOVE_FROM_FOLDER_TEXT_ID:I = 0x7f080094
 
-.field static final REMOVE_ICON_ID:I = 0x7f0200e1
+.field static final REMOVE_ICON_ID:I = 0x7f0200e6
 
-.field static final REMOVE_SHORTCUT_TEXT_ID:I = 0x7f080087
+.field static final REMOVE_SHORTCUT_TEXT_ID:I = 0x7f080096
 
-.field static final REMOVE_TEXT_ID:I = 0x7f080086
+.field static final REMOVE_TEXT_ID:I = 0x7f080095
 
-.field static final SECURE_FOLDER_ICON_ID:I = 0x7f0200d9
+.field static final SECURE_FOLDER_ICON_ID:I = 0x7f0200de
 
-.field static final SECURE_FOLDER_TEXT_ID:I = 0x7f080088
+.field static final SECURE_FOLDER_TEXT_ID:I = 0x7f080097
 
-.field static final SELECT_ICON_ID:I = 0x7f0200e2
+.field static final SELECT_ICON_ID:I = 0x7f0200e7
 
-.field static final SELECT_TEXT_ID:I = 0x7f080089
+.field static final SELECT_TEXT_ID:I = 0x7f080098
 
-.field static final SLEEP_ICON_ID:I = 0x7f0200e3
+.field static final SLEEP_ICON_ID:I = 0x7f0200e8
 
-.field static final SLEEP_TEXT_ID:I = 0x7f08008a
+.field static final SLEEP_TEXT_ID:I = 0x7f080099
 
-.field static final UNINSTALL_ICON_ID:I = 0x7f0200e4
+.field static final UNINSTALL_ICON_ID:I = 0x7f0200e9
 
-.field static final UNINSTALL_TEXT_ID:I = 0x7f08008c
+.field static final UNINSTALL_TEXT_ID:I = 0x7f08009b
 
-.field static final UNLOCK_ICON_ID:I = 0x7f0200e5
+.field static final UNLOCK_ICON_ID:I = 0x7f0200ea
 
-.field static final UNLOCK_TEXT_ID:I = 0x7f08008d
+.field static final UNLOCK_TEXT_ID:I = 0x7f08009c
 
 
 # instance fields
@@ -123,7 +123,7 @@
 
     move-result v0
 
-    const v1, 0x7f0200e1
+    const v1, 0x7f0200e6
 
     if-ne v0, v1, :cond_1
 
@@ -131,7 +131,7 @@
 
     move-result v0
 
-    const v1, 0x7f080086
+    const v1, 0x7f080095
 
     if-eq v0, v1, :cond_0
 
@@ -139,7 +139,7 @@
 
     move-result v0
 
-    const v1, 0x7f080087
+    const v1, 0x7f080096
 
     if-ne v0, v1, :cond_1
 

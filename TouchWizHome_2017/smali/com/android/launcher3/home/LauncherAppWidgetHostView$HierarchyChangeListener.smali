@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$HierarchyChangeListener;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mHasScrollView:Z
     invoke-static {v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$400(Lcom/android/launcher3/home/LauncherAppWidgetHostView;)Z
 
     move-result v0
@@ -54,12 +53,10 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$HierarchyChangeListener;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    # invokes: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->findScrollView(Landroid/view/View;)Z
     invoke-static {v1, p2}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$500(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Landroid/view/View;)Z
 
     move-result v1
 
-    # setter for: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mHasScrollView:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$402(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Z)Z
 
     :cond_0
@@ -71,7 +68,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$HierarchyChangeListener;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mHasScrollView:Z
     invoke-static {v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$400(Lcom/android/launcher3/home/LauncherAppWidgetHostView;)Z
 
     move-result v0
@@ -84,12 +80,10 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$HierarchyChangeListener;->mHostView:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    # invokes: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->findScrollView(Landroid/view/View;)Z
     invoke-static {v1, v2}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$500(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Landroid/view/View;)Z
 
     move-result v1
 
-    # setter for: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mHasScrollView:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$402(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Z)Z
 
     :cond_0

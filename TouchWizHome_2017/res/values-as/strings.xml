@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">অনুসন্ধান ইতিহাস</string>
+    <string name="about">%s-ৰ বিষয়ে</string>
+    <string name="about_already_installed">শেহতীয়া সংস্কৰণ ইতিমধ্যে ইনষ্টল হৈছে৷</string>
+    <string name="about_home_screen">গৃহ স্ক্ৰীণ</string>
+    <string name="about_licence">মুক্ত উৎস লাইচেন্স</string>
+    <string name="about_network_err">আপডেটৰ বাবে পৰীক্ষা কৰিব নোৱাৰে। আপোনাৰ ফোনটো এটা Wi-Fi নেটৱৰ্কত সংযোগ হোৱা নাই।</string>
+    <string name="about_new_version_exist">এটা নতুন সংস্কৰণ উপলভ্য৷</string>
+    <string name="about_retry">পুনঃচেষ্টা</string>
+    <string name="about_update">আপডেট</string>
+    <string name="about_version">সংস্কৰণ %s</string>
     <string name="activity_not_available">এই এপ আপোনাৰ ডিভাইচৰ বাবে উপলব্ধ নহয়৷</string>
     <string name="activity_not_found">এপ্লিকেশ্বন ইনষ্টল হোৱা নাই৷</string>
     <string name="align_to_bottom">তলত সংৰেখন কৰক</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">এই পেজত অধিক কোঠা নাই</string>
     <string name="out_of_space_dialog">"এই পৃষ্ঠাত আৰু কোনো কোঠা নাই। এই আইটেমটো এখন নতুন পৃষ্ঠাত যোগ কৰা হ'ব।"</string>
     <string name="permdesc_install_widget">এই এপে গৃহ স্ক্ৰীণলৈ ৱিজেটসমূহ যোগ কৰিব পাৰে।</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">"এই এপে কাষ্ট'ম সমল পৃষ্ঠাৰ ছেটিংছ পঢ়িব পাৰে, যিটো গৃহ স্ক্ৰীণৰ বাওঁফালে অৱস্থিত।"</string>
+    <string name="permdesc_write_zeropage_settings">"এই এপে কাষ্ট'ম সমল পৃষ্ঠাৰ ছেটিংছ পৰিৱৰ্তন কৰিব পাৰে, যিটো গৃহ স্ক্ৰীণৰ বাওঁফালে অৱস্থিত।"</string>
     <string name="permlab_install_widget">ৱিজেট যোগ কৰক</string>
+    <string name="permlab_read_settings">গৃহ ছেটিংছ আৰু চৰ্টকাট পঢ়ক</string>
+    <string name="permlab_read_zeropage_settings">"কাষ্ট'ম সমল পৃষ্ঠাৰ ছেটিংছ পঢ়ক"</string>
+    <string name="permlab_write_zeropage_settings">"কাষ্ট'ম সমলৰ পৃষ্ঠা ছেটিংছ পৰিৱৰ্তন কৰক"</string>
     <string name="quick_option_add_apps">এপ্প্‌চ যোগ কৰক</string>
     <string name="quick_option_add_shortcut_to_home">চৰ্টকাট গৃহত যোগ কৰক</string>
     <string name="quick_option_add_to_personal">ব্যক্তিগতলৈ যোগ</string>

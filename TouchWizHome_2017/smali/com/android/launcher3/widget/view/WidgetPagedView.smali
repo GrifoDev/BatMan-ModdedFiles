@@ -790,7 +790,7 @@
 .method protected getCurrentPageDescription()Ljava/lang/String;
     .locals 5
 
-    const v0, 0x7f08001f
+    const v0, 0x7f080028
 
     invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->getContext()Landroid/content/Context;
 
@@ -1460,13 +1460,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f080191
+    const v3, 0x7f08019e
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f0800f8
+    const v4, 0x7f080107
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1489,13 +1489,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f080192
+    const v3, 0x7f08019f
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f0800f7
+    const v4, 0x7f080106
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

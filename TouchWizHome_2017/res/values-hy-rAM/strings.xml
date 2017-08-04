@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Որոնումների պատմություն</string>
+    <string name="about">%s-ի մասին</string>
+    <string name="about_already_installed">Ամենավերջին վարկածն արդեն տեղադրված է:</string>
+    <string name="about_home_screen">Աշխատասեղան</string>
+    <string name="about_licence">Բաց սկզբնական կոդով լիցենզիաներ</string>
+    <string name="about_network_err">Հնարավոր չէ ստուգել թարմացումների առկայությունը: Ձեր հեռախոսը միացված չէ որևէ ցանցի:</string>
+    <string name="about_new_version_exist">Նոր վարկած է մատչելի:</string>
+    <string name="about_retry">Նորից փորձել</string>
+    <string name="about_update">Թարմացնել</string>
+    <string name="about_version">Վարկած %s</string>
     <string name="activity_not_available">Այս ծրագիրը մատչելի չէ Ձեր սարքի համար:</string>
     <string name="activity_not_found">Գործադիրը տեղադրված չէ:</string>
     <string name="align_to_bottom">Հավասարեցնել դեպի ներքև</string>
@@ -108,7 +117,7 @@
     <string name="ok">Ընդունել</string>
     <string name="only_one_widget_instance_allowed">%s պատկերագիրն արդեն ավելացվել է հիմնական էկրանին:</string>
     <string name="option_menu_contact_up">Դիմեք մեզ</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Դրվածքներ</string>
     <string name="options_menu">Այլ ընտրանքներ</string>
     <string name="options_menu_search_recommend">Որոնման ընտրանքներ</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Այս էջում այլևս տեղ չկա</string>
     <string name="out_of_space_dialog">Այս էջում այլևս տեղ չկա: Տարրը կավելացվի նոր էջում:</string>
     <string name="permdesc_install_widget">Այս ծրագիրը կարող է պատկերագրեր ավելացնել հիմնական էկրանին:</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Այս ծրագիրը կարող է կարդալ ընտրովի բովանդակության էջի դրվածքները, որը գտնվում է Հիմնական էկրանի ձախ կողմում:</string>
+    <string name="permdesc_write_zeropage_settings">Այս ծրագիրը կարող է փոխել ընտրովի բովանդակության էջի դրվածքները, որը գտնվում է Հիմնական էկրանի ձախ կողմում:</string>
     <string name="permlab_install_widget">Ավելացնել պատկերագրեր</string>
+    <string name="permlab_read_settings">Կարդալ սկզբնական կայվածքներն ու կարճատները</string>
+    <string name="permlab_read_zeropage_settings">Կարդալ ընտրովի բովանդ. էջի դրվծքներ</string>
+    <string name="permlab_write_zeropage_settings">Փոխել ընտրովի բովանդ. էջի դրվածքներ</string>
     <string name="quick_option_add_apps">Ավելացնել ծրագրեր</string>
     <string name="quick_option_add_shortcut_to_home">Դյուրանց. ավելացնել Հիմն.</string>
     <string name="quick_option_add_to_personal">Ավլցնլ անձնկնին</string>

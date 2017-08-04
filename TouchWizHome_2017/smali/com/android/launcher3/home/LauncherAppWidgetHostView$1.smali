@@ -69,7 +69,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mIndicatorHeight:I
     invoke-static {v3}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$000(Lcom/android/launcher3/home/LauncherAppWidgetHostView;)I
 
     move-result v3
@@ -130,14 +129,12 @@
     move v0, v1
 
     :goto_1
-    # setter for: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mIsScrollingUp:Z
     invoke-static {v3, v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$102(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
     iget-object v3, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mIsScrollingUp:Z
     invoke-static {v3}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$100(Lcom/android/launcher3/home/LauncherAppWidgetHostView;)Z
 
     move-result v3
@@ -145,7 +142,6 @@
     if-nez v3, :cond_3
 
     :goto_2
-    # setter for: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mIsScrollingDown:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$202(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Z)Z
 
     goto :goto_0

@@ -38,6 +38,17 @@
 
 .field private static final PREFERENCES_HOME_LAYOUT_SETTINGS_APPLY_COUNT:Ljava/lang/String; = "home_layout_settings_apply_count"
 
+.field private static sAppsButtonSettingsActivity:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Lcom/android/launcher3/home/AppsButtonSettingsActivity;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static sContext:Landroid/content/Context;
 
 .field private static sLauncherProvider:Ljava/lang/ref/WeakReference;
@@ -450,7 +461,6 @@
 .method public static getInstance()Lcom/android/launcher3/LauncherAppState;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/LauncherAppState$SingletonHolder;->sLauncherAppStateInstance:Lcom/android/launcher3/LauncherAppState;
     invoke-static {}, Lcom/android/launcher3/LauncherAppState$SingletonHolder;->access$100()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v0
@@ -461,7 +471,6 @@
 .method public static getInstanceNoCreate()Lcom/android/launcher3/LauncherAppState;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/LauncherAppState$SingletonHolder;->sLauncherAppStateInstance:Lcom/android/launcher3/LauncherAppState;
     invoke-static {}, Lcom/android/launcher3/LauncherAppState$SingletonHolder;->access$100()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v0
@@ -516,51 +525,43 @@
 .end method
 
 .method private initEasyMode()V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
-
-    sget-object v1, Lcom/android/launcher3/LauncherAppState;->sContext:Landroid/content/Context;
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v0
 
-    const-string v1, "easy_mode"
+    const-string v1, "favorites_standard"
 
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/model/FavoritesProvider;->tableExists(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    iput-boolean v1, p0, Lcom/android/launcher3/LauncherAppState;->mIsEasyMode:Z
+    iput-boolean v0, p0, Lcom/android/launcher3/LauncherAppState;->mIsEasyMode:Z
 
-    const-string v1, "Launcher"
+    const-string v0, "Launcher"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "initEasyMode : "
+    const-string v2, "initEasyMode : "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-boolean v3, p0, Lcom/android/launcher3/LauncherAppState;->mIsEasyMode:Z
+    iget-boolean v2, p0, Lcom/android/launcher3/LauncherAppState;->mIsEasyMode:Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -696,6 +697,30 @@
 
     :cond_0
     const-string v2, "apps_button_settings"
+
+    goto :goto_0
+.end method
+
+.method public getAppsButtonSettingsActivity()Lcom/android/launcher3/home/AppsButtonSettingsActivity;
+    .locals 1
+
+    sget-object v0, Lcom/android/launcher3/LauncherAppState;->sAppsButtonSettingsActivity:Ljava/lang/ref/WeakReference;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    sget-object v0, Lcom/android/launcher3/LauncherAppState;->sAppsButtonSettingsActivity:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/home/AppsButtonSettingsActivity;
 
     goto :goto_0
 .end method
@@ -1657,6 +1682,18 @@
     goto :goto_0
 .end method
 
+.method public setAppsButtonSettingsActivity(Lcom/android/launcher3/home/AppsButtonSettingsActivity;)V
+    .locals 1
+
+    new-instance v0, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    sput-object v0, Lcom/android/launcher3/LauncherAppState;->sAppsButtonSettingsActivity:Ljava/lang/ref/WeakReference;
+
+    return-void
+.end method
+
 .method public setBadgeSetings(I)V
     .locals 4
 
@@ -1731,33 +1768,9 @@
 .end method
 
 .method public writeEasyModeEnabled(Z)V
-    .locals 5
+    .locals 0
 
     iput-boolean p1, p0, Lcom/android/launcher3/LauncherAppState;->mIsEasyMode:Z
-
-    sget-object v2, Lcom/android/launcher3/LauncherAppState;->sContext:Landroid/content/Context;
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    const-string v2, "easy_mode"
-
-    iget-boolean v3, p0, Lcom/android/launcher3/LauncherAppState;->mIsEasyMode:Z
-
-    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     return-void
 .end method

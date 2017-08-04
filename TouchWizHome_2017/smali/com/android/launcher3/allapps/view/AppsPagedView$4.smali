@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsPagedView$4;->this$0:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsPagedView;->mRemoveEmptyScreenRunnable:Ljava/lang/Runnable;
     invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsPagedView;->access$100(Lcom/android/launcher3/allapps/view/AppsPagedView;)Ljava/lang/Runnable;
 
     move-result-object v0
@@ -49,7 +48,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsPagedView$4;->this$0:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsPagedView;->mRemoveEmptyScreenRunnable:Ljava/lang/Runnable;
     invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsPagedView;->access$100(Lcom/android/launcher3/allapps/view/AppsPagedView;)Ljava/lang/Runnable;
 
     move-result-object v0

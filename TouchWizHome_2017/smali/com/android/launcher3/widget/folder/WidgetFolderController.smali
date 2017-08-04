@@ -264,7 +264,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f030046
+    const v1, 0x7f030048
 
     const/4 v2, 0x0
 
@@ -278,7 +278,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mWidgetFolder:Lcom/android/launcher3/widget/view/WidgetFolder;
 
-    const v1, 0x7f0f00d8
+    const v1, 0x7f0f00e8
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 

@@ -60,7 +60,6 @@
 
     const/4 v2, 0x0
 
-    # setter for: Lcom/android/launcher3/common/view/LiveIconFactory;->mState:I
     invoke-static {v1, v2}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$002(Lcom/android/launcher3/common/view/LiveIconFactory;I)I
 
     invoke-interface {p1}, Lcom/android/launcher3/util/threadpool/Future;->get()Ljava/lang/Object;
@@ -82,7 +81,6 @@
     return-void
 
     :cond_1
-    # getter for: Lcom/android/launcher3/common/view/LiveIconFactory;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -99,7 +97,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/view/LiveIconFactory$LiveIconLoadCompleteListener;->this$0:Lcom/android/launcher3/common/view/LiveIconFactory;
 
-    # getter for: Lcom/android/launcher3/common/view/LiveIconFactory;->mPackageName:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$200(Lcom/android/launcher3/common/view/LiveIconFactory;)Ljava/lang/String;
 
     move-result-object v3
@@ -120,19 +117,16 @@
 
     move-result-wide v2
 
-    # setter for: Lcom/android/launcher3/common/view/LiveIconFactory;->mRequestedTime:J
     invoke-static {v1, v2, v3}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$302(Lcom/android/launcher3/common/view/LiveIconFactory;J)J
 
     iget-object v1, p0, Lcom/android/launcher3/common/view/LiveIconFactory$LiveIconLoadCompleteListener;->this$0:Lcom/android/launcher3/common/view/LiveIconFactory;
 
-    # getter for: Lcom/android/launcher3/common/view/LiveIconFactory;->mPackageName:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$200(Lcom/android/launcher3/common/view/LiveIconFactory;)Ljava/lang/String;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/LiveIconFactory$LiveIconLoadCompleteListener;->this$0:Lcom/android/launcher3/common/view/LiveIconFactory;
 
-    # getter for: Lcom/android/launcher3/common/view/LiveIconFactory;->mUserHandleCompat:Lcom/android/launcher3/common/compat/UserHandleCompat;
     invoke-static {v2}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$400(Lcom/android/launcher3/common/view/LiveIconFactory;)Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     move-result-object v2

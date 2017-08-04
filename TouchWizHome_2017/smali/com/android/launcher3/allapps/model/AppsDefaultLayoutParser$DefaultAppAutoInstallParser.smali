@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$DefaultAppAutoInstallParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mAppsParseContainer:J
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$100(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)J
 
     move-result-wide v0
@@ -49,7 +48,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$DefaultAppAutoInstallParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$500(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v0
@@ -68,7 +66,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$DefaultAppAutoInstallParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$600(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v0
@@ -85,7 +82,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser$DefaultAppAutoInstallParser;->this$0:Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mValues:Landroid/content/ContentValues;
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->access$700(Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v0

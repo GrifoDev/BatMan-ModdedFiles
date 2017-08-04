@@ -3,50 +3,7 @@
 .source "ConfigurationHelper.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperApi17Impl;,
-        Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
-    }
-.end annotation
-
-
-# static fields
-.field private static final IMPL:Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
-
-
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x11
-
-    if-lt v0, v1, :cond_0
-
-    new-instance v0, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperApi17Impl;
-
-    invoke-direct {v0, v2}, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperApi17Impl;-><init>(Landroid/support/v4/content/res/ConfigurationHelper$1;)V
-
-    sput-object v0, Landroid/support/v4/content/res/ConfigurationHelper;->IMPL:Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
-
-    :goto_0
-    return-void
-
-    :cond_0
-    new-instance v0, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
-
-    invoke-direct {v0, v2}, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;-><init>(Landroid/support/v4/content/res/ConfigurationHelper$1;)V
-
-    sput-object v0, Landroid/support/v4/content/res/ConfigurationHelper;->IMPL:Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
-
-    goto :goto_0
-.end method
-
 .method private constructor <init>()V
     .locals 0
 
@@ -56,19 +13,35 @@
 .end method
 
 .method public static getDensityDpi(Landroid/content/res/Resources;)I
-    .locals 1
+    .locals 2
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
-    sget-object v0, Landroid/support/v4/content/res/ConfigurationHelper;->IMPL:Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-virtual {v0, p0}, Landroid/support/v4/content/res/ConfigurationHelper$ConfigurationHelperBaseImpl;->getDensityDpi(Landroid/content/res/Resources;)I
+    const/16 v1, 0x11
 
-    move-result v0
+    if-lt v0, v1, :cond_0
 
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->densityDpi:I
+
+    :goto_0
     return v0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/util/DisplayMetrics;->densityDpi:I
+
+    goto :goto_0
 .end method
 
 .method public static getScreenHeightDp(Landroid/content/res/Resources;)I

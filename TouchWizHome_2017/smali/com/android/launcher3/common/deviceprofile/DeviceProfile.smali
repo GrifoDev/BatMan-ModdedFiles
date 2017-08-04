@@ -171,7 +171,7 @@
 
     iput p3, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->availableHeightPx:I
 
-    const v4, 0x7f09009a
+    const v4, 0x7f0900a8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -227,7 +227,7 @@
 
     iput v4, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->defaultCellHeight:I
 
-    const v4, 0x7f0900ee
+    const v4, 0x7f0900fc
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -243,7 +243,7 @@
 
     iput-boolean v4, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->hotseatRightLayoutWithOrientation:Z
 
-    const v4, 0x7f0900a3
+    const v4, 0x7f0900b1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -687,7 +687,7 @@
 .method private layoutAppsGrid(Lcom/android/launcher3/Launcher;)V
     .locals 8
 
-    const v4, 0x7f0f000e
+    const v4, 0x7f0f001e
 
     invoke-virtual {p1, v4}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -728,7 +728,7 @@
     invoke-virtual {v0, v4, v5, v6, v7}, Lcom/android/launcher3/common/base/view/PagedView;->setPadding(IIII)V
 
     :cond_0
-    const v4, 0x7f0f000f
+    const v4, 0x7f0f001f
 
     invoke-virtual {p1, v4}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -771,7 +771,7 @@
 .method private layoutHomeGrid(Lcom/android/launcher3/Launcher;)V
     .locals 11
 
-    const v7, 0x7f0f0004
+    const v7, 0x7f0f0009
 
     invoke-virtual {p1, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -808,7 +808,7 @@
     invoke-virtual {v6, v7, v8, v9, v10}, Lcom/android/launcher3/common/base/view/PagedView;->setPadding(IIII)V
 
     :cond_0
-    const v7, 0x7f0f0003
+    const v7, 0x7f0f0008
 
     invoke-virtual {p1, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -862,7 +862,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_1
-    const v7, 0x7f0f007e
+    const v7, 0x7f0f008e
 
     invoke-virtual {p1, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -882,7 +882,7 @@
 
     :cond_2
     :goto_1
-    const v7, 0x7f0f0081
+    const v7, 0x7f0f0091
 
     invoke-virtual {p1, v7}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -996,7 +996,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0900eb
+    const v8, 0x7f0900f9
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

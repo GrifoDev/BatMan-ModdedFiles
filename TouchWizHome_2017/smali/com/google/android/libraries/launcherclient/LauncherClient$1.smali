@@ -61,7 +61,6 @@
     :cond_0
     iget-object v1, p0, Lcom/google/android/libraries/launcherclient/LauncherClient$1;->this$0:Lcom/google/android/libraries/launcherclient/LauncherClient;
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient;->mActivityConnection:Lcom/google/android/libraries/launcherclient/SimpleServiceConnection;
     invoke-static {v1}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$000(Lcom/google/android/libraries/launcherclient/LauncherClient;)Lcom/google/android/libraries/launcherclient/SimpleServiceConnection;
 
     move-result-object v1
@@ -70,7 +69,6 @@
 
     iget-object v1, p0, Lcom/google/android/libraries/launcherclient/LauncherClient$1;->this$0:Lcom/google/android/libraries/launcherclient/LauncherClient;
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient;->mAppConnection:Lcom/google/android/libraries/launcherclient/AppServiceConnection;
     invoke-static {v1}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$100(Lcom/google/android/libraries/launcherclient/LauncherClient;)Lcom/google/android/libraries/launcherclient/AppServiceConnection;
 
     move-result-object v1
@@ -79,7 +77,6 @@
 
     iget-object v1, p0, Lcom/google/android/libraries/launcherclient/LauncherClient$1;->this$0:Lcom/google/android/libraries/launcherclient/LauncherClient;
 
-    # getter for: Lcom/google/android/libraries/launcherclient/LauncherClient;->mIsResumed:Z
     invoke-static {v1}, Lcom/google/android/libraries/launcherclient/LauncherClient;->access$200(Lcom/google/android/libraries/launcherclient/LauncherClient;)Z
 
     move-result v1

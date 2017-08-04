@@ -8,6 +8,8 @@
 
 .field public static final HORIZONTAL:I = 0x0
 
+.field private static final TAG:Ljava/lang/String; = "DividerItem"
+
 .field public static final VERTICAL:I = 0x1
 
 
@@ -39,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 2
+    .locals 3
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$ItemDecoration;-><init>()V
 
@@ -63,6 +65,17 @@
 
     iput-object v1, p0, Landroid/support/v7/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
 
+    iget-object v1, p0, Landroid/support/v7/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
+
+    if-nez v1, :cond_0
+
+    const-string v1, "DividerItem"
+
+    const-string v2, "@android:attr/listDivider was not set in the theme used for this DividerItemDecoration. Please set that attribute all call setDrawable()"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     invoke-virtual {p0, p2}, Landroid/support/v7/widget/DividerItemDecoration;->setOrientation(I)V
@@ -72,11 +85,6 @@
 
 .method private drawHorizontal(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
     .locals 10
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
@@ -189,11 +197,6 @@
 
 .method private drawVertical(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
     .locals 10
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
@@ -307,11 +310,21 @@
 
     const/4 v2, 0x0
 
+    iget-object v0, p0, Landroid/support/v7/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p1, v2, v2, v2, v2}, Landroid/graphics/Rect;->set(IIII)V
+
+    :goto_0
+    return-void
+
+    :cond_0
     iget v0, p0, Landroid/support/v7/widget/DividerItemDecoration;->mOrientation:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Landroid/support/v7/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
 
@@ -321,10 +334,9 @@
 
     invoke-virtual {p1, v2, v2, v2, v0}, Landroid/graphics/Rect;->set(IIII)V
 
-    :goto_0
-    return-void
+    goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -343,23 +355,28 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
+    iget-object v0, p0, Landroid/support/v7/widget/DividerItemDecoration;->mDivider:Landroid/graphics/drawable/Drawable;
+
+    if-nez v0, :cond_1
+
+    :cond_0
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     iget v0, p0, Landroid/support/v7/widget/DividerItemDecoration;->mOrientation:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2
 
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/DividerItemDecoration;->drawVertical(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/DividerItemDecoration;->drawHorizontal(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
 
     goto :goto_0

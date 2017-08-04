@@ -21,6 +21,8 @@
 
 .field mAnimatingAway:Landroid/view/View;
 
+.field mAnimator:Landroid/animation/Animator;
+
 .field private mEnterTransition:Ljava/lang/Object;
 
 .field mEnterTransitionCallback:Landroid/support/v4/app/SharedElementCallback;

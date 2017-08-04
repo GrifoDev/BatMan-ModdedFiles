@@ -69,11 +69,7 @@
 
     new-instance v1, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
-    iget-object v3, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;
-
-    iget-object v3, v3, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
-
-    invoke-direct {v1, v3}, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;-><init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
+    invoke-direct {v1}, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;-><init>()V
 
     iget-object v3, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceBinderImpl$1;->val$pkg:Ljava/lang/String;
 

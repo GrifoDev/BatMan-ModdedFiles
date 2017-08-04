@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsViewBinder$11;->this$0:Lcom/android/launcher3/allapps/controller/AppsViewBinder;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/AppsViewBinder;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsViewBinder;->access$000(Lcom/android/launcher3/allapps/controller/AppsViewBinder;)Lcom/android/launcher3/allapps/controller/AppsController;
 
     move-result-object v0

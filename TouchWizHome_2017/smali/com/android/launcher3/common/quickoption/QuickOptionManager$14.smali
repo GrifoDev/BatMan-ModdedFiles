@@ -51,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$14;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
@@ -80,7 +79,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$14;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mOptionOfHomeItem:Z
     invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$200(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Z
 
     move-result v0

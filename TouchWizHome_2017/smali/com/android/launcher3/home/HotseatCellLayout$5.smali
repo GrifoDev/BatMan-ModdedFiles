@@ -67,7 +67,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/home/HotseatCellLayout$5;->this$0:Lcom/android/launcher3/home/HotseatCellLayout;
 
-    # getter for: Lcom/android/launcher3/home/HotseatCellLayout;->mHotseat:Lcom/android/launcher3/home/Hotseat;
     invoke-static {v0}, Lcom/android/launcher3/home/HotseatCellLayout;->access$000(Lcom/android/launcher3/home/HotseatCellLayout;)Lcom/android/launcher3/home/Hotseat;
 
     move-result-object v0

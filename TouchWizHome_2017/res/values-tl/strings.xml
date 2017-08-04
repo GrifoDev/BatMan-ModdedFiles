@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">History ng paghahanap</string>
+    <string name="about">Tungkol sa %s</string>
+    <string name="about_already_installed">Naka-install na ang pinakabagong bersiyon.</string>
+    <string name="about_home_screen">Home screen</string>
+    <string name="about_licence">Mga open source license</string>
+    <string name="about_network_err">Hindi matingnan kung may mga update. Hindi nakakonekta ang telepono mo sa isang network.</string>
+    <string name="about_new_version_exist">May bagong bersyon na available.</string>
+    <string name="about_retry">Subukang muli</string>
+    <string name="about_update">I-update</string>
+    <string name="about_version">Bersyon %s</string>
     <string name="activity_not_available">Hindi available ang app na ito para sa iyong device.</string>
     <string name="activity_not_found">Hindi naka-install ang application.</string>
     <string name="align_to_bottom">I-align sa ibaba</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Wala nang espasyo sa pahinang ito</string>
     <string name="out_of_space_dialog">Wala nang lugar sa page na ito. Idaragdag ang item sa isang bagong page.</string>
     <string name="permdesc_install_widget">Makakadagdag ng mga widget sa home screen ang app na ito.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Mababasa ng app na ito ang mga setting ng custom content page, na matatagpuan sa kaliwa ng Home screen.</string>
+    <string name="permdesc_write_zeropage_settings">Mababago ng app na ito ang mga setting ng custom content page, na matatagpuan sa kaliwa ng Home screen.</string>
     <string name="permlab_install_widget">Magdagdag ng mga widget</string>
+    <string name="permlab_read_settings">Basahin ang mga setting at shortcut ng Home</string>
+    <string name="permlab_read_zeropage_settings">Basahin ang mga setting ng custom content page</string>
+    <string name="permlab_write_zeropage_settings">Baguhin ang mga setting ng custom content page</string>
     <string name="quick_option_add_apps">Magdagdag ng mga app</string>
     <string name="quick_option_add_shortcut_to_home">Magdagdag ng shortcut sa Home</string>
     <string name="quick_option_add_to_personal">Add to personal</string>

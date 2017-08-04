@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Keresési előzmények</string>
+    <string name="about">A(z) %s névjegye</string>
+    <string name="about_already_installed">Már telepítve van a legfrissebb verzió.</string>
+    <string name="about_home_screen">Kezdőképernyő</string>
+    <string name="about_licence">Nyílt forráskód licencei</string>
+    <string name="about_network_err">Nem lehet frissítéseket keresni. A telefon nem kapcsolódik hálózathoz.</string>
+    <string name="about_new_version_exist">Új verzió érhető el.</string>
+    <string name="about_retry">Újra</string>
+    <string name="about_update">Frissítés</string>
+    <string name="about_version">Verzió: %s</string>
     <string name="activity_not_available">Az alkalmazás ehhez az eszközhöz nem áll rendelkezésre.</string>
     <string name="activity_not_found">Az alkalmazás nincs telepítve.</string>
     <string name="align_to_bottom">Alulra igazítás</string>
@@ -120,7 +129,13 @@ alkalmazások"</string>
     <string name="out_of_space">Nincs több hely az oldalon</string>
     <string name="out_of_space_dialog">Nincs több hely ezen az oldalon. Az elem egy új oldalra kerül.</string>
     <string name="permdesc_install_widget">Az alkalmazás widgeteket adhat a kezdőképernyőhöz.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Az alkalmazás olvashatja az egyéni tartalmú oldal beállításait, amely a kezdőképernyőtől balra található.</string>
+    <string name="permdesc_write_zeropage_settings">Az alkalmazás módosíthatja az egyéni tartalmú oldal beállításait, amely a kezdőképernyőtől balra található.</string>
     <string name="permlab_install_widget">Widget hozzáadása</string>
+    <string name="permlab_read_settings">kezdőképernyő beállításainak és parancsikonjainak olvasása</string>
+    <string name="permlab_read_zeropage_settings">Egyedi tart. old. beállít.nak olvas.</string>
+    <string name="permlab_write_zeropage_settings">Egyéni tartalmú oldal beáll.nak mód.</string>
     <string name="quick_option_add_apps">Alkalmazások hozzáadása</string>
     <string name="quick_option_add_shortcut_to_home">Parancsikon a kezdőlapra</string>
     <string name="quick_option_add_to_personal">Személyeshez</string>

@@ -50,7 +50,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # getter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
     invoke-static {v2}, Lcom/android/launcher3/common/base/view/PagedView;->access$500(Lcom/android/launcher3/common/base/view/PagedView;)I
 
     move-result v2
@@ -67,7 +66,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # getter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
     invoke-static {v0}, Lcom/android/launcher3/common/base/view/PagedView;->access$500(Lcom/android/launcher3/common/base/view/PagedView;)I
 
     move-result v0
@@ -80,12 +78,10 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mTranslateAllPages:F
     invoke-static {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->access$602(Lcom/android/launcher3/common/base/view/PagedView;F)F
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
     invoke-static {v0, v3}, Lcom/android/launcher3/common/base/view/PagedView;->access$502(Lcom/android/launcher3/common/base/view/PagedView;I)I
 
     :goto_0
@@ -94,7 +90,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # getter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
     invoke-static {v0}, Lcom/android/launcher3/common/base/view/PagedView;->access$500(Lcom/android/launcher3/common/base/view/PagedView;)I
 
     move-result v0
@@ -107,14 +102,12 @@
 
     const/4 v1, 0x4
 
-    # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
     invoke-static {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->access$502(Lcom/android/launcher3/common/base/view/PagedView;I)I
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mContinuallyScroll:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->access$702(Lcom/android/launcher3/common/base/view/PagedView;Z)Z
 
     goto :goto_0
@@ -126,7 +119,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$7;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    # setter for: Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
     invoke-static {v0, v3}, Lcom/android/launcher3/common/base/view/PagedView;->access$502(Lcom/android/launcher3/common/base/view/PagedView;I)I
 
     goto :goto_0

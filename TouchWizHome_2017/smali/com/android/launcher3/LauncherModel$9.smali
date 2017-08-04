@@ -181,7 +181,6 @@
     :cond_3
     iget-object v9, p0, Lcom/android/launcher3/LauncherModel$9;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mWorkspaceLoaded:Z
     invoke-static {v9}, Lcom/android/launcher3/LauncherModel;->access$200(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v9
@@ -190,7 +189,6 @@
 
     iget-object v9, p0, Lcom/android/launcher3/LauncherModel$9;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mAllAppsLoaded:Z
     invoke-static {v9}, Lcom/android/launcher3/LauncherModel;->access$300(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v9
@@ -212,7 +210,6 @@
 
     iget-object v11, p0, Lcom/android/launcher3/LauncherModel$9;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mWorkspaceLoaded:Z
     invoke-static {v11}, Lcom/android/launcher3/LauncherModel;->access$200(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v11
@@ -229,7 +226,6 @@
 
     iget-object v11, p0, Lcom/android/launcher3/LauncherModel$9;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mAllAppsLoaded:Z
     invoke-static {v11}, Lcom/android/launcher3/LauncherModel;->access$300(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v11
@@ -260,7 +256,6 @@
 
     invoke-direct {v10, p0}, Lcom/android/launcher3/LauncherModel$9$1;-><init>(Lcom/android/launcher3/LauncherModel$9;)V
 
-    # invokes: Lcom/android/launcher3/LauncherModel;->runOnMainThread(Ljava/lang/Runnable;)V
     invoke-static {v9, v10}, Lcom/android/launcher3/LauncherModel;->access$2000(Lcom/android/launcher3/LauncherModel;Ljava/lang/Runnable;)V
 
     :goto_0

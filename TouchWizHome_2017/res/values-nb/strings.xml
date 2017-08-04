@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Søkehistorikk</string>
+    <string name="about">Om %s</string>
+    <string name="about_already_installed">Den siste versjonen er allerede installert.</string>
+    <string name="about_home_screen">Startskjerm</string>
+    <string name="about_licence">Åpen kildekode-lisens</string>
+    <string name="about_network_err">Kan ikke se etter oppdateringer. Telefonen er ikke koblet til et nettverk.</string>
+    <string name="about_new_version_exist">En ny versjon er tilgjengelig.</string>
+    <string name="about_retry">Prøv igjen</string>
+    <string name="about_update">Oppdater</string>
+    <string name="about_version">Versjon %s</string>
     <string name="activity_not_available">Denne appen er ikke tilgjengelig for enheten din.</string>
     <string name="activity_not_found">App ikke installert.</string>
     <string name="align_to_bottom">Juster til bunn</string>
@@ -120,7 +129,13 @@ apper"</string>
     <string name="out_of_space">Ikke mer plass på denne siden</string>
     <string name="out_of_space_dialog">Det er ikke mer plass på denne siden. Elementet blir lagt til på en ny side.</string>
     <string name="permdesc_install_widget">Denne appen kan legge til widgeter på startskjermbildet.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Denne appen kan lese innstillingene til den tilpassede innholdssiden, som er plassert til venstre på startskjermbildet.</string>
+    <string name="permdesc_write_zeropage_settings">Denne appen kan endre innstillingene til den tilpassede innholdssiden, som er plassert til venstre på startskjermbildet.</string>
     <string name="permlab_install_widget">Legg til widgeter</string>
+    <string name="permlab_read_settings">les hjemmeinnstillingene og snarveier</string>
+    <string name="permlab_read_zeropage_settings">Les innst. for tilpasset innholdsside</string>
+    <string name="permlab_write_zeropage_settings">Endre innst. for tilpasset innholdsside</string>
     <string name="quick_option_add_apps">Legg til apper</string>
     <string name="quick_option_add_shortcut_to_home">Legg snarvei på startskj.</string>
     <string name="quick_option_add_to_personal">Legg til pers.</string>
@@ -139,7 +154,7 @@ apper"</string>
     <string name="quick_option_remove_shortcut">Fjern snarvei</string>
     <string name="quick_option_secure_folder">Legg til %s</string>
     <string name="quick_option_select">Velg flere elementer</string>
-    <string name="quick_option_sleep">Søvn</string>
+    <string name="quick_option_sleep">Dvale</string>
     <string name="quick_option_sleep_alert">Hvis du setter denne appen i dvalemodus, blir den hindret i å bruke batteriet i bakgrunnen. Det kan hende at apper i dvalemodus ikke mottar oppdateringer eller sender deg varsler, men de aktiveres når du åpner dem.</string>
     <string name="quick_option_uninstall">Avinstaller</string>
     <string name="quick_option_unlock">Lås opp</string>

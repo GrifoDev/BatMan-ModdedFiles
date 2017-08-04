@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/BaseRecyclerView$ScrollListener;->this$0:Lcom/android/launcher3/common/base/view/BaseRecyclerView;
 
-    # setter for: Lcom/android/launcher3/common/base/view/BaseRecyclerView;->mDy:I
     invoke-static {v0, p3}, Lcom/android/launcher3/common/base/view/BaseRecyclerView;->access$002(Lcom/android/launcher3/common/base/view/BaseRecyclerView;I)I
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/BaseRecyclerView$ScrollListener;->this$0:Lcom/android/launcher3/common/base/view/BaseRecyclerView;

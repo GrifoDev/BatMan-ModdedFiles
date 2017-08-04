@@ -56,12 +56,10 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$3;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # setter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mIsRunningOverviewAnimation:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$202(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$3;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    # setter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
     invoke-static {v0, v2}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$302(Lcom/android/launcher3/home/HomeTransitionAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     iget-boolean v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$3;->val$accessibilityEnabled:Z
@@ -97,7 +95,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/home/HomeTransitionAnimation;->mIsRunningOverviewAnimation:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$202(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
 
     return-void

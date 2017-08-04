@@ -405,7 +405,7 @@
 
     if-nez v1, :cond_2
 
-    const v1, 0x7f02006b
+    const v1, 0x7f02006e
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2374,7 +2374,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0800a7
+    const v1, 0x7f0800b6
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

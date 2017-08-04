@@ -38,19 +38,16 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
 
-    # invokes: Lcom/android/launcher3/folder/controller/FolderController;->setupFolderBgLayout()Z
     invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderController;->access$100(Lcom/android/launcher3/folder/controller/FolderController;)Z
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
 
-    # getter for: Lcom/android/launcher3/folder/controller/FolderController;->mFolderBgView:Lcom/android/launcher3/folder/view/FolderBgView;
     invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderController;->access$300(Lcom/android/launcher3/folder/controller/FolderController;)Lcom/android/launcher3/folder/view/FolderBgView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
 
-    # getter for: Lcom/android/launcher3/folder/controller/FolderController;->mStateTransitionDuration:I
     invoke-static {v1}, Lcom/android/launcher3/folder/controller/FolderController;->access$200(Lcom/android/launcher3/folder/controller/FolderController;)I
 
     move-result v1

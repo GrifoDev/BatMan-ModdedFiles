@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$2;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    # getter for: Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$200(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/view/View;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$2;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    # invokes: Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->showPopupMenu()V
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$300(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)V
 
     return-void

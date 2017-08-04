@@ -3,12 +3,12 @@
 .source "AppsLoader.java"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->filterCurrentPageItems(JLjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->finishBind(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,26 +16,24 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Lcom/android/launcher3/common/base/item/ItemInfo;",
-        ">;"
-    }
-.end annotation
-
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
+.field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+
+.field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$16;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+
+    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$16;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+
+    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$16;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,30 +42,29 @@
 
 
 # virtual methods
-.method public compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
+.method public run()V
     .locals 4
 
-    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$16;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    iget-wide v2, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$16;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
-    sub-long/2addr v0, v2
+    iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$16;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    long-to-int v0, v0
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
-    return v0
-.end method
+    move-result-object v0
 
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    if-eqz v0, :cond_0
 
-    check-cast p1, Lcom/android/launcher3/common/base/item/ItemInfo;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$16;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    check-cast p2, Lcom/android/launcher3/common/base/item/ItemInfo;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$100(Lcom/android/launcher3/allapps/model/AppsLoader;)I
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/allapps/model/AppsLoader$16;->compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
+    move-result v1
 
-    move-result v0
+    invoke-interface {v0, v1}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->finishBindingItems(I)V
 
-    return v0
+    :cond_0
+    return-void
 .end method

@@ -66,7 +66,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
     invoke-static {v0, v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$302(Lcom/android/launcher3/allapps/AppsTransitionAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$5;->val$searchBarContainerView:Landroid/view/View;

@@ -346,7 +346,6 @@
 
     move-result-object v7
 
-    # invokes: Lcom/android/launcher3/util/locale/LocaleUtils;->isCJKUnicodeBlock(Ljava/lang/Character$UnicodeBlock;)Z
     invoke-static {v7}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$700(Ljava/lang/Character$UnicodeBlock;)Z
 
     move-result v8

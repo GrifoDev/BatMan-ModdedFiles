@@ -45,7 +45,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$1;->val$targetFolder:Lcom/android/launcher3/folder/view/FolderIconView;
 
-    # invokes: Lcom/android/launcher3/folder/controller/FolderIconDropController;->openFolderOnDragHold(Lcom/android/launcher3/folder/view/FolderIconView;)V
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$000(Lcom/android/launcher3/folder/controller/FolderIconDropController;Lcom/android/launcher3/folder/view/FolderIconView;)V
 
     return-void

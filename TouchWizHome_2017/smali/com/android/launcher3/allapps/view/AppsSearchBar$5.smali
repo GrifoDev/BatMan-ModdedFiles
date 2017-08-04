@@ -57,7 +57,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/view/AppsSearchBar$5;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchBar;
 
-    # invokes: Lcom/android/launcher3/allapps/view/AppsSearchBar;->launchSfinder()Z
     invoke-static {v2}, Lcom/android/launcher3/allapps/view/AppsSearchBar;->access$400(Lcom/android/launcher3/allapps/view/AppsSearchBar;)Z
 
     const/4 v1, 0x1

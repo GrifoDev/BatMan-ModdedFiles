@@ -46,7 +46,6 @@
 
     iget-object v1, v1, Lcom/android/launcher3/folder/FolderTransitionAnimation$FakeFolderIconAnimation;->this$0:Lcom/android/launcher3/folder/FolderTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$400(Lcom/android/launcher3/folder/FolderTransitionAnimation;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1
@@ -57,7 +56,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$FakeFolderIconAnimation$3;->this$1:Lcom/android/launcher3/folder/FolderTransitionAnimation$FakeFolderIconAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation$FakeFolderIconAnimation;->mFakeView:Landroid/widget/ImageView;
     invoke-static {v1}, Lcom/android/launcher3/folder/FolderTransitionAnimation$FakeFolderIconAnimation;->access$700(Lcom/android/launcher3/folder/FolderTransitionAnimation$FakeFolderIconAnimation;)Landroid/widget/ImageView;
 
     move-result-object v1

@@ -55,7 +55,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeController$7;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mPendingAddInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
     invoke-static {v2}, Lcom/android/launcher3/home/HomeController;->access$700(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/common/base/item/ItemInfo;
 
     move-result-object v2
@@ -64,7 +63,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/HomeController$7;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mPendingAddInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
     invoke-static {v4}, Lcom/android/launcher3/home/HomeController;->access$700(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/common/base/item/ItemInfo;
 
     move-result-object v4
@@ -75,7 +73,6 @@
 
     const/4 v7, 0x0
 
-    # invokes: Lcom/android/launcher3/home/HomeController;->completeAddAppWidget(IJJLandroid/appwidget/AppWidgetHostView;Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;)Landroid/appwidget/AppWidgetHostView;
     invoke-static/range {v0 .. v7}, Lcom/android/launcher3/home/HomeController;->access$800(Lcom/android/launcher3/home/HomeController;IJJLandroid/appwidget/AppWidgetHostView;Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;)Landroid/appwidget/AppWidgetHostView;
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$7;->this$0:Lcom/android/launcher3/home/HomeController;

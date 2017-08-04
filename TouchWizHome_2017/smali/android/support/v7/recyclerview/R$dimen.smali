@@ -15,17 +15,17 @@
 
 
 # static fields
-.field public static final fastscroll_default_thickness:I = 0x7f0900c3
+.field public static final fastscroll_default_thickness:I = 0x7f0900d1
 
-.field public static final fastscroll_margin:I = 0x7f0900c4
+.field public static final fastscroll_margin:I = 0x7f0900d2
 
-.field public static final fastscroll_minimum_range:I = 0x7f0900c5
+.field public static final fastscroll_minimum_range:I = 0x7f0900d3
 
-.field public static final item_touch_helper_max_drag_scroll_per_frame:I = 0x7f0900f2
+.field public static final item_touch_helper_max_drag_scroll_per_frame:I = 0x7f090100
 
-.field public static final item_touch_helper_swipe_escape_max_velocity:I = 0x7f0900f3
+.field public static final item_touch_helper_swipe_escape_max_velocity:I = 0x7f090101
 
-.field public static final item_touch_helper_swipe_escape_velocity:I = 0x7f0900f4
+.field public static final item_touch_helper_swipe_escape_velocity:I = 0x7f090102
 
 
 # direct methods

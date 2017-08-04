@@ -113,7 +113,6 @@
 .method public static getInstance()Lcom/android/launcher3/widget/model/WidgetPreviewUtils;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewUtils$SingletonHolder;->sWidgetPreviewUtils:Lcom/android/launcher3/widget/model/WidgetPreviewUtils;
     invoke-static {}, Lcom/android/launcher3/widget/model/WidgetPreviewUtils$SingletonHolder;->access$100()Lcom/android/launcher3/widget/model/WidgetPreviewUtils;
 
     move-result-object v0
@@ -413,7 +412,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f020029
+    const v5, 0x7f02002c
 
     const/4 v8, 0x0
 

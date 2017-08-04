@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Histórico de procuras</string>
+    <string name="about">Acerca de %s</string>
+    <string name="about_already_installed">A versão mais recente já está instalada.</string>
+    <string name="about_home_screen">Ecrã principal</string>
+    <string name="about_licence">Licenças Open source</string>
+    <string name="about_network_err">Impossível verificar se existem actualizações. O seu telefone não está a ligado a uma rede.</string>
+    <string name="about_new_version_exist">Está disponível uma nova versão.</string>
+    <string name="about_retry">Repetir</string>
+    <string name="about_update">Actualizar</string>
+    <string name="about_version">Versão %s</string>
     <string name="activity_not_available">Esta aplicação não está disponível para o seu dispositivo.</string>
     <string name="activity_not_found">Aplicação não instalada.</string>
     <string name="align_to_bottom">Alinhar em baixo</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s já adicionado ao ecrã principal.</string>
     <string name="option_menu_contact_up">Contacte-nos</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Definições</string>
     <string name="options_menu">Mais opções</string>
     <string name="options_menu_search_recommend">Procurar opções</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Não existe mais espaço nesta página</string>
     <string name="out_of_space_dialog">Não existe mais espaço nesta página. O item vai ser adicionado a uma página nova.</string>
     <string name="permdesc_install_widget">Esta aplicação pode adicionar widgets ao ecrã principal.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Esta aplicação pode ler as definições da página de índice personalizada, situada à esquerda do Ecrã principal.</string>
+    <string name="permdesc_write_zeropage_settings">Esta aplicação pode alterar as definições da página de índice personalizada, situada à esquerda do Ecrã principal.</string>
     <string name="permlab_install_widget">Adicionar widgets</string>
+    <string name="permlab_read_settings">ler definições e atalhos de Homepage</string>
+    <string name="permlab_read_zeropage_settings">Ler def. página índice personalizada</string>
+    <string name="permlab_write_zeropage_settings">Alterar def. pág. índice personalizada</string>
     <string name="quick_option_add_apps">Adicionar aplicações</string>
     <string name="quick_option_add_shortcut_to_home">Adic. atalho Ecrã principal</string>
     <string name="quick_option_add_to_personal">Adic. atalho</string>

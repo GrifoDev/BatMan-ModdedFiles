@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Histórico de pesquisa</string>
+    <string name="about">Sobre %s</string>
+    <string name="about_already_installed">A versão mais recente já está instalada.</string>
+    <string name="about_home_screen">Tela inicial</string>
+    <string name="about_licence">Licenças de fonte aberta</string>
+    <string name="about_network_err">Não é possível verificar se há atualizações. Seu telefone não está conectado a uma rede.</string>
+    <string name="about_new_version_exist">Uma nova versão está disponível.</string>
+    <string name="about_retry">Tentar nov.</string>
+    <string name="about_update">Atualizar</string>
+    <string name="about_version">Versão %s</string>
     <string name="activity_not_available">Este aplicativo não está disponível para o seu aparelho.</string>
     <string name="activity_not_found">Aplicação não instalada.</string>
     <string name="align_to_bottom">Alinhar à parte inferior</string>
@@ -18,7 +27,7 @@
     <string name="apps_button_label">Aplic.</string>
     <string name="apps_button_setting_guide_text">Quando o botão Aplicativos estiver ativado, o item à direita será movido da posição atual para a Tela inicial.</string>
     <string name="apps_button_show">Exibir botão Aplicativos</string>
-    <string name="apps_button_summary">Exibe um botão na Tela inicial que abre a Tela de aplicações.</string>
+    <string name="apps_button_summary">Exibe um botão na Tela inicial que abre a Tela de aplicativos.</string>
     <string name="apps_button_title">Botão de aplicativos</string>
     <string name="apps_screen">Tela de aplicativos</string>
     <string name="autoalign_popup_message">Depois de alinhá-los, você não poderá voltar ao seu arranjo anterior.</string>
@@ -58,18 +67,18 @@
     <string name="gadget_error_text">Problemas ao carregar widget.</string>
     <string name="hide_apps_button">Aplicar</string>
     <string name="home_screen">Tela inicial</string>
-    <string name="home_screen_global_setting_title">Tela de início</string>
+    <string name="home_screen_global_setting_title">Tela inicial</string>
     <string name="home_screen_layout">Aparência da Tela inicial</string>
     <string name="home_screen_mode_apps">Telas inicial e de aplicativos</string>
     <string name="home_screen_mode_change_alert_text">Qualquer personalização feita na Tela inicial será descartada.</string>
     <string name="home_screen_mode_change_dialog_title">Aplicar aparência selec. da Tela inicial?</string>
-    <string name="home_screen_mode_change_with_copy_layout">A aparência do ícone usada no momento para a Tela de aplicações será aplicada à Tela inicial.</string>
-    <string name="home_screen_mode_home_apps_body_text">Uma Tela de aplicações separada estará disponível. Deslize para cima ou para baixo na Tela inicial para exibi-la. Você também poderá colocar seus aplicativos mais importantes na Tela inicial para acesso rápido.</string>
+    <string name="home_screen_mode_change_with_copy_layout">Seus aplicativos serão organizados na Tela inicial da mesma forma que eles estão atualmente dispostos na Tela de aplicativos.</string>
+    <string name="home_screen_mode_home_apps_body_text">Uma Tela de aplicativos separada estará disponível. Deslize para cima ou para baixo na Tela inicial para exibi-la. Você também poderá colocar seus aplicativos mais importantes na Tela inicial para acesso rápido.</string>
     <string name="home_screen_mode_home_only_body_text">Todos os seus aplicativos serão exibidos na Tela inicial.</string>
     <string name="home_screen_mode_only_home">Apenas a Tela inicial</string>
     <string name="home_screen_screengrid">Grade da Tela inicial</string>
     <string name="home_screen_settings_hide_apps">Ocultar aplicativos</string>
-    <string name="homes_screen_settings">Config. da tela de início</string>
+    <string name="homes_screen_settings">Config. da Tela inicial</string>
     <string name="homesetting_easymode_close">Fechar</string>
     <string name="homesetting_easymode_summary">Você pode desativar o Modo Fácil nas Configurações.</string>
     <string name="homesetting_easymode_title">Modo Fácil ativado</string>
@@ -108,7 +117,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">O widget %s já foi adicionado à tela inicial.</string>
     <string name="option_menu_contact_up">Entre em contato conosco</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Configurações</string>
     <string name="options_menu">Mais opções</string>
     <string name="options_menu_search_recommend">Opções de pesquisa</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Não há mais espaço nesta página</string>
     <string name="out_of_space_dialog">Não há mais espaço nesta página. O item será adicionado a uma nova página.</string>
     <string name="permdesc_install_widget">Este aplicativo pode adicionar widgets à tela de início.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Este aplicativo pode ler as configurações da página de conteúdo personalizado, que está localizada à esquerda da Tela inicial.</string>
+    <string name="permdesc_write_zeropage_settings">Este aplicativo pode alterar as configurações da página de conteúdo personalizado, que está localizada à esquerda da Tela inicial.</string>
     <string name="permlab_install_widget">Adicionar widgets</string>
+    <string name="permlab_read_settings">ler configurações e atalhos de Homepage</string>
+    <string name="permlab_read_zeropage_settings">Ler config. pág. conteúdo personal.</string>
+    <string name="permlab_write_zeropage_settings">Alt. config. person. pág. Conteúdo</string>
     <string name="quick_option_add_apps">Adicionar aplicativos</string>
     <string name="quick_option_add_shortcut_to_home">Ad. atalho à Tela inicial</string>
     <string name="quick_option_add_to_personal">Ad. pessoal</string>
@@ -148,13 +163,13 @@
 p/ igualar a aparência da Tela inicial"</string>
     <string name="search_for_widgets">Procurar widgets</string>
     <string name="selected">Selecionado</string>
-    <string name="setting_apps_screen_grid">Grade da Tela de aplicações</string>
+    <string name="setting_apps_screen_grid">Grade da Tela de aplicativos</string>
     <string name="shortcut_duplicate">O atalho %s já existe.</string>
-    <string name="shortcut_installed">Atalho para %s adicionado na tela de início.</string>
+    <string name="shortcut_installed">Atalho para %s adicionado na Tela inicial.</string>
     <string name="shortcut_moved_to_game_launcher">O ícone de jogo foi movido para o Game Launcher.</string>
     <string name="shortcut_uninstalled">Atalho %s removido.</string>
     <string name="speak_now">Fale agora</string>
-    <string name="swipe_up_for_more_apps">Deslizar para cima ou para baixo para ver todos os aplicativos</string>
+    <string name="swipe_up_for_more_apps">Deslize para cima ou para baixo para ver todos os aplicativos</string>
     <string name="swipe_up_for_more_apps_att">Deslizar para cima ou para baixo na tela para todos os aplicativos</string>
     <string name="swipe_up_for_more_apps_with_two_fingers">Deslize para cima ou para baixo com dois dedos para todos os aplicativos.</string>
     <string name="talkback_checked">Selecionado</string>

@@ -53,7 +53,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$4;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mWorkspaceScreens:Lcom/android/launcher3/util/LongArrayMap;
     invoke-static {v0}, Lcom/android/launcher3/home/Workspace;->access$100(Lcom/android/launcher3/home/Workspace;)Lcom/android/launcher3/util/LongArrayMap;
 
     move-result-object v0
@@ -62,7 +61,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$4;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    # getter for: Lcom/android/launcher3/home/Workspace;->mScreenOrder:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/android/launcher3/home/Workspace;->access$200(Lcom/android/launcher3/home/Workspace;)Ljava/util/ArrayList;
 
     move-result-object v0

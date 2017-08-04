@@ -37,7 +37,7 @@
 .method public onFocusChange(Landroid/view/View;Z)V
     .locals 5
 
-    const v4, 0x7f080102
+    const v4, 0x7f080111
 
     const/4 v3, 0x1
 
@@ -50,7 +50,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController$3;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->mCb:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController$Callbacks;
     invoke-static {v2}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->access$200(Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;)Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController$Callbacks;
 
     move-result-object v2
@@ -61,7 +60,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController$3;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;)Landroid/content/Context;
 
     move-result-object v2
@@ -72,7 +70,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController$3;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->mCb:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController$Callbacks;
     invoke-static {v2}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->access$300(Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;)Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController$Callbacks;
 
     move-result-object v2
@@ -89,13 +86,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f08017d
+    const v3, 0x7f08018a
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f08011a
+    const v4, 0x7f080129
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -112,7 +109,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController$3;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    # getter for: Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;)Landroid/content/Context;
 
     move-result-object v2
@@ -137,7 +133,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080178
+    const v3, 0x7f080185
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -156,7 +152,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080184
+    const v3, 0x7f080191
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

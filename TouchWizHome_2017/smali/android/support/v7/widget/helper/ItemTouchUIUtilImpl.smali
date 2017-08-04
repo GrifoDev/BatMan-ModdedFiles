@@ -6,9 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v7/widget/helper/ItemTouchUIUtilImpl$Gingerbread;,
-        Landroid/support/v7/widget/helper/ItemTouchUIUtilImpl$Honeycomb;,
-        Landroid/support/v7/widget/helper/ItemTouchUIUtilImpl$Lollipop;
+        Landroid/support/v7/widget/helper/ItemTouchUIUtilImpl$BaseImpl;,
+        Landroid/support/v7/widget/helper/ItemTouchUIUtilImpl$Api21Impl;
     }
 .end annotation
 

@@ -96,7 +96,15 @@
     :cond_1
     if-eqz v1, :cond_2
 
-    invoke-static {v1}, Landroid/support/v4/os/CancellationSignalCompatJellybean;->cancel(Ljava/lang/Object;)V
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v3, 0x10
+
+    if-lt v2, v3, :cond_2
+
+    check-cast v1, Landroid/os/CancellationSignal;
+
+    invoke-virtual {v1}, Landroid/os/CancellationSignal;->cancel()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
@@ -184,9 +192,9 @@
 
     if-nez v0, :cond_1
 
-    invoke-static {}, Landroid/support/v4/os/CancellationSignalCompatJellybean;->create()Ljava/lang/Object;
+    new-instance v0, Landroid/os/CancellationSignal;
 
-    move-result-object v0
+    invoke-direct {v0}, Landroid/os/CancellationSignal;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/os/CancellationSignal;->mCancellationSignalObj:Ljava/lang/Object;
 
@@ -196,7 +204,9 @@
 
     iget-object v0, p0, Landroid/support/v4/os/CancellationSignal;->mCancellationSignalObj:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/support/v4/os/CancellationSignalCompatJellybean;->cancel(Ljava/lang/Object;)V
+    check-cast v0, Landroid/os/CancellationSignal;
+
+    invoke-virtual {v0}, Landroid/os/CancellationSignal;->cancel()V
 
     :cond_1
     iget-object v0, p0, Landroid/support/v4/os/CancellationSignal;->mCancellationSignalObj:Ljava/lang/Object;

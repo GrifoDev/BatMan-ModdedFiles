@@ -36,7 +36,6 @@
 
     const/4 v0, 0x1
 
-    # setter for: Lcom/android/launcher3/Launcher;->sNeedCheckEasyMode:Z
     invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$902(Z)Z
 
     return-void

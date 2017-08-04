@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">ਖੋਜ ਇਤਿਹਾਸ</string>
+    <string name="about">%s ਦੇ ਬਾਰੇ</string>
+    <string name="about_already_installed">ਨਵੀਨਤਮ ਸੰਸਕਰਣ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਸਥਾਪਿਤ ਹੈ।</string>
+    <string name="about_home_screen">ਹੋਮ ਸਕ੍ਰੀਨ</string>
+    <string name="about_licence">ਓਪਨ ਸੋਰਸ ਲਾਈਸੰਸਿਸ</string>
+    <string name="about_network_err">ਅਪਡੇਟਸ ਲਈ ਜਾਂਚ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ। ਤੁਹਾਡਾ ਫ਼ੋਨ ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੈ।</string>
+    <string name="about_new_version_exist">ਇੱਕ ਨਵਾਂ ਸੰਸਕਰਣ ਉਪਲਬਧ ਹੈ।</string>
+    <string name="about_retry">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
+    <string name="about_update">ਅਪਡੇਟ ਕਰੋ</string>
+    <string name="about_version">%s ਸੰਸਕਰਣ</string>
     <string name="activity_not_available">ਇਹ ਐਪ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਲਈ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
     <string name="activity_not_found">ਅਨੁਪ੍ਰਯੋਗ ਸਥਾਪਿਤ ਨਹੀਂ ਹੋਈ।</string>
     <string name="align_to_bottom">ਹੇਠਾਂ ਵੱਲ ਸੇਧ ਵਿੱਚ ਕਰੋ</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">ਇਸ ਪੰਨੇ ਤੇ ਹੋਰ ਥਾਂ ਨਹੀਂ ਹੈ</string>
     <string name="out_of_space_dialog">ਇਸ ਪੰਨੇ ਤੇ ਹੋਰ ਥਾਂ ਖਾਲੀ ਨਹੀਂ ਹੈ। ਆਈਟਮ ਨੂੰ ਨਵੇਂ ਪੰਨੇ ਤੇ ਜੋੜਿਆ ਜਾਵੇਗਾ।</string>
     <string name="permdesc_install_widget">ਇਹ ਐਪ ਹੋਮ ਸਕ੍ਰੀਨ ਤੇ ਵਿੱਜੇਟਸ ਜੋੜ ਸਕਦੀ ਹੈ।</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">ਇਹ ਐਪ ਕਸਟਮ ਸਮੱਗਰੀ ਪੰਨੇ ਦੀਆਂ ਸੈੱਟਿੰਗਸ ਨੂੰ ਪੜ੍ਹ ਸਕਦੀ ਹੈ, ਜਿਸ ਨੂੰ ਹੋਮ ਸਕ੍ਰੀਨ ਉੱਤੇ ਖੱਬੇ ਪਾਸੇ ਦੇਖਿਆ ਜਾ ਸਕਦਾ ਹੈ।</string>
+    <string name="permdesc_write_zeropage_settings">ਇਹ ਐਪ ਕਸਟਮ ਸਮੱਗਰੀ ਪੰਨੇ ਦੀਆਂ ਸੈੱਟਿੰਗਸ ਨੂੰ ਬਦਲ ਸਕਦੀ ਹੈ, ਜਿਸ ਨੂੰ ਹੋਮ ਸਕ੍ਰੀਨ ਉੱਤੇ ਖੱਬੇ ਪਾਸੇ ਦੇਖਿਆ ਜਾ ਸਕਦਾ ਹੈ।</string>
     <string name="permlab_install_widget">ਵਿੱਜੇਟਸ ਜੋੜੋ</string>
+    <string name="permlab_read_settings">ਹੋਮ ਸੈੱਟਿੰਗਸ ਅਤੇ ਸ਼ੌਰਟਕੱਟਸ ਪੜ੍ਹੋ</string>
+    <string name="permlab_read_zeropage_settings">ਕਸਟਮ ਸਮੱਗਰੀ ਪੰਨੇ ਦੀਆਂ ਸੈੱਟਿੰਗਸ ਨੂੰ ਪੜ੍ਹੋ</string>
+    <string name="permlab_write_zeropage_settings">ਕਸਟਮ ਸਮੱਗਰੀ ਪੰਨੇ ਦੀਆਂ ਸੈੱਟਿੰਗਸ ਨੂੰ ਬਦਲੋ</string>
     <string name="quick_option_add_apps">ਐਪਸ ਜੋੜੋ</string>
     <string name="quick_option_add_shortcut_to_home">ਹੋਮ ਤੇ ਸ਼ੌਰਟਕਟ ਜੋੜੋ</string>
     <string name="quick_option_add_to_personal">ਨਿੱਜੀ ਵਿੱਚ ਜੋੜੋ</string>

@@ -629,7 +629,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f008a
+    const v0, 0x7f0f009a
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/Hotseat;->findViewById(I)Landroid/view/View;
 

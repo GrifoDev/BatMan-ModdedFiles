@@ -43,7 +43,6 @@
 
     const/4 v1, 0x1
 
-    # invokes: Lcom/android/launcher3/folder/view/FolderView;->doneEditingFolderName(Z)V
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/view/FolderView;->access$400(Lcom/android/launcher3/folder/view/FolderView;Z)V
 
     return-void

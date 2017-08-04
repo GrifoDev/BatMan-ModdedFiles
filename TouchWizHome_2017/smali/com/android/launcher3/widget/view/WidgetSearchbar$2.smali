@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar$2;->this$0:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    # getter for: Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
     invoke-static {v0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->access$100(Lcom/android/launcher3/widget/view/WidgetSearchbar;)Landroid/widget/SearchView;
 
     move-result-object v0

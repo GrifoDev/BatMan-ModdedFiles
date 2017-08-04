@@ -657,3 +657,23 @@
 
     goto :goto_0
 .end method
+
+.method public static startForegroundService(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 1
+
+    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    goto :goto_0
+.end method

@@ -116,7 +116,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    const v1, 0x7f0801ba
+    const v1, 0x7f0801c7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -124,7 +124,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/widget/view/WidgetItemView;->mDimensionsFormatString:Ljava/lang/String;
 
-    const v1, 0x7f0801b8
+    const v1, 0x7f0801c5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -138,7 +138,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/widget/view/WidgetItemView;->setClipToPadding(Z)V
 
-    const v1, 0x7f0d0035
+    const v1, 0x7f0d0036
 
     const/4 v2, 0x0
 
@@ -707,7 +707,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080062
+    const v4, 0x7f08006b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

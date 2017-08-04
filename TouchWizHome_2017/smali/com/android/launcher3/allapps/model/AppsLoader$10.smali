@@ -51,7 +51,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$10;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    # invokes: Lcom/android/launcher3/allapps/model/AppsLoader;->tryGetCallbacks(Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
     invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
     move-result-object v0
@@ -60,7 +59,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$10;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mTotalPageNumber:I
     invoke-static {v1}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$100(Lcom/android/launcher3/allapps/model/AppsLoader;)I
 
     move-result v1

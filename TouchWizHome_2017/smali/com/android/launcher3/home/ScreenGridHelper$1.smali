@@ -49,7 +49,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mNeedNewPageList:Ljava/util/concurrent/CopyOnWriteArrayList;
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$000(Lcom/android/launcher3/home/ScreenGridHelper;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
@@ -58,7 +57,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mNeedNewPageList:Ljava/util/concurrent/CopyOnWriteArrayList;
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$000(Lcom/android/launcher3/home/ScreenGridHelper;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
@@ -68,7 +66,6 @@
     :cond_0
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$100(Lcom/android/launcher3/home/ScreenGridHelper;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v3
@@ -84,7 +81,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$100(Lcom/android/launcher3/home/ScreenGridHelper;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v3
@@ -120,7 +116,6 @@
     :cond_2
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$100(Lcom/android/launcher3/home/ScreenGridHelper;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v3
@@ -133,7 +128,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mNeedNewPageList:Ljava/util/concurrent/CopyOnWriteArrayList;
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$000(Lcom/android/launcher3/home/ScreenGridHelper;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
@@ -152,7 +146,6 @@
 
     iget v7, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->val$diffY:I
 
-    # invokes: Lcom/android/launcher3/home/ScreenGridHelper;->doChangeWorkspace(Lcom/android/launcher3/home/WorkspaceCellLayout;ZII)Z
     invoke-static {v3, v0, v8, v6, v7}, Lcom/android/launcher3/home/ScreenGridHelper;->access$200(Lcom/android/launcher3/home/ScreenGridHelper;Lcom/android/launcher3/home/WorkspaceCellLayout;ZII)Z
 
     move-result v3
@@ -161,7 +154,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mNeedNewPageList:Ljava/util/concurrent/CopyOnWriteArrayList;
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$000(Lcom/android/launcher3/home/ScreenGridHelper;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v3
@@ -177,7 +169,6 @@
     :cond_3
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$100(Lcom/android/launcher3/home/ScreenGridHelper;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v3
@@ -186,12 +177,10 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # invokes: Lcom/android/launcher3/home/ScreenGridHelper;->addNewPageOnChangingGrid()V
     invoke-static {v3}, Lcom/android/launcher3/home/ScreenGridHelper;->access$300(Lcom/android/launcher3/home/ScreenGridHelper;)V
 
     iget-object v3, p0, Lcom/android/launcher3/home/ScreenGridHelper$1;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # setter for: Lcom/android/launcher3/home/ScreenGridHelper;->mChangeGridState:Z
     invoke-static {v3, v8}, Lcom/android/launcher3/home/ScreenGridHelper;->access$402(Lcom/android/launcher3/home/ScreenGridHelper;Z)Z
 
     return-void

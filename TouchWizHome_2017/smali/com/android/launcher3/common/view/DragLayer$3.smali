@@ -379,7 +379,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorView:Landroid/view/View;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$000(Lcom/android/launcher3/common/view/DragLayer;)Landroid/view/View;
 
     move-result-object v24
@@ -406,7 +405,6 @@
 
     move-object/from16 v25, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorView:Landroid/view/View;
     invoke-static/range {v25 .. v25}, Lcom/android/launcher3/common/view/DragLayer;->access$000(Lcom/android/launcher3/common/view/DragLayer;)Landroid/view/View;
 
     move-result-object v25
@@ -425,7 +423,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorViewInitialRect:Landroid/graphics/Rect;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$100(Lcom/android/launcher3/common/view/DragLayer;)Landroid/graphics/Rect;
 
     move-result-object v24
@@ -450,7 +447,6 @@
 
     move-object/from16 v25, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorViewInitialRect:Landroid/graphics/Rect;
     invoke-static/range {v25 .. v25}, Lcom/android/launcher3/common/view/DragLayer;->access$100(Lcom/android/launcher3/common/view/DragLayer;)Landroid/graphics/Rect;
 
     move-result-object v25
@@ -497,7 +493,6 @@
 
     move-object/from16 v25, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorViewInitialRect:Landroid/graphics/Rect;
     invoke-static/range {v25 .. v25}, Lcom/android/launcher3/common/view/DragLayer;->access$100(Lcom/android/launcher3/common/view/DragLayer;)Landroid/graphics/Rect;
 
     move-result-object v25
@@ -533,7 +528,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorView:Landroid/view/View;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$000(Lcom/android/launcher3/common/view/DragLayer;)Landroid/view/View;
 
     move-result-object v24
@@ -548,7 +542,6 @@
 
     move-object/from16 v25, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorViewInitialScrollX:I
     invoke-static/range {v25 .. v25}, Lcom/android/launcher3/common/view/DragLayer;->access$200(Lcom/android/launcher3/common/view/DragLayer;)I
 
     move-result v25
@@ -559,7 +552,6 @@
 
     move-object/from16 v26, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mAnchorView:Landroid/view/View;
     invoke-static/range {v26 .. v26}, Lcom/android/launcher3/common/view/DragLayer;->access$000(Lcom/android/launcher3/common/view/DragLayer;)Landroid/view/View;
 
     move-result-object v26
@@ -597,7 +589,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDropView:Lcom/android/launcher3/common/drag/DragView;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$300(Lcom/android/launcher3/common/view/DragLayer;)Lcom/android/launcher3/common/drag/DragView;
 
     move-result-object v24
@@ -616,7 +607,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDropView:Lcom/android/launcher3/common/drag/DragView;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$300(Lcom/android/launcher3/common/view/DragLayer;)Lcom/android/launcher3/common/drag/DragView;
 
     move-result-object v24
@@ -635,7 +625,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDropView:Lcom/android/launcher3/common/drag/DragView;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$300(Lcom/android/launcher3/common/view/DragLayer;)Lcom/android/launcher3/common/drag/DragView;
 
     move-result-object v24
@@ -654,7 +643,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDropView:Lcom/android/launcher3/common/drag/DragView;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$300(Lcom/android/launcher3/common/view/DragLayer;)Lcom/android/launcher3/common/drag/DragView;
 
     move-result-object v24
@@ -673,7 +661,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDropView:Lcom/android/launcher3/common/drag/DragView;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$300(Lcom/android/launcher3/common/view/DragLayer;)Lcom/android/launcher3/common/drag/DragView;
 
     move-result-object v24
@@ -690,7 +677,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDropView:Lcom/android/launcher3/common/drag/DragView;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$300(Lcom/android/launcher3/common/view/DragLayer;)Lcom/android/launcher3/common/drag/DragView;
 
     move-result-object v24
@@ -707,7 +693,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher3/common/view/DragLayer;->mDropView:Lcom/android/launcher3/common/drag/DragView;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher3/common/view/DragLayer;->access$300(Lcom/android/launcher3/common/view/DragLayer;)Lcom/android/launcher3/common/drag/DragView;
 
     move-result-object v24

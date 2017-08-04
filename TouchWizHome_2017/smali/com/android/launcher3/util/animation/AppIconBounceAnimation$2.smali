@@ -38,7 +38,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/util/animation/AppIconBounceAnimation$2;->this$0:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
-    # getter for: Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->mIconView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->access$000(Lcom/android/launcher3/util/animation/AppIconBounceAnimation;)Landroid/view/View;
 
     move-result-object v1
@@ -47,14 +46,12 @@
 
     move-result v1
 
-    # setter for: Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->mLastScale:F
     invoke-static {v0, v1}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->access$202(Lcom/android/launcher3/util/animation/AppIconBounceAnimation;F)F
 
     iget-object v0, p0, Lcom/android/launcher3/util/animation/AppIconBounceAnimation$2;->this$0:Lcom/android/launcher3/util/animation/AppIconBounceAnimation;
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->mAnimator:Landroid/animation/ValueAnimator;
     invoke-static {v0, v1}, Lcom/android/launcher3/util/animation/AppIconBounceAnimation;->access$302(Lcom/android/launcher3/util/animation/AppIconBounceAnimation;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     return-void

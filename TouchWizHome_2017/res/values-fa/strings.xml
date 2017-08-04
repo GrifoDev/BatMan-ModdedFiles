@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">تاریخچه جستجو</string>
+    <string name="about">درباره ‎%s</string>
+    <string name="about_already_installed">جدیدترین نسخه از قبل نصب شده است.</string>
+    <string name="about_home_screen">صفحه اصلی</string>
+    <string name="about_licence">مجوزهای منبع آزاد</string>
+    <string name="about_network_err">بررسی برای به‌روزرسانی‌ها ممکن نیست. تلفن شما به شبکه‌ای متصل نیست.</string>
+    <string name="about_new_version_exist">یک نسخه جدید موجود است.</string>
+    <string name="about_retry">سعی مجدد</string>
+    <string name="about_update">به‌روزرسانی</string>
+    <string name="about_version">نسخه %s</string>
     <string name="activity_not_available">این برنامه برای دستگاه شما در دسترس نیست.</string>
     <string name="activity_not_found">برنامه نصب نشده است.</string>
     <string name="align_to_bottom">تراز به پایین</string>
@@ -108,7 +117,7 @@
     <string name="ok">تاييد</string>
     <string name="only_one_widget_instance_allowed">%s ویجت قبلاً به صفحه اصلی اضافه شده‌است.</string>
     <string name="option_menu_contact_up">تماس با ما</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">تنظيمات</string>
     <string name="options_menu">انتخاب ها یبیشتر</string>
     <string name="options_menu_search_recommend">گزینه‌های جستجو</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">در این صفحه فضای بیشتری وجود ندارد</string>
     <string name="out_of_space_dialog">فضای بیشتری در این صفحه وجود ندارد. مورد به یک صفحه جدید اضافه خواهد شد.</string>
     <string name="permdesc_install_widget">این برنامه می‌تواند ویجت‌ها را به صفحه اصلی اضافه کند.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">این برنامه می‌تواند تنظیمات صفحه محتوای سفارشی را که در سمت چپ صفحه اصلی قرار دارد بخواند.</string>
+    <string name="permdesc_write_zeropage_settings">این برنامه می‌تواند تنظیمات صفحه محتوای سفارشی را که در سمت چپ صفحه اصلی قرار دارد تغییر دهد.</string>
     <string name="permlab_install_widget">افزودن ویجت‌ها</string>
+    <string name="permlab_read_settings">تنظیمات اصلی و میانبرها را بخوانید</string>
+    <string name="permlab_read_zeropage_settings">خواندن تنظیمات صفحه محتوای سفارشی</string>
+    <string name="permlab_write_zeropage_settings">تغییر تنظیمات صفحه محتوای سفارشی</string>
     <string name="quick_option_add_apps">افزودن برنامه</string>
     <string name="quick_option_add_shortcut_to_home">افزودن میانبر به صفحه اصلی</string>
     <string name="quick_option_add_to_personal">اضافه-شخصی</string>

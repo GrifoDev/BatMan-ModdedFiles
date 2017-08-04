@@ -40,7 +40,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->access$300()Landroid/content/Context;
 
     move-result-object v0
@@ -49,7 +48,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09009a
+    const v1, 0x7f0900a8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -193,7 +192,6 @@
 .method private set(IIIII)V
     .locals 6
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->access$300()Landroid/content/Context;
 
     move-result-object v0
@@ -208,7 +206,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher3/theme/OpenThemeManager;
     invoke-static {v3}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher3/theme/OpenThemeManager;
 
     move-result-object v3
@@ -229,7 +226,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher3/theme/OpenThemeManager;
     invoke-static {v3}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher3/theme/OpenThemeManager;
 
     move-result-object v3
@@ -270,7 +266,6 @@
     :cond_1
     iget-object v3, p0, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher3/theme/OpenThemeManager;
     invoke-static {v3}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher3/theme/OpenThemeManager;
 
     move-result-object v3
@@ -283,10 +278,9 @@
 
     sparse-switch p2, :sswitch_data_0
 
-    const v2, 0x7f02009c
+    const v2, 0x7f0200a1
 
     :goto_0
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->access$300()Landroid/content/Context;
 
     move-result-object v3
@@ -319,27 +313,26 @@
     return-void
 
     :sswitch_0
-    const v2, 0x7f02009b
+    const v2, 0x7f0200a0
 
     goto :goto_0
 
     :sswitch_1
-    const v2, 0x7f02009d
+    const v2, 0x7f0200a2
 
     goto :goto_0
 
     :sswitch_2
-    const v2, 0x7f02009e
+    const v2, 0x7f0200a3
 
     goto :goto_0
 
     :sswitch_3
-    const v2, 0x7f02009f
+    const v2, 0x7f0200a4
 
     goto :goto_0
 
     :cond_2
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->mFolderShapeRes:[I
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->access$500()[I
 
     move-result-object v3
@@ -368,14 +361,12 @@
 .method private set(IILandroid/graphics/drawable/Drawable;II)V
     .locals 3
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->access$300()Landroid/content/Context;
 
     move-result-object v0
 
     iput p2, p0, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderColor:I
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->mFolderShapeRes:[I
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->access$500()[I
 
     move-result-object v1
@@ -424,7 +415,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;
 
-    # getter for: Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher3/theme/OpenThemeManager;
     invoke-static {v0}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher3/theme/OpenThemeManager;
 
     move-result-object v0

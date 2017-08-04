@@ -39,14 +39,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->mFastScrollFrameIndex:I
     invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->access$000(Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;)I
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->mFastScrollFrames:[I
     invoke-static {v1}, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->access$100(Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;)[I
 
     move-result-object v1
@@ -61,14 +59,12 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->mFastScrollFrames:[I
     invoke-static {v2}, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->access$100(Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;)[I
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->mFastScrollFrameIndex:I
     invoke-static {v3}, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->access$000(Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;)I
 
     move-result v3
@@ -79,14 +75,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
-    # operator++ for: Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->mFastScrollFrameIndex:I
     invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->access$008(Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;)I
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->mSmoothSnapNextFrameRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->access$200(Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;)Ljava/lang/Runnable;
 
     move-result-object v1
@@ -101,7 +95,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView$1;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
-    # getter for: Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->mPrevFastScrollFocusedPosition:I
     invoke-static {v1}, Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;->access$300(Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;)I
 
     move-result v1

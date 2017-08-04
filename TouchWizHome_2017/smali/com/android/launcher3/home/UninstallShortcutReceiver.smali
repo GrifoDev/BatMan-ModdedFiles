@@ -151,60 +151,73 @@
 .end method
 
 .method private shortcutExistInQueue(Landroid/content/Context;Landroid/content/Intent;)Z
-    .locals 7
+    .locals 8
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-static {p1, v2}, Lcom/android/launcher3/home/ExternalRequestQueue;->getExternalRequestListByType(Landroid/content/Context;I)Ljava/util/ArrayList;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :cond_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {p1, v3}, Lcom/android/launcher3/home/ExternalRequestQueue;->getExternalRequestListByType(Landroid/content/Context;I)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/launcher3/home/ExternalRequestInfo;
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
-
-    invoke-virtual {p2, v3}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    iget-object v6, v1, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
-
-    invoke-virtual {v6, v3}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v5
 
     if-eqz v5, :cond_0
 
-    invoke-static {p1, v0}, Lcom/android/launcher3/home/ExternalRequestQueue;->removeFromExternalRequestQueue(Landroid/content/Context;Lcom/android/launcher3/home/ExternalRequestInfo;)V
+    invoke-static {p1, v3, p2}, Lcom/android/launcher3/home/ExternalRequestQueue;->removeFromExternalRequestQueue(Landroid/content/Context;ILandroid/content/Intent;)Z
+
+    move-result v3
 
     :goto_0
-    return v2
+    return v3
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
 
     :cond_1
-    move v2, v3
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/home/ExternalRequestInfo;
+
+    move-object v2, v1
+
+    check-cast v2, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
+
+    invoke-virtual {p2, v4}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    iget-object v7, v2, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+
+    invoke-virtual {v7, v4}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-static {p1, v1}, Lcom/android/launcher3/home/ExternalRequestQueue;->removeFromExternalRequestQueue(Landroid/content/Context;Lcom/android/launcher3/home/ExternalRequestInfo;)V
+
+    goto :goto_0
+
+    :cond_2
+    move v3, v4
 
     goto :goto_0
 .end method

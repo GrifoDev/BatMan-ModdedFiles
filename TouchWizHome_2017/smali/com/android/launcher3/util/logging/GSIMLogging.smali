@@ -238,7 +238,6 @@
 .method public static getInstance()Lcom/android/launcher3/util/logging/GSIMLogging;
     .locals 1
 
-    # getter for: Lcom/android/launcher3/util/logging/GSIMLogging$SingletonHolder;->sGSIMLoggingInstance:Lcom/android/launcher3/util/logging/GSIMLogging;
     invoke-static {}, Lcom/android/launcher3/util/logging/GSIMLogging$SingletonHolder;->access$000()Lcom/android/launcher3/util/logging/GSIMLogging;
 
     move-result-object v0

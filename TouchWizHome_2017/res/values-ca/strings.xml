@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Historial de cerca</string>
+    <string name="about">Sobre %s</string>
+    <string name="about_already_installed">"Ja s'ha instal·lat l'última versió."</string>
+    <string name="about_home_screen">"Pantalla d'inici"</string>
+    <string name="about_licence">Llicències de codi obert</string>
+    <string name="about_network_err">No es poden comprovar les actualitzacions. El telèfon no està connectat a cap xarxa.</string>
+    <string name="about_new_version_exist">Hi ha una nova versió disponible</string>
+    <string name="about_retry">Reintentar</string>
+    <string name="about_update">Actualitzar</string>
+    <string name="about_version">Versió %s</string>
     <string name="activity_not_available">Aquesta aplicació no està disponible per al seu dispositiu.</string>
     <string name="activity_not_found">Aplicació no instal·lada</string>
     <string name="align_to_bottom">Alinear a la part inferior</string>
@@ -108,7 +117,7 @@
     <string name="ok">Acceptar</string>
     <string name="only_one_widget_instance_allowed">"El widget %s ja s'ha afegit a la Pantalla d'inici."</string>
     <string name="option_menu_contact_up">Contactar amb nosaltres</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Ajustaments</string>
     <string name="options_menu">Més opcions</string>
     <string name="options_menu_search_recommend">Opcions de cerca</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">No hi ha més espai a la pàgina</string>
     <string name="out_of_space_dialog">"No hi ha prou espai a aquesta pàgina. L'element s'afegirà en una pàgina nova."</string>
     <string name="permdesc_install_widget">"Aquesta aplicació pot afegir widgets a la pantalla d'inici."</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">"Aquesta aplicació pot llegir els ajustaments de la pàgina de contingut personalitzat, que està ubicada a la part esquerra de la Pantalla d'inici."</string>
+    <string name="permdesc_write_zeropage_settings">"Aquesta aplicació pot canviar els ajustaments de la pàgina de contingut personalitzat, que està ubicada a la part esquerra de la Pantalla d'inici."</string>
     <string name="permlab_install_widget">Afegir widgets</string>
+    <string name="permlab_read_settings">"llegir accessos directes i ajustaments d'inici"</string>
+    <string name="permlab_read_zeropage_settings">Lleg ajustam pàg contingut personal</string>
+    <string name="permlab_write_zeropage_settings">Canv ajustam pàgin conting personal</string>
     <string name="quick_option_add_apps">Afegir aplicacions</string>
     <string name="quick_option_add_shortcut_to_home">Afegir accés direct Inici</string>
     <string name="quick_option_add_to_personal">Afeg a pers</string>

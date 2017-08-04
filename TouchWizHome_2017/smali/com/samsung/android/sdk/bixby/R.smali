@@ -6,18 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/samsung/android/sdk/bixby/R$styleable;,
-        Lcom/samsung/android/sdk/bixby/R$style;,
-        Lcom/samsung/android/sdk/bixby/R$string;,
-        Lcom/samsung/android/sdk/bixby/R$layout;,
-        Lcom/samsung/android/sdk/bixby/R$integer;,
-        Lcom/samsung/android/sdk/bixby/R$id;,
-        Lcom/samsung/android/sdk/bixby/R$drawable;,
-        Lcom/samsung/android/sdk/bixby/R$dimen;,
-        Lcom/samsung/android/sdk/bixby/R$color;,
-        Lcom/samsung/android/sdk/bixby/R$bool;,
-        Lcom/samsung/android/sdk/bixby/R$attr;,
-        Lcom/samsung/android/sdk/bixby/R$anim;
+        Lcom/samsung/android/sdk/bixby/R$string;
     }
 .end annotation
 

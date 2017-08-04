@@ -62,7 +62,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/DexHomeConverter$4;->this$0:Lcom/android/launcher3/home/DexHomeConverter;
 
-    # getter for: Lcom/android/launcher3/home/DexHomeConverter;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
     invoke-static {v2}, Lcom/android/launcher3/home/DexHomeConverter;->access$200(Lcom/android/launcher3/home/DexHomeConverter;)Lcom/android/launcher3/common/model/FavoritesUpdater;
 
     move-result-object v2

@@ -45,7 +45,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog$1;->this$0:Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;
 
-    # getter for: Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
     invoke-static {v0}, Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;->access$000(Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;)Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     move-result-object v0
@@ -56,7 +55,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog$1;->this$0:Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;
 
-    # getter for: Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;->access$100(Lcom/android/launcher3/common/multiselect/MultiSelectHelpDialog;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0

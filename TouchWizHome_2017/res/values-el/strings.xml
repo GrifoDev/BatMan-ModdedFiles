@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Ιστορικό αναζήτησης</string>
+    <string name="about">Πληροφορίες για το %s</string>
+    <string name="about_already_installed">Έχει ήδη εγκατασταθεί η πιο πρόσφατη έκδοση.</string>
+    <string name="about_home_screen">Αρχική οθόνη</string>
+    <string name="about_licence">Άδειες ανοιχτού κώδικα</string>
+    <string name="about_network_err">Δεν είναι δυνατός ο έλεγχος για ενημερώσεις. Το τηλέφωνό σας δεν είναι συνδεδεμένο σε δίκτυο.</string>
+    <string name="about_new_version_exist">Υπάρχει διαθέσιμη νέα έκδοση.</string>
+    <string name="about_retry">Επανάληψη</string>
+    <string name="about_update">Ενημέρωση</string>
+    <string name="about_version">Έκδοση %s</string>
     <string name="activity_not_available">Αυτή η εφαρμογή δεν είναι διαθέσιμη για τη συσκευή σας.</string>
     <string name="activity_not_found">Η εφαρμογή δεν εγκαταστάθηκε.</string>
     <string name="align_to_bottom">Στοίχιση κάτω</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Δεν υπάρχει άλλος χώρος σε αυτήν τη σελίδα</string>
     <string name="out_of_space_dialog">Δεν υπάρχει άλλος χώρος στη σελίδα. Το στοιχείο θα προστεθεί σε νέα σελίδα.</string>
     <string name="permdesc_install_widget">Αυτή η εφαρμογή μπορεί να προσθέτει widget στην αρχική οθόνη.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Αυτή η εφαρμογή μπορεί να κάνει ανάγνωση των ρυθμίσεων της σελίδας προσαρμοσμένου περιεχομένου, η οποία βρίσκεται στα αριστερά της Αρχικής οθόνης.</string>
+    <string name="permdesc_write_zeropage_settings">Αυτή η εφαρμογή μπορεί να αλλάξει τις ρυθμίσεις της σελίδας προσαρμοσμένου περιεχομένου, η οποία βρίσκεται στα αριστερά της Αρχικής οθόνης.</string>
     <string name="permlab_install_widget">Προσθήκη widget</string>
+    <string name="permlab_read_settings">ανάγνωση ρυθμίσεων και συντομεύσεων Αρχικής σελίδας</string>
+    <string name="permlab_read_zeropage_settings">Ρυθμ. ανάγν. σελ. προσαρμ. περιεχ.</string>
+    <string name="permlab_write_zeropage_settings">Αλλαγή ρυθ. σελίδ. προσαρμ. περιεχ.</string>
     <string name="quick_option_add_apps">Προσθήκη εφαρμογών</string>
     <string name="quick_option_add_shortcut_to_home">Προσθ. συντ. σε Αρχ. σελ.</string>
     <string name="quick_option_add_to_personal">Προσθ. σε προσωπ.</string>

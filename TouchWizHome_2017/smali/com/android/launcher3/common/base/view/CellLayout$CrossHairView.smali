@@ -82,7 +82,6 @@
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 9
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout;->sCrosshairsDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {}, Lcom/android/launcher3/common/base/view/CellLayout;->access$500()Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
@@ -91,7 +90,6 @@
 
     move-result v3
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout;->sCrosshairsDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {}, Lcom/android/launcher3/common/base/view/CellLayout;->access$500()Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
@@ -186,7 +184,6 @@
 
     if-gt v2, v6, :cond_0
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout;->sCrosshairsDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {}, Lcom/android/launcher3/common/base/view/CellLayout;->access$500()Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
@@ -197,7 +194,6 @@
 
     invoke-virtual {v6, v4, v5, v7, v8}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    # getter for: Lcom/android/launcher3/common/base/view/CellLayout;->sCrosshairsDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {}, Lcom/android/launcher3/common/base/view/CellLayout;->access$500()Landroid/graphics/drawable/Drawable;
 
     move-result-object v6

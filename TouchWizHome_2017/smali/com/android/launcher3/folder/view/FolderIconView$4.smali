@@ -42,7 +42,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderIconView;->mAnimating:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->access$602(Lcom/android/launcher3/folder/view/FolderIconView;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderIconView$4;->val$onCompleteRunnable:Ljava/lang/Runnable;
@@ -64,7 +63,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderIconView;->mAnimating:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->access$602(Lcom/android/launcher3/folder/view/FolderIconView;Z)Z
 
     return-void

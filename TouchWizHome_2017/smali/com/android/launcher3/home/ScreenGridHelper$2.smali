@@ -47,7 +47,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/home/ScreenGridHelper$2;->this$0:Lcom/android/launcher3/home/ScreenGridHelper;
 
-    # getter for: Lcom/android/launcher3/home/ScreenGridHelper;->mHomeController:Lcom/android/launcher3/home/HomeController;
     invoke-static {v4}, Lcom/android/launcher3/home/ScreenGridHelper;->access$500(Lcom/android/launcher3/home/ScreenGridHelper;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v4

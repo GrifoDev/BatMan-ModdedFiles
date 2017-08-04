@@ -84,7 +84,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sDy:F
 
-    const v0, 0x7f0d0030
+    const v0, 0x7f0d0031
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -92,7 +92,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
 
-    const v0, 0x7f0d002e
+    const v0, 0x7f0d002f
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -169,7 +169,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0d002f
+    const v0, 0x7f0d0030
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -177,7 +177,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
 
-    const v0, 0x7f0d002d
+    const v0, 0x7f0d002e
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 

@@ -49,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$3;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$300(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
@@ -58,19 +57,16 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$3;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mState:Lcom/android/launcher3/home/HomeController$State;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$400(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/HomeController$State;
 
     move-result-object v0
 
     const/4 v1, 0x3
 
-    # invokes: Lcom/android/launcher3/home/HomeController$State;->set(I)V
     invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeController$State;->access$100(Lcom/android/launcher3/home/HomeController$State;I)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$3;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v0
@@ -79,14 +75,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$3;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mDragLayer:Lcom/android/launcher3/common/view/DragLayer;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$600(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/common/view/DragLayer;
 
     move-result-object v1
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$3;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    # getter for: Lcom/android/launcher3/home/HomeController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
     invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Workspace;
 
     move-result-object v0

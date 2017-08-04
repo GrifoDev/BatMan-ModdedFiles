@@ -47,7 +47,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$1;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$000(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1
@@ -66,12 +65,10 @@
 
     move-result v2
 
-    # setter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v1, v2}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$102(Lcom/android/launcher3/widget/WidgetHostViewLoader;I)I
 
     iget-object v1, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$1;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v1}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$000(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Lcom/android/launcher3/Launcher;
 
     move-result-object v1
@@ -82,7 +79,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$1;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v2}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$100(Lcom/android/launcher3/widget/WidgetHostViewLoader;)I
 
     move-result v2
@@ -99,14 +95,12 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$1;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$300(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/launcher3/widget/WidgetHostViewLoader$1;->this$0:Lcom/android/launcher3/widget/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher3/widget/WidgetHostViewLoader;->mInflateWidgetRunnable:Ljava/lang/Runnable;
     invoke-static {v2}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$200(Lcom/android/launcher3/widget/WidgetHostViewLoader;)Ljava/lang/Runnable;
 
     move-result-object v2

@@ -29,60 +29,66 @@
 
     if-lt v0, v1, :cond_0
 
-    new-instance v1, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi23Impl;
+    new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi23Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi23Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi23Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
     :goto_0
     return-void
 
     :cond_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x15
 
     if-lt v0, v1, :cond_1
 
-    new-instance v1, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi21Impl;
+    new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi21Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi21Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi21Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
     goto :goto_0
 
     :cond_1
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x13
 
     if-lt v0, v1, :cond_2
 
-    new-instance v1, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi19Impl;
+    new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi19Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi19Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi19Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
     goto :goto_0
 
     :cond_2
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
     const/16 v1, 0x11
 
     if-lt v0, v1, :cond_3
 
-    new-instance v1, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi17Impl;
+    new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi17Impl;
 
-    invoke-direct {v1}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi17Impl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi17Impl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
     goto :goto_0
 
     :cond_3
-    new-instance v1, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
+    new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
-    invoke-direct {v1}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;-><init>()V
 
-    sput-object v1, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
+    sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
     goto :goto_0
 .end method

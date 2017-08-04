@@ -3,6 +3,12 @@
 .source "SingleDocumentFile.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x13
+.end annotation
+
+
 # instance fields
 .field private mContext:Landroid/content/Context;
 

@@ -42,9 +42,20 @@
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
     .locals 6
 
-    if-nez p1, :cond_0
-
     if-eqz p2, :cond_0
+
+    const-class v3, Landroid/support/v4/media/MediaBrowserCompat;
+
+    invoke-virtual {v3}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v3
+
+    invoke-virtual {p2, v3}, Landroid/os/Bundle;->setClassLoader(Ljava/lang/ClassLoader;)V
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    if-eqz p2, :cond_1
 
     const-string v3, "search_results"
 
@@ -52,9 +63,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
-    :cond_0
+    :cond_1
     iget-object v3, p0, Landroid/support/v4/media/MediaBrowserCompat$SearchResultReceiver;->mCallback:Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;
 
     iget-object v4, p0, Landroid/support/v4/media/MediaBrowserCompat$SearchResultReceiver;->mQuery:Ljava/lang/String;
@@ -66,7 +77,7 @@
     :goto_0
     return-void
 
-    :cond_1
+    :cond_2
     const-string v3, "search_results"
 
     invoke-virtual {p2, v3}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
@@ -75,7 +86,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -86,7 +97,7 @@
     const/4 v3, 0x0
 
     :goto_1
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_3
 
     aget-object v0, v1, v3
 
@@ -98,7 +109,7 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     iget-object v3, p0, Landroid/support/v4/media/MediaBrowserCompat$SearchResultReceiver;->mCallback:Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;
 
     iget-object v4, p0, Landroid/support/v4/media/MediaBrowserCompat$SearchResultReceiver;->mQuery:Ljava/lang/String;

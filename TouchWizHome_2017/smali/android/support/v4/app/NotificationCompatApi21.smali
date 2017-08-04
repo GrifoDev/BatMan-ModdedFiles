@@ -256,14 +256,6 @@
     goto :goto_0
 .end method
 
-.method public static getCategory(Landroid/app/Notification;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Landroid/app/Notification;->category:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 .method static getUnreadConversationFromBundle(Landroid/os/Bundle;Landroid/support/v4/app/NotificationCompatBase$UnreadConversation$Factory;Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput$Factory;)Landroid/support/v4/app/NotificationCompatBase$UnreadConversation;
     .locals 13
 

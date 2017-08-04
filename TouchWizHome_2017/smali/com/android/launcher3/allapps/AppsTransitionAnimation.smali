@@ -3011,7 +3011,7 @@
     const v15, 0x3f2b851f    # 0.67f
 
     :goto_1
-    const v4, 0x7f0900a5
+    const v4, 0x7f0900b3
 
     move-object/from16 v0, v25
 
@@ -3055,7 +3055,7 @@
     const/4 v14, 0x0
 
     :goto_5
-    const v4, 0x7f0900a4
+    const v4, 0x7f0900b2
 
     move-object/from16 v0, v25
 

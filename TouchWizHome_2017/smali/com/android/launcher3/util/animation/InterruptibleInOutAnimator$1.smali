@@ -38,7 +38,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/util/animation/InterruptibleInOutAnimator;->mDirection:I
     invoke-static {v0, v1}, Lcom/android/launcher3/util/animation/InterruptibleInOutAnimator;->access$002(Lcom/android/launcher3/util/animation/InterruptibleInOutAnimator;I)I
 
     return-void

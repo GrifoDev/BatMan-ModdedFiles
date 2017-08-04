@@ -34,7 +34,6 @@
 .method public onChange(Z)V
     .locals 2
 
-    # getter for: Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/gamehome/GameHomeManager;->access$200()Ljava/lang/String;
 
     move-result-object v0

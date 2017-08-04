@@ -249,19 +249,13 @@
     aget v0, v2, v3
 
     :goto_1
-    if-lez v0, :cond_2
-
     int-to-float v3, v0
 
     div-float/2addr v3, v1
 
-    float-to-double v4, v3
+    invoke-static {v3}, Ljava/lang/Math;->round(F)I
 
-    invoke-static {v4, v5}, Ljava/lang/Math;->floor(D)D
-
-    move-result-wide v4
-
-    double-to-int v3, v4
+    move-result v3
 
     goto :goto_0
 
@@ -269,21 +263,6 @@
     aget v0, v2, v6
 
     goto :goto_1
-
-    :cond_2
-    int-to-float v3, v0
-
-    div-float/2addr v3, v1
-
-    float-to-double v4, v3
-
-    invoke-static {v4, v5}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v4
-
-    double-to-int v3, v4
-
-    goto :goto_0
 .end method
 
 .method private findCenterView(Landroid/support/v7/widget/RecyclerView$LayoutManager;Landroid/support/v7/widget/OrientationHelper;)Landroid/view/View;

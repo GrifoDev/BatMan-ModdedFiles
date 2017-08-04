@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mAllListView:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$000(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)Landroid/widget/ListView;
 
     move-result-object v0
@@ -54,7 +53,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mIndexCharactersPosition:[I
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$100(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)[I
 
     move-result-object v0
@@ -63,7 +61,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mIndexCharactersPosition:[I
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$100(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)[I
 
     move-result-object v0
@@ -74,14 +71,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mAllListView:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$000(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)Landroid/widget/ListView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mIndexCharactersPosition:[I
     invoke-static {v1}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$100(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)[I
 
     move-result-object v1
@@ -92,14 +87,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mAllListView:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$000(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)Landroid/widget/ListView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mIndexCharactersPosition:[I
     invoke-static {v1}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$100(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)[I
 
     move-result-object v1
@@ -115,7 +108,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mAllListView:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$000(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)Landroid/widget/ListView;
 
     move-result-object v0
@@ -124,7 +116,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView$3;->this$0:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
-    # getter for: Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mAllListView:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->access$000(Lcom/android/launcher3/appspicker/view/AppsPickerContentView;)Landroid/widget/ListView;
 
     move-result-object v0

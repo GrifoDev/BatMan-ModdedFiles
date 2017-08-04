@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">検索履歴</string>
+    <string name="about">%sについて</string>
+    <string name="about_already_installed">最新バージョンは既にインストールされています。</string>
+    <string name="about_home_screen">ホーム画面</string>
+    <string name="about_licence">オープンソースライセンス</string>
+    <string name="about_network_err">更新を確認できません。この端末はネットワークに接続されていません。</string>
+    <string name="about_new_version_exist">新しいバージョンが利用可能です。</string>
+    <string name="about_retry">再試行</string>
+    <string name="about_update">更新</string>
+    <string name="about_version">バージョン%s</string>
     <string name="activity_not_available">お使いの端末では、このアプリを利用できません。</string>
     <string name="activity_not_found">アプリケーションがインストールされていません。</string>
     <string name="align_to_bottom">下に揃える</string>
@@ -16,7 +25,7 @@
     <string name="appsPicker_search_result_found">%d件の検索結果</string>
     <string name="apps_button_hide">アプリボタンを非表示</string>
     <string name="apps_button_label">アプリ</string>
-    <string name="apps_button_setting_guide_text">アプリボタンをONにすると、右側のアイテムが現在の場所からホーム画面に移動します。</string>
+    <string name="apps_button_setting_guide_text">アプリボタンを表示すると、右側のアイテムが現在の場所からホーム画面に移動します。</string>
     <string name="apps_button_show">アプリボタンを表示</string>
     <string name="apps_button_summary">アプリ画面を開くボタンをホーム画面に表示します。</string>
     <string name="apps_button_title">アプリボタン</string>
@@ -109,7 +118,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%sウィジェットは既にホーム画面に追加されています。</string>
     <string name="option_menu_contact_up">お問い合わせ</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">設定</string>
     <string name="options_menu">他の​オプション</string>
     <string name="options_menu_search_recommend">検索オプション</string>
@@ -120,11 +129,17 @@
     <string name="out_of_space">選択したページにスペースがありません。</string>
     <string name="out_of_space_dialog">このページにはスペースがありません。アイテムを新しいページに追加します。</string>
     <string name="permdesc_install_widget">このアプリは、ウィジェットをホーム画面に追加できます。</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">このアプリは、ホーム画面の左側にあるカスタムコンテンツページの設定を読み取ることができます。</string>
+    <string name="permdesc_write_zeropage_settings">このアプリは、ホーム画面の左側にあるカスタムコンテンツページの設定を変更することができます。</string>
     <string name="permlab_install_widget">ウィジェットを追加</string>
+    <string name="permlab_read_settings">ホーム設定とショートカットの読み込み</string>
+    <string name="permlab_read_zeropage_settings">ｶｽﾀﾑｺﾝﾃﾝﾂﾍﾟｰｼﾞ設定の読み取り</string>
+    <string name="permlab_write_zeropage_settings">ｶｽﾀﾑｺﾝﾃﾝﾂﾍﾟｰｼﾞ設定の変更</string>
     <string name="quick_option_add_apps">アプリを追加</string>
     <string name="quick_option_add_shortcut_to_home">ショートカットをホームに追加</string>
     <string name="quick_option_add_to_personal">パーソナルに追加</string>
-    <string name="quick_option_app_info">アプリケーション情報</string>
+    <string name="quick_option_app_info">アプリ情報</string>
     <string name="quick_option_cant_disable">%sを無効にできません。</string>
     <string name="quick_option_clear_badge">バッジを消去</string>
     <string name="quick_option_delete_folder">フォルダを削除</string>

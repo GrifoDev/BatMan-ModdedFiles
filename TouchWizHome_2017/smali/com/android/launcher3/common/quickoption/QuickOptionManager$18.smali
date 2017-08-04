@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$18;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mBounceAnimation:Lcom/android/launcher3/common/quickoption/ItemBounceAnimation;
     invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$400(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/common/quickoption/ItemBounceAnimation;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$18;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mBounceAnimation:Lcom/android/launcher3/common/quickoption/ItemBounceAnimation;
     invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->access$400(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)Lcom/android/launcher3/common/quickoption/ItemBounceAnimation;
 
     move-result-object v0

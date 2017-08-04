@@ -41,7 +41,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$2;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    # setter for: Lcom/android/launcher3/allapps/controller/AppsController;->mApplyTideUpPage:Z
     invoke-static {v0, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->access$102(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$2;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;

@@ -41,7 +41,6 @@
 
     iget-object v1, v1, Lcom/android/launcher3/widget/controller/WidgetController$2;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mIsOnStage:Z
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$500(Lcom/android/launcher3/widget/controller/WidgetController;)Z
 
     move-result v1
@@ -52,7 +51,6 @@
 
     iget-object v1, v1, Lcom/android/launcher3/widget/controller/WidgetController$2;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # invokes: Lcom/android/launcher3/widget/controller/WidgetController;->updateWidgetItems()Z
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$600(Lcom/android/launcher3/widget/controller/WidgetController;)Z
 
     move-result v0
@@ -63,7 +61,6 @@
 
     iget-object v1, v1, Lcom/android/launcher3/widget/controller/WidgetController$2;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
     invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     move-result-object v1
@@ -87,7 +84,6 @@
 
     iget-object v3, v3, Lcom/android/launcher3/widget/controller/WidgetController$2;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mIsOnStage:Z
     invoke-static {v3}, Lcom/android/launcher3/widget/controller/WidgetController;->access$500(Lcom/android/launcher3/widget/controller/WidgetController;)Z
 
     move-result v3
@@ -132,7 +128,6 @@
 
     iget-object v3, v3, Lcom/android/launcher3/widget/controller/WidgetController$2;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    # getter for: Lcom/android/launcher3/widget/controller/WidgetController;->mIsOnStage:Z
     invoke-static {v3}, Lcom/android/launcher3/widget/controller/WidgetController;->access$500(Lcom/android/launcher3/widget/controller/WidgetController;)Z
 
     move-result v3

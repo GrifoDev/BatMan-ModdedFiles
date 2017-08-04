@@ -44,10 +44,14 @@
 
 
 # virtual methods
-.method onResultSent(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;I)V
+.method onResultSent(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
     .locals 4
 
-    and-int/lit8 v1, p2, 0x2
+    invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserServiceCompat$2;->getFlags()I
+
+    move-result v1
+
+    and-int/lit8 v1, v1, 0x2
 
     if-eqz v1, :cond_0
 
@@ -80,12 +84,12 @@
     goto :goto_0
 .end method
 
-.method bridge synthetic onResultSent(Ljava/lang/Object;I)V
+.method bridge synthetic onResultSent(Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
 
-    invoke-virtual {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserServiceCompat$2;->onResultSent(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;I)V
+    invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompat$2;->onResultSent(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
 
     return-void
 .end method

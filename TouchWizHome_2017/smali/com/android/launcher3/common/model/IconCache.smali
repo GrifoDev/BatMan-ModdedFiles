@@ -176,7 +176,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0023
+    const v2, 0x7f0d0024
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -188,7 +188,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0024
+    const v2, 0x7f0d0025
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -214,7 +214,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200f7
+    const v2, 0x7f0200fc
 
     iget v3, p0, Lcom/android/launcher3/common/model/IconCache;->mIconDpi:I
 
@@ -334,59 +334,74 @@
 .end method
 
 .method private addIconToDB(Landroid/content/ContentValues;Landroid/content/ComponentName;Landroid/content/pm/PackageInfo;J)V
-    .locals 4
+    .locals 6
 
-    const-string v0, "componentName"
+    const-string v1, "componentName"
 
     invoke-virtual {p2}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {p1, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v0, "profileId"
+    const-string v1, "profileId"
 
     invoke-static {p4, p5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {p1, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {p1, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    const-string v0, "lastUpdated"
+    const-string v1, "lastUpdated"
 
     iget-wide v2, p3, Landroid/content/pm/PackageInfo;->lastUpdateTime:J
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
+    move-result-object v2
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+
+    const-string v1, "version"
+
+    iget v2, p3, Landroid/content/pm/PackageInfo;->versionCode:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/launcher3/common/model/IconCache;->mIconDb:Lcom/android/launcher3/common/model/IconCache$IconDB;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/model/IconCache$IconDB;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+
     move-result-object v1
 
-    invoke-virtual {p1, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    const-string v2, "icons"
 
-    const-string v0, "version"
+    const/4 v3, 0x0
 
-    iget v1, p3, Landroid/content/pm/PackageInfo;->versionCode:I
+    const/4 v4, 0x5
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v1, v2, v3, p1, v4}, Landroid/database/sqlite/SQLiteDatabase;->insertWithOnConflict(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;I)J
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v1
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/common/model/IconCache;->mIconDb:Lcom/android/launcher3/common/model/IconCache$IconDB;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/model/IconCache$IconDB;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
-
-    move-result-object v0
-
-    const-string v1, "icons"
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x5
-
-    invoke-virtual {v0, v1, v2, p1, v3}, Landroid/database/sqlite/SQLiteDatabase;->insertWithOnConflict(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;I)J
-
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "Launcher.IconCache"
+
+    const-string v2, "Unable to write icon to DB"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method private addIconToDBAndMemCache(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Landroid/content/pm/PackageInfo;J)V

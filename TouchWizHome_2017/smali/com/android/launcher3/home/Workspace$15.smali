@@ -41,7 +41,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/home/Workspace;->mFirstLayout:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/home/Workspace;->access$1302(Lcom/android/launcher3/home/Workspace;Z)Z
 
     return-void

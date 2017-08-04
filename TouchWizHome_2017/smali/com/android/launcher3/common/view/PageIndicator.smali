@@ -130,7 +130,7 @@
 
     iput v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerGap:I
 
-    const v2, 0x7f090120
+    const v2, 0x7f09012e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -289,7 +289,7 @@
     :cond_4
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f030036
+    const v3, 0x7f030038
 
     invoke-virtual {v2, v3, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -539,6 +539,46 @@
     return v0
 .end method
 
+.method private getIndicatorChild(F)Landroid/view/View;
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/view/PageIndicator;->getChildCount()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/view/PageIndicator;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2, p1}, Lcom/android/launcher3/common/view/PageIndicator;->isTouchedIndicatorChild(Landroid/view/View;F)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/view/PageIndicator;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    :goto_1
+    return-object v2
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_1
+.end method
+
 .method private getPageIndex(I)I
     .locals 7
 
@@ -644,19 +684,19 @@
 
     move-result-object v3
 
-    const v5, 0x7f090122
+    const v5, 0x7f090130
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v5, 0x7f090123
+    const v5, 0x7f090131
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v5, 0x7f09013d
+    const v5, 0x7f09014b
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -679,6 +719,43 @@
     sub-int/2addr v5, v4
 
     return v5
+.end method
+
+.method private isTouchedIndicatorChild(Landroid/view/View;F)Z
+    .locals 5
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x2
+
+    new-array v0, v4, [I
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->getLocationOnScreen([I)V
+
+    aget v4, v0, v3
+
+    int-to-float v1, v4
+
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+
+    move-result v4
+
+    int-to-float v4, v4
+
+    add-float v2, v1, v4
+
+    cmpl-float v4, p2, v1
+
+    if-ltz v4, :cond_0
+
+    cmpg-float v4, p2, v2
+
+    if-gtz v4, :cond_0
+
+    const/4 v3, 0x1
+
+    :cond_0
+    return v3
 .end method
 
 .method private offsetWindowCenterTo(Z)V
@@ -1000,7 +1077,7 @@
     :cond_2
     iget-object v6, p0, Lcom/android/launcher3/common/view/PageIndicator;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f030037
+    const v7, 0x7f030039
 
     invoke-virtual {v6, v7, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1008,7 +1085,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v6, 0x7f0f00bb
+    const v6, 0x7f0f00cb
 
     invoke-virtual {v1, v6}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1232,6 +1309,35 @@
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public clickPageIndicator(Landroid/view/MotionEvent;)V
+    .locals 3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+
+    move-result v1
+
+    invoke-direct {p0, v1}, Lcom/android/launcher3/common/view/PageIndicator;->getIndicatorChild(F)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/common/view/PageIndicatorMarker;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->performClick()Z
 
     :cond_0
     return-void

@@ -19,9 +19,11 @@
 
 # virtual methods
 .method public execute(Lcom/android/launcher3/executor/StateExecutionCallback;)V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     iget-object v0, p0, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->mGridOption:Ljava/lang/String;
 
@@ -53,7 +55,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    invoke-virtual {p0, p1, v4}, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
+    invoke-virtual {p0, p1, v5}, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
 
     :goto_0
     return-void
@@ -93,7 +95,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    invoke-virtual {p0, p1, v4}, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
+    invoke-virtual {p0, p1, v5}, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
 
     goto :goto_0
 
@@ -167,9 +169,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/proxy/LauncherProxy;->changeAppsScreengrid(Ljava/lang/String;)I
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
+    invoke-virtual {p0, p1, v4}, Lcom/android/launcher3/executor/HomeSettingsChangeAppsGridStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
 
     goto :goto_0
 .end method

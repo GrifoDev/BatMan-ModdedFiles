@@ -90,7 +90,6 @@
 
     const/4 v6, -0x1
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->mNormalizeLock:Ljava/lang/Object;
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$000()Ljava/lang/Object;
 
     move-result-object v7

@@ -779,6 +779,211 @@
     goto :goto_0
 .end method
 
+.method static removeFromExternalRequestQueue(Landroid/content/Context;ILandroid/content/Intent;)Z
+    .locals 13
+
+    const/4 v2, 0x0
+
+    sget-object v10, Lcom/android/launcher3/home/ExternalRequestQueue;->sLock:Ljava/lang/Object;
+
+    monitor-enter v10
+
+    :try_start_0
+    invoke-static {p0}, Lcom/android/launcher3/home/ExternalRequestQueue;->getSharedPreference(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object v9
+
+    invoke-static {v9}, Lcom/android/launcher3/home/ExternalRequestQueue;->getExternalRequestList(Landroid/content/SharedPreferences;)Ljava/util/Set;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_2
+
+    new-instance v4, Ljava/util/LinkedHashSet;
+
+    invoke-direct {v4, v8}, Ljava/util/LinkedHashSet;-><init>(Ljava/util/Collection;)V
+
+    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_0
+    :goto_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    new-instance v9, Lorg/json/JSONTokener;
+
+    invoke-direct {v9, v1}, Lorg/json/JSONTokener;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v9}, Lorg/json/JSONTokener;->nextValue()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lorg/json/JSONObject;
+
+    const-string v9, "type"
+
+    invoke-virtual {v6, v9}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+
+    move-result v7
+
+    const-string v9, "intent.launch"
+
+    invoke-virtual {v6, v9}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v11, 0x4
+
+    invoke-static {v9, v11}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
+
+    move-result-object v3
+
+    if-ne v7, p1, :cond_0
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v3, v9}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v11, 0x0
+
+    invoke-virtual {p2, v11}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    invoke-interface {v5}, Ljava/util/Iterator;->remove()V
+    :try_end_1
+    .catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/net/URISyntaxException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 v2, 0x1
+
+    :cond_1
+    if-eqz v2, :cond_2
+
+    :try_start_2
+    invoke-static {p0}, Lcom/android/launcher3/home/ExternalRequestQueue;->getSharedPreference(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object v9
+
+    invoke-static {v9, v4}, Lcom/android/launcher3/home/ExternalRequestQueue;->setExternalRequestList(Landroid/content/SharedPreferences;Ljava/util/Set;)V
+
+    const-string v9, "ExternalRequestQueue"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "removeFromExternalRequestQueue, type = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v9, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    monitor-exit v10
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    const-string v9, "ExternalRequestQueue"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "JSONException occured"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v9, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v9
+
+    monitor-exit v10
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw v9
+
+    :catch_1
+    move-exception v0
+
+    :try_start_3
+    const-string v9, "ExternalRequestQueue"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "URISyntaxException occured"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v9, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto/16 :goto_0
+.end method
+
 .method private static sendBroadCaseToTaskEdge(Landroid/content/Context;)V
     .locals 1
 

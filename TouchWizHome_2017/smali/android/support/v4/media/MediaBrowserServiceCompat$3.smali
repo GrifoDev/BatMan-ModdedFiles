@@ -46,17 +46,17 @@
 
 
 # virtual methods
-.method bridge synthetic onResultSent(Ljava/lang/Object;I)V
+.method bridge synthetic onResultSent(Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Ljava/util/List;
 
-    invoke-virtual {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserServiceCompat$3;->onResultSent(Ljava/util/List;I)V
+    invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompat$3;->onResultSent(Ljava/util/List;)V
 
     return-void
 .end method
 
-.method onResultSent(Ljava/util/List;I)V
+.method onResultSent(Ljava/util/List;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,13 +64,17 @@
             "Ljava/util/List",
             "<",
             "Landroid/support/v4/media/MediaBrowserCompat$MediaItem;",
-            ">;I)V"
+            ">;)V"
         }
     .end annotation
 
     const/4 v3, 0x0
 
-    and-int/lit8 v1, p2, 0x4
+    invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserServiceCompat$3;->getFlags()I
+
+    move-result v1
+
+    and-int/lit8 v1, v1, 0x4
 
     if-nez v1, :cond_0
 

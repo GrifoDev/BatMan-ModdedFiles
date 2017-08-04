@@ -50,7 +50,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewFactorChanged:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->access$002(Lcom/android/launcher3/folder/view/FolderIconView;Z)Z
 
     :cond_1

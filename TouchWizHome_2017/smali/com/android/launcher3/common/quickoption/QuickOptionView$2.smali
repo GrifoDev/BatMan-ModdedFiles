@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$2;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
-    # getter for: Lcom/android/launcher3/common/quickoption/QuickOptionView;->mShowAnim:Landroid/animation/AnimatorSet;
     invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/animation/AnimatorSet;
 
     move-result-object v0

@@ -753,29 +753,25 @@
 
     iget-object v8, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    int-to-float v0, p2
+    iget-object v0, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    iget-object v1, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    invoke-virtual {v0}, Landroid/view/View;->getTranslationX()F
 
-    invoke-virtual {v1}, Landroid/view/View;->getTranslationX()F
+    move-result v0
 
-    move-result v1
+    float-to-int v0, v0
 
-    add-float/2addr v0, v1
+    add-int/2addr p2, v0
 
-    float-to-int p2, v0
+    iget-object v0, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    int-to-float v0, p3
+    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
 
-    iget-object v1, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    move-result v0
 
-    invoke-virtual {v1}, Landroid/view/View;->getTranslationY()F
+    float-to-int v0, v0
 
-    move-result v1
-
-    add-float/2addr v0, v1
-
-    float-to-int p3, v0
+    add-int/2addr p3, v0
 
     invoke-direct {p0, p1}, Landroid/support/v7/widget/DefaultItemAnimator;->resetAnimation(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 

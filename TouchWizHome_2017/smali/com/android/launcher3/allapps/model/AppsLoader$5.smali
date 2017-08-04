@@ -41,14 +41,12 @@
 .method public run()V
     .locals 3
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sIsLoadingAndBindingWorkspace:Z
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1000()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sBindCompleteRunnables:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1100()Ljava/util/ArrayList;
 
     move-result-object v1
@@ -56,7 +54,6 @@
     monitor-enter v1
 
     :try_start_0
-    # getter for: Lcom/android/launcher3/allapps/model/AppsLoader;->sBindCompleteRunnables:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1200()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -82,7 +79,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsLoader$5;->val$r:Ljava/lang/Runnable;
 
-    # invokes: Lcom/android/launcher3/allapps/model/AppsLoader;->runOnWorkerThread(Ljava/lang/Runnable;)V
     invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1300(Ljava/lang/Runnable;)V
 
     goto :goto_0

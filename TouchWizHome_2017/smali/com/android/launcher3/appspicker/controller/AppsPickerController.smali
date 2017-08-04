@@ -922,7 +922,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f03000a
+    const v1, 0x7f03000c
 
     const/4 v2, 0x0
 
@@ -1149,7 +1149,7 @@
 .method public onClick(Landroid/view/View;)Z
     .locals 10
 
-    const v7, 0x7f080101
+    const v7, 0x7f080110
 
     const/4 v4, 0x1
 
@@ -1157,7 +1157,7 @@
 
     move-result v5
 
-    const v6, 0x7f0f0024
+    const v6, 0x7f0f0034
 
     if-ne v5, v6, :cond_4
 
@@ -1181,7 +1181,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08017d
+    const v7, 0x7f08018a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1193,7 +1193,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f080119
+    const v8, 0x7f080128
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1212,28 +1212,6 @@
     iget-object v5, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
     invoke-virtual {v5, v1, v2}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->getItemsForHideApps(Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-
-    new-instance v0, Lcom/android/launcher3/common/stage/StageEntry;
-
-    invoke-direct {v0}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
-
-    const-string v5, "KEY_ITEMS_TO_HIDE"
-
-    invoke-virtual {v0, v5, v1}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
-
-    const-string v5, "KEY_ITEMS_TO_SHOW"
-
-    invoke-virtual {v0, v5, v2}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
-
-    iget-object v5, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
-
-    move-result-object v5
-
-    const/4 v6, 0x6
-
-    invoke-virtual {v5, v6, v0}, Lcom/android/launcher3/common/stage/StageManager;->finishStage(ILcom/android/launcher3/common/stage/StageEntry;)V
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -1258,6 +1236,28 @@
     invoke-virtual {v5, v6}, Lcom/android/launcher3/util/logging/SALogging;->insertHideAppsLog(Ljava/util/ArrayList;)V
 
     :cond_0
+    new-instance v0, Lcom/android/launcher3/common/stage/StageEntry;
+
+    invoke-direct {v0}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
+
+    const-string v5, "KEY_ITEMS_TO_HIDE"
+
+    invoke-virtual {v0, v5, v1}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const-string v5, "KEY_ITEMS_TO_SHOW"
+
+    invoke-virtual {v0, v5, v2}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
+
+    iget-object v5, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v5
+
+    const/4 v6, 0x6
+
+    invoke-virtual {v5, v6, v0}, Lcom/android/launcher3/common/stage/StageManager;->finishStage(ILcom/android/launcher3/common/stage/StageEntry;)V
+
     iget-object v5, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mLauncher:Lcom/android/launcher3/Launcher;
 
     invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->startHomeSettingActivity()V
@@ -1293,7 +1293,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080184
+    const v6, 0x7f080191
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1334,7 +1334,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080178
+    const v6, 0x7f080185
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1392,7 +1392,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherModel;->unregisterOnAllAppItemListLoadCompletedListener()V
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/LauncherModel;->unregisterOnAllAppItemListLoadCompletedListener(Lcom/android/launcher3/Launcher;)V
 
     return-void
 .end method
@@ -1684,91 +1686,111 @@
 .end method
 
 .method protected onStageExit(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v1, 0x1
 
-    const-string v1, "AppsPickerController"
+    const/4 v2, 0x0
 
-    const-string v2, "onStageExit()"
+    const-string v3, "AppsPickerController"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "onStageExit()"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x0
 
-    iget v1, p1, Lcom/android/launcher3/common/stage/StageEntry;->stageCountOnFinishAllStage:I
+    iget v3, p1, Lcom/android/launcher3/common/stage/StageEntry;->fromStage:I
 
-    const/4 v2, 0x2
+    const/4 v4, 0x6
 
-    if-gt v1, v2, :cond_0
+    if-ne v3, v4, :cond_2
 
-    iget-boolean v1, p1, Lcom/android/launcher3/common/stage/StageEntry;->broughtToHome:Z
+    iget v3, p1, Lcom/android/launcher3/common/stage/StageEntry;->toStage:I
 
-    if-eqz v1, :cond_2
+    if-ne v3, v1, :cond_2
+
+    :goto_0
+    iget v3, p1, Lcom/android/launcher3/common/stage/StageEntry;->stageCountOnFinishAllStage:I
+
+    const/4 v4, 0x2
+
+    if-gt v3, v4, :cond_0
+
+    iget-boolean v3, p1, Lcom/android/launcher3/common/stage/StageEntry;->broughtToHome:Z
+
+    if-nez v3, :cond_0
+
+    if-eqz v1, :cond_3
 
     :cond_0
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
-    const/16 v2, 0x8
+    const/16 v4, 0x8
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->setVisibility(I)V
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->setVisibility(I)V
 
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->reset()V
+    invoke-virtual {v3}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->reset()V
 
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mAppsToHideForAllApps:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mAppsToHideForAllApps:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
 
-    invoke-direct {p0, v3, p1}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->setBackgroundAndStatusbar(ZLcom/android/launcher3/common/stage/StageEntry;)V
+    invoke-direct {p0, v2, p1}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->setBackgroundAndStatusbar(ZLcom/android/launcher3/common/stage/StageEntry;)V
 
     invoke-direct {p0}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->detachViewFromDragLayer()V
 
-    :goto_0
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
+    :goto_1
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
-    invoke-virtual {v1, v3}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->setAppsPickerViewTop(Z)V
+    invoke-virtual {v3, v2}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->setAppsPickerViewTop(Z)V
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iput-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mFolderIconView:Lcom/android/launcher3/folder/view/FolderIconView;
+    iput-object v2, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mFolderIconView:Lcom/android/launcher3/folder/view/FolderIconView;
 
     return-object v0
 
     :cond_2
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mLauncher:Lcom/android/launcher3/Launcher;
+    move v1, v2
 
-    const v2, 0x7f05000a
+    goto :goto_0
 
-    invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
+    :cond_3
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    const v4, 0x7f05000a
+
+    invoke-static {v3, v4}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->mContainerView:Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
 
-    invoke-virtual {v0, v1}, Landroid/animation/Animator;->setTarget(Ljava/lang/Object;)V
+    invoke-virtual {v0, v3}, Landroid/animation/Animator;->setTarget(Ljava/lang/Object;)V
 
-    const/16 v1, 0x1e
+    const/16 v3, 0x1e
 
-    invoke-static {v1}, Lcom/android/launcher3/util/ViInterpolator;->getInterploator(I)Landroid/view/animation/PathInterpolator;
+    invoke-static {v3}, Lcom/android/launcher3/util/ViInterpolator;->getInterploator(I)Landroid/view/animation/PathInterpolator;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v0, v3}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    new-instance v1, Lcom/android/launcher3/appspicker/controller/AppsPickerController$4;
+    new-instance v3, Lcom/android/launcher3/appspicker/controller/AppsPickerController$4;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/appspicker/controller/AppsPickerController$4;-><init>(Lcom/android/launcher3/appspicker/controller/AppsPickerController;Lcom/android/launcher3/common/stage/StageEntry;)V
+    invoke-direct {v3, p0, p1}, Lcom/android/launcher3/appspicker/controller/AppsPickerController$4;-><init>(Lcom/android/launcher3/appspicker/controller/AppsPickerController;Lcom/android/launcher3/common/stage/StageEntry;)V
 
-    invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v0, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public removeApps(Ljava/util/ArrayList;)V

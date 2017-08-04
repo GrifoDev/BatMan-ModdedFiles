@@ -161,11 +161,19 @@
 .end method
 
 .method public run()V
+    .locals 0
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->runInner()V
+
+    goto :goto_0
+.end method
+
+.method public runInner()V
     .locals 7
 
     const/4 v6, 0x0
 
-    :goto_0
     :try_start_0
     iget-object v2, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->mQueue:Ljava/util/concurrent/ArrayBlockingQueue;
 
@@ -196,7 +204,7 @@
     :try_end_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :goto_1
+    :goto_0
     iget-object v2, v1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->inflater:Landroid/support/v4/view/AsyncLayoutInflater;
 
     iget-object v2, v2, Landroid/support/v4/view/AsyncLayoutInflater;->mHandler:Landroid/os/Handler;
@@ -207,7 +215,8 @@
 
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_0
+    :goto_1
+    return-void
 
     :catch_0
     move-exception v0
@@ -216,7 +225,7 @@
 
     invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_1
     move-exception v0
@@ -227,5 +236,5 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_0
 .end method

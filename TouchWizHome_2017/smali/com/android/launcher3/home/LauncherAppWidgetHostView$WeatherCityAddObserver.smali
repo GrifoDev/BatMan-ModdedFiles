@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$WeatherCityAddObserver;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    # invokes: Lcom/android/launcher3/home/LauncherAppWidgetHostView;->checkWeatherCount()V
     invoke-static {v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$600(Lcom/android/launcher3/home/LauncherAppWidgetHostView;)V
 
     return-void

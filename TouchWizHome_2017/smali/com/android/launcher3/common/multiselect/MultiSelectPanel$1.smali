@@ -41,12 +41,10 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel$1;->this$0:Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
 
-    # invokes: Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getIdByView(Landroid/view/View;)I
     invoke-static {v1, p1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->access$000(Lcom/android/launcher3/common/multiselect/MultiSelectPanel;Landroid/view/View;)I
 
     move-result v1
 
-    # invokes: Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->onClickMultiSelectPanel(I)V
     invoke-static {v0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->access$100(Lcom/android/launcher3/common/multiselect/MultiSelectPanel;I)V
 
     return-void

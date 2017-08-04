@@ -108,7 +108,6 @@
 
     iget-object v10, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$4;->val$stackTrace:[Ljava/lang/StackTraceElement;
 
-    # invokes: Lcom/android/launcher3/common/model/FavoritesUpdater;->updateItemArrays(Lcom/android/launcher3/common/base/item/ItemInfo;J[Ljava/lang/StackTraceElement;)V
     invoke-static {v9, v3, v4, v5, v10}, Lcom/android/launcher3/common/model/FavoritesUpdater;->access$300(Lcom/android/launcher3/common/model/FavoritesUpdater;Lcom/android/launcher3/common/base/item/ItemInfo;J[Ljava/lang/StackTraceElement;)V
 
     add-int/lit8 v2, v2, 0x1

@@ -61,7 +61,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$3;->this$0:Lcom/android/launcher3/folder/FolderTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAnimInfoForClosing:Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
     invoke-static {v1}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$100(Lcom/android/launcher3/folder/FolderTransitionAnimation;)Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
 
     move-result-object v1
@@ -72,7 +71,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$3;->this$0:Lcom/android/launcher3/folder/FolderTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAnimInfoForClosing:Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
     invoke-static {v2}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$100(Lcom/android/launcher3/folder/FolderTransitionAnimation;)Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
 
     move-result-object v2
@@ -81,12 +79,10 @@
 
     iget-object v4, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$3;->val$folderIconView:Lcom/android/launcher3/folder/view/FolderIconView;
 
-    # invokes: Lcom/android/launcher3/folder/FolderTransitionAnimation;->computeAnimationInfo(Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;Lcom/android/launcher3/folder/view/FolderView;Lcom/android/launcher3/folder/view/FolderIconView;)Z
     invoke-static {v1, v2, v3, v4}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$300(Lcom/android/launcher3/folder/FolderTransitionAnimation;Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;Lcom/android/launcher3/folder/view/FolderView;Lcom/android/launcher3/folder/view/FolderIconView;)Z
 
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$3;->this$0:Lcom/android/launcher3/folder/FolderTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAnimInfoForClosing:Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
     invoke-static {v1}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$100(Lcom/android/launcher3/folder/FolderTransitionAnimation;)Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
 
     move-result-object v1
@@ -109,7 +105,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$3;->this$0:Lcom/android/launcher3/folder/FolderTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAnimInfoForClosing:Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
     invoke-static {v2}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$100(Lcom/android/launcher3/folder/FolderTransitionAnimation;)Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
 
     move-result-object v2
@@ -130,7 +125,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$3;->this$0:Lcom/android/launcher3/folder/FolderTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAnimInfoForClosing:Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
     invoke-static {v2}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$100(Lcom/android/launcher3/folder/FolderTransitionAnimation;)Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
 
     move-result-object v2
@@ -151,7 +145,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$3;->this$0:Lcom/android/launcher3/folder/FolderTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAnimInfoForClosing:Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
     invoke-static {v2}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$100(Lcom/android/launcher3/folder/FolderTransitionAnimation;)Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
 
     move-result-object v2
@@ -170,7 +163,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation$3;->this$0:Lcom/android/launcher3/folder/FolderTransitionAnimation;
 
-    # getter for: Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAnimInfoForClosing:Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
     invoke-static {v2}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->access$100(Lcom/android/launcher3/folder/FolderTransitionAnimation;)Lcom/android/launcher3/folder/FolderTransitionAnimation$AnimationInfo;
 
     move-result-object v2

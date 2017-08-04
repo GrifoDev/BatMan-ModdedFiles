@@ -41,7 +41,6 @@
 
     const/4 v1, 0x1
 
-    # invokes: Lcom/android/launcher3/widget/folder/WidgetFolderController;->changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
     invoke-static {v0, p1, v1}, Lcom/android/launcher3/widget/folder/WidgetFolderController;->access$000(Lcom/android/launcher3/widget/folder/WidgetFolderController;Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
 
     return-void
@@ -58,7 +57,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController$1;->this$0:Lcom/android/launcher3/widget/folder/WidgetFolderController;
 
-    # getter for: Lcom/android/launcher3/widget/folder/WidgetFolderController;->mDragController:Lcom/android/launcher3/widget/controller/WidgetDragController;
     invoke-static {v2}, Lcom/android/launcher3/widget/folder/WidgetFolderController;->access$100(Lcom/android/launcher3/widget/folder/WidgetFolderController;)Lcom/android/launcher3/widget/controller/WidgetDragController;
 
     move-result-object v2
@@ -71,14 +69,12 @@
 
     iget-object v4, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController$1;->this$0:Lcom/android/launcher3/widget/folder/WidgetFolderController;
 
-    # getter for: Lcom/android/launcher3/widget/folder/WidgetFolderController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v4}, Lcom/android/launcher3/widget/folder/WidgetFolderController;->access$200(Lcom/android/launcher3/widget/folder/WidgetFolderController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v4
 
     invoke-direct {v3, v4}, Lcom/android/launcher3/widget/controller/WidgetDragController;-><init>(Landroid/content/Context;)V
 
-    # setter for: Lcom/android/launcher3/widget/folder/WidgetFolderController;->mDragController:Lcom/android/launcher3/widget/controller/WidgetDragController;
     invoke-static {v2, v3}, Lcom/android/launcher3/widget/folder/WidgetFolderController;->access$102(Lcom/android/launcher3/widget/folder/WidgetFolderController;Lcom/android/launcher3/widget/controller/WidgetDragController;)Lcom/android/launcher3/widget/controller/WidgetDragController;
 
     :cond_0
@@ -117,7 +113,6 @@
     :cond_1
     iget-object v2, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController$1;->this$0:Lcom/android/launcher3/widget/folder/WidgetFolderController;
 
-    # getter for: Lcom/android/launcher3/widget/folder/WidgetFolderController;->mDragController:Lcom/android/launcher3/widget/controller/WidgetDragController;
     invoke-static {v2}, Lcom/android/launcher3/widget/folder/WidgetFolderController;->access$100(Lcom/android/launcher3/widget/folder/WidgetFolderController;)Lcom/android/launcher3/widget/controller/WidgetDragController;
 
     move-result-object v2

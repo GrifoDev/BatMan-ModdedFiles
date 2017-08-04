@@ -115,7 +115,7 @@
 .method protected clickNotAllowed(Landroid/view/View;)V
     .locals 8
 
-    const v4, 0x7f08004b
+    const v4, 0x7f080054
 
     const/4 v6, 0x1
 
@@ -152,7 +152,7 @@
 
     int-to-float v1, v3
 
-    const v3, 0x7f0f00d5
+    const v3, 0x7f0f00e5
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

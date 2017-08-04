@@ -67,6 +67,12 @@
     return-void
 .end method
 
+.method public onFragmentPreCreated(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;Landroid/os/Bundle;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onFragmentResumed(Landroid/support/v4/app/FragmentManager;Landroid/support/v4/app/Fragment;)V
     .locals 0
 

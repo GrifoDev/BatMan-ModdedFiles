@@ -73,12 +73,10 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->loadBadgeProvider()V
     invoke-static {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$1000(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)V
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->createAppItemArray()V
     invoke-static {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$1100(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)V
 
     const/4 v0, 0x0
@@ -103,14 +101,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
     invoke-static {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$100(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Landroid/widget/Switch;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mBadges_Hidden:Ljava/util/List;
     invoke-static {v1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$400(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Ljava/util/List;
 
     move-result-object v1
@@ -123,7 +119,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mAdapter:Lcom/android/launcher3/common/model/BadgeSettingsAdapter;
     invoke-static {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$800(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Lcom/android/launcher3/common/model/BadgeSettingsAdapter;
 
     move-result-object v0
@@ -132,7 +127,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppLoader;->this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher3/common/model/BadgeSettingsFragment;->dismissProgress()V
     invoke-static {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$900(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)V
 
     const-string v0, "BadgeSettingsFragment"

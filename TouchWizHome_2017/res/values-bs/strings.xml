@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Pretraži historiju</string>
+    <string name="about">O aplikaciji %s</string>
+    <string name="about_already_installed">Najnovija verzija je već instalirana.</string>
+    <string name="about_home_screen">Početni ekran</string>
+    <string name="about_licence">Licence otvorenog koda</string>
+    <string name="about_network_err">Ne mogu se provjeriti ažuriranja. Telefon nije povezan s mrežom.</string>
+    <string name="about_new_version_exist">Nova verzija je dostupna.</string>
+    <string name="about_retry">Ponovi</string>
+    <string name="about_update">Ažuriraj</string>
+    <string name="about_version">Verzija %s</string>
     <string name="activity_not_available">Ova aplikacija nije dostupna za vaš uređaj.</string>
     <string name="activity_not_found">Aplikacija nije instalirana.</string>
     <string name="align_to_bottom">Poravnaj nadolje</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">Na ovoj stranici više nema mjesta</string>
     <string name="out_of_space_dialog">Nema prostora na ovoj stranici. Stavka će biti dodana na novu stranicu.</string>
     <string name="permdesc_install_widget">Ova aplikacija može dodavati vidžete na početni ekran.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">Ova aplikacija može čitati postavke stranice prilagođenog sadržaja koja se nalazi s lijeve strane Početnog ekrana.</string>
+    <string name="permdesc_write_zeropage_settings">Ova aplikacija može mijenjati postavke stranice prilagođenog sadržaja koja se nalazi s lijeve strane Početnog ekrana.</string>
     <string name="permlab_install_widget">Dodaj vidžete</string>
+    <string name="permlab_read_settings">Pročitaj postavke i prečice početnog ekrana</string>
+    <string name="permlab_read_zeropage_settings">Pročitaj prilag. post. str. sadrž.</string>
+    <string name="permlab_write_zeropage_settings">Promijeni prilag. post. str. sadrž.</string>
     <string name="quick_option_add_apps">Dodaj aplikacije</string>
     <string name="quick_option_add_shortcut_to_home">Dodaj preč. na Poč. ekr.</string>
     <string name="quick_option_add_to_personal">Dod. na lič.</string>
@@ -185,7 +200,7 @@
     <string name="viewmore_playstore">Vidite više u prod. Play Store</string>
     <string name="viewtype_alphabetic_grid">Abecedni redoslijed</string>
     <string name="viewtype_custom_grid">Prilagođeni redoslijed</string>
-    <string name="wallpaper_button_text">Tapete</string>
+    <string name="wallpaper_button_text">Pozadine</string>
     <string name="wallpapers_and_themes_button_text">Tapete i teme</string>
     <string name="widget_button_text">Vidžeti</string>
     <string name="work_folder_name">Posao</string>

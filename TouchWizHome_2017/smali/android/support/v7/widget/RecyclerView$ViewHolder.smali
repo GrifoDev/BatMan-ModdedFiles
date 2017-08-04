@@ -37,6 +37,8 @@
 
 .field static final FLAG_RETURNED_FROM_SCRAP:I = 0x20
 
+.field static final FLAG_SET_A11Y_ITEM_DELEGATE:I = 0x4000
+
 .field static final FLAG_TMP_DETACHED:I = 0x100
 
 .field static final FLAG_UPDATE:I = 0x2
@@ -191,7 +193,31 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
+.method static synthetic access$1002(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$Recycler;)Landroid/support/v7/widget/RecyclerView$Recycler;
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mScrapContainer:Landroid/support/v7/widget/RecyclerView$Recycler;
+
+    return-object p1
+.end method
+
+.method static synthetic access$1100(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mInChangeScrap:Z
+
+    return v0
+.end method
+
+.method static synthetic access$1102(Landroid/support/v7/widget/RecyclerView$ViewHolder;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mInChangeScrap:Z
+
+    return p1
+.end method
+
+.method static synthetic access$1500(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
     .locals 1
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->shouldBeKeptAsChild()Z
@@ -201,7 +227,7 @@
     return v0
 .end method
 
-.method static synthetic access$1400(Landroid/support/v7/widget/RecyclerView$ViewHolder;)I
+.method static synthetic access$1600(Landroid/support/v7/widget/RecyclerView$ViewHolder;)I
     .locals 1
 
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mFlags:I
@@ -225,7 +251,7 @@
     return-void
 .end method
 
-.method static synthetic access$700(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
+.method static synthetic access$900(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
     .locals 1
 
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->doesTransientStatePreventRecycling()Z
@@ -233,30 +259,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method static synthetic access$802(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$Recycler;)Landroid/support/v7/widget/RecyclerView$Recycler;
-    .locals 0
-
-    iput-object p1, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mScrapContainer:Landroid/support/v7/widget/RecyclerView$Recycler;
-
-    return-object p1
-.end method
-
-.method static synthetic access$900(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mInChangeScrap:Z
-
-    return v0
-.end method
-
-.method static synthetic access$902(Landroid/support/v7/widget/RecyclerView$ViewHolder;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mInChangeScrap:Z
-
-    return p1
 .end method
 
 .method private createPayloadsIfNeeded()V

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">इतिहास शोधा</string>
+    <string name="about">%s विषयी</string>
+    <string name="about_already_installed">नवीनतम आवृत्‍ती आधीपासूनच इन्‍स्‍टॉल केली आहे.</string>
+    <string name="about_home_screen">होम स्क्रीन</string>
+    <string name="about_licence">खुला स्त्रोत परवाने</string>
+    <string name="about_network_err">अद्यवतां साठी तपासू शकत नाही. आपला फोन नेटवर्कशी कनेक्‍ट केलेला नाही.</string>
+    <string name="about_new_version_exist">नवी आवृत्ती उपलब्‍ध आहे.</string>
+    <string name="about_retry">पुन:प्रयत्न</string>
+    <string name="about_update">अद्ययावत करा</string>
+    <string name="about_version">संस्करण %s</string>
     <string name="activity_not_available">आपल्‍या उपकरणासाठी हा अनुप्रयोग उपलब्‍ध नाही.</string>
     <string name="activity_not_found">ऍप्लिकेशन इंस्टॉल केलेला नाही.</string>
     <string name="align_to_bottom">तळास संरेखित करा</string>
@@ -119,7 +128,13 @@
     <string name="out_of_space">या पृष्‍ठावर अधिक जागा नाही.</string>
     <string name="out_of_space_dialog">या पृष्‍ठावर अधिक जागा नाही. आयटम नवीन पृष्‍ठावर जोडला जाईल.</string>
     <string name="permdesc_install_widget">हा अनुप्रयोग मुख्‍य स्‍क्रीनवर विजेट्स जोडू शकतो.</string>
+    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_zeropage_settings">हा अनुप्रयोग सानुकूल सामग्री पृष्‍ठाच्या सेटिंग्स वाचू शकतो, ज्या मुख्‍य स्‍क्रीनच्या डाव्या बाजूला स्थित आहेत.</string>
+    <string name="permdesc_write_zeropage_settings">हा अनुप्रयोग सानुकूल सामग्री पृष्‍ठाच्या सेटिंग्स बदलू शकतो, ज्या मुख्‍य स्‍क्रीनच्या डाव्या बाजूला स्थित आहेत.</string>
     <string name="permlab_install_widget">विजेट्स जोडा</string>
+    <string name="permlab_read_settings">होम सेटिंग्स आणि शॉर्टकट्स वाचा.</string>
+    <string name="permlab_read_zeropage_settings">सानुकूल सामग्री पृष्‍ठ सेटिंग्स वाचा</string>
+    <string name="permlab_write_zeropage_settings">सानुकूल सामग्री पृष्‍ठ सेटिंग्स बदला</string>
     <string name="quick_option_add_apps">अनुप्रयोग जोडा</string>
     <string name="quick_option_add_shortcut_to_home">होम वर शॉर्टकट जोडा</string>
     <string name="quick_option_add_to_personal">वैयक्तिक मध्ये जोडा</string>

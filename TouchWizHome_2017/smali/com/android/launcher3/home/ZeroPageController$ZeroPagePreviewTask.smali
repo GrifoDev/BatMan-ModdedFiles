@@ -67,7 +67,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v3
@@ -78,7 +77,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->getPreviewFromPackageManager(Landroid/content/pm/PackageManager;)Landroid/graphics/Bitmap;
     invoke-static {v3, v1}, Lcom/android/launcher3/home/ZeroPageController;->access$200(Lcom/android/launcher3/home/ZeroPageController;Landroid/content/pm/PackageManager;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -87,7 +85,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->scaleBitmapIfNecessary(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     invoke-static {v3, v0}, Lcom/android/launcher3/home/ZeroPageController;->access$300(Lcom/android/launcher3/home/ZeroPageController;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -98,7 +95,6 @@
 
     invoke-direct {v4, v0}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
-    # setter for: Lcom/android/launcher3/home/ZeroPageController;->mAppPreview:Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
     invoke-static {v3, v4}, Lcom/android/launcher3/home/ZeroPageController;->access$402(Lcom/android/launcher3/home/ZeroPageController;Lcom/android/launcher3/common/drawable/FastBitmapDrawable;)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
 
     :cond_0
@@ -108,7 +104,6 @@
     return-object v3
 
     :cond_1
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->access$000()Ljava/lang/String;
 
     move-result-object v3
@@ -137,7 +132,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$500(Lcom/android/launcher3/home/ZeroPageController;)Z
 
     move-result v3
@@ -146,7 +140,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->access$100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v3
@@ -155,7 +148,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020027
+    const v4, 0x7f02002a
 
     invoke-static {v3, v4}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -163,7 +156,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # invokes: Lcom/android/launcher3/home/ZeroPageController;->scaleBitmapIfNecessary(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     invoke-static {v3, v2}, Lcom/android/launcher3/home/ZeroPageController;->access$300(Lcom/android/launcher3/home/ZeroPageController;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     move-result-object v2
@@ -174,7 +166,6 @@
 
     invoke-direct {v4, v2}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
-    # setter for: Lcom/android/launcher3/home/ZeroPageController;->mAppPreview:Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
     invoke-static {v3, v4}, Lcom/android/launcher3/home/ZeroPageController;->access$402(Lcom/android/launcher3/home/ZeroPageController;Lcom/android/launcher3/common/drawable/FastBitmapDrawable;)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
 
     goto :goto_0
@@ -183,7 +174,6 @@
 .method public onCancelled()V
     .locals 2
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -208,7 +198,6 @@
 .method protected onPostExecute(Ljava/lang/Void;)V
     .locals 2
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -219,7 +208,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
     invoke-static {v0}, Lcom/android/launcher3/home/ZeroPageController;->access$600(Lcom/android/launcher3/home/ZeroPageController;)Landroid/widget/LinearLayout;
 
     move-result-object v0
@@ -228,14 +216,12 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
     invoke-static {v0}, Lcom/android/launcher3/home/ZeroPageController;->access$600(Lcom/android/launcher3/home/ZeroPageController;)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController$ZeroPagePreviewTask;->this$0:Lcom/android/launcher3/home/ZeroPageController;
 
-    # getter for: Lcom/android/launcher3/home/ZeroPageController;->mAppPreview:Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
     invoke-static {v1}, Lcom/android/launcher3/home/ZeroPageController;->access$400(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
 
     move-result-object v1

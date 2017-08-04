@@ -258,19 +258,54 @@
 
     const/4 v0, 0x0
 
-    array-length v2, p0
-
-    if-ne v2, v3, :cond_0
-
     array-length v2, p1
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Ill-formatted MIME type filter. Must be type/subtype."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_0
+    aget-object v2, p1, v0
+
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    aget-object v2, p1, v1
+
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Ill-formatted MIME type filter. Type or subtype empty."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_2
+    array-length v2, p0
+
+    if-eq v2, v3, :cond_4
+
+    :cond_3
     :goto_0
     return v0
 
-    :cond_1
+    :cond_4
     const-string v2, "*"
 
     aget-object v3, p1, v0
@@ -279,7 +314,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_5
 
     aget-object v2, p1, v0
 
@@ -289,9 +324,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3
 
-    :cond_2
+    :cond_5
     const-string v2, "*"
 
     aget-object v3, p1, v1
@@ -300,7 +335,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_6
 
     aget-object v2, p1, v1
 
@@ -310,9 +345,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3
 
-    :cond_3
+    :cond_6
     move v0, v1
 
     goto :goto_0

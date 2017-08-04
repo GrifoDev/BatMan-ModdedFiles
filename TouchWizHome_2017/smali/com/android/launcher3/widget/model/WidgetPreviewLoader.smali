@@ -126,7 +126,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090126
+    const v1, 0x7f090134
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -303,19 +303,19 @@
 
     move-result-object v8
 
-    const v10, 0x7f09013c
+    const v10, 0x7f09014a
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
     move-result v7
 
-    const v10, 0x7f09013a
+    const v10, 0x7f090148
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
     move-result v5
 
-    const v10, 0x7f09013b
+    const v10, 0x7f090149
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -647,7 +647,6 @@
 
     const/4 v5, 0x2
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;->size:Ljava/lang/String;
     invoke-static {p1}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;->access$000(Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;)Ljava/lang/String;
 
     move-result-object v6
@@ -889,7 +888,6 @@
 
     const-string v2, "size"
 
-    # getter for: Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;->size:Ljava/lang/String;
     invoke-static {p1}, Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;->access$000(Lcom/android/launcher3/widget/model/WidgetPreviewLoader$WidgetCacheKey;)Ljava/lang/String;
 
     move-result-object v3
@@ -1266,7 +1264,7 @@
 
     move-result-object v32
 
-    const v33, 0x7f020115
+    const v33, 0x7f02011d
 
     invoke-virtual/range {v32 .. v33}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

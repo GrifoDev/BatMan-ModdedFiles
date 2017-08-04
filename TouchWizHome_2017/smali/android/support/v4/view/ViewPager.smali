@@ -2216,7 +2216,7 @@
 .end method
 
 .method private resetTouch()Z
-    .locals 3
+    .locals 2
 
     const/4 v1, -0x1
 
@@ -2238,15 +2238,26 @@
 
     move-result v1
 
-    iget-object v2, p0, Landroid/support/v4/view/ViewPager;->mRightEdge:Landroid/widget/EdgeEffect;
+    if-nez v1, :cond_0
 
-    invoke-virtual {v2}, Landroid/widget/EdgeEffect;->isFinished()Z
+    iget-object v1, p0, Landroid/support/v4/view/ViewPager;->mRightEdge:Landroid/widget/EdgeEffect;
 
-    move-result v2
+    invoke-virtual {v1}, Landroid/widget/EdgeEffect;->isFinished()Z
 
-    or-int v0, v1, v2
+    move-result v1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
     return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private scrollToItem(IZIZ)V
@@ -3648,19 +3659,15 @@
 .end method
 
 .method distanceInfluenceForSnapDuration(F)F
-    .locals 4
+    .locals 2
 
     const/high16 v0, 0x3f000000    # 0.5f
 
     sub-float/2addr p1, v0
 
-    float-to-double v0, p1
+    const v0, 0x3ef1463b
 
-    const-wide v2, 0x3fde28c7460698c7L    # 0.4712389167638204
-
-    mul-double/2addr v0, v2
-
-    double-to-float p1, v0
+    mul-float/2addr p1, v0
 
     float-to-double v0, p1
 
@@ -3985,9 +3992,11 @@
 .end method
 
 .method public executeKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
+
+    const/4 v2, 0x2
 
     const/4 v0, 0x0
 
@@ -4008,6 +4017,19 @@
     return v0
 
     :sswitch_0
+    invoke-virtual {p1, v2}, Landroid/view/KeyEvent;->hasModifiers(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/support/v4/view/ViewPager;->pageLeft()Z
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
     const/16 v1, 0x11
 
     invoke-virtual {p0, v1}, Landroid/support/v4/view/ViewPager;->arrowScroll(I)Z
@@ -4017,6 +4039,19 @@
     goto :goto_0
 
     :sswitch_1
+    invoke-virtual {p1, v2}, Landroid/view/KeyEvent;->hasModifiers(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p0}, Landroid/support/v4/view/ViewPager;->pageRight()Z
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_2
     const/16 v1, 0x42
 
     invoke-virtual {p0, v1}, Landroid/support/v4/view/ViewPager;->arrowScroll(I)Z
@@ -4030,24 +4065,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
-    const/4 v1, 0x2
-
-    invoke-virtual {p0, v1}, Landroid/support/v4/view/ViewPager;->arrowScroll(I)Z
+    invoke-virtual {p0, v2}, Landroid/support/v4/view/ViewPager;->arrowScroll(I)Z
 
     move-result v0
 
     goto :goto_0
 
-    :cond_1
-    invoke-virtual {p1, v2}, Landroid/view/KeyEvent;->hasModifiers(I)Z
+    :cond_3
+    invoke-virtual {p1, v3}, Landroid/view/KeyEvent;->hasModifiers(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p0, v2}, Landroid/support/v4/view/ViewPager;->arrowScroll(I)Z
+    invoke-virtual {p0, v3}, Landroid/support/v4/view/ViewPager;->arrowScroll(I)Z
 
     move-result v0
 

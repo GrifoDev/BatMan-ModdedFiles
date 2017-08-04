@@ -639,7 +639,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f00c8
+    const v0, 0x7f0f00d8
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/tray/FakeView;->findViewById(I)Landroid/view/View;
 
@@ -647,7 +647,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDropView:Landroid/view/View;
 
-    const v0, 0x7f0f00c9
+    const v0, 0x7f0f00d9
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/tray/FakeView;->findViewById(I)Landroid/view/View;
 

@@ -77,7 +77,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/DropTargetBar;->setVisibility(I)V
 
-    const v0, 0x7f0f004f
+    const v0, 0x7f0f005f
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/DropTargetBar;->findViewById(I)Landroid/view/View;
 

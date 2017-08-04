@@ -45,8 +45,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$29;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    # invokes: Lcom/android/launcher3/home/HomeLoader;->bindFestivalPageIfNecessary(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
-    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeLoader;->access$2800(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeLoader;->access$3100(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 
     return-void
 .end method

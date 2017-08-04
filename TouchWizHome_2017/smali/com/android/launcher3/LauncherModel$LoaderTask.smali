@@ -96,7 +96,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->access$1000(Lcom/android/launcher3/LauncherModel;)Ljava/lang/Object;
 
     move-result-object v2
@@ -106,7 +105,6 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mLoaderTask:Lcom/android/launcher3/LauncherModel$LoaderTask;
     invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->access$1300(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
 
     move-result-object v1
@@ -117,7 +115,6 @@
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/launcher3/LauncherModel;->mLoaderTask:Lcom/android/launcher3/LauncherModel$LoaderTask;
     invoke-static {v1, v3}, Lcom/android/launcher3/LauncherModel;->access$1302(Lcom/android/launcher3/LauncherModel;Lcom/android/launcher3/LauncherModel$LoaderTask;)Lcom/android/launcher3/LauncherModel$LoaderTask;
 
     :cond_0
@@ -125,17 +122,14 @@
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/launcher3/LauncherModel;->mIsLoaderTaskRunning:Z
     invoke-static {v1, v3}, Lcom/android/launcher3/LauncherModel;->access$1102(Lcom/android/launcher3/LauncherModel;Z)Z
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
     const/4 v3, 0x1
 
-    # setter for: Lcom/android/launcher3/LauncherModel;->mHasLoaderCompletedOnce:Z
     invoke-static {v1, v3}, Lcom/android/launcher3/LauncherModel;->access$1402(Lcom/android/launcher3/LauncherModel;Z)Z
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->sPackageChangeRunnables:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher3/LauncherModel;->access$1500()Ljava/util/ArrayList;
 
     move-result-object v1
@@ -152,7 +146,6 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->sPackageChangeRunnables:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher3/LauncherModel;->access$1500()Ljava/util/ArrayList;
 
     move-result-object v1
@@ -189,7 +182,6 @@
 
     :cond_1
     :try_start_1
-    # getter for: Lcom/android/launcher3/LauncherModel;->sPackageChangeRunnables:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher3/LauncherModel;->access$1500()Ljava/util/ArrayList;
 
     move-result-object v1
@@ -225,7 +217,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mAllAppsLoaded:Z
     invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->access$300(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v2
@@ -242,7 +233,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mAllAppsLoaded:Z
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$300(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v0
@@ -296,7 +286,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mWorkspaceLoaded:Z
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$200(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v0
@@ -307,7 +296,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mDisableableAppCache:Lcom/android/launcher3/common/model/DisableableAppCache;
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$600(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/common/model/DisableableAppCache;
 
     move-result-object v0
@@ -328,7 +316,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher3/LauncherModel;->mAllAppsLoaded:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/LauncherModel;->access$302(Lcom/android/launcher3/LauncherModel;Z)Z
 
     monitor-exit p0
@@ -339,7 +326,6 @@
     :goto_0
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mWorkspaceLoaded:Z
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$200(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v0
@@ -404,7 +390,6 @@
 
     iget-object v3, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mWorkspaceLoaded:Z
     invoke-static {v3}, Lcom/android/launcher3/LauncherModel;->access$200(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v3
@@ -421,7 +406,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mWorkspaceLoaded:Z
     invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->access$200(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v1
@@ -436,7 +420,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # setter for: Lcom/android/launcher3/LauncherModel;->mAllAppsLoaded:Z
     invoke-static {v1, v5}, Lcom/android/launcher3/LauncherModel;->access$302(Lcom/android/launcher3/LauncherModel;Z)Z
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
@@ -491,7 +474,6 @@
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mIconCache:Lcom/android/launcher3/common/model/IconCache;
     invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->access$000(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/common/model/IconCache;
 
     move-result-object v1
@@ -513,7 +495,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mHandler:Lcom/android/launcher3/common/model/DeferredHandler;
     invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->access$900(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/common/model/DeferredHandler;
 
     move-result-object v2
@@ -679,7 +660,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mLock:Ljava/lang/Object;
     invoke-static {v4}, Lcom/android/launcher3/LauncherModel;->access$1000(Lcom/android/launcher3/LauncherModel;)Ljava/lang/Object;
 
     move-result-object v5
@@ -701,7 +681,6 @@
 
     const/4 v6, 0x1
 
-    # setter for: Lcom/android/launcher3/LauncherModel;->mIsLoaderTaskRunning:Z
     invoke-static {v4, v6}, Lcom/android/launcher3/LauncherModel;->access$1102(Lcom/android/launcher3/LauncherModel;Z)Z
 
     monitor-exit v5
@@ -716,7 +695,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mApp:Lcom/android/launcher3/LauncherAppState;
     invoke-static {v4}, Lcom/android/launcher3/LauncherModel;->access$1200(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v4
@@ -905,7 +883,6 @@
 
     iget-object v4, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # invokes: Lcom/android/launcher3/LauncherModel;->loadWidgets([Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)V
     invoke-static {v4, v7, v7, v8}, Lcom/android/launcher3/LauncherModel;->access$100(Lcom/android/launcher3/LauncherModel;[Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)V
 
     goto/16 :goto_0
@@ -931,7 +908,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mAllAppsLoaded:Z
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$300(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v0
@@ -940,7 +916,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mWorkspaceLoaded:Z
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$200(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v0
@@ -959,7 +934,6 @@
     :cond_2
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$1000(Lcom/android/launcher3/LauncherModel;)Ljava/lang/Object;
 
     move-result-object v1
@@ -969,7 +943,6 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mIsLoaderTaskRunning:Z
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$1100(Lcom/android/launcher3/LauncherModel;)Z
 
     move-result v0
@@ -1001,7 +974,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mHandler:Lcom/android/launcher3/common/model/DeferredHandler;
     invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->access$900(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/common/model/DeferredHandler;
 
     move-result-object v0
@@ -1018,7 +990,6 @@
 
     const/4 v1, 0x1
 
-    # invokes: Lcom/android/launcher3/LauncherModel;->loadWidgets([Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)V
     invoke-static {v0, v2, v2, v1}, Lcom/android/launcher3/LauncherModel;->access$100(Lcom/android/launcher3/LauncherModel;[Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)V
 
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
@@ -1079,7 +1050,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mLock:Ljava/lang/Object;
     invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->access$1000(Lcom/android/launcher3/LauncherModel;)Ljava/lang/Object;
 
     move-result-object v2
@@ -1101,7 +1071,6 @@
     :cond_0
     iget-object v3, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mCallbacks:Ljava/lang/ref/WeakReference;
     invoke-static {v3}, Lcom/android/launcher3/LauncherModel;->access$1600(Lcom/android/launcher3/LauncherModel;)Ljava/lang/ref/WeakReference;
 
     move-result-object v3
@@ -1117,7 +1086,6 @@
     :cond_1
     iget-object v3, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    # getter for: Lcom/android/launcher3/LauncherModel;->mCallbacks:Ljava/lang/ref/WeakReference;
     invoke-static {v3}, Lcom/android/launcher3/LauncherModel;->access$1600(Lcom/android/launcher3/LauncherModel;)Ljava/lang/ref/WeakReference;
 
     move-result-object v3

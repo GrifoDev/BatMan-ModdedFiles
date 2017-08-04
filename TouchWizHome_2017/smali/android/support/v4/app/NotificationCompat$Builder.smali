@@ -36,6 +36,8 @@
     .end annotation
 .end field
 
+.field mBadgeIcon:I
+
 .field mBigContentView:Landroid/widget/RemoteViews;
 
 .field mCategory:Ljava/lang/String;
@@ -43,6 +45,10 @@
 .field mChannelId:Ljava/lang/String;
 
 .field mColor:I
+
+.field mColorized:Z
+
+.field mColorizedSet:Z
 
 .field public mContentInfo:Ljava/lang/CharSequence;
     .annotation build Landroid/support/annotation/RestrictTo;
@@ -83,6 +89,8 @@
 .field mExtras:Landroid/os/Bundle;
 
 .field mFullScreenIntent:Landroid/app/PendingIntent;
+
+.field private mGroupAlertBehavior:I
 
 .field mGroupKey:Ljava/lang/String;
 
@@ -145,6 +153,8 @@
     .end annotation
 .end field
 
+.field mShortcutId:Ljava/lang/String;
+
 .field mShowWhen:Z
 
 .field mSortKey:Ljava/lang/String;
@@ -167,6 +177,8 @@
 
 .field mTickerView:Landroid/widget/RemoteViews;
 
+.field mTimeout:J
+
 .field public mUseChronometer:Z
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
@@ -180,7 +192,27 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Landroid/support/v4/app/NotificationCompat$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 5
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v4, 0x0
 
@@ -202,6 +234,10 @@
 
     iput v4, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mVisibility:I
 
+    iput v4, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mBadgeIcon:I
+
+    iput v4, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mGroupAlertBehavior:I
+
     new-instance v0, Landroid/app/Notification;
 
     invoke-direct {v0}, Landroid/app/Notification;-><init>()V
@@ -209,6 +245,8 @@
     iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
 
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mContext:Landroid/content/Context;
+
+    iput-object p2, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mChannelId:Ljava/lang/String;
 
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
 
@@ -233,6 +271,14 @@
     iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mPeople:Ljava/util/ArrayList;
 
     return-void
+.end method
+
+.method static synthetic access$000(Landroid/support/v4/app/NotificationCompat$Builder;)I
+    .locals 1
+
+    iget v0, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mGroupAlertBehavior:I
+
+    return v0
 .end method
 
 .method protected static limitCharSequenceLength(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
@@ -551,6 +597,14 @@
     return-object p0
 .end method
 
+.method public setBadgeIconType(I)Landroid/support/v4/app/NotificationCompat$Builder;
+    .locals 0
+
+    iput p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mBadgeIcon:I
+
+    return-object p0
+.end method
+
 .method public setCategory(Ljava/lang/String;)Landroid/support/v4/app/NotificationCompat$Builder;
     .locals 0
 
@@ -560,7 +614,27 @@
 .end method
 
 .method public setChannel(Ljava/lang/String;)Landroid/support/v4/app/NotificationCompat$Builder;
+    .locals 1
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    invoke-virtual {p0, p1}, Landroid/support/v4/app/NotificationCompat$Builder;->setChannelId(Ljava/lang/String;)Landroid/support/v4/app/NotificationCompat$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public setChannelId(Ljava/lang/String;)Landroid/support/v4/app/NotificationCompat$Builder;
     .locals 0
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mChannelId:Ljava/lang/String;
 
@@ -575,6 +649,18 @@
     .end param
 
     iput p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mColor:I
+
+    return-object p0
+.end method
+
+.method public setColorized(Z)Landroid/support/v4/app/NotificationCompat$Builder;
+    .locals 1
+
+    iput-boolean p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mColorized:Z
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mColorizedSet:Z
 
     return-object p0
 .end method
@@ -714,6 +800,14 @@
     .locals 0
 
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mGroupKey:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public setGroupAlertBehavior(I)Landroid/support/v4/app/NotificationCompat$Builder;
+    .locals 0
+
+    iput p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mGroupAlertBehavior:I
 
     return-object p0
 .end method
@@ -872,6 +966,14 @@
     return-object p0
 .end method
 
+.method public setShortcutId(Ljava/lang/String;)Landroid/support/v4/app/NotificationCompat$Builder;
+    .locals 0
+
+    iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mShortcutId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
 .method public setShowWhen(Z)Landroid/support/v4/app/NotificationCompat$Builder;
     .locals 0
 
@@ -1001,6 +1103,26 @@
     iput-object v1, v0, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
     iput-object p2, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mTickerView:Landroid/widget/RemoteViews;
+
+    return-object p0
+.end method
+
+.method public setTimeout(J)Landroid/support/v4/app/NotificationCompat$Builder;
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    invoke-virtual {p0, p1, p2}, Landroid/support/v4/app/NotificationCompat$Builder;->setTimeoutAfter(J)Landroid/support/v4/app/NotificationCompat$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public setTimeoutAfter(J)Landroid/support/v4/app/NotificationCompat$Builder;
+    .locals 1
+
+    iput-wide p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mTimeout:J
 
     return-object p0
 .end method

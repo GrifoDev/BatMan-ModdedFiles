@@ -45,7 +45,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher3/allapps/controller/AppsController;->mRemoveInProgress:Z
     invoke-static {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$202(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
 
     return-void

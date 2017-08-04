@@ -185,7 +185,7 @@
 
     move-result-object v6
 
-    const v9, 0x7f02010f
+    const v9, 0x7f020117
 
     const/4 v10, 0x0
 
@@ -195,7 +195,7 @@
 
     iput-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    const v9, 0x7f020110
+    const v9, 0x7f020118
 
     const/4 v10, 0x0
 
@@ -205,7 +205,7 @@
 
     iput-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBackgroundInvalid:Landroid/graphics/drawable/Drawable;
 
-    const v9, 0x7f090131
+    const v9, 0x7f09013f
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -213,7 +213,7 @@
 
     iput v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBackgroundPadding:I
 
-    const v9, 0x7f090132
+    const v9, 0x7f090140
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -231,7 +231,7 @@
 
     invoke-virtual {p0, v9, v10, v11, v12}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->setPadding(IIII)V
 
-    const v9, 0x7f020111
+    const v9, 0x7f020119
 
     const/4 v10, 0x0
 
@@ -245,7 +245,7 @@
 
     iput v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mHandleWidth:I
 
-    const v9, 0x7f0801b8
+    const v9, 0x7f0801c5
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -253,7 +253,7 @@
 
     iput-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mWidgetSpanFormat:Ljava/lang/String;
 
-    const v9, 0x7f0800af
+    const v9, 0x7f0800be
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -301,7 +301,7 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mLeftHandle:Landroid/widget/ImageView;
 
-    const v10, 0x7f020111
+    const v10, 0x7f020119
 
     invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -360,7 +360,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800ab
+    const v10, 0x7f0800ba
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -406,7 +406,7 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mRightHandle:Landroid/widget/ImageView;
 
-    const v10, 0x7f020111
+    const v10, 0x7f020119
 
     invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -430,7 +430,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800b1
+    const v10, 0x7f0800c0
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -476,7 +476,7 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mTopHandle:Landroid/widget/ImageView;
 
-    const v10, 0x7f020111
+    const v10, 0x7f020119
 
     invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -500,7 +500,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800b2
+    const v10, 0x7f0800c1
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -546,7 +546,7 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBottomHandle:Landroid/widget/ImageView;
 
-    const v10, 0x7f020111
+    const v10, 0x7f020119
 
     invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -570,7 +570,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800a2
+    const v10, 0x7f0800b1
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -714,7 +714,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800b0
+    const v10, 0x7f0800bf
 
     const/4 v11, 0x1
 
@@ -1649,7 +1649,7 @@
 
     move-result-object v1
 
-    const v6, 0x7f080190
+    const v6, 0x7f08019d
 
     move-object/from16 v0, v23
 
@@ -1657,7 +1657,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080149
+    const v7, 0x7f080158
 
     move-object/from16 v0, v23
 
@@ -1888,7 +1888,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800ab
+    const v3, 0x7f0800ba
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1899,7 +1899,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800ac
+    const v3, 0x7f0800bb
 
     const/4 v4, 0x1
 
@@ -1928,7 +1928,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800b1
+    const v3, 0x7f0800c0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1945,7 +1945,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800b2
+    const v3, 0x7f0800c1
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1958,7 +1958,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800a2
+    const v3, 0x7f0800b1
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1970,7 +1970,7 @@
 .method private setVisualInvalid()V
     .locals 2
 
-    const v1, 0x7f020112
+    const v1, 0x7f02011a
 
     const/4 v0, 0x1
 
@@ -1998,7 +1998,7 @@
 .method private setVisualOk()V
     .locals 2
 
-    const v1, 0x7f020111
+    const v1, 0x7f020119
 
     const/4 v0, 0x0
 
@@ -2958,7 +2958,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800b3
+    const v4, 0x7f0800c2
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

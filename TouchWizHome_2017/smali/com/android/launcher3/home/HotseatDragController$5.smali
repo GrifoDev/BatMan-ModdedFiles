@@ -49,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HotseatDragController$5;->this$0:Lcom/android/launcher3/home/HotseatDragController;
 
-    # getter for: Lcom/android/launcher3/home/HotseatDragController;->mLauncher:Lcom/android/launcher3/Launcher;
     invoke-static {v0}, Lcom/android/launcher3/home/HotseatDragController;->access$600(Lcom/android/launcher3/home/HotseatDragController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0

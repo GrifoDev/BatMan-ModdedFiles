@@ -58,7 +58,7 @@
     return-void
 .end method
 
-.method static synthetic access$400(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
+.method static synthetic access$600(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
@@ -267,47 +267,41 @@
 .end method
 
 .method protected normalize(Landroid/graphics/PointF;)V
-    .locals 5
+    .locals 4
+
+    iget v1, p1, Landroid/graphics/PointF;->x:F
 
     iget v2, p1, Landroid/graphics/PointF;->x:F
 
-    iget v3, p1, Landroid/graphics/PointF;->x:F
-
-    mul-float/2addr v2, v3
-
-    iget v3, p1, Landroid/graphics/PointF;->y:F
-
-    iget v4, p1, Landroid/graphics/PointF;->y:F
-
-    mul-float/2addr v3, v4
-
-    add-float/2addr v2, v3
-
-    float-to-double v2, v2
-
-    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v0
-
-    iget v2, p1, Landroid/graphics/PointF;->x:F
-
-    float-to-double v2, v2
-
-    div-double/2addr v2, v0
-
-    double-to-float v2, v2
-
-    iput v2, p1, Landroid/graphics/PointF;->x:F
+    mul-float/2addr v1, v2
 
     iget v2, p1, Landroid/graphics/PointF;->y:F
 
-    float-to-double v2, v2
+    iget v3, p1, Landroid/graphics/PointF;->y:F
 
-    div-double/2addr v2, v0
+    mul-float/2addr v2, v3
 
-    double-to-float v2, v2
+    add-float/2addr v1, v2
 
-    iput v2, p1, Landroid/graphics/PointF;->y:F
+    float-to-double v2, v1
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v2
+
+    double-to-float v0, v2
+
+    iget v1, p1, Landroid/graphics/PointF;->x:F
+
+    div-float/2addr v1, v0
+
+    iput v1, p1, Landroid/graphics/PointF;->x:F
+
+    iget v1, p1, Landroid/graphics/PointF;->y:F
+
+    div-float/2addr v1, v0
+
+    iput v1, p1, Landroid/graphics/PointF;->y:F
 
     return-void
 .end method
@@ -381,8 +375,7 @@
 
     iget v1, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mTargetPosition:I
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mTargetPosition:I
-    invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView$State;->access$1102(Landroid/support/v7/widget/RecyclerView$State;I)I
+    invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView$State;->access$1302(Landroid/support/v7/widget/RecyclerView$State;I)I
 
     iput-boolean v2, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mRunning:Z
 
@@ -432,8 +425,7 @@
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mTargetPosition:I
-    invoke-static {v0, v2}, Landroid/support/v7/widget/RecyclerView$State;->access$1102(Landroid/support/v7/widget/RecyclerView$State;I)I
+    invoke-static {v0, v2}, Landroid/support/v7/widget/RecyclerView$State;->access$1302(Landroid/support/v7/widget/RecyclerView$State;I)I
 
     iput-object v1, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mTargetView:Landroid/view/View;
 
@@ -445,8 +437,7 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$LayoutManager;->onSmoothScrollerStopped(Landroid/support/v7/widget/RecyclerView$SmoothScroller;)V
-    invoke-static {v0, p0}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->access$1200(Landroid/support/v7/widget/RecyclerView$LayoutManager;Landroid/support/v7/widget/RecyclerView$SmoothScroller;)V
+    invoke-static {v0, p0}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->access$1400(Landroid/support/v7/widget/RecyclerView$LayoutManager;Landroid/support/v7/widget/RecyclerView$SmoothScroller;)V
 
     iput-object v1, p0, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 

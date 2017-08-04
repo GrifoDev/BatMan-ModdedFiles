@@ -60,12 +60,10 @@
 
     iput-boolean v2, v0, Lcom/android/launcher3/home/WorkspaceReorderController$ReorderPreviewAnimation;->repeating:Z
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mLayout:Lcom/android/launcher3/common/base/view/CellLayout;
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$300(Lcom/android/launcher3/home/WorkspaceReorderController;)Lcom/android/launcher3/common/base/view/CellLayout;
 
     move-result-object v2
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mTmpPoint:[I
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$200(Lcom/android/launcher3/home/WorkspaceReorderController;)[I
 
     move-result-object v7
@@ -80,7 +78,6 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/launcher3/common/base/view/CellLayout;->regionToCenterPoint(IIII[I)V
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mTmpPoint:[I
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$200(Lcom/android/launcher3/home/WorkspaceReorderController;)[I
 
     move-result-object v2
@@ -89,7 +86,6 @@
 
     aget v13, v2, v3
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mTmpPoint:[I
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$200(Lcom/android/launcher3/home/WorkspaceReorderController;)[I
 
     move-result-object v2
@@ -98,12 +94,10 @@
 
     aget v15, v2, v3
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mLayout:Lcom/android/launcher3/common/base/view/CellLayout;
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$300(Lcom/android/launcher3/home/WorkspaceReorderController;)Lcom/android/launcher3/common/base/view/CellLayout;
 
     move-result-object v2
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mTmpPoint:[I
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$200(Lcom/android/launcher3/home/WorkspaceReorderController;)[I
 
     move-result-object v7
@@ -118,7 +112,6 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/launcher3/common/base/view/CellLayout;->regionToCenterPoint(IIII[I)V
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mTmpPoint:[I
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$200(Lcom/android/launcher3/home/WorkspaceReorderController;)[I
 
     move-result-object v2
@@ -127,7 +120,6 @@
 
     aget v14, v2, v3
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mTmpPoint:[I
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$200(Lcom/android/launcher3/home/WorkspaceReorderController;)[I
 
     move-result-object v2
@@ -361,7 +353,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ReorderPreviewAnimation;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mShakeAnimators:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$400(Lcom/android/launcher3/home/WorkspaceReorderController;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -376,7 +367,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ReorderPreviewAnimation;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mShakeAnimators:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$400(Lcom/android/launcher3/home/WorkspaceReorderController;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -393,7 +383,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ReorderPreviewAnimation;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mShakeAnimators:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$400(Lcom/android/launcher3/home/WorkspaceReorderController;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -475,7 +464,6 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceReorderController$ReorderPreviewAnimation;->this$0:Lcom/android/launcher3/home/WorkspaceReorderController;
 
-    # getter for: Lcom/android/launcher3/home/WorkspaceReorderController;->mShakeAnimators:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/launcher3/home/WorkspaceReorderController;->access$400(Lcom/android/launcher3/home/WorkspaceReorderController;)Ljava/util/HashMap;
 
     move-result-object v2
