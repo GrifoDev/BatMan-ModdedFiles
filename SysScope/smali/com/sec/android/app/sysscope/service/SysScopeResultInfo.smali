@@ -135,6 +135,8 @@
 
     iget-object v3, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->b:Ljava/util/ArrayList;
 
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
@@ -148,6 +150,8 @@
     .locals 1
 
     iget-object v0, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->b:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

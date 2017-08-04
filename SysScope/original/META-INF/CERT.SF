@@ -1,5 +1,5 @@
 Signature-Version: 1.0
-SHA1-Digest-Manifest: GyHK+zM23TcyGfT8Xaf0BZnCjLA=
+SHA1-Digest-Manifest: o8SfkJPo5JMZZVymS22ciKjeOtA=
 Created-By: 1.0 (Android SignApk)
 
 Name: assets/databases/SysScope.db
@@ -27,7 +27,7 @@ Name: res/layout/main.xml
 SHA1-Digest: cpXDlaH2c29Au0ol5WGr75dVuTE=
 
 Name: SEC-INF/buildinfo.xml
-SHA1-Digest: DFp9XjNY3MpRskeI4wcJaSCX7cU=
+SHA1-Digest: 4Hwg5dmWztOMrb7OVOhMt6vK5GA=
 
 Name: resources.arsc
 SHA1-Digest: /N5xoyL0VrE2pjrmVUMzzgIiWJs=
