@@ -35,97 +35,103 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 4
 
     :try_start_0
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get7(Lcom/android/server/wm/ConventionalModeController;)I
+
+    move-result v1
+
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mActivityManager:Landroid/app/IActivityManager;
+
+    iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get7(Lcom/android/server/wm/ConventionalModeController;)I
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Landroid/app/IActivityManager;->startActivityFromRecents(ILandroid/os/Bundle;)I
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAppTransition:Lcom/android/server/wm/AppTransition;
+
+    const/16 v2, 0x8
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/wm/AppTransition;->prepareAppTransitionLocked(IZ)Z
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
     iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
     invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get6(Lcom/android/server/wm/ConventionalModeController;)I
 
     move-result v2
 
-    const/4 v3, -0x1
-
-    if-eq v2, v3, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
-
-    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
-
-    move-result-object v2
-
-    iget-object v2, v2, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mActivityManager:Landroid/app/IActivityManager;
-
-    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
-
-    invoke-static {v3}, Lcom/android/server/wm/ConventionalModeController;->-get6(Lcom/android/server/wm/ConventionalModeController;)I
-
-    move-result v3
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v4}, Landroid/app/IActivityManager;->startActivityFromRecents(ILandroid/os/Bundle;)I
-
-    iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
-
-    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
-
-    move-result-object v2
-
-    iget-object v2, v2, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mAppTransition:Lcom/android/server/wm/AppTransition;
-
-    const/16 v3, 0x8
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/server/wm/AppTransition;->prepareAppTransitionLocked(IZ)Z
+    invoke-static {v1, v2}, Lcom/android/server/wm/ConventionalModeController;->-wrap3(Lcom/android/server/wm/ConventionalModeController;I)V
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
     :goto_0
     return-void
 
     :catch_0
-    move-exception v1
-
-    const-string/jumbo v2, "ConventionalModeController"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Can not open this task id="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
-
-    invoke-static {v4}, Lcom/android/server/wm/ConventionalModeController;->-get6(Lcom/android/server/wm/ConventionalModeController;)I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :catch_1
     move-exception v0
+
+    const-string/jumbo v1, "ConventionalModeController"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Can not open this task id="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController$3;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-static {v3}, Lcom/android/server/wm/ConventionalModeController;->-get7(Lcom/android/server/wm/ConventionalModeController;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method

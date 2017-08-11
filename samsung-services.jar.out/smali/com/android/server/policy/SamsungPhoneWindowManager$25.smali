@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->interceptKeyBeforeDispatching(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)J
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->systemBooted()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,17 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$25;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->keyguardDone(ZZ)V
+    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap7(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
 
     return-void
 .end method

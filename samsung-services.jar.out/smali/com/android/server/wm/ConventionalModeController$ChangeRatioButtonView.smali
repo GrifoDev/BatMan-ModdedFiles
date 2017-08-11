@@ -46,7 +46,7 @@
 
     iget-object v5, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v5}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+    invoke-static {v5}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
 
     move-result-object v5
 
@@ -120,9 +120,9 @@
 .method private makeNewButtonView()Lcom/android/server/wm/ConventionalModeController$VerticalTextView;
     .locals 5
 
-    const/4 v4, 0x0
+    const/4 v4, -0x1
 
-    const/4 v3, -0x1
+    const/4 v3, 0x0
 
     new-instance v0, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;
 
@@ -130,7 +130,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
 
     move-result-object v2
 
@@ -140,7 +140,7 @@
 
     new-instance v1, Landroid/view/ViewGroup$LayoutParams;
 
-    invoke-direct {v1, v3, v3}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
+    invoke-direct {v1, v4, v4}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
@@ -148,13 +148,13 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setBackgroundColor(I)V
 
-    const v1, 0x1040926
+    const v1, 0x1040934
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setText(I)V
 
     const-string/jumbo v1, "sec-roboto-light"
 
-    invoke-static {v1, v4}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+    invoke-static {v1, v3}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
 
     move-result-object v1
 
@@ -170,7 +170,25 @@
 
     int-to-float v1, v1
 
-    invoke-virtual {v0, v4, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setTextSize(IF)V
+    invoke-virtual {v0, v3, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setTextSize(IF)V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setLines(I)V
+
+    invoke-virtual {p0}, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->getPaddingSize()I
+
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->getPaddingSize()I
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v3, v2, v3}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setPadding(IIII)V
+
+    sget-object v1, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
     const/16 v1, 0x11
 
@@ -187,8 +205,46 @@
 
 
 # virtual methods
-.method public resetView()V
+.method public getPaddingSize()I
     .locals 3
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/content/res/Configuration;->densityDpi:I
+
+    int-to-float v1, v1
+
+    const/high16 v2, 0x43200000    # 160.0f
+
+    div-float v0, v1, v2
+
+    const/high16 v1, 0x40c00000    # 6.0f
+
+    mul-float/2addr v1, v0
+
+    float-to-int v1, v1
+
+    return v1
+.end method
+
+.method public resetView()V
+    .locals 4
+
+    const/4 v3, 0x0
 
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->mChangeRatioButton:Lcom/android/server/wm/ConventionalModeController$VerticalTextView;
 
@@ -210,9 +266,21 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->mChangeRatioButton:Lcom/android/server/wm/ConventionalModeController$VerticalTextView;
 
-    const v1, 0x1040926
+    const v1, 0x1040934
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setText(I)V
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->mChangeRatioButton:Lcom/android/server/wm/ConventionalModeController$VerticalTextView;
+
+    invoke-virtual {p0}, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->getPaddingSize()I
+
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->getPaddingSize()I
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v3, v2, v3}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setPadding(IIII)V
 
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->mChangeRatioButton:Lcom/android/server/wm/ConventionalModeController$VerticalTextView;
 
@@ -222,9 +290,7 @@
 
     int-to-float v1, v1
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v2, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setTextSize(IF)V
+    invoke-virtual {v0, v3, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setTextSize(IF)V
 
     goto :goto_0
 .end method

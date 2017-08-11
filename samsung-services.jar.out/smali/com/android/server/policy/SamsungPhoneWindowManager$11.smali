@@ -35,19 +35,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$11;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap1(Lcom/android/server/policy/SamsungPhoneWindowManager;)Z
+    iget-boolean v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mFingerPrintPending:Z
 
-    move-result v0
-
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$11;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap6(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
+    const/4 v1, 0x0
+
+    iput-boolean v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mFingerPrintPending:Z
 
     :cond_0
     return-void

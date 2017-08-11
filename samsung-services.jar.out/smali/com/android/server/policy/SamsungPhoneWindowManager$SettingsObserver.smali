@@ -32,9 +32,9 @@
 
 # virtual methods
 .method observe()V
-    .locals 5
+    .locals 6
 
-    const/4 v2, -0x2
+    const/4 v5, -0x2
 
     const/4 v4, -0x1
 
@@ -182,7 +182,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v0, v1, v3, p0, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     const-string/jumbo v1, "sidesync_source_presentation"
 
@@ -252,7 +252,7 @@
     :cond_1
     const-string/jumbo v1, "any_screen_running"
 
-    invoke-static {v0, v1, v3, v2}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+    invoke-static {v0, v1, v3, v5}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     const-string/jumbo v1, "any_screen_enabled"
 
@@ -346,6 +346,14 @@
     move-result-object v1
 
     invoke-virtual {v0, v1, v3, p0, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    const-string/jumbo v1, "car_mode_global_navi_bar_position"
+
+    invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v3, p0, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 

@@ -193,6 +193,10 @@
 
     invoke-direct {p0, v1}, Lcom/samsung/android/server/virtualspace/VSManager;->setSession(Lcom/samsung/android/server/virtualspace/VSSession;)V
 
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/server/virtualspace/VSManager;->setClientDisplayId(I)V
+
     return-void
 .end method
 
@@ -294,7 +298,7 @@
 
     iput-boolean v2, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mDisplayRedirected:Z
 
-    iput v2, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mClientDisplayId:I
+    invoke-direct {p0, v2}, Lcom/samsung/android/server/virtualspace/VSManager;->setClientDisplayId(I)V
 
     return-void
 .end method
@@ -317,6 +321,30 @@
     invoke-direct {v1, p0, v2}, Lcom/samsung/android/server/virtualspace/VSManager$1;-><init>(Lcom/samsung/android/server/virtualspace/VSManager;Landroid/os/Looper;)V
 
     return-object v1
+.end method
+
+.method private setClientDisplayId(I)V
+    .locals 2
+
+    const-string/jumbo v1, "sys.vs.display"
+
+    if-eqz p1, :cond_0
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-static {v1, v0}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    iput p1, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mClientDisplayId:I
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private setSession(Lcom/samsung/android/server/virtualspace/VSSession;)V
@@ -350,46 +378,40 @@
 .method private startDisplayRedirect(I)V
     .locals 4
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mSAM:Lcom/android/server/am/SamsungActivityManagerService;
 
-    iget-object v2, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mSAM:Lcom/android/server/am/SamsungActivityManagerService;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/am/SamsungActivityManagerService;->findActivityContainer(I)Landroid/app/IActivityContainer;
+    invoke-virtual {v3, p1}, Lcom/android/server/am/SamsungActivityManagerService;->findActivityContainer(I)Landroid/app/IActivityContainer;
 
     move-result-object v0
 
-    iput v3, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mClientDisplayId:I
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
     :try_start_0
     invoke-interface {v0}, Landroid/app/IActivityContainer;->getDisplayId()I
-
-    move-result v2
-
-    iput v2, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mClientDisplayId:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    move-result v1
+
     :cond_0
     :goto_0
-    iget v2, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mClientDisplayId:I
+    invoke-direct {p0, v1}, Lcom/samsung/android/server/virtualspace/VSManager;->setClientDisplayId(I)V
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    iget v2, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mClientDisplayId:I
+    invoke-virtual {p0, v1}, Lcom/samsung/android/server/virtualspace/VSManager;->swapMainDisplayWith(I)V
 
-    invoke-virtual {p0, v2}, Lcom/samsung/android/server/virtualspace/VSManager;->swapMainDisplayWith(I)V
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
-
-    iput-boolean v2, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mDisplayRedirected:Z
+    iput-boolean v3, p0, Lcom/samsung/android/server/virtualspace/VSManager;->mDisplayRedirected:Z
 
     :cond_1
     return-void
 
     :catch_0
-    move-exception v1
+    move-exception v2
 
     goto :goto_0
 .end method

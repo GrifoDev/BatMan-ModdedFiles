@@ -1322,6 +1322,22 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    const-string/jumbo v27, "android.intent.action.USER_SWITCHED"
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v27
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v21
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
     new-instance v25, Landroid/content/IntentFilter;
 
     invoke-direct/range {v25 .. v25}, Landroid/content/IntentFilter;-><init>()V

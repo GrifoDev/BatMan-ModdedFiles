@@ -21,6 +21,8 @@
 
 .field static final DEBUG_HANDLER:Z = false
 
+.field private static final MAX_APPTOKEN_WINDOWS:I = 0x32
+
 .field private static final PACKAGE_NAME_GOOGLE_PACKAGE_INSTALLER:Ljava/lang/String; = "com.google.android.packageinstaller"
 
 .field private static final PACKAGE_NAME_GOOGLE_PACKAGE_INSTALLER_CHN:Ljava/lang/String; = "com.samsung.android.packageinstaller"
@@ -1257,175 +1259,183 @@
 .end method
 
 .method private updateForcedDisplaySizeDensity(Lcom/android/server/wm/DisplayContent;)V
-    .locals 9
+    .locals 10
 
-    iget v5, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayWidth:I
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayWidth:I
 
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayHeight:I
+    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayHeight:I
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->min(II)I
+    invoke-static {v6, v7}, Ljava/lang/Math;->min(II)I
+
+    move-result v4
+
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayWidth:I
+
+    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayHeight:I
+
+    invoke-static {v6, v7}, Ljava/lang/Math;->max(II)I
 
     move-result v3
 
-    iget v5, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayWidth:I
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
 
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayHeight:I
+    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->max(II)I
+    invoke-static {v6, v7}, Ljava/lang/Math;->min(II)I
 
     move-result v2
 
-    iget v5, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
 
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
+    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->min(II)I
+    invoke-static {v6, v7}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
-    iget v5, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
+    int-to-float v6, v2
 
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
+    int-to-float v7, v4
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->max(II)I
+    div-float v5, v6, v7
 
-    move-result v0
+    const-string/jumbo v6, "persist.sys.display_density"
 
-    int-to-float v5, v1
+    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
 
-    int-to-float v6, v3
+    int-to-float v7, v7
 
-    div-float v4, v5, v6
+    mul-float/2addr v7, v5
 
-    const-string/jumbo v5, "persist.sys.display_density"
+    float-to-int v7, v7
 
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
+    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    int-to-float v6, v6
+    move-result-object v7
 
-    mul-float/2addr v6, v4
+    invoke-static {v6, v7}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    float-to-int v6, v6
+    const-string/jumbo v6, "SamsungWindowManager"
 
-    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v5, v6}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v8, "updateForcedDisplaySizeDensity screenRatio="
 
-    const-string/jumbo v5, "SamsungWindowManager"
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "updateForcedDisplaySizeDensity screenRatio="
+    move-result-object v7
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v6
+    const-string/jumbo v6, "SamsungWindowManager"
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v8, "updateForcedDisplaySizeDensity ((float)initMaxSize / initMinSize)="
 
-    const-string/jumbo v5, "SamsungWindowManager"
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "updateForcedDisplaySizeDensity ((float)initMaxSize / initMinSize)="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    int-to-float v7, v2
+    move-result-object v7
 
     int-to-float v8, v3
 
-    div-float/2addr v7, v8
+    int-to-float v9, v4
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    div-float/2addr v8, v9
 
-    move-result-object v6
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v6
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v7
 
-    const-string/jumbo v5, "SamsungWindowManager"
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "SamsungWindowManager"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "updateForcedDisplaySizeDensity ((float)curMaxSize / curMinSize)="
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "updateForcedDisplaySizeDensity ((float)curMaxSize / curMinSize)="
 
-    move-result-object v6
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    int-to-float v7, v0
-
-    int-to-float v8, v1
-
-    div-float/2addr v7, v8
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v5, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v5, v5, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
-
-    check-cast v5, Lcom/android/server/policy/PhoneWindowManager;
-
-    invoke-virtual {v5}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/SamsungWindowManagerPolicy;
-
-    move-result-object v6
-
-    int-to-float v5, v2
-
-    int-to-float v7, v3
-
-    div-float/2addr v5, v7
-
-    int-to-float v7, v0
+    move-result-object v7
 
     int-to-float v8, v1
 
+    int-to-float v9, v2
+
+    div-float/2addr v8, v9
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    int-to-float v6, v3
+
+    int-to-float v7, v4
+
+    div-float/2addr v6, v7
+
+    int-to-float v7, v1
+
+    int-to-float v8, v2
+
     div-float/2addr v7, v8
 
-    cmpl-float v5, v5, v7
+    sub-float/2addr v6, v7
 
-    if-eqz v5, :cond_0
+    invoke-static {v6}, Ljava/lang/Math;->abs(F)F
 
-    const/4 v5, 0x1
+    move-result v6
+
+    const/4 v7, 0x0
+
+    cmpl-float v6, v6, v7
+
+    if-lez v6, :cond_0
+
+    const/4 v0, 0x1
 
     :goto_0
-    invoke-interface {v6, v5}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->updateTouchableArea(Z)V
+    iget-object v6, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
+
+    check-cast v6, Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v6}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/SamsungWindowManagerPolicy;
+
+    move-result-object v6
+
+    invoke-interface {v6, v0}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->updateTouchableArea(Z)V
 
     return-void
 
     :cond_0
-    const/4 v5, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -1593,6 +1603,16 @@
     const/4 v2, 0x3
 
     if-eq v1, v2, :cond_0
+
+    invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
+
+    move-result v1
+
+    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
+
+    move-result v2
+
+    if-le v1, v2, :cond_0
 
     iget v0, p2, Landroid/graphics/Rect;->right:I
 
@@ -4684,6 +4704,90 @@
     return-object v0
 .end method
 
+.method public getVSFocusedWindow()Lcom/android/server/wm/WindowState;
+    .locals 7
+
+    const/4 v6, 0x0
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/SamsungWindowManagerService;->inVSMode()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    return-object v5
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mVSSession:Lcom/samsung/android/server/virtualspace/VSSession;
+
+    invoke-virtual {v3}, Lcom/samsung/android/server/virtualspace/VSSession;->getClientDisplayId()I
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v3, v1}, Lcom/android/server/wm/WindowManagerService;->getDisplayContentLocked(I)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v3, v0}, Lcom/android/server/wm/WindowManagerService;->findFocusedWindowLocked(Lcom/android/server/wm/DisplayContent;)Lcom/android/server/wm/WindowState;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v3
+
+    iget v3, v3, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v4, 0x834
+
+    if-ne v3, v4, :cond_1
+
+    return-object v2
+
+    :cond_1
+    iget v3, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mFocusedDisplayId:I
+
+    if-eqz v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget v4, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mFocusedDisplayId:I
+
+    invoke-virtual {v3, v4}, Lcom/android/server/wm/WindowManagerService;->getDisplayContentLocked(I)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v3, v0}, Lcom/android/server/wm/WindowManagerService;->findFocusedWindowLocked(Lcom/android/server/wm/DisplayContent;)Lcom/android/server/wm/WindowState;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_3
+
+    return-object v2
+
+    :cond_2
+    iput v6, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mFocusedDisplayId:I
+
+    :cond_3
+    return-object v5
+.end method
+
 .method public getVSManager()Lcom/samsung/android/server/virtualspace/VSManager;
     .locals 1
 
@@ -5205,6 +5309,64 @@
     const/4 v2, 0x1
 
     :cond_0
+    return v2
+.end method
+
+.method public isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
+    .locals 5
+
+    :try_start_0
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v2
+
+    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v3
+
+    const/16 v4, 0x80
+
+    invoke-interface {v2, p1, v4, v3}, Landroid/content/pm/IPackageManager;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mConventionalModeCtr:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-virtual {v2, v0}, Lcom/android/server/wm/ConventionalModeController;->isMaxAspectComponent(Landroid/content/pm/ActivityInfo;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v2, "SamsungWindowManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "isMaxAspectComponent : failed to get ActivityInfo for "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x0
+
     return v2
 .end method
 
@@ -6019,6 +6181,75 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public prepareAddWindowLw(Lcom/android/server/wm/WindowState;)I
+    .locals 3
+
+    iget-object v0, p1, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    iget-object v0, v0, Lcom/android/server/wm/AppWindowToken;->windows:Lcom/android/server/wm/WindowList;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowList;->size()I
+
+    move-result v0
+
+    const/16 v1, 0x32
+
+    if-le v0, v1, :cond_0
+
+    const-string/jumbo v0, "SamsungWindowManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "prepareAddWindowLw - exceeded windows limit 50 < "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p1, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    iget-object v2, v2, Lcom/android/server/wm/AppWindowToken;->windows:Lcom/android/server/wm/WindowList;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowList;->size()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "  win="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, -0x5
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public prepareDesktopTaskBar(Z)V
@@ -8041,7 +8272,7 @@
     if-eqz p6, :cond_5
 
     :goto_1
-    if-eqz p6, :cond_3
+    if-eqz p6, :cond_c
 
     move-object/from16 v0, p0
 
@@ -8756,6 +8987,35 @@
     move/from16 v3, v26
 
     invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+
+    goto/16 :goto_2
+
+    :cond_c
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/SamsungWindowManagerService;->isDesktopModeChanging()Z
+
+    move-result v22
+
+    if-eqz v22, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
+
+    move-object/from16 v22, v0
+
+    check-cast v22, Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/policy/PhoneWindowManager;->getSamsungPolicy()Lcom/android/server/policy/SamsungWindowManagerPolicy;
+
+    move-result-object v22
+
+    invoke-interface/range {v22 .. v22}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->updateDeskTopUiMode()V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
@@ -8829,6 +9089,21 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public setWallpaperAnimationBlocked(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mSamsungAnimationCreator:Lcom/android/server/wm/animation/SamsungAnimationCreator;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mSamsungAnimationCreator:Lcom/android/server/wm/animation/SamsungAnimationCreator;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/animation/SamsungAnimationCreator;->setWallpaperAnimationBlocked(Z)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public setWmForcedDisplayLog(II)V
@@ -8964,51 +9239,6 @@
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/server/wm/ConventionalModeController;->showChangeRatioButtonWindow(IILjava/lang/String;I)V
 
-    return-void
-.end method
-
-.method public showConventionalModeGuidePopup(Lcom/android/server/wm/AppWindowToken;)V
-    .locals 4
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/server/wm/AppWindowToken;->findMainWindow()Lcom/android/server/wm/WindowState;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, v0, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget v1, v1, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Lcom/samsung/android/view/IWindowStateBridge;->isAspectRatioWindow()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mConventionalModeCtr:Lcom/android/server/wm/ConventionalModeController;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->getOwningPackage()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->getOwningUid()I
-
-    move-result v3
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/wm/ConventionalModeController;->showGuidePopup(Ljava/lang/String;I)V
-
-    :cond_0
     return-void
 .end method
 

@@ -5677,7 +5677,7 @@
 
     iget-object v0, p1, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityStack;->checkBelowTasksToGoHomeStack(Lcom/android/server/am/TaskRecord;)Z
+    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityStack;->checkBelowTasksToGoHomeStackLocked(Lcom/android/server/am/TaskRecord;)Z
 
     move-result v0
 
@@ -7929,9 +7929,26 @@
 
     const/4 v11, 0x1
 
-    sget-boolean v16, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_MULTISCREEN_PERFORMANCE:Z
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/MultiScreenManagerService;->mTransitVirtualScreen:Lcom/android/server/am/VirtualScreen;
+
+    move-object/from16 v16, v0
 
     if-eqz v16, :cond_0
+
+    const/16 v16, 0x0
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/am/MultiScreenManagerService;->mTransitVirtualScreen:Lcom/android/server/am/VirtualScreen;
+
+    :cond_0
+    sget-boolean v16, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_MULTISCREEN_PERFORMANCE:Z
+
+    if-eqz v16, :cond_1
 
     sget-object v16, Lcom/android/server/am/MultiScreenManagerService;->TAG:Ljava/lang/String;
 
@@ -7939,7 +7956,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/MultiScreenManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
@@ -7951,7 +7968,7 @@
     :try_start_0
     sget-boolean v16, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_MULTISCREEN_PERFORMANCE:Z
 
-    if-eqz v16, :cond_1
+    if-eqz v16, :cond_2
 
     sget-object v16, Lcom/android/server/am/MultiScreenManagerService;->TAG:Ljava/lang/String;
 
@@ -7963,26 +7980,26 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2
     move/from16 v6, p2
 
     const/4 v10, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     invoke-static/range {p1 .. p1}, Lcom/android/server/am/ActivityRecord;->isInStackLocked(Landroid/os/IBinder;)Lcom/android/server/am/ActivityRecord;
 
     move-result-object v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_3
 
     iget-object v0, v10, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
     move-object/from16 v16, v0
 
-    if-nez v16, :cond_3
+    if-nez v16, :cond_4
 
-    :cond_2
+    :cond_3
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
@@ -8067,13 +8084,13 @@
 
     return v16
 
-    :cond_3
+    :cond_4
     :try_start_1
     iget-object v0, v10, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     move-object/from16 v16, v0
 
-    if-eqz v16, :cond_2
+    if-eqz v16, :cond_3
 
     move-object/from16 v0, p0
 
@@ -8103,7 +8120,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_6
+    if-eqz v16, :cond_7
 
     iget-object v0, v10, Lcom/android/server/am/ActivityRecord;->multiScreenAttrs:Lcom/android/server/am/MultiScreenAttrs;
 
@@ -8113,7 +8130,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_6
+    if-nez v16, :cond_7
 
     move-object/from16 v0, p0
 
@@ -8153,7 +8170,7 @@
 
     move-result v6
 
-    :cond_4
+    :cond_5
     :goto_0
     move-object/from16 v0, p0
 
@@ -8169,7 +8186,7 @@
 
     move-result-object v13
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_6
 
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
@@ -8181,9 +8198,9 @@
 
     move/from16 v1, v18
 
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_8
 
-    :cond_5
+    :cond_6
     sget-object v16, Lcom/android/server/am/MultiScreenManagerService;->TAG:Ljava/lang/String;
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -8228,7 +8245,7 @@
 
     return v16
 
-    :cond_6
+    :cond_7
     :try_start_2
     iget-object v0, v10, Lcom/android/server/am/ActivityRecord;->multiScreenAttrs:Lcom/android/server/am/MultiScreenAttrs;
 
@@ -8248,7 +8265,7 @@
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v5
@@ -8276,7 +8293,7 @@
 
     check-cast v14, Lcom/android/server/am/VirtualScreen;
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_9
 
     invoke-virtual {v14}, Lcom/android/server/am/VirtualScreen;->getVisible()Z
 
@@ -8294,11 +8311,11 @@
 
     move-result v16
 
-    if-nez v16, :cond_a
+    if-nez v16, :cond_b
 
     const/4 v11, 0x0
 
-    :cond_8
+    :cond_9
     :goto_1
     :try_start_4
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -8309,7 +8326,7 @@
 
     sget-boolean v16, Lcom/android/server/wm/WindowManagerDebugConfig;->DEBUG_MULTISCREEN_PERFORMANCE:Z
 
-    if-eqz v16, :cond_9
+    if-eqz v16, :cond_a
 
     sget-object v16, Lcom/android/server/am/MultiScreenManagerService;->TAG:Ljava/lang/String;
 
@@ -8317,18 +8334,18 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_a
     return v11
 
-    :cond_a
+    :cond_b
     :try_start_5
     invoke-virtual {v14}, Lcom/android/server/am/VirtualScreen;->isDefaultDisplay()Z
 
     move-result v16
 
-    if-eqz v16, :cond_10
+    if-eqz v16, :cond_11
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_c
 
     const/16 v16, 0x0
 
@@ -8338,7 +8355,7 @@
 
     invoke-virtual {v0, v6, v1}, Lcom/android/server/am/MultiScreenManagerService;->moveVirtualScreenToDisplayLocked(II)Z
 
-    :cond_b
+    :cond_c
     const/16 v16, 0x0
 
     const/16 v18, 0x0
@@ -8349,7 +8366,7 @@
 
     invoke-virtual {v14, v0, v1}, Lcom/android/server/am/VirtualScreen;->setOffset(II)Z
 
-    :cond_c
+    :cond_d
     :goto_2
     move-object/from16 v0, p0
 
@@ -8365,7 +8382,7 @@
 
     move/from16 v0, v16
 
-    if-eq v15, v0, :cond_e
+    if-eq v15, v0, :cond_f
 
     invoke-virtual {v14}, Lcom/android/server/am/VirtualScreen;->getVisible()Z
 
@@ -8393,7 +8410,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_d
+    if-eqz v16, :cond_e
 
     move-object/from16 v0, p0
 
@@ -8415,7 +8432,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/am/MultiScreenManagerService$H;->removeMessages(ILjava/lang/Object;)V
 
-    :cond_d
+    :cond_e
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
     move-result v16
@@ -8430,7 +8447,7 @@
 
     check-cast v12, Lcom/android/server/am/ActivityStack;
 
-    if-eqz v15, :cond_12
+    if-eqz v15, :cond_13
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -8462,9 +8479,9 @@
 
     invoke-virtual {v12, v0, v1}, Lcom/android/server/am/ActivityStack;->resumeTopActivityUncheckedLocked(Lcom/android/server/am/ActivityRecord;Landroid/app/ActivityOptions;)Z
 
-    :cond_e
+    :cond_f
     :goto_3
-    if-eqz v15, :cond_8
+    if-eqz v15, :cond_9
 
     invoke-virtual {v14}, Lcom/android/server/am/VirtualScreen;->getBindDisplayId()I
 
@@ -8474,17 +8491,17 @@
 
     move/from16 v0, v16
 
-    if-gt v4, v0, :cond_f
+    if-gt v4, v0, :cond_10
 
     invoke-virtual {v14}, Lcom/android/server/am/VirtualScreen;->intersectsDefaultDisplay()Z
 
     move-result v16
 
-    if-eqz v16, :cond_f
+    if-eqz v16, :cond_10
 
     const/4 v4, 0x0
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/MultiScreenManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -8503,7 +8520,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_13
+    if-nez v16, :cond_14
 
     sget-object v16, Lcom/android/server/am/MultiScreenManagerService;->TAG:Ljava/lang/String;
 
@@ -8539,15 +8556,15 @@
 
     goto/16 :goto_1
 
-    :cond_10
-    if-nez p3, :cond_11
-
-    if-eqz p4, :cond_c
-
     :cond_11
+    if-nez p3, :cond_12
+
+    if-eqz p4, :cond_d
+
+    :cond_12
     move/from16 v0, p2
 
-    if-eq v0, v6, :cond_c
+    if-eq v0, v6, :cond_d
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -8608,13 +8625,13 @@
 
     throw v16
 
-    :cond_12
+    :cond_13
     :try_start_7
     iget-object v0, v12, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
 
     move-object/from16 v16, v0
 
-    if-eqz v16, :cond_e
+    if-eqz v16, :cond_f
 
     const/16 v16, 0x0
 
@@ -8658,12 +8675,12 @@
 
     goto/16 :goto_3
 
-    :cond_13
+    :cond_14
     const/16 v16, -0x1
 
     move/from16 v0, v16
 
-    if-le v4, v0, :cond_8
+    if-le v4, v0, :cond_9
 
     move-object/from16 v0, p0
 
@@ -8681,7 +8698,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_8
+    if-nez v16, :cond_9
 
     sget-object v16, Lcom/android/server/am/MultiScreenManagerService;->TAG:Ljava/lang/String;
 

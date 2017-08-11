@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->injectionKeyEvent(I)V
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->handleLongPressOnRecent()Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-.field final synthetic val$key:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/SamsungPhoneWindowManager;I)V
+.method constructor <init>(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$29;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iput p2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$29;->val$key:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,24 +37,19 @@
 .method public run()V
     .locals 3
 
-    :try_start_0
-    new-instance v1, Landroid/app/Instrumentation;
+    const-class v1, Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    invoke-direct {v1}, Landroid/app/Instrumentation;-><init>()V
+    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    iget v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$29;->val$key:I
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroid/app/Instrumentation;->sendKeyDownUpSync(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    check-cast v0, Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    :goto_0
+    const-string/jumbo v1, "fromFullApp"
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v2, v1}, Lcom/android/server/statusbar/StatusBarManagerInternal;->showSnapWindowGuideView(ILjava/lang/String;)V
+
     return-void
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
 .end method

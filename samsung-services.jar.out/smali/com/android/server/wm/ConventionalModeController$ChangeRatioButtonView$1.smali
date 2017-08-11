@@ -43,11 +43,26 @@
 
     iget-object v0, v0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
+    invoke-static {v0}, Lcom/android/server/wm/ConventionalModeController;->-get5(Lcom/android/server/wm/ConventionalModeController;)I
+
+    move-result v0
+
+    const/16 v1, 0x3e8
+
+    if-ne v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView$1;->this$1:Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
+
+    iget-object v0, v0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
     invoke-static {v0}, Lcom/android/server/wm/ConventionalModeController;->-get4(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView$1;->this$1:Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
 
@@ -83,7 +98,7 @@
 
     iget-object v1, v1, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get7(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/Runnable;
+    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/Runnable;
 
     move-result-object v1
 
@@ -101,12 +116,12 @@
 
     iget-object v1, v1, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get7(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/Runnable;
+    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/Runnable;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->post(Ljava/lang/Runnable;)Z
 
-    :cond_0
+    :cond_1
     return-void
 .end method

@@ -1279,6 +1279,99 @@
 
     goto/16 :goto_0
 
+    :pswitch_11
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/wm/MultiWindowManagerInternal$MultiWindowHandlerImpl;->this$0:Lcom/android/server/wm/MultiWindowManagerInternal;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    move-object/from16 v21, v0
+
+    monitor-enter v21
+
+    :try_start_d
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/wm/MultiWindowManagerInternal$MultiWindowHandlerImpl;->this$0:Lcom/android/server/wm/MultiWindowManagerInternal;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/server/wm/WindowManagerService;->getDefaultDisplayContentLocked()Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/server/wm/DisplayContent;->getDockedDividerController()Lcom/android/server/wm/DockedStackDividerController;
+
+    move-result-object v20
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v20
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/DockedStackDividerController;->setForceHideForDivider(Z)V
+
+    const-string/jumbo v20, "MultiWindowManagerInternal"
+
+    const-string/jumbo v22, "MULTIWINDOW_DEPRESS_DIVIDER_VISIBLE_TIMEOUT: force hide Divider is false."
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/wm/MultiWindowManagerInternal$MultiWindowHandlerImpl;->this$0:Lcom/android/server/wm/MultiWindowManagerInternal;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mWindowPlacerLocked:Lcom/android/server/wm/WindowSurfacePlacer;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/server/wm/WindowSurfacePlacer;->performSurfacePlacement()V
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_9
+
+    goto/16 :goto_1
+
+    :catchall_9
+    move-exception v20
+
+    monitor-exit v21
+
+    throw v20
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1298,5 +1391,6 @@
         :pswitch_f
         :pswitch_10
         :pswitch_e
+        :pswitch_11
     .end packed-switch
 .end method

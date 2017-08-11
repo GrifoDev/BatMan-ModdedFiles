@@ -242,8 +242,6 @@
 
 .field private mMaxMultiInstanceCnt:I
 
-.field private mMaximizingStackByDivider:Z
-
 .field private mMinimizeContainerSerivceHistory:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -535,8 +533,6 @@
     iput-boolean v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mRequestFreefomInvisible:Z
 
     iput-boolean v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mMovingMultiWindowTasksToFullScreen:Z
-
-    iput-boolean v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mMaximizingStackByDivider:Z
 
     iput v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mMaxFreeformCnt:I
 
@@ -999,71 +995,66 @@
     return-void
 .end method
 
-.method private findFirstReturnToHomeTask(Lcom/android/server/am/ActivityStack;)Lcom/android/server/am/TaskRecord;
-    .locals 7
+.method private findFirstReturnToHomeTask(Ljava/util/ArrayList;)Lcom/android/server/am/TaskRecord;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/server/am/TaskRecord;",
+            ">;)",
+            "Lcom/android/server/am/TaskRecord;"
+        }
+    .end annotation
 
-    invoke-virtual {p1}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
+    const/4 v5, 0x0
 
-    move-result-object v4
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    move-result v1
 
-    move-result v2
+    if-nez v1, :cond_0
 
-    add-int/lit8 v1, v2, -0x1
+    const/4 v3, 0x0
+
+    return-object v3
+
+    :cond_0
+    add-int/lit8 v0, v1, -0x1
 
     :goto_0
-    if-ltz v1, :cond_1
+    if-ltz v0, :cond_2
 
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/am/TaskRecord;
+
+    invoke-virtual {v2}, Lcom/android/server/am/TaskRecord;->getTaskToReturnTo()I
+
+    move-result v3
+
+    const/4 v4, 0x1
+
+    if-ne v3, v4, :cond_1
+
+    return-object v2
+
+    :cond_1
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p1, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/server/am/TaskRecord;
 
-    invoke-virtual {v3}, Lcom/android/server/am/TaskRecord;->getTaskToReturnTo()I
-
-    move-result v5
-
-    const/4 v6, 0x1
-
-    if-ne v5, v6, :cond_0
-
     return-object v3
-
-    :cond_0
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v5, 0x0
-
-    :try_start_0
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/server/am/TaskRecord;
-    :try_end_0
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v5
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v5, "MultiWindowManagerService"
-
-    const-string/jumbo v6, "Stack has no tasks."
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v0}, Ljava/lang/IndexOutOfBoundsException;->printStackTrace()V
-
-    const/4 v5, 0x0
-
-    return-object v5
 .end method
 
 .method private forceClearMinimizeIfNeededLocked(Lcom/android/server/am/TaskRecord;)V
@@ -2588,14 +2579,26 @@
 
     if-eqz v0, :cond_3
 
+    iget-object v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v2}, Lcom/android/server/am/ActivityManagerService;->isKnoxDesktopModeLocked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    :cond_3
+    :goto_0
+    return v0
+
+    :cond_4
     const-string/jumbo v2, "FFAC"
 
     const-string/jumbo v3, "Minimize"
 
     invoke-virtual {p0, v2, v3}, Lcom/android/server/am/MultiWindowManagerService;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_3
-    return v0
+    goto :goto_0
 .end method
 
 .method private moveFreeformStackToBottomLocked(Lcom/android/server/am/ActivityStack;)V
@@ -4086,7 +4089,7 @@
 .end method
 
 .method private setSnapWindowLocked(ZLandroid/graphics/Rect;ILjava/lang/String;Ljava/lang/String;)V
-    .locals 43
+    .locals 44
 
     sget-boolean v2, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_WINDOW_SUPPORT:Z
 
@@ -4108,9 +4111,9 @@
 
     const/4 v15, 0x3
 
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_14
 
-    if-eqz p2, :cond_11
+    if-eqz p2, :cond_14
 
     move-object/from16 v0, p2
 
@@ -4161,9 +4164,9 @@
     :cond_2
     invoke-virtual/range {v32 .. v32}, Lcom/android/server/am/TaskRecord;->getTopActivity()Lcom/android/server/am/ActivityRecord;
 
-    move-result-object v42
+    move-result-object v43
 
-    if-nez v42, :cond_3
+    if-nez v43, :cond_3
 
     return-void
 
@@ -4174,7 +4177,7 @@
 
     iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mMultiWindowManagerInternal:Lcom/android/server/wm/IMultiWindowManagerInternalBridge;
 
-    move-object/from16 v0, v42
+    move-object/from16 v0, v43
 
     iget-object v4, v0, Lcom/android/server/am/ActivityRecord;->appToken:Landroid/view/IApplicationToken$Stub;
 
@@ -4195,7 +4198,7 @@
 
     iget v0, v0, Landroid/graphics/Rect;->top:I
 
-    move/from16 v41, v0
+    move/from16 v42, v0
 
     move-object/from16 v0, v27
 
@@ -4235,7 +4238,7 @@
 
     new-instance v7, Landroid/graphics/Rect;
 
-    sub-int v4, v19, v41
+    sub-int v4, v19, v42
 
     const/4 v5, 0x0
 
@@ -4321,13 +4324,13 @@
 
     iput-boolean v4, v2, Lcom/android/server/am/ActivityStackSupervisor;->mSnapWindowRunning:Z
 
-    new-instance v39, Landroid/graphics/Rect;
+    new-instance v40, Landroid/graphics/Rect;
 
     move-object/from16 v0, v32
 
     iget-object v2, v0, Lcom/android/server/am/TaskRecord;->mBounds:Landroid/graphics/Rect;
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     invoke-direct {v0, v2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
@@ -4335,21 +4338,21 @@
 
     neg-int v2, v0
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     iput v2, v0, Landroid/graphics/Rect;->top:I
 
     move/from16 v0, v37
 
-    move-object/from16 v1, v39
+    move-object/from16 v1, v40
 
     iput v0, v1, Landroid/graphics/Rect;->right:I
 
-    sub-int v2, v19, v41
+    sub-int v2, v19, v42
 
     sub-int v2, v2, v36
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     iput v2, v0, Landroid/graphics/Rect;->bottom:I
 
@@ -4363,7 +4366,7 @@
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     invoke-virtual {v2, v4, v0, v5}, Lcom/android/server/am/ActivityManagerService;->resizeTask(ILandroid/graphics/Rect;I)V
 
@@ -4420,7 +4423,7 @@
 
     iget-object v2, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_13
 
     move-object/from16 v0, v38
 
@@ -4579,13 +4582,13 @@
 
     iput-boolean v4, v2, Lcom/android/server/am/ActivityStackSupervisor;->mSnapWindowRunning:Z
 
-    new-instance v39, Landroid/graphics/Rect;
+    new-instance v40, Landroid/graphics/Rect;
 
     move-object/from16 v0, v29
 
     iget-object v2, v0, Lcom/android/server/am/TaskRecord;->mBounds:Landroid/graphics/Rect;
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     invoke-direct {v0, v2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
@@ -4593,17 +4596,17 @@
 
     neg-int v2, v0
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     iput v2, v0, Landroid/graphics/Rect;->top:I
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     iget v2, v0, Landroid/graphics/Rect;->bottom:I
 
     sub-int v2, v2, v36
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     iput v2, v0, Landroid/graphics/Rect;->bottom:I
 
@@ -4617,21 +4620,60 @@
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v40
 
     invoke-virtual {v2, v4, v0, v5}, Lcom/android/server/am/ActivityManagerService;->resizeTask(ILandroid/graphics/Rect;I)V
 
+    move-object/from16 v0, v28
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityStack;->mStacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    add-int/lit8 v34, v2, -0x1
+
+    :goto_3
+    if-ltz v34, :cond_f
+
+    move-object/from16 v0, v28
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityStack;->mStacks:Ljava/util/ArrayList;
+
+    move/from16 v0, v34
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/am/ActivityStack;
+
+    iget v0, v2, Lcom/android/server/am/ActivityStack;->mStackId:I
+
+    move/from16 v39, v0
+
+    if-eqz v39, :cond_e
+
+    const/4 v2, 0x1
+
+    move/from16 v0, v39
+
+    if-ne v0, v2, :cond_11
+
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
 
-    const/4 v4, 0x1
+    move/from16 v0, v39
 
-    invoke-virtual {v2, v4}, Lcom/android/server/am/ActivityManagerService;->setFocusedStack(I)V
+    invoke-virtual {v2, v0}, Lcom/android/server/am/ActivityManagerService;->setFocusedStack(I)V
 
+    :cond_f
     sget-boolean v2, Lcom/android/server/am/MultiWindowManagerService;->DEBUG_SNAP_WINDOW:Z
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_10
 
     const-string/jumbo v4, "MultiWindowManagerService_SnapWindow"
 
@@ -4649,11 +4691,11 @@
 
     move/from16 v0, p3
 
-    if-ne v0, v2, :cond_f
+    if-ne v0, v2, :cond_12
 
     const-string/jumbo v2, "A "
 
-    :goto_3
+    :goto_4
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -4690,33 +4732,38 @@
 
     invoke-static {v4, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_e
+    :cond_10
     move-object/from16 v38, v29
 
     goto/16 :goto_0
 
-    :cond_f
-    const-string/jumbo v2, "B "
+    :cond_11
+    add-int/lit8 v34, v34, -0x1
 
     goto :goto_3
 
-    :cond_10
+    :cond_12
+    const-string/jumbo v2, "B "
+
+    goto :goto_4
+
+    :cond_13
     const/4 v14, 0x0
 
     goto/16 :goto_1
 
-    :cond_11
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     iget-boolean v2, v2, Lcom/android/server/am/ActivityStackSupervisor;->mSnapWindowRunning:Z
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_15
 
     return-void
 
-    :cond_12
+    :cond_15
     const-string/jumbo v2, "remove task"
 
     move-object/from16 v0, p4
@@ -4753,29 +4800,29 @@
 
     move/from16 v0, p3
 
-    if-ne v0, v2, :cond_13
+    if-ne v0, v2, :cond_16
 
     const/16 v25, 0x1
 
-    :goto_4
+    :goto_5
     const/4 v2, 0x2
 
     move/from16 v0, p3
 
-    if-ne v0, v2, :cond_14
+    if-ne v0, v2, :cond_17
 
     const/16 v21, 0x1
 
-    :goto_5
+    :goto_6
     const/4 v2, 0x3
 
     move/from16 v0, p3
 
-    if-ne v0, v2, :cond_15
+    if-ne v0, v2, :cond_18
 
     const/16 v20, 0x1
 
-    :goto_6
+    :goto_7
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
@@ -4794,48 +4841,48 @@
 
     move-result-object v28
 
-    if-nez v28, :cond_16
+    if-nez v28, :cond_19
 
     return-void
 
-    :cond_13
+    :cond_16
     const/16 v25, 0x0
-
-    goto :goto_4
-
-    :cond_14
-    const/16 v21, 0x0
 
     goto :goto_5
 
-    :cond_15
-    const/16 v20, 0x0
+    :cond_17
+    const/16 v21, 0x0
 
     goto :goto_6
 
-    :cond_16
+    :cond_18
+    const/16 v20, 0x0
+
+    goto :goto_7
+
+    :cond_19
     invoke-virtual/range {v28 .. v28}, Lcom/android/server/am/ActivityStack;->topTask()Lcom/android/server/am/TaskRecord;
 
     move-result-object v29
 
-    if-nez v29, :cond_17
+    if-nez v29, :cond_1a
 
     return-void
 
-    :cond_17
+    :cond_1a
     move-object/from16 v0, v29
 
     iget-object v3, v0, Lcom/android/server/am/TaskRecord;->mBounds:Landroid/graphics/Rect;
 
-    if-eqz v3, :cond_18
+    if-eqz v3, :cond_1b
 
     move-object/from16 v0, v29
 
     iget-boolean v2, v0, Lcom/android/server/am/TaskRecord;->mSnapTargetFull:Z
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_1c
 
-    :cond_18
+    :cond_1b
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
@@ -4848,31 +4895,31 @@
 
     invoke-interface {v2, v3}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->getMiddleTargetDockedBounds(Landroid/graphics/Rect;)V
 
-    :cond_19
+    :cond_1c
     move-object/from16 v0, v29
 
     iget-boolean v2, v0, Lcom/android/server/am/TaskRecord;->mSnapWindowTarget:Z
 
-    if-nez v2, :cond_1d
+    if-nez v2, :cond_20
 
-    if-eqz v23, :cond_1d
+    if-eqz v23, :cond_20
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
-    move-result-object v40
+    move-result-object v41
 
     const/16 v34, 0x0
 
-    :goto_7
-    invoke-virtual/range {v40 .. v40}, Ljava/util/ArrayList;->size()I
+    :goto_8
+    invoke-virtual/range {v41 .. v41}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
     move/from16 v0, v34
 
-    if-ge v0, v2, :cond_1c
+    if-ge v0, v2, :cond_1f
 
-    move-object/from16 v0, v40
+    move-object/from16 v0, v41
 
     move/from16 v1, v34
 
@@ -4886,7 +4933,7 @@
 
     iget-boolean v2, v0, Lcom/android/server/am/TaskRecord;->mSnapWindowTarget:Z
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_1e
 
     const/4 v2, 0x0
 
@@ -4946,7 +4993,7 @@
 
     sget-boolean v2, Lcom/android/server/am/MultiWindowManagerService;->DEBUG_SNAP_WINDOW:Z
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1d
 
     const-string/jumbo v2, "MultiWindowManagerService_SnapWindow"
 
@@ -4974,25 +5021,25 @@
 
     invoke-static {v2, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1a
+    :cond_1d
     return-void
 
-    :cond_1b
+    :cond_1e
     add-int/lit8 v34, v34, 0x1
 
-    goto :goto_7
+    goto :goto_8
 
-    :cond_1c
+    :cond_1f
     move-object/from16 v0, v29
 
     iget-boolean v2, v0, Lcom/android/server/am/TaskRecord;->mSnapWindowTarget:Z
 
-    if-nez v2, :cond_1d
+    if-nez v2, :cond_20
 
     return-void
 
-    :cond_1d
-    if-eqz v22, :cond_23
+    :cond_20
+    if-eqz v22, :cond_26
 
     move-object/from16 v0, p0
 
@@ -5002,8 +5049,8 @@
 
     invoke-interface {v2}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->adjStackBoundsForSnapWindow()V
 
-    :cond_1e
-    :goto_8
+    :cond_21
+    :goto_9
     const/4 v2, 0x0
 
     move-object/from16 v0, v29
@@ -5030,11 +5077,11 @@
 
     invoke-interface {v2, v4, v5}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->setTaskToSnapWindowTarget(IZ)Z
 
-    if-nez v24, :cond_1f
+    if-nez v24, :cond_22
 
-    if-nez v20, :cond_1f
+    if-nez v20, :cond_22
 
-    if-eqz v23, :cond_20
+    if-eqz v23, :cond_23
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
@@ -5046,9 +5093,9 @@
 
     const/4 v4, 0x1
 
-    if-le v2, v4, :cond_20
+    if-le v2, v4, :cond_23
 
-    :cond_1f
+    :cond_22
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
@@ -5081,7 +5128,7 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/server/am/ActivityManagerService;->resizeDockedStack(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    :cond_20
+    :cond_23
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mH:Lcom/android/server/am/MultiWindowManagerService$H;
@@ -5104,7 +5151,7 @@
 
     sget-boolean v2, Lcom/android/server/am/MultiWindowManagerService;->DEBUG_SNAP_WINDOW:Z
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_24
 
     const-string/jumbo v2, "MultiWindowManagerService_SnapWindow"
 
@@ -5144,15 +5191,15 @@
 
     invoke-static {v2, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_21
+    :cond_24
     const/16 v30, 0x0
 
-    if-eqz v25, :cond_26
+    if-eqz v25, :cond_29
 
     const-string/jumbo v30, "DividerDragging"
 
-    :cond_22
-    :goto_9
+    :cond_25
+    :goto_a
     if-eqz v30, :cond_7
 
     const-string/jumbo v2, "SNOF"
@@ -5165,10 +5212,10 @@
 
     goto/16 :goto_2
 
-    :cond_23
-    if-nez v26, :cond_1e
+    :cond_26
+    if-nez v26, :cond_21
 
-    if-eqz v25, :cond_24
+    if-eqz v25, :cond_27
 
     move-object/from16 v0, p0
 
@@ -5180,10 +5227,10 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/android/server/wm/WindowManagerService;->prepareAppTransition(IZ)V
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
-    :cond_24
-    if-eqz v21, :cond_25
+    :cond_27
+    if-eqz v21, :cond_28
 
     move-object/from16 v0, p0
 
@@ -5195,9 +5242,9 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/android/server/wm/WindowManagerService;->prepareAppTransition(IZ)V
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
-    :cond_25
+    :cond_28
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -5224,21 +5271,21 @@
 
     invoke-virtual {v2, v4, v5, v6}, Lcom/android/server/am/ActivityManagerService;->resizeTask(ILandroid/graphics/Rect;I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
-    :cond_26
-    if-eqz v22, :cond_27
+    :cond_29
+    if-eqz v22, :cond_2a
 
     const-string/jumbo v30, "OrientationChanged"
 
-    goto :goto_9
+    goto :goto_a
 
-    :cond_27
-    if-eqz v20, :cond_22
+    :cond_2a
+    if-eqz v20, :cond_25
 
     const-string/jumbo v30, "DividerFinishButton"
 
-    goto :goto_9
+    goto :goto_a
 .end method
 
 .method private slideAllFreeformTasksLocked()V
@@ -7160,93 +7207,6 @@
     return-void
 .end method
 
-.method public checkCountOfRunningFreeformWithLogging()V
-    .locals 9
-
-    const/4 v8, 0x2
-
-    const/4 v6, 0x0
-
-    const/4 v3, 0x0
-
-    iget-object v7, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v7, v8}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :cond_0
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_2
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/am/TaskRecord;
-
-    iget v7, v4, Lcom/android/server/am/TaskRecord;->mHiddenState:I
-
-    if-nez v7, :cond_1
-
-    add-int/lit8 v6, v6, 0x1
-
-    :cond_1
-    iget v7, v4, Lcom/android/server/am/TaskRecord;->mHiddenState:I
-
-    if-eq v7, v8, :cond_0
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    if-lez v3, :cond_3
-
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    const-string/jumbo v7, " | "
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    const-string/jumbo v7, "FFCO"
-
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {p0, v7, v8}, Lcom/android/server/am/MultiWindowManagerService;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_3
-    return-void
-.end method
-
 .method public checkLaunchPolicyLocked(Landroid/content/pm/ActivityInfo;)Z
     .locals 13
 
@@ -7421,200 +7381,419 @@
     return v11
 .end method
 
-.method public checkRunningFreeformWithLogging(Lcom/android/server/am/ActivityRecord;)V
-    .locals 14
+.method public checkRunningFreeformWithLoggingLocked(Lcom/android/server/am/TaskRecord;)V
+    .locals 20
 
-    const/4 v13, 0x1
+    sget-boolean v18, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    const/4 v12, 0x0
-
-    sget-boolean v10, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
-
-    if-eqz v10, :cond_0
+    if-eqz v18, :cond_e
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Lcom/android/server/am/ActivityRecord;->isHomeActivity()Z
+    move-object/from16 v0, p1
 
-    move-result v10
+    iget-object v0, v0, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
-    if-eqz v10, :cond_1
+    move-object/from16 v18, v0
+
+    if-nez v18, :cond_1
 
     :cond_0
-    :goto_0
     return-void
 
     :cond_1
-    iget-object v10, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    move-object/from16 v0, p0
 
-    const/4 v11, 0x2
+    iget-object v0, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-virtual {v10, v11}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+    move-object/from16 v18, v0
 
-    move-result-object v2
+    const/16 v19, 0x2
 
-    if-eqz v2, :cond_0
+    invoke-virtual/range {v18 .. v19}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
 
-    invoke-virtual {v2, v12}, Lcom/android/server/am/ActivityStack;->getStackVisibilityLocked(Lcom/android/server/am/ActivityRecord;)I
+    move-result-object v6
 
-    move-result v10
+    if-eqz v6, :cond_e
 
-    if-ne v10, v13, :cond_0
+    const/16 v18, 0x0
 
-    const/4 v4, 0x0
+    move-object/from16 v0, v18
 
-    const/4 v0, 0x0
+    invoke-virtual {v6, v0}, Lcom/android/server/am/ActivityStack;->getStackVisibilityLocked(Lcom/android/server/am/ActivityRecord;)I
 
-    invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
+    move-result v18
 
-    move-result-object v3
+    const/16 v19, 0x1
 
-    iget-object v10, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    move/from16 v0, v18
 
-    invoke-virtual {v10, v13}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+    move/from16 v1, v19
 
-    move-result-object v5
+    if-ne v0, v1, :cond_e
 
-    if-eqz v5, :cond_2
+    const/4 v8, 0x0
 
-    invoke-virtual {v5, v12}, Lcom/android/server/am/ActivityStack;->getStackVisibilityLocked(Lcom/android/server/am/ActivityRecord;)I
+    const/4 v2, 0x0
 
-    move-result v10
-
-    if-ne v10, v13, :cond_2
-
-    invoke-virtual {v5}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
-
-    move-result-object v4
-
-    :cond_2
-    iget-object v10, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    const/4 v11, 0x3
-
-    invoke-virtual {v10, v11}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    invoke-virtual {v1, v12}, Lcom/android/server/am/ActivityStack;->getStackVisibilityLocked(Lcom/android/server/am/ActivityRecord;)I
-
-    move-result v10
-
-    if-ne v10, v13, :cond_3
-
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
-
-    move-result-object v0
-
-    :cond_3
-    new-instance v6, Ljava/lang/StringBuffer;
-
-    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
-
-    if-eqz v4, :cond_5
-
-    iget-object v10, v4, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v10
-
-    const-string/jumbo v11, "|"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :goto_1
-    if-eqz v0, :cond_6
-
-    iget-object v10, v0, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v10
-
-    const-string/jumbo v11, "|"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :goto_2
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v9
-
-    :cond_4
-    :goto_3
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_7
-
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/server/am/TaskRecord;
-
-    invoke-virtual {v8}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+    invoke-virtual {v6}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
     move-result-object v7
 
-    if-eqz v7, :cond_4
+    new-instance v11, Ljava/lang/StringBuffer;
 
-    iget v10, v8, Lcom/android/server/am/TaskRecord;->mHiddenState:I
+    invoke-direct {v11}, Ljava/lang/StringBuffer;-><init>()V
 
-    if-nez v10, :cond_4
+    move-object/from16 v0, p0
 
-    iget-object v10, v7, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+    iget-boolean v0, v0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
 
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move/from16 v18, v0
 
-    move-result-object v10
+    if-nez v18, :cond_5
 
-    const-string/jumbo v11, "|"
+    move-object/from16 v0, p0
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    iget-object v0, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    goto :goto_3
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x1
+
+    invoke-virtual/range {v18 .. v19}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_2
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/am/MultiWindowManagerService;->getStackBehindFreeformLocked()Lcom/android/server/am/ActivityStack;
+
+    move-result-object v14
+
+    if-ne v9, v14, :cond_2
+
+    invoke-virtual {v9}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v8
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x3
+
+    invoke-virtual/range {v18 .. v19}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_3
+
+    const/16 v18, 0x0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v3, v0}, Lcom/android/server/am/ActivityStack;->getStackVisibilityLocked(Lcom/android/server/am/ActivityRecord;)I
+
+    move-result v18
+
+    const/16 v19, 0x1
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_3
+
+    invoke-virtual {v3}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v2
+
+    :cond_3
+    if-eqz v8, :cond_a
+
+    iget-object v0, v8, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v18
+
+    const-string/jumbo v19, "|"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    :goto_0
+    if-eqz v2, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    iget-boolean v0, v0, Lcom/android/server/am/ActivityStackSupervisor;->mIsDockMinimized:Z
+
+    move/from16 v18, v0
+
+    if-eqz v18, :cond_b
+
+    :cond_4
+    const-string/jumbo v18, "null"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v18
+
+    const-string/jumbo v19, "|"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_5
-    const-string/jumbo v10, "null"
+    :goto_1
+    const/16 v17, 0x0
 
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const/4 v13, 0x0
 
-    move-result-object v10
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    const-string/jumbo v11, "|"
+    move-result v18
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    add-int/lit8 v10, v18, -0x1
 
-    goto :goto_1
+    :goto_2
+    if-ltz v10, :cond_d
+
+    invoke-virtual {v7, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v16
+
+    check-cast v16, Lcom/android/server/am/TaskRecord;
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/TaskRecord;->mHiddenState:I
+
+    move/from16 v18, v0
+
+    if-nez v18, :cond_7
+
+    const/4 v12, 0x0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
+
+    move-object/from16 v18, v0
+
+    if-eqz v18, :cond_c
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/TaskRecord;->realActivity:Landroid/content/ComponentName;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v12
 
     :cond_6
-    const-string/jumbo v10, "null"
+    :goto_3
+    if-eqz v12, :cond_7
 
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    add-int/lit8 v17, v17, 0x1
 
-    move-result-object v10
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v11, "|"
+    move-result-object v18
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string/jumbo v19, "|"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    :cond_7
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/TaskRecord;->mHiddenState:I
+
+    move/from16 v18, v0
+
+    const/16 v19, 0x2
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
+
+    move/from16 v18, v0
+
+    if-eqz v18, :cond_9
+
+    :cond_8
+    add-int/lit8 v13, v13, 0x1
+
+    :cond_9
+    add-int/lit8 v10, v10, -0x1
 
     goto :goto_2
 
-    :cond_7
-    const-string/jumbo v10, "FFPA"
+    :cond_a
+    const-string/jumbo v18, "null"
 
-    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-object/from16 v0, v18
 
-    move-result-object v11
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {p0, v10, v11}, Lcom/android/server/am/MultiWindowManagerService;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v18
+
+    const-string/jumbo v19, "|"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
+
+    :cond_b
+    iget-object v0, v2, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v18
+
+    const-string/jumbo v19, "|"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_1
+
+    :cond_c
+    invoke-virtual/range {v16 .. v16}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v15
+
+    if-eqz v15, :cond_6
+
+    iget-object v12, v15, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+
+    goto :goto_3
+
+    :cond_d
+    if-lez v13, :cond_e
+
+    const/16 v18, 0x2
+
+    move/from16 v0, v18
+
+    new-array v5, v0, [Ljava/lang/String;
+
+    const/16 v18, 0x2
+
+    move/from16 v0, v18
+
+    new-array v4, v0, [Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
+
+    move/from16 v18, v0
+
+    if-eqz v18, :cond_f
+
+    const-string/jumbo v18, "DFCO"
+
+    const/16 v19, 0x0
+
+    aput-object v18, v5, v19
+
+    const-string/jumbo v18, "DFPA"
+
+    const/16 v19, 0x1
+
+    aput-object v18, v5, v19
+
+    :goto_4
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {v13}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    const-string/jumbo v19, " | "
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    const/16 v19, 0x0
+
+    aput-object v18, v4, v19
+
+    invoke-virtual {v11}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    const/16 v19, 0x1
+
+    aput-object v18, v4, v19
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5, v4}, Lcom/android/server/am/MultiWindowManagerService;->logMultiWindowBehavior([Ljava/lang/String;[Ljava/lang/String;)V
+
+    :cond_e
+    return-void
+
+    :cond_f
+    const-string/jumbo v18, "FFCO"
+
+    const/16 v19, 0x0
+
+    aput-object v18, v5, v19
+
+    const-string/jumbo v18, "FFPA"
+
+    const/16 v19, 0x1
+
+    aput-object v18, v5, v19
+
+    goto :goto_4
 .end method
 
 .method public completeToggleSplitScreen()V
@@ -8316,26 +8495,30 @@
 .end method
 
 .method public exitMultiWindow(Landroid/os/IBinder;)Z
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v7, 0x0
+    const/4 v9, 0x3
 
-    iget-object v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+    const/4 v4, 0x1
 
-    const-string/jumbo v5, "android.permission.MANAGE_ACTIVITY_STACKS"
+    const/4 v5, 0x0
 
-    const-string/jumbo v6, "exitMultiWindow"
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v4, v5, v6}, Lcom/android/server/am/ActivityManagerService;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v7, "android.permission.MANAGE_ACTIVITY_STACKS"
 
-    iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+    const-string/jumbo v8, "exitMultiWindow"
 
-    monitor-enter v5
+    invoke-virtual {v6, v7, v8}, Lcom/android/server/am/ActivityManagerService;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v6
 
     :try_start_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -8346,41 +8529,41 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
-    iget-object v4, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+    iget-object v7, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    if-eqz v4, :cond_6
+    if-eqz v7, :cond_7
 
-    iget-object v4, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+    iget-object v7, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    iget-object v4, v4, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+    iget-object v7, v7, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    if-eqz v4, :cond_6
+    if-eqz v7, :cond_7
 
     :try_start_1
-    iget-object v4, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+    iget-object v7, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    iget-boolean v4, v4, Lcom/android/server/am/TaskRecord;->mFullscreen:Z
+    iget-boolean v7, v7, Lcom/android/server/am/TaskRecord;->mFullscreen:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v7, :cond_0
 
-    iget-boolean v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
+    iget-boolean v7, p0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v7, :cond_2
 
     :cond_0
-    iget-object v4, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+    iget-object v7, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    iget-object v4, v4, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+    iget-object v7, v7, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
-    iget v4, v4, Lcom/android/server/am/ActivityStack;->mStackId:I
+    iget v7, v7, Lcom/android/server/am/ActivityStack;->mStackId:I
 
-    const/4 v6, 0x2
+    const/4 v8, 0x2
 
-    if-ne v4, v6, :cond_4
+    if-ne v7, v8, :cond_4
 
     iget-object v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
 
@@ -8399,7 +8582,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    monitor-exit v5
+    monitor-exit v6
 
     return v4
 
@@ -8411,25 +8594,25 @@
 
     const-string/jumbo v4, "MultiWindowManagerService"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v7, "exitMultiWindow :: It is already fullscreen, r="
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -8443,53 +8626,56 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    monitor-exit v5
+    monitor-exit v6
 
     return v4
 
     :cond_4
     :try_start_5
-    iget-object v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v7, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    const/4 v6, 0x3
+    const/4 v8, 0x3
 
-    invoke-virtual {v4, v6}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+    invoke-virtual {v7, v8}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
 
-    move-result-object v4
+    move-result-object v7
 
-    if-eqz v4, :cond_1
+    if-eqz v7, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v7, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    const/4 v6, 0x1
+    const/4 v8, 0x1
 
-    invoke-virtual {v4, v6}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+    invoke-virtual {v7, v8}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    move-result v4
+    move-result v7
 
-    if-lez v4, :cond_5
+    if-lez v7, :cond_6
 
-    iget-object v4, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+    iget-object v7, v1, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    iget-object v4, v4, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+    iget-object v7, v7, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
-    iget v4, v4, Lcom/android/server/am/ActivityStack;->mStackId:I
+    invoke-virtual {v7}, Lcom/android/server/am/ActivityStack;->getStackId()I
 
-    const/4 v6, 0x0
+    move-result v7
 
-    const/4 v7, 0x1
+    if-ne v7, v9, :cond_5
 
-    invoke-virtual {p0, v6, v7, v4}, Lcom/android/server/am/MultiWindowManagerService;->maximizeStackByDivider(ZZI)V
+    :goto_1
+    const/4 v5, 0x0
+
+    invoke-virtual {p0, v4, v5}, Lcom/android/server/am/MultiWindowManagerService;->moveDockedTasksToFullscreenStack(ZZ)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
@@ -8507,35 +8693,40 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    monitor-exit v5
+    monitor-exit v6
 
     return v4
 
     :cond_5
+    move v4, v5
+
+    goto :goto_1
+
+    :cond_6
     :try_start_7
     iget-object v4, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    const/4 v6, 0x3
+    const/4 v5, 0x3
 
     const/4 v7, 0x1
 
     const/4 v8, 0x1
 
-    invoke-virtual {v4, v6, v7, v8}, Lcom/android/server/am/ActivityStackSupervisor;->moveTasksToFullscreenStackLocked(IZZ)V
+    invoke-virtual {v4, v5, v7, v8}, Lcom/android/server/am/ActivityStackSupervisor;->moveTasksToFullscreenStackLocked(IZZ)V
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     goto :goto_0
 
-    :cond_6
-    monitor-exit v5
+    :cond_7
+    monitor-exit v6
 
-    return v7
+    return v5
 
     :catchall_1
     move-exception v4
 
-    monitor-exit v5
+    monitor-exit v6
 
     throw v4
 .end method
@@ -10895,14 +11086,6 @@
     return v4
 .end method
 
-.method public isMaximizingStackByDividerLocked()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/am/MultiWindowManagerService;->mMaximizingStackByDivider:Z
-
-    return v0
-.end method
-
 .method public isMinTaskDimensionsChangedLocked(Lcom/android/server/am/ActivityRecord;)Z
     .locals 8
 
@@ -11518,539 +11701,13 @@
 .end method
 
 .method public maximizeStackByDivider(Z)V
-    .locals 2
+    .locals 1
 
     const/4 v0, 0x1
 
-    const/4 v1, -0x1
-
-    invoke-virtual {p0, p1, v0, v1}, Lcom/android/server/am/MultiWindowManagerService;->maximizeStackByDivider(ZZI)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/am/MultiWindowManagerService;->moveDockedTasksToFullscreenStack(ZZ)V
 
     return-void
-.end method
-
-.method public maximizeStackByDivider(ZZI)V
-    .locals 25
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
-
-    const-string/jumbo v3, "android.permission.MANAGE_ACTIVITY_STACKS"
-
-    const-string/jumbo v4, "maximizeStackByDivider"
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/server/am/ActivityManagerService;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
-
-    move-object/from16 v24, v0
-
-    monitor-enter v24
-
-    :try_start_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    move-result-wide v16
-
-    :try_start_1
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    const/4 v3, 0x3
-
-    invoke-virtual {v2, v3}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    :cond_0
-    const/4 v2, 0x0
-
-    :try_start_2
-    move-object/from16 v0, p0
-
-    iput-boolean v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mMaximizingStackByDivider:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowManagerService;->continueSurfaceLayout()V
-
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    monitor-exit v24
-
-    return-void
-
-    :cond_1
-    const/4 v2, -0x1
-
-    move/from16 v0, p3
-
-    if-eq v0, v2, :cond_3
-
-    move/from16 v23, p3
-
-    :goto_0
-    const/4 v2, 0x3
-
-    move/from16 v0, v23
-
-    if-ne v0, v2, :cond_4
-
-    const/4 v15, 0x1
-
-    :goto_1
-    :try_start_3
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    move/from16 v0, v23
-
-    invoke-virtual {v2, v0}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
-
-    move-result-object v20
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v2, v15}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
-
-    move-result-object v13
-
-    invoke-virtual/range {v20 .. v20}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
-
-    move-result-object v21
-
-    invoke-virtual {v13}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
-
-    move-result-object v14
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v20
-
-    invoke-direct {v0, v1}, Lcom/android/server/am/MultiWindowManagerService;->findFirstReturnToHomeTask(Lcom/android/server/am/ActivityStack;)Lcom/android/server/am/TaskRecord;
-
-    move-result-object v19
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v13}, Lcom/android/server/am/MultiWindowManagerService;->findFirstReturnToHomeTask(Lcom/android/server/am/ActivityStack;)Lcom/android/server/am/TaskRecord;
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    move-result-object v12
-
-    if-eqz v19, :cond_2
-
-    if-nez v12, :cond_5
-
-    :cond_2
-    const/4 v2, 0x0
-
-    :try_start_4
-    move-object/from16 v0, p0
-
-    iput-boolean v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mMaximizingStackByDivider:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowManagerService;->continueSurfaceLayout()V
-
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
-
-    monitor-exit v24
-
-    return-void
-
-    :cond_3
-    :try_start_5
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/am/ActivityManagerService;->getFocusedStackId()I
-
-    move-result v23
-
-    goto :goto_0
-
-    :cond_4
-    const/4 v15, 0x3
-
-    goto :goto_1
-
-    :cond_5
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
-
-    move-result v18
-
-    invoke-virtual {v14, v12}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
-
-    move-result v11
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowManagerService;->deferSurfaceLayout()V
-
-    const/4 v2, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mMaximizingStackByDivider:Z
-
-    invoke-virtual/range {v20 .. v20}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
-
-    move-result-object v22
-
-    if-eqz v22, :cond_6
-
-    move-object/from16 v0, v22
-
-    iget-boolean v2, v0, Lcom/android/server/am/ActivityRecord;->visible:Z
-
-    if-eqz v2, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mMultiWindowManagerInternal:Lcom/android/server/wm/IMultiWindowManagerInternalBridge;
-
-    move-object/from16 v0, v22
-
-    iget-object v3, v0, Lcom/android/server/am/ActivityRecord;->appToken:Landroid/view/IApplicationToken$Stub;
-
-    invoke-interface {v2, v3}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->setTokensResizedInSplitLocked(Landroid/os/IBinder;)V
-
-    :cond_6
-    const/4 v2, 0x3
-
-    move/from16 v0, v23
-
-    if-ne v0, v2, :cond_8
-
-    const/4 v10, 0x0
-
-    :goto_2
-    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    if-ge v10, v2, :cond_b
-
-    move/from16 v0, v18
-
-    if-lt v10, v0, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/am/TaskRecord;
-
-    iget v3, v3, Lcom/android/server/am/TaskRecord;->taskId:I
-
-    const-string/jumbo v7, "maximizeStackByDivider"
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x1
-
-    const/4 v8, 0x1
-
-    move/from16 v6, p2
-
-    invoke-virtual/range {v2 .. v8}, Lcom/android/server/am/ActivityStackSupervisor;->moveTaskToStackLocked(IIZZLjava/lang/String;Z)Z
-
-    :goto_3
-    add-int/lit8 v10, v10, 0x1
-
-    goto :goto_2
-
-    :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/am/TaskRecord;
-
-    iget v2, v2, Lcom/android/server/am/TaskRecord;->taskId:I
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v2, v4, v5}, Lcom/android/server/am/ActivityStackSupervisor;->positionTaskInStackLocked(III)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    goto :goto_3
-
-    :catch_0
-    move-exception v9
-
-    :try_start_6
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
-
-    const/4 v2, 0x0
-
-    :try_start_7
-    move-object/from16 v0, p0
-
-    iput-boolean v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mMaximizingStackByDivider:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowManagerService;->continueSurfaceLayout()V
-
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
-
-    :goto_4
-    monitor-exit v24
-
-    return-void
-
-    :cond_8
-    :try_start_8
-    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    add-int/lit8 v10, v2, -0x1
-
-    :goto_5
-    if-ltz v10, :cond_b
-
-    if-ge v10, v11, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v14, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/am/TaskRecord;
-
-    iget v2, v2, Lcom/android/server/am/TaskRecord;->taskId:I
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v2, v4, v5}, Lcom/android/server/am/ActivityStackSupervisor;->positionTaskInStackLocked(III)V
-
-    :goto_6
-    add-int/lit8 v10, v10, -0x1
-
-    goto :goto_5
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v14, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/am/TaskRecord;
-
-    iget v4, v2, Lcom/android/server/am/TaskRecord;->taskId:I
-
-    const/4 v2, -0x1
-
-    move/from16 v0, v18
-
-    if-ne v0, v2, :cond_a
-
-    const/4 v2, 0x0
-
-    :goto_7
-    const/4 v5, 0x1
-
-    invoke-virtual {v3, v4, v5, v2}, Lcom/android/server/am/ActivityStackSupervisor;->positionTaskInStackLocked(III)V
-    :try_end_8
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_0
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
-
-    goto :goto_6
-
-    :catchall_0
-    move-exception v2
-
-    const/4 v3, 0x0
-
-    :try_start_9
-    move-object/from16 v0, p0
-
-    iput-boolean v3, v0, Lcom/android/server/am/MultiWindowManagerService;->mMaximizingStackByDivider:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v3}, Lcom/android/server/wm/WindowManagerService;->continueSurfaceLayout()V
-
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v2
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
-
-    :catchall_1
-    move-exception v2
-
-    monitor-exit v24
-
-    throw v2
-
-    :cond_a
-    move/from16 v2, v18
-
-    goto :goto_7
-
-    :cond_b
-    if-eqz p1, :cond_c
-
-    :try_start_a
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
-
-    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    invoke-virtual {v14, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/am/TaskRecord;
-
-    iget v2, v2, Lcom/android/server/am/TaskRecord;->taskId:I
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v2, v4, v5}, Lcom/android/server/am/ActivityManagerService;->removeTaskByIdLocked(IZZ)Z
-
-    const/4 v2, 0x1
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v2}, Lcom/android/server/am/TaskRecord;->setTaskToReturnTo(I)V
-
-    :goto_8
-    const-string/jumbo v2, "DOOF"
-
-    const-string/jumbo v3, "DividerCloseButton"
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v2, v3}, Lcom/android/server/am/MultiWindowManagerService;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_a
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_a} :catch_0
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
-
-    const/4 v2, 0x0
-
-    :try_start_b
-    move-object/from16 v0, p0
-
-    iput-boolean v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mMaximizingStackByDivider:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowManagerService;->continueSurfaceLayout()V
-
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_1
-
-    goto/16 :goto_4
-
-    :cond_c
-    const/4 v2, 0x0
-
-    :try_start_c
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v2}, Lcom/android/server/am/TaskRecord;->setTaskToReturnTo(I)V
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v12, v2}, Lcom/android/server/am/TaskRecord;->setTaskToReturnTo(I)V
-    :try_end_c
-    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_c} :catch_0
-    .catchall {:try_start_c .. :try_end_c} :catchall_0
-
-    goto :goto_8
 .end method
 
 .method public maximizeTopTask()Z
@@ -12220,202 +11877,188 @@
 .end method
 
 .method public minimizeAllTasksInFreeformLocked()V
-    .locals 12
+    .locals 10
 
-    const/4 v11, 0x0
+    const/4 v9, 0x0
 
-    sget-boolean v8, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+    sget-boolean v6, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v6, :cond_0
 
-    sget-boolean v8, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_ADJUST_STACK_ORDER:Z
+    sget-boolean v6, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_ADJUST_STACK_ORDER:Z
 
-    if-eqz v8, :cond_1
+    if-eqz v6, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    sget-boolean v8, Lcom/android/server/am/MultiWindowManagerService;->DEBUG:Z
+    sget-boolean v6, Lcom/android/server/am/MultiWindowManagerService;->DEBUG:Z
 
-    if-eqz v8, :cond_2
+    if-eqz v6, :cond_2
 
-    const-string/jumbo v8, "MultiWindowManagerService"
+    const-string/jumbo v6, "MultiWindowManagerService"
 
-    const-string/jumbo v9, "minimizeAllTasksInFreeform is calling"
+    const-string/jumbo v7, "minimizeAllTasksInFreeform is calling"
 
-    invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    const/4 v1, 0x1
+    iget-boolean v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
 
-    iget-boolean v8, p0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
-
-    if-eqz v8, :cond_3
+    if-eqz v6, :cond_6
 
     const/4 v1, 0x0
 
-    :cond_3
-    const/4 v0, 0x0
+    :goto_1
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    iget-object v8, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    const/4 v7, 0x2
 
-    invoke-virtual {v8}, Lcom/android/server/am/ActivityStackSupervisor;->getStacks()Ljava/util/ArrayList;
+    invoke-virtual {v6, v7}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_a
+
+    move v2, v1
+
+    invoke-virtual {v0}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
     move-result-object v5
 
+    iget-boolean v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
+
+    if-eqz v6, :cond_3
+
+    invoke-static {v5}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
+
+    :cond_3
     invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
     :cond_4
+    :goto_2
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_5
+    if-eqz v6, :cond_a
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/server/am/ActivityStack;
+    check-cast v3, Lcom/android/server/am/TaskRecord;
 
-    iget v8, v3, Lcom/android/server/am/ActivityStack;->mStackId:I
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
 
-    const/4 v9, 0x2
+    iget-object v6, v6, Lcom/android/server/am/ActivityManagerService;->mUserController:Lcom/android/server/am/UserController;
 
-    if-ne v8, v9, :cond_4
+    iget v7, v3, Lcom/android/server/am/TaskRecord;->userId:I
 
-    move-object v0, v3
+    invoke-virtual {v6, v7}, Lcom/android/server/am/UserController;->isCurrentProfileLocked(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mNoMinimizedTarget:Lcom/android/server/am/TaskRecord;
+
+    if-eqz v6, :cond_5
+
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mNoMinimizedTarget:Lcom/android/server/am/TaskRecord;
+
+    if-eq v3, v6, :cond_4
 
     :cond_5
-    if-eqz v0, :cond_7
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
-
-    move-result-object v8
-
-    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    :cond_6
-    :goto_1
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_7
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v3}, Lcom/android/server/am/TaskRecord;->getTopActivity()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v6
 
-    check-cast v6, Lcom/android/server/am/TaskRecord;
+    if-eqz v6, :cond_4
 
-    iget-object v8, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mUserController:Lcom/android/server/am/UserController;
+    invoke-virtual {v6, v3}, Lcom/android/server/am/ActivityStackSupervisor;->isLockedTask(Lcom/android/server/am/TaskRecord;)Z
 
-    iget v9, v6, Lcom/android/server/am/TaskRecord;->userId:I
+    move-result v6
 
-    invoke-virtual {v8, v9}, Lcom/android/server/am/UserController;->isCurrentProfileLocked(I)Z
+    if-eqz v6, :cond_7
 
-    move-result v8
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    if-eqz v8, :cond_6
+    invoke-virtual {v6}, Lcom/android/server/am/ActivityStackSupervisor;->showLockTaskToast()V
 
-    invoke-virtual {v6}, Lcom/android/server/am/TaskRecord;->getTopActivity()Lcom/android/server/am/ActivityRecord;
+    goto :goto_2
 
-    move-result-object v8
-
-    if-eqz v8, :cond_6
-
-    iget-object v8, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v8, v6}, Lcom/android/server/am/ActivityStackSupervisor;->isLockedTask(Lcom/android/server/am/TaskRecord;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_8
-
-    iget-object v8, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v8}, Lcom/android/server/am/ActivityStackSupervisor;->showLockTaskToast()V
-
-    :cond_7
-    iput-object v11, p0, Lcom/android/server/am/MultiWindowManagerService;->mNoMinimizedTarget:Lcom/android/server/am/TaskRecord;
-
-    goto :goto_0
-
-    :cond_8
-    iget-object v8, p0, Lcom/android/server/am/MultiWindowManagerService;->mNoMinimizedTarget:Lcom/android/server/am/TaskRecord;
-
-    if-eqz v8, :cond_9
-
-    iget-object v8, p0, Lcom/android/server/am/MultiWindowManagerService;->mNoMinimizedTarget:Lcom/android/server/am/TaskRecord;
-
-    if-eq v6, v8, :cond_6
-
-    :cond_9
-    iget v8, v6, Lcom/android/server/am/TaskRecord;->mHiddenState:I
-
-    if-nez v8, :cond_6
-
-    sget-boolean v8, Lcom/android/server/am/MultiWindowManagerService;->DEBUG:Z
-
-    if-eqz v8, :cond_a
-
-    const-string/jumbo v9, "MultiWindowManagerService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    if-eqz v1, :cond_b
-
-    const-string/jumbo v8, "minimize, "
-
-    :goto_2
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v9, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_a
-    iget v8, v6, Lcom/android/server/am/TaskRecord;->taskId:I
-
-    invoke-virtual {v0, v8, v1}, Lcom/android/server/am/ActivityStack;->moveTaskToBackLocked(IZ)Z
-
-    if-eqz v2, :cond_6
-
-    const-string/jumbo v8, "FFAC"
-
-    const-string/jumbo v9, "Minimize"
-
-    invoke-virtual {p0, v8, v9}, Lcom/android/server/am/MultiWindowManagerService;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v2, 0x0
+    :cond_6
+    const/4 v1, 0x1
 
     goto :goto_1
 
-    :cond_b
-    const-string/jumbo v8, "moveback, "
+    :cond_7
+    iget v6, v3, Lcom/android/server/am/TaskRecord;->mHiddenState:I
+
+    if-nez v6, :cond_4
+
+    sget-boolean v6, Lcom/android/server/am/MultiWindowManagerService;->DEBUG:Z
+
+    if-eqz v6, :cond_8
+
+    const-string/jumbo v7, "MultiWindowManagerService"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    if-eqz v1, :cond_9
+
+    const-string/jumbo v6, "minimize, "
+
+    :goto_3
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v7, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    iget v6, v3, Lcom/android/server/am/TaskRecord;->taskId:I
+
+    invoke-virtual {v0, v6, v1}, Lcom/android/server/am/ActivityStack;->moveTaskToBackLocked(IZ)Z
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v6, "FFAC"
+
+    const-string/jumbo v7, "Minimize"
+
+    invoke-virtual {p0, v6, v7}, Lcom/android/server/am/MultiWindowManagerService;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v2, 0x0
 
     goto :goto_2
+
+    :cond_9
+    const-string/jumbo v6, "moveback, "
+
+    goto :goto_3
+
+    :cond_a
+    iput-object v9, p0, Lcom/android/server/am/MultiWindowManagerService;->mNoMinimizedTarget:Lcom/android/server/am/TaskRecord;
+
+    goto/16 :goto_0
 .end method
 
 .method public minimizeOhterFreeforms(Landroid/os/IBinder;)V
@@ -12739,6 +12382,199 @@
 
     :cond_1
     return v3
+.end method
+
+.method public moveDockedTasksToFullscreenStack(ZZ)V
+    .locals 14
+
+    iget-object v9, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    const-string/jumbo v10, "android.permission.MANAGE_ACTIVITY_STACKS"
+
+    const-string/jumbo v11, "moveDockedTasksToFullscreenStack"
+
+    invoke-virtual {v9, v10, v11}, Lcom/android/server/am/ActivityManagerService;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v6
+
+    iget-object v10, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v10
+
+    :try_start_0
+    iget-object v9, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    const/4 v11, 0x3
+
+    invoke-virtual {v9, v11}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v2
+
+    iget-object v9, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    const/4 v11, 0x3
+
+    invoke-virtual {v9, v11}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v9
+
+    if-nez v9, :cond_0
+
+    const-string/jumbo v9, "MultiWindowManagerService"
+
+    const-string/jumbo v11, "moveDockedTasksToFullscreenStack / DockedStack is null."
+
+    invoke-static {v9, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    monitor-exit v10
+
+    return-void
+
+    :cond_0
+    :try_start_2
+    iget-object v9, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    const/4 v11, 0x1
+
+    const/4 v12, 0x1
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v9, v11, v12, v13}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(IZZ)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    invoke-virtual {v5}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
+
+    move-result-object v4
+
+    invoke-direct {p0, v1}, Lcom/android/server/am/MultiWindowManagerService;->findFirstReturnToHomeTask(Ljava/util/ArrayList;)Lcom/android/server/am/TaskRecord;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v9, "MultiWindowManagerService"
+
+    const-string/jumbo v11, "moveDockedTasksToFullscreenStack / DockedTasks has 0 tasks."
+
+    invoke-static {v9, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :try_start_3
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    monitor-exit v10
+
+    return-void
+
+    :cond_1
+    :try_start_4
+    invoke-direct {p0, v4}, Lcom/android/server/am/MultiWindowManagerService;->findFirstReturnToHomeTask(Ljava/util/ArrayList;)Lcom/android/server/am/TaskRecord;
+
+    move-result-object v3
+
+    if-eqz p1, :cond_4
+
+    :goto_0
+    invoke-virtual {v5}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    const/4 v11, 0x3
+
+    const/4 v12, 0x1
+
+    invoke-virtual {v9, v11, p1, v12}, Lcom/android/server/am/ActivityStackSupervisor;->moveTasksToFullscreenStackLocked(IZZ)V
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v0, v9}, Lcom/android/server/am/TaskRecord;->setTaskToReturnTo(I)V
+
+    if-eqz v3, :cond_2
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v3, v9}, Lcom/android/server/am/TaskRecord;->setTaskToReturnTo(I)V
+
+    :cond_2
+    if-eqz p2, :cond_3
+
+    if-eqz v8, :cond_3
+
+    iget-object v9, v8, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    if-eqz v9, :cond_3
+
+    iget-object v9, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v8, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    iget v11, v11, Lcom/android/server/am/TaskRecord;->taskId:I
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v9, v11, v12, v13}, Lcom/android/server/am/ActivityManagerService;->removeTaskByIdLocked(IZZ)Z
+
+    :cond_3
+    const-string/jumbo v9, "DOOF"
+
+    const-string/jumbo v11, "DividerCloseButton"
+
+    invoke-virtual {p0, v9, v11}, Lcom/android/server/am/MultiWindowManagerService;->logMultiWindowBehavior(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    :try_start_5
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    monitor-exit v10
+
+    return-void
+
+    :cond_4
+    move-object v5, v2
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v9
+
+    :try_start_6
+    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v9
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+
+    :catchall_1
+    move-exception v9
+
+    monitor-exit v10
+
+    throw v9
 .end method
 
 .method public moveMultiWindowTasksToFullScreen()V
@@ -13558,6 +13394,18 @@
 
     move-object/from16 v0, p0
 
+    iget-object v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mMultiWindowManagerInternal:Lcom/android/server/wm/IMultiWindowManagerInternalBridge;
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
+
+    invoke-interface {v1, v2}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->updateFreeformRoundedDim(Z)V
+
+    move-object/from16 v0, p0
+
     iget-object v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     const/4 v2, 0x2
@@ -13754,6 +13602,18 @@
     invoke-direct/range {p0 .. p0}, Lcom/android/server/am/MultiWindowManagerService;->initGameManagerService()V
 
     :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mMultiWindowManagerInternal:Lcom/android/server/wm/IMultiWindowManagerInternalBridge;
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
+
+    invoke-interface {v1, v2}, Lcom/android/server/wm/IMultiWindowManagerInternalBridge;->updateFreeformRoundedDim(Z)V
+
     const-string/jumbo v2, "MultiWindowManager"
 
     move-object/from16 v0, p0
@@ -13785,7 +13645,7 @@
     :cond_9
     const/4 v1, 0x0
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_a
     const/4 v15, 0x1
@@ -14376,6 +14236,202 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public removeFocusedTask()Z
+    .locals 10
+
+    const/4 v9, 0x1
+
+    iget-object v6, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v6
+
+    const/4 v0, 0x0
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v0, v5, Lcom/android/server/am/ActivityManagerService;->mFocusedActivity:Lcom/android/server/am/ActivityRecord;
+
+    if-eqz v0, :cond_1
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    :cond_0
+    :goto_0
+    if-eqz v2, :cond_3
+
+    invoke-virtual {v2}, Lcom/android/server/am/TaskRecord;->isHomeTask()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    const/4 v4, 0x0
+
+    iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    const/4 v7, 0x2
+
+    invoke-virtual {v5, v7}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v3
+
+    const-string/jumbo v5, "MultiWindowManagerService"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "[bixby] removeFocusedTask freeformStack = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v3, :cond_4
+
+    invoke-virtual {v3}, Lcom/android/server/am/ActivityStack;->topTask()Lcom/android/server/am/TaskRecord;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_4
+
+    const-string/jumbo v5, "MultiWindowManagerService"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "[bixby] removeFocusedTask = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v3}, Lcom/android/server/am/ActivityStack;->topTask()Lcom/android/server/am/TaskRecord;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v3}, Lcom/android/server/am/ActivityStack;->topTask()Lcom/android/server/am/TaskRecord;
+
+    move-result-object v7
+
+    iget v7, v7, Lcom/android/server/am/TaskRecord;->taskId:I
+
+    invoke-virtual {v5, v7}, Lcom/android/server/am/ActivityManagerService;->removeTask(I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v6
+
+    return v9
+
+    :cond_1
+    :try_start_1
+    iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v5}, Lcom/android/server/am/ActivityManagerService;->getFocusedStack()Lcom/android/server/am/ActivityStack;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v5, "MultiWindowManagerService"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "[bixby] removeFocusedTask = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
+
+    iget v7, v2, Lcom/android/server/am/TaskRecord;->taskId:I
+
+    invoke-virtual {v5, v7}, Lcom/android/server/am/ActivityManagerService;->removeTask(I)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v6
+
+    return v9
+
+    :cond_3
+    :try_start_2
+    const-string/jumbo v5, "MultiWindowManagerService"
+
+    const-string/jumbo v7, "[bixby] There is no FocesedTask!! "
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_4
+    monitor-exit v6
+
+    const/4 v5, 0x0
+
+    return v5
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
 .end method
 
 .method public removeFreeformTasks(I)V

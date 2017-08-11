@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->performHomeBroadcast()V
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->notifyCoverSwitchStateChanged(JZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,25 +35,31 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 2
 
-    new-instance v0, Landroid/content/Intent;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$33;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    iget-object v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mLock:Ljava/lang/Object;
 
-    const-string/jumbo v1, "com.samsung.android.action.START_DOCK_OR_HOME"
+    monitor-enter v1
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    :try_start_0
+    invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
 
-    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$33;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    move-result-object v0
 
-    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/hardware/input/InputManager;->coverEventFinished()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    sget-object v2, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
-
-    const-string/jumbo v3, "com.samsung.android.permisson.START_DOCK_OR_HOME"
-
-    invoke-virtual {v1, v0, v2, v3}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method

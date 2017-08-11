@@ -951,6 +951,18 @@
 
     iget-object v7, p0, Lcom/android/server/wm/MultiWindowPointerEventListenerImpl;->mGuideWindow:Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;
 
+    iget-object v8, p0, Lcom/android/server/wm/MultiWindowPointerEventListenerImpl;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v8}, Lcom/android/server/wm/DisplayContent;->getDisplayInfo()Landroid/view/DisplayInfo;
+
+    move-result-object v8
+
+    iget v8, v8, Landroid/view/DisplayInfo;->rotation:I
+
+    invoke-virtual {v7, v8}, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->setGuideWindowShapeWhenNotSupport(I)V
+
+    iget-object v7, p0, Lcom/android/server/wm/MultiWindowPointerEventListenerImpl;->mGuideWindow:Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;
+
     iget-object v8, p0, Lcom/android/server/wm/MultiWindowPointerEventListenerImpl;->mInitRect:Landroid/graphics/Rect;
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->show(Landroid/graphics/Rect;)V
@@ -1037,6 +1049,18 @@
     const/4 v8, 0x2
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->setGuideState(I)V
+
+    iget-object v7, p0, Lcom/android/server/wm/MultiWindowPointerEventListenerImpl;->mGuideWindow:Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;
+
+    iget-object v8, p0, Lcom/android/server/wm/MultiWindowPointerEventListenerImpl;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v8}, Lcom/android/server/wm/DisplayContent;->getDisplayInfo()Landroid/view/DisplayInfo;
+
+    move-result-object v8
+
+    iget v8, v8, Landroid/view/DisplayInfo;->rotation:I
+
+    invoke-virtual {v7, v8}, Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;->setGuideWindowShapeWhenNotSupport(I)V
 
     iget-object v7, p0, Lcom/android/server/wm/MultiWindowPointerEventListenerImpl;->mGuideWindow:Lcom/samsung/android/multiwindow/MultiWindowGuideWindow;
 

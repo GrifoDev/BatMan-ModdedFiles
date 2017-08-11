@@ -66,6 +66,8 @@
 
 .field private final mGuidePopupRunnable:Ljava/lang/Runnable;
 
+.field private mLastReLaunchUserId:I
+
 .field private mLazyConventialModeWriterThread:Lcom/android/server/wm/ConventionalModeController$LazyConventialModeWriterThread;
 
 .field private mMaxAspectMapsForUser:Ljava/util/Map;
@@ -99,17 +101,6 @@
 
 .field private mService:Lcom/android/server/wm/SamsungWindowManagerService;
 
-.field private mShowGuidePopup:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mWindowManager:Landroid/view/WindowManager;
 
 
@@ -128,6 +119,14 @@
     iget-boolean v0, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonViewShowing:Z
 
     return v0
+.end method
+
+.method static synthetic -get10(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mWindowManager:Landroid/view/WindowManager;
+
+    return-object v0
 .end method
 
 .method static synthetic -get2(Lcom/android/server/wm/ConventionalModeController;)I
@@ -165,12 +164,20 @@
 .method static synthetic -get6(Lcom/android/server/wm/ConventionalModeController;)I
     .locals 1
 
+    iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mLastReLaunchUserId:I
+
+    return v0
+.end method
+
+.method static synthetic -get7(Lcom/android/server/wm/ConventionalModeController;)I
+    .locals 1
+
     iget v0, p0, Lcom/android/server/wm/ConventionalModeController;->mReLaunchTaskId:I
 
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/Runnable;
+.method static synthetic -get8(Lcom/android/server/wm/ConventionalModeController;)Ljava/lang/Runnable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mRelaunchTaskRunnable:Ljava/lang/Runnable;
@@ -178,18 +185,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+.method static synthetic -get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mWindowManager:Landroid/view/WindowManager;
 
     return-object v0
 .end method
@@ -252,6 +251,14 @@
     return-void
 .end method
 
+.method static synthetic -wrap3(Lcom/android/server/wm/ConventionalModeController;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/ConventionalModeController;->showGuidePopup(I)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 6
 
@@ -259,9 +266,9 @@
 
     const/4 v4, 0x1
 
-    const/4 v3, -0x1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -305,15 +312,9 @@
 
     iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mMaxAspectMapsForUser:Ljava/util/Map;
 
-    new-instance v0, Ljava/util/ArrayList;
+    iput-boolean v3, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonViewShowing:Z
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mShowGuidePopup:Ljava/util/ArrayList;
-
-    iput-boolean v2, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioButtonViewShowing:Z
-
-    iput v2, p0, Lcom/android/server/wm/ConventionalModeController;->NAV_BAR_BOTTOM:I
+    iput v3, p0, Lcom/android/server/wm/ConventionalModeController;->NAV_BAR_BOTTOM:I
 
     iput v4, p0, Lcom/android/server/wm/ConventionalModeController;->NAV_BAR_RIGHT:I
 
@@ -357,11 +358,13 @@
 
     iput-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mPackageReceiver:Landroid/content/BroadcastReceiver;
 
-    iput v3, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowPosition:I
+    iput v2, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowPosition:I
 
-    iput v2, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
+    iput v3, p0, Lcom/android/server/wm/ConventionalModeController;->mChangeRatioWindowSize:I
 
-    iput v3, p0, Lcom/android/server/wm/ConventionalModeController;->mReLaunchTaskId:I
+    iput v2, p0, Lcom/android/server/wm/ConventionalModeController;->mReLaunchTaskId:I
+
+    iput v2, p0, Lcom/android/server/wm/ConventionalModeController;->mLastReLaunchUserId:I
 
     new-instance v0, Lcom/android/server/wm/ConventionalModeController$3;
 
@@ -674,19 +677,28 @@
 .method private excludeConventionalMode(Ljava/lang/String;)Z
     .locals 1
 
+    const-string/jumbo v0, "android"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     const-string/jumbo v0, "com.google.android.gms"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
+    :cond_0
     const/4 v0, 0x1
 
     return v0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     return v0
@@ -851,6 +863,12 @@
     move-result v0
 
     iput v0, p0, Lcom/android/server/wm/ConventionalModeController;->mReLaunchTaskId:I
+
+    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/wm/ConventionalModeController;->mLastReLaunchUserId:I
 
     :cond_0
     return-void
@@ -1509,6 +1527,53 @@
     return-void
 .end method
 
+.method private showGuidePopup(I)V
+    .locals 4
+
+    const/4 v2, 0x0
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "conventionalmode_guide_popup_for_recent"
+
+    invoke-static {v0, v1, v2, p1}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "conventionalmode_guide_popup_for_recent"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2, p1}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
+
+    iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController;->mGuidePopupRunnable:Ljava/lang/Runnable;
+
+    const-wide/16 v2, 0x64
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_0
+    return-void
+.end method
+
 .method private updatePackageConfiguration(Ljava/lang/String;Z)V
     .locals 7
 
@@ -2066,6 +2131,152 @@
     return-void
 .end method
 
+.method public isMaxAspectComponent(Landroid/content/pm/ActivityInfo;)I
+    .locals 12
+
+    const/4 v11, 0x1
+
+    const/4 v10, 0x0
+
+    const/4 v9, 0x2
+
+    const/4 v8, 0x0
+
+    invoke-direct {p0}, Lcom/android/server/wm/ConventionalModeController;->checkCallerIsSystemOrPermission()V
+
+    if-nez p1, :cond_0
+
+    return v8
+
+    :cond_0
+    iget-object v6, p1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-direct {p0, v6}, Lcom/android/server/wm/ConventionalModeController;->excludeConventionalMode(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    return v9
+
+    :cond_1
+    const/4 v2, 0x0
+
+    iget-object v6, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/SamsungWindowManagerService;->getDefaultMaxAspect()F
+
+    move-result v1
+
+    iget-object v6, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/SamsungWindowManagerService;->getCurrentAspect()F
+
+    move-result v0
+
+    cmpl-float v6, v1, v0
+
+    if-ltz v6, :cond_2
+
+    return v9
+
+    :cond_2
+    iget-object v6, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    if-eqz v6, :cond_3
+
+    iget-object v6, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    const-string/jumbo v7, "android.max_aspect"
+
+    invoke-virtual {v6, v7, v10}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;F)F
+
+    move-result v2
+
+    :cond_3
+    cmpl-float v6, v2, v0
+
+    if-ltz v6, :cond_4
+
+    return v9
+
+    :cond_4
+    const/4 v5, 0x0
+
+    invoke-static {}, Lcom/android/server/SamsungCoreServices;->getPackageConfigurationController()Lcom/android/server/PackageConfigurationController;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_5
+
+    iget-object v6, p1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-interface {v4, v6}, Lcom/android/server/PackageConfigurationController;->getServerAspectRatio(Ljava/lang/String;)F
+
+    move-result v5
+
+    cmpl-float v6, v5, v0
+
+    if-ltz v6, :cond_5
+
+    return v9
+
+    :cond_5
+    iget-object v6, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v6, v6, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    invoke-direct {p0, v6}, Lcom/android/server/wm/ConventionalModeController;->getMaxAspectPackageForUser(I)Lcom/android/server/wm/ConventionalModePackageMap;
+
+    move-result-object v3
+
+    iget-object v6, p1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v3, v6}, Lcom/android/server/wm/ConventionalModePackageMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_6
+
+    iget v6, p1, Landroid/content/pm/ActivityInfo;->resizeMode:I
+
+    if-eqz v6, :cond_7
+
+    cmpl-float v6, v5, v10
+
+    if-nez v6, :cond_7
+
+    return v11
+
+    :cond_6
+    iget-object v6, p1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v3, v6}, Lcom/android/server/wm/ConventionalModePackageMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Integer;
+
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+
+    move-result v6
+
+    if-eqz v6, :cond_7
+
+    return v11
+
+    :cond_7
+    return v8
+.end method
+
 .method public isMaxAspectPackage(Landroid/content/pm/ApplicationInfo;)I
     .locals 12
 
@@ -2398,9 +2609,7 @@
 .end method
 
 .method public setMaxAspectPackage(Ljava/lang/String;IZZ)V
-    .locals 8
-
-    const/4 v7, 0x0
+    .locals 7
 
     invoke-direct {p0}, Lcom/android/server/wm/ConventionalModeController;->checkCallerIsSystemOrPermission()V
 
@@ -2455,36 +2664,6 @@
     if-eqz v0, :cond_1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/wm/ConventionalModeController;->killApplication(Ljava/lang/String;I)V
-
-    iget-object v5, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
-
-    iget-object v5, v5, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "conventionalmode_guidepopup"
-
-    invoke-static {v5, v6, v7, v4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v5
-
-    if-nez v5, :cond_1
-
-    iget-object v5, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
-
-    iget-object v5, v5, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "conventionalmode_guidepopup"
-
-    const/4 v7, 0x1
-
-    invoke-static {v5, v6, v7, v4}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     :cond_1
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -2598,38 +2777,6 @@
     move-result-object v3
 
     move v1, v7
-
-    iget-object v8, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
-
-    iget-object v8, v8, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "conventionalmode_guidepopup"
-
-    const/4 v10, 0x0
-
-    invoke-static {v8, v9, v10, v7}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v8
-
-    if-nez v8, :cond_2
-
-    iget-object v8, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
-
-    iget-object v8, v8, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "conventionalmode_guidepopup"
-
-    const/4 v10, 0x1
-
-    invoke-static {v8, v9, v10, v7}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     :cond_2
     if-eqz p3, :cond_4
@@ -2770,87 +2917,5 @@
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     :cond_2
-    return-void
-.end method
-
-.method public showGuidePopup(Ljava/lang/String;I)V
-    .locals 7
-
-    const/4 v6, 0x0
-
-    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mService:Lcom/android/server/wm/SamsungWindowManagerService;
-
-    iget-object v3, v3, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "conventionalmode_guidepopup"
-
-    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v5
-
-    invoke-static {v3, v4, v6, v5}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/game/GamePkgDataHelper;->getInstance()Lcom/samsung/android/game/GamePkgDataHelper;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1, p1}, Lcom/samsung/android/game/GamePkgDataHelper;->getGamePkgData(Ljava/lang/String;)Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mShowGuidePopup:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mShowGuidePopup:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v3
-
-    invoke-direct {p0, v3}, Lcom/android/server/wm/ConventionalModeController;->getMaxAspectPackageForUser(I)Lcom/android/server/wm/ConventionalModePackageMap;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Lcom/android/server/wm/ConventionalModePackageMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
-
-    iget-object v4, p0, Lcom/android/server/wm/ConventionalModeController;->mGuidePopupRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v3, v4}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController;->mConventionalModeControlScheduler:Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;
-
-    iget-object v4, p0, Lcom/android/server/wm/ConventionalModeController;->mGuidePopupRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v3, v4}, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->post(Ljava/lang/Runnable;)Z
-
-    :cond_1
     return-void
 .end method

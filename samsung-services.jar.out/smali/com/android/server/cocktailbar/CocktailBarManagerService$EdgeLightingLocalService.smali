@@ -141,7 +141,7 @@
     throw v3
 .end method
 
-.method public showForNotification(Landroid/service/notification/StatusBarNotification;ZZ)Z
+.method public showForNotification(Landroid/service/notification/StatusBarNotification;Landroid/os/Bundle;)Z
     .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -155,7 +155,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, p1, p2, p3}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->showForNotification(Landroid/service/notification/StatusBarNotification;ZZ)Z
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->showForNotification(Landroid/service/notification/StatusBarNotification;Landroid/os/Bundle;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -364,6 +364,36 @@
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
+.method public statusBarDisabled(II)V
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/cocktailbar/CocktailBarManagerService$EdgeLightingLocalService;->this$0:Lcom/android/server/cocktailbar/CocktailBarManagerService;
+
+    invoke-static {v2}, Lcom/android/server/cocktailbar/CocktailBarManagerService;->-get2(Lcom/android/server/cocktailbar/CocktailBarManagerService;)Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->statusBarDisabled(II)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-void
 
     :catchall_0
     move-exception v2

@@ -1034,6 +1034,10 @@
 
     invoke-virtual {v12, v1}, Landroid/view/animation/AnimationSet;->setDetachWallpaper(Z)V
 
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1}, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->updateAppTransitionStartValues(Landroid/graphics/Rect;)V
+
     :goto_1
     const/4 v1, 0x1
 
@@ -1449,19 +1453,28 @@
 
     iget-boolean v1, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->mWallpaperEnterAnimationAllowed:Z
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
+    invoke-virtual {p0}, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->getWallpaperAnimationBlocked()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
     const-string/jumbo v1, "HighEndSamsungAnimationCreator"
 
     const-string/jumbo v2, "createSamsungWallpaperEnterAnimation, wallpaperEnterAnimation is not allowed"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-virtual {p0, v5}, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->setWallpaperAnimationBlocked(Z)V
+
     const/4 v1, 0x0
 
     return-object v1
 
-    :cond_0
+    :cond_1
     const-string/jumbo v1, "HighEndSamsungAnimationCreator"
 
     const-string/jumbo v2, "createSamsungWallpaperEnterAnimation"
@@ -1502,15 +1515,15 @@
 
     const/4 v2, 0x2
 
-    if-eq v2, v1, :cond_1
+    if-eq v2, v1, :cond_2
 
     invoke-virtual {p0}, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->isValidAppTransitionStartValues()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
-    :cond_1
+    :cond_2
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     iget v1, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_FROM_X:F
@@ -1548,15 +1561,9 @@
 
     iput-boolean v5, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->mWallpaperEnterAnimationAllowed:Z
 
-    new-instance v1, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator$1;
-
-    invoke-direct {v1, p0}, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator$1;-><init>(Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
     return-object v0
 
-    :cond_2
+    :cond_3
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     iget v7, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_FROM_X:F
@@ -1728,13 +1735,13 @@
 
     const-wide/16 v8, 0x15e
 
-    const v6, 0x3f547ae1    # 0.83f
+    const v7, 0x3f547ae1    # 0.83f
 
-    const v5, 0x3ea8f5c3    # 0.33f
+    const v6, 0x3ea8f5c3    # 0.33f
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    const/high16 v4, 0x3f800000    # 1.0f
 
     const-string/jumbo v0, "HighEndSamsungAnimationCreator"
 
@@ -1748,15 +1755,19 @@
 
     const v2, 0x3f266666    # 0.65f
 
-    invoke-direct {v0, v3, v4, v1, v2}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v4, v5, v1, v2}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_EXIT_CLIP_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
-    const v1, 0x3f333333    # 0.7f
+    const v1, 0x3e4ccccd    # 0.2f
 
-    invoke-direct {v0, v1, v4, v4, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    const/high16 v2, 0x3f000000    # 0.5f
+
+    const v3, 0x3e4ccccd    # 0.2f
+
+    invoke-direct {v0, v1, v2, v3, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_SCALE_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
@@ -1764,7 +1775,7 @@
 
     const v1, 0x3e99999a    # 0.3f
 
-    invoke-direct {v0, v5, v4, v1, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_ALPHA_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
@@ -1788,25 +1799,25 @@
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_SCALE_ANIMATION_FROM_X:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_SCALE_ANIMATION_TO_X:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_SCALE_ANIMATION_TO_X:F
 
     const v0, 0x3e99999a    # 0.3f
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_SCALE_ANIMATION_FROM_Y:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_SCALE_ANIMATION_TO_Y:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_SCALE_ANIMATION_TO_Y:F
 
     iput-wide v8, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_SCALE_ANIMATION_DURATION:J
 
-    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_ALPHA_ANIMATION_FROM_ALPHA:F
+    iput v5, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_ALPHA_ANIMATION_FROM_ALPHA:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_ALPHA_ANIMATION_TO_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_ALPHA_ANIMATION_TO_ALPHA:F
 
     const-wide/16 v0, 0xe9
 
     iput-wide v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_ALPHA_ANIMATION_DURATION:J
 
-    const-wide/16 v0, 0x3c
+    const-wide/16 v0, 0x1e
 
     iput-wide v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_APP_ALPHA_ANIMATION_START_OFFSET:J
 
@@ -1826,7 +1837,7 @@
 
     const v1, 0x3f333333    # 0.7f
 
-    invoke-direct {v0, v1, v4, v4, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v1, v5, v5, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_SCALE_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
@@ -1834,17 +1845,17 @@
 
     const v1, 0x3e99999a    # 0.3f
 
-    invoke-direct {v0, v5, v4, v1, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_ALPHA_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_SCALE_ANIMATION_FROM_X:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_SCALE_ANIMATION_FROM_X:F
 
     const/high16 v0, 0x3fc00000    # 1.5f
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_SCALE_ANIMATION_TO_X:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_SCALE_ANIMATION_FROM_Y:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_SCALE_ANIMATION_FROM_Y:F
 
     const/high16 v0, 0x3fc00000    # 1.5f
 
@@ -1852,9 +1863,9 @@
 
     iput-wide v8, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_SCALE_ANIMATION_DURATION:J
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_ALPHA_ANIMATION_FROM_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_ALPHA_ANIMATION_FROM_ALPHA:F
 
-    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_ALPHA_ANIMATION_TO_ALPHA:F
+    iput v5, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_ALPHA_ANIMATION_TO_ALPHA:F
 
     iput-wide v8, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_HOME_ALPHA_ANIMATION_DURATION:J
 
@@ -1862,7 +1873,7 @@
 
     const v1, 0x3e4ccccd    # 0.2f
 
-    invoke-direct {v0, v5, v4, v1, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_SCALE_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
@@ -1870,17 +1881,17 @@
 
     const v1, 0x3dcccccd    # 0.1f
 
-    invoke-direct {v0, v5, v4, v1, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_ALPHA_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_SCALE_ANIMATION_FROM_X:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_SCALE_ANIMATION_FROM_X:F
 
     const v0, 0x3dcccccd    # 0.1f
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_SCALE_ANIMATION_TO_X:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_SCALE_ANIMATION_FROM_Y:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_SCALE_ANIMATION_FROM_Y:F
 
     const v0, 0x3dcccccd    # 0.1f
 
@@ -1888,15 +1899,15 @@
 
     iput-wide v8, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_SCALE_ANIMATION_DURATION:J
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_ALPHA_ANIMATION_FROM_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_ALPHA_ANIMATION_FROM_ALPHA:F
 
-    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_ALPHA_ANIMATION_TO_ALPHA:F
+    iput v5, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_ALPHA_ANIMATION_TO_ALPHA:F
 
-    const-wide/16 v0, 0xfa
+    const-wide/16 v0, 0xc8
 
     iput-wide v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_ALPHA_ANIMATION_DURATION:J
 
-    const-wide/16 v0, 0x42
+    const-wide/16 v0, 0x14
 
     iput-wide v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_APP_ALPHA_ANIMATION_START_OFFSET:J
 
@@ -1904,7 +1915,7 @@
 
     const v1, 0x3e4ccccd    # 0.2f
 
-    invoke-direct {v0, v5, v4, v1, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_SCALE_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
@@ -1912,7 +1923,7 @@
 
     const v1, 0x3e99999a    # 0.3f
 
-    invoke-direct {v0, v5, v4, v1, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_ALPHA_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
@@ -1920,19 +1931,19 @@
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_SCALE_ANIMATION_FROM_X:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_SCALE_ANIMATION_TO_X:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_SCALE_ANIMATION_TO_X:F
 
     const/high16 v0, 0x3fc00000    # 1.5f
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_SCALE_ANIMATION_FROM_Y:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_SCALE_ANIMATION_TO_Y:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_SCALE_ANIMATION_TO_Y:F
 
     iput-wide v8, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_SCALE_ANIMATION_DURATION:J
 
-    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_ALPHA_ANIMATION_FROM_ALPHA:F
+    iput v5, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_ALPHA_ANIMATION_FROM_ALPHA:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_ALPHA_ANIMATION_TO_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_HOME_ALPHA_ANIMATION_TO_ALPHA:F
 
     const-wide/16 v0, 0xa6
 
@@ -1946,7 +1957,7 @@
 
     const v1, 0x3e4ccccd    # 0.2f
 
-    invoke-direct {v0, v5, v4, v1, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
@@ -1954,13 +1965,13 @@
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_FROM_X:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_TO_X:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_TO_X:F
 
     const v0, 0x3fa66666    # 1.3f
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_FROM_Y:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_TO_Y:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_TO_Y:F
 
     iput-wide v8, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_DURATION:J
 
@@ -1968,17 +1979,17 @@
 
     const v1, 0x3f333333    # 0.7f
 
-    invoke-direct {v0, v1, v4, v4, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v1, v5, v5, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_WALLPAPER_SCALE_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_WALLPAPER_SCALE_ANIMATION_FROM_X:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_WALLPAPER_SCALE_ANIMATION_FROM_X:F
 
     const v0, 0x3fa66666    # 1.3f
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_WALLPAPER_SCALE_ANIMATION_TO_X:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_WALLPAPER_SCALE_ANIMATION_FROM_Y:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->APP_EXIT_WALLPAPER_SCALE_ANIMATION_FROM_Y:F
 
     const v0, 0x3fa66666    # 1.3f
 
@@ -1992,13 +2003,13 @@
 
     const/high16 v2, 0x3f000000    # 0.5f
 
-    invoke-direct {v0, v1, v2, v4, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v1, v2, v5, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_SCALE_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
-    invoke-direct {v0, v5, v4, v6, v6}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v7, v7}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_ALPHA_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
@@ -2006,21 +2017,21 @@
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_SCALE_ANIMATION_FROM_X:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_SCALE_ANIMATION_TO_X:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_SCALE_ANIMATION_TO_X:F
 
     const v0, 0x3f4ccccd    # 0.8f
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_SCALE_ANIMATION_FROM_Y:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_SCALE_ANIMATION_TO_Y:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_SCALE_ANIMATION_TO_Y:F
 
     const-wide/16 v0, 0x1f4
 
     iput-wide v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_SCALE_ANIMATION_DURATION:J
 
-    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_ALPHA_ANIMATION_FROM_ALPHA:F
+    iput v5, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_ALPHA_ANIMATION_FROM_ALPHA:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_ALPHA_ANIMATION_TO_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_ENTER_ALPHA_ANIMATION_TO_ALPHA:F
 
     const-wide/16 v0, 0xa7
 
@@ -2032,45 +2043,45 @@
 
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
-    invoke-direct {v0, v5, v4, v6, v6}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v7, v7}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_EXIT_ALPHA_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_EXIT_ALPHA_ANIMATION_FROM_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_EXIT_ALPHA_ANIMATION_FROM_ALPHA:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_EXIT_ALPHA_ANIMATION_TO_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_OPEN_EXIT_ALPHA_ANIMATION_TO_ALPHA:F
 
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
-    invoke-direct {v0, v5, v4, v6, v6}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v7, v7}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_ENTER_ALPHA_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_ENTER_ALPHA_ANIMATION_FROM_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_ENTER_ALPHA_ANIMATION_FROM_ALPHA:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_ENTER_ALPHA_ANIMATION_TO_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_ENTER_ALPHA_ANIMATION_TO_ALPHA:F
 
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
     const v1, 0x3e4ccccd    # 0.2f
 
-    invoke-direct {v0, v5, v4, v1, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v1, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_SCALE_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
-    invoke-direct {v0, v5, v4, v6, v6}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v0, v6, v5, v7, v7}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_ALPHA_ANIMATION_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_SCALE_ANIMATION_FROM_X:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_SCALE_ANIMATION_FROM_X:F
 
     const v0, 0x3f733333    # 0.95f
 
     iput v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_SCALE_ANIMATION_TO_X:F
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_SCALE_ANIMATION_FROM_Y:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_SCALE_ANIMATION_FROM_Y:F
 
     const v0, 0x3f733333    # 0.95f
 
@@ -2080,9 +2091,9 @@
 
     iput-wide v0, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_SCALE_ANIMATION_DURATION:J
 
-    iput v3, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_ALPHA_ANIMATION_FROM_ALPHA:F
+    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_ALPHA_ANIMATION_FROM_ALPHA:F
 
-    iput v4, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_ALPHA_ANIMATION_TO_ALPHA:F
+    iput v5, p0, Lcom/android/server/wm/animation/HighEndSamsungAnimationCreator;->TASK_CLOSE_EXIT_ALPHA_ANIMATION_TO_ALPHA:F
 
     const-wide/16 v0, 0xa7
 

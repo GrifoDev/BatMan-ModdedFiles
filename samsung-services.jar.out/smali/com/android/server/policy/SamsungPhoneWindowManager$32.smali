@@ -35,31 +35,100 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 7
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$32;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    const/4 v6, 0x1
 
-    iget-object v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mLock:Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    monitor-enter v1
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$32;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    :try_start_0
-    invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
+    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Landroid/hardware/input/InputManager;->coverEventFinished()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    if-eqz v3, :cond_0
 
-    monitor-exit v1
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$32;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/widget/Toast;->cancel()V
+
+    :cond_0
+    new-instance v0, Landroid/view/ContextThemeWrapper;
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$32;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+
+    const v4, 0x103012b
+
+    invoke-direct {v0, v3, v4}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x10408b6
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x10408b7
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$32;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    new-array v4, v6, [Ljava/lang/Object;
+
+    aput-object v1, v4, v5
+
+    invoke-static {v2, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v0, v4, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set11(Lcom/android/server/policy/SamsungPhoneWindowManager;Landroid/widget/Toast;)Landroid/widget/Toast;
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$32;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
+
+    move-result-object v3
+
+    const/16 v4, 0x11
+
+    invoke-virtual {v3, v4, v5, v5}, Landroid/widget/Toast;->setGravity(III)V
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$32;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/widget/Toast;->setShowForAllUsers()V
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$32;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method

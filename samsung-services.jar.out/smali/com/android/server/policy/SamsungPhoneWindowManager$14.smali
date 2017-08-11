@@ -39,11 +39,15 @@
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$14;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+    const/4 v1, 0x0
 
-    const/4 v1, 0x1
+    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap2(Lcom/android/server/policy/SamsungPhoneWindowManager;I)V
 
-    invoke-virtual {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->updateRotation(Z)V
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$14;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mTorchlightWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     return-void
 .end method

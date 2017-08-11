@@ -74,6 +74,20 @@
 
     iput-boolean v2, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mAvailableDoublTapLaunchCommand:Z
 
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$6;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$6;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$6;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mFifthTapLaunchCommandIntent:Landroid/content/Intent;
+
+    invoke-virtual {v2, v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isActivitiesAvailable(Landroid/content/Intent;)Z
+
+    move-result v2
+
+    iput-boolean v2, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mAvailableOneTouchReport:Z
+
     :cond_0
     return-void
 .end method

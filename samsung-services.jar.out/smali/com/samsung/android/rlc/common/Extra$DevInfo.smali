@@ -23,9 +23,9 @@
 
 .field public static final DM_BLINK_TOKEN_URL:Ljava/lang/String; = "https://%s/dm/v1/dev/cmd/blink"
 
-.field public static final DM_CERT_URL:Ljava/lang/String; = "https://%s/dm/v1/dev/getCert3"
+.field public static final DM_CERT_URL:Ljava/lang/String; = "https://%s/dm/v1/dev/getCert4"
 
-.field public static final DM_CHECK_URL:Ljava/lang/String; = "https://%s/dm/v1/dev/check2"
+.field public static final DM_CHECK_URL:Ljava/lang/String; = "https://%s/dm/v1/dev/check4"
 
 .field public static final DM_COMMAND_URL:Ljava/lang/String; = "https://%s/dm/v1/dev/getCmd"
 

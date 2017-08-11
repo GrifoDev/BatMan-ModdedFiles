@@ -6,6 +6,10 @@
 .implements Lcom/samsung/android/view/IWindowStateBridge;
 
 
+# static fields
+.field private static mNonImmersiveModePackages:[Ljava/lang/String;
+
+
 # instance fields
 .field mAspectRatio:F
 
@@ -37,6 +41,60 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    const/4 v0, 0x7
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "com.tencent.mm"
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.eg.android.AlipayGphone"
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.tencent.mobileqq"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.baidu.searchbox"
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.baidu.searchbox_samsung"
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.pingan.lifeinsurance"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "tv.xiaoka.live"
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    sput-object v0, Lcom/android/server/wm/SamsungWindowState;->mNonImmersiveModePackages:[Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -124,59 +182,178 @@
     return v0
 .end method
 
-.method private isNonImmersiveModePackage(Ljava/lang/String;)Z
+.method private isNonImmersiveExceptionPackage(Ljava/lang/String;)Z
     .locals 6
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    if-eqz p1, :cond_0
+    sget-object v3, Lcom/android/server/wm/SamsungWindowState;->mNonImmersiveModePackages:[Ljava/lang/String;
 
+    array-length v4, v3
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v4, :cond_1
+
+    aget-object v0, v3, v1
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v2
+.end method
+
+.method private isNonImmersiveMode(Lcom/android/server/wm/WindowState;)Z
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v2, 0x0
+
+    iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget-object v3, v6, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+
+    if-eqz v3, :cond_1
+
+    invoke-direct {p0, v3}, Lcom/android/server/wm/SamsungWindowState;->isNonImmersiveExceptionPackage(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    return v9
+
+    :cond_0
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v2
+    move-result-object v6
 
-    iget-object v3, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
+    iget-object v7, p1, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
 
-    iget-object v3, v3, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+    iget v7, v7, Lcom/android/server/wm/Session;->mUid:I
 
-    iget v3, v3, Lcom/android/server/wm/Session;->mUid:I
+    invoke-static {v7}, Landroid/os/UserHandle;->getUserId(I)I
 
-    invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
+    move-result v7
 
-    move-result v3
+    const/16 v8, 0x80
 
-    const/16 v4, 0x80
+    invoke-interface {v6, v3, v8, v7}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
 
-    invoke-interface {v2, p1, v4, v3}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v6, v1, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, v1, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    const-string/jumbo v7, "com.samsung.android.non_immersive"
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v6, v7, v8}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-virtual {v6}, Landroid/view/WindowManager$LayoutParams;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v6
+
+    invoke-interface {v6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v6
+
+    array-length v6, v6
+
+    if-le v6, v9, :cond_1
+
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v6
+
+    new-instance v7, Landroid/content/ComponentName;
+
+    const-string/jumbo v8, "/"
+
+    invoke-virtual {v5, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v9, 0x1
+
+    aget-object v8, v8, v9
+
+    invoke-direct {v7, v3, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v8, p1, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+
+    iget v8, v8, Lcom/android/server/wm/Session;->mUid:I
+
+    invoke-static {v8}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v8
+
+    const/16 v9, 0x80
+
+    invoke-interface {v6, v7, v9, v8}, Landroid/content/pm/IPackageManager;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    iget-object v2, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v6, v0, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
-    if-eqz v2, :cond_0
+    if-eqz v6, :cond_1
 
-    iget-object v2, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v6, v0, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
-    const-string/jumbo v3, "com.samsung.android.non_immersive"
+    const-string/jumbo v7, "com.samsung.android.non_immersive"
 
-    const/4 v4, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {v2, v3, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v6, v7, v8}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
+    :cond_1
+    :goto_0
     return v2
 
     :catch_0
-    move-exception v1
+    move-exception v4
 
-    :cond_0
-    return v5
+    goto :goto_0
 .end method
 
 
@@ -237,9 +414,9 @@
     :goto_0
     iget-object v8, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
 
-    iget-object v8, v8, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+    invoke-virtual {v8}, Lcom/android/server/wm/WindowState;->getBaseType()I
 
-    iget v8, v8, Landroid/view/WindowManager$LayoutParams;->type:I
+    move-result v8
 
     const/16 v9, 0x7d0
 
@@ -1294,11 +1471,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/SamsungWindowState;->mWin:Lcom/android/server/wm/WindowState;
 
-    iget-object v2, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget-object v2, v2, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
-
-    invoke-direct {p0, v2}, Lcom/android/server/wm/SamsungWindowState;->isNonImmersiveModePackage(Ljava/lang/String;)Z
+    invoke-direct {p0, v2}, Lcom/android/server/wm/SamsungWindowState;->isNonImmersiveMode(Lcom/android/server/wm/WindowState;)Z
 
     move-result v2
 

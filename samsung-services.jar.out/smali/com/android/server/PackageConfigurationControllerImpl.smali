@@ -1602,17 +1602,8 @@
 .method public updateConventionalModePackage()V
     .locals 11
 
-    const/4 v0, 0x0
-
     const/4 v6, 0x0
 
-    iget-object v2, p0, Lcom/android/server/PackageConfigurationControllerImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    :try_start_0
     sget-object v2, Lcom/android/server/PackageConfigurationControllerImpl;->ITEM_URI:Landroid/net/Uri;
 
     const-string/jumbo v3, "AppCore"
@@ -1621,6 +1612,13 @@
 
     move-result-object v1
 
+    iget-object v2, p0, Lcom/android/server/PackageConfigurationControllerImpl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    :try_start_0
     const-string/jumbo v3, "category = \'screenRatio\'"
 
     const/4 v2, 0x0
@@ -1633,20 +1631,20 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_4
 
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
     move-result v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_4
 
     :goto_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4
 
     const/4 v2, 0x1
 
@@ -1678,13 +1676,8 @@
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :goto_1
-    const/4 v6, 0x0
-
     :cond_0
-    return-void
-
-    :cond_1
+    :goto_1
     :try_start_1
     iget-object v2, p0, Lcom/android/server/PackageConfigurationControllerImpl;->mToBeKillProcessList:Ljava/util/HashMap;
 
@@ -1706,20 +1699,20 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_6
 
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
     move-result v2
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_6
 
     :goto_2
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_6
 
     const/4 v2, 0x1
 
@@ -1739,24 +1732,20 @@
 
     invoke-direct {p0, v8, v10}, Lcom/android/server/PackageConfigurationControllerImpl;->setProcessKillPolicy(Ljava/lang/String;Z)V
     :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_2
 
-    :catchall_0
-    move-exception v2
+    :catch_1
+    move-exception v7
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    const/4 v6, 0x0
-
-    :cond_2
-    throw v2
-
-    :cond_3
+    :cond_1
+    :goto_3
     :try_start_2
     const-string/jumbo v3, "category = \'killPolicy\'"
 
@@ -1770,21 +1759,21 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_8
 
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
     move-result v2
 
-    if-lez v2, :cond_5
+    if-lez v2, :cond_8
 
-    :cond_4
-    :goto_3
+    :cond_2
+    :goto_4
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_8
 
     const/4 v2, 0x1
 
@@ -1798,7 +1787,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_2
 
     const/4 v2, 0x3
 
@@ -1812,15 +1801,70 @@
 
     iput-boolean v2, p0, Lcom/android/server/PackageConfigurationControllerImpl;->mForceKillProcess:Z
     :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_5
+    :catch_2
+    move-exception v7
+
+    if-eqz v6, :cond_3
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    :goto_5
+    return-void
+
+    :cond_4
     if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_1
+
+    :catchall_0
+    move-exception v2
+
+    if-eqz v6, :cond_5
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_5
+    throw v2
+
+    :cond_6
+    if-eqz v6, :cond_1
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_3
+
+    :catchall_1
+    move-exception v2
+
+    if-eqz v6, :cond_7
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_7
+    throw v2
+
+    :cond_8
+    if-eqz v6, :cond_3
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_5
+
+    :catchall_2
+    move-exception v2
+
+    if-eqz v6, :cond_9
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_9
+    throw v2
 .end method

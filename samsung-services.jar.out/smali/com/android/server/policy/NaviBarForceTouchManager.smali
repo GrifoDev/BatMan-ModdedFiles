@@ -14,10 +14,12 @@
 
 .field private static final SAFE_DEBUG:Z = true
 
-.field private static final TAG:Ljava/lang/String; = "NaviBarForceTouchManager"
+.field private static final TAG:Ljava/lang/String; = "NaviBarForceTouchMgr"
 
 
 # instance fields
+.field private final EPSILON:F
+
 .field mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
 .field private mContext:Landroid/content/Context;
@@ -54,6 +56,10 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const v0, 0x3727c5ac    # 1.0E-5f
+
+    iput v0, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->EPSILON:F
 
     iput-object p1, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mContext:Landroid/content/Context;
 
@@ -114,7 +120,7 @@
     :cond_0
     if-eqz v0, :cond_1
 
-    const-string/jumbo v1, "NaviBarForceTouchManager"
+    const-string/jumbo v1, "NaviBarForceTouchMgr"
 
     const-string/jumbo v2, "dismissKeyguard by force touch"
 
@@ -137,7 +143,7 @@
 .method private forceClickImmersive(I)V
     .locals 3
 
-    const-string/jumbo v0, "NaviBarForceTouchManager"
+    const-string/jumbo v0, "NaviBarForceTouchMgr"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -256,12 +262,28 @@
 
     float-to-int v3, v6
 
+    iget-object v6, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    iget-boolean v6, v6, Lcom/android/server/policy/PhoneWindowManager;->mScreenOnFully:Z
+
+    if-eqz v6, :cond_2
+
     if-eqz p3, :cond_2
 
-    div-int/lit8 v0, v3, 0x4
+    int-to-float v6, v3
+
+    const/high16 v7, 0x3e400000    # 0.1875f
+
+    mul-float/2addr v6, v7
+
+    const/high16 v7, 0x3f000000    # 0.5f
+
+    add-float/2addr v6, v7
+
+    float-to-int v0, v6
 
     :goto_0
-    const-string/jumbo v6, "NaviBarForceTouchManager"
+    const-string/jumbo v6, "NaviBarForceTouchMgr"
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -284,6 +306,20 @@
     move-result-object v7
 
     invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ", mPWM.mScreenOnFully="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    iget-boolean v8, v8, Lcom/android/server/policy/PhoneWindowManager;->mScreenOnFully:Z
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -376,7 +412,7 @@
     :cond_2
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_3
     div-int/lit8 v6, v5, 0x3
@@ -476,9 +512,17 @@
 
     div-float/2addr v1, v2
 
+    sub-float/2addr v0, v1
+
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+
+    move-result v0
+
+    const v1, 0x3727c5ac    # 1.0E-5f
+
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_0
+    if-lez v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -487,6 +531,54 @@
 
     :cond_0
     const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private isGamePressureTouchLocked(Landroid/content/Context;)Z
+    .locals 5
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "game_pressure_touch_lock"
+
+    const/4 v4, 0x0
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "NaviBarForceTouchMgr"
+
+    const-string/jumbo v3, "Exception on isGamePressureTouchLocked"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -602,7 +694,7 @@
 
     if-eqz v4, :cond_0
 
-    const-string/jumbo v3, "NaviBarForceTouchManager"
+    const-string/jumbo v3, "NaviBarForceTouchMgr"
 
     const-string/jumbo v4, "conventional mode , ignore force touch."
 
@@ -611,7 +703,7 @@
     return-void
 
     :cond_0
-    const-string/jumbo v4, "NaviBarForceTouchManager"
+    const-string/jumbo v4, "NaviBarForceTouchMgr"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -689,7 +781,7 @@
 
     if-eqz v4, :cond_3
 
-    const-string/jumbo v3, "NaviBarForceTouchManager"
+    const-string/jumbo v3, "NaviBarForceTouchMgr"
 
     const-string/jumbo v4, "TalkbackEnabled,  skip force action"
 
@@ -698,12 +790,37 @@
     return-void
 
     :cond_3
-    if-ne v0, v7, :cond_4
+    iget-object v4, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v4}, Lcom/android/server/policy/PhoneWindowManager;->isScreenOn()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    iget-object v4, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mContext:Landroid/content/Context;
+
+    invoke-direct {p0, v4}, Lcom/android/server/policy/NaviBarForceTouchManager;->isGamePressureTouchLocked(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const-string/jumbo v3, "NaviBarForceTouchMgr"
+
+    const-string/jumbo v4, "Force touch disabled by GameTools. skip force action"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_4
+    if-ne v0, v7, :cond_5
 
     move v1, v3
 
-    :cond_4
-    if-eqz v1, :cond_5
+    :cond_5
+    if-eqz v1, :cond_6
 
     iget-object v4, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mVibrator:Landroid/os/Vibrator;
 
@@ -719,8 +836,8 @@
 
     iput-boolean v3, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mHapticPlayed:Z
 
-    :cond_5
-    if-nez v2, :cond_6
+    :cond_6
+    if-nez v2, :cond_7
 
     iget-object v3, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
@@ -732,20 +849,14 @@
 
     invoke-direct {p0}, Lcom/android/server/policy/NaviBarForceTouchManager;->dismissKeyguard()V
 
-    :cond_6
-    :goto_0
-    return-void
-
     :cond_7
-    invoke-direct {p0, v0}, Lcom/android/server/policy/NaviBarForceTouchManager;->forceClickImmersive(I)V
-
-    goto :goto_0
+    return-void
 .end method
 
 .method public onForcePressedSleep()V
     .locals 2
 
-    const-string/jumbo v0, "NaviBarForceTouchManager"
+    const-string/jumbo v0, "NaviBarForceTouchMgr"
 
     const-string/jumbo v1, "onForcePressedSleep()"
 
@@ -757,72 +868,93 @@
 .end method
 
 .method public onForceReleased(II)V
-    .locals 5
+    .locals 7
 
-    const-string/jumbo v0, "NaviBarForceTouchManager"
+    const-string/jumbo v2, "NaviBarForceTouchMgr"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "onForceReleased() x="
+    const-string/jumbo v4, "onForceReleased() x="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string/jumbo v2, ", y="
+    const-string/jumbo v4, ", y="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string/jumbo v2, ", mHapticPlayed="
+    const-string/jumbo v4, ", mHapticPlayed="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
+
+    iget-boolean v4, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mHapticPlayed:Z
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-boolean v2, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mHapticPlayed:Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_1
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v2, v2, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-result-object v1
+    invoke-interface {v2}, Landroid/view/WindowManagerPolicy$WindowState;->isVisibleLw()Z
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v1
 
-    iget-boolean v0, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mHapticPlayed:Z
+    invoke-direct {p0, p1, p2, v1}, Lcom/android/server/policy/NaviBarForceTouchManager;->getEventId(IIZ)I
 
-    if-eqz v0, :cond_0
+    move-result v0
 
-    iget-object v0, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mVibrator:Landroid/os/Vibrator;
+    const/4 v2, 0x2
 
-    sget-object v1, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_FORCE:Landroid/os/Vibrator$SemMagnitudeTypes;
+    if-ne v0, v2, :cond_0
 
-    const v2, 0xc377
+    iget-object v2, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mVibrator:Landroid/os/Vibrator;
 
-    const/4 v3, -0x1
+    sget-object v3, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_FORCE:Landroid/os/Vibrator$SemMagnitudeTypes;
 
-    const/4 v4, 0x0
+    const v4, 0xc377
 
-    invoke-virtual {v0, v2, v3, v4, v1}, Landroid/os/Vibrator;->semVibrate(IILandroid/media/AudioAttributes;Landroid/os/Vibrator$SemMagnitudeTypes;)V
+    const/4 v5, -0x1
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v2, v4, v5, v6, v3}, Landroid/os/Vibrator;->semVibrate(IILandroid/media/AudioAttributes;Landroid/os/Vibrator$SemMagnitudeTypes;)V
 
     :cond_0
-    const/4 v0, 0x0
+    if-nez v1, :cond_1
 
-    iput-boolean v0, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mHapticPlayed:Z
+    invoke-direct {p0, v0}, Lcom/android/server/policy/NaviBarForceTouchManager;->forceClickImmersive(I)V
+
+    :cond_1
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Lcom/android/server/policy/NaviBarForceTouchManager;->mHapticPlayed:Z
 
     return-void
 .end method
@@ -830,7 +962,7 @@
 .method public onForceReleasedSleep(Z)V
     .locals 5
 
-    const-string/jumbo v0, "NaviBarForceTouchManager"
+    const-string/jumbo v0, "NaviBarForceTouchMgr"
 
     new-instance v1, Ljava/lang/StringBuilder;
 

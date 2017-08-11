@@ -4266,256 +4266,238 @@
 .end method
 
 .method public drawFreeformRoundedDim(Lcom/android/server/wm/Task;Landroid/view/SurfaceControl;Landroid/graphics/Rect;I)V
-    .locals 14
+    .locals 15
 
-    iget v9, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
+    iget-object v10, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    const/high16 v10, -0x40800000    # -1.0f
+    iget-object v10, v10, Lcom/android/server/wm/WindowManagerService;->mBridge:Lcom/android/server/wm/IWindowManagerServiceBridge;
 
-    cmpl-float v9, v9, v10
+    invoke-interface {v10}, Lcom/android/server/wm/IWindowManagerServiceBridge;->isKnoxDesktopModeLocked()Z
 
-    if-nez v9, :cond_1
+    move-result v6
 
-    iget-object v9, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    iget v10, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
 
-    iget-object v9, v9, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+    const/high16 v11, -0x40800000    # -1.0f
 
-    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    cmpl-float v10, v10, v11
 
-    move-result-object v9
+    if-nez v10, :cond_0
 
-    sget v10, Lcom/samsung/android/framework/res/R$dimen;->multiwindow_decor_frame_thickness:I
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v9
-
-    int-to-float v9, v9
-
-    iput v9, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
-
-    iget-object v9, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v9, v9, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v7
-
-    iget v9, v7, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
-
-    iget v10, v7, Landroid/content/res/Configuration;->densityDpi:I
-
-    invoke-static {v9, v10}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge$Utils;->getFreeformDensity(II)I
-
-    move-result v4
-
-    if-lez v4, :cond_0
-
-    iget-boolean v9, p1, Lcom/android/server/wm/Task;->mSupportFreefromDensity:Z
-
-    if-eqz v9, :cond_0
-
-    iget v9, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
-
-    iget v10, v7, Landroid/content/res/Configuration;->densityDpi:I
-
-    int-to-float v10, v10
-
-    div-float/2addr v9, v10
-
-    int-to-float v10, v4
-
-    mul-float/2addr v9, v10
-
-    iput v9, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
+    invoke-virtual {p0, v6}, Lcom/android/server/wm/MultiWindowManagerInternal;->updateFreeformRoundedDim(Z)V
 
     :cond_0
-    iget v9, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
+    iget v2, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
 
-    const/high16 v10, 0x40a00000    # 5.0f
+    if-nez v6, :cond_1
 
-    mul-float/2addr v9, v10
+    move-object/from16 v0, p1
 
-    iput v9, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
+    iget-boolean v10, v0, Lcom/android/server/wm/Task;->mSupportFreefromDensity:Z
+
+    if-eqz v10, :cond_1
+
+    iget-object v10, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v10, v10, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v9
+
+    iget v10, v9, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
+
+    iget v11, v9, Landroid/content/res/Configuration;->densityDpi:I
+
+    invoke-static {v10, v11}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge$Utils;->getFreeformDensity(II)I
+
+    move-result v5
+
+    if-lez v5, :cond_1
+
+    iget v10, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
+
+    iget v11, v9, Landroid/content/res/Configuration;->densityDpi:I
+
+    int-to-float v11, v11
+
+    div-float/2addr v10, v11
+
+    int-to-float v11, v5
+
+    mul-float v2, v10, v11
 
     :cond_1
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getTopAppToken()Lcom/android/server/wm/AppWindowToken;
-
-    move-result-object v8
-
     :try_start_0
-    sget-boolean v9, Lcom/android/server/wm/MultiWindowManagerInternal;->DEBUG:Z
+    sget-boolean v10, Lcom/android/server/wm/MultiWindowManagerInternal;->DEBUG:Z
 
-    if-eqz v9, :cond_2
+    if-eqz v10, :cond_2
 
-    const-string/jumbo v9, "MultiWindowManagerInternal"
+    const-string/jumbo v10, "MultiWindowManagerInternal"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "showFreeformRoundedDim :: task="
+    const-string/jumbo v12, "showFreeformRoundedDim :: task="
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ", mFreeformRoundedCorner="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    iget v11, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ", dimType="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    move/from16 v0, p4
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ", bounds="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ", caller="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const/4 v11, 0x5
-
-    invoke-static {v11}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p1
 
-    move-result-object v10
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v10
+    const-string/jumbo v12, ", mFreeformRoundedCorner="
 
-    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_2
-    new-instance v5, Landroid/view/Surface;
+    move-result-object v11
 
-    invoke-direct {v5}, Landroid/view/Surface;-><init>()V
+    iget v12, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
 
-    move-object/from16 v0, p2
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v0}, Landroid/view/Surface;->copyFrom(Landroid/view/SurfaceControl;)V
+    move-result-object v11
 
-    const/4 v9, 0x0
+    const-string/jumbo v12, ", dimType="
 
-    invoke-virtual {v5, v9}, Landroid/view/Surface;->lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
-    new-instance v6, Landroid/graphics/Paint;
-
-    invoke-direct {v6}, Landroid/graphics/Paint;-><init>()V
-
-    const/high16 v9, -0x1000000
-
-    invoke-virtual {v6, v9}, Landroid/graphics/Paint;->setColor(I)V
-
-    sget-object v9, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v6, v9}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    const/4 v9, 0x1
+    move-result-object v11
 
     move/from16 v0, p4
 
-    if-ne v0, v9, :cond_3
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance v9, Landroid/graphics/RectF;
+    move-result-object v11
+
+    const-string/jumbo v12, ", bounds="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", caller="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const/4 v12, 0x5
+
+    invoke-static {v12}, Landroid/os/Debug;->getCallers(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    new-instance v7, Landroid/view/Surface;
+
+    invoke-direct {v7}, Landroid/view/Surface;-><init>()V
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v7, v0}, Landroid/view/Surface;->copyFrom(Landroid/view/SurfaceControl;)V
 
     const/4 v10, 0x0
 
+    invoke-virtual {v7, v10}, Landroid/view/Surface;->lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+
+    move-result-object v1
+
+    new-instance v8, Landroid/graphics/Paint;
+
+    invoke-direct {v8}, Landroid/graphics/Paint;-><init>()V
+
+    const/high16 v10, -0x1000000
+
+    invoke-virtual {v8, v10}, Landroid/graphics/Paint;->setColor(I)V
+
+    sget-object v10, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v8, v10}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    const/4 v10, 0x1
+
+    move/from16 v0, p4
+
+    if-ne v0, v10, :cond_3
+
+    new-instance v10, Landroid/graphics/RectF;
+
     const/4 v11, 0x0
 
+    const/4 v12, 0x0
+
     invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->width()I
-
-    move-result v12
-
-    int-to-float v12, v12
-
-    invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->height()I
 
     move-result v13
 
     int-to-float v13, v13
 
-    invoke-direct {v9, v10, v11, v12, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
+    invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->height()I
 
-    iget v10, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
+    move-result v14
 
-    iget v11, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
+    int-to-float v14, v14
 
-    invoke-virtual {v1, v9, v10, v11, v6}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
+    invoke-direct {v10, v11, v12, v13, v14}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    invoke-virtual {v1, v10, v2, v2, v8}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
     :goto_0
-    invoke-virtual {v5, v1}, Landroid/view/Surface;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
+    invoke-virtual {v7, v1}, Landroid/view/Surface;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
-    invoke-virtual {v5}, Landroid/view/Surface;->release()V
+    invoke-virtual {v7}, Landroid/view/Surface;->release()V
 
     :goto_1
     return-void
 
     :cond_3
-    new-instance v9, Landroid/graphics/RectF;
-
-    const/4 v10, 0x0
+    new-instance v10, Landroid/graphics/RectF;
 
     const/4 v11, 0x0
 
+    const/4 v12, 0x0
+
     invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->width()I
-
-    move-result v12
-
-    int-to-float v12, v12
-
-    invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->height()I
 
     move-result v13
 
     int-to-float v13, v13
 
-    invoke-direct {v9, v10, v11, v12, v13}, Landroid/graphics/RectF;-><init>(FFFF)V
+    invoke-virtual/range {p3 .. p3}, Landroid/graphics/Rect;->height()I
 
-    invoke-virtual {v1, v9, v6}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
+    move-result v14
+
+    int-to-float v14, v14
+
+    invoke-direct {v10, v11, v12, v13, v14}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    invoke-virtual {v1, v10, v8}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_0 .. :try_end_0} :catch_1
@@ -4523,28 +4505,28 @@
     goto :goto_0
 
     :catch_0
-    move-exception v3
+    move-exception v4
 
-    invoke-virtual {v3}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
-    const-string/jumbo v9, "MultiWindowManagerInternal"
+    const-string/jumbo v10, "MultiWindowManagerInternal"
 
-    const-string/jumbo v10, "showFreeformRoundedDim IllegalExeption"
+    const-string/jumbo v11, "showFreeformRoundedDim IllegalExeption"
 
-    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
     :catch_1
-    move-exception v2
+    move-exception v3
 
-    invoke-virtual {v2}, Landroid/view/Surface$OutOfResourcesException;->printStackTrace()V
+    invoke-virtual {v3}, Landroid/view/Surface$OutOfResourcesException;->printStackTrace()V
 
-    const-string/jumbo v9, "MultiWindowManagerInternal"
+    const-string/jumbo v10, "MultiWindowManagerInternal"
 
-    const-string/jumbo v10, "showFreeformRoundedDim ResourceException"
+    const-string/jumbo v11, "showFreeformRoundedDim ResourceException"
 
-    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method
@@ -5068,7 +5050,56 @@
 
     invoke-virtual {v7, v12, v13}, Lcom/samsung/android/multiwindow/MultiWindowManager;->setLaunchBounds(ILandroid/graphics/Rect;)V
 
+    const/4 v12, 0x2
+
     :try_start_4
+    new-array v6, v12, [Ljava/lang/String;
+
+    const/4 v12, 0x2
+
+    new-array v5, v12, [Ljava/lang/String;
+
+    const-string/jumbo v12, "FFBY"
+
+    const/4 v13, 0x0
+
+    aput-object v12, v6, v13
+
+    move-object/from16 v0, p1
+
+    iget-object v12, v0, Lcom/samsung/android/multiwindow/MultiWindowEdgeDetector$ResizeInfo;->mBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v12}, Landroid/graphics/Rect;->isEmpty()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_a
+
+    const-string/jumbo v12, "DividerButton"
+
+    const/4 v13, 0x0
+
+    aput-object v12, v5, v13
+
+    :goto_2
+    const-string/jumbo v12, "FFEP"
+
+    const/4 v13, 0x1
+
+    aput-object v12, v6, v13
+
+    iget-object v12, v11, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget-object v12, v12, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+
+    const/4 v13, 0x1
+
+    aput-object v12, v5, v13
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v6, v5}, Lcom/android/server/wm/MultiWindowManagerInternal;->logMultiWindowBehavior([Ljava/lang/String;[Ljava/lang/String;)V
+
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -5099,7 +5130,7 @@
 
     const/4 v12, 0x1
 
-    if-ne v8, v12, :cond_a
+    if-ne v8, v12, :cond_b
 
     move-object/from16 v0, p0
 
@@ -5114,7 +5145,7 @@
     invoke-interface {v12, v13, v14}, Landroid/app/IActivityManager;->moveTasksToFullscreenStack(IZ)V
 
     :cond_7
-    :goto_2
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -5124,55 +5155,6 @@
     const/4 v13, 0x2
 
     invoke-interface {v12, v13}, Landroid/app/IActivityManager;->setFocusedStack(I)V
-
-    const/4 v12, 0x2
-
-    new-array v6, v12, [Ljava/lang/String;
-
-    const/4 v12, 0x2
-
-    new-array v5, v12, [Ljava/lang/String;
-
-    const-string/jumbo v12, "FFBY"
-
-    const/4 v13, 0x0
-
-    aput-object v12, v6, v13
-
-    move-object/from16 v0, p1
-
-    iget-object v12, v0, Lcom/samsung/android/multiwindow/MultiWindowEdgeDetector$ResizeInfo;->mBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v12}, Landroid/graphics/Rect;->isEmpty()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_b
-
-    const-string/jumbo v12, "DividerButton"
-
-    const/4 v13, 0x0
-
-    aput-object v12, v5, v13
-
-    :goto_3
-    const-string/jumbo v12, "FFEP"
-
-    const/4 v13, 0x1
-
-    aput-object v12, v6, v13
-
-    iget-object v12, v11, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget-object v12, v12, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
-
-    const/4 v13, 0x1
-
-    aput-object v12, v5, v13
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v6, v5}, Lcom/android/server/wm/MultiWindowManagerInternal;->logMultiWindowBehavior([Ljava/lang/String;[Ljava/lang/String;)V
     :try_end_4
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
 
@@ -5193,22 +5175,12 @@
     throw v12
 
     :cond_a
-    const/4 v12, 0x3
-
-    if-ne v8, v12, :cond_7
-
     :try_start_5
-    move-object/from16 v0, p0
+    const-string/jumbo v12, "Gesture"
 
-    iget-object v12, v0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    const/4 v13, 0x0
 
-    iget-object v12, v12, Lcom/android/server/wm/WindowManagerService;->mActivityManager:Landroid/app/IActivityManager;
-
-    const/4 v13, 0x3
-
-    const/4 v14, 0x0
-
-    invoke-interface {v12, v13, v14}, Landroid/app/IActivityManager;->moveTasksToFullscreenStack(IZ)V
+    aput-object v12, v5, v13
     :try_end_5
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
 
@@ -5222,12 +5194,22 @@
     goto :goto_4
 
     :cond_b
+    const/4 v12, 0x3
+
+    if-ne v8, v12, :cond_7
+
     :try_start_6
-    const-string/jumbo v12, "Gesture"
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x0
+    iget-object v12, v0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    aput-object v12, v5, v13
+    iget-object v12, v12, Lcom/android/server/wm/WindowManagerService;->mActivityManager:Landroid/app/IActivityManager;
+
+    const/4 v13, 0x3
+
+    const/4 v14, 0x0
+
+    invoke-interface {v12, v13, v14}, Landroid/app/IActivityManager;->moveTasksToFullscreenStack(IZ)V
     :try_end_6
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
 
@@ -7018,6 +7000,51 @@
     iget-boolean v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mhasIMEHeightChanged:Z
 
     return v0
+.end method
+
+.method public hasRelaunchingAppWindowTokenLocked(Lcom/android/server/wm/Task;)Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    if-eqz p1, :cond_1
+
+    iget-object v2, p1, Lcom/android/server/wm/Task;->mAppTokens:Lcom/android/server/wm/AppTokenList;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/AppTokenList;->size()I
+
+    move-result v2
+
+    add-int/lit8 v1, v2, -0x1
+
+    :goto_0
+    if-ltz v1, :cond_1
+
+    iget-object v2, p1, Lcom/android/server/wm/Task;->mAppTokens:Lcom/android/server/wm/AppTokenList;
+
+    invoke-virtual {v2, v1}, Lcom/android/server/wm/AppTokenList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/wm/AppWindowToken;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/AppWindowToken;->isRelaunching()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_0
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v3
 .end method
 
 .method public isAnimatingForMinimizedDockedStack(I)Z
@@ -12981,6 +13008,38 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public updateFreeformRoundedDim(Z)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    sget v0, Lcom/samsung/android/framework/res/R$dimen;->multiwindow_desktop_freeform_corner_radius:I
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    iput v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRoundedCorner:F
+
+    return-void
+
+    :cond_0
+    sget v0, Lcom/samsung/android/framework/res/R$dimen;->multiwindow_freeform_guide_window_corner_radius:I
+
+    goto :goto_0
 .end method
 
 .method public updateFreeformShadowLightLocationLocked(I)V

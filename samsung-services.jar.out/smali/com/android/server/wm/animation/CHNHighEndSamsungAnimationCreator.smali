@@ -1034,6 +1034,10 @@
 
     invoke-virtual {v12, v1}, Landroid/view/animation/AnimationSet;->setDetachWallpaper(Z)V
 
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1}, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;->updateAppTransitionStartValues(Landroid/graphics/Rect;)V
+
     :goto_1
     const/4 v1, 0x1
 
@@ -1449,19 +1453,28 @@
 
     iget-boolean v1, p0, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;->mWallpaperEnterAnimationAllowed:Z
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
+    invoke-virtual {p0}, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;->getWallpaperAnimationBlocked()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
     const-string/jumbo v1, "CHNHighEndSamsungAnimationCreator"
 
     const-string/jumbo v2, "createSamsungWallpaperEnterAnimation, wallpaperEnterAnimation is not allowed"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-virtual {p0, v5}, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;->setWallpaperAnimationBlocked(Z)V
+
     const/4 v1, 0x0
 
     return-object v1
 
-    :cond_0
+    :cond_1
     const-string/jumbo v1, "CHNHighEndSamsungAnimationCreator"
 
     const-string/jumbo v2, "createSamsungWallpaperEnterAnimation"
@@ -1502,15 +1515,15 @@
 
     const/4 v2, 0x2
 
-    if-eq v2, v1, :cond_1
+    if-eq v2, v1, :cond_2
 
     invoke-virtual {p0}, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;->isValidAppTransitionStartValues()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
-    :cond_1
+    :cond_2
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     iget v1, p0, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_FROM_X:F
@@ -1548,15 +1561,9 @@
 
     iput-boolean v5, p0, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;->mWallpaperEnterAnimationAllowed:Z
 
-    new-instance v1, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator$1;
-
-    invoke-direct {v1, p0}, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator$1;-><init>(Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
     return-object v0
 
-    :cond_2
+    :cond_3
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     iget v7, p0, Lcom/android/server/wm/animation/CHNHighEndSamsungAnimationCreator;->APP_ENTER_WALLPAPER_SCALE_ANIMATION_FROM_X:F

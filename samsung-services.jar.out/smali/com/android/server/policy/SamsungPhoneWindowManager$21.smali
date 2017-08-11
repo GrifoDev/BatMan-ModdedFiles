@@ -1,11 +1,11 @@
 .class Lcom/android/server/policy/SamsungPhoneWindowManager$21;
-.super Landroid/telephony/PhoneStateListener;
+.super Landroid/content/BroadcastReceiver;
 .source "SamsungPhoneWindowManager.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->init(Landroid/content/Context;Lcom/android/server/policy/PhoneWindowManager;Landroid/view/IWindowManager;Landroid/view/WindowManagerPolicy$WindowManagerFuncs;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,63 +24,117 @@
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onCallStateChanged(ILjava/lang/String;)V
-    .locals 4
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
 
-    const/4 v2, 0x0
+    const-string/jumbo v3, "com.samsung.action.DEBUG_RECONFIGURE"
 
-    const/4 v1, 0x1
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    move-result-object v4
 
-    if-eq p1, v1, :cond_0
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/4 v0, 0x2
+    move-result v3
 
-    if-ne p1, v0, :cond_2
+    if-eqz v3, :cond_1
 
-    :cond_0
-    move v0, v1
+    const-string/jumbo v3, "PWM_DEBUG"
 
-    :goto_0
-    invoke-static {v3, v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set10(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
+    invoke-virtual {p2, v3}, Landroid/content/Intent;->getExtra(Ljava/lang/String;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    move-result-object v2
 
-    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get8(Lcom/android/server/policy/SamsungPhoneWindowManager;)Z
+    check-cast v2, [Z
 
-    move-result v0
+    array-length v3, v2
 
-    if-nez v0, :cond_1
+    const/4 v4, 0x7
 
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    invoke-virtual {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->requestTraversalForCoverView()V
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    if-ne p1, v1, :cond_3
-
-    :goto_1
-    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set9(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
+    if-eq v3, v4, :cond_0
 
     return-void
 
-    :cond_2
-    move v0, v2
+    :cond_0
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    goto :goto_0
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    :cond_3
-    move v1, v2
+    const/4 v3, 0x0
 
-    goto :goto_1
+    const/4 v0, 0x1
+
+    aget-boolean v3, v2, v3
+
+    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG:Z
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    add-int/lit8 v1, v0, 0x1
+
+    aget-boolean v3, v2, v0
+
+    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->localLOGV:Z
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    add-int/lit8 v0, v1, 0x1
+
+    aget-boolean v3, v2, v1
+
+    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_INPUT:Z
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    add-int/lit8 v1, v0, 0x1
+
+    aget-boolean v3, v2, v0
+
+    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_KEYGUARD:Z
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    add-int/lit8 v0, v1, 0x1
+
+    aget-boolean v3, v2, v1
+
+    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_LAYOUT:Z
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    add-int/lit8 v1, v0, 0x1
+
+    aget-boolean v3, v2, v0
+
+    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_STARTING_WINDOW:Z
+
+    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$21;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    add-int/lit8 v0, v1, 0x1
+
+    aget-boolean v3, v2, v1
+
+    sput-boolean v3, Lcom/android/server/policy/PhoneWindowManager;->DEBUG_WAKEUP:Z
+
+    :cond_1
+    return-void
 .end method

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->handleLongPressOnRecent()Z
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->interceptKeyBeforeDispatching(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)J
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -37,19 +37,23 @@
 .method public run()V
     .locals 3
 
-    const-class v1, Lcom/android/server/statusbar/StatusBarManagerInternal;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
-    move-result-object v0
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$28;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    check-cast v0, Lcom/android/server/statusbar/StatusBarManagerInternal;
+    invoke-static {v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get2(Lcom/android/server/policy/SamsungPhoneWindowManager;)Ljava/lang/String;
 
-    const-string/jumbo v1, "fromFullApp"
+    move-result-object v1
 
     const/4 v2, 0x0
 
-    invoke-interface {v0, v2, v1}, Lcom/android/server/statusbar/StatusBarManagerInternal;->showSnapWindowGuideView(ILjava/lang/String;)V
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     return-void
 .end method

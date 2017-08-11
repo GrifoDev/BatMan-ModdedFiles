@@ -35,23 +35,50 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$27;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$27;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->cancel()V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$27;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
     iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$27;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get2(Lcom/android/server/policy/SamsungPhoneWindowManager;)Ljava/lang/String;
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$27;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-static {v2}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get2(Lcom/android/server/policy/SamsungPhoneWindowManager;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    iput-object v1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$27;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->setShowForAllUsers()V
+
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$27;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyToast:Landroid/widget/Toast;
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 

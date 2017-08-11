@@ -202,112 +202,96 @@
 .end method
 
 .method public finishPostLayoutPolicyLw()I
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     const/4 v0, 0x0
 
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mNightClock:Landroid/view/WindowManagerPolicy$WindowState;
 
-    move-result-object v2
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v3, "SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_AOD_DOZE_SERVICE"
+    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mNightClock:Landroid/view/WindowManagerPolicy$WindowState;
 
-    invoke-virtual {v2, v3}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-interface {v1}, Landroid/view/WindowManagerPolicy$WindowState;->isVisibleLw()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/server/policy/AODWindowManager;->isNightClockVisible()Z
+    iget v1, p0, Lcom/android/server/policy/AODWindowManager;->mAODStartState:I
 
-    move-result v2
+    const/4 v2, 0x2
 
-    if-eqz v2, :cond_0
+    if-ne v1, v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/policy/AODWindowManager;->mPhoneWindowManager:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mNightClock:Landroid/view/WindowManagerPolicy$WindowState;
 
-    iget-object v2, v2, Lcom/android/server/policy/PhoneWindowManager;->mPowerManager:Landroid/os/PowerManager;
+    invoke-interface {v1, v3}, Landroid/view/WindowManagerPolicy$WindowState;->hideLw(Z)Z
 
-    invoke-virtual {v2}, Landroid/os/PowerManager;->isInteractive()Z
+    move-result v1
 
-    move-result v2
+    if-eqz v1, :cond_0
 
-    if-eqz v2, :cond_1
+    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
 
-    iget v2, p0, Lcom/android/server/policy/AODWindowManager;->mAODStartState:I
+    invoke-virtual {v1, v4}, Lcom/android/server/policy/StatusBarController;->setBarShowingLw(Z)Z
 
-    const/4 v3, 0x2
+    const-string/jumbo v1, "AODWindowManager"
 
-    if-ne v2, v3, :cond_1
+    const-string/jumbo v2, "finishPostLayoutPolicyLw : mNightClock.hideLw by screenTurnedOn"
 
-    iget-object v2, p0, Lcom/android/server/policy/AODWindowManager;->mNightClock:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v2, v4}, Landroid/view/WindowManagerPolicy$WindowState;->hideLw(Z)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/policy/AODWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
-
-    invoke-virtual {v2, v5}, Lcom/android/server/policy/StatusBarController;->setBarShowingLw(Z)Z
-
-    const-string/jumbo v2, "AODWindowManager"
-
-    const-string/jumbo v3, "finishPostLayoutPolicyLw : mNightClock.hideLw by screenTurnedOn"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x6
 
-    iput-boolean v4, p0, Lcom/android/server/policy/AODWindowManager;->mIsNightClockShowing:Z
+    iput-boolean v3, p0, Lcom/android/server/policy/AODWindowManager;->mIsNightClockShowing:Z
 
     :cond_0
     :goto_0
     return v0
 
     :cond_1
-    iget-boolean v2, p0, Lcom/android/server/policy/AODWindowManager;->mIsNightClockShowing:Z
+    iget-boolean v1, p0, Lcom/android/server/policy/AODWindowManager;->mIsNightClockShowing:Z
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/policy/AODWindowManager;->mPhoneWindowManager:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mPhoneWindowManager:Lcom/android/server/policy/PhoneWindowManager;
 
-    iget-object v2, v2, Lcom/android/server/policy/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
+    iget-object v1, v1, Lcom/android/server/policy/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/policy/AODWindowManager;->mPhoneWindowManager:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mPhoneWindowManager:Lcom/android/server/policy/PhoneWindowManager;
 
-    iget-object v2, v2, Lcom/android/server/policy/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
+    iget-object v1, v1, Lcom/android/server/policy/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    invoke-interface {v2}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+    invoke-interface {v1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget v2, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
+    iget v1, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    const/high16 v3, 0x100000
+    const/high16 v2, 0x100000
 
-    and-int/2addr v2, v3
+    and-int/2addr v1, v2
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    iput-boolean v5, p0, Lcom/android/server/policy/AODWindowManager;->mIsNightClockShowing:Z
+    iput-boolean v4, p0, Lcom/android/server/policy/AODWindowManager;->mIsNightClockShowing:Z
 
-    iget-object v2, p0, Lcom/android/server/policy/AODWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
+    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
 
-    invoke-virtual {v2, v5}, Lcom/android/server/policy/StatusBarController;->setBarShowingLw(Z)Z
+    invoke-virtual {v1, v4}, Lcom/android/server/policy/StatusBarController;->setBarShowingLw(Z)Z
 
-    const-string/jumbo v2, "AODWindowManager"
+    const-string/jumbo v1, "AODWindowManager"
 
-    const-string/jumbo v3, "finishPostLayoutPolicyLw : mNightClock.show"
+    const-string/jumbo v2, "finishPostLayoutPolicyLw : mNightClock.show"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x6
 
@@ -341,6 +325,29 @@
     iput-object p4, p0, Lcom/android/server/policy/AODWindowManager;->mStatusBarController:Lcom/android/server/policy/StatusBarController;
 
     return-void
+.end method
+
+.method public isAODWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+    .locals 2
+
+    invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v1, 0x8b1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public isAODWindowHasWallpaper(Landroid/view/WindowManager$LayoutParams;)Z
@@ -429,6 +436,60 @@
     const/4 v0, 0x0
 
     return v0
+
+    :cond_1
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public isObscuredWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v1, 0x8b1
+
+    if-ne v0, v1, :cond_0
+
+    return v2
+
+    :cond_0
+    invoke-interface {p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v1, 0x7dd
+
+    if-ne v0, v1, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/policy/AODWindowManager;->mNightClock:Landroid/view/WindowManagerPolicy$WindowState;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/policy/AODWindowManager;->mNightClock:Landroid/view/WindowManagerPolicy$WindowState;
+
+    invoke-interface {v0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    const/high16 v1, 0x100000
+
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_1
+
+    return v2
 
     :cond_1
     const/4 v0, 0x1
@@ -561,76 +622,76 @@
 .end method
 
 .method startAODService(I)Z
-    .locals 5
+    .locals 4
 
-    const/4 v4, -0x2
+    const/4 v3, -0x2
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
+
+    iput p1, p0, Lcom/android/server/policy/AODWindowManager;->mAODStartState:I
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v2, "SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_AOD_DOZE_SERVICE"
+    const-string/jumbo v1, "SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_AOD_DOZE_SERVICE"
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    return v3
+    return v2
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/policy/AODWindowManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v2, "aod_mode"
+    const-string/jumbo v1, "aod_mode"
 
-    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/policy/AODWindowManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v2, "aod_night_mode"
+    const-string/jumbo v1, "aod_night_mode"
 
-    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     :cond_1
-    iput p1, p0, Lcom/android/server/policy/AODWindowManager;->mAODStartState:I
+    iget-object v0, p0, Lcom/android/server/policy/AODWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
 
-    iget-object v1, p0, Lcom/android/server/policy/AODWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
+    invoke-interface {v0}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->getHandler()Landroid/os/Handler;
 
-    invoke-interface {v1}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->getHandler()Landroid/os/Handler;
+    move-result-object v0
 
-    move-result-object v1
+    new-instance v1, Lcom/android/server/policy/AODWindowManager$1;
 
-    new-instance v2, Lcom/android/server/policy/AODWindowManager$1;
+    invoke-direct {v1, p0}, Lcom/android/server/policy/AODWindowManager$1;-><init>(Lcom/android/server/policy/AODWindowManager;)V
 
-    invoke-direct {v2, p0}, Lcom/android/server/policy/AODWindowManager$1;-><init>(Lcom/android/server/policy/AODWindowManager;)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    return v1
+    return v0
 
     :cond_2
-    return v3
+    return v2
 .end method
 
 .method public systemBooted()V

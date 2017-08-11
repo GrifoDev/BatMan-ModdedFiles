@@ -234,18 +234,20 @@
 
 .field protected mNextAppTransitionStartY:I
 
+.field protected mWallpaperAnimationBlocked:Z
+
 .field protected mWallpaperEnterAnimationAllowed:Z
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/server/wm/animation/SamsungAnimationCreator;->mWallpaperEnterAnimationAllowed:Z
+    iput-boolean v1, p0, Lcom/android/server/wm/animation/SamsungAnimationCreator;->mWallpaperEnterAnimationAllowed:Z
 
     const/4 v0, 0x1
 
@@ -254,6 +256,8 @@
     const/16 v0, 0xa
 
     iput v0, p0, Lcom/android/server/wm/animation/SamsungAnimationCreator;->mAnimationTriggerLauncherScreen:I
+
+    iput-boolean v1, p0, Lcom/android/server/wm/animation/SamsungAnimationCreator;->mWallpaperAnimationBlocked:Z
 
     return-void
 .end method
@@ -279,6 +283,14 @@
 .end method
 
 .method public abstract createSamsungWallpaperExitAnimation(IZ)Landroid/view/animation/Animation;
+.end method
+
+.method public getWallpaperAnimationBlocked()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/wm/animation/SamsungAnimationCreator;->mWallpaperAnimationBlocked:Z
+
+    return v0
 .end method
 
 .method protected abstract initSamsungAnimationFactor()V
@@ -423,6 +435,14 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public setWallpaperAnimationBlocked(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/animation/SamsungAnimationCreator;->mWallpaperAnimationBlocked:Z
 
     return-void
 .end method

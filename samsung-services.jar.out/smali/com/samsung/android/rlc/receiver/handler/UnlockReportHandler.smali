@@ -163,7 +163,7 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1
 
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -174,6 +174,10 @@
     invoke-static {p0, v7, v8}, Lcom/samsung/android/rlc/util/PushUtil;->retryBackoff(Landroid/content/Context;Landroid/os/Bundle;I)I
 
     :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     const-string/jumbo v7, "https://%s/dm/v1/dev/unlocked"
 
     invoke-static {p0, v7}, Lcom/samsung/android/rlc/util/PushUtil;->getDMURL(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
@@ -192,7 +196,7 @@
 
     const/16 v8, 0xc8
 
-    if-ne v7, v8, :cond_1
+    if-ne v7, v8, :cond_0
 
     sget-object v7, Lcom/samsung/android/rlc/receiver/handler/UnlockReportHandler;->TAG:Ljava/lang/String;
 
@@ -205,19 +209,6 @@
     const-string/jumbo v8, ""
 
     invoke-static {p0, v7, v8}, Lcom/samsung/android/rlc/util/PreferencesUtil;->setString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v7
-
-    const/16 v8, 0x11
-
-    invoke-static {p0, v7, v8}, Lcom/samsung/android/rlc/util/PushUtil;->retryBackoff(Landroid/content/Context;Landroid/os/Bundle;I)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -257,6 +248,20 @@
     move-result-object v7
 
     invoke-static {p0, v7, v10}, Lcom/samsung/android/rlc/util/PushUtil;->retryBackoff(Landroid/content/Context;Landroid/os/Bundle;I)I
+
+    goto :goto_0
+
+    :cond_2
+    :try_start_1
+    invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v7
+
+    const/16 v8, 0x11
+
+    invoke-static {p0, v7, v8}, Lcom/samsung/android/rlc/util/PushUtil;->retryBackoff(Landroid/content/Context;Landroid/os/Bundle;I)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 .end method

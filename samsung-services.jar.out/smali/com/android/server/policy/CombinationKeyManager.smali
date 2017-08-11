@@ -961,13 +961,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/server/policy/SamsungPolicyProperties;->isOneTouchReportChordEnabled(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
+    return-void
 
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeDownKeyTriggered:Z
@@ -980,16 +974,13 @@
 
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mHomeKeyTriggered:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    return-void
-
-    :cond_3
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mPowerKeyTriggered:Z
 
     if-nez v0, :cond_1
@@ -1896,7 +1887,7 @@
 
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mPowerKeyTriggered:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_9
 
     :cond_1
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mFlashKeyTriggered:Z
@@ -1905,7 +1896,7 @@
 
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mPowerKeyTriggered:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a
 
     :cond_2
     iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
@@ -1914,44 +1905,44 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-eqz v0, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/server/policy/SamsungPolicyProperties;->isOneTouchReportChordEnabled(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    :cond_3
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeUpKeyTriggered:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeDownKeyTriggered:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_b
 
-    :cond_4
+    :cond_3
     iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
     invoke-virtual {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isUseAccessControl()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeDownKeyTriggered:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mHomeKeyTriggered:Z
+
+    if-eqz v0, :cond_c
+
+    :cond_4
+    iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mCameraRecordKeyTriggered:Z
+
+    if-eqz v0, :cond_5
+
+    iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mPowerKeyTriggered:Z
 
     if-eqz v0, :cond_d
 
     :cond_5
-    iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mCameraRecordKeyTriggered:Z
+    iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeUpKeyTriggered:Z
 
     if-eqz v0, :cond_6
 
@@ -1960,6 +1951,14 @@
     if-eqz v0, :cond_e
 
     :cond_6
+    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isDirectAccessEnabled(Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
     iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeUpKeyTriggered:Z
 
     if-eqz v0, :cond_7
@@ -1969,15 +1968,13 @@
     if-eqz v0, :cond_f
 
     :cond_7
-    iget-object v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mSPWM:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    invoke-virtual {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isDirectAccessEnabled(Z)Z
+    invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
 
     move-result v0
 
     if-eqz v0, :cond_8
 
-    iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeUpKeyTriggered:Z
+    iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mWiFiProtectedSetupKeyTriggered:Z
 
     if-eqz v0, :cond_8
 
@@ -1986,53 +1983,45 @@
     if-eqz v0, :cond_10
 
     :cond_8
-    invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mWiFiProtectedSetupKeyTriggered:Z
-
-    if-eqz v0, :cond_9
-
-    iget-boolean v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mPowerKeyTriggered:Z
-
-    if-eqz v0, :cond_11
-
-    :cond_9
     return-wide v4
 
-    :cond_a
+    :cond_9
     iget-wide v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeDownKeyTime:J
 
     add-long/2addr v0, v2
 
     return-wide v0
 
-    :cond_b
+    :cond_a
     iget-wide v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mFlashKeyTime:J
 
     add-long/2addr v0, v2
 
     return-wide v0
 
-    :cond_c
+    :cond_b
     iget-wide v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeUpKeyTime:J
 
     add-long/2addr v0, v2
 
     return-wide v0
 
-    :cond_d
+    :cond_c
     iget-wide v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeDownKeyTime:J
 
     add-long/2addr v0, v2
 
     return-wide v0
 
-    :cond_e
+    :cond_d
     iget-wide v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mCameraRecordKeyTime:J
+
+    add-long/2addr v0, v2
+
+    return-wide v0
+
+    :cond_e
+    iget-wide v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeUpKeyTime:J
 
     add-long/2addr v0, v2
 
@@ -2046,13 +2035,6 @@
     return-wide v0
 
     :cond_10
-    iget-wide v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mVolumeUpKeyTime:J
-
-    add-long/2addr v0, v2
-
-    return-wide v0
-
-    :cond_11
     iget-wide v0, p0, Lcom/android/server/policy/CombinationKeyManager;->mWiFiProtectedSetupKeyTime:J
 
     add-long/2addr v0, v2

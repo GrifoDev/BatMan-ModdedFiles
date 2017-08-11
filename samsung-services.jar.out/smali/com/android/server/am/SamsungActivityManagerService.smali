@@ -640,7 +640,7 @@
 
     move-result-object v3
 
-    const v4, 0x1070092
+    const v4, 0x1070093
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -686,15 +686,13 @@
 
     iget-object v0, p0, Lcom/android/server/am/SamsungActivityManagerService;->mSamsungWindowManager:Lcom/android/server/wm/SamsungWindowManagerService;
 
-    iget-object v1, p1, Lcom/android/server/am/ActivityRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v1, p1, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
 
     iget-object v2, p1, Lcom/android/server/am/ActivityRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/SamsungWindowManagerService;->isMaxAspectPackageEx(Ljava/lang/String;I)I
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/SamsungWindowManagerService;->isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
 
     move-result v0
 
@@ -1567,44 +1565,27 @@
 .end method
 
 .method broadcastIntentToStringLocked(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v2, v3, v3, v2}, Landroid/content/Intent;->toShortString(ZZZZ)Ljava/lang/String;
+    invoke-virtual {p1, v2, v2, v2, v1}, Landroid/content/Intent;->toShortString(ZZZZ)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v2, "    extras: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Landroid/os/Bundle;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_0
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    return-object v2
+    return-object v1
 .end method
 
 .method public broadcastQueueForIntent(Landroid/content/Intent;Z)Lcom/android/server/am/BroadcastQueue;
@@ -4524,147 +4505,179 @@
 .end method
 
 .method public moveAllTasksToStack(II)V
-    .locals 12
+    .locals 11
 
-    const/4 v10, 0x2
+    const/4 v9, 0x2
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
-    iget-object v8, p0, Lcom/android/server/am/SamsungActivityManagerService;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v7, p0, Lcom/android/server/am/SamsungActivityManagerService;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v8
+    monitor-enter v7
 
     :try_start_0
-    iget-object v7, p0, Lcom/android/server/am/SamsungActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    iget-object v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-virtual {v7}, Lcom/android/server/wm/WindowManagerService;->deferSurfaceLayout()V
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowManagerService;->deferSurfaceLayout()V
 
-    const/4 v6, 0x0
+    if-ne p1, v9, :cond_6
 
-    if-ne p1, v10, :cond_6
+    const/4 v6, 0x1
 
-    const/4 v7, 0x1
+    iput-boolean v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mMovingAllTasksToFreeform:Z
 
-    iput-boolean v7, p0, Lcom/android/server/am/SamsungActivityManagerService;->mMovingAllTasksToFreeform:Z
-
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     :goto_0
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    if-gt v1, v7, :cond_4
+    if-gt v0, v6, :cond_4
 
-    iget-object v7, p0, Lcom/android/server/am/SamsungActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-virtual {v7, v1}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+    invoke-virtual {v6, v0}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
     move-result-object v5
 
     invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v3
 
     :cond_2
     :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/android/server/am/TaskRecord;
+    check-cast v2, Lcom/android/server/am/TaskRecord;
 
-    invoke-virtual {v3}, Lcom/android/server/am/TaskRecord;->isApplicationTask()Z
+    invoke-virtual {v2}, Lcom/android/server/am/TaskRecord;->isApplicationTask()Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_2
+    if-eqz v6, :cond_2
 
-    invoke-direct {p0, v3}, Lcom/android/server/am/SamsungActivityManagerService;->isStartableInDesktopMode(Lcom/android/server/am/TaskRecord;)Z
+    invoke-direct {p0, v2}, Lcom/android/server/am/SamsungActivityManagerService;->isStartableInDesktopMode(Lcom/android/server/am/TaskRecord;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_3
+    if-eqz v6, :cond_3
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    invoke-direct {p0, v3, v7}, Lcom/android/server/am/SamsungActivityManagerService;->moveTaskToFreeformStackOrRelayoutLocked(Lcom/android/server/am/TaskRecord;Z)V
+    invoke-direct {p0, v2, v6}, Lcom/android/server/am/SamsungActivityManagerService;->moveTaskToFreeformStackOrRelayoutLocked(Lcom/android/server/am/TaskRecord;Z)V
 
-    iget-object v7, p0, Lcom/android/server/am/SamsungActivityManagerService;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+    iget-object v6, v6, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
 
-    const/4 v9, 0x2
+    const/4 v8, 0x2
 
-    invoke-interface {v7, v3, v9}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->setHiddenTaskLocked(Lcom/android/server/am/TaskRecord;I)V
+    invoke-interface {v6, v2, v8}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->setHiddenTaskLocked(Lcom/android/server/am/TaskRecord;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_1
 
     :catchall_0
-    move-exception v7
+    move-exception v6
 
-    monitor-exit v8
+    monitor-exit v7
 
-    throw v7
+    throw v6
 
     :cond_3
     :try_start_1
-    iget-object v7, p0, Lcom/android/server/am/SamsungActivityManagerService;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget v9, v3, Lcom/android/server/am/TaskRecord;->taskId:I
+    iget v8, v2, Lcom/android/server/am/TaskRecord;->taskId:I
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v7, v9, v10, v11}, Lcom/android/server/am/ActivityManagerService;->removeTaskByIdLocked(IZZ)Z
+    invoke-virtual {v6, v8, v9, v10}, Lcom/android/server/am/ActivityManagerService;->removeTaskByIdLocked(IZZ)Z
 
     goto :goto_1
 
     :cond_4
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    iput-boolean v7, p0, Lcom/android/server/am/SamsungActivityManagerService;->mMovingAllTasksToFreeform:Z
+    iput-boolean v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mMovingAllTasksToFreeform:Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_5
-    :goto_2
-    monitor-exit v8
+    monitor-exit v7
 
-    iget-object v7, p0, Lcom/android/server/am/SamsungActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    iget-object v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-virtual {v7}, Lcom/android/server/wm/WindowManagerService;->continueSurfaceLayout()V
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowManagerService;->continueSurfaceLayout()V
 
     return-void
 
     :cond_6
-    if-ne p1, v9, :cond_5
+    if-ne p1, v8, :cond_5
 
     :try_start_2
-    new-instance v0, Lcom/samsung/android/multiwindow/MultiWindowManager;
+    iget-object v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-direct {v0}, Lcom/samsung/android/multiwindow/MultiWindowManager;-><init>()V
+    const/4 v8, 0x2
 
-    invoke-virtual {v0}, Lcom/samsung/android/multiwindow/MultiWindowManager;->moveMultiWindowTasksToFullScreen()V
+    invoke-virtual {v6, v8}, Lcom/android/server/am/ActivityStackSupervisor;->getStack(I)Lcom/android/server/am/ActivityStack;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_5
+
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_2
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/am/TaskRecord;
+
+    iget-object v6, p0, Lcom/android/server/am/SamsungActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    iget v8, v2, Lcom/android/server/am/TaskRecord;->taskId:I
+
+    const/4 v9, 0x1
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v6, v8, v9, v10}, Lcom/android/server/am/ActivityStackSupervisor;->positionTaskInStackLocked(III)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

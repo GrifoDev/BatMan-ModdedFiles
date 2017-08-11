@@ -395,7 +395,7 @@
 
     sget-boolean v2, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->DEBUG:Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_8
 
     :cond_4
     const-string/jumbo v2, ""
@@ -451,10 +451,6 @@
     goto :goto_2
 
     :cond_6
-    sget-boolean v2, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->DEBUG:Z
-
-    if-eqz v2, :cond_8
-
     iget-object v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->mEventHistory:[Ljava/lang/String;
 
     array-length v0, v2
@@ -618,13 +614,19 @@
 .method updateEventHistory(Ljava/lang/String;)V
     .locals 6
 
-    sget-boolean v2, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->DEBUG:Z
+    sget-boolean v2, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->IS_DEV_DEBUG:Z
 
     if-nez v2, :cond_0
 
-    return-void
+    sget-boolean v2, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->DEBUG:Z
+
+    if-eqz v2, :cond_4
 
     :cond_0
+    sget-boolean v2, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->DEBUG:Z
+
+    if-eqz v2, :cond_1
+
     const-string/jumbo v2, "EdgeLightingHistory"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -647,6 +649,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_1
     invoke-direct {p0, p1}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->toTimestampFormat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -662,11 +665,11 @@
 
     iget v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->mEventHistoryIdx:I
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_2
 
     iget v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->mEventHistoryIdx:I
 
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_2
 
     iget-object v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->mEventHistory:[Ljava/lang/String;
 
@@ -678,10 +681,10 @@
 
     aput-object v0, v2, v4
 
-    :cond_1
+    :cond_2
     iget v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->mEventHistoryIdx:I
 
-    if-lt v2, v1, :cond_2
+    if-lt v2, v1, :cond_3
 
     const/4 v2, 0x0
 
@@ -689,9 +692,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_2
+    :cond_3
     monitor-exit v3
 
+    return-void
+
+    :cond_4
     return-void
 
     :catchall_0

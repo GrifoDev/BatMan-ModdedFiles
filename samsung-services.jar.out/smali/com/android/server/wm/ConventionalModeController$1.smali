@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController$1;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v0}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+    invoke-static {v0}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
 
     move-result-object v0
 
@@ -47,13 +47,13 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController$1;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+    invoke-static {v1}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
 
     move-result-object v1
 
     iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040924
+    const v2, 0x1040932
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

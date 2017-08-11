@@ -35,35 +35,20 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$12;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$12;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "torchlight_timeout"
-
-    const/16 v3, 0x7530
-
-    const/4 v4, -0x2
-
-    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap1(Lcom/android/server/policy/SamsungPhoneWindowManager;)Z
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$12;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    if-nez v0, :cond_0
 
-    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mTorchlightWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$12;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    invoke-static {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap6(Lcom/android/server/policy/SamsungPhoneWindowManager;)V
 
-    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$12;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    invoke-static {v1, v0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-wrap2(Lcom/android/server/policy/SamsungPhoneWindowManager;I)V
-
+    :cond_0
     return-void
 .end method

@@ -96,7 +96,7 @@
 
     iget-object v5, p0, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v5}, Lcom/android/server/wm/ConventionalModeController;->-get8(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
+    invoke-static {v5}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/SamsungWindowManagerService;
 
     move-result-object v5
 
@@ -117,7 +117,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
+    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get10(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
 
     move-result-object v2
 
@@ -140,7 +140,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
+    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get10(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
 
     move-result-object v2
 
@@ -180,7 +180,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$ConventionalModeControlScheduler;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
-    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get9(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
+    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get10(Lcom/android/server/wm/ConventionalModeController;)Landroid/view/WindowManager;
 
     move-result-object v2
 

@@ -6,6 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$1;,
+        Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$2;,
+        Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$3;,
         Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$DisableRecord;,
         Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$NotificationData;
     }
@@ -41,6 +44,8 @@
 
 .field private mDexManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
+.field private mDisableNotificationAlerts:Z
+
 .field private final mDisableRecords:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,6 +69,14 @@
         }
     .end annotation
 .end field
+
+.field private mGearVrDocked:Z
+
+.field private final mGearVrStateCallbacks:Lcom/samsung/android/vr/IGearVrStateCallbacks;
+
+.field private mHandler:Landroid/os/Handler;
+
+.field private final mHeadsUpObserver:Landroid/database/ContentObserver;
 
 .field private mLockState:I
 
@@ -91,6 +104,14 @@
 
 .field private mRinging:Z
 
+.field private mStatusBarDisabled1:I
+
+.field private mUseHeadsUp:Z
+
+.field private mVrMode:Z
+
+.field private final mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
+
 .field private mWhitePolicy:Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
 
 
@@ -111,6 +132,30 @@
     return-object v0
 .end method
 
+.method static synthetic -get2(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDisableNotificationAlerts:Z
+
+    return v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mUseHeadsUp:Z
+
+    return v0
+.end method
+
 .method static synthetic -set0(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;Lcom/samsung/android/cover/CoverState;)Lcom/samsung/android/cover/CoverState;
     .locals 0
 
@@ -119,10 +164,34 @@
     return-object p1
 .end method
 
-.method static synthetic -set1(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;I)I
+.method static synthetic -set1(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mGearVrDocked:Z
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mLockState:I
+
+    return p1
+.end method
+
+.method static synthetic -set3(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mUseHeadsUp:Z
+
+    return p1
+.end method
+
+.method static synthetic -set4(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mVrMode:Z
 
     return p1
 .end method
@@ -190,107 +259,265 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .locals 8
 
-    const/4 v2, 0x0
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mPolicyType:I
+    iput v6, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mPolicyType:I
 
-    const-wide/16 v0, 0x0
+    const-wide/16 v4, 0x0
 
-    iput-wide v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mPolicyVersion:J
+    iput-wide v4, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mPolicyVersion:J
 
-    iput-boolean v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mRinging:Z
+    iput-boolean v6, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mRinging:Z
 
-    iput v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mLockState:I
+    iput v6, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mLockState:I
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v3, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mNotificationMap:Ljava/util/HashMap;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mNotificationMap:Ljava/util/HashMap;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDisableRecords:Ljava/util/ArrayList;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDisableRecords:Ljava/util/ArrayList;
 
-    new-instance v0, Landroid/util/SparseArray;
+    new-instance v3, Landroid/util/SparseArray;
 
-    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
+    invoke-direct {v3}, Landroid/util/SparseArray;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDisabledPackages:Landroid/util/SparseArray;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDisabledPackages:Landroid/util/SparseArray;
+
+    new-instance v3, Landroid/os/Handler;
+
+    invoke-direct {v3}, Landroid/os/Handler;-><init>()V
+
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mHandler:Landroid/os/Handler;
+
+    iput-boolean v6, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mUseHeadsUp:Z
+
+    iput v6, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mStatusBarDisabled1:I
+
+    iput-boolean v6, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDisableNotificationAlerts:Z
+
+    new-instance v3, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$1;
+
+    iget-object v4, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mHandler:Landroid/os/Handler;
+
+    invoke-direct {v3, p0, v4}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$1;-><init>(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;Landroid/os/Handler;)V
+
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mHeadsUpObserver:Landroid/database/ContentObserver;
+
+    new-instance v3, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$2;
+
+    invoke-direct {v3, p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$2;-><init>(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)V
+
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
+
+    new-instance v3, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$3;
+
+    invoke-direct {v3, p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$3;-><init>(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)V
+
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mGearVrStateCallbacks:Lcom/samsung/android/vr/IGearVrStateCallbacks;
 
     iput-object p1, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mPackageManager:Landroid/content/pm/PackageManager;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    new-instance v0, Lcom/samsung/android/cover/CoverManager;
+    new-instance v3, Lcom/samsung/android/cover/CoverManager;
 
-    invoke-direct {v0, p1}, Lcom/samsung/android/cover/CoverManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, p1}, Lcom/samsung/android/cover/CoverManager;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mCoverManager:Lcom/samsung/android/cover/CoverManager;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mCoverManager:Lcom/samsung/android/cover/CoverManager;
 
-    const-string/jumbo v0, "activity"
+    const-string/jumbo v3, "activity"
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Landroid/app/ActivityManager;
+    check-cast v3, Landroid/app/ActivityManager;
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mActivityManager:Landroid/app/ActivityManager;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mActivityManager:Landroid/app/ActivityManager;
 
-    const-string/jumbo v0, "desktopmode"
+    const-string/jumbo v3, "desktopmode"
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    check-cast v3, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDexManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDexManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
-    iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mActivityManager:Landroid/app/ActivityManager;
+    iget-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mActivityManager:Landroid/app/ActivityManager;
 
-    invoke-virtual {v0}, Landroid/app/ActivityManager;->getLockTaskModeState()I
+    invoke-virtual {v3}, Landroid/app/ActivityManager;->getLockTaskModeState()I
 
-    move-result v0
+    move-result v3
 
-    iput v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mLockState:I
+    iput v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mLockState:I
 
-    iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mCoverManager:Lcom/samsung/android/cover/CoverManager;
+    iget-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mCoverManager:Lcom/samsung/android/cover/CoverManager;
 
-    invoke-virtual {v0}, Lcom/samsung/android/cover/CoverManager;->getCoverState()Lcom/samsung/android/cover/CoverState;
+    invoke-virtual {v3}, Lcom/samsung/android/cover/CoverManager;->getCoverState()Lcom/samsung/android/cover/CoverState;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    new-instance v0, Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
+    new-instance v3, Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
 
-    invoke-direct {v0}, Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;-><init>()V
+    invoke-direct {v3}, Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mWhitePolicy:Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mWhitePolicy:Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
 
-    new-instance v0, Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
+    new-instance v3, Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
 
-    invoke-direct {v0}, Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;-><init>()V
+    invoke-direct {v3}, Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mBlackPolicy:Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
+    iput-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mBlackPolicy:Lcom/android/server/cocktailbar/edgelighting/policy/EdgeLightingPolicyRepository;
 
     invoke-direct {p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->registerReceiver()V
 
     invoke-direct {p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->registerCoverListener()V
 
+    iget-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mHeadsUpObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v3, v7}, Landroid/database/ContentObserver;->onChange(Z)V
+
+    iget-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "heads_up_notifications_enabled"
+
+    invoke-static {v4}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mHeadsUpObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v3, v4, v7, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string/jumbo v3, "vrmanager"
+
+    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/service/vr/IVrManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/vr/IVrManager;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
+
+    invoke-interface {v2, v3}, Landroid/service/vr/IVrManager;->registerListener(Landroid/service/vr/IVrStateCallbacks;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    const-string/jumbo v3, "vr"
+
+    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/samsung/android/vr/IGearVrManagerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/vr/IGearVrManagerService;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    :try_start_1
+    iget-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mGearVrStateCallbacks:Lcom/samsung/android/vr/IGearVrStateCallbacks;
+
+    invoke-interface {v1, v3}, Lcom/samsung/android/vr/IGearVrManagerService;->registerVrStateListener(Lcom/samsung/android/vr/IGearVrStateCallbacks;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_1
     return-void
+
+    :catch_0
+    move-exception v0
+
+    sget-object v3, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Failed to register VR mode state listener: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v0
+
+    sget-object v3, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Failed to register VR mode state listener: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_1
+    sget-object v3, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "Failed to get GearVrManager."
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 .end method
 
 .method private cleanUp()V
@@ -578,6 +805,22 @@
     return-object v3
 .end method
 
+.method private isDeviceInGearVrDocked()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mGearVrDocked:Z
+
+    return v0
+.end method
+
+.method private isDeviceInVrMode()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mVrMode:Z
+
+    return v0
+.end method
+
 .method public static isEmptyText(Landroid/os/Bundle;)Z
     .locals 4
 
@@ -653,6 +896,24 @@
 
     :cond_4
     return v3
+.end method
+
+.method private isMirrorLinkOn()Z
+    .locals 2
+
+    const-string/jumbo v0, "1"
+
+    const-string/jumbo v1, "net.mirrorlink.on"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private isSupportedCover(I)Z
@@ -871,9 +1132,9 @@
 .method private registerCoverListener()V
     .locals 2
 
-    new-instance v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$2;
+    new-instance v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$5;
 
-    invoke-direct {v0, p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$2;-><init>(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)V
+    invoke-direct {v0, p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$5;-><init>(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)V
 
     iget-object v1, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mCoverManager:Lcom/samsung/android/cover/CoverManager;
 
@@ -893,9 +1154,9 @@
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    new-instance v1, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$1;
+    new-instance v1, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$4;
 
-    invoke-direct {v1, p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$1;-><init>(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)V
+    invoke-direct {v1, p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$4;-><init>(Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;)V
 
     iget-object v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mContext:Landroid/content/Context;
 
@@ -1874,6 +2135,92 @@
     return v1
 .end method
 
+.method public isHUNPeeked()Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    iget-boolean v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mUseHeadsUp:Z
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "isHUNPeeked : UseHeadsUp = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mUseHeadsUp:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isDeviceInVrMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "isHUNPeeked : Vr mode"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_1
+    invoke-direct {p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isDeviceInGearVrDocked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "isHUNPeeked : gear vr docked"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_2
+    invoke-direct {p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isMirrorLinkOn()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "isHUNPeeked : mirror link on"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_3
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
 .method public isNotificationForEdgeLighting(Landroid/service/notification/StatusBarNotification;)Z
     .locals 5
 
@@ -1938,7 +2285,7 @@
 .end method
 
 .method public putNotification(Landroid/service/notification/StatusBarNotification;ZZ)Landroid/os/Bundle;
-    .locals 17
+    .locals 18
 
     invoke-virtual/range {p1 .. p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
@@ -2080,6 +2427,13 @@
     :goto_1
     invoke-direct/range {p0 .. p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->cleanUp()V
 
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mNotificationMap:Ljava/util/HashMap;
+
+    monitor-enter v14
+
+    :try_start_0
     invoke-virtual/range {p1 .. p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
     move-result-object v13
@@ -2094,9 +2448,9 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-virtual {v13, v14}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v13, v15}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -2106,11 +2460,13 @@
 
     iget-object v13, v5, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager$NotificationData;->mNotificationInfo:Landroid/os/Bundle;
 
-    const-string/jumbo v14, "color"
+    const-string/jumbo v15, "color"
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
-    invoke-virtual {v13, v14, v15}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    move/from16 v0, v16
+
+    invoke-virtual {v13, v15, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v4
 
@@ -2159,11 +2515,11 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    move-result-object v14
+    move-result-object v15
 
-    iget v14, v14, Landroid/app/Notification;->flags:I
+    iget v15, v15, Landroid/app/Notification;->flags:I
 
-    invoke-virtual {v2, v13, v14}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v2, v13, v15}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const-string/jumbo v13, "color"
 
@@ -2173,23 +2529,23 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    move-result-object v14
+    move-result-object v15
 
-    iget v14, v14, Landroid/app/Notification;->color:I
+    iget v15, v15, Landroid/app/Notification;->color:I
 
-    invoke-virtual {v2, v13, v14}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v2, v13, v15}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const-string/jumbo v13, "priority"
 
     invoke-virtual/range {p1 .. p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    move-result-object v14
+    move-result-object v15
 
-    iget v14, v14, Landroid/app/Notification;->priority:I
+    iget v15, v15, Landroid/app/Notification;->priority:I
 
-    invoke-virtual {v2, v13, v14}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v2, v13, v15}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string/jumbo v14, "component"
+    const-string/jumbo v15, "component"
 
     move-object/from16 v0, p0
 
@@ -2206,33 +2562,30 @@
     move-result-object v13
 
     :goto_2
-    invoke-virtual {v2, v14, v13}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2, v15, v13}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v13, "component_time"
 
     move-object/from16 v0, p0
 
-    iget-wide v14, v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mResumedComponentTime:J
+    iget-wide v0, v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mResumedComponentTime:J
 
-    invoke-virtual {v2, v13, v14, v15}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
+    move-wide/from16 v16, v0
+
+    move-wide/from16 v0, v16
+
+    invoke-virtual {v2, v13, v0, v1}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
     const-string/jumbo v13, "content_intent"
 
     invoke-virtual/range {p1 .. p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    move-result-object v14
+    move-result-object v15
 
-    iget-object v14, v14, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
+    iget-object v15, v15, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    invoke-virtual {v2, v13, v14}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    invoke-virtual {v2, v13, v15}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mNotificationMap:Ljava/util/HashMap;
-
-    monitor-enter v14
-
-    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mNotificationMap:Ljava/util/HashMap;
@@ -2407,6 +2760,97 @@
     iput-boolean p1, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mRinging:Z
 
     return-void
+.end method
+
+.method public statusBarDisabled(II)V
+    .locals 8
+
+    const/4 v4, 0x1
+
+    const/high16 v7, 0x40000
+
+    const/4 v5, 0x0
+
+    iget v2, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mStatusBarDisabled1:I
+
+    xor-int v0, p1, v2
+
+    iput p1, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mStatusBarDisabled1:I
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "disable: < "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    and-int v3, p1, v7
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, "ALERTS"
+
+    :goto_0
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    and-int v3, v0, v7
+
+    if-eqz v3, :cond_2
+
+    const-string/jumbo v3, "* "
+
+    :goto_1
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v3, ">"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->getInstance()Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;
+
+    move-result-object v3
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->updateEventHistory(Ljava/lang/String;)V
+
+    and-int v3, v0, v7
+
+    if-eqz v3, :cond_0
+
+    and-int v3, p1, v7
+
+    if-eqz v3, :cond_3
+
+    move v3, v4
+
+    :goto_2
+    iput-boolean v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mDisableNotificationAlerts:Z
+
+    iget-object v3, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mHeadsUpObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v3, v4}, Landroid/database/ContentObserver;->onChange(Z)V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    const-string/jumbo v3, "alerts"
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v3, " "
+
+    goto :goto_1
+
+    :cond_3
+    move v3, v5
+
+    goto :goto_2
 .end method
 
 .method public updateEdgeLightingPolicyFromHost(Lcom/samsung/android/edge/EdgeLightingPolicy;)V

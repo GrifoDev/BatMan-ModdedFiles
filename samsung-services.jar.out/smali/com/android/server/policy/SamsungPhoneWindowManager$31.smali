@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->notifyCoverSwitchStateChanged(JZ)V
+    value = Lcom/android/server/policy/SamsungPhoneWindowManager;->notifyLidSwitchChanged(JZ)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,100 +35,21 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 2
 
-    const/4 v6, 0x1
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    const/4 v5, 0x0
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->updateOrientationListenerLp()V
 
-    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    move-result-object v3
+    iget-object v0, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    if-eqz v3, :cond_0
+    const/4 v1, 0x1
 
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/Toast;->cancel()V
-
-    :cond_0
-    new-instance v0, Landroid/view/ContextThemeWrapper;
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    iget-object v3, v3, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
-
-    const v4, 0x103012b
-
-    invoke-direct {v0, v3, v4}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x10408af
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x10408b0
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    new-array v4, v6, [Ljava/lang/Object;
-
-    aput-object v1, v4, v5
-
-    invoke-static {v2, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v0, v4, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set11(Lcom/android/server/policy/SamsungPhoneWindowManager;Landroid/widget/Toast;)Landroid/widget/Toast;
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
-
-    move-result-object v3
-
-    const/16 v4, 0x11
-
-    invoke-virtual {v3, v4, v5, v5}, Landroid/widget/Toast;->setGravity(III)V
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/Toast;->setShowForAllUsers()V
-
-    iget-object v3, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$31;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    invoke-static {v3}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-get10(Lcom/android/server/policy/SamsungPhoneWindowManager;)Landroid/widget/Toast;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->updateRotation(Z)V
 
     return-void
 .end method

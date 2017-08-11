@@ -32,9 +32,7 @@
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 3
-
-    invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
+    .locals 4
 
     iget-object v1, p0, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->this$0:Lcom/android/server/wm/ConventionalModeController;
 
@@ -43,6 +41,8 @@
     move-result v1
 
     if-nez v1, :cond_0
+
+    invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
 
     return-void
 
@@ -102,7 +102,17 @@
 
     mul-float/2addr v1, v2
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-static {v2}, Lcom/android/server/wm/ConventionalModeController;->-get0(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->getPaddingSize()I
+
+    move-result v2
+
+    int-to-float v2, v2
 
     invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
@@ -127,6 +137,18 @@
 
     move-result v2
 
+    iget-object v3, p0, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->this$0:Lcom/android/server/wm/ConventionalModeController;
+
+    invoke-static {v3}, Lcom/android/server/wm/ConventionalModeController;->-get0(Lcom/android/server/wm/ConventionalModeController;)Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->getPaddingSize()I
+
+    move-result v3
+
+    sub-int/2addr v2, v3
+
     int-to-float v2, v2
 
     invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
@@ -136,6 +158,8 @@
     invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->rotate(F)V
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

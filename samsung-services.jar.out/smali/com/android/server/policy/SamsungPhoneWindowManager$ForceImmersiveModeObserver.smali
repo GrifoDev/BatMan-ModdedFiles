@@ -80,7 +80,7 @@
 
     move-result v4
 
-    if-ne v4, v1, :cond_0
+    if-ne v4, v1, :cond_1
 
     :goto_0
     invoke-static {v3, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set12(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
@@ -89,9 +89,28 @@
 
     invoke-virtual {v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->updateForceImmersiveMode()V
 
-    return-void
+    invoke-static {}, Lcom/android/server/policy/SamsungPolicyProperties;->isDomesticOtaStart()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$ForceImmersiveModeObserver;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
+
+    iget-object v1, v1, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "navigationbar_hide_bar_enabled"
+
+    invoke-static {v1, v3, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :cond_0
+    return-void
+
+    :cond_1
     move v1, v2
 
     goto :goto_0

@@ -1,6 +1,9 @@
 .class Lcom/android/server/policy/SamsungPhoneWindowManager$23;
-.super Lcom/samsung/android/vr/IGearVrStateCallbacks$Stub;
+.super Ljava/lang/Object;
 .source "SamsungPhoneWindowManager.java"
+
+# interfaces
+.implements Landroid/os/PowerManagerInternal$LowPowerModeListener;
 
 
 # annotations
@@ -24,50 +27,41 @@
 
     iput-object p1, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$23;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    invoke-direct {p0}, Lcom/samsung/android/vr/IGearVrStateCallbacks$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onGearVrStateChanged(I)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method public onLowPowerModeChanged(Z)V
+    .locals 3
 
-    packed-switch p1, :pswitch_data_0
+    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$23;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
 
-    :goto_0
-    :pswitch_0
+    iput-boolean p1, v0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mLowPowerMode:Z
+
+    const-string/jumbo v0, "SamsungPhoneWindowManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "LowPowerModeListener. enabled : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$23;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set7(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
-
-    goto :goto_0
-
-    :pswitch_2
-    iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager$23;->this$0:Lcom/android/server/policy/SamsungPhoneWindowManager;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/server/policy/SamsungPhoneWindowManager;->-set7(Lcom/android/server/policy/SamsungPhoneWindowManager;Z)Z
-
-    goto :goto_0
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_2
-        :pswitch_0
-        :pswitch_2
-    .end packed-switch
 .end method
